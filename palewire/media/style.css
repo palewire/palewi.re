@@ -1,0 +1,117 @@
+
+/* The box around the main bar and the basic text settings */
+#doc {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border: 1px solid #ccc;
+	padding: 1.5em 1.5em 0.5em 1.5em;
+	line-height:1.5em;
+	clear:both;
+	}
+
+/* anchor tag settings to make links appear normal until hovered over, when they should bold out */
+a:link{text-decoration: none; color:black;}
+a:visited{text-decoration: none; color: black;}
+a:hover{text-decoration: none; color:black; font-weight:bold;}
+a:active{text-decoration: underline; color: red;}
+
+/* Aborted attempt at a featured post flag */
+#featurewrapper {margin:auto; padding-top:2em; min-width:750px; width:57.69em;}
+#featureline {float:right;}
+#featureline strong {font-weight:bold;}
+
+/* The Header */
+#hd { display:block;}
+#hd h1 { font-size: 1.65em; font-weight: bold; float: left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
+#hd h2 { font-size:1.2em; float: right; padding-right:0.15em; display:inline;} /* the WHOIS link in the upper right hand corner */
+.slogan { font-size: .6em;} /* The random phrase that appears on hoverover of the title */
+.icon { font-size: .6em; text-transform:lowercase;} /* The link labels that show up when a navbar item is mousedover */
+
+/* The horizontal gray bar that appears beneath the title line */
+#topbar {display:block; clear:both; height: 0.25em; margin: 1.8em 0em 0em 0em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+/* The list of icons that runs below the gray bar*/
+#navbar {text-align:right; display:block; margin-bottom: 1em; margin-top: .25em; height: 0.75em; padding: 0.15em;}
+
+/* The Homepage Tumblelog */
+
+/* The rolling datestamps */
+#tumblerlog h3 {font-weight:bold; font-size:1.3em; margin-top: .66em;	 margin-bottom: .66em; padding-top: .05em; padding-bottom: .05em; border-bottom:thin dotted #ccc;}
+.tumbleritem h6 {padding-right:0.5em; font-size:1.2em; display:inline; } /* the left-align time stamp */
+.tumbleritem {padding: 0.5em; margin-left: 1em; margin-right: 1em; width:100%;} /* the individual tumbler items */
+.tumbleritem h2 { font-size:1.3em; display:inline; } /* the tumbler item text */
+
+/* Detail page stuff */
+#detailbody {margin: 1.1em 10em 1.1em 4.5em; width:40em;}
+#detailborderbumper.thin {display:block; clear:both; height: 0.01em; margin: 0em 10em 1em 4.5em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+#detailborderbumper.thick {display:block; clear:both; height: 0.1em; margin: 1em 10em 1em 4.5em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+#detailmetadata {margin-left: 1.6em; margin-top: .8em; text-align:right; margin: 0em 10em 0em 4.5em;}
+
+#bd h1 { font-size:2em; margin-top:1.2em; margin-bottom:1em; line-height:1.5em; } /* the detail page headline */
+
+#detailbody p { margin-bottom:1.15em; margin-top:1.15em;} /* the standard 'graph */
+#detailbody h2 { font-size:1.2em; font-weight:bold; margin-top:1.66em;} /* the in-post subhede */
+#detailbody ol, #detailbody ul, #detailbody li {margin-bottom: 0.5em; margin-left: 1.25em;}
+#detailbody ul li {list-style-type: disc;}
+#detailbody ol li {list-style-type: decimal;}
+#detailbody a:link {text-decoration: underline; font-weight:bold; color:black;}
+#detailbody a:visited {text-decoration: underline; font-weight:bold; color:black;}
+#detailbody a:hover {text-decoration: underline; color:gray; font-weight:bold;}
+#detailbody a:active {text-decoration: underline; font-weight:bold; color: red;}
+#detailbody pre { margin-left:1.2em; line-height:1.3em;}
+
+#detailmetadata a:link {text-decoration: none; font-weight:bold; color:black;}
+#detailmetadata a:visited {text-decoration: none; font-weight:bold; color:black;}
+#detailmetadata a:hover {text-decoration: none; color:gray; font-weight:bold;}
+#detailmetadata a:active {text-decoration: none; font-weight:bold; color: red;}
+
+/* who-is-ben-welsh */
+.bioimg {text-align:center; margin-bottom:1.15em;}
+.bioimg img {width:30em;}
+#biobumper.thin {display:block; clear:both; margin-left:auto; margin-right: auto; width: 35em; height: 0.01em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+#biotext  {width:45em; margin-right:auto; margin-left:auto;}
+#biotext p { margin-bottom:1.15em; margin-top:1.15em;}
+#biotext p a:link {text-decoration: underline; font-weight:bold; color:black;}
+#biotext p a:visited {text-decoration: underline; font-weight:bold; color:black;}
+#biotext p a:hover {text-decoration: underline; color:gray; font-weight:bold;}
+#biotext p a:active {text-decoration: underline; font-weight:normal; color: red;}
+#biotext ol, #biotext ul, #biotext li {margin-bottom: 0.5em; margin-left: 1.25em; list-style-type: disc;}
+#biotext li a:link {text-decoration: underline; font-weight:normal; color:black;}
+#biotext li a:visited {text-decoration: underline; font-weight:normal; color:black;}
+#biotext li a:hover {text-decoration: underline; color:gray; font-weight:normal;}
+#biotext li a:active {text-decoration: underline; font-weight:normal; color: red;}
+
+/* List page stuff */
+.interiorlist {}
+.interiorlist h3 {font-weight:bold; font-size:1.3em; margin-top: .66em; padding-top: .05em; padding-bottom: .05em; border-bottom:thin dotted #ccc;}
+.interiorlist ul {padding-left: 2em; padding-right:2em;}	
+.interiorlist h2 {font-weight:bold; font-size: 1.5em; padding-left: 1em; margin-bottom:1em;}	/* The category header */
+.interiorlist li {padding: 0.5em; line-height:1.3em; list-style-type: none; font-size: 1.3em;} /* The items */
+
+/* Pag navigation toys */
+#paginationwrapper {clear:both; margin-top: 1em; font-size:1.2em;}
+#paginationleft {float:left;}
+#paginationright {float:right;}
+
+/* Footer stuff */
+#ft { margin-top: 1em; }
+#ft h4 { font-size: .85em; }
+#django-link { color: rgb(72, 120, 88); font-weight: bold; }
+
+#comments {margin: 2em 10em 0em 2.5em; width:30em;}
+#comments h2 {margin-bottom:1em; font-size:1.35em; font-weight:bold;}
+.comment { margin:0 0 1em 2.5em; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
+.commentname {display:inline; margin:0; padding:0;}
+.commenttext {display:inline; margin:0 0 0 0.25em; padding:0; }
+#comments a:link {text-decoration: none; font-weight:bold; color:black;}
+#comments a:visited {text-decoration: none; font-weight:bold; color:black;}
+#comments a:hover {text-decoration: none; color:gray; font-weight:bold;}
+#comments a:active {text-decoration: none; font-weight:bold; color: red;}
+
+/* comments submission form */
+form#commentform {padding: 0;}
+.commentformwrapper {font-size: 1em;}
+.commentformleft {clear: both;padding: 0.2em 0.75em 0.2em 0;text-align:right;width: 6em;font-weight: bold;}
+.commentformright {padding: 0.2em 0;text-align: left;width: 75%;}
+.commentformright, div.commentformleft {display: inline;float:left;margin: 0.3em 0;}

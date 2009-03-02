@@ -1,0 +1,21 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}{{ object.body|striptags|lower }} . tweet . {{ block.super }}{% endblock %}
+
+{% block content %}
+
+	<h1>
+		<img style="vertical-align:text-bottom;"src="/media/icons/tweet.png" width="40"/>&nbsp;
+		{{ object.body|safe }}
+	</h1>
+
+	<div id="detailborderbumper" class="thick"></div>
+
+	<div id="detailmetadata">
+		<p id="postpubdate">This is a tweet {{ object.posted_by }} posted on {{ object.pub_date|date:"F j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
+	</div>
+
+	<div id="detailborderbumper" class="thick"></div>
+
+{% endblock %}

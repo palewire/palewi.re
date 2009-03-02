@@ -1,0 +1,52 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}{{ tag }} . tags . {{ block.super }}{% endblock %}
+
+{% block content %}
+	<div class="interiorlist">
+		<h2>Things tagged "{{ tag }}"</h2>
+		<ul>
+		{% if post_list %}<h3>Posts</h3>{% endif %}
+		{% for object in post_list %}
+			<li>
+				<a href="{{ object.get_absolute_url }}">
+				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+		<ul>
+		{% if link_list %}<h3>Links</h3>{% endif %}
+		{% for object in link_list %}
+			<li>
+				<a href="{{ object.url }}">
+				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+		<ul>
+		{% if photo_list %}<h3>Photos</h3>{% endif %}
+		{% for object in photo_list %}
+			<li>
+				<a href="{{ object.url }}">
+				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+		<ul>
+		{% if video_list %}<h3>Videos</h3>{% endif %}
+		{% for object in video_list %}
+			<li>
+				<a href="{{ object.url }}">
+				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+
+	</div>
+
+{% endblock %}

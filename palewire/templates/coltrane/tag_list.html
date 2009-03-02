@@ -1,0 +1,23 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}tags . {{ block.super }}{% endblock %}
+
+{% block content %}
+	<div class="interiorlist">
+		<h2>Tags</h2>
+		<ul>
+		{% regroup object_list by name|first|upper as letters %}
+	    {% for letter in letters %}
+			<h3>{{ letter.grouper }}</h3>
+				{% for item in letter.list %}
+				<li>
+					<a href="/tags/{{ item }}">
+						{{ item }}
+					</a>
+				</li>
+				{% endfor %}
+	    {% endfor %}
+		</ul>
+	</div>
+{% endblock %}

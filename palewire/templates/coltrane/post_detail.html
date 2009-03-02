@@ -1,0 +1,68 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+{% load comments %}
+
+
+{% block title %}{{ object.title|lower }} . post . {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>
+<img style="vertical-align:text-bottom;"src="/media/icons/post.png" width="40"/>&nbsp;
+{{ object.title }}
+</h1>
+
+		<div id="detailbody">{{ object.body|safe }}</div>
+		
+		<div id="detailborderbumper" class="thin"></div>
+		
+		<div id="detailmetadata">
+			<p id="postpubdate">This is a post {{ object.author }} made on {{ object.pub_date|date:"M j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
+			{% if object.categories.count %}
+				<p id ="postcats">
+					It is filed with other posts about
+					{% for cat in object.categories.all %}
+					<a href="{{ cat.get_absolute_url }}">{{ cat.title|lower }}</a>{% if forloop.last %}.{% endif %}
+						{% if forloop.last %}{% else %}
+						{% ifequal forloop.revcounter0 1 %}and {% else %}, {% endifequal %}
+						{% endif %}
+					{% endfor %}
+				</p>
+			{% endif %}
+			
+			<p id="posttags">Topics include 
+			{% for t in object.get_tags %}
+				{% if forloop.last %}and <a href="/tag/{{t}}/" alt="{{t}}" title="{{t}}">{{t}}</a>.
+				{% else %}
+					{% ifequal forloop.revcounter 2 %}
+						<a href="/tags/{{t}}/" alt="{{t}}" title="{{t}}">{{t}}</a> 
+					{% else %}
+						<a href="/tags/{{t}}/" alt="{{t}}" title="{{t}}">{{t}}</a>, 
+					{% endifequal %}
+				{% endif %}
+			{% endfor %}
+			</p>
+
+		</div>
+		
+		<div id="detailborderbumper" class="thick"></div>
+		
+		<div id ="comments">
+			{% get_comment_list for object as comment_list %}
+			{% if comment_list %}
+				<h2><img style="vertical-align:text-bottom;"src="/media/icons/comments.png" width="30"/>
+					Comments
+				</h2>
+			{% endif %}
+			
+			{% for comment in comment_list %}
+				<div id="#c{{comment.id}}" class="comment">
+					<div class="commentname"><a href="{{ comment.get_absolute_url }}">> {{ comment.user_name|lower }}:</a></div> 
+					<div class="commenttext">{{ comment.comment}}</div>
+				</div>
+			{% endfor %}
+			
+			{% render_comment_form for object %}
+			
+		</div>
+
+{% endblock %}

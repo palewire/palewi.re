@@ -1,0 +1,8 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}{{ flatpage.title|lower }} . {{ block.super }}{% endblock %}
+
+{% block content %}
+	{{ flatpage.content|safe }}
+{% endblock %}

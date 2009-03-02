@@ -1,0 +1,23 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}comments . {{ block.super }}{% endblock %}
+
+{% block content %}
+	<div class="interiorlist">
+		<h2>Comments</h2>
+		<ul>
+		{% for object in object_list %}
+			{% ifchanged object.submit_date.day %}<h3>{{ object.submit_date|date:"F d, Y" }}</h3>{% endifchanged %}
+			<li>
+				<a href="{{ object.get_absolute_url }}">
+				{{ object.submit_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+	
+	{% include 'coltrane/pagination.html' %}
+	
+{% endblock %}

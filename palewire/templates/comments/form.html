@@ -1,0 +1,46 @@
+{% load comments %}
+
+<div class="commentformwrapper">
+	<h2>Submit a comment</h2>
+<form id="commentform" action="{% comment_form_target %}" method="post">
+	{% for field in form %}
+	
+		{% if field.is_hidden %}
+			{{ field }}
+		{% endif %}
+		
+		
+		{% if field.errors %}
+			<p class="error">{{ field.errors }}
+				{{ field.label_tag }} {{ field }}
+			</p>
+		{% endif %}
+		
+		
+		{% ifequal field.name "honeypot" %} 
+			<p style="display:none;">
+				{{ field.label_tag }} {{ field }}
+			</p>
+		{% endifequal %}
+		
+	{% endfor %}
+	
+		<div class="commentformleft">{{ form.name.label_tag }}:</div> 
+		<div class="commentformright">{{ form.name }}&nbsp;&nbsp;Required</div>
+		
+		<div class="commentformleft">Email:</div> 
+		<div class="commentformright">{{ form.email }}&nbsp;&nbsp;Optional</div>
+		
+		<div class="commentformleft">{{ form.comment.label_tag }}:</div>
+		<div class="commentformright">{{ form.comment}}</div>
+		
+		<div class="commentformleft"></div>
+  		<div class="commentformright"><input type="submit" name="submit" class="submit-preview" value="Preview" /></div>
+	    
+		<div class="commentformleft"></div> 
+		<div class="commentformright"></div>
+
+		<div class="commentformleft"></div> 
+		<div class="commentformright">No HTML allowed. Emails are not republished.</div>
+</form>
+</div><!-- close "commentformwrapper" -->

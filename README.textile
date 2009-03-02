@@ -1,0 +1,7 @@
+h1. palewire
+
+A new version of my blog that I've been working on. 
+
+I figured it's about time to get serious, since I anticipate being out of a job at some point in the not too distance future.
+
+So, hello world, here it is. A work in progress.
