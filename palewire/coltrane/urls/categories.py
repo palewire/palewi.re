@@ -11,7 +11,7 @@ urlpatterns = patterns('django.views.generic.list_detail',
 )
 
 urlpatterns += patterns('',
-	(r'(?P<slug>[-\w]+)/$', 'cms.coltrane.views.category_detail'),
+	(r'(?P<slug>[-\w]+)/$', 'coltrane.views.category_detail'),
 )
 
 
