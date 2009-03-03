@@ -7,19 +7,14 @@ import os
 import csv
 import cPickle as pickle
 
-def get_csv_table(path):
-	app_dir = os.path.dirname(__file__)
-	data_file = os.path.join(app_dir, path)
-	return csv.reader(open(data_file), delimiter="|", quotechar='^')
-
 def posts():
 	path = "dumps/posts.dump"
 	out = codecs.open(path, 'w', 'utf-8')
 	data = []
 	for post in WpPosts.objects.filter(post_status='publish', post_type='post'):
 		record = [post.id, post.post_date, post.post_title.strip(), post.post_content.strip()]
-		data.append(record)
-	pickle.dump(record, out)
+		data.append([smart_str(i) for i in record])
+	pickle.dump(data, out)
 	out.close()
 
 def comments():
