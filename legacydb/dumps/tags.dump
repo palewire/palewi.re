@@ -1,1309 +1,6079 @@
-5|iowa
-118|iowa
-145|iowa
-146|iowa
-95|parse
-100|parse
-93|parse
-86|photos
-87|photos
-86|my apartment
-120|la times
-122|la times
-133|la times
-134|la times
-147|la times
-95|tutorial
-93|tutorial
-69|tutorial
-100|tutorial
-61|tutorial
-49|tutorial
-107|tutorial
-112|tutorial
-114|tutorial
-128|tutorial
-134|tutorial
-95|nietzsche
-95|code
-93|code
-69|code
-61|code
-49|code
-103|code
-98|code
-100|code
-107|code
-109|code
-112|code
-114|code
-126|code
-128|code
-134|code
-95|python
-93|python
-103|python
-100|python
-107|python
-109|python
-112|python
-122|python
-126|python
-129|python
-147|python
-95|computer-assisted reporting
-93|computer-assisted reporting
-5|computer-assisted reporting
-69|computer-assisted reporting
-100|computer-assisted reporting
-49|computer-assisted reporting
-43|computer-assisted reporting
-107|computer-assisted reporting
-109|computer-assisted reporting
-128|computer-assisted reporting
-145|computer-assisted reporting
-146|computer-assisted reporting
-99|guns
-95|recipe
-93|recipe
-100|recipe
-107|recipe
-109|recipe
-112|recipe
-114|recipe
-128|recipe
-134|recipe
-95|script
-93|script
-69|script
-61|script
-49|script
-100|script
-96|script
-107|script
-112|script
-95|linux
-93|linux
-100|linux
-103|linux
-107|linux
-114|linux
-128|linux
-99|bitterness
-81|sam zell
-135|sam zell
-93|shakespeare
-95|regular expressions
-93|regular expressions
-100|regular expressions
-95|regex
-93|regex
-100|regex
-94|cesar chavez
-94|martin luther king
-91|martin luther king
-89|martin luther king
-99|john mccain
-94|john mccain
-94|barack obama
-92|barack obama
-91|barack obama
-89|barack obama
-99|barack obama
-113|barack obama
-116|barack obama
-94|holiday
-94|politics
-89|politics
-65|politics
-61|politics
-43|politics
-40|politics
-29|politics
-28|politics
-22|politics
-99|politics
-77|politics
-96|politics
-94|2008 election
-91|2008 election
-89|2008 election
-99|2008 election
-92|2008 election
-77|2008 election
-28|2008 election
-113|2008 election
-92|freedom of information act
-92|foia
-92|passport
-92|state department
-80|black disciples
-85|Books
-95|Books
-93|Books
-100|Books
-64|Books
-53|Books
-43|Books
-40|Books
-39|Books
-27|Books
-15|Books
-91|jeremiah wright
-113|jeremiah wright
-91|rhetoric
-89|rhetoric
-54|rhetoric
-40|rhetoric
-39|rhetoric
-91|religion
-40|religion
-99|religion
-108|religion
-91|black history
-89|black history
-90|spanish
-90|mexico
-122|mexico
-90|immigration
-74|tribune company
-81|tribune company
-135|tribune company
-65|media
-90|media
-80|media
-77|media
-71|media
-53|media
-45|media
-43|media
-41|media
-40|media
-28|media
-26|media
-17|media
-68|media
-15|media
-7|media
-99|media
-78|media
-69|media
-98|media
-97|media
-94|media
-92|media
-8|media
-37|media
-34|media
-106|media
-113|media
-129|media
-135|media
-90|los angeles
-87|los angeles
-71|los angeles
-63|los angeles
-5|los angeles
-98|los angeles
-86|los angeles
-76|los angeles
-94|los angeles
-57|los angeles
-110|los angeles
-120|los angeles
-125|los angeles
-132|los angeles
-145|los angeles
-146|los angeles
-89|race
-92|race
-89|data visualization
-96|data visualization
-45|data visualization
-54|data visualization
-37|data visualization
-34|data visualization
-108|data visualization
-110|data visualization
-113|data visualization
-133|data visualization
-134|data visualization
-88|hip-hop
-70|hip-hop
-10|hip-hop
-126|hip-hop
-88|music
-87|music
-80|music
-79|music
-72|music
-70|music
-66|music
-60|music
-59|music
-56|music
-55|music
-54|music
-52|music
-37|music
-36|music
-35|music
-32|music
-23|music
-18|music
-15|music
-10|music
-98|music
-97|music
-74|music
-58|music
-42|music
-12|music
-33|music
-26|music
-105|music
-114|music
-127|music
-88|humor
-80|humor
-99|humor
-20|humor
-85|humor
-84|humor
-81|humor
-78|humor
-77|humor
-74|humor
-68|humor
-51|humor
-62|humor
-25|humor
-10|humor
-4|humor
-54|humor
-24|humor
-22|humor
-19|humor
-115|humor
-118|humor
-119|humor
-121|humor
-126|humor
-88|pete rock
-32|pete rock
-88|joan benetar
-87|downtown los angeles
-98|downtown los angeles
-86|downtown los angeles
-125|downtown los angeles
-132|downtown los angeles
-87|washington dc
-71|washington dc
-65|washington dc
-56|washington dc
-24|washington dc
-13|washington dc
-63|washington dc
-60|washington dc
-37|washington dc
-25|washington dc
-5|washington dc
-59|washington dc
-58|washington dc
-51|washington dc
-21|washington dc
-20|washington dc
-12|washington dc
-145|washington dc
-146|washington dc
-80|gang
-80|commercial
-96|congress
-28|congress
-22|congress
-5|congress
-135|congress
-145|congress
-146|congress
-96|petraeus
-96|testimony
-96|iraq
-8|iraq
-13|iraq
-7|iraq
-122|iraq
-96|iraq war
-13|iraq war
-96|military
-8|military
-69|military
-7|military
-96|data
-69|data
-5|data
-114|data
-120|data
-122|data
-145|data
-146|data
-147|data
-96|word cloud
-77|word cloud
-54|word cloud
-113|word cloud
-133|word cloud
-97|web
-85|web
-84|web
-81|web
-78|web
-77|web
-76|web
-74|web
-69|web
-95|web
-94|web
-93|web
-90|web
-88|web
-80|web
-70|web
-67|web
-61|web
-54|web
-45|web
-42|web
-36|web
-15|web
-5|web
-4|web
-37|web
-34|web
-106|web
-107|web
-115|web
-121|web
-122|web
-145|web
-146|web
-97|Iran
-96|Iran
-97|video
-69|video
-5|video
-119|video
-120|video
-127|video
-145|video
-146|video
-97|Berkman Center
-43|quantitative analysis
-97|quantitative analysis
-69|quantitative analysis
-77|quantitative analysis
-45|quantitative analysis
-61|quantitative analysis
-29|quantitative analysis
-54|quantitative analysis
-39|quantitative analysis
-108|quantitative analysis
-110|quantitative analysis
-113|quantitative analysis
-96|quantitative analysis
-97|Social Networking
-99|political scandal
-98|classical
-98|beethoven
-98|andras schiff
-98|disney hall
-99|poll
-108|poll
-115|poll
-130|poll
-85|tv
-67|tv
-57|tv
-5|tv
-145|tv
-146|tv
-77|my life
-76|my life
-66|my life
-55|my life
-52|my life
-45|my life
-41|my life
-37|my life
-35|my life
-103|my life
-98|my life
-92|my life
-87|my life
-86|my life
-84|my life
-74|my life
-72|my life
-71|my life
-65|my life
-60|my life
-63|my life
-51|my life
-42|my life
-40|my life
-39|my life
-34|my life
-27|my life
-25|my life
-1|my life
-10|my life
-15|my life
-4|my life
-53|my life
-36|my life
-33|my life
-32|my life
-23|my life
-13|my life
-12|my life
-110|my life
-114|my life
-120|my life
-121|my life
-122|my life
-125|my life
-132|my life
-134|my life
-90|los angeles times
-81|los angeles times
-77|los angeles times
-74|los angeles times
-71|los angeles times
-5|los angeles times
-110|los angeles times
-111|los angeles times
-120|los angeles times
-122|los angeles times
-130|los angeles times
-134|los angeles times
-145|los angeles times
-146|los angeles times
-147|los angeles times
-84|corporations
-84|email
-95|email
-93|email
-81|email
-80|email
-77|email
-70|email
-6|email
-67|advertising
-84|advertising
-80|advertising
-115|advertising
-131|advertising
-81|censorship
-78|censorship
-74|censorship
-121|censorship
-79|goldfrapp
-35|goldfrapp
-79|alison goldfrapp
-79|wil gregory
-79|seven trees
-79|a&amp;e
-69|the weekly standard
-79|2008 music releases
-61|blog
-69|blog
-76|online shopping
-76|money
-108|money
-76|business
-81|business
-36|business
-131|business
-135|business
-72|ranking
-69|ranking
-97|ranking
-61|ranking
-35|ranking
-32|ranking
-23|ranking
-107|ranking
-70|2007 music releases
-66|2007 music releases
-58|2007 music releases
-72|2007 music releases
-60|2007 music releases
-55|2007 music releases
-59|2007 music releases
-56|2007 music releases
-71|center for public integrity
-5|center for public integrity
-145|center for public integrity
-146|center for public integrity
-70|mashup
-120|mashup
-70|mark vidler
-70|go home productions
-72|go home productions
-55|go home productions
-23|go home productions
-70|bastard pop
-69|perl
-61|perl
-107|perl
-114|perl
-80|chicago
-5|chicago
-26|chicago
-41|chicago
-145|chicago
-146|chicago
-80|music video
-79|music video
-60|music video
-127|music video
-80|cha cha slide
-80|m.o.b. records
-80|gangster disciples
-80|bd's
-80|gd's
-80|chicago gangs
-80|patrick fitzgerald
-80|indictment
-80|gang connection
-79|kate bush
-79|cloudbusting
-78|las vegas sun
-76|cars
-71|moving
-71|new job
-70|dj
-68|wall street journal
-68|beer pong
-68|information graphics
-68|rupert murdoch
-67|tony wilson
-67|bbc
-67|obituary
-111|obituary
-122|obituary
-133|obituary
-67|factory records
-67|24 hour party people
-67|Movies
-17|Movies
-16|Movies
-63|Movies
-62|Movies
-21|Movies
-13|Movies
-57|Movies
-105|Movies
-108|Movies
-67|steve coogan
-67|new order
-36|new order
-67|sex pistols
-67|joy division
-67|happy mondays
-67|anthony wilson
-67|biopic
-67|biography
-67|fictionalization
-66|poplife
-55|poplife
-66|dragonette
-66|simian mobile disco
-66|cut copy
-66|matthew dear
-66|the clientele
-72|the clientele
-59|the clientele
-66|eddy la gooyatsh
-66|kylie minogue
-72|kylie minogue
-23|kylie minogue
-66|yann tiersen
-60|electro
-56|electro
-65|shawington
-106|shawington
-65|blogs
-1|blogs
-15|blogs
-37|blogs
-106|blogs
-65|aggregator
-106|aggregator
-65|planet planet
-65|planet venus
-106|planet venus
-65|shawington.com
-65|shaw dc
-65|shaw
-65|mount vernon square
-64|china
-64|2008 summer olympics
-64|human rights
-64|protest
-22|history
-64|history
-103|history
-135|history
-64|foreign policy
-72|apparat
-35|apparat
-72|caribou
-72|albums
-32|albums
-35|albums
-72|go home production
-72|prins thomas
-72|rokysopp
-72|jay dee
-72|pharcyde
-72|bebel gilberto
-72|the modernist
-55|lcd soundsystem
-60|lcd soundsystem
-72|lcd soundsystem
-72|tobias thomas
-72|ellen allien
-35|ellen allien
-72|devin the dude
-55|devin the dude
-72|bookashade
-72|the field
-72|radiohead
-72|junior senior
-65|martin moulton
-64|james mann
-63|black and white movies
-63|watts
-63|e street cinema
-57|e street cinema
-13|e street cinema
-63|black cinema
-63|killer of sheep
-63|charles burnett
-63|dinah washington
-63|this bitter earth
-62|woody allen
-19|woody allen
-62|sam raimi
-62|spiderman 3
-62|annie hall
-62|manhattan
-61|computer-assisted report
-61|talking points memo
-61|tpm muckraker
-58|concert
-59|concert
-60|concert
-12|concert
-56|concert
-60|review
-60|930 club
-56|930 club
-12|black cat
-59|black cat
-59|concert review
-58|concert review
-12|concert review
-56|concert review
-59|felt
-59|field mice
-59|galaxie 500
-59|rock
-58|rock
-55|compliation
-66|compliation
-33|compliation
-58|arcade fire
-55|arcade fire
-54|arcade fire
-58|the national
-58|dar constitution hall
-57|movie
-19|movie
-57|the tv set
-57|David Duchovny
-57|satire
-57|hollywood
-57|Sigourney Weaver
-56|hot chip
-56|kraftwerk
-56|ministry
-56|kmfdm
-55|sophie ellis bextor
-55|snoop dogg
-55|andre 3000
-55|the ark
-55|madonna
-18|music criticism
-54|music criticism
-36|music criticism
-45|widget
-52|widget
-42|widget
-34|widget
-53|widget
-53|shelfari
-52|last.fm
-42|last.fm
-114|last.fm
-51|lobbying
-49|sql
-112|sql
-49|microsoft sql
-49|mssql
-49|federal working days
-49|calendar
-49|database
-134|database
-49|working days
-49|holidays
-49|federal holidays
-45|del.icio.us
-34|del.icio.us
-43|george w bush
-43|karl rove
-22|white house
-43|white house
-41|sports
-39|sports
-17|sports
-41|chicago bears
-41|new orleans saints
-41|nfl football
-41|espn
-40|steve weinberg
-40|alarmism
-40|george orwell
-40|kevin phillips
-40|chris hedges
-40|ann coulter
-40|jonah goldberg
-40|ramesh ponnuru
-40|dinesh d'souza
-40|right wing
-40|the republican party
-40|liberals
-39|major league baseball
-39|oakland a's
-39|billy beane
-39|michael lewis
-24|map
-37|map
-108|map
-120|map
-37|music stores
-36|music stores
-37|wonkette
-37|dcist
-37|cd warehouse
-37|google maps
-24|google maps
-36|tower records
-36|t-ski valley
-36|the misfits
-36|the diplomats
-36|nouvelle vague
-35|nouvelle vague
-35|2006 music releases
-33|2006 music releases
-35|the similou
-35|pipettes
-35|basement jaxx
-23|basement jaxx
-35|hussies
-35|merit larson
-35|nelly furtado
-35|lilly allen
-35|bertine zetlitz
-35|t.i.
-35|ewan pearson
-35|neko case
-35|charlotte gainsbourg
-35|drive-by truckers
-35|mylo
-35|richardo villalobos
-35|love is all
-33|phpoplife
-32|1990s
-23|1990s
-32|pulp
-23|pulp
-32|cl smooth
-32|elastica
-32|nas
-32|my bloody valentine
-32|belle and sebastian
-32|fugazi
-32|saint etienne
-23|saint etienne
-32|pet shop boys
-32|wu-tang clan
-32|primal scream
-32|blur
-32|daft punk
-23|daft punk
-32|boards of canada
-32|yo la tengo
-23|yo la tengo
-32|jay-z
-23|jay-z
-32|klf
-32|paul westerberg
-29|missouri
-29|2006 elections
-29|U.S. senate
-29|claire mccaskill
-29|jim talent
-29|election results
-28|hillary clinton
-99|hillary clinton
-116|hillary clinton
-28|the atlantic
-28|joshua green
-27|allan bloom
-27|frank rich
-27|george packer
-27|thomas ricks
-27|stuart dybek
-27|philip gourevitch
-27|august kleinzahler
-27|a.j. liebling
-27|terry teachout
-27|h.l. mencken
-27|anthony shadid
-27|Rajiv Chandrasekaren
-27|benjamin kunkel
-26|stop smiling
-26|anne nocenti
-26|james hughes
-26|ethics
-26|laura dawn
-26|moveon.org
-25|commuting
-25|safety
-120|safety
-24|happy hour
-24|alcohol
-23|2000s
-23|usher
-23|new radicals
-23|stardust
-23|missy elliot
-23|girls aloud
-23|gwen stefani
-23|heiko voss
-23|outkast
-22|welfare
-22|bill clinton
-22|tom delay
-21|saudi arabia
-21|lawrence of arabia
-21|peter o'toole
-21|AFI center
-21|silver spring maryland
-21|Omar Sharif
-20|french food
-20|Bistro Francais
-19|scoop
-19|Hugh Jackman
-19|Scarlett Johansson
-18|the killers
-18|jacques lu cont
-18|Brandon Flowers
-17|new york cosmos
-17|soccer
-16|animation
-16|rotoscoping
-16|richard linklater
-16|a scanner darkly
-16|keanu reeves
-16|robert downey jr
-13|the war tapes
-12|jose gonzales
-10|del tha funkee homosapien
-126|del tha funkee homosapien
-10|sound opinions
-10|radio
-10|dr bombay
-10|summer
-7|haditha
-8|haditha
-8|crime
-7|crime
-8|Taher Thabet
-7|Taher Thabet
-8|Islam
-8|Time magazine
-7|Time magazine
-100|text
-95|text
-95|count
-100|bible
-100|four-letter words
-93|open
-95|open
-100|open
-93|read
-95|read
-100|read
-106|read
-95|search
-93|search
-100|search
-93|print
-95|print
-100|print
-109|print
-93|loop
-100|loop
-95|loop
-93|match
-95|match
-100|match
-103|bash
-128|bash
-103|common commands
-103|history meme
-103|Meme
-103|awk
-103|Ubuntu
-114|Ubuntu
-103|ubuntu linux
-103|vim
-105|johnny boy
-105|mean streets
-105|be my baby
-105|the ronettes
-105|martin scorsese
-105|Harvey Keitel
-105|you are the generation that bought more shoes and you g
-105|Robert DeNiro
-106|news.palewire.com
-106|rss
-114|rss
-129|rss
-106|feeds
-106|syndication
-106|sam ruby
-106|wizz
-106|news media
-106|pundits
-106|newspapers
-115|newspapers
-121|newspapers
-147|newspapers
-107|scrape
-107|web scrape
-107|web scraping
-107|screen scraping
-107|mechanize
-107|beautiful soup
-107|table
-108|leatherheads
-108|expelled
-108|box office
-108|documentary
-108|science
-108|creationism
-108|intelligent design
-108|scatterplot
-109|formatting
-109|date
-109|format
-109|datetime
-109|timedelta
-109|snippet
-109|strftime
-109|datediff
-110|many eyes
-113|many eyes
-96|many eyes
-110|real estate
-110|california
-122|california
-110|caspio
-134|caspio
-110|data-driven web applications
-110|income
-111|Uranus J. "Bob" Appel
-107|python scraping tutorial
-113|bill moyers
-113|interview
-113|sermon
-113|911
-113|september 11
-113|the day of jerusalem's fall
-113|transcript
-95|python multiple files
-43|reading list
-43|contest
-43|what does george bush read
-43|president bush
-114|twitter
-126|twitter
-112|mysql
-112|mysqldb
-112|mysql for python
-112|print sql results
-114|post last.fm on twitter
-114|shell
-115|new york times
-131|new york times
-115|slate
-115|washington post
-116|indiana
-116|gary
-116|gary indiana
-116|obama
-116|clinton
-116|2008election
-116|primary
-116|vote
-116|musical
-116|meredith wilson
-116|the music man
-116|opie
-116|lake county indiana
-116|indiana primary results
-116|indiana election
-116|obama indiana
-49|working days sql
-49|determine holiday in sql
-112|python query mysql database
-112|mysqldb execute
-112|how to connect to a mysql database in python
-112|python mysql connection
-109|python future date
-107|python beautifulsoup table parse
-107|how to install module mechanize in python
-107|python extract html table
-95|python copy multiple files
-95|open files from directory in python
-95|opening multi files python
-95|multiple open files python
-49|creating sql table with weekends and holidays
-119|bill o'reilly
-118|cedar rapids
-118|t-shirt
-118|milton glaser
-118|i heart new york
-118|logo
-118|cedar rapids logo
-118|cedar rapids t-shirt
-119|bill
-119|oreilly
-119|ringtone
-119|do it live
-119|inside edition
-119|rant
-119|sting
-119|youtube
-127|youtube
-119|bill o'reilly flips out
-119|iphone
-129|iphone
-119|cell phone
-119|fuck it
-119|we'll do it live
-119|recording
-119|remix
-119|fox news
-119|cable news
-119|mp3
-119|Motorola
-120|United States
-120|Google
-147|Google
-120|Raoul Renoa
-120|web package
-120|Los Angeles County
-120|photo enforcement systems
-120|GPS
-120|TomTom
-120|Garmin
-120|Flash
-120|red light cameras
-120|red light cams
-120|redlight cameras
-120|redlight cams
-120|download
-128|download
-120|geocode
-120|red lights
-120|redlights
-120|LA
-120|google map
-120|Rich Connell
-120|latimes
-130|latimes
-134|latimes
-120|l a times
-122|San Diego
-121|filter
-121|websense
-121|sex
-131|sex
-121|sexy
-121|banned
-122|Jason J. Buzzard
-122|Afghanistan
-122|Rafael Peralta
-122|South Korea
-122|Memorial Day
-122|Fallujah
-122|Riverside Cemetery
-122|Christopher Hitchens
-122|Christopher D. Leon
-122|Mark J. Daily
-122|Teresa Watanabe
-122|Web programming tools
-122|latimes.com
-122|django
-129|django
-147|django
-122|nicar
-122|adrian holovaty
-147|adrian holovaty
-122|newspaper
-130|newspaper
-122|casualty
-122|war
-122|comments
-125|st. vibiana's
-125|cathedral
-125|archdiocese
-125|caltrans
-125|Photography
-132|Photography
-125|my photos
-87|my photos
-125|panorama
-125|hugin
-87|Josh Taylor
-126|Staind
-126|Del
-126|LyricsWiki
-126|LyricWiki
-126|lyrics
-126|i wish my brother george was here
-126|github
-126|Pop Music
-127|Pop Music
-126|rap
-126|SOAP
-126|API
-147|API
-126|mistadobalina
-126|@hemingway
-127|Bo Diddley
-127|Rolling Stones
-127|Bo Diddley Beat
-127|Bruce Springsteen
-127|The Who
-127|She's The One
-127|Magic Bus
-127|Don't Fade Away
-127|Buddy Holly
-127|Blues
-127|U2
-127|Desire
-127|Rattle and Hum
-128|Mac
-128|Google Desktop Search
-128|Windows
-128|Terminal
-128|Command line
-128|wget
-128|curl
-128|mirror
-128|web site
-128|mirror a web site
-128|mirror a site
-128|fink
-128|XCode
-129|HTML
-134|HTML
-129|telecommunications policy
-129|tickertube
-129|amazon
-130|amazon
-129|ec2
-129|amazon web services
-129|apache
-129|feedjack
-129|yui
-129|feed aggregator
-129|tech
-129|policy
-129|fcc
-129|news
-147|news
-129|css
-129|blackberry
-130|kindle
-130|subscription
-131|nytimes
-131|online ads
-131|eden fantasies
-131|sex ads
-131|anal massage for lovers
-131|blow him away
-131|erotica
-131|pornography
-131|sexual instruction manuals
-132|gasoline
-132|snake
-132|bike courier
-133|Jesse Helms
-133|North Carolina
-133|wordle
-134|online database
-134|Doug Smith
-134|Charles Piller
-134|Matt Waite
-134|deep link
-134|Caspio Bridge
-134|search box
-134|permalink
-134|charity
-134|morningstar
-134|fundraising
-134|query string
-134|Caspio Hacks
-134|hacks
-134|custom form
-134|walkthrough
-134|GUI
-134|Thomas Lauder
-135|Clear Channel
-135|media executives
-135|Randy Michaels
-135|electronic media
-135|the web
-135|consolidation
-135|the telecommunications act of 1996
-135|regulation
-135|synergy
-135|opportunity cost
-135|journalism
-135|online
-135|Jacor
-135|McClatchey
-135|Eric Klinenberg
-135|media execs
-147|data-driven news applications
-147|rails
-147|"web development"
-147|"news driven development"
-147|metrolink crash
-147|DRY
+(lp1
+(lp2
+(lp3
+aa(lp4
+(lp5
+(lp6
+L5L
+aViowa
+p7
+aa(lp8
+L118L
+ag7
+aa(lp9
+L145L
+ag7
+aa(lp10
+L146L
+ag7
+aaaa(lp11
+(lp12
+(lp13
+L95L
+aVparse
+p14
+aa(lp15
+L100L
+ag14
+aa(lp16
+L93L
+ag14
+aaaa(lp17
+(lp18
+aa(lp19
+(lp20
+aa(lp21
+(lp22
+aa(lp23
+(lp24
+aa(lp25
+(lp26
+(lp27
+L86L
+aVphotos
+p28
+aa(lp29
+L87L
+ag28
+aaaa(lp30
+(lp31
+(lp32
+L86L
+aVmy apartment
+p33
+aaaa(lp34
+(lp35
+aa(lp36
+(lp37
+(lp38
+L120L
+aVla times
+p39
+aa(lp40
+L122L
+ag39
+aa(lp41
+L133L
+ag39
+aa(lp42
+L134L
+ag39
+aa(lp43
+L147L
+ag39
+aaaa(lp44
+(lp45
+aa(lp46
+(lp47
+aa(lp48
+(lp49
+(lp50
+L95L
+aVtutorial
+p51
+aa(lp52
+L93L
+ag51
+aa(lp53
+L69L
+ag51
+aa(lp54
+L100L
+ag51
+aa(lp55
+L61L
+ag51
+aa(lp56
+L49L
+ag51
+aa(lp57
+L107L
+ag51
+aa(lp58
+L112L
+ag51
+aa(lp59
+L114L
+ag51
+aa(lp60
+L128L
+ag51
+aa(lp61
+L134L
+ag51
+aaaa(lp62
+(lp63
+(lp64
+L95L
+aVnietzsche
+p65
+aaaa(lp66
+(lp67
+(lp68
+L95L
+aVcode
+p69
+aa(lp70
+L93L
+ag69
+aa(lp71
+L69L
+ag69
+aa(lp72
+L61L
+ag69
+aa(lp73
+L49L
+ag69
+aa(lp74
+L103L
+ag69
+aa(lp75
+L98L
+ag69
+aa(lp76
+L100L
+ag69
+aa(lp77
+L107L
+ag69
+aa(lp78
+L109L
+ag69
+aa(lp79
+L112L
+ag69
+aa(lp80
+L114L
+ag69
+aa(lp81
+L126L
+ag69
+aa(lp82
+L128L
+ag69
+aa(lp83
+L134L
+ag69
+aaaa(lp84
+(lp85
+(lp86
+L95L
+aVpython
+p87
+aa(lp88
+L93L
+ag87
+aa(lp89
+L103L
+ag87
+aa(lp90
+L100L
+ag87
+aa(lp91
+L107L
+ag87
+aa(lp92
+L109L
+ag87
+aa(lp93
+L112L
+ag87
+aa(lp94
+L122L
+ag87
+aa(lp95
+L126L
+ag87
+aa(lp96
+L129L
+ag87
+aa(lp97
+L147L
+ag87
+aaaa(lp98
+(lp99
+(lp100
+L95L
+aVcomputer-assisted reporting
+p101
+aa(lp102
+L93L
+ag101
+aa(lp103
+L5L
+ag101
+aa(lp104
+L69L
+ag101
+aa(lp105
+L100L
+ag101
+aa(lp106
+L49L
+ag101
+aa(lp107
+L43L
+ag101
+aa(lp108
+L107L
+ag101
+aa(lp109
+L109L
+ag101
+aa(lp110
+L128L
+ag101
+aa(lp111
+L145L
+ag101
+aa(lp112
+L146L
+ag101
+aaaa(lp113
+(lp114
+(lp115
+L99L
+aVguns
+p116
+aaaa(lp117
+(lp118
+(lp119
+L95L
+aVrecipe
+p120
+aa(lp121
+L93L
+ag120
+aa(lp122
+L100L
+ag120
+aa(lp123
+L107L
+ag120
+aa(lp124
+L109L
+ag120
+aa(lp125
+L112L
+ag120
+aa(lp126
+L114L
+ag120
+aa(lp127
+L128L
+ag120
+aa(lp128
+L134L
+ag120
+aaaa(lp129
+(lp130
+(lp131
+L95L
+aVscript
+p132
+aa(lp133
+L93L
+ag132
+aa(lp134
+L69L
+ag132
+aa(lp135
+L61L
+ag132
+aa(lp136
+L49L
+ag132
+aa(lp137
+L100L
+ag132
+aa(lp138
+L96L
+ag132
+aa(lp139
+L107L
+ag132
+aa(lp140
+L112L
+ag132
+aaaa(lp141
+(lp142
+(lp143
+L95L
+aVlinux
+p144
+aa(lp145
+L93L
+ag144
+aa(lp146
+L100L
+ag144
+aa(lp147
+L103L
+ag144
+aa(lp148
+L107L
+ag144
+aa(lp149
+L114L
+ag144
+aa(lp150
+L128L
+ag144
+aaaa(lp151
+(lp152
+(lp153
+L99L
+aVbitterness
+p154
+aaaa(lp155
+(lp156
+(lp157
+L81L
+aVsam zell
+p158
+aa(lp159
+L135L
+ag158
+aaaa(lp160
+(lp161
+(lp162
+L93L
+aVshakespeare
+p163
+aaaa(lp164
+(lp165
+(lp166
+L95L
+aVregular expressions
+p167
+aa(lp168
+L93L
+ag167
+aa(lp169
+L100L
+ag167
+aaaa(lp170
+(lp171
+(lp172
+L95L
+aVregex
+p173
+aa(lp174
+L93L
+ag173
+aa(lp175
+L100L
+ag173
+aaaa(lp176
+(lp177
+(lp178
+L94L
+aVcesar chavez
+p179
+aaaa(lp180
+(lp181
+(lp182
+L94L
+aVmartin luther king
+p183
+aa(lp184
+L91L
+ag183
+aa(lp185
+L89L
+ag183
+aaaa(lp186
+(lp187
+(lp188
+L99L
+aVjohn mccain
+p189
+aa(lp190
+L94L
+ag189
+aaaa(lp191
+(lp192
+(lp193
+L94L
+aVbarack obama
+p194
+aa(lp195
+L92L
+ag194
+aa(lp196
+L91L
+ag194
+aa(lp197
+L89L
+ag194
+aa(lp198
+L99L
+ag194
+aa(lp199
+L113L
+ag194
+aa(lp200
+L116L
+ag194
+aaaa(lp201
+(lp202
+(lp203
+L94L
+aVholiday
+p204
+aaaa(lp205
+(lp206
+(lp207
+L94L
+aVpolitics
+p208
+aa(lp209
+L89L
+ag208
+aa(lp210
+L65L
+ag208
+aa(lp211
+L61L
+ag208
+aa(lp212
+L43L
+ag208
+aa(lp213
+L40L
+ag208
+aa(lp214
+L29L
+ag208
+aa(lp215
+L28L
+ag208
+aa(lp216
+L22L
+ag208
+aa(lp217
+L99L
+ag208
+aa(lp218
+L77L
+ag208
+aa(lp219
+L96L
+ag208
+aaaa(lp220
+(lp221
+(lp222
+L94L
+aV2008 election
+p223
+aa(lp224
+L91L
+ag223
+aa(lp225
+L89L
+ag223
+aa(lp226
+L99L
+ag223
+aa(lp227
+L92L
+ag223
+aa(lp228
+L77L
+ag223
+aa(lp229
+L28L
+ag223
+aa(lp230
+L113L
+ag223
+aaaa(lp231
+(lp232
+(lp233
+L92L
+aVfreedom of information act
+p234
+aaaa(lp235
+(lp236
+(lp237
+L92L
+aVfoia
+p238
+aaaa(lp239
+(lp240
+(lp241
+L92L
+aVpassport
+p242
+aaaa(lp243
+(lp244
+(lp245
+L92L
+aVstate department
+p246
+aaaa(lp247
+(lp248
+(lp249
+L80L
+aVblack disciples
+p250
+aaaa(lp251
+(lp252
+(lp253
+L85L
+aVBooks
+p254
+aa(lp255
+L95L
+ag254
+aa(lp256
+L93L
+ag254
+aa(lp257
+L100L
+ag254
+aa(lp258
+L64L
+ag254
+aa(lp259
+L53L
+ag254
+aa(lp260
+L43L
+ag254
+aa(lp261
+L40L
+ag254
+aa(lp262
+L39L
+ag254
+aa(lp263
+L27L
+ag254
+aa(lp264
+L15L
+ag254
+aaaa(lp265
+(lp266
+(lp267
+L91L
+aVjeremiah wright
+p268
+aa(lp269
+L113L
+ag268
+aaaa(lp270
+(lp271
+(lp272
+L91L
+aVrhetoric
+p273
+aa(lp274
+L89L
+ag273
+aa(lp275
+L54L
+ag273
+aa(lp276
+L40L
+ag273
+aa(lp277
+L39L
+ag273
+aaaa(lp278
+(lp279
+(lp280
+L91L
+aVreligion
+p281
+aa(lp282
+L40L
+ag281
+aa(lp283
+L99L
+ag281
+aa(lp284
+L108L
+ag281
+aaaa(lp285
+(lp286
+(lp287
+L91L
+aVblack history
+p288
+aa(lp289
+L89L
+ag288
+aaaa(lp290
+(lp291
+(lp292
+L90L
+aVspanish
+p293
+aaaa(lp294
+(lp295
+(lp296
+L90L
+aVmexico
+p297
+aa(lp298
+L122L
+ag297
+aaaa(lp299
+(lp300
+(lp301
+L90L
+aVimmigration
+p302
+aaaa(lp303
+(lp304
+(lp305
+L74L
+aVtribune company
+p306
+aa(lp307
+L81L
+ag306
+aa(lp308
+L135L
+ag306
+aaaa(lp309
+(lp310
+(lp311
+L65L
+aVmedia
+p312
+aa(lp313
+L90L
+ag312
+aa(lp314
+L80L
+ag312
+aa(lp315
+L77L
+ag312
+aa(lp316
+L71L
+ag312
+aa(lp317
+L53L
+ag312
+aa(lp318
+L45L
+ag312
+aa(lp319
+L43L
+ag312
+aa(lp320
+L41L
+ag312
+aa(lp321
+L40L
+ag312
+aa(lp322
+L28L
+ag312
+aa(lp323
+L26L
+ag312
+aa(lp324
+L17L
+ag312
+aa(lp325
+L68L
+ag312
+aa(lp326
+L15L
+ag312
+aa(lp327
+L7L
+ag312
+aa(lp328
+L99L
+ag312
+aa(lp329
+L78L
+ag312
+aa(lp330
+L69L
+ag312
+aa(lp331
+L98L
+ag312
+aa(lp332
+L97L
+ag312
+aa(lp333
+L94L
+ag312
+aa(lp334
+L92L
+ag312
+aa(lp335
+L8L
+ag312
+aa(lp336
+L37L
+ag312
+aa(lp337
+L34L
+ag312
+aa(lp338
+L106L
+ag312
+aa(lp339
+L113L
+ag312
+aa(lp340
+L129L
+ag312
+aa(lp341
+L135L
+ag312
+aaaa(lp342
+(lp343
+(lp344
+L90L
+aVlos angeles
+p345
+aa(lp346
+L87L
+ag345
+aa(lp347
+L71L
+ag345
+aa(lp348
+L63L
+ag345
+aa(lp349
+L5L
+ag345
+aa(lp350
+L98L
+ag345
+aa(lp351
+L86L
+ag345
+aa(lp352
+L76L
+ag345
+aa(lp353
+L94L
+ag345
+aa(lp354
+L57L
+ag345
+aa(lp355
+L110L
+ag345
+aa(lp356
+L120L
+ag345
+aa(lp357
+L125L
+ag345
+aa(lp358
+L132L
+ag345
+aa(lp359
+L145L
+ag345
+aa(lp360
+L146L
+ag345
+aaaa(lp361
+(lp362
+(lp363
+L89L
+aVrace
+p364
+aa(lp365
+L92L
+ag364
+aaaa(lp366
+(lp367
+(lp368
+L89L
+aVdata visualization
+p369
+aa(lp370
+L96L
+ag369
+aa(lp371
+L45L
+ag369
+aa(lp372
+L54L
+ag369
+aa(lp373
+L37L
+ag369
+aa(lp374
+L34L
+ag369
+aa(lp375
+L108L
+ag369
+aa(lp376
+L110L
+ag369
+aa(lp377
+L113L
+ag369
+aa(lp378
+L133L
+ag369
+aa(lp379
+L134L
+ag369
+aaaa(lp380
+(lp381
+(lp382
+L88L
+aVhip-hop
+p383
+aa(lp384
+L70L
+ag383
+aa(lp385
+L10L
+ag383
+aa(lp386
+L126L
+ag383
+aaaa(lp387
+(lp388
+(lp389
+L88L
+aVmusic
+p390
+aa(lp391
+L87L
+ag390
+aa(lp392
+L80L
+ag390
+aa(lp393
+L79L
+ag390
+aa(lp394
+L72L
+ag390
+aa(lp395
+L70L
+ag390
+aa(lp396
+L66L
+ag390
+aa(lp397
+L60L
+ag390
+aa(lp398
+L59L
+ag390
+aa(lp399
+L56L
+ag390
+aa(lp400
+L55L
+ag390
+aa(lp401
+L54L
+ag390
+aa(lp402
+L52L
+ag390
+aa(lp403
+L37L
+ag390
+aa(lp404
+L36L
+ag390
+aa(lp405
+L35L
+ag390
+aa(lp406
+L32L
+ag390
+aa(lp407
+L23L
+ag390
+aa(lp408
+L18L
+ag390
+aa(lp409
+L15L
+ag390
+aa(lp410
+L10L
+ag390
+aa(lp411
+L98L
+ag390
+aa(lp412
+L97L
+ag390
+aa(lp413
+L74L
+ag390
+aa(lp414
+L58L
+ag390
+aa(lp415
+L42L
+ag390
+aa(lp416
+L12L
+ag390
+aa(lp417
+L33L
+ag390
+aa(lp418
+L26L
+ag390
+aa(lp419
+L105L
+ag390
+aa(lp420
+L114L
+ag390
+aa(lp421
+L127L
+ag390
+aaaa(lp422
+(lp423
+(lp424
+L88L
+aVhumor
+p425
+aa(lp426
+L80L
+ag425
+aa(lp427
+L99L
+ag425
+aa(lp428
+L20L
+ag425
+aa(lp429
+L85L
+ag425
+aa(lp430
+L84L
+ag425
+aa(lp431
+L81L
+ag425
+aa(lp432
+L78L
+ag425
+aa(lp433
+L77L
+ag425
+aa(lp434
+L74L
+ag425
+aa(lp435
+L68L
+ag425
+aa(lp436
+L51L
+ag425
+aa(lp437
+L62L
+ag425
+aa(lp438
+L25L
+ag425
+aa(lp439
+L10L
+ag425
+aa(lp440
+L4L
+ag425
+aa(lp441
+L54L
+ag425
+aa(lp442
+L24L
+ag425
+aa(lp443
+L22L
+ag425
+aa(lp444
+L19L
+ag425
+aa(lp445
+L115L
+ag425
+aa(lp446
+L118L
+ag425
+aa(lp447
+L119L
+ag425
+aa(lp448
+L121L
+ag425
+aa(lp449
+L126L
+ag425
+aaaa(lp450
+(lp451
+(lp452
+L88L
+aVpete rock
+p453
+aa(lp454
+L32L
+ag453
+aaaa(lp455
+(lp456
+(lp457
+L88L
+aVjoan benetar
+p458
+aaaa(lp459
+(lp460
+(lp461
+L87L
+aVdowntown los angeles
+p462
+aa(lp463
+L98L
+ag462
+aa(lp464
+L86L
+ag462
+aa(lp465
+L125L
+ag462
+aa(lp466
+L132L
+ag462
+aaaa(lp467
+(lp468
+(lp469
+L87L
+aVwashington dc
+p470
+aa(lp471
+L71L
+ag470
+aa(lp472
+L65L
+ag470
+aa(lp473
+L56L
+ag470
+aa(lp474
+L24L
+ag470
+aa(lp475
+L13L
+ag470
+aa(lp476
+L63L
+ag470
+aa(lp477
+L60L
+ag470
+aa(lp478
+L37L
+ag470
+aa(lp479
+L25L
+ag470
+aa(lp480
+L5L
+ag470
+aa(lp481
+L59L
+ag470
+aa(lp482
+L58L
+ag470
+aa(lp483
+L51L
+ag470
+aa(lp484
+L21L
+ag470
+aa(lp485
+L20L
+ag470
+aa(lp486
+L12L
+ag470
+aa(lp487
+L145L
+ag470
+aa(lp488
+L146L
+ag470
+aaaa(lp489
+(lp490
+(lp491
+L80L
+aVgang
+p492
+aaaa(lp493
+(lp494
+(lp495
+L80L
+aVcommercial
+p496
+aaaa(lp497
+(lp498
+(lp499
+L96L
+aVcongress
+p500
+aa(lp501
+L28L
+ag500
+aa(lp502
+L22L
+ag500
+aa(lp503
+L5L
+ag500
+aa(lp504
+L135L
+ag500
+aa(lp505
+L145L
+ag500
+aa(lp506
+L146L
+ag500
+aaaa(lp507
+(lp508
+(lp509
+L96L
+aVpetraeus
+p510
+aaaa(lp511
+(lp512
+(lp513
+L96L
+aVtestimony
+p514
+aaaa(lp515
+(lp516
+(lp517
+L96L
+aViraq
+p518
+aa(lp519
+L8L
+ag518
+aa(lp520
+L13L
+ag518
+aa(lp521
+L7L
+ag518
+aa(lp522
+L122L
+ag518
+aaaa(lp523
+(lp524
+(lp525
+L96L
+aViraq war
+p526
+aa(lp527
+L13L
+ag526
+aaaa(lp528
+(lp529
+(lp530
+L96L
+aVmilitary
+p531
+aa(lp532
+L8L
+ag531
+aa(lp533
+L69L
+ag531
+aa(lp534
+L7L
+ag531
+aaaa(lp535
+(lp536
+(lp537
+L96L
+aVdata
+p538
+aa(lp539
+L69L
+ag538
+aa(lp540
+L5L
+ag538
+aa(lp541
+L114L
+ag538
+aa(lp542
+L120L
+ag538
+aa(lp543
+L122L
+ag538
+aa(lp544
+L145L
+ag538
+aa(lp545
+L146L
+ag538
+aa(lp546
+L147L
+ag538
+aaaa(lp547
+(lp548
+(lp549
+L96L
+aVword cloud
+p550
+aa(lp551
+L77L
+ag550
+aa(lp552
+L54L
+ag550
+aa(lp553
+L113L
+ag550
+aa(lp554
+L133L
+ag550
+aaaa(lp555
+(lp556
+(lp557
+L97L
+aVweb
+p558
+aa(lp559
+L85L
+ag558
+aa(lp560
+L84L
+ag558
+aa(lp561
+L81L
+ag558
+aa(lp562
+L78L
+ag558
+aa(lp563
+L77L
+ag558
+aa(lp564
+L76L
+ag558
+aa(lp565
+L74L
+ag558
+aa(lp566
+L69L
+ag558
+aa(lp567
+L95L
+ag558
+aa(lp568
+L94L
+ag558
+aa(lp569
+L93L
+ag558
+aa(lp570
+L90L
+ag558
+aa(lp571
+L88L
+ag558
+aa(lp572
+L80L
+ag558
+aa(lp573
+L70L
+ag558
+aa(lp574
+L67L
+ag558
+aa(lp575
+L61L
+ag558
+aa(lp576
+L54L
+ag558
+aa(lp577
+L45L
+ag558
+aa(lp578
+L42L
+ag558
+aa(lp579
+L36L
+ag558
+aa(lp580
+L15L
+ag558
+aa(lp581
+L5L
+ag558
+aa(lp582
+L4L
+ag558
+aa(lp583
+L37L
+ag558
+aa(lp584
+L34L
+ag558
+aa(lp585
+L106L
+ag558
+aa(lp586
+L107L
+ag558
+aa(lp587
+L115L
+ag558
+aa(lp588
+L121L
+ag558
+aa(lp589
+L122L
+ag558
+aa(lp590
+L145L
+ag558
+aa(lp591
+L146L
+ag558
+aaaa(lp592
+(lp593
+(lp594
+L97L
+aVIran
+p595
+aa(lp596
+L96L
+ag595
+aaaa(lp597
+(lp598
+(lp599
+L97L
+aVvideo
+p600
+aa(lp601
+L69L
+ag600
+aa(lp602
+L5L
+ag600
+aa(lp603
+L119L
+ag600
+aa(lp604
+L120L
+ag600
+aa(lp605
+L127L
+ag600
+aa(lp606
+L145L
+ag600
+aa(lp607
+L146L
+ag600
+aaaa(lp608
+(lp609
+(lp610
+L97L
+aVBerkman Center
+p611
+aaaa(lp612
+(lp613
+(lp614
+L43L
+aVquantitative analysis
+p615
+aa(lp616
+L97L
+ag615
+aa(lp617
+L69L
+ag615
+aa(lp618
+L77L
+ag615
+aa(lp619
+L45L
+ag615
+aa(lp620
+L61L
+ag615
+aa(lp621
+L29L
+ag615
+aa(lp622
+L54L
+ag615
+aa(lp623
+L39L
+ag615
+aa(lp624
+L108L
+ag615
+aa(lp625
+L110L
+ag615
+aa(lp626
+L113L
+ag615
+aa(lp627
+L96L
+ag615
+aaaa(lp628
+(lp629
+(lp630
+L97L
+aVSocial Networking
+p631
+aaaa(lp632
+(lp633
+(lp634
+L99L
+aVpolitical scandal
+p635
+aaaa(lp636
+(lp637
+(lp638
+L98L
+aVclassical
+p639
+aaaa(lp640
+(lp641
+(lp642
+L98L
+aVbeethoven
+p643
+aaaa(lp644
+(lp645
+(lp646
+L98L
+aVandras schiff
+p647
+aaaa(lp648
+(lp649
+(lp650
+L98L
+aVdisney hall
+p651
+aaaa(lp652
+(lp653
+(lp654
+L99L
+aVpoll
+p655
+aa(lp656
+L108L
+ag655
+aa(lp657
+L115L
+ag655
+aa(lp658
+L130L
+ag655
+aaaa(lp659
+(lp660
+(lp661
+L85L
+aVtv
+p662
+aa(lp663
+L67L
+ag662
+aa(lp664
+L57L
+ag662
+aa(lp665
+L5L
+ag662
+aa(lp666
+L145L
+ag662
+aa(lp667
+L146L
+ag662
+aaaa(lp668
+(lp669
+(lp670
+L77L
+aVmy life
+p671
+aa(lp672
+L76L
+ag671
+aa(lp673
+L66L
+ag671
+aa(lp674
+L55L
+ag671
+aa(lp675
+L52L
+ag671
+aa(lp676
+L45L
+ag671
+aa(lp677
+L41L
+ag671
+aa(lp678
+L37L
+ag671
+aa(lp679
+L35L
+ag671
+aa(lp680
+L103L
+ag671
+aa(lp681
+L98L
+ag671
+aa(lp682
+L92L
+ag671
+aa(lp683
+L87L
+ag671
+aa(lp684
+L86L
+ag671
+aa(lp685
+L84L
+ag671
+aa(lp686
+L74L
+ag671
+aa(lp687
+L72L
+ag671
+aa(lp688
+L71L
+ag671
+aa(lp689
+L65L
+ag671
+aa(lp690
+L60L
+ag671
+aa(lp691
+L63L
+ag671
+aa(lp692
+L51L
+ag671
+aa(lp693
+L42L
+ag671
+aa(lp694
+L40L
+ag671
+aa(lp695
+L39L
+ag671
+aa(lp696
+L34L
+ag671
+aa(lp697
+L27L
+ag671
+aa(lp698
+L25L
+ag671
+aa(lp699
+L1L
+ag671
+aa(lp700
+L10L
+ag671
+aa(lp701
+L15L
+ag671
+aa(lp702
+L4L
+ag671
+aa(lp703
+L53L
+ag671
+aa(lp704
+L36L
+ag671
+aa(lp705
+L33L
+ag671
+aa(lp706
+L32L
+ag671
+aa(lp707
+L23L
+ag671
+aa(lp708
+L13L
+ag671
+aa(lp709
+L12L
+ag671
+aa(lp710
+L110L
+ag671
+aa(lp711
+L114L
+ag671
+aa(lp712
+L120L
+ag671
+aa(lp713
+L121L
+ag671
+aa(lp714
+L122L
+ag671
+aa(lp715
+L125L
+ag671
+aa(lp716
+L132L
+ag671
+aa(lp717
+L134L
+ag671
+aaaa(lp718
+(lp719
+(lp720
+L90L
+aVlos angeles times
+p721
+aa(lp722
+L81L
+ag721
+aa(lp723
+L77L
+ag721
+aa(lp724
+L74L
+ag721
+aa(lp725
+L71L
+ag721
+aa(lp726
+L5L
+ag721
+aa(lp727
+L110L
+ag721
+aa(lp728
+L111L
+ag721
+aa(lp729
+L120L
+ag721
+aa(lp730
+L122L
+ag721
+aa(lp731
+L130L
+ag721
+aa(lp732
+L134L
+ag721
+aa(lp733
+L145L
+ag721
+aa(lp734
+L146L
+ag721
+aa(lp735
+L147L
+ag721
+aaaa(lp736
+(lp737
+(lp738
+L84L
+aVcorporations
+p739
+aaaa(lp740
+(lp741
+(lp742
+L84L
+aVemail
+p743
+aa(lp744
+L95L
+ag743
+aa(lp745
+L93L
+ag743
+aa(lp746
+L81L
+ag743
+aa(lp747
+L80L
+ag743
+aa(lp748
+L77L
+ag743
+aa(lp749
+L70L
+ag743
+aa(lp750
+L6L
+ag743
+aaaa(lp751
+(lp752
+(lp753
+L67L
+aVadvertising
+p754
+aa(lp755
+L84L
+ag754
+aa(lp756
+L80L
+ag754
+aa(lp757
+L115L
+ag754
+aa(lp758
+L131L
+ag754
+aaaa(lp759
+(lp760
+(lp761
+L81L
+aVcensorship
+p762
+aa(lp763
+L78L
+ag762
+aa(lp764
+L74L
+ag762
+aa(lp765
+L121L
+ag762
+aaaa(lp766
+(lp767
+(lp768
+L79L
+aVgoldfrapp
+p769
+aa(lp770
+L35L
+ag769
+aaaa(lp771
+(lp772
+(lp773
+L79L
+aValison goldfrapp
+p774
+aaaa(lp775
+(lp776
+(lp777
+L79L
+aVwil gregory
+p778
+aaaa(lp779
+(lp780
+(lp781
+L79L
+aVseven trees
+p782
+aaaa(lp783
+(lp784
+(lp785
+L79L
+aVa&amp;e
+p786
+aaaa(lp787
+(lp788
+(lp789
+L69L
+aVthe weekly standard
+p790
+aaaa(lp791
+(lp792
+(lp793
+L79L
+aV2008 music releases
+p794
+aaaa(lp795
+(lp796
+(lp797
+L61L
+aVblog
+p798
+aa(lp799
+L69L
+ag798
+aaaa(lp800
+(lp801
+(lp802
+L76L
+aVonline shopping
+p803
+aaaa(lp804
+(lp805
+(lp806
+L76L
+aVmoney
+p807
+aa(lp808
+L108L
+ag807
+aaaa(lp809
+(lp810
+(lp811
+L76L
+aVbusiness
+p812
+aa(lp813
+L81L
+ag812
+aa(lp814
+L36L
+ag812
+aa(lp815
+L131L
+ag812
+aa(lp816
+L135L
+ag812
+aaaa(lp817
+(lp818
+(lp819
+L72L
+aVranking
+p820
+aa(lp821
+L69L
+ag820
+aa(lp822
+L97L
+ag820
+aa(lp823
+L61L
+ag820
+aa(lp824
+L35L
+ag820
+aa(lp825
+L32L
+ag820
+aa(lp826
+L23L
+ag820
+aa(lp827
+L107L
+ag820
+aaaa(lp828
+(lp829
+(lp830
+L70L
+aV2007 music releases
+p831
+aa(lp832
+L66L
+ag831
+aa(lp833
+L58L
+ag831
+aa(lp834
+L72L
+ag831
+aa(lp835
+L60L
+ag831
+aa(lp836
+L55L
+ag831
+aa(lp837
+L59L
+ag831
+aa(lp838
+L56L
+ag831
+aaaa(lp839
+(lp840
+(lp841
+L71L
+aVcenter for public integrity
+p842
+aa(lp843
+L5L
+ag842
+aa(lp844
+L145L
+ag842
+aa(lp845
+L146L
+ag842
+aaaa(lp846
+(lp847
+(lp848
+L70L
+aVmashup
+p849
+aa(lp850
+L120L
+ag849
+aaaa(lp851
+(lp852
+(lp853
+L70L
+aVmark vidler
+p854
+aaaa(lp855
+(lp856
+(lp857
+L70L
+aVgo home productions
+p858
+aa(lp859
+L72L
+ag858
+aa(lp860
+L55L
+ag858
+aa(lp861
+L23L
+ag858
+aaaa(lp862
+(lp863
+(lp864
+L70L
+aVbastard pop
+p865
+aaaa(lp866
+(lp867
+(lp868
+L69L
+aVperl
+p869
+aa(lp870
+L61L
+ag869
+aa(lp871
+L107L
+ag869
+aa(lp872
+L114L
+ag869
+aaaa(lp873
+(lp874
+(lp875
+L80L
+aVchicago
+p876
+aa(lp877
+L5L
+ag876
+aa(lp878
+L26L
+ag876
+aa(lp879
+L41L
+ag876
+aa(lp880
+L145L
+ag876
+aa(lp881
+L146L
+ag876
+aaaa(lp882
+(lp883
+(lp884
+L80L
+aVmusic video
+p885
+aa(lp886
+L79L
+ag885
+aa(lp887
+L60L
+ag885
+aa(lp888
+L127L
+ag885
+aaaa(lp889
+(lp890
+(lp891
+L80L
+aVcha cha slide
+p892
+aaaa(lp893
+(lp894
+(lp895
+L80L
+aVm.o.b. records
+p896
+aaaa(lp897
+(lp898
+(lp899
+L80L
+aVgangster disciples
+p900
+aaaa(lp901
+(lp902
+(lp903
+L80L
+aVbd's
+p904
+aaaa(lp905
+(lp906
+(lp907
+L80L
+aVgd's
+p908
+aaaa(lp909
+(lp910
+(lp911
+L80L
+aVchicago gangs
+p912
+aaaa(lp913
+(lp914
+(lp915
+L80L
+aVpatrick fitzgerald
+p916
+aaaa(lp917
+(lp918
+(lp919
+L80L
+aVindictment
+p920
+aaaa(lp921
+(lp922
+(lp923
+L80L
+aVgang connection
+p924
+aaaa(lp925
+(lp926
+(lp927
+L79L
+aVkate bush
+p928
+aaaa(lp929
+(lp930
+(lp931
+L79L
+aVcloudbusting
+p932
+aaaa(lp933
+(lp934
+(lp935
+L78L
+aVlas vegas sun
+p936
+aaaa(lp937
+(lp938
+(lp939
+L76L
+aVcars
+p940
+aaaa(lp941
+(lp942
+(lp943
+L71L
+aVmoving
+p944
+aaaa(lp945
+(lp946
+(lp947
+L71L
+aVnew job
+p948
+aaaa(lp949
+(lp950
+(lp951
+L70L
+aVdj
+p952
+aaaa(lp953
+(lp954
+(lp955
+L68L
+aVwall street journal
+p956
+aaaa(lp957
+(lp958
+(lp959
+L68L
+aVbeer pong
+p960
+aaaa(lp961
+(lp962
+(lp963
+L68L
+aVinformation graphics
+p964
+aaaa(lp965
+(lp966
+(lp967
+L68L
+aVrupert murdoch
+p968
+aaaa(lp969
+(lp970
+(lp971
+L67L
+aVtony wilson
+p972
+aaaa(lp973
+(lp974
+(lp975
+L67L
+aVbbc
+p976
+aaaa(lp977
+(lp978
+(lp979
+L67L
+aVobituary
+p980
+aa(lp981
+L111L
+ag980
+aa(lp982
+L122L
+ag980
+aa(lp983
+L133L
+ag980
+aaaa(lp984
+(lp985
+(lp986
+L67L
+aVfactory records
+p987
+aaaa(lp988
+(lp989
+(lp990
+L67L
+aV24 hour party people
+p991
+aaaa(lp992
+(lp993
+(lp994
+L67L
+aVMovies
+p995
+aa(lp996
+L17L
+ag995
+aa(lp997
+L16L
+ag995
+aa(lp998
+L63L
+ag995
+aa(lp999
+L62L
+ag995
+aa(lp1000
+L21L
+ag995
+aa(lp1001
+L13L
+ag995
+aa(lp1002
+L57L
+ag995
+aa(lp1003
+L105L
+ag995
+aa(lp1004
+L108L
+ag995
+aaaa(lp1005
+(lp1006
+(lp1007
+L67L
+aVsteve coogan
+p1008
+aaaa(lp1009
+(lp1010
+(lp1011
+L67L
+aVnew order
+p1012
+aa(lp1013
+L36L
+ag1012
+aaaa(lp1014
+(lp1015
+(lp1016
+L67L
+aVsex pistols
+p1017
+aaaa(lp1018
+(lp1019
+(lp1020
+L67L
+aVjoy division
+p1021
+aaaa(lp1022
+(lp1023
+(lp1024
+L67L
+aVhappy mondays
+p1025
+aaaa(lp1026
+(lp1027
+(lp1028
+L67L
+aVanthony wilson
+p1029
+aaaa(lp1030
+(lp1031
+(lp1032
+L67L
+aVbiopic
+p1033
+aaaa(lp1034
+(lp1035
+(lp1036
+L67L
+aVbiography
+p1037
+aaaa(lp1038
+(lp1039
+(lp1040
+L67L
+aVfictionalization
+p1041
+aaaa(lp1042
+(lp1043
+aa(lp1044
+(lp1045
+(lp1046
+L66L
+aVpoplife
+p1047
+aa(lp1048
+L55L
+ag1047
+aaaa(lp1049
+(lp1050
+(lp1051
+L66L
+aVdragonette
+p1052
+aaaa(lp1053
+(lp1054
+(lp1055
+L66L
+aVsimian mobile disco
+p1056
+aaaa(lp1057
+(lp1058
+(lp1059
+L66L
+aVcut copy
+p1060
+aaaa(lp1061
+(lp1062
+(lp1063
+L66L
+aVmatthew dear
+p1064
+aaaa(lp1065
+(lp1066
+(lp1067
+L66L
+aVthe clientele
+p1068
+aa(lp1069
+L72L
+ag1068
+aa(lp1070
+L59L
+ag1068
+aaaa(lp1071
+(lp1072
+(lp1073
+L66L
+aVeddy la gooyatsh
+p1074
+aaaa(lp1075
+(lp1076
+(lp1077
+L66L
+aVkylie minogue
+p1078
+aa(lp1079
+L72L
+ag1078
+aa(lp1080
+L23L
+ag1078
+aaaa(lp1081
+(lp1082
+(lp1083
+L66L
+aVyann tiersen
+p1084
+aaaa(lp1085
+(lp1086
+(lp1087
+L60L
+aVelectro
+p1088
+aa(lp1089
+L56L
+ag1088
+aaaa(lp1090
+(lp1091
+(lp1092
+L65L
+aVshawington
+p1093
+aa(lp1094
+L106L
+ag1093
+aaaa(lp1095
+(lp1096
+(lp1097
+L65L
+aVblogs
+p1098
+aa(lp1099
+L1L
+ag1098
+aa(lp1100
+L15L
+ag1098
+aa(lp1101
+L37L
+ag1098
+aa(lp1102
+L106L
+ag1098
+aaaa(lp1103
+(lp1104
+(lp1105
+L65L
+aVaggregator
+p1106
+aa(lp1107
+L106L
+ag1106
+aaaa(lp1108
+(lp1109
+(lp1110
+L65L
+aVplanet planet
+p1111
+aaaa(lp1112
+(lp1113
+(lp1114
+L65L
+aVplanet venus
+p1115
+aa(lp1116
+L106L
+ag1115
+aaaa(lp1117
+(lp1118
+(lp1119
+L65L
+aVshawington.com
+p1120
+aaaa(lp1121
+(lp1122
+(lp1123
+L65L
+aVshaw dc
+p1124
+aaaa(lp1125
+(lp1126
+(lp1127
+L65L
+aVshaw
+p1128
+aaaa(lp1129
+(lp1130
+(lp1131
+L65L
+aVmount vernon square
+p1132
+aaaa(lp1133
+(lp1134
+(lp1135
+L64L
+aVchina
+p1136
+aaaa(lp1137
+(lp1138
+(lp1139
+L64L
+aV2008 summer olympics
+p1140
+aaaa(lp1141
+(lp1142
+(lp1143
+L64L
+aVhuman rights
+p1144
+aaaa(lp1145
+(lp1146
+(lp1147
+L64L
+aVprotest
+p1148
+aaaa(lp1149
+(lp1150
+(lp1151
+L22L
+aVhistory
+p1152
+aa(lp1153
+L64L
+ag1152
+aa(lp1154
+L103L
+ag1152
+aa(lp1155
+L135L
+ag1152
+aaaa(lp1156
+(lp1157
+(lp1158
+L64L
+aVforeign policy
+p1159
+aaaa(lp1160
+(lp1161
+(lp1162
+L72L
+aVapparat
+p1163
+aa(lp1164
+L35L
+ag1163
+aaaa(lp1165
+(lp1166
+(lp1167
+L72L
+aVcaribou
+p1168
+aaaa(lp1169
+(lp1170
+(lp1171
+L72L
+aValbums
+p1172
+aa(lp1173
+L32L
+ag1172
+aa(lp1174
+L35L
+ag1172
+aaaa(lp1175
+(lp1176
+(lp1177
+L72L
+aVgo home production
+p1178
+aaaa(lp1179
+(lp1180
+(lp1181
+L72L
+aVprins thomas
+p1182
+aaaa(lp1183
+(lp1184
+(lp1185
+L72L
+aVrokysopp
+p1186
+aaaa(lp1187
+(lp1188
+(lp1189
+L72L
+aVjay dee
+p1190
+aaaa(lp1191
+(lp1192
+(lp1193
+L72L
+aVpharcyde
+p1194
+aaaa(lp1195
+(lp1196
+(lp1197
+L72L
+aVbebel gilberto
+p1198
+aaaa(lp1199
+(lp1200
+(lp1201
+L72L
+aVthe modernist
+p1202
+aaaa(lp1203
+(lp1204
+(lp1205
+L55L
+aVlcd soundsystem
+p1206
+aa(lp1207
+L60L
+ag1206
+aa(lp1208
+L72L
+ag1206
+aaaa(lp1209
+(lp1210
+(lp1211
+L72L
+aVtobias thomas
+p1212
+aaaa(lp1213
+(lp1214
+(lp1215
+L72L
+aVellen allien
+p1216
+aa(lp1217
+L35L
+ag1216
+aaaa(lp1218
+(lp1219
+(lp1220
+L72L
+aVdevin the dude
+p1221
+aa(lp1222
+L55L
+ag1221
+aaaa(lp1223
+(lp1224
+(lp1225
+L72L
+aVbookashade
+p1226
+aaaa(lp1227
+(lp1228
+(lp1229
+L72L
+aVthe field
+p1230
+aaaa(lp1231
+(lp1232
+(lp1233
+L72L
+aVradiohead
+p1234
+aaaa(lp1235
+(lp1236
+(lp1237
+L72L
+aVjunior senior
+p1238
+aaaa(lp1239
+(lp1240
+(lp1241
+L65L
+aVmartin moulton
+p1242
+aaaa(lp1243
+(lp1244
+(lp1245
+L64L
+aVjames mann
+p1246
+aaaa(lp1247
+(lp1248
+(lp1249
+L63L
+aVblack and white movies
+p1250
+aaaa(lp1251
+(lp1252
+(lp1253
+L63L
+aVwatts
+p1254
+aaaa(lp1255
+(lp1256
+(lp1257
+L63L
+aVe street cinema
+p1258
+aa(lp1259
+L57L
+ag1258
+aa(lp1260
+L13L
+ag1258
+aaaa(lp1261
+(lp1262
+(lp1263
+L63L
+aVblack cinema
+p1264
+aaaa(lp1265
+(lp1266
+(lp1267
+L63L
+aVkiller of sheep
+p1268
+aaaa(lp1269
+(lp1270
+(lp1271
+L63L
+aVcharles burnett
+p1272
+aaaa(lp1273
+(lp1274
+(lp1275
+L63L
+aVdinah washington
+p1276
+aaaa(lp1277
+(lp1278
+(lp1279
+L63L
+aVthis bitter earth
+p1280
+aaaa(lp1281
+(lp1282
+(lp1283
+L62L
+aVwoody allen
+p1284
+aa(lp1285
+L19L
+ag1284
+aaaa(lp1286
+(lp1287
+(lp1288
+L62L
+aVsam raimi
+p1289
+aaaa(lp1290
+(lp1291
+(lp1292
+L62L
+aVspiderman 3
+p1293
+aaaa(lp1294
+(lp1295
+(lp1296
+L62L
+aVannie hall
+p1297
+aaaa(lp1298
+(lp1299
+(lp1300
+L62L
+aVmanhattan
+p1301
+aaaa(lp1302
+(lp1303
+(lp1304
+L61L
+aVcomputer-assisted report
+p1305
+aaaa(lp1306
+(lp1307
+(lp1308
+L61L
+aVtalking points memo
+p1309
+aaaa(lp1310
+(lp1311
+(lp1312
+L61L
+aVtpm muckraker
+p1313
+aaaa(lp1314
+(lp1315
+(lp1316
+L58L
+aVconcert
+p1317
+aa(lp1318
+L59L
+ag1317
+aa(lp1319
+L60L
+ag1317
+aa(lp1320
+L12L
+ag1317
+aa(lp1321
+L56L
+ag1317
+aaaa(lp1322
+(lp1323
+(lp1324
+L60L
+aVreview
+p1325
+aaaa(lp1326
+(lp1327
+(lp1328
+L60L
+aV930 club
+p1329
+aa(lp1330
+L56L
+ag1329
+aaaa(lp1331
+(lp1332
+(lp1333
+L12L
+aVblack cat
+p1334
+aa(lp1335
+L59L
+ag1334
+aaaa(lp1336
+(lp1337
+(lp1338
+L59L
+aVconcert review
+p1339
+aa(lp1340
+L58L
+ag1339
+aa(lp1341
+L12L
+ag1339
+aa(lp1342
+L56L
+ag1339
+aaaa(lp1343
+(lp1344
+(lp1345
+L59L
+aVfelt
+p1346
+aaaa(lp1347
+(lp1348
+(lp1349
+L59L
+aVfield mice
+p1350
+aaaa(lp1351
+(lp1352
+(lp1353
+L59L
+aVgalaxie 500
+p1354
+aaaa(lp1355
+(lp1356
+(lp1357
+L59L
+aVrock
+p1358
+aa(lp1359
+L58L
+ag1358
+aaaa(lp1360
+(lp1361
+(lp1362
+L55L
+aVcompliation
+p1363
+aa(lp1364
+L66L
+ag1363
+aa(lp1365
+L33L
+ag1363
+aaaa(lp1366
+(lp1367
+(lp1368
+L58L
+aVarcade fire
+p1369
+aa(lp1370
+L55L
+ag1369
+aa(lp1371
+L54L
+ag1369
+aaaa(lp1372
+(lp1373
+(lp1374
+L58L
+aVthe national
+p1375
+aaaa(lp1376
+(lp1377
+(lp1378
+L58L
+aVdar constitution hall
+p1379
+aaaa(lp1380
+(lp1381
+(lp1382
+L57L
+aVmovie
+p1383
+aa(lp1384
+L19L
+ag1383
+aaaa(lp1385
+(lp1386
+(lp1387
+L57L
+aVthe tv set
+p1388
+aaaa(lp1389
+(lp1390
+(lp1391
+L57L
+aVDavid Duchovny
+p1392
+aaaa(lp1393
+(lp1394
+(lp1395
+L57L
+aVsatire
+p1396
+aaaa(lp1397
+(lp1398
+(lp1399
+L57L
+aVhollywood
+p1400
+aaaa(lp1401
+(lp1402
+(lp1403
+L57L
+aVSigourney Weaver
+p1404
+aaaa(lp1405
+(lp1406
+(lp1407
+L56L
+aVhot chip
+p1408
+aaaa(lp1409
+(lp1410
+(lp1411
+L56L
+aVkraftwerk
+p1412
+aaaa(lp1413
+(lp1414
+(lp1415
+L56L
+aVministry
+p1416
+aaaa(lp1417
+(lp1418
+(lp1419
+L56L
+aVkmfdm
+p1420
+aaaa(lp1421
+(lp1422
+(lp1423
+L55L
+aVsophie ellis bextor
+p1424
+aaaa(lp1425
+(lp1426
+(lp1427
+L55L
+aVsnoop dogg
+p1428
+aaaa(lp1429
+(lp1430
+(lp1431
+L55L
+aVandre 3000
+p1432
+aaaa(lp1433
+(lp1434
+(lp1435
+L55L
+aVthe ark
+p1436
+aaaa(lp1437
+(lp1438
+(lp1439
+L55L
+aVmadonna
+p1440
+aaaa(lp1441
+(lp1442
+(lp1443
+L18L
+aVmusic criticism
+p1444
+aa(lp1445
+L54L
+ag1444
+aa(lp1446
+L36L
+ag1444
+aaaa(lp1447
+(lp1448
+(lp1449
+L45L
+aVwidget
+p1450
+aa(lp1451
+L52L
+ag1450
+aa(lp1452
+L42L
+ag1450
+aa(lp1453
+L34L
+ag1450
+aa(lp1454
+L53L
+ag1450
+aaaa(lp1455
+(lp1456
+(lp1457
+L53L
+aVshelfari
+p1458
+aaaa(lp1459
+(lp1460
+(lp1461
+L52L
+aVlast.fm
+p1462
+aa(lp1463
+L42L
+ag1462
+aa(lp1464
+L114L
+ag1462
+aaaa(lp1465
+(lp1466
+(lp1467
+L51L
+aVlobbying
+p1468
+aaaa(lp1469
+(lp1470
+(lp1471
+L49L
+aVsql
+p1472
+aa(lp1473
+L112L
+ag1472
+aaaa(lp1474
+(lp1475
+(lp1476
+L49L
+aVmicrosoft sql
+p1477
+aaaa(lp1478
+(lp1479
+(lp1480
+L49L
+aVmssql
+p1481
+aaaa(lp1482
+(lp1483
+(lp1484
+L49L
+aVfederal working days
+p1485
+aaaa(lp1486
+(lp1487
+(lp1488
+L49L
+aVcalendar
+p1489
+aaaa(lp1490
+(lp1491
+(lp1492
+L49L
+aVdatabase
+p1493
+aa(lp1494
+L134L
+ag1493
+aaaa(lp1495
+(lp1496
+(lp1497
+L49L
+aVworking days
+p1498
+aaaa(lp1499
+(lp1500
+(lp1501
+L49L
+aVholidays
+p1502
+aaaa(lp1503
+(lp1504
+(lp1505
+L49L
+aVfederal holidays
+p1506
+aaaa(lp1507
+(lp1508
+(lp1509
+L45L
+aVdel.icio.us
+p1510
+aa(lp1511
+L34L
+ag1510
+aaaa(lp1512
+(lp1513
+(lp1514
+L43L
+aVgeorge w bush
+p1515
+aaaa(lp1516
+(lp1517
+(lp1518
+L43L
+aVkarl rove
+p1519
+aaaa(lp1520
+(lp1521
+(lp1522
+L22L
+aVwhite house
+p1523
+aa(lp1524
+L43L
+ag1523
+aaaa(lp1525
+(lp1526
+(lp1527
+L41L
+aVsports
+p1528
+aa(lp1529
+L39L
+ag1528
+aa(lp1530
+L17L
+ag1528
+aaaa(lp1531
+(lp1532
+(lp1533
+L41L
+aVchicago bears
+p1534
+aaaa(lp1535
+(lp1536
+(lp1537
+L41L
+aVnew orleans saints
+p1538
+aaaa(lp1539
+(lp1540
+(lp1541
+L41L
+aVnfl football
+p1542
+aaaa(lp1543
+(lp1544
+(lp1545
+L41L
+aVespn
+p1546
+aaaa(lp1547
+(lp1548
+(lp1549
+L40L
+aVsteve weinberg
+p1550
+aaaa(lp1551
+(lp1552
+(lp1553
+L40L
+aValarmism
+p1554
+aaaa(lp1555
+(lp1556
+(lp1557
+L40L
+aVgeorge orwell
+p1558
+aaaa(lp1559
+(lp1560
+(lp1561
+L40L
+aVkevin phillips
+p1562
+aaaa(lp1563
+(lp1564
+(lp1565
+L40L
+aVchris hedges
+p1566
+aaaa(lp1567
+(lp1568
+(lp1569
+L40L
+aVann coulter
+p1570
+aaaa(lp1571
+(lp1572
+(lp1573
+L40L
+aVjonah goldberg
+p1574
+aaaa(lp1575
+(lp1576
+(lp1577
+L40L
+aVramesh ponnuru
+p1578
+aaaa(lp1579
+(lp1580
+(lp1581
+L40L
+aVdinesh d'souza
+p1582
+aaaa(lp1583
+(lp1584
+(lp1585
+L40L
+aVright wing
+p1586
+aaaa(lp1587
+(lp1588
+(lp1589
+L40L
+aVthe republican party
+p1590
+aaaa(lp1591
+(lp1592
+(lp1593
+L40L
+aVliberals
+p1594
+aaaa(lp1595
+(lp1596
+(lp1597
+L39L
+aVmajor league baseball
+p1598
+aaaa(lp1599
+(lp1600
+(lp1601
+L39L
+aVoakland a's
+p1602
+aaaa(lp1603
+(lp1604
+(lp1605
+L39L
+aVbilly beane
+p1606
+aaaa(lp1607
+(lp1608
+(lp1609
+L39L
+aVmichael lewis
+p1610
+aaaa(lp1611
+(lp1612
+(lp1613
+L24L
+aVmap
+p1614
+aa(lp1615
+L37L
+ag1614
+aa(lp1616
+L108L
+ag1614
+aa(lp1617
+L120L
+ag1614
+aaaa(lp1618
+(lp1619
+(lp1620
+L37L
+aVmusic stores
+p1621
+aa(lp1622
+L36L
+ag1621
+aaaa(lp1623
+(lp1624
+(lp1625
+L37L
+aVwonkette
+p1626
+aaaa(lp1627
+(lp1628
+(lp1629
+L37L
+aVdcist
+p1630
+aaaa(lp1631
+(lp1632
+(lp1633
+L37L
+aVcd warehouse
+p1634
+aaaa(lp1635
+(lp1636
+(lp1637
+L37L
+aVgoogle maps
+p1638
+aa(lp1639
+L24L
+ag1638
+aaaa(lp1640
+(lp1641
+(lp1642
+L36L
+aVtower records
+p1643
+aaaa(lp1644
+(lp1645
+(lp1646
+L36L
+aVt-ski valley
+p1647
+aaaa(lp1648
+(lp1649
+(lp1650
+L36L
+aVthe misfits
+p1651
+aaaa(lp1652
+(lp1653
+(lp1654
+L36L
+aVthe diplomats
+p1655
+aaaa(lp1656
+(lp1657
+(lp1658
+L36L
+aVnouvelle vague
+p1659
+aa(lp1660
+L35L
+ag1659
+aaaa(lp1661
+(lp1662
+(lp1663
+L35L
+aV2006 music releases
+p1664
+aa(lp1665
+L33L
+ag1664
+aaaa(lp1666
+(lp1667
+(lp1668
+L35L
+aVthe similou
+p1669
+aaaa(lp1670
+(lp1671
+(lp1672
+L35L
+aVpipettes
+p1673
+aaaa(lp1674
+(lp1675
+(lp1676
+L35L
+aVbasement jaxx
+p1677
+aa(lp1678
+L23L
+ag1677
+aaaa(lp1679
+(lp1680
+(lp1681
+L35L
+aVhussies
+p1682
+aaaa(lp1683
+(lp1684
+(lp1685
+L35L
+aVmerit larson
+p1686
+aaaa(lp1687
+(lp1688
+(lp1689
+L35L
+aVnelly furtado
+p1690
+aaaa(lp1691
+(lp1692
+(lp1693
+L35L
+aVlilly allen
+p1694
+aaaa(lp1695
+(lp1696
+(lp1697
+L35L
+aVbertine zetlitz
+p1698
+aaaa(lp1699
+(lp1700
+(lp1701
+L35L
+aVt.i.
+p1702
+aaaa(lp1703
+(lp1704
+(lp1705
+L35L
+aVewan pearson
+p1706
+aaaa(lp1707
+(lp1708
+(lp1709
+L35L
+aVneko case
+p1710
+aaaa(lp1711
+(lp1712
+(lp1713
+L35L
+aVcharlotte gainsbourg
+p1714
+aaaa(lp1715
+(lp1716
+(lp1717
+L35L
+aVdrive-by truckers
+p1718
+aaaa(lp1719
+(lp1720
+(lp1721
+L35L
+aVmylo
+p1722
+aaaa(lp1723
+(lp1724
+(lp1725
+L35L
+aVrichardo villalobos
+p1726
+aaaa(lp1727
+(lp1728
+(lp1729
+L35L
+aVlove is all
+p1730
+aaaa(lp1731
+(lp1732
+(lp1733
+L33L
+aVphpoplife
+p1734
+aaaa(lp1735
+(lp1736
+(lp1737
+L32L
+aV1990s
+p1738
+aa(lp1739
+L23L
+ag1738
+aaaa(lp1740
+(lp1741
+(lp1742
+L32L
+aVpulp
+p1743
+aa(lp1744
+L23L
+ag1743
+aaaa(lp1745
+(lp1746
+(lp1747
+L32L
+aVcl smooth
+p1748
+aaaa(lp1749
+(lp1750
+(lp1751
+L32L
+aVelastica
+p1752
+aaaa(lp1753
+(lp1754
+(lp1755
+L32L
+aVnas
+p1756
+aaaa(lp1757
+(lp1758
+(lp1759
+L32L
+aVmy bloody valentine
+p1760
+aaaa(lp1761
+(lp1762
+(lp1763
+L32L
+aVbelle and sebastian
+p1764
+aaaa(lp1765
+(lp1766
+(lp1767
+L32L
+aVfugazi
+p1768
+aaaa(lp1769
+(lp1770
+(lp1771
+L32L
+aVsaint etienne
+p1772
+aa(lp1773
+L23L
+ag1772
+aaaa(lp1774
+(lp1775
+(lp1776
+L32L
+aVpet shop boys
+p1777
+aaaa(lp1778
+(lp1779
+(lp1780
+L32L
+aVwu-tang clan
+p1781
+aaaa(lp1782
+(lp1783
+(lp1784
+L32L
+aVprimal scream
+p1785
+aaaa(lp1786
+(lp1787
+(lp1788
+L32L
+aVblur
+p1789
+aaaa(lp1790
+(lp1791
+(lp1792
+L32L
+aVdaft punk
+p1793
+aa(lp1794
+L23L
+ag1793
+aaaa(lp1795
+(lp1796
+(lp1797
+L32L
+aVboards of canada
+p1798
+aaaa(lp1799
+(lp1800
+(lp1801
+L32L
+aVyo la tengo
+p1802
+aa(lp1803
+L23L
+ag1802
+aaaa(lp1804
+(lp1805
+(lp1806
+L32L
+aVjay-z
+p1807
+aa(lp1808
+L23L
+ag1807
+aaaa(lp1809
+(lp1810
+(lp1811
+L32L
+aVklf
+p1812
+aaaa(lp1813
+(lp1814
+(lp1815
+L32L
+aVpaul westerberg
+p1816
+aaaa(lp1817
+(lp1818
+(lp1819
+L29L
+aVmissouri
+p1820
+aaaa(lp1821
+(lp1822
+(lp1823
+L29L
+aV2006 elections
+p1824
+aaaa(lp1825
+(lp1826
+(lp1827
+L29L
+aVU.S. senate
+p1828
+aaaa(lp1829
+(lp1830
+(lp1831
+L29L
+aVclaire mccaskill
+p1832
+aaaa(lp1833
+(lp1834
+(lp1835
+L29L
+aVjim talent
+p1836
+aaaa(lp1837
+(lp1838
+(lp1839
+L29L
+aVelection results
+p1840
+aaaa(lp1841
+(lp1842
+(lp1843
+L28L
+aVhillary clinton
+p1844
+aa(lp1845
+L99L
+ag1844
+aa(lp1846
+L116L
+ag1844
+aaaa(lp1847
+(lp1848
+(lp1849
+L28L
+aVthe atlantic
+p1850
+aaaa(lp1851
+(lp1852
+(lp1853
+L28L
+aVjoshua green
+p1854
+aaaa(lp1855
+(lp1856
+(lp1857
+L27L
+aVallan bloom
+p1858
+aaaa(lp1859
+(lp1860
+(lp1861
+L27L
+aVfrank rich
+p1862
+aaaa(lp1863
+(lp1864
+(lp1865
+L27L
+aVgeorge packer
+p1866
+aaaa(lp1867
+(lp1868
+(lp1869
+L27L
+aVthomas ricks
+p1870
+aaaa(lp1871
+(lp1872
+(lp1873
+L27L
+aVstuart dybek
+p1874
+aaaa(lp1875
+(lp1876
+(lp1877
+L27L
+aVphilip gourevitch
+p1878
+aaaa(lp1879
+(lp1880
+(lp1881
+L27L
+aVaugust kleinzahler
+p1882
+aaaa(lp1883
+(lp1884
+(lp1885
+L27L
+aVa.j. liebling
+p1886
+aaaa(lp1887
+(lp1888
+(lp1889
+L27L
+aVterry teachout
+p1890
+aaaa(lp1891
+(lp1892
+(lp1893
+L27L
+aVh.l. mencken
+p1894
+aaaa(lp1895
+(lp1896
+(lp1897
+L27L
+aVanthony shadid
+p1898
+aaaa(lp1899
+(lp1900
+(lp1901
+L27L
+aVRajiv Chandrasekaren
+p1902
+aaaa(lp1903
+(lp1904
+(lp1905
+L27L
+aVbenjamin kunkel
+p1906
+aaaa(lp1907
+(lp1908
+(lp1909
+L26L
+aVstop smiling
+p1910
+aaaa(lp1911
+(lp1912
+(lp1913
+L26L
+aVanne nocenti
+p1914
+aaaa(lp1915
+(lp1916
+(lp1917
+L26L
+aVjames hughes
+p1918
+aaaa(lp1919
+(lp1920
+(lp1921
+L26L
+aVethics
+p1922
+aaaa(lp1923
+(lp1924
+(lp1925
+L26L
+aVlaura dawn
+p1926
+aaaa(lp1927
+(lp1928
+(lp1929
+L26L
+aVmoveon.org
+p1930
+aaaa(lp1931
+(lp1932
+(lp1933
+L25L
+aVcommuting
+p1934
+aaaa(lp1935
+(lp1936
+(lp1937
+L25L
+aVsafety
+p1938
+aa(lp1939
+L120L
+ag1938
+aaaa(lp1940
+(lp1941
+(lp1942
+L24L
+aVhappy hour
+p1943
+aaaa(lp1944
+(lp1945
+(lp1946
+L24L
+aValcohol
+p1947
+aaaa(lp1948
+(lp1949
+(lp1950
+L23L
+aV2000s
+p1951
+aaaa(lp1952
+(lp1953
+(lp1954
+L23L
+aVusher
+p1955
+aaaa(lp1956
+(lp1957
+(lp1958
+L23L
+aVnew radicals
+p1959
+aaaa(lp1960
+(lp1961
+(lp1962
+L23L
+aVstardust
+p1963
+aaaa(lp1964
+(lp1965
+(lp1966
+L23L
+aVmissy elliot
+p1967
+aaaa(lp1968
+(lp1969
+(lp1970
+L23L
+aVgirls aloud
+p1971
+aaaa(lp1972
+(lp1973
+(lp1974
+L23L
+aVgwen stefani
+p1975
+aaaa(lp1976
+(lp1977
+(lp1978
+L23L
+aVheiko voss
+p1979
+aaaa(lp1980
+(lp1981
+(lp1982
+L23L
+aVoutkast
+p1983
+aaaa(lp1984
+(lp1985
+(lp1986
+L22L
+aVwelfare
+p1987
+aaaa(lp1988
+(lp1989
+(lp1990
+L22L
+aVbill clinton
+p1991
+aaaa(lp1992
+(lp1993
+(lp1994
+L22L
+aVtom delay
+p1995
+aaaa(lp1996
+(lp1997
+(lp1998
+L21L
+aVsaudi arabia
+p1999
+aaaa(lp2000
+(lp2001
+(lp2002
+L21L
+aVlawrence of arabia
+p2003
+aaaa(lp2004
+(lp2005
+(lp2006
+L21L
+aVpeter o'toole
+p2007
+aaaa(lp2008
+(lp2009
+(lp2010
+L21L
+aVAFI center
+p2011
+aaaa(lp2012
+(lp2013
+(lp2014
+L21L
+aVsilver spring maryland
+p2015
+aaaa(lp2016
+(lp2017
+(lp2018
+L21L
+aVOmar Sharif
+p2019
+aaaa(lp2020
+(lp2021
+(lp2022
+L20L
+aVfrench food
+p2023
+aaaa(lp2024
+(lp2025
+(lp2026
+L20L
+aVBistro Francais
+p2027
+aaaa(lp2028
+(lp2029
+(lp2030
+L19L
+aVscoop
+p2031
+aaaa(lp2032
+(lp2033
+(lp2034
+L19L
+aVHugh Jackman
+p2035
+aaaa(lp2036
+(lp2037
+(lp2038
+L19L
+aVScarlett Johansson
+p2039
+aaaa(lp2040
+(lp2041
+(lp2042
+L18L
+aVthe killers
+p2043
+aaaa(lp2044
+(lp2045
+(lp2046
+L18L
+aVjacques lu cont
+p2047
+aaaa(lp2048
+(lp2049
+(lp2050
+L18L
+aVBrandon Flowers
+p2051
+aaaa(lp2052
+(lp2053
+(lp2054
+L17L
+aVnew york cosmos
+p2055
+aaaa(lp2056
+(lp2057
+(lp2058
+L17L
+aVsoccer
+p2059
+aaaa(lp2060
+(lp2061
+(lp2062
+L16L
+aVanimation
+p2063
+aaaa(lp2064
+(lp2065
+(lp2066
+L16L
+aVrotoscoping
+p2067
+aaaa(lp2068
+(lp2069
+(lp2070
+L16L
+aVrichard linklater
+p2071
+aaaa(lp2072
+(lp2073
+(lp2074
+L16L
+aVa scanner darkly
+p2075
+aaaa(lp2076
+(lp2077
+(lp2078
+L16L
+aVkeanu reeves
+p2079
+aaaa(lp2080
+(lp2081
+(lp2082
+L16L
+aVrobert downey jr
+p2083
+aaaa(lp2084
+(lp2085
+(lp2086
+L13L
+aVthe war tapes
+p2087
+aaaa(lp2088
+(lp2089
+(lp2090
+L12L
+aVjose gonzales
+p2091
+aaaa(lp2092
+(lp2093
+(lp2094
+L10L
+aVdel tha funkee homosapien
+p2095
+aa(lp2096
+L126L
+ag2095
+aaaa(lp2097
+(lp2098
+(lp2099
+L10L
+aVsound opinions
+p2100
+aaaa(lp2101
+(lp2102
+(lp2103
+L10L
+aVradio
+p2104
+aaaa(lp2105
+(lp2106
+(lp2107
+L10L
+aVdr bombay
+p2108
+aaaa(lp2109
+(lp2110
+(lp2111
+L10L
+aVsummer
+p2112
+aaaa(lp2113
+(lp2114
+(lp2115
+L7L
+aVhaditha
+p2116
+aa(lp2117
+L8L
+ag2116
+aaaa(lp2118
+(lp2119
+(lp2120
+L8L
+aVcrime
+p2121
+aa(lp2122
+L7L
+ag2121
+aaaa(lp2123
+(lp2124
+(lp2125
+L8L
+aVTaher Thabet
+p2126
+aa(lp2127
+L7L
+ag2126
+aaaa(lp2128
+(lp2129
+(lp2130
+L8L
+aVIslam
+p2131
+aaaa(lp2132
+(lp2133
+(lp2134
+L8L
+aVTime magazine
+p2135
+aa(lp2136
+L7L
+ag2135
+aaaa(lp2137
+(lp2138
+(lp2139
+L100L
+aVtext
+p2140
+aa(lp2141
+L95L
+ag2140
+aaaa(lp2142
+(lp2143
+(lp2144
+L95L
+aVcount
+p2145
+aaaa(lp2146
+(lp2147
+(lp2148
+L100L
+aVbible
+p2149
+aaaa(lp2150
+(lp2151
+(lp2152
+L100L
+aVfour-letter words
+p2153
+aaaa(lp2154
+(lp2155
+(lp2156
+L93L
+aVopen
+p2157
+aa(lp2158
+L95L
+ag2157
+aa(lp2159
+L100L
+ag2157
+aaaa(lp2160
+(lp2161
+(lp2162
+L93L
+aVread
+p2163
+aa(lp2164
+L95L
+ag2163
+aa(lp2165
+L100L
+ag2163
+aa(lp2166
+L106L
+ag2163
+aaaa(lp2167
+(lp2168
+(lp2169
+L95L
+aVsearch
+p2170
+aa(lp2171
+L93L
+ag2170
+aa(lp2172
+L100L
+ag2170
+aaaa(lp2173
+(lp2174
+(lp2175
+L93L
+aVprint
+p2176
+aa(lp2177
+L95L
+ag2176
+aa(lp2178
+L100L
+ag2176
+aa(lp2179
+L109L
+ag2176
+aaaa(lp2180
+(lp2181
+(lp2182
+L93L
+aVloop
+p2183
+aa(lp2184
+L100L
+ag2183
+aa(lp2185
+L95L
+ag2183
+aaaa(lp2186
+(lp2187
+(lp2188
+L93L
+aVmatch
+p2189
+aa(lp2190
+L95L
+ag2189
+aa(lp2191
+L100L
+ag2189
+aaaa(lp2192
+(lp2193
+(lp2194
+L103L
+aVbash
+p2195
+aa(lp2196
+L128L
+ag2195
+aaaa(lp2197
+(lp2198
+(lp2199
+L103L
+aVcommon commands
+p2200
+aaaa(lp2201
+(lp2202
+(lp2203
+L103L
+aVhistory meme
+p2204
+aaaa(lp2205
+(lp2206
+(lp2207
+L103L
+aVMeme
+p2208
+aaaa(lp2209
+(lp2210
+(lp2211
+L103L
+aVawk
+p2212
+aaaa(lp2213
+(lp2214
+(lp2215
+L103L
+aVUbuntu
+p2216
+aa(lp2217
+L114L
+ag2216
+aaaa(lp2218
+(lp2219
+(lp2220
+L103L
+aVubuntu linux
+p2221
+aaaa(lp2222
+(lp2223
+(lp2224
+L103L
+aVvim
+p2225
+aaaa(lp2226
+(lp2227
+(lp2228
+L105L
+aVjohnny boy
+p2229
+aaaa(lp2230
+(lp2231
+(lp2232
+L105L
+aVmean streets
+p2233
+aaaa(lp2234
+(lp2235
+(lp2236
+L105L
+aVbe my baby
+p2237
+aaaa(lp2238
+(lp2239
+(lp2240
+L105L
+aVthe ronettes
+p2241
+aaaa(lp2242
+(lp2243
+aa(lp2244
+(lp2245
+(lp2246
+L105L
+aVmartin scorsese
+p2247
+aaaa(lp2248
+(lp2249
+(lp2250
+L105L
+aVHarvey Keitel
+p2251
+aaaa(lp2252
+(lp2253
+(lp2254
+L105L
+aVyou are the generation that bought more shoes and you g
+p2255
+aaaa(lp2256
+(lp2257
+(lp2258
+L105L
+aVRobert DeNiro
+p2259
+aaaa(lp2260
+(lp2261
+(lp2262
+L106L
+aVnews.palewire.com
+p2263
+aaaa(lp2264
+(lp2265
+(lp2266
+L106L
+aVrss
+p2267
+aa(lp2268
+L114L
+ag2267
+aa(lp2269
+L129L
+ag2267
+aaaa(lp2270
+(lp2271
+(lp2272
+L106L
+aVfeeds
+p2273
+aaaa(lp2274
+(lp2275
+(lp2276
+L106L
+aVsyndication
+p2277
+aaaa(lp2278
+(lp2279
+(lp2280
+L106L
+aVsam ruby
+p2281
+aaaa(lp2282
+(lp2283
+(lp2284
+L106L
+aVwizz
+p2285
+aaaa(lp2286
+(lp2287
+(lp2288
+L106L
+aVnews media
+p2289
+aaaa(lp2290
+(lp2291
+(lp2292
+L106L
+aVpundits
+p2293
+aaaa(lp2294
+(lp2295
+(lp2296
+L106L
+aVnewspapers
+p2297
+aa(lp2298
+L115L
+ag2297
+aa(lp2299
+L121L
+ag2297
+aa(lp2300
+L147L
+ag2297
+aaaa(lp2301
+(lp2302
+(lp2303
+L107L
+aVscrape
+p2304
+aaaa(lp2305
+(lp2306
+(lp2307
+L107L
+aVweb scrape
+p2308
+aaaa(lp2309
+(lp2310
+(lp2311
+L107L
+aVweb scraping
+p2312
+aaaa(lp2313
+(lp2314
+(lp2315
+L107L
+aVscreen scraping
+p2316
+aaaa(lp2317
+(lp2318
+(lp2319
+L107L
+aVmechanize
+p2320
+aaaa(lp2321
+(lp2322
+(lp2323
+L107L
+aVbeautiful soup
+p2324
+aaaa(lp2325
+(lp2326
+(lp2327
+L107L
+aVtable
+p2328
+aaaa(lp2329
+(lp2330
+(lp2331
+L108L
+aVleatherheads
+p2332
+aaaa(lp2333
+(lp2334
+(lp2335
+L108L
+aVexpelled
+p2336
+aaaa(lp2337
+(lp2338
+(lp2339
+L108L
+aVbox office
+p2340
+aaaa(lp2341
+(lp2342
+(lp2343
+L108L
+aVdocumentary
+p2344
+aaaa(lp2345
+(lp2346
+(lp2347
+L108L
+aVscience
+p2348
+aaaa(lp2349
+(lp2350
+(lp2351
+L108L
+aVcreationism
+p2352
+aaaa(lp2353
+(lp2354
+(lp2355
+L108L
+aVintelligent design
+p2356
+aaaa(lp2357
+(lp2358
+(lp2359
+L108L
+aVscatterplot
+p2360
+aaaa(lp2361
+(lp2362
+(lp2363
+L109L
+aVformatting
+p2364
+aaaa(lp2365
+(lp2366
+(lp2367
+L109L
+aVdate
+p2368
+aaaa(lp2369
+(lp2370
+(lp2371
+L109L
+aVformat
+p2372
+aaaa(lp2373
+(lp2374
+(lp2375
+L109L
+aVdatetime
+p2376
+aaaa(lp2377
+(lp2378
+(lp2379
+L109L
+aVtimedelta
+p2380
+aaaa(lp2381
+(lp2382
+(lp2383
+L109L
+aVsnippet
+p2384
+aaaa(lp2385
+(lp2386
+(lp2387
+L109L
+aVstrftime
+p2388
+aaaa(lp2389
+(lp2390
+(lp2391
+L109L
+aVdatediff
+p2392
+aaaa(lp2393
+(lp2394
+(lp2395
+L110L
+aVmany eyes
+p2396
+aa(lp2397
+L113L
+ag2396
+aa(lp2398
+L96L
+ag2396
+aaaa(lp2399
+(lp2400
+(lp2401
+L110L
+aVreal estate
+p2402
+aaaa(lp2403
+(lp2404
+(lp2405
+L110L
+aVcalifornia
+p2406
+aa(lp2407
+L122L
+ag2406
+aaaa(lp2408
+(lp2409
+(lp2410
+L110L
+aVcaspio
+p2411
+aa(lp2412
+L134L
+ag2411
+aaaa(lp2413
+(lp2414
+(lp2415
+L110L
+aVdata-driven web applications
+p2416
+aaaa(lp2417
+(lp2418
+(lp2419
+L110L
+aVincome
+p2420
+aaaa(lp2421
+(lp2422
+(lp2423
+L111L
+aVUranus J. "Bob" Appel
+p2424
+aaaa(lp2425
+(lp2426
+(lp2427
+L107L
+aVpython scraping tutorial
+p2428
+aaaa(lp2429
+(lp2430
+(lp2431
+L113L
+aVbill moyers
+p2432
+aaaa(lp2433
+(lp2434
+(lp2435
+L113L
+aVinterview
+p2436
+aaaa(lp2437
+(lp2438
+(lp2439
+L113L
+aVsermon
+p2440
+aaaa(lp2441
+(lp2442
+(lp2443
+L113L
+aV911
+p2444
+aaaa(lp2445
+(lp2446
+(lp2447
+L113L
+aVseptember 11
+p2448
+aaaa(lp2449
+(lp2450
+(lp2451
+L113L
+aVthe day of jerusalem's fall
+p2452
+aaaa(lp2453
+(lp2454
+(lp2455
+L113L
+aVtranscript
+p2456
+aaaa(lp2457
+(lp2458
+(lp2459
+L95L
+aVpython multiple files
+p2460
+aaaa(lp2461
+(lp2462
+(lp2463
+L43L
+aVreading list
+p2464
+aaaa(lp2465
+(lp2466
+(lp2467
+L43L
+aVcontest
+p2468
+aaaa(lp2469
+(lp2470
+(lp2471
+L43L
+aVwhat does george bush read
+p2472
+aaaa(lp2473
+(lp2474
+(lp2475
+L43L
+aVpresident bush
+p2476
+aaaa(lp2477
+(lp2478
+(lp2479
+L114L
+aVtwitter
+p2480
+aa(lp2481
+L126L
+ag2480
+aaaa(lp2482
+(lp2483
+(lp2484
+L112L
+aVmysql
+p2485
+aaaa(lp2486
+(lp2487
+(lp2488
+L112L
+aVmysqldb
+p2489
+aaaa(lp2490
+(lp2491
+(lp2492
+L112L
+aVmysql for python
+p2493
+aaaa(lp2494
+(lp2495
+(lp2496
+L112L
+aVprint sql results
+p2497
+aaaa(lp2498
+(lp2499
+(lp2500
+L114L
+aVpost last.fm on twitter
+p2501
+aaaa(lp2502
+(lp2503
+(lp2504
+L114L
+aVshell
+p2505
+aaaa(lp2506
+(lp2507
+(lp2508
+L115L
+aVnew york times
+p2509
+aa(lp2510
+L131L
+ag2509
+aaaa(lp2511
+(lp2512
+(lp2513
+L115L
+aVslate
+p2514
+aaaa(lp2515
+(lp2516
+(lp2517
+L115L
+aVwashington post
+p2518
+aaaa(lp2519
+(lp2520
+(lp2521
+L116L
+aVindiana
+p2522
+aaaa(lp2523
+(lp2524
+(lp2525
+L116L
+aVgary
+p2526
+aaaa(lp2527
+(lp2528
+(lp2529
+L116L
+aVgary indiana
+p2530
+aaaa(lp2531
+(lp2532
+(lp2533
+L116L
+aVobama
+p2534
+aaaa(lp2535
+(lp2536
+(lp2537
+L116L
+aVclinton
+p2538
+aaaa(lp2539
+(lp2540
+(lp2541
+L116L
+aV2008election
+p2542
+aaaa(lp2543
+(lp2544
+(lp2545
+L116L
+aVprimary
+p2546
+aaaa(lp2547
+(lp2548
+(lp2549
+L116L
+aVvote
+p2550
+aaaa(lp2551
+(lp2552
+(lp2553
+L116L
+aVmusical
+p2554
+aaaa(lp2555
+(lp2556
+(lp2557
+L116L
+aVmeredith wilson
+p2558
+aaaa(lp2559
+(lp2560
+(lp2561
+L116L
+aVthe music man
+p2562
+aaaa(lp2563
+(lp2564
+(lp2565
+L116L
+aVopie
+p2566
+aaaa(lp2567
+(lp2568
+(lp2569
+L116L
+aVlake county indiana
+p2570
+aaaa(lp2571
+(lp2572
+(lp2573
+L116L
+aVindiana primary results
+p2574
+aaaa(lp2575
+(lp2576
+(lp2577
+L116L
+aVindiana election
+p2578
+aaaa(lp2579
+(lp2580
+(lp2581
+L116L
+aVobama indiana
+p2582
+aaaa(lp2583
+(lp2584
+(lp2585
+L49L
+aVworking days sql
+p2586
+aaaa(lp2587
+(lp2588
+(lp2589
+L49L
+aVdetermine holiday in sql
+p2590
+aaaa(lp2591
+(lp2592
+(lp2593
+L112L
+aVpython query mysql database
+p2594
+aaaa(lp2595
+(lp2596
+(lp2597
+L112L
+aVmysqldb execute
+p2598
+aaaa(lp2599
+(lp2600
+(lp2601
+L112L
+aVhow to connect to a mysql database in python
+p2602
+aaaa(lp2603
+(lp2604
+(lp2605
+L112L
+aVpython mysql connection
+p2606
+aaaa(lp2607
+(lp2608
+(lp2609
+L109L
+aVpython future date
+p2610
+aaaa(lp2611
+(lp2612
+(lp2613
+L107L
+aVpython beautifulsoup table parse
+p2614
+aaaa(lp2615
+(lp2616
+(lp2617
+L107L
+aVhow to install module mechanize in python
+p2618
+aaaa(lp2619
+(lp2620
+(lp2621
+L107L
+aVpython extract html table
+p2622
+aaaa(lp2623
+(lp2624
+(lp2625
+L95L
+aVpython copy multiple files
+p2626
+aaaa(lp2627
+(lp2628
+(lp2629
+L95L
+aVopen files from directory in python
+p2630
+aaaa(lp2631
+(lp2632
+(lp2633
+L95L
+aVopening multi files python
+p2634
+aaaa(lp2635
+(lp2636
+(lp2637
+L95L
+aVmultiple open files python
+p2638
+aaaa(lp2639
+(lp2640
+(lp2641
+L49L
+aVcreating sql table with weekends and holidays
+p2642
+aaaa(lp2643
+(lp2644
+(lp2645
+L119L
+aVbill o'reilly
+p2646
+aaaa(lp2647
+(lp2648
+(lp2649
+L118L
+aVcedar rapids
+p2650
+aaaa(lp2651
+(lp2652
+(lp2653
+L118L
+aVt-shirt
+p2654
+aaaa(lp2655
+(lp2656
+(lp2657
+L118L
+aVmilton glaser
+p2658
+aaaa(lp2659
+(lp2660
+(lp2661
+L118L
+aVi heart new york
+p2662
+aaaa(lp2663
+(lp2664
+(lp2665
+L118L
+aVlogo
+p2666
+aaaa(lp2667
+(lp2668
+(lp2669
+L118L
+aVcedar rapids logo
+p2670
+aaaa(lp2671
+(lp2672
+(lp2673
+L118L
+aVcedar rapids t-shirt
+p2674
+aaaa(lp2675
+(lp2676
+(lp2677
+L119L
+aVbill
+p2678
+aaaa(lp2679
+(lp2680
+(lp2681
+L119L
+aVoreilly
+p2682
+aaaa(lp2683
+(lp2684
+(lp2685
+L119L
+aVringtone
+p2686
+aaaa(lp2687
+(lp2688
+(lp2689
+L119L
+aVdo it live
+p2690
+aaaa(lp2691
+(lp2692
+(lp2693
+L119L
+aVinside edition
+p2694
+aaaa(lp2695
+(lp2696
+(lp2697
+L119L
+aVrant
+p2698
+aaaa(lp2699
+(lp2700
+(lp2701
+L119L
+aVsting
+p2702
+aaaa(lp2703
+(lp2704
+(lp2705
+L119L
+aVyoutube
+p2706
+aa(lp2707
+L127L
+ag2706
+aaaa(lp2708
+(lp2709
+(lp2710
+L119L
+aVbill o'reilly flips out
+p2711
+aaaa(lp2712
+(lp2713
+(lp2714
+L119L
+aViphone
+p2715
+aa(lp2716
+L129L
+ag2715
+aaaa(lp2717
+(lp2718
+(lp2719
+L119L
+aVcell phone
+p2720
+aaaa(lp2721
+(lp2722
+(lp2723
+L119L
+aVfuck it
+p2724
+aaaa(lp2725
+(lp2726
+(lp2727
+L119L
+aVwe'll do it live
+p2728
+aaaa(lp2729
+(lp2730
+(lp2731
+L119L
+aVrecording
+p2732
+aaaa(lp2733
+(lp2734
+(lp2735
+L119L
+aVremix
+p2736
+aaaa(lp2737
+(lp2738
+(lp2739
+L119L
+aVfox news
+p2740
+aaaa(lp2741
+(lp2742
+(lp2743
+L119L
+aVcable news
+p2744
+aaaa(lp2745
+(lp2746
+(lp2747
+L119L
+aVmp3
+p2748
+aaaa(lp2749
+(lp2750
+(lp2751
+L119L
+aVMotorola
+p2752
+aaaa(lp2753
+(lp2754
+(lp2755
+L120L
+aVUnited States
+p2756
+aaaa(lp2757
+(lp2758
+(lp2759
+L120L
+aVGoogle
+p2760
+aa(lp2761
+L147L
+ag2760
+aaaa(lp2762
+(lp2763
+(lp2764
+L120L
+aVRaoul Renoa
+p2765
+aaaa(lp2766
+(lp2767
+(lp2768
+L120L
+aVweb package
+p2769
+aaaa(lp2770
+(lp2771
+(lp2772
+L120L
+aVLos Angeles County
+p2773
+aaaa(lp2774
+(lp2775
+(lp2776
+L120L
+aVphoto enforcement systems
+p2777
+aaaa(lp2778
+(lp2779
+(lp2780
+L120L
+aVGPS
+p2781
+aaaa(lp2782
+(lp2783
+(lp2784
+L120L
+aVTomTom
+p2785
+aaaa(lp2786
+(lp2787
+(lp2788
+L120L
+aVGarmin
+p2789
+aaaa(lp2790
+(lp2791
+(lp2792
+L120L
+aVFlash
+p2793
+aaaa(lp2794
+(lp2795
+(lp2796
+L120L
+aVred light cameras
+p2797
+aaaa(lp2798
+(lp2799
+(lp2800
+L120L
+aVred light cams
+p2801
+aaaa(lp2802
+(lp2803
+(lp2804
+L120L
+aVredlight cameras
+p2805
+aaaa(lp2806
+(lp2807
+(lp2808
+L120L
+aVredlight cams
+p2809
+aaaa(lp2810
+(lp2811
+(lp2812
+L120L
+aVdownload
+p2813
+aa(lp2814
+L128L
+ag2813
+aaaa(lp2815
+(lp2816
+(lp2817
+L120L
+aVgeocode
+p2818
+aaaa(lp2819
+(lp2820
+(lp2821
+L120L
+aVred lights
+p2822
+aaaa(lp2823
+(lp2824
+(lp2825
+L120L
+aVredlights
+p2826
+aaaa(lp2827
+(lp2828
+(lp2829
+L120L
+aVLA
+p2830
+aaaa(lp2831
+(lp2832
+(lp2833
+L120L
+aVgoogle map
+p2834
+aaaa(lp2835
+(lp2836
+(lp2837
+L120L
+aVRich Connell
+p2838
+aaaa(lp2839
+(lp2840
+(lp2841
+L120L
+aVlatimes
+p2842
+aa(lp2843
+L130L
+ag2842
+aa(lp2844
+L134L
+ag2842
+aaaa(lp2845
+(lp2846
+(lp2847
+L120L
+aVl a times
+p2848
+aaaa(lp2849
+(lp2850
+(lp2851
+L122L
+aVSan Diego
+p2852
+aaaa(lp2853
+(lp2854
+(lp2855
+L121L
+aVfilter
+p2856
+aaaa(lp2857
+(lp2858
+(lp2859
+L121L
+aVwebsense
+p2860
+aaaa(lp2861
+(lp2862
+(lp2863
+L121L
+aVsex
+p2864
+aa(lp2865
+L131L
+ag2864
+aaaa(lp2866
+(lp2867
+(lp2868
+L121L
+aVsexy
+p2869
+aaaa(lp2870
+(lp2871
+(lp2872
+L121L
+aVbanned
+p2873
+aaaa(lp2874
+(lp2875
+(lp2876
+L122L
+aVJason J. Buzzard
+p2877
+aaaa(lp2878
+(lp2879
+(lp2880
+L122L
+aVAfghanistan
+p2881
+aaaa(lp2882
+(lp2883
+(lp2884
+L122L
+aVRafael Peralta
+p2885
+aaaa(lp2886
+(lp2887
+(lp2888
+L122L
+aVSouth Korea
+p2889
+aaaa(lp2890
+(lp2891
+(lp2892
+L122L
+aVMemorial Day
+p2893
+aaaa(lp2894
+(lp2895
+(lp2896
+L122L
+aVFallujah
+p2897
+aaaa(lp2898
+(lp2899
+(lp2900
+L122L
+aVRiverside Cemetery
+p2901
+aaaa(lp2902
+(lp2903
+(lp2904
+L122L
+aVChristopher Hitchens
+p2905
+aaaa(lp2906
+(lp2907
+(lp2908
+L122L
+aVChristopher D. Leon
+p2909
+aaaa(lp2910
+(lp2911
+(lp2912
+L122L
+aVMark J. Daily
+p2913
+aaaa(lp2914
+(lp2915
+(lp2916
+L122L
+aVTeresa Watanabe
+p2917
+aaaa(lp2918
+(lp2919
+(lp2920
+L122L
+aVWeb programming tools
+p2921
+aaaa(lp2922
+(lp2923
+(lp2924
+L122L
+aVlatimes.com
+p2925
+aaaa(lp2926
+(lp2927
+(lp2928
+L122L
+aVdjango
+p2929
+aa(lp2930
+L129L
+ag2929
+aa(lp2931
+L147L
+ag2929
+aaaa(lp2932
+(lp2933
+(lp2934
+L122L
+aVnicar
+p2935
+aaaa(lp2936
+(lp2937
+(lp2938
+L122L
+aVadrian holovaty
+p2939
+aa(lp2940
+L147L
+ag2939
+aaaa(lp2941
+(lp2942
+(lp2943
+L122L
+aVnewspaper
+p2944
+aa(lp2945
+L130L
+ag2944
+aaaa(lp2946
+(lp2947
+(lp2948
+L122L
+aVcasualty
+p2949
+aaaa(lp2950
+(lp2951
+(lp2952
+L122L
+aVwar
+p2953
+aaaa(lp2954
+(lp2955
+(lp2956
+L122L
+aVcomments
+p2957
+aaaa(lp2958
+(lp2959
+(lp2960
+L125L
+aVst. vibiana's
+p2961
+aaaa(lp2962
+(lp2963
+(lp2964
+L125L
+aVcathedral
+p2965
+aaaa(lp2966
+(lp2967
+(lp2968
+L125L
+aVarchdiocese
+p2969
+aaaa(lp2970
+(lp2971
+(lp2972
+L125L
+aVcaltrans
+p2973
+aaaa(lp2974
+(lp2975
+(lp2976
+L125L
+aVPhotography
+p2977
+aa(lp2978
+L132L
+ag2977
+aaaa(lp2979
+(lp2980
+(lp2981
+L125L
+aVmy photos
+p2982
+aa(lp2983
+L87L
+ag2982
+aaaa(lp2984
+(lp2985
+(lp2986
+L125L
+aVpanorama
+p2987
+aaaa(lp2988
+(lp2989
+(lp2990
+L125L
+aVhugin
+p2991
+aaaa(lp2992
+(lp2993
+(lp2994
+L87L
+aVJosh Taylor
+p2995
+aaaa(lp2996
+(lp2997
+(lp2998
+L126L
+aVStaind
+p2999
+aaaa(lp3000
+(lp3001
+(lp3002
+L126L
+aVDel
+p3003
+aaaa(lp3004
+(lp3005
+(lp3006
+L126L
+aVLyricsWiki
+p3007
+aaaa(lp3008
+(lp3009
+(lp3010
+L126L
+aVLyricWiki
+p3011
+aaaa(lp3012
+(lp3013
+(lp3014
+L126L
+aVlyrics
+p3015
+aaaa(lp3016
+(lp3017
+(lp3018
+L126L
+aVi wish my brother george was here
+p3019
+aaaa(lp3020
+(lp3021
+(lp3022
+L126L
+aVgithub
+p3023
+aaaa(lp3024
+(lp3025
+(lp3026
+L126L
+aVPop Music
+p3027
+aa(lp3028
+L127L
+ag3027
+aaaa(lp3029
+(lp3030
+(lp3031
+L126L
+aVrap
+p3032
+aaaa(lp3033
+(lp3034
+(lp3035
+L126L
+aVSOAP
+p3036
+aaaa(lp3037
+(lp3038
+(lp3039
+L126L
+aVAPI
+p3040
+aa(lp3041
+L147L
+ag3040
+aaaa(lp3042
+(lp3043
+(lp3044
+L126L
+aVmistadobalina
+p3045
+aaaa(lp3046
+(lp3047
+(lp3048
+L126L
+aV@hemingway
+p3049
+aaaa(lp3050
+(lp3051
+(lp3052
+L127L
+aVBo Diddley
+p3053
+aaaa(lp3054
+(lp3055
+(lp3056
+L127L
+aVRolling Stones
+p3057
+aaaa(lp3058
+(lp3059
+(lp3060
+L127L
+aVBo Diddley Beat
+p3061
+aaaa(lp3062
+(lp3063
+(lp3064
+L127L
+aVBruce Springsteen
+p3065
+aaaa(lp3066
+(lp3067
+(lp3068
+L127L
+aVThe Who
+p3069
+aaaa(lp3070
+(lp3071
+(lp3072
+L127L
+aVShe's The One
+p3073
+aaaa(lp3074
+(lp3075
+(lp3076
+L127L
+aVMagic Bus
+p3077
+aaaa(lp3078
+(lp3079
+(lp3080
+L127L
+aVDon't Fade Away
+p3081
+aaaa(lp3082
+(lp3083
+(lp3084
+L127L
+aVBuddy Holly
+p3085
+aaaa(lp3086
+(lp3087
+(lp3088
+L127L
+aVBlues
+p3089
+aaaa(lp3090
+(lp3091
+(lp3092
+L127L
+aVU2
+p3093
+aaaa(lp3094
+(lp3095
+(lp3096
+L127L
+aVDesire
+p3097
+aaaa(lp3098
+(lp3099
+(lp3100
+L127L
+aVRattle and Hum
+p3101
+aaaa(lp3102
+(lp3103
+(lp3104
+L128L
+aVMac
+p3105
+aaaa(lp3106
+(lp3107
+(lp3108
+L128L
+aVGoogle Desktop Search
+p3109
+aaaa(lp3110
+(lp3111
+(lp3112
+L128L
+aVWindows
+p3113
+aaaa(lp3114
+(lp3115
+(lp3116
+L128L
+aVTerminal
+p3117
+aaaa(lp3118
+(lp3119
+(lp3120
+L128L
+aVCommand line
+p3121
+aaaa(lp3122
+(lp3123
+(lp3124
+L128L
+aVwget
+p3125
+aaaa(lp3126
+(lp3127
+(lp3128
+L128L
+aVcurl
+p3129
+aaaa(lp3130
+(lp3131
+(lp3132
+L128L
+aVmirror
+p3133
+aaaa(lp3134
+(lp3135
+(lp3136
+L128L
+aVweb site
+p3137
+aaaa(lp3138
+(lp3139
+(lp3140
+L128L
+aVmirror a web site
+p3141
+aaaa(lp3142
+(lp3143
+(lp3144
+L128L
+aVmirror a site
+p3145
+aaaa(lp3146
+(lp3147
+(lp3148
+L128L
+aVfink
+p3149
+aaaa(lp3150
+(lp3151
+(lp3152
+L128L
+aVXCode
+p3153
+aaaa(lp3154
+(lp3155
+(lp3156
+L129L
+aVHTML
+p3157
+aa(lp3158
+L134L
+ag3157
+aaaa(lp3159
+(lp3160
+(lp3161
+L129L
+aVtelecommunications policy
+p3162
+aaaa(lp3163
+(lp3164
+(lp3165
+L129L
+aVtickertube
+p3166
+aaaa(lp3167
+(lp3168
+(lp3169
+L129L
+aVamazon
+p3170
+aa(lp3171
+L130L
+ag3170
+aaaa(lp3172
+(lp3173
+(lp3174
+L129L
+aVec2
+p3175
+aaaa(lp3176
+(lp3177
+(lp3178
+L129L
+aVamazon web services
+p3179
+aaaa(lp3180
+(lp3181
+(lp3182
+L129L
+aVapache
+p3183
+aaaa(lp3184
+(lp3185
+(lp3186
+L129L
+aVfeedjack
+p3187
+aaaa(lp3188
+(lp3189
+(lp3190
+L129L
+aVyui
+p3191
+aaaa(lp3192
+(lp3193
+(lp3194
+L129L
+aVfeed aggregator
+p3195
+aaaa(lp3196
+(lp3197
+(lp3198
+L129L
+aVtech
+p3199
+aaaa(lp3200
+(lp3201
+(lp3202
+L129L
+aVpolicy
+p3203
+aaaa(lp3204
+(lp3205
+(lp3206
+L129L
+aVfcc
+p3207
+aaaa(lp3208
+(lp3209
+(lp3210
+L129L
+aVnews
+p3211
+aa(lp3212
+L147L
+ag3211
+aaaa(lp3213
+(lp3214
+(lp3215
+L129L
+aVcss
+p3216
+aaaa(lp3217
+(lp3218
+(lp3219
+L129L
+aVblackberry
+p3220
+aaaa(lp3221
+(lp3222
+(lp3223
+L130L
+aVkindle
+p3224
+aaaa(lp3225
+(lp3226
+(lp3227
+L130L
+aVsubscription
+p3228
+aaaa(lp3229
+(lp3230
+(lp3231
+L131L
+aVnytimes
+p3232
+aaaa(lp3233
+(lp3234
+(lp3235
+L131L
+aVonline ads
+p3236
+aaaa(lp3237
+(lp3238
+(lp3239
+L131L
+aVeden fantasies
+p3240
+aaaa(lp3241
+(lp3242
+(lp3243
+L131L
+aVsex ads
+p3244
+aaaa(lp3245
+(lp3246
+(lp3247
+L131L
+aVanal massage for lovers
+p3248
+aaaa(lp3249
+(lp3250
+(lp3251
+L131L
+aVblow him away
+p3252
+aaaa(lp3253
+(lp3254
+(lp3255
+L131L
+aVerotica
+p3256
+aaaa(lp3257
+(lp3258
+(lp3259
+L131L
+aVpornography
+p3260
+aaaa(lp3261
+(lp3262
+(lp3263
+L131L
+aVsexual instruction manuals
+p3264
+aaaa(lp3265
+(lp3266
+(lp3267
+L132L
+aVgasoline
+p3268
+aaaa(lp3269
+(lp3270
+(lp3271
+L132L
+aVsnake
+p3272
+aaaa(lp3273
+(lp3274
+(lp3275
+L132L
+aVbike courier
+p3276
+aaaa(lp3277
+(lp3278
+(lp3279
+L133L
+aVJesse Helms
+p3280
+aaaa(lp3281
+(lp3282
+(lp3283
+L133L
+aVNorth Carolina
+p3284
+aaaa(lp3285
+(lp3286
+(lp3287
+L133L
+aVwordle
+p3288
+aaaa(lp3289
+(lp3290
+(lp3291
+L134L
+aVonline database
+p3292
+aaaa(lp3293
+(lp3294
+aa(lp3295
+(lp3296
+(lp3297
+L134L
+aVDoug Smith
+p3298
+aaaa(lp3299
+(lp3300
+(lp3301
+L134L
+aVCharles Piller
+p3302
+aaaa(lp3303
+(lp3304
+(lp3305
+L134L
+aVMatt Waite
+p3306
+aaaa(lp3307
+(lp3308
+(lp3309
+L134L
+aVdeep link
+p3310
+aaaa(lp3311
+(lp3312
+(lp3313
+L134L
+aVCaspio Bridge
+p3314
+aaaa(lp3315
+(lp3316
+(lp3317
+L134L
+aVsearch box
+p3318
+aaaa(lp3319
+(lp3320
+aa(lp3321
+(lp3322
+(lp3323
+L134L
+aVpermalink
+p3324
+aaaa(lp3325
+(lp3326
+aa(lp3327
+(lp3328
+(lp3329
+L134L
+aVcharity
+p3330
+aaaa(lp3331
+(lp3332
+aa(lp3333
+(lp3334
+(lp3335
+L134L
+aVmorningstar
+p3336
+aaaa(lp3337
+(lp3338
+(lp3339
+L134L
+aVfundraising
+p3340
+aaaa(lp3341
+(lp3342
+(lp3343
+L134L
+aVquery string
+p3344
+aaaa(lp3345
+(lp3346
+aa(lp3347
+(lp3348
+(lp3349
+L134L
+aVCaspio Hacks
+p3350
+aaaa(lp3351
+(lp3352
+(lp3353
+L134L
+aVhacks
+p3354
+aaaa(lp3355
+(lp3356
+(lp3357
+L134L
+aVcustom form
+p3358
+aaaa(lp3359
+(lp3360
+(lp3361
+L134L
+aVwalkthrough
+p3362
+aaaa(lp3363
+(lp3364
+(lp3365
+L134L
+aVGUI
+p3366
+aaaa(lp3367
+(lp3368
+(lp3369
+L134L
+aVThomas Lauder
+p3370
+aaaa(lp3371
+(lp3372
+(lp3373
+L135L
+aVClear Channel
+p3374
+aaaa(lp3375
+(lp3376
+aa(lp3377
+(lp3378
+(lp3379
+L135L
+aVmedia executives
+p3380
+aaaa(lp3381
+(lp3382
+(lp3383
+L135L
+aVRandy Michaels
+p3384
+aaaa(lp3385
+(lp3386
+(lp3387
+L135L
+aVelectronic media
+p3388
+aaaa(lp3389
+(lp3390
+(lp3391
+L135L
+aVthe web
+p3392
+aaaa(lp3393
+(lp3394
+(lp3395
+L135L
+aVconsolidation
+p3396
+aaaa(lp3397
+(lp3398
+(lp3399
+L135L
+aVthe telecommunications act of 1996
+p3400
+aaaa(lp3401
+(lp3402
+(lp3403
+L135L
+aVregulation
+p3404
+aaaa(lp3405
+(lp3406
+(lp3407
+L135L
+aVsynergy
+p3408
+aaaa(lp3409
+(lp3410
+(lp3411
+L135L
+aVopportunity cost
+p3412
+aaaa(lp3413
+(lp3414
+(lp3415
+L135L
+aVjournalism
+p3416
+aaaa(lp3417
+(lp3418
+(lp3419
+L135L
+aVonline
+p3420
+aaaa(lp3421
+(lp3422
+(lp3423
+L135L
+aVJacor
+p3424
+aaaa(lp3425
+(lp3426
+(lp3427
+L135L
+aVMcClatchey
+p3428
+aaaa(lp3429
+(lp3430
+(lp3431
+L135L
+aVEric Klinenberg
+p3432
+aaaa(lp3433
+(lp3434
+(lp3435
+L135L
+aVmedia execs
+p3436
+aaaa(lp3437
+(lp3438
+(lp3439
+L147L
+aVdata-driven news applications
+p3440
+aaaa(lp3441
+(lp3442
+(lp3443
+L147L
+aVrails
+p3444
+aaaa(lp3445
+(lp3446
+(lp3447
+L147L
+aV"web development"
+p3448
+aaaa(lp3449
+(lp3450
+(lp3451
+L147L
+aV"news driven development"
+p3452
+aaaa(lp3453
+(lp3454
+(lp3455
+L147L
+aVmetrolink crash
+p3456
+aaaa(lp3457
+(lp3458
+(lp3459
+L147L
+aVDRY
+p3460
+aaaa.
