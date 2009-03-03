@@ -12,7 +12,7 @@ def posts():
 	out = codecs.open(path, 'w', 'utf-8')
 	data = []
 	for post in WpPosts.objects.filter(post_status='publish', post_type='post'):
-		record = [post.id, post.post_date, post.post_title.strip(), post.post_content.strip()]
+		record = [post.id, post.post_date, post.post_name, post.post_title.strip(), post.post_content.strip()]
 		data.append([smart_str(i) for i in record])
 	pickle.dump(data, out)
 	out.close()
