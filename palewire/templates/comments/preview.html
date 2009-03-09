@@ -14,7 +14,8 @@
 
 			{% if field.errors %}
 				<div class="commentformleft"></div> 
-				<div style="margin-bottom:15px; margin-top:15px;" class="commentformright">{{ field.errors }}</div>
+				<div style="margin-bottom:15px; margin-top:15px;" class="commentformright">
+				{{ field.errors }}</div>
 			{% endif %}
 
 		{% endfor %}
@@ -55,17 +56,17 @@
 
 			{% endfor %}
 
-			<div class="commentformleft">{{ form.name.label_tag }}:</div> 
+			<div class="commentformleft" {% if form.name.errors %}style="color:red;"{% endif %}>{{ form.name.label_tag }}:</div> 
 			<div class="commentformright">{{ form.name }}&nbsp;&nbsp;Required</div>
 
-			<div class="commentformleft">{{ form.email.label_tag }}:</div> 
-			<div class="commentformright">{{ form.email }}&nbsp;&nbsp;Optional</div>
+			<div class="commentformleft" {% if form.email.errors %}style="color:red;"{% endif %}>Email:</div> 
+			<div class="commentformright">{{ form.email }}&nbsp;&nbsp;Required</div>
 
-			<div class="commentformleft">{{ form.comment.label_tag }}:</div>
+			<div class="commentformleft" {% if form.comment.errors %}style="color:red;"{% endif %}>{{ form.comment.label_tag }}:</div>
 			<div class="commentformright">{{ form.comment}}</div>
 
 			<div class="commentformleft"></div>
-			<div class="commentformright"><input type="submit" name="submit" class="submit-preview" value="Preview" /></div>
+			<div class="commentformright"><input type="submit" name="submit" class="submit-post" value="submit the post" /></div>
 
 			<div class="commentformleft"></div> 
 			<div class="commentformright"></div>
