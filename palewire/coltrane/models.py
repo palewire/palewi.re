@@ -7,7 +7,6 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.template.loader import render_to_string
 
-from markdown import markdown
 from tagging.fields import TagField
 from tagging.models import Tag
 
@@ -34,24 +33,18 @@ class Tumbler(models.Model):
 		
 class Slogan(models.Model):
 	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
-	title_html = models.TextField(editable=False, blank=True)
 
 	class Meta:
 		ordering = ['title']
 		
 	def __unicode__(self):
 		return self.title
-		
-	def save(self):
-		self.title_html = markdown(self.title)
-		super(Slogan, self).save()
 
 
 class Category(models.Model):
 	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
 	slug = models.SlugField(unique=True, help_text='Suggested value automatically generated from title. Must be unique.')
-	description = models.TextField()
-	description_html = models.TextField(editable=False, blank=True)
+	description = models.TextField(null=True, blank=True)
 	
 	class Meta:
 		ordering = ['title']
@@ -59,10 +52,6 @@ class Category(models.Model):
 		
 	def __unicode__(self):
 		return self.title
-		
-	def save(self):
-		self.description_html = markdown(self.description)
-		super(Category, self).save()
 		
 	def get_absolute_url(self):
 		return u"/categories/%s/" % self.slug
@@ -89,7 +78,7 @@ class Post(models.Model):
 		(HIDDEN_STATUS, 'Hidden'),
 	)
 	
-	wordpress_id = models.IntegerField(null=True, blank=True, help_text='The junky old wp_posts id from before the migration', editable=False)
+	wordpress_id = models.IntegerField(unique=True, null=True, blank=True, help_text='The junky old wp_posts id from before the migration', editable=False)
 	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
 	slug = models.SlugField(max_length=300, unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
 	body = models.TextField()
@@ -122,7 +111,6 @@ class Post(models.Model):
 
 class Tweet(models.Model):
 	body = models.TextField(max_length=140)
-	body_html = models.TextField(blank=True, editable=False)
 	posted_by = models.ForeignKey(User)
 	slug = models.SlugField(unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
@@ -139,8 +127,6 @@ class Tweet(models.Model):
 		return
 
 	def save(self):
-		if self.body:
-			self.body_html = markdown(self.body)
 		if not self.id and self.post_elsewhere:
 			self.sendtwit()
 		super(Tweet, self).save()
@@ -240,8 +226,7 @@ class Track(models.Model):
 
 class Link(models.Model):
 	title = models.CharField(max_length=250)
-	description = models.TextField(blank=True)
-	description_html = models.TextField(blank=True, editable=False)
+	description = models.TextField(blank=True, null=True)
 	url = models.URLField(unique=True)
 	posted_by = models.ForeignKey(User)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
@@ -259,8 +244,6 @@ class Link(models.Model):
 		return self.title
 	
 	def save(self):
-		if self.description:
-			self.description_html = markdown(self.description)
 		if not self.id and self.post_elsewhere:
 			import pydelicious
 			from django.utils.encoding import smart_str

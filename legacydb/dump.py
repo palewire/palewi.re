@@ -35,10 +35,8 @@ def cats():
 	for i in WpTermTaxonomy.objects.filter(taxonomy='category'):
 		post_ids = WpTermRelationships.objects.filter(term_taxonomy_id=i.term_taxonomy_id)
 		name = WpTerms.objects.get(term_id=i.term_id).name
-		record = []
 		for post in post_ids:
-			record.append([post.object_id, name])
-		data.append(record)
+			data.append([post.object_id, name])
 	pickle.dump(data, out)
 	out.close()
 	
@@ -49,10 +47,8 @@ def tags():
 	for i in WpTermTaxonomy.objects.filter(taxonomy='post_tag'):
 		post_ids = WpTermRelationships.objects.filter(term_taxonomy_id=i.term_taxonomy_id)
 		name = WpTerms.objects.get(term_id=i.term_id).name
-		record = []
 		for post in post_ids:
-			record.append([post.object_id, name])
-		data.append([record])
+			data.append([post.object_id, name])
 	pickle.dump(data, out)
 	out.close()
 	
