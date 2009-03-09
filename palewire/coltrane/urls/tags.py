@@ -8,5 +8,5 @@ urlpatterns = patterns('',
 			'queryset': Tag.objects.all(),
 			'template_name': 'coltrane/tag_list.html' 
 		}, 'coltrane_tag_list'),
-	(r'(?P<slug>[-\w]+)/$', 'coltrane.views.tag_detail'),
+	(r'(?P<id>[-\d]+)/$', 'coltrane.views.tag_detail'),
 )

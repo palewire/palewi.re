@@ -57,7 +57,7 @@ def cats():
 	infile.close()
 	for record in cats:
 		post_id, name = record
-		c, created = Category.objects.get_or_create(title=name, slug=slugify(name))
+		c, created = Category.objects.get_or_create(title=name.strip(), slug=slugify(name.strip()))
 		if created:
 			print "Added category %s" % c.title
 		try:
@@ -76,7 +76,9 @@ def tags():
 		post_id, name = record
 		try:
 			p = Post.objects.get(wordpress_id=post_id)
-			Tag.objects.update_tags(p, name)
+			#print "%s => %s" % (p.title, name)
+			tag = u'"%s"' % name[:50].replace('"', '').strip()
+			Tag.objects.add_tag(p, tag)
 			print "Added %s to %s" % (name, p.title)
 		except Post.DoesNotExist:
 			pass

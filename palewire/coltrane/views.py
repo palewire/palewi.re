@@ -27,9 +27,9 @@ def category_detail(request, slug):
 						extra_context = {'category': category },
 						template_name = 'coltrane/category_detail.html')
 
-def tag_detail(request, slug):
+def tag_detail(request, id):
 	"""Will need to return posts, videos, links and photos."""
-	tag = get_object_or_404(Tag, name=slug)
+	tag = get_object_or_404(Tag, id=id)
 	posts = Post.live.all()
 	post_list = TaggedItem.objects.get_by_model(posts, tag)
 	video_list = TaggedItem.objects.get_by_model(Video, tag)
