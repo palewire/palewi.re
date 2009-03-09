@@ -16,6 +16,11 @@ urlpatterns = patterns('',
 	(r'^feeds/', include('coltrane.urls.feeds')),
 	(r'^links/', include('coltrane.urls.links')),
 	(r'^tags/', include('coltrane.urls.tags')),
+	# Redirect links to old blog to new posts
+	(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 
+		'django.views.generic.simple.redirect_to', 
+		{'url': '/posts/%(year)s/%(month)s/%(day)s/%(slug)s/'}
+	),
 	(r'^posts/', include('coltrane.urls.posts')),
 	(r'^tweets/', include('coltrane.urls.tweets')),
 	(r'^videos/', include('coltrane.urls.videos')),
