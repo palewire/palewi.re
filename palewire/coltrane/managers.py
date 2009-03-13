@@ -1,5 +1,5 @@
+import datetime
 from coltrane.models import *
-
 
 class LivePostManager(models.Manager):
 	"""
@@ -20,6 +20,9 @@ class LiveCategoryManager(models.Manager):
 
 
 class SyncManager(models.Manager):
+	"""
+	A set of utilities for working with the Track model.
+	"""
 
 	def get_last_update(self, **kwargs):
 		"""

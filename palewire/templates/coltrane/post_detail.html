@@ -11,20 +11,18 @@
 {{ object.title }}
 </h1>
 
-		<div id="detailbody">{{ object.body|safe }}</div>
+		<div id="detailbody">{{ object.body|safe|linebreaks }}</div>
 		
 		<div id="detailborderbumper" class="thin"></div>
 		
 		<div id="detailmetadata">
-			<p id="postpubdate">This is a post {{ object.author }} made on {{ object.pub_date|date:"M j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
+			<p id="postpubdate">This is a post <b>{{ object.author }}</b> made on {{ object.pub_date|date:"M j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
 			{% if object.categories.count %}
+				
 				<p id ="postcats">
 					It is filed with other posts about
 					{% for cat in object.categories.all %}
-					<a href="{{ cat.get_absolute_url }}">{{ cat.title|lower }}</a>{% if forloop.last %}.{% endif %}
-						{% if forloop.last %}{% else %}
-						{% ifequal forloop.revcounter0 1 %}and {% else %}, {% endifequal %}
-						{% endif %}
+					<a href="{{ cat.get_absolute_url }}">{{ cat.title|lower }}</a>{% if forloop.last %}.{% endif %}{% if forloop.last %}{% else %}{% ifequal forloop.revcounter0 1 %} and {% else %}, {% endifequal %}{% endif %}
 					{% endfor %}
 				</p>
 			{% endif %}
@@ -58,7 +56,7 @@
 				<div id="#c{{comment.id}}" class="comment">
 					<a name="c{{comment.id}}"></a>
 					<div class="commentname"><a href="{{ comment.get_absolute_url }}">> {{ comment.user_name|lower }}:</a></div> 
-					<div class="commenttext">{{ comment.comment}}</div>
+					<div class="commenttext">{{ comment.comment }}</div>
 				</div>
 			{% endfor %}
 			

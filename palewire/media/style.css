@@ -66,6 +66,10 @@ a:active{text-decoration: underline; color: red;}
 #detailmetadata a:hover {text-decoration: none; color:gray; font-weight:bold;}
 #detailmetadata a:active {text-decoration: none; font-weight:bold; color: red;}
 
+#postpubdate { margin-bottom: 0.6em; }
+#postcats { margin-bottom: 0.6em; }
+#posttags {}
+
 /* who-is-ben-welsh */
 .bioimg {text-align:center; margin-bottom:1.15em;}
 .bioimg img {width:30em;}
@@ -84,11 +88,11 @@ a:active{text-decoration: underline; color: red;}
 
 /* List page stuff */
 .interiorlist {}
-.interiorlist .left-bump {margin-left:8px;}
+.interiorlist .left-bump {margin-left:0.8em;}
 .interiorlist h3 {font-weight:bold; font-size:1.3em; margin-top: .66em; padding-top: .05em; padding-bottom: .05em; border-bottom:thin dotted #ccc;}
 .interiorlist ul {padding-left: 2em; padding-right:2em;}	
 .interiorlist h2 {font-weight:bold; font-size: 1.5em; padding-left: 1em; margin-bottom:1em;}	/* The category header */
-.interiorlist li {padding: 0.5em; line-height:1.3em; list-style-type: none; font-size: 1.3em;} /* The items */
+.interiorlist li {height:1.4em; padding: 0.5em; line-height:1.3em; list-style-type: none; font-size: 1.3em;} /* The items */
 
 /* Pag navigation toys */
 #paginationwrapper {clear:both; margin-top: 1em; font-size:1.2em;}
