@@ -2,12 +2,23 @@ from coltrane.models import *
 
 
 class LivePostManager(models.Manager):
+	"""
+	Returns all posts set to be published.
+	"""
 	
-
 	def get_query_set(self):
 		return super(LivePostManager, self).get_query_set().filter(status=self.model.LIVE_STATUS)
-		
-		
+
+
+class LiveCategoryManager(models.Manager):
+	"""
+	Returns all categories with at least one live post.
+	"""
+
+	def get_query_set(self):
+		return super(LiveCategoryManager, self).get_query_set().filter(post_count__gt=0)
+
+
 class SyncManager(models.Manager):
 
 	def get_last_update(self, **kwargs):

@@ -12,7 +12,7 @@ from tagging.models import Tag
 
 from django.db import models
 
-from coltrane.managers import LivePostManager, SyncManager
+from coltrane.managers import LivePostManager, LiveCategoryManager, SyncManager
 
 from django.db.models import signals
 from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
@@ -50,6 +50,7 @@ class Category(models.Model):
 	slug = models.SlugField(unique=True, help_text='Suggested value automatically generated from title. Must be unique.')
 	description = models.TextField(null=True, blank=True)
 	post_count = models.IntegerField(default=0, editable=False)
+	live = LiveCategoryManager()
 	
 	class Meta:
 		ordering = ['title']

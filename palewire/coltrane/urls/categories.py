@@ -3,7 +3,7 @@ from django.conf.urls.defaults import *
 from coltrane.models import Category
 
 index_dict = {
-	'queryset': Category.objects.all(),
+	'queryset': Category.live.all(),
 }
 
 urlpatterns = patterns('django.views.generic.list_detail',
