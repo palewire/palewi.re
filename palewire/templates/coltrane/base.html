@@ -1,4 +1,3 @@
-{% load coltrane_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
@@ -6,66 +5,18 @@
 	<link rel="stylesheet" type="text/css" href="/media/reset-fonts-grids.css">
 	<link rel="stylesheet" type="text/css" href="/media/style.css">
 	<script type="text/javascript" src="/media/jquery-1.2.6.min.js"></script>
-	
-	{% load coltrane_tags %}
-	{% get_all_slogans %}
-	
+		
 	<script type="text/javascript"> 
 	//<![CDATA[    
-	// When the page is ready
-		$(document).ready(function(){
-		
-			// An array of palewire slogans
-			var slogans = [
-				{% for slogan in slogan_list %}'{{ slogan }}',{% endfor %}
-			];
-		
-			// Pulls a random item from an array
-			var random_item = function ( array ) {
-				var n = array.length;
-				return array[(Math.floor(Math.random() * n))];
-			};
-		
-			// Add randomly selected slogans
-			$('#hd h1').append('<span class="slogan" title="slogan">' + random_item(slogans) + '<\/span>');
-		
-			// Add titles for link buttons
-			jQuery.each($("#navbar a"), function() {
-				var title = $( this ).attr("title");
-				$('#hd h1').append('<span class="icon" title="'+ title + '">'+ title +'<\/span>');
-			});
-			
-			// Hide newly created link titles
-			$('#hd span').hide()
-		
-			// Show slogan on mouseover
-			$('#hd h1').mouseover(function(){
-				$('#hd span[title=slogan]').show();
-				})
-
-			// Hide slogan on mouseoff
-			$('#hd h1').mouseout(function(){
-				$('#hd span[title=slogan]').hide();
-				})
-	
-			// Show link title on mouseover
-			$('#navbar a').mouseover(function(){
-				var title = $(this).attr('title');
-				$('#hd span[title='+title+']').show();
-				})
-			
-			// Hide link title on mouseoff
-			$('#navbar a').mouseout(function(){
-				var title = $(this).attr('title');
-				$('#hd span[title='+title+']').hide();
-				})
-			
-		});
+		{% include "coltrane/nav.js" %}
 	//]]>
 	</script>
 	
+	{% block extrahead %}
+	{% endblock %}
+	
 </head>
-<body>
+<body {%block extrabody %}{% endblock %}>
 		<div id="doc" class="yui-t7">
 
 		<div id="hd">
@@ -89,28 +40,28 @@
 				<img src="/media/icons/comments.png" width="30" />
 			</a>
 			<a href="/feeds/list/" title="Feeds" alt="Feeds">
-				<img src="/media/icons/feed.png" width="30"/>
+				<img src="/media/icons/feeds.png" width="30"/>
 			</a>
 			<a href="{% url coltrane_link_list 1 %}" title="Links" alt="Links">
-				<img src="/media/icons/chain.png" width="30" />
+				<img src="/media/icons/links.png" width="30" />
 			</a>
 			<a href="{% url coltrane_photo_list 1 %}" title="Photos" alt="Photos">
-				<img src="/media/icons/camera.png" width="30" />
+				<img src="/media/icons/photos.png" width="30" />
 			</a>
 			<a href="{% url coltrane_post_archive_index 1 %}" title="Posts" alt="Posts">
-				<img src="/media/icons/post.png" width="30" />
+				<img src="/media/icons/posts.png" width="30" />
 			</a>
 			<a href="{% url coltrane_tag_list %}" title="Tags" alt="Tags">
 				<img src="/media/icons/tags.png" width="30"/>
 			</a>
 			<a href="{% url coltrane_track_list 1 %}" title="Tracks" alt="Tracks">
-				<img src="/media/icons/music.png" width="30" />
+				<img src="/media/icons/tracks.png" width="30" />
 			</a>
-			<a href="{% url coltrane_shout_list 1 %}" title="Tweets" alt="Tweets">
-				<img src="/media/icons/tweet.png" width="30" />
+			<a href="{% url coltrane_shout_list 1 %}" title="Shouts" alt="Shouts">
+				<img src="/media/icons/shouts.png" width="30" />
 			</a>
 			<a href="{% url coltrane_video_list 1 %}" title="Videos" alt="Videos">
-				<img src="/media/icons/film.png" width="30"/>
+				<img src="/media/icons/videos.png" width="30"/>
 			</a>
 		</div>
 		

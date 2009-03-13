@@ -5,11 +5,11 @@
 
 {% block content %}
 
-	<ul id="tumblerlog">
+	<ul id="tickerlog">
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.date %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
 			{# Tumbler items #}
-			<li class="tumbleritem">
+			<li class="tickeritem">
 					{{ object.get_rendered_html }}
 			</li>
 		{% endfor %}
@@ -19,13 +19,13 @@
 	<div id="paginationwrapper">
 		{% if has_previous %}
 		<div id="paginationleft">
-			<a href="/tumblr/page/{{ previous }}/">< Previous</a>
+			<a href="/ticker/page/{{ previous }}/">< Previous</a>
 		</div>
 		{% endif %}
 
 		{% if has_next %}
 		<div id="paginationright">
-			<a href="/tumblr/page/{{ next }}/">Next ></a>
+			<a href="/ticker/page/{{ next }}/">Next ></a>
 		</div>
 		{% endif %}
 	</div>
@@ -33,7 +33,7 @@
 	{% else %}
 		<div id="paginationwrapper">
 			<div id="paginationright">
-				<a href="/tumblr/page/2/">Next ></a>
+				<a href="/ticker/page/2/">Next ></a>
 			</div>
 		</div>
 	{% endif %}

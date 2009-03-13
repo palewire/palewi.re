@@ -37,10 +37,10 @@ a:active{text-decoration: underline; color: red;}
 /* The Homepage Tumblelog */
 
 /* The rolling datestamps */
-#tumblerlog h3 {font-weight:bold; font-size:1.3em; margin-top: .66em;	 margin-bottom: .66em; padding-top: .05em; padding-bottom: .05em; border-bottom:thin dotted #ccc;}
-.tumbleritem h6 {padding-right:0.5em; font-size:1.2em; display:inline; } /* the left-align time stamp */
-.tumbleritem {padding: 0.5em; margin-left: 1em; margin-right: 1em; width:100%;} /* the individual tumbler items */
-.tumbleritem h2 { font-size:1.3em; display:inline; } /* the tumbler item text */
+#tickerlog h3 {font-weight:bold; font-size:1.3em; margin-top: .66em;	 margin-bottom: .66em; padding-top: .05em; padding-bottom: .05em; border-bottom:thin dotted #ccc;}
+.tickeritem h6 {padding-right:0.5em; font-size:1.2em; display:inline; } /* the left-align time stamp */
+.tickeritem {padding: 0.5em; margin-left: 1em; margin-right: 1em; width:100%;} /* the individual tumbler items */
+.tickeritem h2 { font-size:1.3em; display:inline; } /* the tumbler item text */
 
 /* Detail page stuff */
 #detailbody {margin: 1.1em 10em 1.1em 4.5em; width:40em;}
