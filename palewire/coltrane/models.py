@@ -15,7 +15,7 @@ from django.db import models
 from coltrane.managers import LivePostManager, SyncManager
 
 from django.db.models import signals
-from coltrane.signals import *
+from coltrane.signals import create_ticker_item, delete_ticker_item
 
 
 class Ticker(models.Model):
@@ -238,6 +238,9 @@ class Link(models.Model):
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
 
-# Send a signal on post_save for each of these models
+# Signals
 for modelname in [Link, Photo, Post, Shout, Track, Video]:
 	signals.post_save.connect(create_ticker_item, sender=modelname)
+	
+for modelname in [Link, Photo, Post, Shout, Track, Video]:
+	signals.post_delete.connect(delete_ticker_item, sender=modelname)
