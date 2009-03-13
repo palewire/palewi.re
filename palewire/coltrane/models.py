@@ -10,10 +10,12 @@ from django.template.loader import render_to_string
 from tagging.fields import TagField
 from tagging.models import Tag
 
-### MANAGERS	
 from django.db import models
+
+from coltrane.managers import LivePostManager, SyncManager
+
 from django.db.models import signals
-from django.dispatch import dispatcher
+from coltrane.signals import *
 
 
 class Ticker(models.Model):
@@ -59,13 +61,6 @@ class Category(models.Model):
 	def live_post_set(self):
 		from coltrane.models import Post
 		return self.entry_set.filter(status=Post.LIVE_STATUS)
-
-
-class LivePostManager(models.Manager):
-	
-
-	def get_query_set(self):
-		return super(LivePostManager, self).get_query_set().filter(status=self.model.LIVE_STATUS)
 
 
 class Post(models.Model):
@@ -189,22 +184,6 @@ class Photo(models.Model):
 	get_absolute_url = models.permalink(get_absolute_url)
 
 
-class SyncManager(models.Manager):
-
-	def get_last_update(self, **kwargs):
-		"""
-		Return the last time a given model's items were updated. Returns the
-		epoch if the items were never updated.
-		"""
-		qs = self
-		if kwargs:
-			qs = self.filter(**kwargs)
-		try:
-			return qs.order_by('-pub_date')[0].pub_date
-		except IndexError:
-			return datetime.datetime.fromtimestamp(0)
-
-
 class Track(models.Model):
 	"""A track you listened to. The model is based on last.fm."""
 
@@ -259,36 +238,6 @@ class Link(models.Model):
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
 
-from coltrane.models import Link, Shout, Photo, Post, Track, Video
-
-def create_ticker_item(sender, instance, signal, *args, **kwargs):
-	# Check to see if the object was just created for the first time
-	if 'created' in kwargs:
-		if kwargs['created']:
-			create = True
-
-			# Get the instance's content type
-			ctype = ContentType.objects.get_for_model(instance)
-
-			# Special cases for different date fields
-			#if ctype.name == 'link':
-			#	pub_date = instance.submit_date
-
-			#elif ctype.name == 'post':
-			#	pub_date = instance.time
-
-			#else:
-			pub_date = instance.pub_date
-
-			# Special case for FreeComments to ensure the comment is public
-			# This prevents comments in moderation or thought to be spam from appearing
-			#if ctype.name == 'free comment':
-			#	if instance.is_public == False:
-			#		create = False
-
-			if create:
-				tumble = Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
-
 # Send a signal on post_save for each of these models
-for modelname in [Link, Photo, Post, Shout, Track, Video]:		
+for modelname in [Link, Photo, Post, Shout, Track, Video]:
 	signals.post_save.connect(create_ticker_item, sender=modelname)
