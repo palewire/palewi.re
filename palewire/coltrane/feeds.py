@@ -10,7 +10,7 @@ class FullFeed(Feed):
 	description = "the latest from palewire.com"
 
 	def items(self):
-		return Tumbler.objects.all().order_by('-pub_date')[:10]
+		return Ticker.objects.all().order_by('-pub_date')[:10]
 
 	def item_pubdate(self, item):
 		return item.pub_date
@@ -28,7 +28,7 @@ class LessNoise(Feed):
 	description = "the latest from palewire.com, except for all those tracks"
 
 	def items(self):
-		return Tumbler.objects.exclude(content_type__name__iexact='Track').order_by('-pub_date')[:10]
+		return Ticker.objects.exclude(content_type__name__iexact='Track').order_by('-pub_date')[:10]
 
 	def item_pubdate(self, item):
 		return item.pub_date
@@ -52,13 +52,13 @@ class RecentPosts(Feed):
 		return item.pub_date
 
 
-class RecentTweets(Feed):
-	title = "tweets . palewire"
-	link = "http://palewire.com/feeds/tweets/"
-	description = "the latest tweets at palewire.com"
+class RecentShouts(Feed):
+	title = "shouts . palewire"
+	link = "http://palewire.com/feeds/shouts/"
+	description = "the latest shouts at palewire.com"
 
 	def items(self):
-		return Tweet.objects.all().order_by('-pub_date')[:10]
+		return Shout.objects.all().order_by('-pub_date')[:10]
 	
 	def item_pubdate(self, item):
 		return item.pub_date

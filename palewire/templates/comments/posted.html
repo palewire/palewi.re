@@ -8,14 +8,6 @@
 
 <div style="text-align:center;">
 	<h1>Your comment has been submitted for moderation</h1>
-	<br/>
-	{% if comment %}
-		<p>
-			Thanks for contributing. 
-			<a href="{{ comment.content_object.get_absolute_url }}">
-				<strong>Click here</strong></a> to review your comment after it has been approved.
-		</p>
-	{% endif %}
 </div>
 
 {% endblock %}

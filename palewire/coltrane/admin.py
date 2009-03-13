@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Category, Photo, Post, Link, Slogan, Tumbler, Track, Tweet, Video
+from models import Category, Photo, Post, Link, Slogan, Ticker, Track, Shout, Video
 
 class CategoryAdmin(admin.ModelAdmin):
 	prepopulated_fields = {"slug": ("title",)}
@@ -20,10 +20,10 @@ class LinkAdmin(admin.ModelAdmin):
 admin.site.register(Link, LinkAdmin)
 
 
-class TweetAdmin(admin.ModelAdmin):
+class ShoutAdmin(admin.ModelAdmin):
 	prepopulated_fields = {"slug": ("body",)}
 	
-admin.site.register(Tweet, TweetAdmin)
+admin.site.register(Shout, ShoutAdmin)
 
 
 class PhotoAdmin(admin.ModelAdmin):
@@ -38,10 +38,10 @@ class VideoAdmin(admin.ModelAdmin):
 admin.site.register(Video, VideoAdmin)
 
 
-class TumblerAdmin(admin.ModelAdmin):
+class TickerAdmin(admin.ModelAdmin):
 	pass
 	
-admin.site.register(Tumbler, TumblerAdmin)
+admin.site.register(Ticker, TickerAdmin)
 
 
 class TrackAdmin(admin.ModelAdmin):

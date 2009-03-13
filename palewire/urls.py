@@ -22,13 +22,13 @@ urlpatterns = patterns('',
 		{'url': '/posts/%(year)s/%(month)s/%(day)s/%(slug)s/'}
 	),
 	(r'^posts/', include('coltrane.urls.posts')),
-	(r'^tweets/', include('coltrane.urls.tweets')),
+	(r'^shouts/', include('coltrane.urls.shouts')),
 	(r'^videos/', include('coltrane.urls.videos')),
 	(r'^photos/', include('coltrane.urls.photos')),
 	(r'^tracks/', include('coltrane.urls.tracks')),
 	(r'^comments/page/', include('coltrane.urls.comments')),
 	(r'^comments/', include('django.contrib.comments.urls')),
-	(r'^$', include('coltrane.urls.tumblers')),
-	(r'^tumblr/', include('coltrane.urls.tumblers')),
+	(r'^$', include('coltrane.urls.ticker')),
+	(r'^ticker/', include('coltrane.urls.ticker')),
 )
 

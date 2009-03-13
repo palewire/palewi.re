@@ -16,7 +16,7 @@ from django.db.models import signals
 from django.dispatch import dispatcher
 
 
-class Tumbler(models.Model):
+class Ticker(models.Model):
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
 	pub_date = models.DateTimeField()
@@ -24,7 +24,7 @@ class Tumbler(models.Model):
 	content_object = generic.GenericForeignKey('content_type', 'object_id')
 
 	def get_rendered_html(self):
-		template_name = 'coltrane/tumbler_item_%s.html' % (self.content_type.name)
+		template_name = 'coltrane/ticker_item_%s.html' % (self.content_type.name)
 		return render_to_string(template_name, { 'object': self.content_object })
 		
 	def __unicode__(self):
@@ -109,7 +109,7 @@ class Post(models.Model):
 		return Tag.objects.get_for_object(self)
 
 
-class Tweet(models.Model):
+class Shout(models.Model):
 	body = models.TextField(max_length=140)
 	posted_by = models.ForeignKey(User)
 	slug = models.SlugField(unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
@@ -129,10 +129,10 @@ class Tweet(models.Model):
 	def save(self):
 		if not self.id and self.post_elsewhere:
 			self.sendtwit()
-		super(Tweet, self).save()
+		super(Shout, self).save()
 
 	def get_absolute_url(self):
-		return ('coltrane_tweet_detail', (), { 'year': self.pub_date.strftime("%Y"),
+		return ('coltrane_shout_detail', (), { 'year': self.pub_date.strftime("%Y"),
 												'month': self.pub_date.strftime("%m"),
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
@@ -259,9 +259,9 @@ class Link(models.Model):
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
 
-from coltrane.models import Link, Tweet, Photo, Post, Track, Video
+from coltrane.models import Link, Shout, Photo, Post, Track, Video
 
-def create_tumbler_item(sender, instance, signal, *args, **kwargs):
+def create_ticker_item(sender, instance, signal, *args, **kwargs):
 	# Check to see if the object was just created for the first time
 	if 'created' in kwargs:
 		if kwargs['created']:
@@ -287,8 +287,8 @@ def create_tumbler_item(sender, instance, signal, *args, **kwargs):
 			#		create = False
 
 			if create:
-				tumble = Tumbler.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
+				tumble = Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
 
 # Send a signal on post_save for each of these models
-for modelname in [Link, Photo, Post, Tweet, Track, Video]:		
-	signals.post_save.connect(create_tumbler_item, sender=modelname)
+for modelname in [Link, Photo, Post, Shout, Track, Video]:		
+	signals.post_save.connect(create_ticker_item, sender=modelname)

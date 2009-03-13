@@ -1,7 +1,7 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
 
-{% block title %}{{ object.body|striptags|lower }} . tweet . {{ block.super }}{% endblock %}
+{% block title %}{{ object.body|striptags|lower }} . shout . {{ block.super }}{% endblock %}
 
 {% block content %}
 
@@ -13,7 +13,7 @@
 	<div id="detailborderbumper" class="thick"></div>
 
 	<div id="detailmetadata">
-		<p id="postpubdate">This is a tweet {{ object.posted_by }} posted on {{ object.pub_date|date:"F j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
+		<p id="postpubdate">This is a shout {{ object.posted_by }} posted on {{ object.pub_date|date:"F j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
 	</div>
 
 	<div id="detailborderbumper" class="thick"></div>

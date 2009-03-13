@@ -15,7 +15,7 @@ feeds = {
 	# Singletons
 	'posts': RecentPosts,
 	'comments': RecentComments,
-	'tweets': RecentTweets,
+	'shouts': RecentShouts,
 	'links': RecentLinks,
 	'videos': RecentVideos,
 	'photos': RecentPhotos,
