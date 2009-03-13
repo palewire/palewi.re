@@ -27,14 +27,14 @@ class Ticker(models.Model):
 	class Meta:
 		verbose_name_plural = 'Ticker'
 
+	def __unicode__(self):
+		return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
+
 	def get_rendered_html(self):
 		template_name = 'coltrane/ticker_item_%s.html' % (self.content_type.name)
 		return render_to_string(template_name, { 'object': self.content_object })
-		
-	def __unicode__(self):
-		return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
-		
-		
+
+
 class Slogan(models.Model):
 	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
 

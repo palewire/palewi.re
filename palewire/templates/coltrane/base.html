@@ -82,34 +82,34 @@
 		
 		<div id="topbar"></div>
 		<div id="navbar">
-			<a href="/categories/list/" title="Categories" alt="Categories">
+			<a href="{% url coltrane_category_list %}" title="Categories" alt="Categories">
 				<img src="/media/icons/categories.png" width="30"/>
 			</a>
-			<a href="/comments/page/1/" title="Comments" alt="Comments">
+			<a href="{% url coltrane_comment_list 1 %}" title="Comments" alt="Comments">
 				<img src="/media/icons/comments.png" width="30" />
 			</a>
 			<a href="/feeds/list/" title="Feeds" alt="Feeds">
 				<img src="/media/icons/feed.png" width="30"/>
 			</a>
-			<a href="/links/page/1/" title="Links" alt="Links">
+			<a href="{% url coltrane_link_list 1 %}" title="Links" alt="Links">
 				<img src="/media/icons/chain.png" width="30" />
 			</a>
-			<a href="/photos/page/1/" title="Photos" alt="Photos">
+			<a href="{% url coltrane_photo_list 1 %}" title="Photos" alt="Photos">
 				<img src="/media/icons/camera.png" width="30" />
 			</a>
-			<a href="/posts/page/1/" title="Posts" alt="Posts">
+			<a href="{% url coltrane_post_archive_index 1 %}" title="Posts" alt="Posts">
 				<img src="/media/icons/post.png" width="30" />
 			</a>
-			<a href="/tags/" title="Tags" alt="Tags">
+			<a href="{% url coltrane_tag_list %}" title="Tags" alt="Tags">
 				<img src="/media/icons/tags.png" width="30"/>
 			</a>
-			<a href="/tracks/page/1/" title="Tracks" alt="Tracks">
+			<a href="{% url coltrane_track_list 1 %}" title="Tracks" alt="Tracks">
 				<img src="/media/icons/music.png" width="30" />
 			</a>
-			<a href="/tweets/page/1/" title="Tweets" alt="Tweets">
+			<a href="{% url coltrane_shout_list 1 %}" title="Tweets" alt="Tweets">
 				<img src="/media/icons/tweet.png" width="30" />
 			</a>
-			<a href="/videos/page/1/" title="Videos" alt="Videos">
+			<a href="{% url coltrane_video_list 1 %}" title="Videos" alt="Videos">
 				<img src="/media/icons/film.png" width="30"/>
 			</a>
 		</div>

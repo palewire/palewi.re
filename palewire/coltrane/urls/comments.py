@@ -12,9 +12,8 @@ comments = {
 # The comment views
 urlpatterns = patterns('django.views.generic.list_detail',
 
-	(r'^(?P<page>[0-9]+)/$',
-	'object_list', dict(comments, 
-						paginate_by=25, 
-						template_name= 'coltrane/comment_list.html')),
+	url(r'^(?P<page>[0-9]+)/$', 'object_list', 
+		dict(comments, paginate_by=25, template_name= 'coltrane/comment_list.html'),
+		name='coltrane_comment_list'),
 
 )

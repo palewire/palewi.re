@@ -4,9 +4,9 @@ from coltrane.models import  Post, Link
 from tagging.models import Tag
 
 urlpatterns = patterns('',
-	(r'^$', 'django.views.generic.list_detail.object_list',{ 
+	url(r'^$', 'django.views.generic.list_detail.object_list',{ 
 			'queryset': Tag.objects.all(),
 			'template_name': 'coltrane/tag_list.html' 
-		}, 'coltrane_tag_list'),
-	(r'(?P<id>[-\d]+)/$', 'coltrane.views.tag_detail'),
+		}, name='coltrane_tag_list'),
+	url(r'(?P<id>[-\d]+)/$', 'coltrane.views.tag_detail', name='coltrane_tag_detail'),
 )

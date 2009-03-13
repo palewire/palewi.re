@@ -8,7 +8,7 @@ index_dict = {
 }
 
 urlpatterns = patterns('django.views.generic.list_detail',
-	(r'^page/(?P<page>[0-9]+)/$', 'object_list', index_dict, 'coltrane_photo_list'),
+	url(r'^page/(?P<page>[0-9]+)/$', 'object_list', index_dict, name='coltrane_photo_list'),
 )
 
 

@@ -17,7 +17,7 @@ info_dict = {
 urlpatterns = patterns('django.views.generic',
 	url(r'^page/(?P<page>[0-9]+)/$', 'list_detail.object_list', index_dict, name='coltrane_shout_list'),
 	url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 
-		'date_based.object_detail', info_dict, 'coltrane_shout_detail'),
+		'date_based.object_detail', info_dict, name='coltrane_shout_detail'),
 )
 
 

@@ -7,11 +7,11 @@ index_dict = {
 }
 
 urlpatterns = patterns('django.views.generic.list_detail',
-	(r'list/$', 'object_list', index_dict, 'coltrane_category_list'),
+	url(r'list/$', 'object_list', index_dict, name="coltrane_category_list"),
 )
 
 urlpatterns += patterns('',
-	(r'(?P<slug>[-\w]+)/$', 'coltrane.views.category_detail'),
+	url(r'(?P<slug>[-\w]+)/$', 'coltrane.views.category_detail', name="coltrane_category_detail"),
 )
 
 
