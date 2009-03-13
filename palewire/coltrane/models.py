@@ -22,8 +22,10 @@ class Ticker(models.Model):
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
 	pub_date = models.DateTimeField()
-	
 	content_object = generic.GenericForeignKey('content_type', 'object_id')
+
+	class Meta:
+		verbose_name_plural = 'Ticker'
 
 	def get_rendered_html(self):
 		template_name = 'coltrane/ticker_item_%s.html' % (self.content_type.name)

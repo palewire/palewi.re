@@ -6,7 +6,7 @@ from django.contrib.contenttypes.models import ContentType
 
 def create_ticker_item(sender, instance, signal, *args, **kwargs):
 	"""
-	If the object being saved is a new creation, it will be added to Ticker model, and therefore the site's front page.
+	When a new object is saved, it will be added to Ticker model and therefore the site's front page.
 	"""
 	from coltrane.models import Ticker
 	# Check to see if the object was just created for the first time
@@ -18,6 +18,9 @@ def create_ticker_item(sender, instance, signal, *args, **kwargs):
 
 
 def delete_ticker_item(sender, instance, signal, *args, **kwargs):
+	"""
+	When an object is deleted, its ticker item will also be wiped out.
+	"""
 	from coltrane.models import Ticker
 	ctype = ContentType.objects.get_for_model(instance)
 	pub_date = instance.pub_date
