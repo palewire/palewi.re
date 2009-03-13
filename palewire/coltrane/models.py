@@ -15,7 +15,7 @@ from django.db import models
 from coltrane.managers import LivePostManager, SyncManager
 
 from django.db.models import signals
-from coltrane.signals import create_ticker_item, delete_ticker_item
+from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
 
 
 class Ticker(models.Model):
@@ -49,6 +49,7 @@ class Category(models.Model):
 	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
 	slug = models.SlugField(unique=True, help_text='Suggested value automatically generated from title. Must be unique.')
 	description = models.TextField(null=True, blank=True)
+	post_count = models.IntegerField(default=0, editable=False)
 	
 	class Meta:
 		ordering = ['title']
@@ -60,9 +61,9 @@ class Category(models.Model):
 	def get_absolute_url(self):
 		return u"/categories/%s/" % self.slug
 
-	def live_post_set(self):
+	def get_live_post_count(self):
 		from coltrane.models import Post
-		return self.entry_set.filter(status=Post.LIVE_STATUS)
+		return Post.live.filter(categories=self).count()
 
 
 class Post(models.Model):
@@ -246,3 +247,6 @@ for modelname in [Link, Photo, Post, Shout, Track, Video]:
 	
 for modelname in [Link, Photo, Post, Shout, Track, Video]:
 	signals.post_delete.connect(delete_ticker_item, sender=modelname)
+
+signals.post_save.connect(category_count, sender=Post)
+signals.post_delete.connect(category_count, sender=Post)
