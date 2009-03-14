@@ -50,8 +50,8 @@ class Category(models.Model):
 	slug = models.SlugField(unique=True, help_text='Suggested value automatically generated from title. Must be unique.')
 	description = models.TextField(null=True, blank=True)
 	post_count = models.IntegerField(default=0, editable=False)
-	live = LiveCategoryManager()
 	objects = models.Manager()
+	live = LiveCategoryManager()
 	
 	class Meta:
 		ordering = ['title']
@@ -89,14 +89,19 @@ class Post(models.Model):
 	status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS, help_text="Only entries with 'Live' status will be publicly displayed.")
 	categories = models.ManyToManyField(Category)
 	tags = TagField(help_text='Separate tags with spaces.', blank=True)
-	live = LivePostManager()
 	objects = models.Manager()
+	live = LivePostManager()
 
 	class Meta:
 		ordering = ['-pub_date']
 	
 	def __unicode__(self):
 		return self.title
+
+	def save(self, force_insert=False, force_update=False):
+		from coltrane.utils.pygmenter import pygmenter
+		self.body_html = pygmenter(self.body_markup)
+		super(Post, self).save()
 				
 	def get_absolute_url(self):
 		return ('coltrane_post_detail', (), { 'year': self.pub_date.strftime("%Y"),
@@ -228,7 +233,7 @@ class Link(models.Model):
 	def __unicode__(self):
 		return self.title
 	
-	def save(self):
+	def save(self, force_insert=False, force_update=False):
 		if not self.id and self.post_elsewhere:
 			import pydelicious
 			from django.utils.encoding import smart_str

@@ -8,17 +8,27 @@ from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
 
 def posts():
+	"""
+	Load legacy blog posts from Wordpress into the new Django system.
+	
+	Example usage::
+	
+		>> from legacy import load
+		>> load.posts()
+		
+	"""
+	
 	infile = open("../legacydb/dumps/posts.dump", 'r')
 	posts = pickle.load(infile)
 	infile.close()
 	ben = User.objects.get(username='ben')
 	for record in posts:
-		id, post_date, post_slug, post_title, post_content = record
+		_id, post_date, post_slug, post_title, post_content = record
 		p, created = Post.objects.get_or_create(
-			wordpress_id = id,
+			wordpress_id = _id,
 			title = post_title,
 			slug = post_slug,
-			body = post_content,
+			body_markup = post_content,
 			pub_date = post_date,
 			status = 1,
 			author = ben
@@ -52,6 +62,15 @@ def comments():
 			print "Added comment by %s on %s" % (c.user_name, post.title)
 	
 def cats():
+	"""
+	Load legacy categories from Wordpress into the new Django system, linking them to their posts.
+	
+	Example usage::
+	
+		>> from legacy import load
+		>> load.cats()
+		
+	"""
 	infile = open("../legacydb/dumps/categories.dump", 'r')
 	cats = pickle.load(infile)
 	infile.close()
@@ -61,11 +80,8 @@ def cats():
 		if created:
 			print "Added category %s" % c.title
 		try:
-			print "Looking for post %s" % post_id
 			p = Post.objects.get(wordpress_id=post_id)
-			print "Found post"
 			p.categories.add(c)
-			print "Added cat"
 			p.save()
 			print "Added %s to %s" % (c.title, p.title)
 		except Post.DoesNotExist:
@@ -87,3 +103,9 @@ def tags():
 			print "Added %s to %s" % (name, p.title)
 		except Post.DoesNotExist:
 			pass
+			
+def run():
+	posts()
+	cats()
+	tags()
+	comments()
