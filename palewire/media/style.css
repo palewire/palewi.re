@@ -125,7 +125,7 @@ form#commentform {padding: 0;}
 /* Pygments styles for source code in posts */
 
 .source .hll { background-color: #ffffcc }
-.source  { background: #f8f8f8; }
+.source  { background: #f8f8f8; width:40em; overflow:auto; padding:20px;}
 .source .c { color: #408080; font-style: italic } /* Comment */
 .source .err { border: 1px solid #FF0000 } /* Error */
 .source .k { color: #008000; font-weight: bold } /* Keyword */
