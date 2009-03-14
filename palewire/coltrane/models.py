@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.template.loader import render_to_string
+from django.utils.translation import ugettext_lazy as _
 
 from tagging.fields import TagField
 from tagging.models import Tag
@@ -19,13 +20,18 @@ from coltrane.signals import create_ticker_item, delete_ticker_item, category_co
 
 
 class Ticker(models.Model):
+	"""
+	A tumblelog of the latest content items, pushed automagically by the functions in signals.py.
+	
+	This is what populates the front page of the blog.
+	"""
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
 	pub_date = models.DateTimeField()
 	content_object = generic.GenericForeignKey('content_type', 'object_id')
 
 	class Meta:
-		verbose_name_plural = 'Ticker'
+		verbose_name_plural = _('Ticker')
 
 	def __unicode__(self):
 		return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
@@ -36,7 +42,10 @@ class Ticker(models.Model):
 
 
 class Slogan(models.Model):
-	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
+	"""
+	The slogans that randomly appear at the top of the blog when the logo is hovered over.
+	"""
+	title = models.CharField(max_length=250, help_text=_('Maximum 250 characters.'))
 
 	class Meta:
 		ordering = ['title']
@@ -46,8 +55,11 @@ class Slogan(models.Model):
 
 
 class Category(models.Model):
-	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
-	slug = models.SlugField(unique=True, help_text='Suggested value automatically generated from title. Must be unique.')
+	"""
+	Topic labels for grouping blog entries.
+	"""
+	title = models.CharField(max_length=250, help_text=_('Maximum 250 characters.'))
+	slug = models.SlugField(unique=True, help_text=_('Suggested value automatically generated from title. Must be unique.'))
 	description = models.TextField(null=True, blank=True)
 	post_count = models.IntegerField(default=0, editable=False)
 	objects = models.Manager()
@@ -55,7 +67,7 @@ class Category(models.Model):
 	
 	class Meta:
 		ordering = ['title']
-		verbose_name_plural = 'Categories'
+		verbose_name_plural = _('Categories')
 		
 	def __unicode__(self):
 		return self.title
@@ -69,6 +81,11 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+	"""
+	Blog posts. For longer stuff I write. 
+	
+	Supports pygments by placing code in <pre lang="xxx"> tags.
+	"""
 	LIVE_STATUS = 1
 	DRAFT_STATUS = 2
 	HIDDEN_STATUS = 3
@@ -78,17 +95,17 @@ class Post(models.Model):
 		(HIDDEN_STATUS, 'Hidden'),
 	)
 	
-	wordpress_id = models.IntegerField(unique=True, null=True, blank=True, help_text='The junky old wp_posts id from before the migration', editable=False)
-	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
-	slug = models.SlugField(max_length=300, unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
-	body_markup = models.TextField(help_text='The HTML of the post that is edited by the author.')
-	body_html = models.TextField(null=True, blank=True, editable=False, help_text='The HTML of the post after it has been run through Pygments.')
+	wordpress_id = models.IntegerField(unique=True, null=True, blank=True, help_text=_('The junky old wp_posts id from before the migration'), editable=False)
+	title = models.CharField(max_length=250, help_text=_('Maximum 250 characters.'))
+	slug = models.SlugField(max_length=300, unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
+	body_markup = models.TextField(help_text=_('The HTML of the post that is edited by the author.'))
+	body_html = models.TextField(null=True, blank=True, editable=False, help_text=_('The HTML of the post after it has been run through Pygments.'))
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	author = models.ForeignKey(User)
 	enable_comments = models.BooleanField(default=True)
-	status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS, help_text="Only entries with 'Live' status will be publicly displayed.")
+	status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS, help_text=_("Only entries with 'Live' status will be publicly displayed."))
 	categories = models.ManyToManyField(Category)
-	tags = TagField(help_text='Separate tags with spaces.', blank=True)
+	tags = TagField(help_text=_('Separate tags with spaces.'), blank=True)
 	objects = models.Manager()
 	live = LivePostManager()
 
@@ -116,12 +133,17 @@ class Post(models.Model):
 
 
 class Shout(models.Model):
+	"""
+	Shorter things I blast out.
+	
+	Posts can be syndicated to Twitter by setting post_elsewhere to True.
+	"""
 	body = models.TextField(max_length=140)
 	posted_by = models.ForeignKey(User)
-	slug = models.SlugField(unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
+	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	enable_comments = models.BooleanField(default=True)
-	post_elsewhere = models.BooleanField('Post to Twitter', default=True, help_text='If checked, this link will be posted to both the blog and Twitter.')
+	post_elsewhere = models.BooleanField('Post to Twitter', default=True, help_text=_('If checked, this link will be posted to both the blog and Twitter.'))
 
 	def __unicode__(self):
 		return u'%s' % (self.body)
@@ -146,15 +168,18 @@ class Shout(models.Model):
 
 
 class Video(models.Model):
+	"""
+	Links to web video clips I want to recommend.
+	"""
 	title = models.CharField(max_length=250)
 	url = models.URLField(unique=True)
 	posted_by = models.ForeignKey(User)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	slug = models.SlugField(unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
-	tags = TagField(help_text='Separate tags with spaces.')
+	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
+	tags = TagField(help_text=_('Separate tags with spaces.'))
 	enable_comments = models.BooleanField(default=True)
-	via_name = models.CharField('Via', max_length=250, blank=True, help_text='The name of the person whose site you spotted the link on. Optional.')
-	via_url = models.URLField('Via URL', blank=True, help_text='The URL of the site where you spotted the link. Optional.')
+	via_name = models.CharField(verbose_name=_('Via'), max_length=250, blank=True, help_text=_('The name of the person whose site you spotted the link on. Optional.'))
+	via_url = models.URLField(verbose_name=_('Via URL'), blank=True, help_text=_('The URL of the site where you spotted the link. Optional.'))
 
 	class Meta:
 		ordering = ['-pub_date']
@@ -171,15 +196,18 @@ class Video(models.Model):
 
 
 class Photo(models.Model):
+	"""
+	Links to photos I want to recommend, including my own.
+	"""
 	title = models.CharField(max_length=250)
 	url = models.URLField(unique=True)
 	posted_by = models.ForeignKey(User)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	slug = models.SlugField(unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
-	tags = TagField(help_text='Separate tags with spaces.')
+	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
+	tags = TagField(help_text=_('Separate tags with spaces.'))
 	enable_comments = models.BooleanField(default=True)
-	via_name = models.CharField('Via', max_length=250, blank=True, help_text='The name of the person whose site you spotted the link on. Optional.')
-	via_url = models.URLField('Via URL', blank=True, help_text='The URL of the site where you spotted the link. Optional.')
+	via_name = models.CharField('Via', max_length=250, blank=True, help_text=_('The name of the person whose site you spotted the link on. Optional.'))
+	via_url = models.URLField('Via URL', blank=True, help_text=_('The URL of the site where you spotted the link. Optional.'))
 
 	class Meta:
 		ordering = ['-pub_date']
@@ -196,14 +224,17 @@ class Photo(models.Model):
 
 
 class Track(models.Model):
-	"""A track you listened to. The model is based on last.fm."""
-
+	"""
+	Links to tracks I've listened to and logged at Last.fm.
+	
+	Updated by utils.lastfm, which needs to be scheduled to a cron.
+	"""
 	artist_name = models.CharField(max_length=250)
 	track_name = models.CharField(max_length=250)
 	url = models.URLField(blank=True)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	track_mbid = models.CharField("MusicBrainz Track ID", max_length=36, blank=True)
-	artist_mbid = models.CharField("MusicBrainz Artist ID", max_length=36, blank=True)
+	track_mbid = models.CharField(verbose_name = _("MusicBrainz Track ID"), max_length=36, blank=True)
+	artist_mbid = models.CharField(verbose_name = _("MusicBrainz Artist ID"), max_length=36, blank=True)
 	sync = SyncManager()
 	objects = models.Manager()
 
@@ -215,17 +246,22 @@ class Track(models.Model):
 
 
 class Link(models.Model):
+	"""
+	Links to bookmarks I'd like to recommend.
+	
+	Posts can be syndicated to Delicious by setting post_elsewhere to True.
+	"""
 	title = models.CharField(max_length=250)
 	description = models.TextField(blank=True, null=True)
 	url = models.URLField(unique=True)
 	posted_by = models.ForeignKey(User)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	slug = models.SlugField(unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
-	tags = TagField(help_text='Separate tags with spaces.')
+	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
+	tags = TagField(help_text=_('Separate tags with spaces.'))
 	enable_comments = models.BooleanField(default=True)
-	post_elsewhere = models.BooleanField('Post to del.icio.us', default=True, help_text='If checked, this link will be posted to both the blog and del.icio.us.')
-	via_name = models.CharField('Via', max_length=250, blank=True, help_text='The name of the person whose site you spotted the link on. Optional.')
-	via_url = models.URLField('Via URL', blank=True, help_text='The URL of the site where you spotted the link. Optional.')
+	post_elsewhere = models.BooleanField(verbose_name=_('Post to del.icio.us'), default=True, help_text=_('If checked, this link will be posted to both the blog and del.icio.us.'))
+	via_name = models.CharField('Via', max_length=250, blank=True, help_text=_('The name of the person whose site you spotted the link on. Optional.'))
+	via_url = models.URLField('Via URL', blank=True, help_text=_('The URL of the site where you spotted the link. Optional.'))
 	
 	class Meta:
 		ordering = ['-pub_date']
