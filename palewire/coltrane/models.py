@@ -51,6 +51,7 @@ class Category(models.Model):
 	description = models.TextField(null=True, blank=True)
 	post_count = models.IntegerField(default=0, editable=False)
 	live = LiveCategoryManager()
+	objects = models.Manager()
 	
 	class Meta:
 		ordering = ['title']
@@ -80,7 +81,8 @@ class Post(models.Model):
 	wordpress_id = models.IntegerField(unique=True, null=True, blank=True, help_text='The junky old wp_posts id from before the migration', editable=False)
 	title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
 	slug = models.SlugField(max_length=300, unique_for_date='pub_date', help_text='Suggested value automatically generated from title.')
-	body = models.TextField()
+	body_markup = models.TextField(help_text='The HTML of the post that is edited by the author.')
+	body_html = models.TextField(null=True, blank=True, editable=False, help_text='The HTML of the post after it has been run through Pygments.')
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	author = models.ForeignKey(User)
 	enable_comments = models.BooleanField(default=True)

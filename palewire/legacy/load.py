@@ -11,7 +11,7 @@ def posts():
 	infile = open("../legacydb/dumps/posts.dump", 'r')
 	posts = pickle.load(infile)
 	infile.close()
-	ben = User.objects.get(first_name='Ben')
+	ben = User.objects.get(username='ben')
 	for record in posts:
 		id, post_date, post_slug, post_title, post_content = record
 		p, created = Post.objects.get_or_create(
@@ -61,12 +61,17 @@ def cats():
 		if created:
 			print "Added category %s" % c.title
 		try:
+			print "Looking for post %s" % post_id
 			p = Post.objects.get(wordpress_id=post_id)
+			print "Found post"
 			p.categories.add(c)
+			print "Added cat"
 			p.save()
 			print "Added %s to %s" % (c.title, p.title)
 		except Post.DoesNotExist:
 			pass
+		except:
+			raise
 
 def tags():
 	infile = open("../legacydb/dumps/tags.dump", 'r')
