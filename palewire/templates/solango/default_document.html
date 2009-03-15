@@ -1,0 +1,9 @@
+<div>
+<h2> Search Document Coltrane</h2>
+<ul>
+<li>id: {{ document.fields.id.value }}</li>
+<li>model: {{document.fields.model.value }}</li>
+<li>url: <a href="{{document.fields.url.value }}" >{{document.fields.url.value }}</a></li>
+<li>highlighted Text: {{ document.highlight|safe }}</li>
+</ul>
+</div>
