@@ -30,6 +30,7 @@ def category_detail(request, slug):
 
 def tag_detail(request, tag):
 	"""Will need to return posts, videos, links and photos."""
+	tag = tag.replace("-", " ")
 	tag = get_object_or_404(Tag, name=tag)
 	posts = Post.live.all()
 	post_list = TaggedItem.objects.get_by_model(posts, tag)
