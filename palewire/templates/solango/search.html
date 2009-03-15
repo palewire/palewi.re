@@ -117,19 +117,16 @@
 			</div>
 		
 			{% if paginator.results.documents %}
-				<div class="pagination">
+				<div class="paginationwrapper">
 				{% if paginator.has_previous %}
-					 <a href="{{ paginator.previous_link }}">&lt;&lt;</a> | 
+				<div id="paginationleft">
+					 <a href="{{ paginator.previous_link }}">&larr; Previous</a>
+				</div>
 				{% endif %}
-				{% for link in paginator.links %}
-					{% if link.href %}
-						<a href="{{ link.href }}">{{ link.anchor }}</a> |
-					{% else %}
-						{{ link }} |
-					{% endif %}
-				{% endfor %}
 				{% if paginator.has_next %}
-					 <a href="{{ paginator.next_link }}">&gt;&gt;</a>
+				<div id="paginationright">
+					 <a href="{{ paginator.next_link }}">Next &rarr;</a>
+				</div>
 				{% endif %}
 				</div>
 			{% endif %}
