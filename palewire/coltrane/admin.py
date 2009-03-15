@@ -9,8 +9,10 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class PostAdmin(admin.ModelAdmin):
-	list_display = ('title', 'pub_date',)
+	list_display = ('title', 'pub_date', 'status',)
 	prepopulated_fields = {"slug": ("title",)}
+	list_filter = ('status', 'pub_date',)
+	date_hierarchy = 'pub_date'
 	
 admin.site.register(Post, PostAdmin)
 
