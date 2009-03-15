@@ -63,7 +63,17 @@ class Feature(models.Model):
 	content_object = generic.GenericForeignKey('content_type', 'object_id')
 		
 	def __unicode__(self):
-		return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
+		return u'Featured %s: %s' % (self.content_type.model_class().__name__, self.content_object)
+		
+	def get_rendered_html(self):
+		return u'<a href="%s">%s</a>' % (self.content_object.get_absolute_url(), self.__unicode__())
+		"""
+		return u'<img src="%s" style="vertical-align:middle">&nbsp&nbsp<a href="%s">%s</a>' % (
+			self.content_object.get_absolute_icon(),
+			self.content_object.get_absolute_url(), 
+			self.content_object
+			)
+		"""
 
 
 class Category(models.Model):
