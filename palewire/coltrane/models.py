@@ -181,6 +181,9 @@ class Shout(models.Model):
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
 
+	def get_absolute_icon(self):
+		return u'/media/icons/shouts.png'
+
 
 class Video(models.Model):
 	"""
@@ -299,6 +302,7 @@ class Link(models.Model):
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
+
 
 # Signals
 for modelname in [Link, Photo, Post, Shout, Track, Video]:

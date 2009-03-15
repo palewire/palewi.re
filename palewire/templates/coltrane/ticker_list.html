@@ -9,14 +9,14 @@
 		<div id="panelcontent">
 				{% for feature in feature_list %}
 					<img src="{{ feature.content_object.get_absolute_icon }}" style="vertical-align:middle;">
-					<a href="{{ feature.content_object.get_absolute_url }}">{{ feature.content_object.title }}</a>
+					<a href="{{ feature.content_object.get_absolute_url }}">{{ feature.content_object }}</a>
 				{% endfor %}
 		</div>
 	</div>
 	<p class="slide">
 		<a href="#" class="btn-slide">
-			<span class="btn-label-down">Featured post &darr;</span>
-			<span class="btn-label-up" style="display:none;">Featured post &uarr;</span>
+			<span class="btn-label-down">Feature &darr;</span>
+			<span class="btn-label-up" style="display:none;">Feature &uarr;</span>
 		</a>
 	</p>
 {% endif %}
