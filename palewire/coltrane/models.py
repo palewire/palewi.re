@@ -294,3 +294,13 @@ for modelname in [Link, Photo, Post, Shout, Track, Video]:
 
 signals.post_save.connect(category_count, sender=Post)
 signals.post_delete.connect(category_count, sender=Post)
+
+# Comment moderation
+
+from comment_utils.moderation import CommentModerator, moderator, AlwaysModerate
+class ColtraneModerator(AlwaysModerate):
+	#akismet = True
+	email_notification = True
+	enable_field = 'enable_comments'
+
+moderator.register(Post, ColtraneModerator)

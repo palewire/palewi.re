@@ -36,3 +36,4 @@ class SyncManager(models.Manager):
 			return qs.order_by('-pub_date')[0].pub_date
 		except IndexError:
 			return datetime.datetime.fromtimestamp(0)
+			
