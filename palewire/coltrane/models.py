@@ -67,13 +67,6 @@ class Feature(models.Model):
 		
 	def get_rendered_html(self):
 		return u'<a href="%s">%s</a>' % (self.content_object.get_absolute_url(), self.__unicode__())
-		"""
-		return u'<img src="%s" style="vertical-align:middle">&nbsp&nbsp<a href="%s">%s</a>' % (
-			self.content_object.get_absolute_icon(),
-			self.content_object.get_absolute_url(), 
-			self.content_object
-			)
-		"""
 
 
 class Category(models.Model):
@@ -96,6 +89,9 @@ class Category(models.Model):
 		
 	def get_absolute_url(self):
 		return u"/categories/%s/" % self.slug
+		
+	def get_absolute_icon(self):
+		return u'/media/icons/categories.png'
 
 	def get_live_post_count(self):
 		from coltrane.models import Post
@@ -221,6 +217,9 @@ class Video(models.Model):
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
+	
+	def get_absolute_icon(self):
+		return u'/media/icons/videos.png'
 
 
 class Photo(models.Model):
@@ -249,6 +248,9 @@ class Photo(models.Model):
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
+	
+	def get_absolute_icon(self):
+		return u'/media/icons/photos.png'
 
 
 class Track(models.Model):
@@ -271,6 +273,9 @@ class Track(models.Model):
 
 	def __unicode__(self):
 		return u"%s - %s" % (self.artist_name, self.track_name)
+		
+	def get_absolute_icon(self):
+		return u'/media/icons/tracks.png'
 
 
 class Link(models.Model):
@@ -312,6 +317,9 @@ class Link(models.Model):
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
+	
+	def get_absolute_icon(self):
+		return u'/media/icons/links.png'
 
 
 # Signals
