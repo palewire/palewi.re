@@ -37,13 +37,13 @@
 	<div id="paginationwrapper">
 		{% if has_previous %}
 		<div id="paginationleft">
-			<a href="/ticker/page/{{ previous }}/">< Previous</a>
+			<a href="/ticker/page/{{ previous }}/">&larr; Previous</a>
 		</div>
 		{% endif %}
 
 		{% if has_next %}
 		<div id="paginationright">
-			<a href="/ticker/page/{{ next }}/">Next ></a>
+			<a href="/ticker/page/{{ next }}/">Next &rarr;</a>
 		</div>
 		{% endif %}
 	</div>
@@ -51,7 +51,7 @@
 	{% else %}
 		<div id="paginationwrapper">
 			<div id="paginationright">
-				<a href="/ticker/page/2/">Next ></a>
+				<a href="/ticker/page/2/">Next &rarr;</a>
 			</div>
 		</div>
 	{% endif %}

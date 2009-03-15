@@ -102,8 +102,8 @@ a:focus {outline: none;}
 
 /* Pag navigation toys */
 #paginationwrapper {clear:both; margin-top: 1em; font-size:1.2em;}
-#paginationleft {float:left;}
-#paginationright {float:right;}
+#paginationleft {float:left; font-weight:bold;}
+#paginationright {float:right; font-weight:bold;}
 
 /* Footer stuff */
 #ft { margin-top: 1em; }
