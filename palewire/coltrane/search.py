@@ -35,7 +35,7 @@ solango.register(Post, PostDocument)
 class ShoutDocument(solango.SearchDocument):
 	author = solango.fields.CharField()
 	date = solango.fields.DateField()
-	body = solango.fields.TextField(copy=True)
+	title = solango.fields.TextField(copy=True)
 
 	def transform_author(self, instance):
 		return instance.posted_by.get_full_name()
@@ -43,7 +43,7 @@ class ShoutDocument(solango.SearchDocument):
 	def transform_date(self, instance):
 		return instance.pub_date
 		
-	def transform_body(self, instance):
+	def transform_title(self, instance):
 		return instance.body
 				
 solango.register(Shout, ShoutDocument)
