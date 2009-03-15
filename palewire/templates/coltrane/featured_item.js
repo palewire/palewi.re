@@ -1,8 +1,8 @@
 	
 	function slideBox () {
-		$("#panel").slideToggle(1000);
 		$(".btn-label-up").toggle();
 		$(".btn-label-down").toggle();
+		$("#panel").slideToggle(1000);
 		$(this).toggleClass("active"); 
 		return false;
 	}

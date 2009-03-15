@@ -3,6 +3,7 @@ import datetime
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.comments.models import Comment
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.template.loader import render_to_string
@@ -332,10 +333,10 @@ class Link(models.Model):
 
 
 # Signals
-for modelname in [Link, Photo, Post, Shout, Track, Video]:
+for modelname in [Link, Photo, Post, Shout, Track, Video, Comment]:
 	signals.post_save.connect(create_ticker_item, sender=modelname)
 	
-for modelname in [Link, Photo, Post, Shout, Track, Video]:
+for modelname in [Link, Photo, Post, Shout, Track, Video, Comment]:
 	signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)
