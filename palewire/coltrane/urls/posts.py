@@ -18,7 +18,7 @@ urlpatterns = patterns('django.views.generic.list_detail',
 	
 )
 
-urlpatterns += patterns('django.views.generic.date_based',
+urlpatterns += patterns('',
 	url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 
-		'object_detail', entry_info_dict, name='coltrane_post_detail'),
+		'coltrane.views.post_detail', name='coltrane_post_detail'),
 )

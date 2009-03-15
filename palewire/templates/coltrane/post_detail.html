@@ -42,6 +42,12 @@
 
 		</div>
 		
+		<ul>
+		{% for post in related_posts %}
+			<li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+		{% endfor %}
+		</ul>
+		
 		<div id="detailborderbumper" class="thick"></div>
 		
 		<div id ="comments">
