@@ -3,6 +3,20 @@
 
 {% block title %}{{ block.super }}{% endblock %}
 
+{% block skybox %}
+	<div id="panel">
+		<div id="panel-content">
+			This is a test...
+		</div>
+	</div>
+	<p class="slide">
+		<a href="#" class="btn-slide">
+			<span class="btn-label-down">Featured post &darr;</span>
+			<span class="btn-label-up" style="display:none;">Featured post &uarr;</span>
+		</a>
+	</p>
+{% endblock %}
+
 {% block content %}
 
 	<ul id="tickerlog">
