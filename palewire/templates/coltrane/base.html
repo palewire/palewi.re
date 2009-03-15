@@ -5,21 +5,31 @@
 	<link rel="stylesheet" type="text/css" href="/media/reset-fonts-grids.css">
 	<link rel="stylesheet" type="text/css" href="/media/style.css">
 	<script type="text/javascript" src="/media/jquery-1.2.6.min.js"></script>
-		
+
 	<script type="text/javascript"> 
-	//<![CDATA[    
+	//<![CDATA[
+	$(document).ready(function(){
+		{% include "coltrane/featured_item.js"%}
+
 		{% include "coltrane/nav.js" %}
+	});
 	//]]>
 	</script>
-	
 	{% block extrahead %}
 	{% endblock %}
 	
 </head>
 <body {%block extrabody %}{% endblock %}>
 		<div id="doc" class="yui-t7">
-
+			
 		<div id="hd">
+			<div id="panel">
+	<!-- you can put content here -->
+</div>
+
+<p class="slide"><a href="#" class="btn-slide">Slide Panel</a></p>
+
+			
 			<h1>
 				<a href="/">
 					palewire

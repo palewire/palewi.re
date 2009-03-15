@@ -2,9 +2,6 @@
 {% load coltrane_tags %}
 {% get_all_slogans %}
 
-// When the page is ready
-	$(document).ready(function(){
-	
 		// An array of palewire slogans
 		var slogans = [
 			{% for slogan in slogan_list %}'{{ slogan }}',{% endfor %}
@@ -49,5 +46,3 @@
 			var title = $(this).attr('title');
 			$('#hd span[title='+title+']').hide();
 			})
-		
-	});
