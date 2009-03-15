@@ -31,6 +31,6 @@ urlpatterns = patterns('',
 	(r'^comments/', include('django.contrib.comments.urls')),
 	(r'^$', include('coltrane.urls.ticker')),
 	(r'^ticker/', include('coltrane.urls.ticker')),
-	(r'^search/', include('solango.urls')),
+	(r'^search/', include('coltrane.urls.search')),
 )
 

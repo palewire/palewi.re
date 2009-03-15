@@ -44,3 +44,4 @@ def tag_detail(request, tag):
 			'link_list': link_list,
 			'photo_list': photo_list,
 		})
+		

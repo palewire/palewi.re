@@ -1,0 +1,105 @@
+{% extends "coltrane/base.html" %}
+
+{% block content %}
+	<style>
+	.facets {
+	    float:left;
+	    width: 180px;
+	    margin:12px 0px;
+	}
+	.facets ul.linkType {
+	    margin:0em 0em 1em; padding:0;
+	}
+	.facets ul.linkType li {
+	    margin:0 12px; padding:0;
+	}
+	.facets ul.linkType li a {
+	    color: #000;                    
+	    margin:0; padding:0 0 0 0.5em;
+	}
+	.facets ul.linkType li a.active,
+	.facets ul.linkType li a.active:hover
+	{
+	    color:#333;
+	    font-weight:bold;
+	    cursor:default;
+	 }
+	.facets ul.linkType li a.Facet0 { 
+	    padding:0 0 0 0.5em; 
+	 } 
+	.facets ul.linkType li a.Facet1 { 
+	    padding:0 0 0 1.5em;
+	} 
+	.facets ul.linkType li a.Facet2 { 
+	    padding:0 0 0 2.5em;
+	} 
+	.facets h3 { margin:0; padding:0 0 3px; font-weight:bold; font-size:13px; color:#999;}
+	</style>
+
+<div class="facets">
+<ul class="linkType">
+ <li><a href="?">See All Results</a></li>
+{% for link in facets %}
+    
+    {% if link.href %}
+        <li><a class="Facet{{ link.level }} {% if link.active %}active{% endif %}"
+            href="{{ link.href }}">{{ link.anchor }}</a> {% if link.count %} ({{ link.count }}) {% endif %}</li>
+    {% else %}
+        </ul>
+        <ul class="linkType">
+        <li><h3>{{ link }}</h3></li>
+    {% endif %}
+    
+{% endfor %}
+</ul>
+{% if sort_links %}
+<h3>Sort</h3>
+<ul>
+{% for link in sort_links %}
+    {% if link.anchor %}
+        <li><a href="{{ link.href }}">{{ link.anchor }}</a></li>
+    {% else %}
+        <li>{{ link }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endif %}
+</div>
+
+
+
+
+	<form action="." method="GET">
+		<ul>
+		  {{form.as_ul}}
+		</ul>
+		<input type='submit', value='Search'>
+	</form>
+	
+	<div>
+	{% if form.data.q and not paginator.results.documents %}
+	No results found for <em>{{form.data.q}}</em>. Please modify your search.
+	{% endif %}
+	
+	{% for doc in paginator.results.documents %}
+		{{doc.render_html|safe}}
+	{% endfor %}
+	</div>
+	
+    <div class="pagination">
+	{% if paginator.has_previous %}
+	     <a href="{{ paginator.previous_link }}">&lt;&lt;</a> | 
+	{% endif %}
+	{% for link in paginator.links %}
+	    {% if link.href %}
+	        <a href="{{ link.href }}">{{ link.anchor }}</a> |
+	    {% else %}
+	        {{ link }} |
+	    {% endif %}
+	{% endfor %}
+	{% if paginator.has_next %}
+	     <a href="{{ paginator.next_link }}">&gt;&gt;</a>
+	{% endif %}
+	</div>
+	
+{% endblock %}
