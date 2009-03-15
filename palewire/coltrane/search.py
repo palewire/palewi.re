@@ -52,7 +52,7 @@ solango.register(Shout, ShoutDocument)
 class VideoDocument(solango.SearchDocument):
 	author = solango.fields.CharField()
 	date = solango.fields.DateField()
-	body = solango.fields.TextField(copy=True)
+	title = solango.fields.TextField(copy=True)
 	tags = solango.fields.CharField()
 
 	def transform_author(self, instance):
@@ -73,7 +73,7 @@ solango.register(Video, VideoDocument)
 class PhotoDocument(solango.SearchDocument):
 	author = solango.fields.CharField()
 	date = solango.fields.DateField()
-	body = solango.fields.TextField(copy=True)
+	title = solango.fields.TextField(copy=True)
 	tags = solango.fields.CharField()
 
 	def transform_author(self, instance):
@@ -94,7 +94,7 @@ solango.register(Photo, PhotoDocument)
 class LinkDocument(solango.SearchDocument):
 	author = solango.fields.CharField()
 	date = solango.fields.DateField()
-	body = solango.fields.TextField(copy=True)
+	title = solango.fields.TextField(copy=True)
 	tags = solango.fields.CharField()
 
 	def transform_author(self, instance):
