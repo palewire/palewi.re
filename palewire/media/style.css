@@ -74,7 +74,8 @@ a:focus {outline: none;}
 
 #postpubdate { margin-bottom: 0.6em; }
 #postcats { margin-bottom: 0.6em; }
-#posttags {}
+#posttags { margin-bottom: 0.6em;}
+#relatedposts {}
 
 /* who-is-ben-welsh */
 .bioimg {text-align:center; margin-bottom:1.15em;}
