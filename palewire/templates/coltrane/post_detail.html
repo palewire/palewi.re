@@ -29,12 +29,12 @@
 			
 			<p id="posttags">Topics include 
 			{% for t in object.get_tags %}
-				{% if forloop.last %}and <a href="/tag/{{ t.id }}/" alt="{{t}}" title="{{t}}">{{t}}</a>.
+				{% if forloop.last %}and <a href="/tag/{{ t }}/" alt="{{t}}" title="{{t}}">{{t}}</a>.
 				{% else %}
 					{% ifequal forloop.revcounter 2 %}
-						<a href="/tags/{{ t.id }}/" alt="{{t}}" title="{{t}}">{{t}}</a> 
+						<a href="/tags/{{ t }}/" alt="{{t}}" title="{{t}}">{{t}}</a> 
 					{% else %}
-						<a href="/tags/{{ t.id }}/" alt="{{t}}" title="{{t}}">{{t}}</a>, 
+						<a href="/tags/{{ t }}/" alt="{{t}}" title="{{t}}">{{t}}</a>, 
 					{% endifequal %}
 				{% endif %}
 			{% endfor %}
