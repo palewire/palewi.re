@@ -4,9 +4,13 @@
 {% block title %}{{ block.super }}{% endblock %}
 
 {% block skybox %}
+{% if feature_list %}
 	<div id="panel">
-		<div id="panel-content">
-			This is a test...
+		<div id="panelcontent">
+				{% for feature in feature_list %}
+					<img src="{{ feature.content_object.get_absolute_icon }}" style="vertical-align:middle;">
+					<a href="{{ feature.content_object.get_absolute_url }}">{{ feature.content_object.title }}</a>
+				{% endfor %}
 		</div>
 	</div>
 	<p class="slide">
@@ -15,6 +19,7 @@
 			<span class="btn-label-up" style="display:none;">Featured post &uarr;</span>
 		</a>
 	</p>
+{% endif %}
 {% endblock %}
 
 {% block content %}

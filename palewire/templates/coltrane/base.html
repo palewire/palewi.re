@@ -9,7 +9,9 @@
 	<script type="text/javascript"> 
 	//<![CDATA[
 	$(document).ready(function(){
-		{% include "coltrane/featured_item.js"%}
+		{% if feature_list %}
+			{% include "coltrane/featured_item.js"%}
+		{% endif %}
 
 		{% include "coltrane/nav.js" %}
 	});

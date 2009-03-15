@@ -52,6 +52,18 @@ class Slogan(models.Model):
 		
 	def __unicode__(self):
 		return self.title
+		
+		
+class Feature(models.Model):
+	"""
+	The posts or other content objects I want to feature in the skybox.
+	"""
+	content_type = models.ForeignKey(ContentType)
+	object_id = models.PositiveIntegerField()
+	content_object = generic.GenericForeignKey('content_type', 'object_id')
+		
+	def __unicode__(self):
+		return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
 
 
 class Category(models.Model):
@@ -128,6 +140,9 @@ class Post(models.Model):
 												
 	get_absolute_url = models.permalink(get_absolute_url)
 	
+	def get_absolute_icon(self):
+		return u'/media/icons/posts.png'
+		
 	def get_tags(self):
 		return Tag.objects.get_for_object(self)
 

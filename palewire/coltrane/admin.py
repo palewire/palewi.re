@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Category, Photo, Post, Link, Slogan, Ticker, Track, Shout, Video
+from models import Category, Feature, Photo, Post, Link, Slogan, Ticker, Track, Shout, Video
 
 class CategoryAdmin(admin.ModelAdmin):
 	list_display = ('title', 'post_count',)
@@ -45,6 +45,12 @@ class TickerAdmin(admin.ModelAdmin):
 	pass
 	
 admin.site.register(Ticker, TickerAdmin)
+
+
+class FeatureAdmin(admin.ModelAdmin):
+	pass
+	
+admin.site.register(Feature, FeatureAdmin)
 
 
 class TrackAdmin(admin.ModelAdmin):

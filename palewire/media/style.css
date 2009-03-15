@@ -27,13 +27,14 @@ a:focus {outline: none;}
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	text-align:right;
-	height: 2em;
+	height: 3em;
 	display: none;
 	border-bottom: 1px solid #ccc;
 }
-#panel-content {
-	padding:0.5em;
+#panelcontent {
+	padding:0.8em;
 }
+
 
 .slide {
 	margin: 0;
