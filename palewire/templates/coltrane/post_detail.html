@@ -16,7 +16,7 @@
 		<div id="detailborderbumper" class="thin"></div>
 		
 		<div id="detailmetadata">
-			<p id="postpubdate">This is a post <b>{{ object.author }}</b> made on {{ object.pub_date|date:"M j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
+			<p id="postpubdate">This is a post <b>{{ object.author }}</b> made on <b>{{ object.pub_date|date:"M j, Y" }}</b>, {{ object.pub_date|timesince }} ago.</p>
 			{% if object.categories.count %}
 				
 				<p id ="postcats">
@@ -42,12 +42,12 @@
 			
 		<ul id="relatedposts">Some similar posts are 
 			{% for p in related_posts %}
-				{% if forloop.last %}and <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">{{p}}</a>.
+				{% if forloop.last %}and <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a>
 				{% else %}
 					{% ifequal forloop.revcounter 2 %}
-						<a href="{{ p.get_absolute_url }}/" alt="{{p}}" title="{{p}}">{{p}}</a> 
+						<a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a> 
 					{% else %}
-						<a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">{{p}}</a>, 
+						<a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}},"</a> 
 					{% endifequal %}
 				{% endif %}
 			{% endfor %}
