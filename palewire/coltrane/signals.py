@@ -8,16 +8,15 @@ def create_ticker_item(sender, instance, signal, *args, **kwargs):
 	"""
 	When a new object is saved, it will be added to Ticker model and therefore the site's front page.
 	"""
-	print instance.__class__.__name__
 	from coltrane.models import Ticker
 	# Check to see if the object was just created for the first time
-	if 'created' in kwargs:
+	if 'created' in kwargs and instance.__class__.__name__ != 'Comment':
 		if kwargs['created']:
 			ctype = ContentType.objects.get_for_model(instance)
 			pub_date = instance.pub_date
 			Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
+	# Check to see if the object is a comment, and it has been approved
 	if instance.__class__.__name__ == 'Comment':
-		print instance
 		if instance.is_public:
 			ctype = ContentType.objects.get_for_model(instance)
 			pub_date = instance.submit_date

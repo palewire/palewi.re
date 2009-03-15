@@ -60,6 +60,11 @@ def comments():
 		)
 		if created:
 			print "Added comment by %s on %s" % (c.user_name, post.title)
+
+def is_public():
+	for c in Comment.objects.all():
+		c.is_public = True
+		c.save()
 	
 def cats():
 	"""
