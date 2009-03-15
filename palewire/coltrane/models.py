@@ -304,3 +304,4 @@ class ColtraneModerator(AlwaysModerate):
 	enable_field = 'enable_comments'
 
 moderator.register(Post, ColtraneModerator)
+moderator.register(Shout, ColtraneModerator)

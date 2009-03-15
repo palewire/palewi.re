@@ -1,5 +1,6 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
+{% load comments %}
 
 {% block title %}{{ object.body|striptags|lower }} . shout . {{ block.super }}{% endblock %}
 
@@ -17,5 +18,25 @@
 	</div>
 
 	<div id="detailborderbumper" class="thick"></div>
+	
+			<div id ="comments">
+			{% get_comment_list for object as comment_list %}
+			{% if comment_list %}
+				<h2><img style="vertical-align:text-bottom;"src="/media/icons/comments.png" width="30"/>
+					Comments
+				</h2>
+			{% endif %}
+			
+			{% for comment in comment_list %}
+				<div id="#c{{comment.id}}" class="comment">
+					<a name="c{{comment.id}}"></a>
+					<div class="commentname"><a href="{{ comment.get_absolute_url }}">> {{ comment.user_name|lower }}:</a></div> 
+					<div class="commenttext">{{ comment.comment }}</div>
+				</div>
+			{% endfor %}
+			
+			{% render_comment_form for object %}
+			
+		</div>
 
 {% endblock %}
