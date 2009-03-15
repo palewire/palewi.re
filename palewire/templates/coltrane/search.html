@@ -4,7 +4,7 @@
 	<style>
 	.facets {
 	    float:left;
-	    width: 180px;
+	    width: 12em;
 	    margin:12px 0px;
 	}
 	.facets ul.linkType {
@@ -34,72 +34,89 @@
 	    padding:0 0 0 2.5em;
 	} 
 	.facets h3 { margin:0; padding:0 0 3px; font-weight:bold; font-size:13px; color:#999;}
+	
+	#searchbody {margin-top:4em;}
+	#searchbar {width:12em;}
+	#searchmain {width:45em; float:right;}
+	#searchbox { text-align:left; padding-left: 1.5em; }
+	.searchboxinput { width:15em; height:1.5em;}
 	</style>
 
-<div class="facets">
-<ul class="linkType">
- <li><a href="?">See All Results</a></li>
-{% for link in facets %}
+<div class="interiorlist">
+	<h2><a href="/search/">Search</a></h2>
+	
+	<div id="searchbox">
+		<form action="." method="GET">
+			  <input class="searchboxinput" id="id_q" type="text" name="q"/>
+			<input type='submit', value='Go'>
+		</form>
+	</div>
+	
+
+	<div id="searchbar">
+	
+		<div class="facets">
+		<ul class="linkType">
+		{% if facets %}
+		<h2>Filter</h2>
+		{% endif %}
+		{% for link in facets %}
     
-    {% if link.href %}
-        <li><a class="Facet{{ link.level }} {% if link.active %}active{% endif %}"
-            href="{{ link.href }}">{{ link.anchor }}</a> {% if link.count %} ({{ link.count }}) {% endif %}</li>
-    {% else %}
-        </ul>
-        <ul class="linkType">
-        <li><h3>{{ link }}</h3></li>
-    {% endif %}
+		    {% if link.href %}
+		        <li><a class="Facet{{ link.level }} {% if link.active %}active{% endif %}"
+		            href="{{ link.href }}">{{ link.anchor }}</a> {% if link.count %} ({{ link.count }}) {% endif %}</li>
+		    {% else %}
+		        </ul>
+		        <ul class="linkType">
+		        <li><h3>{{ link }}</h3></li>
+		    {% endif %}
     
-{% endfor %}
-</ul>
-{% if sort_links %}
-<h3>Sort</h3>
-<ul>
-{% for link in sort_links %}
-    {% if link.anchor %}
-        <li><a href="{{ link.href }}">{{ link.anchor }}</a></li>
-    {% else %}
-        <li>{{ link }}</li>
-    {% endif %}
-{% endfor %}
-</ul>
-{% endif %}
-</div>
-
-
-
-
-	<form action="." method="GET">
-		<ul>
-		  {{form.as_ul}}
+		{% endfor %}
 		</ul>
-		<input type='submit', value='Search'>
-	</form>
-	
-	<div>
-	{% if form.data.q and not paginator.results.documents %}
-	No results found for <em>{{form.data.q}}</em>. Please modify your search.
-	{% endif %}
-	
-	{% for doc in paginator.results.documents %}
-		{{doc.render_html|safe}}
-	{% endfor %}
+		{% if sort_links %}
+		<h2>Sort</h2>
+		<ul class="linkType">
+		{% for link in sort_links %}
+		    {% if link.anchor %}
+		        <li><a class="Facet1" href="{{ link.href }}">{{ link.anchor }}</a></li>
+		    {% endif %}
+		{% endfor %}
+		</ul>
+		{% endif %}
+
+		</div>
+
 	</div>
+
+	<div id="searchmain">
 	
-    <div class="pagination">
-	{% if paginator.has_previous %}
-	     <a href="{{ paginator.previous_link }}">&lt;&lt;</a> | 
-	{% endif %}
-	{% for link in paginator.links %}
-	    {% if link.href %}
-	        <a href="{{ link.href }}">{{ link.anchor }}</a> |
-	    {% else %}
-	        {{ link }} |
-	    {% endif %}
-	{% endfor %}
-	{% if paginator.has_next %}
-	     <a href="{{ paginator.next_link }}">&gt;&gt;</a>
-	{% endif %}
+		<div>
+		{% if form.data.q and not paginator.results.documents %}
+		No results found for <em>{{form.data.q}}</em>. Please modify your search.
+		{% endif %}
+	
+		{% for doc in paginator.results.documents %}
+			{{doc.render_html|safe}}
+		{% endfor %}
+		</div>
+	
+	    <div class="pagination">
+		{% if paginator.has_previous %}
+		     <a href="{{ paginator.previous_link }}">&lt;&lt;</a> | 
+		{% endif %}
+		{% for link in paginator.links %}
+		    {% if link.href %}
+		        <a href="{{ link.href }}">{{ link.anchor }}</a> |
+		    {% else %}
+		        {{ link }} |
+		    {% endif %}
+		{% endfor %}
+		{% if paginator.has_next %}
+		     <a href="{{ paginator.next_link }}">&gt;&gt;</a>
+		{% endif %}
+		</div>
+
 	</div>
-	
+
+</div>
 {% endblock %}
