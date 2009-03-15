@@ -16,27 +16,24 @@ a:link{text-decoration: none; color:black;}
 a:visited{text-decoration: none; color: black;}
 a:hover{text-decoration: none; color:black; font-weight:bold;}
 a:active{text-decoration: underline; color: red;}
+a:focus {outline: none;}
 
 /* Aborted attempt at a featured post flag */
 #featurewrapper {margin:auto; padding-top:2em; min-width:750px; width:57.69em;}
 #featureline {float:right;}
 #featureline strong {font-weight:bold;}
-a:focus {
-	outline: none;
-}
+
 #panel {
-	background: #754c24;
-	height: 200px;
+	height: 30px;
 	display: none;
+	border-bottom: 1px solid #ccc;
 }
 .slide {
 	margin: 0;
 	padding: 0;
-	border-top: solid 4px #422410;
-	background: url(images/btn-slide.gif) no-repeat center top;
+	float: right;
 }
 .btn-slide {
-	background: url(images/white-arrow.gif) no-repeat right -50px;
 	text-align: center;
 	width: 144px;
 	height: 31px;
