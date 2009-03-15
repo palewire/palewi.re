@@ -1,8 +1,7 @@
-<div>
-<h2>{{document.fields.title.value }}</h2>
-<ul>
-<li>model: {{document.fields.model.value }}</li>
-<li>url: <a href="{{document.fields.url.value }}" >{{document.fields.url.value }}</a></li>
-<li>highlighted Text: {{ document.highlight|safe }}</li>
-</ul>
+<div class="searchresultwrapper">
+	<h4><img style="vertical-align:middle" src="{{document.fields.model_icon_url.value }}"> <a href="{{ document.fields.url.value }}">{{document.fields.title.value }}</a></h4>
+	<ul class="searchresult">
+		<p class="highlight">{{ document.highlight|safe }}</p>
+		<p><a href="{{document.fields.url.value }}" >{{document.fields.url.value }}</a></p>
+	</ul>
 </div>
