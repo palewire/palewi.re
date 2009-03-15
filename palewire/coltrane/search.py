@@ -1,5 +1,6 @@
 import solango
-from coltrane.models import Post
+from coltrane.models import Post, Shout, Video, Photo, Link
+
 
 class PostDocument(solango.SearchDocument):
 	author = solango.fields.CharField()
@@ -29,3 +30,83 @@ class PostDocument(solango.SearchDocument):
 		return instance.get_tags()
 
 solango.register(Post, PostDocument)
+
+
+class ShoutDocument(solango.SearchDocument):
+	author = solango.fields.CharField()
+	date = solango.fields.DateField()
+	body = solango.fields.TextField(copy=True)
+
+	def transform_author(self, instance):
+		return instance.posted_by.get_full_name()
+
+	def transform_date(self, instance):
+		return instance.pub_date
+		
+	def transform_body(self, instance):
+		return instance.body
+				
+solango.register(Shout, ShoutDocument)
+
+
+class VideoDocument(solango.SearchDocument):
+	author = solango.fields.CharField()
+	date = solango.fields.DateField()
+	body = solango.fields.TextField(copy=True)
+	tags = solango.fields.CharField()
+
+	def transform_author(self, instance):
+		return instance.posted_by.get_full_name()
+
+	def transform_date(self, instance):
+		return instance.pub_date
+		
+	def transform_title(self, instance):
+		return instance.title
+		
+	def transform_tags(self, instance):
+		return instance.get_tags()
+				
+solango.register(Video, VideoDocument)
+
+
+class PhotoDocument(solango.SearchDocument):
+	author = solango.fields.CharField()
+	date = solango.fields.DateField()
+	body = solango.fields.TextField(copy=True)
+	tags = solango.fields.CharField()
+
+	def transform_author(self, instance):
+		return instance.posted_by.get_full_name()
+
+	def transform_date(self, instance):
+		return instance.pub_date
+		
+	def transform_title(self, instance):
+		return instance.title
+		
+	def transform_tags(self, instance):
+		return instance.get_tags()
+				
+solango.register(Photo, PhotoDocument)
+
+
+class LinkDocument(solango.SearchDocument):
+	author = solango.fields.CharField()
+	date = solango.fields.DateField()
+	body = solango.fields.TextField(copy=True)
+	tags = solango.fields.CharField()
+
+	def transform_author(self, instance):
+		return instance.posted_by.get_full_name()
+
+	def transform_date(self, instance):
+		return instance.pub_date
+		
+	def transform_title(self, instance):
+		return instance.title
+		
+	def transform_tags(self, instance):
+		return instance.get_tags()
+				
+solango.register(Link, LinkDocument)

@@ -221,6 +221,9 @@ class Video(models.Model):
 	def get_absolute_icon(self):
 		return u'/media/icons/videos.png'
 
+	def get_tags(self):
+		return Tag.objects.get_for_object(self)
+
 
 class Photo(models.Model):
 	"""
@@ -251,6 +254,9 @@ class Photo(models.Model):
 	
 	def get_absolute_icon(self):
 		return u'/media/icons/photos.png'
+		
+	def get_tags(self):
+		return Tag.objects.get_for_object(self)
 
 
 class Track(models.Model):
@@ -320,6 +326,9 @@ class Link(models.Model):
 	
 	def get_absolute_icon(self):
 		return u'/media/icons/links.png'
+		
+	def get_tags(self):
+		return Tag.objects.get_for_object(self)
 
 
 # Signals
