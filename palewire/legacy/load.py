@@ -90,6 +90,7 @@ def cats():
 			raise
 
 def tags():
+	from tagging.utils import edit_string_for_tags
 	infile = open("../legacydb/dumps/tags.dump", 'r')
 	tags = pickle.load(infile)
 	infile.close()
@@ -103,7 +104,12 @@ def tags():
 			print "Added %s to %s" % (name, p.title)
 		except Post.DoesNotExist:
 			pass
-			
+	
+	for post in Post.objects.all():
+		tags = Tag.objects.get_for_object(post)
+		post.tags = edit_string_for_tags(tags)[:250]
+		post.save()
+
 def run():
 	posts()
 	cats()
