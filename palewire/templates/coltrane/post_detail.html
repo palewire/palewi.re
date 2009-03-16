@@ -2,8 +2,9 @@
 {% load coltrane_tags %}
 {% load comments %}
 
-
 {% block title %}{{ object.title|lower }} . post . {{ block.super }}{% endblock %}
+
+{% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
 
 {% block content %}
 <h1>
