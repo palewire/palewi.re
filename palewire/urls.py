@@ -6,6 +6,8 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
+from coltrane.sitemaps import sitemaps
+
 # Redirects from the old Wordpress URL structure to the new Django one.
 urlpatterns = patterns('django.views.generic.simple',
 	# Redirect links to old blog to new posts
@@ -21,6 +23,7 @@ urlpatterns = patterns('django.views.generic.simple',
 	(r'^feed/rss/$', 'redirect_to', {'url': '/feeds/posts/'}),
 )
 
+# URLs for the new blog
 urlpatterns += patterns('',
 
 	(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -28,7 +31,6 @@ urlpatterns += patterns('',
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
 	
 	(r'^categories/', include('coltrane.urls.categories')),
-	(r'^feeds/', include('coltrane.urls.feeds')),
 	(r'^links/', include('coltrane.urls.links')),
 	(r'^tags/', include('coltrane.urls.tags')),
 	(r'^posts/', include('coltrane.urls.posts')),
@@ -36,9 +38,14 @@ urlpatterns += patterns('',
 	(r'^videos/', include('coltrane.urls.videos')),
 	(r'^photos/', include('coltrane.urls.photos')),
 	(r'^tracks/', include('coltrane.urls.tracks')),
+
 	(r'^comments/page/', include('coltrane.urls.comments')),
 	(r'^comments/', include('django.contrib.comments.urls')),
+
 	(r'^$', include('coltrane.urls.ticker')),
 	(r'^ticker/', include('coltrane.urls.ticker')),
+
 	(r'^search/', include('solango.urls')),
+	(r'^feeds/', include('coltrane.urls.feeds')),
+	(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
 )
