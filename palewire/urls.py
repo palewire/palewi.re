@@ -47,5 +47,6 @@ urlpatterns += patterns('',
 
 	(r'^search/', include('solango.urls')),
 	(r'^feeds/', include('coltrane.urls.feeds')),
-	(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
+	(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+	(r'^robots.txt$', include('robots.urls')),
 )
