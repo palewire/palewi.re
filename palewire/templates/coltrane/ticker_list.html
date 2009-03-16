@@ -23,15 +23,17 @@
 
 {% block content %}
 
-	<ul id="tickerlog">
+	<div id="tickerlog">
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.date %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
 			{# Tumbler items #}
-			<li class="tickeritem">
+			<ul>
+				<li class="tickeritem">
 					{{ object.get_rendered_html }}
-			</li>
+				</li>
+			</ul>
 		{% endfor %}
-	</ul>
+	</div>
 	
 	{% if is_paginated %}
 	<div id="paginationwrapper">
