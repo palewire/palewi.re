@@ -17,7 +17,7 @@
 		<div id="detailborderbumper" class="thin"></div>
 		
 		<div id="detailmetadata">
-			<p id="postpubdate">This is a post <b>{{ object.author }}</b> made on <b>{{ object.pub_date|date:"M j, Y" }}</b>, {{ object.pub_date|timesince }} ago.</p>
+			<p id="postpubdate">This is a post <b>{{ object.author }}</b> made on <b>{{ object.pub_date|date:"F j, Y" }}</b>, {{ object.pub_date|timesince }} ago.</p>
 			{% if object.categories.count %}
 				
 				<p id ="postcats">

@@ -92,7 +92,7 @@ class Category(models.Model):
 		return u"/categories/%s/" % self.slug
 		
 	def get_absolute_icon(self):
-		return u'/media/icons/categories.png'
+		return u'/media/icons/categories.gif'
 
 	def get_live_post_count(self):
 		from coltrane.models import Post
@@ -148,7 +148,7 @@ class Post(models.Model):
 	get_absolute_url = models.permalink(get_absolute_url)
 	
 	def get_absolute_icon(self):
-		return u'/media/icons/posts.png'
+		return u'/media/icons/posts.gif'
 		
 	def get_tags(self):
 		return Tag.objects.get_for_object(self)
@@ -189,7 +189,7 @@ class Shout(models.Model):
 	get_absolute_url = models.permalink(get_absolute_url)
 
 	def get_absolute_icon(self):
-		return u'/media/icons/shouts.png'
+		return u'/media/icons/shouts.gif'
 
 
 class Video(models.Model):
@@ -220,7 +220,7 @@ class Video(models.Model):
 	get_absolute_url = models.permalink(get_absolute_url)
 	
 	def get_absolute_icon(self):
-		return u'/media/icons/videos.png'
+		return u'/media/icons/videos.gif'
 
 	def get_tags(self):
 		return Tag.objects.get_for_object(self)
@@ -254,7 +254,7 @@ class Photo(models.Model):
 	get_absolute_url = models.permalink(get_absolute_url)
 	
 	def get_absolute_icon(self):
-		return u'/media/icons/photos.png'
+		return u'/media/icons/photos.gif'
 		
 	def get_tags(self):
 		return Tag.objects.get_for_object(self)
@@ -282,7 +282,7 @@ class Track(models.Model):
 		return u"%s - %s" % (self.artist_name, self.track_name)
 		
 	def get_absolute_icon(self):
-		return u'/media/icons/tracks.png'
+		return u'/media/icons/tracks.gif'
 
 
 class Link(models.Model):
@@ -326,7 +326,7 @@ class Link(models.Model):
 	get_absolute_url = models.permalink(get_absolute_url)
 	
 	def get_absolute_icon(self):
-		return u'/media/icons/links.png'
+		return u'/media/icons/links.gif'
 		
 	def get_tags(self):
 		return Tag.objects.get_for_object(self)
