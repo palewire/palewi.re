@@ -1,7 +1,7 @@
 import httplib2
 import dateutil.parser
 import dateutil.tz
-from django.utils import simplejson
+import simplejson
 from django.utils.encoding import force_unicode
 from anyetree import etree
  
