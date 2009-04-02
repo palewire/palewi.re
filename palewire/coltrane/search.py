@@ -37,7 +37,7 @@ class PostDocument(solango.SearchDocument):
 	def transform_tags(self, instance):
 		return instance.get_tags()
 
-solango.register(Post, PostDocument)
+#solango.register(Post, PostDocument)
 
 
 class ShoutDocument(solango.SearchDocument):
@@ -62,7 +62,7 @@ class ShoutDocument(solango.SearchDocument):
 	def transform_title(self, instance):
 		return instance.body
 				
-solango.register(Shout, ShoutDocument)
+#solango.register(Shout, ShoutDocument)
 
 
 class VideoDocument(solango.SearchDocument):
@@ -91,7 +91,7 @@ class VideoDocument(solango.SearchDocument):
 	def transform_tags(self, instance):
 		return instance.get_tags()
 				
-solango.register(Video, VideoDocument)
+#solango.register(Video, VideoDocument)
 
 
 class PhotoDocument(solango.SearchDocument):
@@ -120,7 +120,7 @@ class PhotoDocument(solango.SearchDocument):
 	def transform_tags(self, instance):
 		return instance.get_tags()
 				
-solango.register(Photo, PhotoDocument)
+#solango.register(Photo, PhotoDocument)
 
 
 class LinkDocument(solango.SearchDocument):
@@ -149,4 +149,4 @@ class LinkDocument(solango.SearchDocument):
 	def transform_tags(self, instance):
 		return instance.get_tags()
 				
-solango.register(Link, LinkDocument)
+#solango.register(Link, LinkDocument)
