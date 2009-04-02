@@ -99,3 +99,6 @@ def _handle_track(artist_name, artist_mbid, track_name, track_mbid, url, timesta
          print u'Logged %s - %s' % (artist_name, track_name)
     else:
          print "Failed to log the track %s - %s" %  (artist_name, track_name)
+
+if __name__ == '__main__':
+	update()
