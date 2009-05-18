@@ -6,9 +6,6 @@ import sys
 # Set the directories and django config so it can be run from cron.
 current_dir = os.path.abspath(__file__)
 projects_dir = os.sep.join(current_dir.split(os.sep)[:-3])
-os.environ['PYTHONPATH'] = projects_dir
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-sys.path.append(projects_dir)
 
 from django.conf import settings
 from django.db import transaction
