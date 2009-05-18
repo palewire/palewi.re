@@ -67,6 +67,7 @@ a:focus {outline: none;}
 #detailbody a:hover {text-decoration: underline; color:gray; font-weight:bold;}
 #detailbody a:active {text-decoration: underline; font-weight:bold; color: red;}
 #detailbody pre { margin-left:1.2em; line-height:1.3em;}
+#detailbody blockquote {margin-top: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
 
 #detailmetadata a:link {text-decoration: none; font-weight:bold; color:black;}
 #detailmetadata a:visited {text-decoration: none; font-weight:bold; color:black;}
@@ -133,7 +134,7 @@ form#commentform {padding: 0;}
 /* Pygments styles for source code in posts */
 
 .source .hll { background-color: #ffffcc }
-.source  { background: #f8f8f8; width:40em; overflow:auto; padding:20px;}
+.source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}
 .source .c { color: #408080; font-style: italic } /* Comment */
 .source .err { border: 1px solid #FF0000 } /* Error */
 .source .k { color: #008000; font-weight: bold } /* Keyword */
