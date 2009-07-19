@@ -31,6 +31,8 @@ urlpatterns = patterns('django.views.generic.simple',
 	('^openlayers-proportional-symbols/$', 'direct_to_template', {'template': 'flatpages/openlayers-proportional-symbols/index.html'}),
 	# DC Music Stores map from old site.
 	(r'^music/$', 'direct_to_template', {'template': 'flatpages/music/default.htm'}),
+	# Arcade Fire hypecloud from old site.
+	(r'^hypecloud/$', 'direct_to_template', {'template': 'flatpages/hypecloud/index.html'}),
 	# Redirect old images from legacy site
 	(r'^images/(?P<file_name>[^/]+)/$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
 
