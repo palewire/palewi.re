@@ -165,10 +165,9 @@ def _source_id(message_text, url, timestamp):
 	
 def _status_exists(message_text, url, timestamp):
 	id = _source_id(message_text, url, timestamp)
-	return False
-#	try:
-#		Item.objects.get(source=__name__, source_id=id)
-#	except Item.DoesNotExist:
-#		return False
-#	else:
-#		return True
+	try:
+		Shout.objects.get(source=__name__, source_id=id)
+	except Item.DoesNotExist:
+		return False
+	else:
+		return True
