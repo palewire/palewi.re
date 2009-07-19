@@ -27,10 +27,12 @@ urlpatterns = patterns('django.views.generic.simple',
 	# Scrape pages from tutorial on old site.
 	(r'^scrape/albums/2006.html$', 'direct_to_template', {'template': 'flatpages/scrape/2006.html'}),
 	(r'^scrape/albums/2007.html$', 'direct_to_template', {'template': 'flatpages/scrape/2007.html'}),
-	# Page from OpenLayers tutorial on old site.
+	# OpenLayers tutorial on old site.
 	('^openlayers-proportional-symbols/$', 'direct_to_template', {'template': 'flatpages/openlayers-proportional-symbols/index.html'}),
-	# 
+	# DC Music Stores map from old site.
 	(r'^music/$', 'direct_to_template', {'template': 'flatpages/music/default.htm'}),
+	# Redirect old images from legacy site
+	(r'^images/(?P<file_name>[^/]+)/$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
 
 )
 
