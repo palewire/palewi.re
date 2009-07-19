@@ -22,7 +22,7 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class LinkAdmin(admin.ModelAdmin):
-	prepopulated_fields = {"slug": ("title",)}
+	pass
 	
 admin.site.register(Link, LinkAdmin)
 

@@ -54,20 +54,6 @@ class Slogan(models.Model):
 	def __unicode__(self):
 		return self.title
 		
-		
-class Feature(models.Model):
-	"""
-	The posts or other content objects I want to feature in the skybox.
-	"""
-	content_type = models.ForeignKey(ContentType)
-	object_id = models.PositiveIntegerField()
-	content_object = generic.GenericForeignKey('content_type', 'object_id')
-		
-	def __unicode__(self):
-		return u'Featured %s: %s' % (self.content_type.model_class().__name__, self.content_object)
-		
-	def get_rendered_html(self):
-		return u'<b>Feature</b>:&nbsp;<img src="%s" style="vertical-align:middle;">&nbsp;<a href="%s">%s</a>' % (self.content_object.get_absolute_icon(), self.content_object.get_absolute_url(), self.content_object)
 
 
 class Category(models.Model):
@@ -161,25 +147,13 @@ class Shout(models.Model):
 	Posts can be syndicated to Twitter by setting post_elsewhere to True.
 	"""
 	body = models.TextField(max_length=140)
-	posted_by = models.ForeignKey(User)
 	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	enable_comments = models.BooleanField(default=True)
-	post_elsewhere = models.BooleanField('Post to Twitter', default=True, help_text=_('If checked, this link will be posted to both the blog and Twitter.'))
+	sync = SyncManager()
+	objects = models.Manager()
 
 	def __unicode__(self):
-		return u'%s' % (self.body)
-
-	def sendtwit(self):
-		import twitter
-		twitter_api=twitter.Api(username=settings.TWITTER_USER, password=settings.TWITTER_PASSWORD)
-		twitter_api.PostUpdate(self.body)
-		return
-
-	def save(self):
-		if not self.id and self.post_elsewhere:
-			self.sendtwit()
-		super(Shout, self).save()
+		return self.body
 
 	def get_absolute_url(self):
 		return ('coltrane_shout_detail', (), { 'year': self.pub_date.strftime("%Y"),
@@ -190,40 +164,6 @@ class Shout(models.Model):
 
 	def get_absolute_icon(self):
 		return u'/media/icons/shouts.gif'
-
-
-class Video(models.Model):
-	"""
-	Links to web video clips I want to recommend.
-	"""
-	title = models.CharField(max_length=250)
-	url = models.URLField(unique=True)
-	posted_by = models.ForeignKey(User)
-	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
-	tags = TagField(help_text=_('Separate tags with spaces.'))
-	enable_comments = models.BooleanField(default=True)
-	via_name = models.CharField(verbose_name=_('Via'), max_length=250, blank=True, help_text=_('The name of the person whose site you spotted the link on. Optional.'))
-	via_url = models.URLField(verbose_name=_('Via URL'), blank=True, help_text=_('The URL of the site where you spotted the link. Optional.'))
-
-	class Meta:
-		ordering = ['-pub_date']
-
-	def __unicode__(self):
-		return self.title
-
-	def get_absolute_url(self):
-		return ('coltrane_video_detail', (), { 'year': self.pub_date.strftime("%Y"),
-												'month': self.pub_date.strftime("%m"),
-												'day': self.pub_date.strftime("%d"),
-												'slug': self.slug })
-	get_absolute_url = models.permalink(get_absolute_url)
-	
-	def get_absolute_icon(self):
-		return u'/media/icons/videos.gif'
-
-	def get_tags(self):
-		return Tag.objects.get_for_object(self)
 
 
 class Photo(models.Model):
@@ -272,6 +212,7 @@ class Track(models.Model):
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	track_mbid = models.CharField(verbose_name = _("MusicBrainz Track ID"), max_length=36, blank=True)
 	artist_mbid = models.CharField(verbose_name = _("MusicBrainz Artist ID"), max_length=36, blank=True)
+	tags = TagField(help_text=_('Separate tags with spaces.'))
 	sync = SyncManager()
 	objects = models.Manager()
 
@@ -294,30 +235,17 @@ class Link(models.Model):
 	title = models.CharField(max_length=250)
 	description = models.TextField(blank=True, null=True)
 	url = models.URLField(unique=True)
-	posted_by = models.ForeignKey(User)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
-	tags = TagField(help_text=_('Separate tags with spaces.'))
-	enable_comments = models.BooleanField(default=True)
-	post_elsewhere = models.BooleanField(verbose_name=_('Post to del.icio.us'), default=True, help_text=_('If checked, this link will be posted to both the blog and del.icio.us.'))
-	via_name = models.CharField('Via', max_length=250, blank=True, help_text=_('The name of the person whose site you spotted the link on. Optional.'))
-	via_url = models.URLField('Via URL', blank=True, help_text=_('The URL of the site where you spotted the link. Optional.'))
+	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
+	sync = SyncManager()
+	objects = models.Manager()
 	
 	class Meta:
 		ordering = ['-pub_date']
 
 	def __unicode__(self):
 		return self.title
-	
-	def save(self, force_insert=False, force_update=False):
-		if not self.id and self.post_elsewhere:
-			import pydelicious
-			from django.utils.encoding import smart_str
-			pydelicious.add(settings.DELICIOUS_USER, settings.DELICIOUS_PASSWORD,
-							smart_str(self.url), smart_str(self.title),
-							smart_str(self.tags))
-		super(Link, self).save()
-	
+		
 	def get_absolute_url(self):
 		return ('coltrane_link_detail', (), { 'year': self.pub_date.strftime("%Y"),
 												'month': self.pub_date.strftime("%m"),
@@ -333,10 +261,10 @@ class Link(models.Model):
 
 
 # Signals
-for modelname in [Link, Photo, Post, Shout, Track, Video, Comment]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment]:
 	signals.post_save.connect(create_ticker_item, sender=modelname)
 	
-for modelname in [Link, Photo, Post, Shout, Track, Video, Comment]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment]:
 	signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)
@@ -350,4 +278,3 @@ class ColtraneModerator(AlwaysModerate):
 	enable_field = 'enable_comments'
 
 moderator.register(Post, ColtraneModerator)
-moderator.register(Shout, ColtraneModerator)

@@ -4,6 +4,7 @@ import dateutil.tz
 from django.utils import simplejson
 from django.utils.encoding import force_unicode
 from anyetree import etree
+from django.conf import settings
  
 DEFAULT_HTTP_HEADERS = {
     "User-Agent" : "Jellyroll/1.0 (http://code.google.com/p/jellyroll)"
@@ -55,3 +56,41 @@ def safeint(s):
         return int(force_unicode(s))
     except (ValueError, TypeError):
         return 0
+
+JELLYROLL_ADJUST_DATETIME = False
+if hasattr(settings,'JELLYROLL_ADJUST_DATETIME'):
+    JELLYROLL_ADJUST_DATETIME = settings.JELLYROLL_ADJUST_DATETIME
+
+if JELLYROLL_ADJUST_DATETIME:
+    try:
+        import pytz
+    except ImportError:
+        import logging
+        log = logging.getLogger('jellyroll.providers.utils')
+        log.error("Cannot import pytz package and consequently, all datetime objects will be naive. "
+                  "In this particular case, e.g., all commit dates will be expressed in UTC.")
+
+    import datetime
+    import time
+
+    UTC = pytz.timezone('UTC')
+    LOCAL = pytz.timezone(settings.TIME_ZONE)
+
+    def utc_to_local_datetime(dt):
+        """
+        Map datetime as UTC object to it's localtime counterpart.
+        """
+        return dt.astimezone(LOCAL)
+
+    def utc_to_local_timestamp(ts, orig_tz=UTC):
+        """
+        Convert a timestamp object into a tz-aware datetime object.
+        """
+        timestamp = datetime.datetime.fromtimestamp(ts,tz=orig_tz)
+        return timestamp.astimezone(LOCAL)
+
+    def utc_to_local_timestruct(ts, orig_tz=UTC):
+        """
+        Convert a timestruct object into a tz-aware datetime object.
+        """
+        return utc_to_local_timestamp(time.mktime(ts),orig_tz)
