@@ -140,83 +140,59 @@ class Post(models.Model):
 		return Tag.objects.get_for_object(self)
 
 
-class Shout(models.Model):
+class ThirdPartyBaseModel(models.Model):
 	"""
-	Shorter things I blast out.
-	
-	Posts can be syndicated to Twitter by setting post_elsewhere to True.
+	A base model for the data we'll be pulling from third-party sites.
 	"""
-	message = models.TextField(max_length=140)
-	url = models.URLField(unique=True)
+	url = models.URLField(unique=True, max_length=1000)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	tags = TagField(help_text=_('Separate tags with spaces.'))
+	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
 	sync = SyncManager()
 	objects = models.Manager()
+	
+	class Meta:
+		ordering = ('-pub_date',)
+		abstract = True
+		
+	def get_tags(self):
+		return Tag.objects.get_for_object(self)
+	
+
+class Shout(ThirdPartyBaseModel):
+	"""
+	Shorter things I blast out.
+	"""
+	message = models.TextField(max_length=140)
 
 	def __unicode__(self):
 		return self.message
-
-	def get_absolute_url(self):
-		return ('coltrane_shout_detail', (), { 'year': self.pub_date.strftime("%Y"),
-												'month': self.pub_date.strftime("%m"),
-												'day': self.pub_date.strftime("%d"),
-												'slug': self.slug })
-	get_absolute_url = models.permalink(get_absolute_url)
 
 	def get_absolute_icon(self):
 		return u'/media/icons/shouts.gif'
 
 
-class Photo(models.Model):
+class Photo(ThirdPartyBaseModel):
 	"""
 	Links to photos I want to recommend, including my own.
 	"""
-	title = models.CharField(max_length=250)
+	title = models.CharField(max_length=250, blank=True, null=True)
 	description = models.TextField(blank=True, null=True)
-	url = models.URLField(unique=True)
-	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
-	sync = SyncManager()
-	objects = models.Manager()
-
-	class Meta:
-		ordering = ['-pub_date']
 
 	def __unicode__(self):
 		return self.title
-
-	def get_absolute_url(self):
-		return ('coltrane_photo_detail', (), { 'year': self.pub_date.strftime("%Y"),
-												'month': self.pub_date.strftime("%m"),
-												'day': self.pub_date.strftime("%d"),
-												'slug': self.slug })
-	get_absolute_url = models.permalink(get_absolute_url)
 	
 	def get_absolute_icon(self):
 		return u'/media/icons/photos.gif'
-		
-	def get_tags(self):
-		return Tag.objects.get_for_object(self)
 
 
-class Track(models.Model):
+class Track(ThirdPartyBaseModel):
 	"""
 	Links to tracks I've listened to and logged at Last.fm.
-	
-	Updated by utils.lastfm, which needs to be scheduled to a cron.
 	"""
 	artist_name = models.CharField(max_length=250)
 	track_name = models.CharField(max_length=250)
-	url = models.URLField(blank=True)
-	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	track_mbid = models.CharField(verbose_name = _("MusicBrainz Track ID"), max_length=36, blank=True)
 	artist_mbid = models.CharField(verbose_name = _("MusicBrainz Artist ID"), max_length=36, blank=True)
-	tags = TagField(help_text=_('Separate tags with spaces.'))
-	sync = SyncManager()
-	objects = models.Manager()
-
-	class Meta:
-		ordering = ("-pub_date",)
 
 	def __unicode__(self):
 		return u"%s - %s" % (self.artist_name, self.track_name)
@@ -228,36 +204,16 @@ class Track(models.Model):
 class Link(models.Model):
 	"""
 	Links to bookmarks I'd like to recommend.
-	
-	Posts can be syndicated to Delicious by setting post_elsewhere to True.
 	"""
 	title = models.CharField(max_length=250)
 	description = models.TextField(blank=True, null=True)
-	url = models.URLField(unique=True)
-	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
-	sync = SyncManager()
-	objects = models.Manager()
-	
-	class Meta:
-		ordering = ['-pub_date']
 
 	def __unicode__(self):
 		return self.title
-		
-	def get_absolute_url(self):
-		return ('coltrane_link_detail', (), { 'year': self.pub_date.strftime("%Y"),
-												'month': self.pub_date.strftime("%m"),
-												'day': self.pub_date.strftime("%d"),
-												'slug': self.slug })
-	get_absolute_url = models.permalink(get_absolute_url)
-	
+			
 	def get_absolute_icon(self):
 		return u'/media/icons/links.gif'
 		
-	def get_tags(self):
-		return Tag.objects.get_for_object(self)
-
 
 # Signals
 for modelname in [Link, Photo, Post, Shout, Track, Comment]:

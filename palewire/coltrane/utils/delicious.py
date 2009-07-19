@@ -94,6 +94,8 @@ def _handle_bookmark(info):
 		pub_date = utils.parsedate(info['time']),
 		tags = info['tag']
 	)
+	if created:
+		print "Added %s" % l
 	if not created:
 		l.description = info['description']
 		l.extended = info.get('extended', '')

@@ -103,18 +103,27 @@ def _handle_photo(flickr, photo_id, secret, license, timestamp):
 	title = smart_unicode(info["title"]["_content"])
 	description = smart_unicode(info["description"]["_content"])
 	date_uploaded = datetime.datetime.fromtimestamp(utils.safeint(info["dates"]["posted"]))
+	tags = _convert_tags(info["tags"])
 	
 	log.debug("Handling photo: %r (taken %s)" % (title, timestamp))
 
-	photo, created = Photo.objects.get_or_create(
-		title = title,
-		description = description,
-		url = url,
-		pub_date = date_uploaded,
-		tags = _convert_tags(info["tags"]),
-	)
-	if created:
+	try:
+		photo = Photo.objects.get(url = url)
+		photo.title = title,
+		photo.description = description,
+		photo.pub_date = date_uploaded,
+		photo.tags = tags
+		photo.save()
+	except Photo.DoesNotExist:
+		photo = Photo.objects.create(
+			title = title,
+			url = url,
+			description = description,
+			pub_date = date_uploaded,
+			tags = tags
+		)
 		print "Added %s" % photo
+
 
 _handle_photo = transaction.commit_on_success(_handle_photo)
 
