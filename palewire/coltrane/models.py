@@ -172,14 +172,12 @@ class Photo(models.Model):
 	Links to photos I want to recommend, including my own.
 	"""
 	title = models.CharField(max_length=250)
+	description = models.TextField(blank=True, null=True)
 	url = models.URLField(unique=True)
-	posted_by = models.ForeignKey(User)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
-	slug = models.SlugField(unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
-	tags = TagField(help_text=_('Separate tags with spaces.'))
-	enable_comments = models.BooleanField(default=True)
-	via_name = models.CharField('Via', max_length=250, blank=True, help_text=_('The name of the person whose site you spotted the link on. Optional.'))
-	via_url = models.URLField('Via URL', blank=True, help_text=_('The URL of the site where you spotted the link. Optional.'))
+	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
+	sync = SyncManager()
+	objects = models.Manager()
 
 	class Meta:
 		ordering = ['-pub_date']

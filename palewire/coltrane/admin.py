@@ -34,7 +34,7 @@ admin.site.register(Shout, ShoutAdmin)
 
 
 class PhotoAdmin(admin.ModelAdmin):
-	prepopulated_fields = {"slug": ("title",)}
+	pass
 	
 admin.site.register(Photo, PhotoAdmin)
 
