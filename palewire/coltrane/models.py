@@ -3,6 +3,8 @@ import datetime
 from django.db import models
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
+from django.utils.text import truncate_html_words, truncate_words, get_text_list
+from django.utils.html import strip_tags
 
 # Settings
 from django.conf import settings
@@ -38,6 +40,7 @@ class Ticker(models.Model):
 
 	class Meta:
 		verbose_name_plural = _('Ticker')
+		ordering = ('-pub_date',)
 
 	def __unicode__(self):
 		return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
@@ -149,7 +152,7 @@ class ThirdPartyBaseModel(models.Model):
 	A base model for the data we'll be pulling from third-party sites.
 	"""
 	url = models.URLField(max_length=1000)
-	pub_date = models.DateTimeField(default=datetime.datetime.now)
+	pub_date = models.DateTimeField(default=datetime.datetime.now, verbose_name=_('publication date'))
 	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
 	objects = models.Manager()
 	sync = SyncManager()
@@ -165,9 +168,10 @@ class ThirdPartyBaseModel(models.Model):
 	def get_absolute_icon(self):
 		name = u'%ss' % self.__class__.__name__.lower()
 		return u'/media/icons/%s.gif' % name
-	
-	def get_tags(self):
-		return Tag.objects.get_for_object(self)
+
+	def get_tag_list(self, last_word='and'):
+		return get_text_list(self.tags.split(' '), last_word)
+	tag_list = property(get_tag_list)
 	
 
 class Shout(ThirdPartyBaseModel):
@@ -178,6 +182,15 @@ class Shout(ThirdPartyBaseModel):
 
 	def __unicode__(self):
 		return self.message
+		
+	def get_short_message(self, words=8):
+		"""
+		Trims message to the specified number of words.
+		
+		Good for use in the admin.
+		"""
+		return truncate_words(strip_tags(self.message), words)
+	short_message = property(get_short_message)
 
 
 class Photo(ThirdPartyBaseModel):

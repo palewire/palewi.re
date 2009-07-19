@@ -2,6 +2,6 @@
 	<a href="{{ object.get_absolute_url }}">
 		{{ object.submit_date|date:"H:i" }}&nbsp;
 		<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="comments" />&nbsp;
-		{{ object }}
+		{{ object|truncatewords:8 }}
 	</a>
 </h2>

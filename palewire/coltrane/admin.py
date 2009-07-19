@@ -1,17 +1,19 @@
+# Admin
 from django.contrib import admin
+
+# Models
 from tagging.models import Tag
 from coltrane.models import Category, Photo, Post, Link, Slogan, Ticker, Track, Shout
 from django.db.models import get_model
+
+# Custom forms
 from coltrane.forms import PostAdminModelForm
 
-class PostAdmin(admin.ModelAdmin):
-	list_display = ('title', 'pub_date', 'status',)
-	prepopulated_fields = {"slug": ("title",)}
-	list_filter = ('status', 'pub_date',)
-	date_hierarchy = 'pub_date'
-	form = PostAdminModelForm
 
-admin.site.register(get_model('coltrane', 'post'), PostAdmin)
+class TickerAdmin(admin.ModelAdmin):
+	pass
+	
+admin.site.register(Ticker, TickerAdmin)
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -21,32 +23,78 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 
+class PostAdmin(admin.ModelAdmin):
+	fieldsets = (
+		('Post', {
+			'fields': ('author', 'title', 'slug', 'body_markup',),
+			'description': 'The post itself.'
+		}),
+		('Meta', {
+			'fields': ('status', 'categories', 'tags', 'enable_comments',),
+			'description': 'About the post.'
+		}),
+	)
+	list_display = ('title', 'pub_date', 'status',)
+	prepopulated_fields = {"slug": ("title",)}
+	list_filter = ('status', 'pub_date',)
+	date_hierarchy = 'pub_date'
+	form = PostAdminModelForm
+
+admin.site.register(get_model('coltrane', 'post'), PostAdmin)
+
+
 class LinkAdmin(admin.ModelAdmin):
-	pass
+	fieldsets = (
+		('Link', {
+			'fields': ('title', 'description', 'url', 'pub_date', 'tags'),
+			'description': 'About the link.'
+		}),
+	)
+	list_display = ('title', 'pub_date', 'tag_list')
+	list_filter = ('pub_date',)
+	date_hierarchy = 'pub_date'
 	
 admin.site.register(Link, LinkAdmin)
 
 
 class ShoutAdmin(admin.ModelAdmin):
-	pass
+	fieldsets = (
+		('Shout', {
+			'fields': ('message', 'url', 'pub_date', 'tags'),
+			'description': 'About the shout.'
+		}),
+	)
+	list_display = ('short_message', 'pub_date', 'tag_list')
+	list_filter = ('pub_date',)
+	date_hierarchy = 'pub_date'
 	
 admin.site.register(Shout, ShoutAdmin)
 
 
 class PhotoAdmin(admin.ModelAdmin):
-	pass
+	fieldsets = (
+		('Photo', {
+			'fields': ('title', 'description', 'url', 'pub_date', 'tags'),
+			'description': 'About the photo.'
+		}),
+	)
+	list_display = ('title', 'pub_date', 'tag_list')
+	list_filter = ('pub_date',)
+	date_hierarchy = 'pub_date'
 	
 admin.site.register(Photo, PhotoAdmin)
 
 
-class TickerAdmin(admin.ModelAdmin):
-	pass
-	
-admin.site.register(Ticker, TickerAdmin)
-
-
 class TrackAdmin(admin.ModelAdmin):
-	pass
+	fieldsets = (
+		('Track', {
+			'fields': ('artist_name', 'track_name', 'url', 'pub_date', 'track_mbid', 'artist_mbid', 'tags'),
+			'description': 'About the track.'
+		}),
+	)
+	list_display = ('artist_name', 'track_name', 'pub_date', 'tag_list')
+	search_fields = ('artist_name', 'track_name')
+	date_hierarchy = 'pub_date'
 	
 admin.site.register(Track, TrackAdmin)
 
