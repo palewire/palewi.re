@@ -17,7 +17,6 @@ feeds = {
 	'comments': RecentComments,
 	'shouts': RecentShouts,
 	'links': RecentLinks,
-	'videos': RecentVideos,
 	'photos': RecentPhotos,
 	'tracks': RecentTracks,
 }

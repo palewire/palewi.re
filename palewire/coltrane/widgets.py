@@ -6,7 +6,7 @@ from django.utils import simplejson
 from django.utils.safestring import mark_safe
 
 # Models
-from django.db.models import get_models
+from django.db.models import get_model
 from tagging.models import Tag
 Post = get_model('coltrane', 'post')
 
