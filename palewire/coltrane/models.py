@@ -156,7 +156,11 @@ class ThirdPartyBaseModel(models.Model):
 	class Meta:
 		ordering = ('-pub_date',)
 		abstract = True
-		
+	
+	def get_absolute_icon(self):
+		name = u'%ss' % self.__class__.__name__.lower()
+		return u'/media/icons/%s.gif' % name
+	
 	def get_tags(self):
 		return Tag.objects.get_for_object(self)
 	
@@ -170,9 +174,6 @@ class Shout(ThirdPartyBaseModel):
 	def __unicode__(self):
 		return self.message
 
-	def get_absolute_icon(self):
-		return u'/media/icons/shouts.gif'
-
 
 class Photo(ThirdPartyBaseModel):
 	"""
@@ -183,9 +184,6 @@ class Photo(ThirdPartyBaseModel):
 
 	def __unicode__(self):
 		return self.title
-	
-	def get_absolute_icon(self):
-		return u'/media/icons/photos.gif'
 
 
 class Track(ThirdPartyBaseModel):
@@ -200,9 +198,6 @@ class Track(ThirdPartyBaseModel):
 	def __unicode__(self):
 		return u"%s - %s" % (self.artist_name, self.track_name)
 		
-	def get_absolute_icon(self):
-		return u'/media/icons/tracks.gif'
-
 
 class Link(ThirdPartyBaseModel):
 	"""
@@ -214,9 +209,6 @@ class Link(ThirdPartyBaseModel):
 	def __unicode__(self):
 		return self.title
 			
-	def get_absolute_icon(self):
-		return u'/media/icons/links.gif'
-		
 
 # Signals
 for modelname in [Link, Photo, Post, Shout, Track, Comment]:
