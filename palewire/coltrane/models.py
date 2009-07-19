@@ -146,7 +146,7 @@ class Shout(models.Model):
 	
 	Posts can be syndicated to Twitter by setting post_elsewhere to True.
 	"""
-	body = models.TextField(max_length=140)
+	message = models.TextField(max_length=140)
 	url = models.URLField(unique=True)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	tags = TagField(help_text=_('Separate tags with spaces.'))
