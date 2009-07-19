@@ -28,7 +28,9 @@ urlpatterns = patterns('django.views.generic.simple',
 	(r'^scrape/albums/2006.html$', 'direct_to_template', {'template': 'flatpages/scrape/2006.html'}),
 	(r'^scrape/albums/2007.html$', 'direct_to_template', {'template': 'flatpages/scrape/2007.html'}),
 	# Page from OpenLayers tutorial on old site.
-	('^openlayers-proportional-symbols/$', 'direct_to_template', {'template': 'flatpages/openlayers-proportional-symbols/index.html'})
+	('^openlayers-proportional-symbols/$', 'direct_to_template', {'template': 'flatpages/openlayers-proportional-symbols/index.html'}),
+	# 
+	(r'^music/$', 'direct_to_template', {'template': 'flatpages/music/default.htm'}),
 
 )
 

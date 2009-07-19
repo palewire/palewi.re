@@ -1,0 +1,255 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>palewire.com: DC Music Stores</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAE7jH76TvSwj2EbGtTFztGBSZQPaKzcJUNBmscSu8lUTMp7T2MxRd9I3aSZGU4Qk1Ibht_Cu0cZYCqQ" 
+        type="text/javascript"></script>  
+        
+        </head>
+  <body onunload="GUnload()">
+
+
+
+    <br /><br />
+   <div align="center">
+    <table border=1>
+    <tr>
+       <td valign="middle" style="font-family: Trebuchet MS;" align="center" colspan="2" >
+           <strong><span style="font-size: 24pt;">
+            
+                Music Stores in the District of Columbia area </span></strong>
+            </td>
+        </tr>
+      <tr>
+        <td>
+           <div id="map" style="width: 800px; height: 600px"></div>
+        </td>
+        <td width = 225 valign="top" >
+        <h4>Choose a store:</h4>
+           <div id="side_bar" style="text-decoration: underline; font-family: Trebuchet MS; color: #4444ff; font-size: 10pt;"></div>
+        
+    
+        </td>
+      </tr>
+           <tr><td
+         align="center" style="font-size:8pt;">
+            Data drawn from <a href="http://nowacki.org/dcmusic/">The Definitive Guide to Washington,
+                   DC Area Music Stores</a> and <a href="http://www.washingtonpost.com/wp-srv/cityguide/?nav=globetop">
+                       The Washington Post's City Guide.</a> Powered by <a href="http://www.palewire.com">palewire.com</a>.
+            </td><td align=right style="font-size:8pt;">
+                A Justified and Ancient Production.</td>
+        </tr>
+    </table>
+   </div>
+
+
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
+      However, it seems JavaScript is either disabled or not supported by your browser. 
+      To view Google Maps, enable JavaScript by changing your browser options, and then 
+      try again.
+    </noscript>
+
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    if (GBrowserIsCompatible()) {
+    
+    
+        // Custom Control Functionality
+    function ResetMapControl() {}
+    ResetMapControl.prototype = new GControl();
+
+    ResetMapControl.prototype.initialize = function(map) {
+      var container = document.createElement("div");
+
+      var resetMapDiv = document.createElement("div");
+      this.setButtonStyle_(resetMapDiv);
+      container.appendChild(resetMapDiv);
+      resetMapDiv.appendChild(document.createTextNode("Reset Map"));
+      GEvent.addDomListener(resetMapDiv, "click", function() {
+        map.closeInfoWindow() 
+        map.setCenter(new GLatLng(38.905,-77.036476), 11);
+        map.setMapType(G_NORMAL_MAP);
+      });
+
+      map.getContainer().appendChild(container);
+      return container;
+    }
+
+    // Custom Control Location
+    ResetMapControl.prototype.getDefaultPosition = function() {
+      return new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(7, 34));
+    }
+
+    // Custom Control Appearance
+    ResetMapControl.prototype.setButtonStyle_ = function(button) {
+      //button.style.textDecoration = "underline";
+      button.style.color = "#0000cc";
+      button.style.backgroundColor = "white";
+      button.style.font = "small Arial";
+      button.style.border = "1px solid black";
+      button.style.padding = "1px";
+      button.style.marginBottom = "3px";
+      button.style.textAlign = "center";
+      button.style.width = "6em";
+      button.style.cursor = "pointer";
+    }
+    
+    
+    
+      var hotIcon = new GIcon();
+      hotIcon.image = "/media/music/mm_20_red.png";
+      hotIcon.shadow = "/media/music/mm_20_shadow.png";
+      hotIcon.iconSize = new GSize(12, 20);
+      hotIcon.shadowSize = new GSize(22, 20);
+      hotIcon.iconAnchor = new GPoint(6, 20);
+      hotIcon.infoWindowAnchor = new GPoint(5, 1);
+      hotIcon.infoShadowAnchor = new GPoint(18, 25);
+      
+
+    
+      var coldIcon = new GIcon(hotIcon);
+      coldIcon.image = "/media/music/mm_20_blue.png";
+
+    
+      var side_bar_html = "";
+
+      // There are now two arrays of markers, one for cold icons and one for hot
+      var cmarkers = [];
+      var hmarkers = [];
+      var htmls = [];
+      var i = 0;
+
+      // A function to create the marker and set up the event window
+      function createMarker(point,name,html) {
+        var marker = new GMarker(point,{icon:coldIcon, title:name});
+        GEvent.addListener(marker, "click", function() {
+         marker.openInfoWindowHtml(html);
+
+        });
+        // save two markers for each point, one with each of the possible icons
+        cmarkers[i] = marker;
+        hmarkers[i] = new GMarker(point,hotIcon);
+        htmls[i] = html;
+        // add a line to the side_bar html, with click, mouseover and mouseout event handlers
+        side_bar_html += '<a href="javascript:myclick(' + i + ')" onmouseover="mymouseover('+i+')" onmouseout="mymouseout('+i+')">' + name + '</a><br>';
+        i++;
+        return marker;
+      }
+
+
+      // This function picks up the click and opens the corresponding info window
+      function myclick(i) {
+        hmarkers[i].openInfoWindowHtml(htmls[i]);
+      }
+      
+      // This function is invoked when the mouse goes over an entry in the side_bar
+      // It deletes the cold Icon marker and replaces it with the hot Icon marker      
+      function mymouseover(i) {
+        map.removeOverlay(cmarkers[i]);
+        map.addOverlay(hmarkers[i]);
+      }
+      // This function is invoked when the mouse leaves an entry in the side_bar
+      // It deletes the hot Icon marker and replaces it with the cold Icon marker      
+      function mymouseout(i) {
+        map.removeOverlay(hmarkers[i]);
+        map.addOverlay(cmarkers[i]);
+      }
+
+
+      // create the map
+      var map = new GMap2(document.getElementById("map"));
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(38.905,-77.036476), 11);
+      map.setMapType(G_NORMAL_MAP);
+      map.addControl(new ResetMapControl());
+
+
+      // Read the data from example.xml
+      var request = GXmlHttp.create();
+      request.open("GET", "/media/music/recordstores.xml", true);
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          var xmlDoc = request.responseXML;
+          // obtain the array of markers and loop through it
+          var markers = xmlDoc.documentElement.getElementsByTagName("marker");
+          
+          for (var i = 0; i < markers.length; i++) {
+            // obtain the attribues of each marker
+            var lat = parseFloat(markers[i].getAttribute("lat"));
+            var lng = parseFloat(markers[i].getAttribute("lng"));
+            var point = new GLatLng(lat,lng);
+            var html = markers[i].getAttribute("html");
+            var label = markers[i].getAttribute("label");
+            // create the marker
+            var marker = createMarker(point,label,html);
+            map.addOverlay(marker);
+          }
+          // put the assembled side_bar_html contents into the side_bar div
+          document.getElementById("side_bar").innerHTML = side_bar_html;
+        }
+        
+        
+                    // Add a move listener to restrict the bounds range
+      GEvent.addListener(map, "move", function() {
+        checkBounds();
+      });
+
+      // The allowed region which the whole map must be within
+      var allowedBounds = new GLatLngBounds(new GLatLng(38.72409,-77.353363), new GLatLng(39.059183,-76.832886));
+      
+      // If the map position is out of range, move it back
+      function checkBounds() {
+        // Perform the check and return if OK
+        if (allowedBounds.contains(map.getCenter())) {
+          return;
+        }
+        // It`s not OK, so find the nearest allowed point and move there
+        var C = map.getCenter();
+        var X = C.lng();
+        var Y = C.lat();
+
+        var AmaxX = allowedBounds.getNorthEast().lng();
+        var AmaxY = allowedBounds.getNorthEast().lat();
+        var AminX = allowedBounds.getSouthWest().lng();
+        var AminY = allowedBounds.getSouthWest().lat();
+
+        if (X < AminX) {X = AminX;}
+        if (X > AmaxX) {X = AmaxX;}
+        if (Y < AminY) {Y = AminY;}
+        if (Y > AmaxY) {Y = AmaxY;}
+        //alert ("Restricting "+Y+" "+X);
+        map.setCenter(new GLatLng(Y,X));
+      }
+        
+        
+      }
+      request.send(null);
+    }
+
+    else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+    // This Javascript is based on code provided by the
+    // Blackpool Community Church Javascript Team
+    // http://www.commchurch.freeserve.co.uk/   
+    // http://www.econym.demon.co.uk/googlemaps/
+
+    //]]>
+    </script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-701730-2";
+urchinTracker();
+</script>
+
+  </body>
+
+</html>
+
+
+
+
+
