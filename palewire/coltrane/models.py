@@ -58,7 +58,6 @@ class Slogan(models.Model):
 		
 	def __unicode__(self):
 		return self.title
-		
 
 
 class Category(models.Model):
@@ -205,7 +204,7 @@ class Track(ThirdPartyBaseModel):
 		return u'/media/icons/tracks.gif'
 
 
-class Link(models.Model):
+class Link(ThirdPartyBaseModel):
 	"""
 	Links to bookmarks I'd like to recommend.
 	"""
