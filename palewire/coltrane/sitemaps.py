@@ -1,4 +1,7 @@
+# Sitemaps
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap, Sitemap
+
+# Models
 from coltrane.models import *
 from tagging.models import Tag
 
@@ -23,7 +26,6 @@ class TagSitemap(Sitemap):
 
 	def location(self, obj):
 		return u'/tags/%s' % obj
-
 
 sitemaps = {
 	'about': FlatPageSitemap,

@@ -5,11 +5,11 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic.list_detail import object_list
 from coltrane.models import Post, Category, Link, Photo
 
-def entries_index(request):
-	return render_to_response('coltrane/entry_index.html',
-								{'entry_list': Post.objects.all()})
 
 def post_detail(request, year, month, day, slug):
+	"""
+	A detail page that shows an entire post.
+	"""
 	date_stamp = time.strptime(year+month+day, "%Y%m%d")
 	pub_date = datetime.date(*date_stamp[:3])
 	post = get_object_or_404(Post,	pub_date__year=pub_date.year,
@@ -23,13 +23,19 @@ def post_detail(request, year, month, day, slug):
 								
 
 def category_detail(request, slug):
+	"""
+	A list that reports all the posts in a particular category.
+	"""
 	category = get_object_or_404(Category, slug=slug)
 	return object_list(request, queryset = category.post_set.all(), 
 						extra_context = {'category': category },
 						template_name = 'coltrane/category_detail.html')
 
+
 def tag_detail(request, tag):
-	"""Will need to return posts, videos, links and photos."""
+	"""
+	A list that reports all of the content with a particular tag.
+	"""
 	tag = tag.replace("-", " ")
 	tag = get_object_or_404(Tag, name=tag)
 	posts = Post.live.all()

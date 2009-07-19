@@ -1,9 +1,13 @@
+# Forms
 from django import forms
-from django.db.models import get_model
+
+# Helpers
 from django.utils import simplejson
 from django.utils.safestring import mark_safe
-from tagging.models import Tag
 
+# Models
+from django.db.models import get_models
+from tagging.models import Tag
 Post = get_model('coltrane', 'post')
 
 class AutoCompleteTagInput(forms.TextInput):

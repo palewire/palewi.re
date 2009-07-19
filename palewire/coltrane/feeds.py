@@ -1,7 +1,8 @@
+# Feeds
 from django.contrib.syndication.feeds import Feed
 
+# Models
 from coltrane.models import *
-
 from django.contrib.comments.models import Comment
 
 class FullFeed(Feed):
@@ -18,7 +19,7 @@ class FullFeed(Feed):
 	def item_link(self, item):
 		try:
 			return item.content_object.url
-		except:
+		except AttributeError:
 			return item.content_object.get_absolute_url()
 
 
@@ -36,7 +37,7 @@ class LessNoise(Feed):
 	def item_link(self, item):
 		try:
 			return item.content_object.url
-		except:
+		except AttributeError:
 			return item.content_object.get_absolute_url()
 
 

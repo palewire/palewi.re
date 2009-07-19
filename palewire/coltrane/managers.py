@@ -1,5 +1,9 @@
+# Helpers
 import datetime
+
+# Models
 from coltrane.models import *
+
 
 class LivePostManager(models.Manager):
 	"""
