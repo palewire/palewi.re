@@ -77,9 +77,10 @@ class Category(models.Model):
 		
 	def __unicode__(self):
 		return self.title
-		
+	
+	@models.permalink
 	def get_absolute_url(self):
-		return u"/categories/%s/" % self.slug
+		return('coltrane_category_detail', [self.slug])
 		
 	def get_absolute_icon(self):
 		return u'/media/icons/categories.gif'
