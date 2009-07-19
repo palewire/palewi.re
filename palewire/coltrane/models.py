@@ -158,6 +158,10 @@ class ThirdPartyBaseModel(models.Model):
 		ordering = ('-pub_date',)
 		abstract = True
 	
+	@models.permalink
+	def get_absolute_url(self):
+		return self.url
+	
 	def get_absolute_icon(self):
 		name = u'%ss' % self.__class__.__name__.lower()
 		return u'/media/icons/%s.gif' % name
