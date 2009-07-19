@@ -33,10 +33,6 @@
 	<script type="text/javascript"> 
 	//<![CDATA[
 	$(document).ready(function(){
-		{% if feature_list %}
-			{% include "coltrane/featured_item.js"%}
-		{% endif %}
-
 		{% include "coltrane/nav.js" %}
 	});
 	//]]>
@@ -47,8 +43,6 @@
 </head>
 <body {%block extrabody %}{% endblock %}>
 	
-		{% block skybox %}
-		{% endblock %}
 		<div id="doc" class="yui-t7">
 
 		<div id="hd">

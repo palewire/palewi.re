@@ -1,6 +1,5 @@
 {% extends "coltrane/base.html" %}
 
-
 {% block title %}{{ block.super }}{% endblock %}
 
 {% block extralinktags %}
@@ -10,24 +9,6 @@
 {% if has_next %}<link rel="next" href="/ticker/page/{{ next }}/" />{% endif %}
 {% else %}
 <link rel="Next" href="/ticker/page/2/" />
-{% endif %}
-{% endblock %}
-
-{% block skybox %}
-{% if feature_list %}
-	<div id="panel">
-		<div id="panelcontent">
-				{% for feature in feature_list %}
-					{{ feature.get_rendered_html|safe }}
-				{% endfor %}
-		</div>
-	</div>
-	<p class="slide">
-		<a href="#" class="btn-slide">
-			<span class="btn-label-down">&darr;</span>
-			<span class="btn-label-up" style="display:none;">&uarr;</span>
-		</a>
-	</p>
 {% endif %}
 {% endblock %}
 
