@@ -21,6 +21,9 @@ urlpatterns = patterns('django.views.generic.simple',
 	(r'^feed/$', 'redirect_to', {'url': '/feeds/posts/'}),
 	(r'^feed/atom/$', 'redirect_to', {'url': '/feeds/posts/'}),
 	(r'^feed/rss/$', 'redirect_to', {'url': '/feeds/posts/'}),
+	# Redirects from old flatpages
+	(r'^bio/$', 'redirect_to', {'url': '/who-is-ben-welsh/'}),
+	(r'^work/$', 'redirect_to', {'url': '/who-is-ben-welsh/'}),
 )
 
 # URLs for the new blog
