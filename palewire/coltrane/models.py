@@ -188,7 +188,7 @@ class Photo(ThirdPartyBaseModel):
 
 class Track(ThirdPartyBaseModel):
 	"""
-	Links to tracks I've listened to and logged at Last.fm.
+	Links to tracks I've listened to.
 	"""
 	artist_name = models.CharField(max_length=250)
 	track_name = models.CharField(max_length=250)
@@ -208,7 +208,7 @@ class Link(ThirdPartyBaseModel):
 
 	def __unicode__(self):
 		return self.title
-			
+
 
 # Signals
 for modelname in [Link, Photo, Post, Shout, Track, Comment]:
