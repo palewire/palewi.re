@@ -148,7 +148,7 @@ class ThirdPartyBaseModel(models.Model):
 	"""
 	A base model for the data we'll be pulling from third-party sites.
 	"""
-	url = models.URLField(unique=True, max_length=1000)
+	url = models.URLField(max_length=1000)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
 	objects = models.Manager()
