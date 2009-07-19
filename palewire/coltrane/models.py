@@ -150,8 +150,8 @@ class ThirdPartyBaseModel(models.Model):
 	url = models.URLField(unique=True, max_length=1000)
 	pub_date = models.DateTimeField(default=datetime.datetime.now)
 	tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
-	sync = SyncManager()
 	objects = models.Manager()
+	sync = SyncManager()
 	
 	class Meta:
 		ordering = ('-pub_date',)
