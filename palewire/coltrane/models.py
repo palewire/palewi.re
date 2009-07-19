@@ -1,21 +1,26 @@
+# Helpers
 import datetime
-
-from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
-from django.contrib.comments.models import Comment
-from django.contrib.contenttypes import generic
-from django.contrib.contenttypes.models import ContentType
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 
-from tagging.fields import TagField
+# Settings
+from django.conf import settings
+
+# Models
 from tagging.models import Tag
+from django.contrib.auth.models import User
+from django.contrib.comments.models import Comment
+from django.contrib.contenttypes.models import ContentType
 
-from django.db import models
+# Fields
+from tagging.fields import TagField
+from django.contrib.contenttypes import generic
 
+# Managers
 from coltrane.managers import LivePostManager, LiveCategoryManager, SyncManager
 
+# Signals
 from django.db.models import signals
 from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
 
@@ -124,14 +129,13 @@ class Post(models.Model):
 		from coltrane.utils.pygmenter import pygmenter
 		self.body_html = pygmenter(self.body_markup)
 		super(Post, self).save()
-				
+	
+	@models.permalink
 	def get_absolute_url(self):
 		return ('coltrane_post_detail', (), { 'year': self.pub_date.strftime("%Y"),
 												'month': self.pub_date.strftime("%m"),
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
-												
-	get_absolute_url = models.permalink(get_absolute_url)
 	
 	def get_absolute_icon(self):
 		return u'/media/icons/posts.gif'
