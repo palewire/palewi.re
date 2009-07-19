@@ -24,6 +24,10 @@ urlpatterns = patterns('django.views.generic.simple',
 	# Redirects from old flatpages
 	(r'^bio/$', 'redirect_to', {'url': '/who-is-ben-welsh/'}),
 	(r'^work/$', 'redirect_to', {'url': '/who-is-ben-welsh/'}),
+	# Scrape pages from tutorial on old site.
+	(r'^scrape/albums/2006.html$', 'direct_to_template', {'template': 'flatpages/scrape/2006.html'}),
+	(r'^scrape/albums/2007.html$', 'direct_to_template', {'template': 'flatpages/scrape/2007.html'}),
+
 )
 
 # URLs for the new blog
