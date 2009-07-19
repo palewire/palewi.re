@@ -1,6 +1,6 @@
 from django.contrib import admin
 from tagging.models import Tag
-from coltrane.models import Category, Feature, Photo, Post, Link, Slogan, Ticker, Track, Shout, Video
+from coltrane.models import Category, Photo, Post, Link, Slogan, Ticker, Track, Shout
 from django.db.models import get_model
 from coltrane.forms import PostAdminModelForm
 
@@ -28,7 +28,7 @@ admin.site.register(Link, LinkAdmin)
 
 
 class ShoutAdmin(admin.ModelAdmin):
-	prepopulated_fields = {"slug": ("body",)}
+	pass
 	
 admin.site.register(Shout, ShoutAdmin)
 
@@ -39,22 +39,10 @@ class PhotoAdmin(admin.ModelAdmin):
 admin.site.register(Photo, PhotoAdmin)
 
 
-class VideoAdmin(admin.ModelAdmin):
-	prepopulated_fields = {"slug": ("title",)}
-	
-admin.site.register(Video, VideoAdmin)
-
-
 class TickerAdmin(admin.ModelAdmin):
 	pass
 	
 admin.site.register(Ticker, TickerAdmin)
-
-
-class FeatureAdmin(admin.ModelAdmin):
-	pass
-	
-admin.site.register(Feature, FeatureAdmin)
 
 
 class TrackAdmin(admin.ModelAdmin):

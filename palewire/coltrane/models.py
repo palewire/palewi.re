@@ -154,7 +154,7 @@ class Shout(models.Model):
 	objects = models.Manager()
 
 	def __unicode__(self):
-		return self.body
+		return self.message
 
 	def get_absolute_url(self):
 		return ('coltrane_shout_detail', (), { 'year': self.pub_date.strftime("%Y"),

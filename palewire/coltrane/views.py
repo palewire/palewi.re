@@ -3,7 +3,7 @@ from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
 from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic.list_detail import object_list
-from coltrane.models import Post, Category, Video, Link, Photo
+from coltrane.models import Post, Category, Link, Photo
 
 def entries_index(request):
 	return render_to_response('coltrane/entry_index.html',
@@ -34,7 +34,6 @@ def tag_detail(request, tag):
 	tag = get_object_or_404(Tag, name=tag)
 	posts = Post.live.all()
 	post_list = TaggedItem.objects.get_by_model(posts, tag)
-	video_list = TaggedItem.objects.get_by_model(Video, tag)
 	link_list = TaggedItem.objects.get_by_model(Link, tag)
 	photo_list = TaggedItem.objects.get_by_model(Photo, tag)
 	return render_to_response('coltrane/tag_detail.html', { 

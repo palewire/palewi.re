@@ -1,4 +1,3 @@
-import md5
 import datetime
 import logging
 import dateutil
@@ -133,41 +132,19 @@ else:
 def _handle_status(message_text, url, timestamp):
 	message_text, tags = _parse_message(message_text)
 
-	from pprint import pprint
-	pprint([message_text, tags])
+	if not _status_exists(message_text, url, timestamp):
+		log.debug("Saving message: %r", message_text)
+		s = Shout.objects.create(
+			message = message_text,
+			url = url,
+			pub_date = timestamp,
+			)
+		print "Adding: %s" % message_text
 
-#	t = Message(
-#		message = message_text,
-#		)
-
-#	if not _status_exists(message_text, url, timestamp):
-#		log.debug("Saving message: %r", message_text)
-#		item = Item.objects.create_or_update(
-#			instance = t,
-#			timestamp = timestamp,
-#			source = __name__,
-#			source_id = _source_id(message_text, url, timestamp),
-#			url = url,
-#			tags = tags,
-#			)
-#		item.save()
-
-#		for link in links:
-#			l = ContentLink(
-#				url = link,
-#				identifier = link,
-#				)
-#			l.save()
-#			t.links.add(l)
-
-def _source_id(message_text, url, timestamp):
-	return md5.new(smart_str(message_text) + smart_str(url) + str(timestamp)).hexdigest()
-	
 def _status_exists(message_text, url, timestamp):
-	id = _source_id(message_text, url, timestamp)
 	try:
-		Shout.objects.get(source=__name__, source_id=id)
-	except Item.DoesNotExist:
+		Shout.objects.get(url=url)
+	except Shout.DoesNotExist:
 		return False
 	else:
 		return True
