@@ -1,0 +1,5 @@
+h2. Crontabs
+
+PYTHONPATH=/home/benwelsh/webapps/palewire/apps/:/home/benwelsh/webapps/palewire/lib/python2.5
+DJANGO_SETTINGS_MODULE=palewire.settings
+*/1 * * * *  /usr/local/bin/python2.5 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/lastfm.py > /home/benwelsh/cron.log 2>&1
