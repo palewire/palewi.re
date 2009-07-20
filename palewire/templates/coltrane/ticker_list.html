@@ -1,52 +1,27 @@
 {% extends "coltrane/base.html" %}
 
-{% block title %}{{ block.super }}{% endblock %}
+{% block title %}ticker. {{ block.super }}{% endblock %}
 
 {% block extralinktags %}
 <link rel="home" href="/" />
-{% if is_paginated %}
 {% if has_previous %}<link rel="prev" href="/ticker/page/{{ previous }}/" />{% endif %}
 {% if has_next %}<link rel="next" href="/ticker/page/{{ next }}/" />{% endif %}
-{% else %}
-<link rel="Next" href="/ticker/page/2/" />
-{% endif %}
 {% endblock %}
 
 {% block content %}
 
-	<div id="tickerlog">
+	<div class="interiorlist">
+		<h2>Ticker</h2>
+		<ul>
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.date %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
-			{# Tumbler items #}
-			<ul>
-				<li class="tickeritem">
+				<li>
 					{{ object.get_rendered_html }}
 				</li>
-			</ul>
 		{% endfor %}
+		</ul>
 	</div>
-	
-	{% if is_paginated %}
-	<div id="paginationwrapper">
-		{% if has_previous %}
-		<div id="paginationleft">
-			<a href="/ticker/page/{{ previous }}/">&larr; Previous</a>
-		</div>
-		{% endif %}
-
-		{% if has_next %}
-		<div id="paginationright">
-			<a href="/ticker/page/{{ next }}/">Next &rarr;</a>
-		</div>
-		{% endif %}
-	</div>
-	{# The 'else' clause for the front page, where I want to keep the url clean and have made a special case #}
-	{% else %}
-		<div id="paginationwrapper">
-			<div id="paginationright">
-				<a href="/ticker/page/2/">Next &rarr;</a>
-			</div>
-		</div>
-	{% endif %}
+		
+	{% include 'coltrane/pagination.html' %}
 	
 {% endblock %}

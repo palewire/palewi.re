@@ -142,9 +142,10 @@ class Post(models.Model):
 	
 	def get_absolute_icon(self):
 		return u'/media/icons/posts.gif'
-		
-	def get_tags(self):
-		return Tag.objects.get_for_object(self)
+
+	def get_rendered_html(self):
+		template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
+		return render_to_string(template_name, { 'object': self })
 
 
 class ThirdPartyBaseModel(models.Model):
@@ -160,11 +161,11 @@ class ThirdPartyBaseModel(models.Model):
 	class Meta:
 		ordering = ('-pub_date',)
 		abstract = True
-	
-	@models.permalink
-	def get_absolute_url(self):
-		return self.url
-	
+
+	def get_rendered_html(self):
+		template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
+		return render_to_string(template_name, { 'object': self })
+
 	def get_absolute_icon(self):
 		name = u'%ss' % self.__class__.__name__.lower()
 		return u'/media/icons/%s.gif' % name

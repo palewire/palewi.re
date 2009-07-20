@@ -8,15 +8,10 @@
 	<div class="interiorlist">
 		<h2>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</h2>
 		<ul>
-		{% if post_list %}<h3 class="beef">Posts</h3>{% endif %}
-		<div class="left-bump">
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
 			<li>
-				<a href="{{ object.get_absolute_url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;
-				<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="links" />&nbsp;
-				{{ object|truncatewords:8 }}
+				{{ object.get_rendered_html }}
 				</a> 
 			</li>
 		{% endfor %}
