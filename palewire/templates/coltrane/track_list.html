@@ -5,13 +5,13 @@
 
 {% block content %}
 	<div class="interiorlist">
-		<h2>Tracks</h2>
+		<h2>Tracks&nbsp;<img style="vertical-align:text-bottom;" src="/media/icons/tracks.gif" alt="tracks"/></h2>
 		<ul>
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
 			<li>
 				<a href="{{ object.url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
+				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object|truncatewords:8 }}
 				</a> 
 			</li>
 		{% endfor %}

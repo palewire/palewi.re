@@ -5,7 +5,7 @@
 
 {% block content %}
 	<div class="interiorlist">
-		<h2>Tags</h2>
+		<h2>Tags&nbsp;<img style="vertical-align:text-bottom;" src="/media/icons/tags.gif" alt="tags"/></h2>
 		<ul>
 		{% regroup object_list by name|first|upper as letters %}
 	    {% for letter in letters %}
