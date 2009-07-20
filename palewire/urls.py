@@ -63,7 +63,7 @@ urlpatterns += patterns('',
 	(r'^comments/page/', include('coltrane.urls.comments')),
 	(r'^comments/', include('django.contrib.comments.urls')),
 
-	(r'^$', include('coltrane.urls.ticker')),
+	#(r'^$', include('coltrane.urls.ticker')),
 	(r'^ticker/', include('coltrane.urls.ticker')),
 
 	(r'^search/', include('solango.urls')),

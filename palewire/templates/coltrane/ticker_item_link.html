@@ -1,5 +1,5 @@
 <h2>
-	<a href="{{ object.url }}">
+	<a class="link" href="{{ object.url }}">
 		{{ object.pub_date|date:"H:i" }}&nbsp;
 		<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="links" />&nbsp;
 		{{ object|truncatewords:8 }}
