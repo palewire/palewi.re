@@ -5,7 +5,7 @@
 
 {% block content %}
 	<div class="interiorlist">
-		<h2>Comments&nbsp;<img style="vertical-align:text-bottom;" src="/media/icons/comments.gif" alt="comments"/></h2>
+		<h2><img style="vertical-align:text-bottom;" src="/media/icons/comments.gif" alt="comments"/>&nbsp;Comments</h2>
 		<ul>
 		{% for object in object_list %}
 			{% ifchanged object.submit_date.day %}<h3>{{ object.submit_date|date:"F d, Y" }}</h3>{% endifchanged %}

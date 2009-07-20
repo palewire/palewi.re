@@ -5,7 +5,7 @@
 
 {% block content %}
 	<div class="interiorlist">
-		<h2>Shouts&nbsp;<img style="vertical-align:text-bottom;" src="/media/icons/shouts.gif" alt="shouts"/></h2>
+		<h2><img style="vertical-align:text-bottom;" src="/media/icons/shouts.gif" alt="shouts"/>&nbsp;Shouts</h2>
 		<ul>
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
