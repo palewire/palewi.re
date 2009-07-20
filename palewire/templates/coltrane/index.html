@@ -1,3 +1,18 @@
 {% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
 
 {% block title %}{{ block.super }}{% endblock %}
+
+{% block content %}
+{% get_latest_content coltrane.post 5 as object_list %}
+
+{% for object in object_list|slice:":1" %}
+
+	<h1>{{ object }}</h1>
+	
+	{% include "coltrane/post_body.html" %}
+
+{% endfor %}
+
+{% endblock %}

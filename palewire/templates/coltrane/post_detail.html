@@ -1,6 +1,5 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
-{% load comments %}
 
 {% block title %}{{ object.title|lower }} . post . {{ block.super }}{% endblock %}
 
@@ -11,6 +10,8 @@
 <img style="vertical-align:text-bottom;"src="/media/icons/posts.png" width="40"/>&nbsp;
 {{ object.title }}
 </h1>
+
+{% load comments %}
 
 		<div id="detailbody">{{ object.body_html|safe }}</div>
 		
