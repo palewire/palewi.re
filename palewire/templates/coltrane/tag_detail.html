@@ -1,64 +1,25 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
+{% load humanize %}
 
 {% block title %}{{ tag }} . tags . {{ block.super }}{% endblock %}
 
 {% block content %}
 	<div class="interiorlist">
-		<h2>Things tagged "{{ tag }}"</h2>
+		<h2>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</h2>
 		<ul>
 		{% if post_list %}<h3 class="beef">Posts</h3>{% endif %}
 		<div class="left-bump">
-		{% for object in post_list %}
+		{% for object in object_list %}
 			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
 			<li>
 				<a href="{{ object.get_absolute_url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
+				{{ object.pub_date|date:"H:i" }}&nbsp;
+				<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="links" />&nbsp;
+				{{ object|truncatewords:8 }}
 				</a> 
 			</li>
 		{% endfor %}
-		</div>
-		</ul>
-		<ul>
-		{% if link_list %}<h3>Links</h3>{% endif %}
-		<div class="left-bump">
-		{% for object in link_list %}
-			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
-			<li>
-				<a href="{{ object.url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
-				</a> 
-			</li>
-		{% endfor %}
-		</div>
-		</ul>
-		<ul>
-		{% if photo_list %}<h3>Photos</h3>{% endif %}
-		<div class="left-bump">
-		{% for object in photo_list %}
-			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
-			<li>
-				<a href="{{ object.url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
-				</a> 
-			</li>
-		{% endfor %}
-		</div>
-		</ul>
-		<ul>
-		{% if video_list %}<h3>Videos</h3>{% endif %}
-		<div class="left-bump">
-		{% for object in video_list %}
-			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
-			<li>
-				<a href="{{ object.url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
-				</a> 
-			</li>
-		{% endfor %}
-		</div>
-		</ul>
-
 	</div>
 
 {% endblock %}

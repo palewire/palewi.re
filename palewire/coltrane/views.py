@@ -36,17 +36,22 @@ def tag_detail(request, tag):
 	"""
 	A list that reports all of the content with a particular tag.
 	"""
+	# Pull the tag
 	tag = tag.replace("-", " ")
 	tag = get_object_or_404(Tag, name=tag)
-	posts = Post.live.all()
-	post_list = TaggedItem.objects.get_by_model(posts, tag)
-	link_list = TaggedItem.objects.get_by_model(Link, tag)
-	photo_list = TaggedItem.objects.get_by_model(Photo, tag)
+	
+	# Pull all the items with that tag.
+	taggeditem_list = tag.items.all()
+	
+	# Loop through the tagged items and return just the items
+	object_list = [i.object for i in taggeditem_list]
+	
+	# Now resort them by the pub_date attribute we know each one should have
+	object_list.sort(key=lambda x: x.pub_date, reverse=True)
+
+	# Pass it out
 	return render_to_response('coltrane/tag_detail.html', { 
 			'tag': tag, 
-			'post_list': post_list,
-			'video_list': video_list,
-			'link_list': link_list,
-			'photo_list': photo_list,
+			'object_list': object_list,
 		})
 		
