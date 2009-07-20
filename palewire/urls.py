@@ -33,8 +33,15 @@ urlpatterns = patterns('django.views.generic.simple',
 	(r'^music/$', 'direct_to_template', {'template': 'flatpages/music/default.htm'}),
 	# Arcade Fire hypecloud from old site.
 	(r'^hypecloud/$', 'direct_to_template', {'template': 'flatpages/hypecloud/index.html'}),
+	# DC Happy hours from old site.
+	(r'^happyhours/$', 'direct_to_template', {'template': 'flatpages/happyhours/index.htm'}),
+	(r'^happyhours/tuesday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/tuesday.htm'}),
+	(r'^happyhours/wednesday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/wednesday.htm'}),
+	(r'^happyhours/thursday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/thursday.htm'}),
+	(r'^happyhours/friday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/friday.htm'}),
+	(r'^happyhours/saturday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/saturday.htm'}),
 	# Redirect old images from legacy site
-	(r'^images/(?P<file_name>[^/]+)/$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
+	(r'^images/(?P<file_name>[^/]+)$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
 
 )
 
