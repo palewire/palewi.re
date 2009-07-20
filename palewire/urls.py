@@ -63,11 +63,12 @@ urlpatterns += patterns('',
 	(r'^comments/page/', include('coltrane.urls.comments')),
 	(r'^comments/', include('django.contrib.comments.urls')),
 
-	#(r'^$', include('coltrane.urls.ticker')),
+	(r'^$', include('coltrane.urls.index')),
 	(r'^ticker/', include('coltrane.urls.ticker')),
 
-	(r'^search/', include('solango.urls')),
+#	(r'^search/', include('solango.urls')),
 	(r'^feeds/', include('coltrane.urls.feeds')),
 	(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 	(r'^robots.txt$', include('robots.urls')),
+
 )
