@@ -7,17 +7,15 @@ index_dict = {
 	'paginate_by': 25,
 }
 
-info_dict = {
-	'queryset': Shout.objects.all(),
-	'date_field': 'pub_date',
-	'month_format': '%m',
-}
-
 
 urlpatterns = patterns('django.views.generic',
+
+	# The root url
+	url(r'^$', 'simple.redirect_to', { 'url': '/shouts/page/1/' }, name='coltrane_shout_root'),
+
+	# List
 	url(r'^page/(?P<page>[0-9]+)/$', 'list_detail.object_list', index_dict, name='coltrane_shout_list'),
-	url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 
-		'date_based.object_detail', info_dict, name='coltrane_shout_detail'),
+
 )
 
 

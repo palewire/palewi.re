@@ -7,8 +7,14 @@ index_dict = {
 	'paginate_by': 25,
 }
 
-urlpatterns = patterns('django.views.generic.list_detail',
-	url(r'^page/(?P<page>[0-9]+)/$', 'object_list', index_dict, name='coltrane_photo_list'),
+urlpatterns = patterns('django.views.generic',
+
+	# The root url
+	url(r'^$', 'simple.redirect_to', { 'url': '/photos/page/1/' }, name='coltrane_photo_root'),
+
+	# List
+	url(r'^page/(?P<page>[0-9]+)/$', 'list_detail.object_list', index_dict, name='coltrane_photo_list'),
+
 )
 
 

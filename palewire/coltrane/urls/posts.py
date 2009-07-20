@@ -13,8 +13,13 @@ entry_info_dict = {
 	'month_format': '%m',
 }
 
-urlpatterns = patterns('django.views.generic.list_detail',
-	url(r'^page/(?P<page>[0-9]+)/$', 'object_list', entry_index_dict, name='coltrane_post_archive_index'),
+urlpatterns = patterns('django.views.generic',
+
+	# The root url
+	url(r'^$', 'simple.redirect_to', { 'url': '/posts/page/1/' }, name='coltrane_post_root'),
+
+	# List
+	url(r'^page/(?P<page>[0-9]+)/$', 'list_detail.object_list', entry_index_dict, name='coltrane_post_archive_index'),
 	
 )
 
