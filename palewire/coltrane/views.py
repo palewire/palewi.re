@@ -1,10 +1,18 @@
-import datetime, time
+# Helpers
+import time
+import datetime
+from django.shortcuts import render_to_response, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+
+
+# Models
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
-from django.shortcuts import render_to_response, get_object_or_404
-from django.core.urlresolvers import reverse
-from django.views.generic.list_detail import object_list
 from coltrane.models import Post, Category, Link, Photo
+
+# Views
+from django.views.generic.list_detail import object_list
 
 
 def index(request):
@@ -12,8 +20,7 @@ def index(request):
 	The homepage of the site, which simply redirects to the latest post.
 	"""
 	latest_post = Post.live.latest()
-	args = map(str, [latest_post.pub_date.year, latest_post.pub_date.month, latest_post.pub_date.day, latest_post.slug])
-	return post_detail(request, *args)
+	return HttpResponseRedirect(latest_post.get_absolute_url())
 
 
 def post_detail(request, year, month, day, slug):
