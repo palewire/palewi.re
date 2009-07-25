@@ -31,7 +31,10 @@ def delete_ticker_item(sender, instance, signal, *args, **kwargs):
 	"""
 	from coltrane.models import Ticker
 	ctype = ContentType.objects.get_for_model(instance)
-	pub_date = instance.pub_date
+	if instance.__class__.__name__ == 'Comment':
+		pub_date = instance.submit_date
+	else:
+		pub_date = instance.pub_date
 	try:
 		t = Ticker.objects.get(content_type=ctype, object_id=instance.id, pub_date=pub_date)
 		t.delete()
