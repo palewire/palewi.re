@@ -1,7 +1,7 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
 
-{% block title %}{{ object.title|lower }} . post . {{ block.super }}{% endblock %}
+{% block title %}{{ object.title|lower }} . {{ block.super }}{% endblock %}
 
 {% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
 
