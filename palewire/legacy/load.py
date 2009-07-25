@@ -35,8 +35,18 @@ def posts():
 		)
 		if created:
 			print "Added %s" % p.title
-		
-		
+
+
+def kill_trailing_periods():
+	"""
+	Removes any trailing periods from headlines.
+	"""
+	for post in Post.objects.all():
+		if post.title[-1] == '.':
+			post.title = post.title[:-1]
+			post.save()
+
+
 def comments():
 	infile = open("../legacydb/dumps/comments.dump", 'r')
 	comments = pickle.load(infile)
