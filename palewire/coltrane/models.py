@@ -81,10 +81,10 @@ class Category(models.Model):
 	def __unicode__(self):
 		return self.title
 	
-	@models.permalink
 	def get_absolute_url(self):
 		return('coltrane_category_detail', [self.slug])
-		
+	get_absolute_url = models.permalink(get_absolute_url)
+	
 	def get_absolute_icon(self):
 		return u'/media/icons/categories.gif'
 
@@ -134,12 +134,12 @@ class Post(models.Model):
 		self.body_html = pygmenter(self.body_markup)
 		super(Post, self).save()
 	
-	@models.permalink
 	def get_absolute_url(self):
 		return ('coltrane_post_detail', (), { 'year': self.pub_date.strftime("%Y"),
 												'month': self.pub_date.strftime("%m"),
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
+	get_absolute_url = models.permalink(get_absolute_url)
 	
 	def get_absolute_icon(self):
 		return u'/media/icons/posts.gif'
