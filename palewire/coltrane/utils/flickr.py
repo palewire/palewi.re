@@ -97,7 +97,7 @@ def update():
 
 def _handle_photo(flickr, photo_id, secret, license, timestamp):
 	info = flickr.photos.getInfo(photo_id=photo_id, secret=secret)["photo"]
-	photo_id	  = str(photo_id)
+	photo_id = str(photo_id)
 	taken_by = smart_unicode(info["owner"]["username"])
 	url = "http://www.flickr.com/photos/%s/%s/" % (taken_by, photo_id)
 	title = smart_unicode(info["title"]["_content"])
@@ -109,9 +109,9 @@ def _handle_photo(flickr, photo_id, secret, license, timestamp):
 
 	try:
 		photo = Photo.objects.get(url = url)
-		photo.title = title,
-		photo.description = description,
-		photo.pub_date = date_uploaded,
+		photo.title = title
+		photo.description = description
+		photo.pub_date = date_uploaded
 		photo.tags = tags
 		photo.save()
 	except Photo.DoesNotExist:
