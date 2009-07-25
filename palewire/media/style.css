@@ -113,11 +113,14 @@ a:focus {outline: none;}
 #ft h4 { font-size: .85em; }
 #django-link { color: rgb(72, 120, 88); font-weight: bold; }
 
-#comments {margin: 2em 10em 0em 2.5em; width:30em;}
+#comments {margin: 2em 10em 0em 2.5em; width:45em;}
 #comments h2 {margin-bottom:1em; font-size:1.35em; font-weight:bold;}
-.comment { margin:0 0 1em 2.5em; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
-.commentname {display:inline; margin:0; padding:0;}
-.commenttext {display:inline; margin:0 0 0 0.25em; padding:0; }
+.comment { margin:0 0 2em 2.5em; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
+.commenttopper { margin:0 0 0.5em 0; }
+.commentname {block:inline; font-size:1.4em; font-weight:bold; margin: 0 0em 0 0;}
+.commentdate {block:inline; font-size: 0.8em;}
+.commenttext {block:inline; margin: 0 0 0.5em 0; }
+.commentfooter {}
 #comments a:link {text-decoration: none; font-weight:bold; color:black;}
 #comments a:visited {text-decoration: none; font-weight:bold; color:black;}
 #comments a:hover {text-decoration: none; color:gray; font-weight:bold;}

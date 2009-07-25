@@ -70,8 +70,12 @@
 			{% for comment in comment_list %}
 				<div id="#c{{comment.id}}" class="comment">
 					<a name="c{{comment.id}}"></a>
-					<div class="commentname"><a href="{{ comment.get_absolute_url }}">> {{ comment.user_name|lower }}:</a></div> 
-					<div class="commenttext">{{ comment.comment }}</div>
+					<div class="commenttopper">
+						<span class="commentname">{{ comment.user_name|lower }}</span>
+						<span class="commentdate">on {{ comment.submit_date|date:"Y.m.d"}}</span>
+					</div>
+					<div class="commenttext">{{ comment.comment|safe }}</div>
+					<div class="commentfooter"><a href="{{ comment.get_absolute_url }}">Permalink</a></div>
 				</div>
 			{% endfor %}
 			
