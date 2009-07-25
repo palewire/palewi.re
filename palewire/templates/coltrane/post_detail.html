@@ -30,7 +30,7 @@
 			{% endif %}
 			
 			<p id="posttags">Topics include 
-			{% for t in object.get_tags %}
+			{% for t in object.tag_set %}
 				{% if forloop.last %}and <a href="/tag/{{ t }}/" alt="{{t}}" title="{{t}}" rel="tag">{{t}}</a>.
 				{% else %}
 					{% ifequal forloop.revcounter 2 %}

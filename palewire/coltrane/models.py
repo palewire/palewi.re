@@ -144,6 +144,13 @@ class Post(models.Model):
 	def get_absolute_icon(self):
 		return u'/media/icons/posts.gif'
 
+	def get_tag_set(self):
+		"""
+		Returns attached tags as a queryset.
+		"""
+		return Tag.objects.get_for_object(self)
+	tag_set = property(get_tag_set)
+
 	def get_rendered_html(self):
 		template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
 		return render_to_string(template_name, { 'object': self })
