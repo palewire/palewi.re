@@ -9,7 +9,7 @@
 		<ul>
 		{% regroup object_list by name|first|upper as letters %}
 	    {% for letter in letters %}
-			<h3>{{ letter.grouper }}</h3>
+				<li class="interior-date">{{ letter.grouper }}</li>
 				{% for item in letter.list %}
 				<li>
 					<a href="/tags/{{ item }}" alt="{{ item }}" title="{{ item }}" rel="tag">
