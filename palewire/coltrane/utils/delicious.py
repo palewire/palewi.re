@@ -96,8 +96,7 @@ def _handle_bookmark(info):
 		url = info['href'],
 		title = info['description'],
 		description = info.get('extended', ''),
-		pub_date = info['time'],
-		#pub_date = utils.parsedate(info['time']),
+		pub_date = utils.parsedate(info['time']),
 		tags = info['tag']
 	)
 	if created:
