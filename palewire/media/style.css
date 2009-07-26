@@ -30,17 +30,30 @@ a:focus {outline: none;}
 
 
 /* The Header */
-#hd { display:block;}
-#hd h1 { font-size: 1.65em; font-weight: bold; float: left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
+#hd {display:block;}
+#hd h1 { margin-bottom:0.4em; font-size: 1.65em; font-weight: bold; float: left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
 #hd h2 { font-size:1.2em; float: right; padding-right:0.15em; display:inline;} /* the WHOIS link in the upper right hand corner */
-.slogan { font-size: .6em;} /* The random phrase that appears on hoverover of the title */
+.slogan { 
+font-size: .6em;} /* The random phrase that appears on hoverover of the title */
 .icon { font-size: .6em; text-transform:lowercase;} /* The link labels that show up when a navbar item is mousedover */
 
 /* The horizontal gray bar that appears beneath the title line */
-#topbar {display:block; clear:both; height: 0.25em; margin: 1.8em 0em 0em 0em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
-/* The list of icons that runs below the gray bar*/
-#navbar {text-align:right; display:block; margin-bottom: 1em; margin-top: .25em; height: 0.75em; padding: 0.15em;}
-
+#topbar {
+clear:both;
+border-bottom:solid 8px #E5E5E5;
+margin-top:-1.35em;}
+#navbar {
+text-align:right; 
+display:block; 
+margin-bottom: 1em; 
+margin-top: .25em; 
+padding: 0.15em;
+}
+#navbar a:link{text-decoration: none; color:black; font-weight:normal;}
+#navbar a:visited{text-decoration: none; color: black; font-weight:normal;}
+#navbar a:hover{text-decoration: none; color:black; font-weight:normal;}
+#navbar a:active{text-decoration: none; color: black; font-weight:normal;}
+#navbar a:focus {outline: none;}
 /* The Homepage Tumblelog */
 
 /* The rolling datestamps */
