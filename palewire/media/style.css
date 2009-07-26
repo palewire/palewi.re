@@ -26,10 +26,9 @@ a:focus {outline: none;}
 
 /* Detail page stuff */
 #detailbody {margin: 1.1em 10em 1.1em 4.5em; width:40em;}
-#detailborderbumper.thin {display:block; clear:both; height: 0.01em; margin: 0em 10em 1em 4.5em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
-#detailborderbumper.thick {display:block; clear:both; height: 0.1em; margin: 1em 10em 1em 4.5em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+#detailborderbumper {clear:both; border-bottom:solid 4px #E5E5E5; margin-top:-1.35em; margin: 0.5em 10em 0.5em 4.5em;}
 #detailmetadata {margin-left: 1.6em; margin-top: .8em; text-align:right; margin: 0em 10em 0em 4.5em;}
-#bd h1 { font-size:2em; margin-top:1.2em; margin-bottom:1em; line-height:1.5em; } /* the detail page headline */
+#bd h1 { font-weight:bold; font-size:2em; margin-top:1.2em; margin-bottom:1em; line-height:1.5em; } /* the detail page headline */
 #detailbody p { margin-bottom:1.15em; margin-top:1.15em;} /* the standard 'graph */
 #detailbody h2 { font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:1.2em; font-weight:bold; margin-top:1.66em;} /* the in-post subhede */
 #detailbody ol, #detailbody ul, #detailbody li {margin-bottom: 0.5em; margin-left: 1.25em;}
