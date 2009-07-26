@@ -46,7 +46,8 @@ class DeliciousClient(object):
 			time.sleep(2 - delta)
 		DeliciousClient.lastcall = time.time()
 		url = ("https://api.del.icio.us/%s?" % self.method) + urllib.urlencode(params)		  
-		return utils.getxml(url, username=self.username, password=self.password)
+		xml = utils.getxml(url, username=self.username, password=self.password)
+		return xml
 
 #
 # Public API

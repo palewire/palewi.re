@@ -12,7 +12,6 @@ h3. TODO
 * Track domains in Link model so I know which sites I push to the most. Make a ranking.
 * Add a tag cloud to tag list that shows biggest topics.
 * Lateral browsing by date on post page
-* Contact me links at bottom of biography
 * Wire Digg into "Links"
 * Sync wikipedia
 * Sync github
