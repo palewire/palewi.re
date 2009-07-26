@@ -22,7 +22,7 @@ feeds = {
 }
 
 urlpatterns += patterns('',
-	(r'(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
+	url(r'(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}, name='coltrane_feeds'),
 )
 
 
