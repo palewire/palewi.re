@@ -60,7 +60,10 @@ class RecentShouts(Feed):
 
 	def items(self):
 		return Shout.objects.all().order_by('-pub_date')[:10]
-	
+
+	def item_link(self, item):
+		return item.url
+
 	def item_pubdate(self, item):
 		return item.pub_date
 
@@ -78,7 +81,8 @@ class RecentLinks(Feed):
 
 	def item_pubdate(self, item):
 		return item.pub_date
-		
+
+
 class RecentPhotos(Feed):
 	title = "photos . palewire"
 	link = "http://palewire.com/feeds/photos/"
