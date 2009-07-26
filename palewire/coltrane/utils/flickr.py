@@ -2,6 +2,7 @@ import datetime
 import logging
 import urllib
 import os
+import sys
 
 # Set the directories and django config so it can be run from cron.
 current_dir = os.path.abspath(__file__)
