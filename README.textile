@@ -1,7 +1,5 @@
-h1. palewire
+h1. palewire.com
 
-A new version of my blog that I've been working on. 
-
-I figured it's about time to get serious, since I anticipate being out of a job at some point in the not too distant future.
-
-So, hello world, here it is. A work in progress.
+The current edition of my blog, published at "palewire.com":http://www.palewire.com. 
+"
+It's a combination of "coltrane":http://github.com/clones/django-coltrane/tree/master, "jellyroll":http://github.com/jacobian/jellyroll/tree/master and a number of other Django blogs floating around.
