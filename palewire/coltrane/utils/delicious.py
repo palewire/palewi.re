@@ -91,11 +91,13 @@ def _update_bookmarks_from_date(delicious, dt):
 _update_bookmarks_from_date = transaction.commit_on_success(_update_bookmarks_from_date)
 
 def _handle_bookmark(info):
+	print info['time']
 	l, created = Link.objects.get_or_create(
 		url = info['href'],
 		title = info['description'],
 		description = info.get('extended', ''),
-		pub_date = utils.parsedate(info['time']),
+		pub_date = info['time'],
+		#pub_date = utils.parsedate(info['time']),
 		tags = info['tag']
 	)
 	if created:
