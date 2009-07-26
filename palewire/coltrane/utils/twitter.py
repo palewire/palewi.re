@@ -50,9 +50,7 @@ def update():
 		url			 = smart_unicode(status.find('link').text)
 
 		# pubDate delivered as UTC
-		timestamp	 = dateutil.parser.parse(status.find('pubDate').text)
-		if utils.JELLYROLL_ADJUST_DATETIME:
-			timestamp = utils.utc_to_local_datetime(timestamp)
+		timestamp = utils.parsedate(str(status.find('pubDate').text))
 
 		if not _status_exists(message_text, url, timestamp):
 			_handle_status(message_text, url, timestamp)

@@ -106,5 +106,3 @@ def _handle_bookmark(info):
 		l.save()
 		print u'Logged %s' % l.description
 
-if __name__ == '__main__':
-	update()
