@@ -29,6 +29,7 @@
 				</p>
 			{% endif %}
 			
+			{% if object.tag_set %}
 			<p id="posttags">Topics include 
 			{% for t in object.tag_set %}
 				{% if forloop.last %}and <a href="/tag/{{ t }}/" alt="{{t}}" title="{{t}}" rel="tag">{{t}}</a>.
@@ -41,6 +42,7 @@
 				{% endif %}
 			{% endfor %}
 			</p>
+			{% endif %}
 			
 		<ul id="relatedposts">Some similar posts are 
 			{% for p in related_posts %}
