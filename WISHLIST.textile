@@ -1,0 +1,25 @@
+h1. Wishlist
+
+A bunch of crap I might do
+
+h3. TODO
+
+* Restore photos to LA street band post
+* Kill periods at the end of post titles
+* Incorporate Readernaut as "Books"
+* hCard or resume on about page
+* Validate XHTML
+* Track domains in Link model so I know which sites I push to the most. Make a ranking.
+* Add a tag cloud to tag list that shows biggest topics.
+* Lateral browsing by date on post page
+* Contact me links at bottom of biography
+* Wire Digg into "Links"
+* Sync wikipedia
+* Sync github
+* Seek out a more pythonic search to replace solr.
+* Get Akismet working
+
+h3. Needed icons:
+
+* Books
+* Videos
