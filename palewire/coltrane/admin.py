@@ -26,7 +26,7 @@ admin.site.register(Category, CategoryAdmin)
 class PostAdmin(admin.ModelAdmin):
 	fieldsets = (
 		('Post', {
-			'fields': ('author', 'title', 'slug', 'body_markup',),
+			'fields': ('author', 'pub_date', 'title', 'slug', 'body_markup',),
 			'description': 'The post itself.'
 		}),
 		('Meta', {
