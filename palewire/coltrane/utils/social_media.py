@@ -1,7 +1,7 @@
 """
 My constellation of social media sites that can be fetched and published.
 """
-FREQUENTLY_USED = {
+ACTIVELY_USED = {
 	'Delicious': 'http://delicious.com/palewire',
 	'Digg': 'http://digg.com/users/palewire',
 	'Facebook': 'http://www.facebook.com/palewire',
