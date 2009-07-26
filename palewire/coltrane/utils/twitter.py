@@ -158,3 +158,6 @@ def _status_exists(message_text, url, timestamp):
 		return False
 	else:
 		return True
+
+if __name__ == '__main__':
+	update()

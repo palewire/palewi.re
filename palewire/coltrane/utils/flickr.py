@@ -140,3 +140,6 @@ _handle_photo = transaction.commit_on_success(_handle_photo)
 
 def _convert_tags(tags):
 	return " ".join(set(t["_content"] for t in tags["tag"] if not t["machine_tag"]))
+	
+if __name__ == '__main__':
+	update()
