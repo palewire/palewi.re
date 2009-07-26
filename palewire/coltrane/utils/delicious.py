@@ -71,10 +71,11 @@ def update():
 	if last_post_date <= last_update_date:
 		log.info("Skipping update: last update date: %s; last post date: %s", last_update_date, last_post_date)
 		return
+	
 
 	for datenode in reversed(list(delicious.posts.dates().getiterator('date'))):
 		dt = utils.parsedate(datenode.get("date"))
-		if dt > last_update_date:
+		if dt.date() >= last_update_date.date():
 			_update_bookmarks_from_date(delicious, dt)
 				
 #
@@ -87,6 +88,7 @@ def _update_bookmarks_from_date(delicious, dt):
 	for post in xml.getiterator('post'):
 		info = dict((k, smart_unicode(post.get(k))) for k in post.keys())
 		log.debug("Handling bookmark of %r", info["href"])
+		print info
 		_handle_bookmark(info)
 _update_bookmarks_from_date = transaction.commit_on_success(_update_bookmarks_from_date)
 
