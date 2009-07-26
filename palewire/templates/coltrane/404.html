@@ -1,0 +1,17 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}404 Error (Page Not Found) . {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>
+404 Error
+</h1>
+
+{% load comments %}
+
+		<div id="detailbody">Sorry, the page you're looking for could not be found.</div>
+		
+		<div id="detailborderbumper" class="thin"></div>
+
+{% endblock %}
