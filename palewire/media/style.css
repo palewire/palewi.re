@@ -1,75 +1,35 @@
 
 /* The box around the main bar and the basic text settings */
-#doc {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	border: 1px solid #ccc;
-	padding: 1.5em 1.5em 0.5em 1.5em;
-	line-height:1.5em;
-	clear:both;
-	}
+#doc { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 16px; margin-top: 1em; margin-bottom: 1em; border: 1px solid #ccc; padding: 1.5em 1.5em 0.5em 1.5em; line-height:1.5em; clear:both; }
 
-/* anchor tag settings to make links appear normal until hovered over, when they should bold out */
+/* Anchor tag settings to make links appear normal until hovered over, when they should bold out */
 a:link{text-decoration: none; color:black;}
 a:visited{text-decoration: none; color: black;}
 a:hover{text-decoration: none; color:black; font-weight:bold;}
 a:active{text-decoration: underline; color: red;}
 a:focus {outline: none;}
 
-/* Aborted attempt at a featured post flag */
-#featurewrapper {margin:auto; padding-top:2em; min-width:750px; width:57.69em;}
-#featureline {float:right;}
-#featureline strong {font-weight:bold;}
-
-#panel { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 16px; text-align:right; height: 3em; display: none; border-bottom: 1px solid #ccc;}
-#panelcontent { padding:0.8em; }
-.slide { margin: 0; padding: 0; float: right; }
-.btn-slide { text-align: right; width: 6em; height: 2em; padding: 1em 1em 0 0; margin: 0 auto; display: block; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; }
-
-
-/* The Header */
-#hd {display:block;}
+/* The header */
+#hd {display:block; height:3.6em;}
 #hd h1 { margin-bottom:0.4em; font-size: 1.65em; font-weight: bold; float: left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
 #hd h2 { font-size:1.2em; float: right; padding-right:0.15em; display:inline;} /* the WHOIS link in the upper right hand corner */
-.slogan { 
-font-size: .6em;} /* The random phrase that appears on hoverover of the title */
-.icon { font-size: .6em; text-transform:lowercase;} /* The link labels that show up when a navbar item is mousedover */
+#hd span { font-size: .6em; clear:both; text-transform:lowercase;} /* The random phrase that appears on hoverover of the title */
 
 /* The horizontal gray bar that appears beneath the title line */
-#topbar {
-clear:both;
-border-bottom:solid 8px #E5E5E5;
-margin-top:-1.35em;}
-#navbar {
-text-align:right; 
-display:block; 
-margin-bottom: 1em; 
-margin-top: .25em; 
-padding: 0.15em;
-}
+#topbar {clear:both; border-bottom:solid 8px #E5E5E5; margin-top:-1.35em; }
+#navbar { text-align:right; display:block; margin-bottom: 1em; margin-top: .25em; padding: 0.15em;}
 #navbar a:link{text-decoration: none; color:black; font-weight:normal;}
 #navbar a:visited{text-decoration: none; color: black; font-weight:normal;}
 #navbar a:hover{text-decoration: none; color:black; font-weight:normal;}
 #navbar a:active{text-decoration: none; color: black; font-weight:normal;}
 #navbar a:focus {outline: none;}
-/* The Homepage Tumblelog */
-
-/* The rolling datestamps */
-#tickerlog h3 {font-weight:bold; font-size:1.3em; margin-top: .66em; margin-bottom: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
-.tickeritem h6 {padding-right:0.5em; font-size:1.2em; display:inline; } /* the left-align time stamp */
-.tickeritem {padding: 0.5em; margin-left: 1em; margin-right: 1em; width:100%;} /* the individual tumbler items */
-.tickeritem h2 { font-size:1.3em; display:inline; } /* the tumbler item text */
 
 /* Detail page stuff */
 #detailbody {margin: 1.1em 10em 1.1em 4.5em; width:40em;}
 #detailborderbumper.thin {display:block; clear:both; height: 0.01em; margin: 0em 10em 1em 4.5em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
 #detailborderbumper.thick {display:block; clear:both; height: 0.1em; margin: 1em 10em 1em 4.5em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
 #detailmetadata {margin-left: 1.6em; margin-top: .8em; text-align:right; margin: 0em 10em 0em 4.5em;}
-
-#bd h1 { font-family: Georgia, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:2em; margin-top:1.2em; margin-bottom:1em; line-height:1.5em; } /* the detail page headline */
-
+#bd h1 { font-size:2em; margin-top:1.2em; margin-bottom:1em; line-height:1.5em; } /* the detail page headline */
 #detailbody p { margin-bottom:1.15em; margin-top:1.15em;} /* the standard 'graph */
 #detailbody h2 { font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:1.2em; font-weight:bold; margin-top:1.66em;} /* the in-post subhede */
 #detailbody ol, #detailbody ul, #detailbody li {margin-bottom: 0.5em; margin-left: 1.25em;}
@@ -81,12 +41,10 @@ padding: 0.15em;
 #detailbody a:active {text-decoration: underline; font-weight:bold; color: red;}
 #detailbody pre { margin-left:1.2em; line-height:1.3em;}
 #detailbody blockquote {margin-top: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
-
 #detailmetadata a:link {text-decoration: none; font-weight:bold; color:black;}
 #detailmetadata a:visited {text-decoration: none; font-weight:bold; color:black;}
 #detailmetadata a:hover {text-decoration: none; color:gray; font-weight:bold;}
 #detailmetadata a:active {text-decoration: none; font-weight:bold; color: red;}
-
 #postpubdate { margin-bottom: 0.6em; }
 #postcats { margin-bottom: 0.6em; }
 #posttags { margin-bottom: 0.6em;}
@@ -127,6 +85,7 @@ padding: 0.15em;
 #ft h4 { font-size: .85em; }
 #django-link { color: rgb(72, 120, 88); font-weight: bold; }
 
+/* Comments */
 #comments {margin: 2em 10em 0em 2.5em; width:45em;}
 #comments h2 {margin-bottom:1em; font-size:1.35em; font-weight:bold;}
 .comment { margin:0 0 2em 2.5em; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
@@ -139,17 +98,13 @@ padding: 0.15em;
 #comments a:visited {text-decoration: none; font-weight:bold; color:black;}
 #comments a:hover {text-decoration: none; color:gray; font-weight:bold;}
 #comments a:active {text-decoration: none; font-weight:bold; color: red;}
-
-/* comments submission form */
 form#commentform {padding: 0;}
 .commentformwrapper {font-size: 1em;}
 .commentformleft {clear: both;padding: 0.2em 0.75em 0.2em 0;text-align:right;width: 6em;font-weight: bold;}
 .commentformright {padding: 0.2em 0;text-align: left;width: 75%;}
 .commentformright, div.commentformleft {display: inline;float:left;margin: 0.3em 0;}
 
-
 /* Pygments styles for source code in posts */
-
 .source .hll { background-color: #ffffcc }
 .source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}
 .source .c { color: #408080; font-style: italic } /* Comment */
