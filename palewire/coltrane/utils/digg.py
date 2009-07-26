@@ -104,7 +104,7 @@ def enabled():
 	return ok
 
 
-def update(diggs_to_fetch=25):
+def update(diggs_to_fetch=10):
 	"""
 	When executed, will collect update your database with the latest diggs.
 	"""
