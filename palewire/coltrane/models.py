@@ -181,7 +181,22 @@ class ThirdPartyBaseModel(models.Model):
 	def get_tag_list(self, last_word='and'):
 		return get_text_list(self.tags.split(' '), last_word)
 	tag_list = property(get_tag_list)
-	
+
+
+class Book(ThirdPartyBaseModel):
+	"""
+	Books I've read.
+	"""
+	isbn = models.CharField(max_length=20, unique=True)
+	title = models.CharField(max_length=250)
+	authors = models.CharField(max_length=250, blank=True, null=True)
+
+	def __unicode__(self):
+		if self.authors:
+			return "%s by %s" % (self.title, self.authors)
+		else:
+			return self.title
+
 
 class Shout(ThirdPartyBaseModel):
 	"""
@@ -238,10 +253,10 @@ class Link(ThirdPartyBaseModel):
 
 
 # Signals
-for modelname in [Link, Photo, Post, Shout, Track, Comment]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book]:
 	signals.post_save.connect(create_ticker_item, sender=modelname)
 	
-for modelname in [Link, Photo, Post, Shout, Track, Comment]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book]:
 	signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)

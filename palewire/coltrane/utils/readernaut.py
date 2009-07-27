@@ -114,7 +114,7 @@ def _handle_book(book_dict):
 	"""
 	try:
 		# Just test the URL in case it's already been logged by another bookmarking service like Delicious.
-		l = Book.objects.get(isbn=book_dict['isbn'])
+		b = Book.objects.get(isbn=book_dict['isbn'])
 		# And just quit out silently if it already exists.
 		log.debug("Book already exists for %s" % book_dict["title"])
 	

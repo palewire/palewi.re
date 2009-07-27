@@ -52,6 +52,7 @@ urlpatterns += patterns('',
 	(r'^admin/(.*)', admin.site.root),
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
 	
+	(r'^books/', include('coltrane.urls.books')),
 	(r'^categories/', include('coltrane.urls.categories')),
 	(r'^links/', include('coltrane.urls.links')),
 	(r'^tags/', include('coltrane.urls.tags')),
