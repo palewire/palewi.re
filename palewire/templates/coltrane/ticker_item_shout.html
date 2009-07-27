@@ -1,5 +1,5 @@
 
-	<a class="shout" href="{{ object.get_absolute_url }}">
+	<a class="shout" href="{{ object.url }}">
 		{{ object.pub_date|date:"H:i" }}&nbsp;
 		<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="shouts"/>&nbsp;
 		{{ object|striptags|truncatewords:8 }}
