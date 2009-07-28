@@ -94,20 +94,24 @@ def _update_bookmarks_from_date(delicious, dt):
 _update_bookmarks_from_date = transaction.commit_on_success(_update_bookmarks_from_date)
 
 def _handle_bookmark(info):
-	l, created = Link.objects.get_or_create(
-		url = info['href'],
-		title = info['description'],
-		description = info.get('extended', ''),
-		pub_date = utils.parsedate(str(info['time'])),
-		tags = info['tag']
-	)
-	if created:
-		print "Added %s" % l
-	if not created:
-		l.description = info['description']
-		l.extended = info.get('extended', '')
+	try:
+		# Just test the URL in case it's already been logged by another bookmarking service like Delicious.
+		l = Link.objects.get(url=info['href'])
+		# And just quit out silently if it already exists.
+		log.debug("Link already exists for %s" % info["description"])
+	
+	except Link.DoesNotExist:
+		# If it doesn't exist, add it fresh.
+		log.debug("Adding link to %s" % info["description"])
+		
+		l = Link(
+			url = info['href'],
+			title = info['description'],
+			description = info.get('extended', ''),
+			pub_date = utils.parsedate(str(info['time'])),
+			tags = info['tag']
+		)
 		l.save()
-		print u'Logged %s' % l.description
 
 if __name__ == '__main__':
 	update()
