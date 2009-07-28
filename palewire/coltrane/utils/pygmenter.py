@@ -13,7 +13,7 @@ _lexer_names = reduce(lambda a,b: a + b[2], LEXERS.itervalues(), ())
 _formatter = HtmlFormatter(cssclass='source')
 
 def pygmenter(raw_html):
-	'''
+	"""
 	Accepts raw html text for markup processing. Using BeautifulSoup 
 	the following constructs will be replaced
 	by with pygmented highlighting. E.g.::
@@ -29,7 +29,7 @@ def pygmenter(raw_html):
 	``<code>...</code>`` tag; however, my tests using markdown.py - as well as 
 	markdown.pl from John Gruber - have shown that the inner HTML of the 
 	``<code>`` tag is not immune to translation.
-	'''
+	"""
 	soup = BeautifulSoup(raw_html)
 	for tag in soup.findAll('pre'):
 		lexer_name = tag.get('lang').lower()
