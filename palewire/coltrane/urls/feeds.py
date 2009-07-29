@@ -19,6 +19,7 @@ feeds = {
 	'links': RecentLinks,
 	'photos': RecentPhotos,
 	'tracks': RecentTracks,
+	'books': RecentBooks,
 }
 
 urlpatterns += patterns('',

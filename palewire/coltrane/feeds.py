@@ -5,6 +5,7 @@ from django.contrib.syndication.feeds import Feed
 from coltrane.models import *
 from django.contrib.comments.models import Comment
 
+
 class FullFeed(Feed):
 	title = "the full feed . palewire"
 	link = "http://palewire.com/feeds/the-full-feed/"
@@ -48,6 +49,21 @@ class RecentPosts(Feed):
 
 	def items(self):
 		return Post.live.all().order_by('-pub_date')[:10]
+
+	def item_pubdate(self, item):
+		return item.pub_date
+
+
+class RecentBooks(Feed):
+	title = "books . palewire"
+	link = "http://palewire.com/feeds/books/"
+	description = "the latest shouts at palewire.com"
+
+	def items(self):
+		return Book.objects.all().order_by('-pub_date')[:10]
+
+	def item_link(self, item):
+		return item.url
 
 	def item_pubdate(self, item):
 		return item.pub_date
