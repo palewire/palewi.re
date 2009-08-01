@@ -9,6 +9,7 @@ database hits. This will run a join that really slims things down.
 >>> cloud.calculate_cloud(TaggedItem.objects.select_related().all())
 """
 import math
+from django.utils.translation import ugettext as _
 
 # Font size distribution algorithms
 LOGARITHMIC, LINEAR = 1, 2
