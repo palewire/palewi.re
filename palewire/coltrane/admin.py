@@ -3,11 +3,25 @@ from django.contrib import admin
 
 # Models
 from tagging.models import Tag
-from coltrane.models import Category, Photo, Post, Link, Slogan, Ticker, Track, Shout
+from coltrane.models import *
 from django.db.models import get_model
 
 # Custom forms
 from coltrane.forms import PostAdminModelForm
+
+
+class BookAdmin(admin.ModelAdmin):
+	pass
+	
+admin.site.register(Book, BookAdmin)
+
+
+class CommitAdmin(admin.ModelAdmin):
+	list_display = ['pub_date', 'repository', 'branch', 'short_message']
+	list_filter = ['repository',]
+	search_fields = ['message',]
+	
+admin.site.register(Commit, CommitAdmin)
 
 
 class TickerAdmin(admin.ModelAdmin):

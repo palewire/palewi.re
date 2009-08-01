@@ -198,6 +198,27 @@ class Book(ThirdPartyBaseModel):
 			return self.title
 
 
+class Commit(ThirdPartyBaseModel):
+	"""
+	Code I've written.
+	"""
+	repository = models.CharField(max_length=100)
+	branch = models.CharField(max_length=100)
+	message = models.TextField()
+	
+	def __unicode__(self):
+		return u'%s:%s - %s' % (self.repository, self.branch, self.message)
+
+	def get_short_message(self, words=8):
+		"""
+		Trims message to the specified number of words.
+		
+		Good for use in the admin.
+		"""
+		return truncate_words(strip_tags(self.message), words)
+	short_message = property(get_short_message)
+
+
 class Shout(ThirdPartyBaseModel):
 	"""
 	Shorter things I blast out.
