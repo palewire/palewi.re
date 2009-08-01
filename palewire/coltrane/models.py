@@ -274,10 +274,10 @@ class Link(ThirdPartyBaseModel):
 
 
 # Signals
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit]:
 	signals.post_save.connect(create_ticker_item, sender=modelname)
 	
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit]:
 	signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)
