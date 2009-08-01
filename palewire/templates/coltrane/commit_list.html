@@ -1,11 +1,11 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
 
-{% block title %}commits . {{ block.super }}{% endblock %}
+{% block title %}code commits . {{ block.super }}{% endblock %}
 
 {% block content %}
 	<div class="interiorlist">
-		<h2><img style="vertical-align:text-bottom;" src="/media/icons/commits.gif" alt="commits"/>&nbsp;Commits</h2>
+		<h2><img style="vertical-align:text-bottom;" src="/media/icons/commits.gif" alt="code commits"/>&nbsp;Code commits</h2>
 		<ul>
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.day %}

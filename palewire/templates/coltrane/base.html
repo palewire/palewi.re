@@ -19,8 +19,8 @@
 	<link rel="alternate" type="application/rss+xml" title="less noise" href="feeds/less-noise/"/>
 	<link rel="alternate" type="application/rss+xml" title="posts" href="feeds/posts/"/>
 	<link rel="alternate" type="application/rss+xml" title="books" href="feeds/books/"/>
+	<link rel="alternate" type="application/rss+xml" title="code commits" href="feeds/commits/"/>
 	<link rel="alternate" type="application/rss+xml" title="comments" href="feeds/comments/"/>
-	<link rel="alternate" type="application/rss+xml" title="commits" href="feeds/commits/"/>
 	<link rel="alternate" type="application/rss+xml" title="shouts" href="feeds/shouts/"/>
 	<link rel="alternate" type="application/rss+xml" title="links" href="feeds/links/"/>
 	<link rel="alternate" type="application/rss+xml" title="videos" href="feeds/videos/"/>
@@ -68,11 +68,11 @@
 			<a href="{% url coltrane_category_list %}" title="Categories">
 				<img src="/media/icons/categories.gif" width="30" alt="categories" />
 			</a>
+			<a href="{% url coltrane_commit_list 1 %}" title="Code commits">
+				<img src="/media/icons/commits.gif" width="30" alt="code commits" />
+			</a>
 			<a href="{% url coltrane_comment_list 1 %}" title="Comments">
 				<img src="/media/icons/comments.gif" width="30" alt="comments" />
-			</a>
-			<a href="{% url coltrane_commit_list 1 %}" title="Commits">
-				<img src="/media/icons/commits.gif" width="30" alt="commits" />
 			</a>
 			<a href="/feeds/list/" title="Feeds">
 				<img src="/media/icons/feeds.gif" width="30" alt="feeds"/>

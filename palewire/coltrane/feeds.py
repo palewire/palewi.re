@@ -70,9 +70,9 @@ class RecentBooks(Feed):
 
 
 class RecentCommits(Feed):
-	title = "books . palewire"
+	title = "code commits . palewire"
 	link = "http://palewire.com/feeds/commits/"
-	description = "the latest commits at palewire.com"
+	description = "the latest code commits at palewire.com"
 
 	def items(self):
 		return Commit.objects.all().order_by('-pub_date')[:10]
