@@ -25,8 +25,6 @@ from coltrane.models import Commit
 import logging
 log = logging.getLogger("jellyroll.utils.github")
 
-from pprint import pprint
-
 def enabled():
 	ok = hasattr(settings, 'GITHUB_USER')
 	if not ok:
@@ -49,8 +47,6 @@ class GithubClient(object):
 		return "<GithubClient: %s>" % self.username
 		
 	def __call__(self):
-		
-		[i.delete() for i in Commit.objects.all()]
 		
 		# Fetch the XML via web request
 		url = 'http://github.com/%s.atom' % self.username
@@ -89,7 +85,7 @@ class GithubClient(object):
 				
 				# Create a dict to stuff the goodies
 				entry_dict = {}
-				entry_dict['pub_date'] = dateutil.parser.parse(pub_date)
+				entry_dict['pub_date'] = dateutil.parser.parse(pub_date).strftime('%Y-%m-%d %H:%M:%S')
 				
 				# Add the matches to our dictionary
 				entry_dict['branch'] = smart_unicode(match.group('branch'))
