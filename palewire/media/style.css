@@ -103,6 +103,15 @@ form#commentform {padding: 0;}
 .commentformright {padding: 0.2em 0;text-align: left;width: 75%;}
 .commentformright, div.commentformleft {display: inline;float:left;margin: 0.3em 0;}
 
+/* Tag cloud */
+.tagcloud { text-align: justify; margin: 2em 0 2em 0;}
+.tagcloud .size6 a { font-size: 1.7em; } /* The biggest */
+.tagcloud .size5 a { font-size: 1.5em; }
+.tagcloud .size4 a { font-size: 1.3em; }
+.tagcloud .size3 a { font-size: 1.1em; }
+.tagcloud .size2 a { font-size: 0.9em; }
+.tagcloud .size1 a { font-size: 0.7em; } /* The smallest */
+
 /* Pygments styles for source code in posts */
 .source .hll { background-color: #ffffcc }
 .source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}

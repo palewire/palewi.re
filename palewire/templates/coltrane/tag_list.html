@@ -6,6 +6,23 @@
 {% block content %}
 	<div class="interiorlist">
 		<h2><img style="vertical-align:text-bottom;" src="/media/icons/tags.gif" alt="tags"/>&nbsp;Tags</h2>
+		
+		<ul>
+		<div class="tagcloud">
+			{% for tag, font_size in tag_cloud %}
+		
+				<span class="size{{ font_size }}">
+					
+					<a href="/tags/{{ tag }}/" alt="{{ tag }}" rel="tag">
+						{{ tag.name }}
+					</a>
+				
+				</span> 
+
+			{% endfor %}
+		</div>
+		</ul>
+		
 		<ul>
 		{% regroup object_list by name|first|upper as letters %}
 	    {% for letter in letters %}

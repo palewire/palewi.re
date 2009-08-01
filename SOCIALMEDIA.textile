@@ -8,6 +8,7 @@ A list of all the social media profiles I can remember
 * "Digg":http://digg.com/users/palewire
 * "Dipty":http://www.dipity.com/palewire
 * "DjangoPeople":http://djangopeople.net/palewire/
+* "Dopplr":http://www.dopplr.com/traveller/palewire/public
 * "Facebook":http://www.facebook.com/palewire
 * "Flickr":http://www.flickr.com/photos/77114776@N00/
 * "Friendfeed":http://friendfeed.com/palewire

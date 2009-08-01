@@ -61,7 +61,7 @@ def tag_detail(request, tag):
 	taggeditem_list = tag.items.all()
 	
 	# Loop through the tagged items and return just the items
-	object_list = [i.object for i in taggeditem_list]
+	object_list = [i.object for i in taggeditem_list if getattr(i.object, 'pub_date', False)]
 	
 	# Now resort them by the pub_date attribute we know each one should have
 	object_list.sort(key=lambda x: x.pub_date, reverse=True)
