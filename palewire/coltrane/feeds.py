@@ -57,10 +57,25 @@ class RecentPosts(Feed):
 class RecentBooks(Feed):
 	title = "books . palewire"
 	link = "http://palewire.com/feeds/books/"
-	description = "the latest shouts at palewire.com"
+	description = "the latest books at palewire.com"
 
 	def items(self):
 		return Book.objects.all().order_by('-pub_date')[:10]
+
+	def item_link(self, item):
+		return item.url
+
+	def item_pubdate(self, item):
+		return item.pub_date
+
+
+class RecentCommits(Feed):
+	title = "books . palewire"
+	link = "http://palewire.com/feeds/commits/"
+	description = "the latest commits at palewire.com"
+
+	def items(self):
+		return Commit.objects.all().order_by('-pub_date')[:10]
 
 	def item_link(self, item):
 		return item.url
