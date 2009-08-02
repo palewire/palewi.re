@@ -112,6 +112,24 @@ form#commentform {padding: 0;}
 .tagcloud .size2 a { font-size: 0.9em; }
 .tagcloud .size1 a { font-size: 0.7em; } /* The smallest */
 
+/* Search */
+#searchbody {margin-top:4em;}
+#searchlower {margin-top:2em;}
+#searchbar {width:12em;}
+#searchbox { text-align:left; padding-left: 1.5em; }
+.searchboxinput { width:15em; height:1.5em;}
+.highlight { background-color: #ffffcc }
+.highlight em {font-weight:bold;}
+.searchresultwrapper {margin-bottom:1.5em; margin-left:2em;}
+.searchresult p {font-size:0.8em; margin-left:0.25em;}
+.searchresultwrapper h4 {font-size: 1.1em; margin-bottom:0.25em;}
+.searchresultwrapper a:link{text-decoration: underline; color:black; font-weight:bold;}
+.searchresultwrapper a:visited{text-decoration: underline; color: black; font-weight:bold;}
+.searchresultwrapper a:hover{text-decoration: underline; color:gray; font-weight:bold;}
+.searchresultwrapper a:active{text-decoration: underline; color: red; font-weight:bold;}
+.searchresultwrapper a:focus {outline: underline;}
+#searchbar h4 {font-weight:bold; font-size: 1.2em; margin-bottom:1em; margin-top:1em; padding-left:1.5em; font-size:1.25em;}
+
 /* Pygments styles for source code in posts */
 .source .hll { background-color: #ffffcc }
 .source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}

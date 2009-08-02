@@ -30,8 +30,6 @@ from coltrane.signals import create_ticker_item, delete_ticker_item, category_co
 class Ticker(models.Model):
 	"""
 	A tumblelog of the latest content items, pushed automagically by the functions in signals.py.
-	
-	This is what populates the front page of the blog.
 	"""
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
@@ -140,6 +138,7 @@ class Post(models.Model):
 												'day': self.pub_date.strftime("%d"),
 												'slug': self.slug })
 	get_absolute_url = models.permalink(get_absolute_url)
+	url = property(get_absolute_url)
 	
 	def get_absolute_icon(self):
 		return u'/media/icons/posts.gif'
@@ -208,6 +207,7 @@ class Commit(ThirdPartyBaseModel):
 	
 	def __unicode__(self):
 		return u'%s:%s - %s' % (self.repository, self.branch, self.message)
+	title = property(__unicode__)
 
 	def get_short_message(self, words=8):
 		"""
@@ -217,6 +217,28 @@ class Commit(ThirdPartyBaseModel):
 		"""
 		return truncate_words(strip_tags(self.message), words)
 	short_message = property(get_short_message)
+
+
+class Link(ThirdPartyBaseModel):
+	"""
+	Links to bookmarks I'd like to recommend.
+	"""
+	title = models.CharField(max_length=250)
+	description = models.TextField(blank=True, null=True)
+
+	def __unicode__(self):
+		return self.title
+
+
+class Photo(ThirdPartyBaseModel):
+	"""
+	Links to photos I want to recommend, including my own.
+	"""
+	title = models.CharField(max_length=250, blank=True, null=True)
+	description = models.TextField(blank=True, null=True)
+
+	def __unicode__(self):
+		return self.title
 
 
 class Shout(ThirdPartyBaseModel):
@@ -236,17 +258,7 @@ class Shout(ThirdPartyBaseModel):
 		"""
 		return truncate_words(strip_tags(self.message), words)
 	short_message = property(get_short_message)
-
-
-class Photo(ThirdPartyBaseModel):
-	"""
-	Links to photos I want to recommend, including my own.
-	"""
-	title = models.CharField(max_length=250, blank=True, null=True)
-	description = models.TextField(blank=True, null=True)
-
-	def __unicode__(self):
-		return self.title
+	title = property(get_short_message)
 
 
 class Track(ThirdPartyBaseModel):
@@ -260,17 +272,7 @@ class Track(ThirdPartyBaseModel):
 
 	def __unicode__(self):
 		return u"%s - %s" % (self.artist_name, self.track_name)
-		
-
-class Link(ThirdPartyBaseModel):
-	"""
-	Links to bookmarks I'd like to recommend.
-	"""
-	title = models.CharField(max_length=250)
-	description = models.TextField(blank=True, null=True)
-
-	def __unicode__(self):
-		return self.title
+	title = property(__unicode__)
 
 
 # Signals
