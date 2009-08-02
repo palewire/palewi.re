@@ -6,8 +6,8 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-import haystack
-haystack.autodiscover()
+#import haystack
+#haystack.autodiscover()
 
 from coltrane.sitemaps import sitemaps
 
@@ -71,7 +71,7 @@ urlpatterns += patterns('',
 	(r'^$', include('coltrane.urls.index')),
 	(r'^ticker/', include('coltrane.urls.ticker')),
 
-	(r'^search/', include('haystack.urls')),
+#	(r'^search/', include('haystack.urls')),
 	(r'^feeds/', include('coltrane.urls.feeds')),
 	(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 	(r'^robots.txt$', include('robots.urls')),
