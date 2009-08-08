@@ -20,7 +20,7 @@ from tagging.fields import TagField
 from django.contrib.contenttypes import generic
 
 # Managers
-from coltrane.managers import LivePostManager, LiveCategoryManager, SyncManager
+from coltrane.managers import *
 
 # Signals
 from django.db.models import signals
@@ -226,6 +226,7 @@ class Link(ThirdPartyBaseModel):
 	"""
 	title = models.CharField(max_length=250)
 	description = models.TextField(blank=True, null=True)
+	domains = LinkDomainManager()
 
 	def __unicode__(self):
 		return self.title

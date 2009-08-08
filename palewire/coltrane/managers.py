@@ -23,6 +23,44 @@ class LiveCategoryManager(models.Manager):
 		return super(LiveCategoryManager, self).get_query_set().filter(post_count__gt=0)
 
 
+class LinkDomainManager(models.Manager):
+	"""
+	Returns an analysis of the domain names found in the Link model.
+	
+	The result is formed as a list of tuples, with the domain first and count second.
+	"""
+	
+	def rank(self):
+		"""
+		All domains in the Link model, ranked from greatest to least.
+		"""
+		from urlparse import urlparse
+		
+		# Fetch all the domains
+		domains = [urlparse(i.url)[1] for i in self.all()]
+		
+		# Create a dict to stuff the counts
+		domain_count = {}
+		
+		# Loop through all the domains
+		for d in domains:
+			try:
+				# If it exists in the dict, bump it up one
+				domain_count[d]['count'] += 1
+			except KeyError:
+				# If it doesn't exist yet, add it to the dict
+				domain_count[d] = {'count': 1}
+				
+		# Sort the results as a list of tuples, from top to bottom
+		domain_tuple = domain_count.items()
+		domain_tuple.sort(lambda x,y:cmp(x[1], y[1]))
+		domain_tuple.reverse()
+		
+		# Pass out the results
+		return domain_tuple
+
+
+
 class SyncManager(models.Manager):
 	"""
 	A set of utilities for working with the Track model.
