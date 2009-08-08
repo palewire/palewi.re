@@ -35,12 +35,19 @@ def _group_tagged_items(tagged_item_qs):
 	"""
 	Accepts a queryset of TaggedItem objects, groups them by tag, and then counts their frequency.
 	"""
+	models_blacklist = ['track',]
+	
 	tag_count = {}
 	for ti in tagged_item_qs:
+
+		if ti.content_type.name in models_blacklist:
+			continue
+
 		try:
 			tag_count[ti.tag]['count'] += 1
 		except KeyError:
 			tag_count[ti.tag] = {'font-size': None, 'count': 1}
+
 	return tag_count
 
 def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC, min_count=5, qs=True):
