@@ -20,6 +20,7 @@ from coltrane.models import Track
 from django.template.defaultfilters import slugify
 from django.utils.functional import memoize
 from django.utils.http import urlquote
+from tagging.models import Tag
 
 #
 # API URLs
@@ -74,6 +75,7 @@ settings.LASTFM_TAG_USAGE_THRESHOLD (which defaults to 15).
 	tags = set()
 	for url in urls:
 		tags.update(_tags_for_url(url))
+	return tags
 		
 def _tags_for_url(url):
 	tags = set()
@@ -107,8 +109,9 @@ def _handle_track(artist_name, artist_mbid, track_name, track_mbid, url, timesta
 		url = url,
 		track_mbid = track_mbid is not None and track_mbid or '',
 		artist_mbid = artist_mbid is not None and artist_mbid or '',
-		tags = tags
+		tags = " ".join(tags)
 	)
+	t.save()
 	if created == True:
 		 print u'Logged %s - %s' % (artist_name, track_name)
 	else:

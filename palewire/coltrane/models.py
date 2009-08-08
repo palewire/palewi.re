@@ -168,6 +168,7 @@ class ThirdPartyBaseModel(models.Model):
 	class Meta:
 		ordering = ('-pub_date',)
 		abstract = True
+		get_latest_by = 'pub_date'
 
 	def get_rendered_html(self):
 		template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())

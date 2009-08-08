@@ -12,7 +12,7 @@ h3. TODO
 * Get tag sync working for lastfm
 * Lateral browsing by date on post page
 * Sync wikipedia
-* Seek out a more pythonic search to replace solr.
+* Fix haystack bugs in production
 * Get Akismet working
 * Feeds for individual categories and tags
 
