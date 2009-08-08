@@ -8,7 +8,6 @@ h3. TODO
 * Kill periods at the end of post titles
 * hCard or resume on about page
 * Validate XHTML
-* Track domains in Link model so I know which sites I push to the most. Make a ranking.
 * Get tag sync working for lastfm
 * Lateral browsing by date on post page
 * Sync wikipedia

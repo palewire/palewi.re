@@ -1,0 +1,7 @@
+A comment has been left on {{ content_object }}
+
+The comment: 
+
+"""
+{{ comment }}
+"""

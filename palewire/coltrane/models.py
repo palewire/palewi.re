@@ -288,10 +288,13 @@ signals.post_save.connect(category_count, sender=Post)
 signals.post_delete.connect(category_count, sender=Post)
 
 # Comment moderation
-from comment_utils.moderation import CommentModerator, moderator, AlwaysModerate
-class ColtraneModerator(AlwaysModerate):
-	#akismet = True
+from django.contrib.comments.moderation import CommentModerator, moderator
+
+class ColtraneModerator(CommentModerator):
+	auto_moderate_field = 'pub_date'
+	moderate_after = 0
 	email_notification = True
 	enable_field = 'enable_comments'
 
 moderator.register(Post, ColtraneModerator)
+
