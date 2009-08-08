@@ -117,5 +117,16 @@ def _handle_track(artist_name, artist_mbid, track_name, track_mbid, url, timesta
 	else:
 		 print "Failed to log the track %s - %s" %	(artist_name, track_name)
 
+def get_back_tags():
+	"""
+	Loops through old tracks and fetchs their tags. 
+	"""
+	tracks = Track.objects.all()
+	for t in tracks:
+		tags = _tags_for_track(t.artist_name, t.track_name)
+		t.tags = " ".join(tags)
+		t.save()
+		print t
+
 if __name__ == '__main__':
 	update()
