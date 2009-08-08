@@ -43,7 +43,7 @@ def _group_tagged_items(tagged_item_qs):
 			tag_count[ti.tag] = {'font-size': None, 'count': 1}
 	return tag_count
 
-def calculate_cloud(tagged_items_qs, steps=4, distribution=LOGARITHMIC, min_count=5):
+def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC, min_count=5, qs=True):
 	"""
 	Add a ``font_size`` attribute to each tag according to the
 	frequency of its use, as indicated by its ``count``
@@ -56,7 +56,10 @@ def calculate_cloud(tagged_items_qs, steps=4, distribution=LOGARITHMIC, min_coun
 	algorithm which will be used - logarithmic or linear. It must be
 	one of ``tagging.utils.LOGARITHMIC`` or ``tagging.utils.LINEAR``.
 	"""
-	tag_counts = _group_tagged_items(tagged_items_qs)
+	if qs:
+		tag_counts = _group_tagged_items(tagged_items)
+	if not qs:
+		tag_counts = dict(tagged_items)
 
 	if len(tag_counts) > 0:
 		counts = [i['count'] for i in tag_counts.values()]

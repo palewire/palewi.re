@@ -6,6 +6,24 @@
 {% block content %}
 	<div class="interiorlist">
 		<h2><img style="vertical-align:text-bottom;" src="/media/icons/links.gif" alt="links"/>&nbsp;Links</h2>
+
+		{% ifequal page 1 %}
+		<ul>
+		<div class="tagcloud">
+			{% for tag, font_size, count in tag_cloud %}
+				<span class="size{{ font_size }}">
+					
+					<a href="http://{{ tag }}" alt="{{ tag }}" rel="tag">
+						{{ tag }}
+					</a>
+				
+				</span> 
+
+			{% endfor %}
+		</div>
+		</ul>
+		{% endifequal %}
+		
 		<ul>
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.day %}

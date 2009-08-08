@@ -49,7 +49,7 @@ class LinkDomainManager(models.Manager):
 				domain_count[d]['count'] += 1
 			except KeyError:
 				# If it doesn't exist yet, add it to the dict
-				domain_count[d] = {'count': 1}
+				domain_count[d] = {'count': 1, 'font-size': None}
 				
 		# Sort the results as a list of tuples, from top to bottom
 		domain_tuple = domain_count.items()
