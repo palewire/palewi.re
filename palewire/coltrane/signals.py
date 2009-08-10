@@ -97,6 +97,7 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
 				flag='spam'
 			)
 			comment.is_public = False
+			comment.is_removed = True
 			comment.save()
 
 comment_was_posted.connect(on_comment_was_posted)
