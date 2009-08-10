@@ -63,6 +63,8 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
 
 	from django.contrib.sites.models import Site
 	from django.conf import settings
+	from django.template import Context, loader
+	from django.core.mail import send_mail
 
 	try:
 		from akismet import Akismet
@@ -91,6 +93,7 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
 			'comment_author': comment.user_name.encode('utf-8'),
 		}
 
+		# If it's spam...
 		if ak.comment_check(comment.comment.encode('utf-8'), data=data, build_data=True):
 			comment.flags.create(
 				user=comment.content_object.author,
@@ -99,5 +102,16 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
 			comment.is_public = False
 			comment.is_removed = True
 			comment.save()
+		
+		# If it's not...
+		else:
+			# Send an email
+			recipient_list = [manager_tuple[1] for manager_tuple in settings.MANAGERS]
+			t = loader.get_template('comments/comment_notification_email.txt')
+			c = Context({ 'comment': comment, 'content_object': comment.content_object })
+			subject = '[%s] New comment posted on "%s"' % (Site.objects.get_current().name,
+			                                                  comment.content_object)
+			message = t.render(c)
+			send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, recipient_list, fail_silently=True)
 
 comment_was_posted.connect(on_comment_was_posted)
