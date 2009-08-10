@@ -8,12 +8,11 @@ h3. TODO
 * Kill periods at the end of post titles
 * hCard or resume on about page
 * Validate XHTML
-* Get tag sync working for lastfm
 * Lateral browsing by date on post page
 * Sync wikipedia
 * Fix haystack bugs in production
-* Get Akismet working
 * Feeds for individual categories and tags
+* mobile phone template
 
 h3. Needed icons:
 

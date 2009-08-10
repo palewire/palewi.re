@@ -292,7 +292,7 @@ from django.contrib.comments.moderation import CommentModerator, moderator
 
 class ColtraneModerator(CommentModerator):
 	auto_moderate_field = 'pub_date'
-	moderate_after = 0
+	moderate_after = -10
 	email_notification = True
 	enable_field = 'enable_comments'
 
