@@ -21,6 +21,7 @@ feeds = {
 	'tracks': RecentTracks,
 	'books': RecentBooks,
 	'commits': RecentCommits,
+	'tag': TagFeed,
 }
 
 urlpatterns += patterns('',

@@ -4,6 +4,10 @@
 
 {% block title %}{{ tag }} . tags . {{ block.super }}{% endblock %}
 
+{% block extrarss %}
+	<link rel="alternate" type="application/rss+xml" title="latest tagged {{ tag }}" href="/feeds/tag/{{ tag }}/"/>
+{% endblock %}
+
 {% block content %}
 	<div class="interiorlist">
 		<h2>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</h2>

@@ -16,17 +16,19 @@
 	<link rel="stylesheet" type="text/css" href="/media/reset-fonts-grids.css"/>
 	<link rel="stylesheet" type="text/css" href="/media/style.css"/>
 	
-	<link rel="alternate" type="application/rss+xml" title="the full feed" href="feeds/the-full-feed/"/>
-	<link rel="alternate" type="application/rss+xml" title="less noise" href="feeds/less-noise/"/>
-	<link rel="alternate" type="application/rss+xml" title="posts" href="feeds/posts/"/>
-	<link rel="alternate" type="application/rss+xml" title="books" href="feeds/books/"/>
-	<link rel="alternate" type="application/rss+xml" title="code commits" href="feeds/commits/"/>
-	<link rel="alternate" type="application/rss+xml" title="comments" href="feeds/comments/"/>
-	<link rel="alternate" type="application/rss+xml" title="shouts" href="feeds/shouts/"/>
-	<link rel="alternate" type="application/rss+xml" title="links" href="feeds/links/"/>
-	<link rel="alternate" type="application/rss+xml" title="videos" href="feeds/videos/"/>
-	<link rel="alternate" type="application/rss+xml" title="photos" href="feeds/photos/"/>
-	<link rel="alternate" type="application/rss+xml" title="tracks" href="feeds/tracks/"/>
+	<link rel="alternate" type="application/rss+xml" title="the full feed" href="/feeds/the-full-feed/"/>
+	<link rel="alternate" type="application/rss+xml" title="less noise" href="/feeds/less-noise/"/>
+	<link rel="alternate" type="application/rss+xml" title="posts" href="/feeds/posts/"/>
+	<link rel="alternate" type="application/rss+xml" title="books" href="/feeds/books/"/>
+	<link rel="alternate" type="application/rss+xml" title="code commits" href="/feeds/commits/"/>
+	<link rel="alternate" type="application/rss+xml" title="comments" href="/feeds/comments/"/>
+	<link rel="alternate" type="application/rss+xml" title="shouts" href="/feeds/shouts/"/>
+	<link rel="alternate" type="application/rss+xml" title="links" href="/feeds/links/"/>
+	<link rel="alternate" type="application/rss+xml" title="videos" href="/feeds/videos/"/>
+	<link rel="alternate" type="application/rss+xml" title="photos" href="/feeds/photos/"/>
+	<link rel="alternate" type="application/rss+xml" title="tracks" href="/feeds/tracks/"/>
+	{% block extrarss %}
+	{% endblock %}
 	
 	{% block extralinktags %}
 	{% endblock %}
