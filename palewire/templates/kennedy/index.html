@@ -1,0 +1,47 @@
+{% extends "coltrane/base.html" %}
+
+{% block title %}kennedy name generator . {{ block.super }}{% endblock %}
+
+{% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>
+<img style="vertical-align:text-bottom;" height="40" src="/media/icons/posts-big.gif" alt="post"/>&nbsp;
+Kennedy Name Generator
+</h1>
+		<div id="detailbody">
+			
+			{% if first_name and gender %}
+				{% if kennedy_name %}
+				<p>Your Kennedy name is <b style="font-size:1.2em;">{{ kennedy_name }}</b>.</p>
+				{% else %}
+				<h2>Something went wrong with your search. Did you include all the required data?</h2>
+				{% endif %}
+				<p><a href="/kennedy/">Click here</a> to search again.</p>
+			{% else %}
+			
+			<form method="GET" action="">
+				<b>1. Enter your first name.</b>
+				<br><br>
+				<input type="text" name="first_name" size="40"/>
+				<br><br>
+				
+				<b>2. Select your gender.</b>
+				<br><br>
+					<select name="gender">
+					<option value="female">Female</option>
+					<option value="male">Male</option>
+					</select>
+				<br><br>
+				
+				<b>3. Push the button.</b>
+				<br><br>
+				<input type="submit" value="Submit"/>
+			</form>
+			
+			{% endif %}
+			
+		</div>
+		
+
+{% endblock %}

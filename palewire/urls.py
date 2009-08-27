@@ -77,3 +77,8 @@ urlpatterns += patterns('',
 	(r'^robots.txt$', include('robots.urls')),
 
 )
+
+# Other URL patterns
+urlpatterns += patterns('',
+	(r'^kennedy/', include('kennedy.urls')),
+)
