@@ -11,10 +11,17 @@ def get_random_name(gender):
 		return None
 	
 	fn = FirstName.objects.filter(gender=gender).order_by('?')[0].name
-	nn = NickName.objects.filter(gender=gender).order_by('?')[0].name
+	nn = '"%s"' % NickName.objects.filter(gender=gender).order_by('?')[0].name
 	ln = LastName.objects.all().order_by('?')[0].name
-	
-	return u'%s "%s" %s' % (fn.strip(), nn.strip(), ln.strip())
+	if gender == 'male':
+		suffixes = ['Jr.', 'II', 'III']
+		try:
+			suffix = suffixes[random.randrange(1,7)]
+		except IndexError:
+			suffix = ''
+	else:
+		suffix = ''
+	return u' '.join([fn.strip(), nn.strip(), ln.strip(), suffix]).strip()
 	
 
 
