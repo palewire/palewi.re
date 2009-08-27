@@ -16,7 +16,7 @@ def get_random_name(gender):
 	if gender == 'male':
 		suffixes = ['Jr.', 'II', 'III']
 		try:
-			suffix = suffixes[random.randrange(1,7)]
+			suffix = suffixes[random.randrange(0,7)]
 		except IndexError:
 			suffix = ''
 	else:
