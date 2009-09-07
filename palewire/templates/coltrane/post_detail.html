@@ -81,7 +81,11 @@
 				</div>
 			{% endfor %}
 			
-			{% render_comment_form for object %}
+			{% if object.enable_comments %}
+
+				{% render_comment_form for object %}
+
+			{% endif %}
 			
 		</div>
 

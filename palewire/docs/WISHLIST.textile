@@ -12,8 +12,9 @@ h3. TODO
 * Sync wikipedia
 * Fix haystack bugs in production
 * mobile phone template
+* Find a way to integrate the one-off apps like Kennedy and Rapture
 
 h3. Needed icons:
 
-* Books
+* Apps
 * Videos
