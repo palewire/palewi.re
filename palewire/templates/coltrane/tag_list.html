@@ -7,6 +7,8 @@
 	<div class="interiorlist">
 		<h2><img style="vertical-align:text-bottom;" src="/media/icons/tags.gif" alt="tags"/>&nbsp;Tags</h2>
 		
+		<h2 style="font-size:1.3em;"> Top {{ tag_cloud|length }} tags </h2>
+		
 		<ul>
 		<div class="tagcloud">
 			{% for tag, font_size, count in tag_cloud %}
@@ -22,6 +24,8 @@
 			{% endfor %}
 		</div>
 		</ul>
+		
+		<h2 style="font-size:1.3em;"> All tags </h2>
 		
 		<ul>
 		{% regroup object_list by name|first|upper as letters %}
