@@ -9,7 +9,7 @@ from coltrane.utils.cloud import calculate_cloud
 index_dict = {
 	'queryset': Link.objects.all().order_by("-pub_date"),
 	'paginate_by': 25,
-	'extra_context': {'tag_cloud': calculate_cloud(Link.domains.rank()[:75], steps=6, qs=False)}
+	'extra_context': {'tag_cloud': calculate_cloud(Link.domains.rank()[:25], steps=6, qs=False)}
 }
 
 urlpatterns = patterns('django.views.generic',
