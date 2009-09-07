@@ -10,6 +10,9 @@
 {% block content %}
 	<div class="interiorlist">
 		<h2><img style="vertical-align:text-bottom;" src="/media/icons/posts.gif" alt="posts"/>&nbsp;{{ category.title }}</h2>
+		
+		{% if category.description %}<h2 style="font-size:1.3em;">Posts about {{ category.description }}</h2>{% endif %}
+		
 		<ul>
 		{% for object in object_list %}
 			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
