@@ -2,6 +2,12 @@
 
 {% block title %}categories . {{ block.super }}{% endblock %}
 
+{% block extrarss %}
+{% for object in object_list %}
+	<link rel="alternate" type="application/rss+xml" title="{{ object.title|lower }}" href="/feeds/category/{{ object.slug }}/"/>
+{% endfor %}
+{% endblock%}
+
 {% block content %}
 	<div class="interiorlist">
 		<h2><img style="vertical-align:text-bottom;" src="/media/icons/categories.gif" alt="categories"/>&nbsp;Categories</h2>

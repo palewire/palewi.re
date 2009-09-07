@@ -65,6 +65,56 @@ class TagFeed(Feed):
 		return obj.url
 
 
+class CategoryFeed(Feed):
+	"""
+	The most recent content with a particular category.
+	"""
+	
+	def get_object(self, bits):
+		"""
+		Fetch the Tag object.
+		"""
+		if len(bits) != 1:
+			raise ObjectDoesNotExist
+		return Category.objects.get(slug__exact=bits[0])
+		
+	def title(self, obj):
+		"""
+		Set the feed title.
+		"""
+		return "%s . category . palewire" % obj.title.lower()
+
+	def description(self, obj):
+		"""
+		Set the feed description.
+		"""
+		return "the latest posts about %s" % obj.title.lower()
+
+	def link(self, obj):
+		"""
+		Set the feed link.
+		"""
+		if not obj:
+			raise FeedDoesNotExist
+		return obj.get_absolute_url()
+		
+	def items(self, obj):
+		"""
+		Fetch the latest 10 posts in a particular category, which is passed as the `obj` argument.
+		"""
+		object_list = obj.post_set.all().order_by("-pub_date")
+		# And return the first ten.
+		return object_list[:10]
+		
+	def item_link(self, obj):
+		"""
+		Set the URL for each tagged item, using the url attribute we have on each of our models.
+		"""
+		if not obj:
+			raise FeedDoesNotExist
+		return obj.get_absolute_url()
+
+
 class FullFeed(Feed):
 	title = "the full feed . palewire"
 	link = "http://palewire.com/feeds/the-full-feed/"
