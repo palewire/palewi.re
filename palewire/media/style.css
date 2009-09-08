@@ -9,6 +9,12 @@ a:hover{text-decoration: none; color:black; font-weight:bold;}
 a:active{text-decoration: underline; color: red;}
 a:focus {outline: none;}
 
+/* Set anchors dark ad hoc with this class */
+a.dark:link {text-decoration: underline; font-weight:bold; color:black;}
+a.dark:visited {text-decoration: underline; font-weight:bold; color:black;}
+a.dark:hover {text-decoration: underline; color:gray; font-weight:bold;}
+a.dark:active {text-decoration: underline; font-weight:bold; color: red;}
+
 /* The header */
 #hd {display:block; height:3.6em;}
 #hd h1 { margin-bottom:0.4em; font-size: 1.65em; font-weight: bold; float: left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
