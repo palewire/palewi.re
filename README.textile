@@ -1,5 +1,5 @@
 h1. palewire.com
 
 The current edition of my blog, published at "palewire.com":http://www.palewire.com. 
-"
+
 It's a combination of "coltrane":http://github.com/clones/django-coltrane/tree/master, "jellyroll":http://github.com/jacobian/jellyroll/tree/master and a number of other Django blogs floating around.

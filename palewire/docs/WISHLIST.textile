@@ -4,6 +4,8 @@ A bunch of crap I might do
 
 h3. TODO
 
+* Add a Flickr thumbnail browser to photo_list
+* Firm up django-correx and integrate it as a new icon. Format correx on post_detail template. Cook up a couple examples to start things off.
 * Restore photos to LA street band post
 * Kill periods at the end of post titles
 * hCard or resume on about page
@@ -12,7 +14,6 @@ h3. TODO
 * Sync wikipedia
 * Fix haystack bugs in production
 * mobile phone template
-* Find a way to integrate the one-off apps like Kennedy and Rapture
 
 h3. Needed icons:
 
