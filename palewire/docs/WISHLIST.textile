@@ -4,7 +4,7 @@ A bunch of crap I might do
 
 h3. TODO
 
-* Add a Flickr thumbnail browser to photo_list
+* Add most popular posts at the top of the Posts log.
 * Firm up django-correx and integrate it as a new icon. Format correx on post_detail template. Cook up a couple examples to start things off.
 * Restore photos to LA street band post
 * Kill periods at the end of post titles
