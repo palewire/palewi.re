@@ -118,6 +118,73 @@ form#commentform {padding: 0;}
 .tagcloud .size2 a { font-size: 0.9em; }
 .tagcloud .size1 a { font-size: 0.7em; } /* The smallest */
 
+/* Photo gallery */
+#photogallery div.content {
+	/* The display of content is enabled by a javascript generated style on the page.
+	   This is so that the slideshow content won't display unless javascript is enabled. */
+	display: none;
+	float:right;
+	width:550px; 
+}
+#photogallery div.slideshow {
+	clear: both;
+}
+
+#photogallery div#thumbs {
+	width: 300px;
+	float: left;
+}
+
+#photogallery div.slideshow span.image-wrapper {
+	float: left;
+	padding-bottom: 12px;
+}
+#photogallery div.slideshow a.advance-link {
+	padding: 2px;
+	display: block;
+	border: 1px solid #ccc;
+}
+#photogallery div.slideshow img {
+	border: none;
+	display: block;
+}
+#photogallery div.embox {
+	clear: both;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	padding: 12px;
+}
+#photogallery ul.thumbs {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+#photogallery ul.thumbs li {
+	float: left;
+	padding: 0;
+	margin: 5px 10px 5px 0;
+	list-style: none;
+	display:block; 
+	height:80px; 
+	min-height:80px;
+}
+#photogallery a.thumb {
+	padding: 2px;
+	display: block;
+	border: 1px solid #ccc;
+}
+#photogallery ul.thumbs li.selected a.thumb {
+	background: #000;
+}
+#photogallery a.thumb:focus {
+	outline: none;
+}
+#photogallery ul.thumbs img {
+	border: none;
+	display: block;
+}
+
+
 /* Search */
 #searchbody {margin-top:4em;}
 #searchlower {margin-top:2em;}
