@@ -4,8 +4,8 @@
 {% block title %}photos . {{ block.super }}{% endblock %}
 
 {% block extrahead %}
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://www.twospy.com/galleriffic/js/jquery.galleriffic.js"></script>
+{% ifequal page 1 %}
+<script type="text/javascript" src="/media/jquery.galleriffic.min.js"></script>
 <script type="text/javascript">
 // Initially set opacity on thumbs and add
 // additional styling for hover effect on thumbs
@@ -20,34 +20,34 @@ $('#thumbs ul.thumbs li').css('opacity', onMouseOutOpacity)
 		}
 	);
 </script>
+{% endifequal %}
 {% endblock %}
 
 {% block extradocready %}
-
+{% ifequal page 1 %}
 	// We only want these styles applied when javascript is enabled
 	$('div.content').css('display', 'block');
 
 	{% include "coltrane/photo_gallery.js" %}
-
+{% endifequal %}
 {% endblock %}
 
 {% block content %}
 	<div class="interiorlist">
+		
 		<h2><img style="vertical-align:text-bottom;" src="/media/icons/photos.gif" alt="photos"/>&nbsp;Photos</h2>
 
+		{% ifequal page 1 %}
 		<h2 style="font-size:1.3em;">Favorite photos</h2>
 		
-		<ul>
 		<div id="photogallery">
-
 			
 			{% include "coltrane/photo_gallery.html" %}
 
-
 		</div>
-		</ul>
 
 		<div style="clear:both; height:1.5em;"></div>
+		{% endifequal %}
 
 		<h2 style="font-size:1.3em;">Latest photos</h2>
 

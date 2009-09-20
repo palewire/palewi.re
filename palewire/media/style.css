@@ -119,9 +119,10 @@ form#commentform {padding: 0;}
 .tagcloud .size1 a { font-size: 0.7em; } /* The smallest */
 
 /* Photo gallery */
-#photogallery div.content { display: none; float:right; width:32em; }
+#photogallery {width:55em; margin:0 2em 0 2em; }
+#photogallery div.content { display: none; float:right; width:32em; margin-right:3em;}
 #photogallery div.slideshow { clear: both; }
-#photogallery div#thumbs { width: 20em; float: left; }
+#photogallery div#thumbs { width: 18em; float: left; }
 #photogallery div.slideshow span.image-wrapper { float: left; padding-bottom: 0.5em; }
 #photogallery div.slideshow a.advance-link { padding: 0.3em; display: block; border: 1px solid #ccc; }
 #photogallery div.slideshow img { border: none; display: block; }
