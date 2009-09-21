@@ -4,8 +4,11 @@ A bunch of crap I might do
 
 h3. TODO
 
+* Is there a way to make the redirects from the old blog "permanent" so search engines know what do?
 * Add most popular posts at the top of the Posts log.
-* Firm up django-correx and integrate it as a new icon. 
+* Firm up django-correx and integrate it as a new icon.
+* Could the icon be a copy editing symbol? Maybe a blue pencil?
+* Could it be two arrows, a green one going right and a red one going left? 
 * Add a correx_list page
 * Format correx on post_detail template. 
 * Cook up a couple correx examples to start things off.
