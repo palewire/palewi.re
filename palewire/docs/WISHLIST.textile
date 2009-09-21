@@ -5,7 +5,10 @@ A bunch of crap I might do
 h3. TODO
 
 * Add most popular posts at the top of the Posts log.
-* Firm up django-correx and integrate it as a new icon. Format correx on post_detail template. Cook up a couple examples to start things off.
+* Firm up django-correx and integrate it as a new icon. 
+* Add a correx_list page
+* Format correx on post_detail template. 
+* Cook up a couple correx examples to start things off.
 * Restore photos to LA street band post
 * Kill periods at the end of post titles
 * hCard or resume on about page
