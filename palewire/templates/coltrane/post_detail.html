@@ -13,7 +13,23 @@
 
 {% load comments %}
 
-		<div id="detailbody">{{ object.body_html|safe }}</div>
+		<div id="detailbody">
+			{% load correx_tags %}
+			{% get_changes_for_object object 10 as change_list %}
+			{% if change_list %}
+			<!--<h2>Corrections</h2>-->
+			<div style="margin-top:1em;">
+				{% for change in change_list %}
+					<div class="highlight" style="padding:0.5em; margin-bottom:0.25em;">
+						{{ change.description|safe }} 
+						<b>&mdash;{{ change.user }}, {{ change.pub_date|date:"N j, Y" }}</b> 
+					</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+			{{ object.body_html|safe }}
+			
+		</div>
 		
 		<div id="detailborderbumper" class="thin"></div>
 		

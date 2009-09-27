@@ -270,7 +270,7 @@ class RecentTracks(Feed):
 
 class RecentComments(Feed):
 	title = "comments . palewire"
-	link = "http://palewire.com/feeds/comments"
+	link = "http://palewire.com/feeds/comments/"
 	description = "the latest comments at palewire.com"
 
 	def items(self):
