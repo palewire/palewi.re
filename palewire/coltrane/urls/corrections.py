@@ -7,6 +7,7 @@ from correx.models import Change
 index_dict = {
 	'queryset': Change.objects.live().order_by("-pub_date"),
 	'paginate_by': 25,
+	'template_name': 'coltrane/change_list.html'
 }
 
 urlpatterns = patterns('django.views.generic',
