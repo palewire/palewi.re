@@ -23,6 +23,7 @@ feeds = {
 	'commits': RecentCommits,
 	'tag': TagFeed,
 	'category': CategoryFeed,
+	'corrections': RecentCorrections,
 }
 
 urlpatterns += patterns('',

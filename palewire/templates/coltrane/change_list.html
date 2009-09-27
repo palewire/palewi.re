@@ -12,7 +12,7 @@
 			<li class="interior-date">{{ object.pub_date|date:"F d, Y" }}</li>
 			{% endifchanged %}
 			<li>
-				<a href="{{ object.url }}">
+				<a href="/corrections/{{ object.id }}/">
 				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object|striptags|truncatewords:8 }}
 				</a> 
 			</li>

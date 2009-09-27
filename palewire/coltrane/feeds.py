@@ -4,6 +4,7 @@ from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
 # Models
 from coltrane.models import *
 from tagging.models import *
+from correx.models import Change
 from django.contrib.comments.models import Comment
 
 # Helpers
@@ -158,6 +159,20 @@ class RecentPosts(Feed):
 
 	def items(self):
 		return Post.live.all().order_by('-pub_date')[:10]
+
+	def item_pubdate(self, item):
+		return item.pub_date
+
+
+class RecentCorrections(Feed):
+	title = "corrections . palewire"
+	link = "http://palewire.com/feeds/corrections/"
+	description = "the latest corrections at palewire.com"
+	title_template = 'feeds/change_title.html'
+	description_template = 'feeds/change_description.html'
+
+	def items(self):
+		return Change.objects.live().order_by('-pub_date')[:10]
 
 	def item_pubdate(self, item):
 		return item.pub_date
