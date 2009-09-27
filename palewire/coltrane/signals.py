@@ -13,17 +13,21 @@ def create_ticker_item(sender, instance, signal, *args, **kwargs):
 	"""
 	from coltrane.models import Ticker
 	# Check to see if the object was just created for the first time
-	if 'created' in kwargs and instance.__class__.__name__ != 'Comment':
+	if 'created' in kwargs and instance.__class__.__name__ not in ['Comment', 'Change']:
 		if kwargs['created']:
 			ctype = ContentType.objects.get_for_model(instance)
 			pub_date = instance.pub_date
 			Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
 	# Check to see if the object is a comment, and it has been approved
-	if instance.__class__.__name__ == 'Comment':
+	elif instance.__class__.__name__ == 'Comment':
 		if instance.is_public:
 			ctype = ContentType.objects.get_for_model(instance)
 			pub_date = instance.submit_date
 			Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
+	elif instance.__class__.__name__ == 'Change':
+		if instance.is_public:
+			ctype = ContentType.objects.get_for_model(instance)
+			Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=instance.pub_date)
 
 
 def delete_ticker_item(sender, instance, signal, *args, **kwargs):
@@ -31,12 +35,14 @@ def delete_ticker_item(sender, instance, signal, *args, **kwargs):
 	When an object is deleted, its ticker item will also be wiped out.
 	"""
 	from coltrane.models import Ticker
+
 	ctype = ContentType.objects.get_for_model(instance)
+
 	if instance.__class__.__name__ == 'Comment':
-		print "COMMENT!"
 		pub_date = instance.submit_date
 	else:
 		pub_date = instance.pub_date
+
 	try:
 		t = Ticker.objects.get(content_type=ctype, object_id=instance.id, pub_date=pub_date)
 		t.delete()

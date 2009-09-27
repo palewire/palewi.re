@@ -2,11 +2,11 @@
 import time
 import datetime
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
-
 # Models
+from correx.models import Change
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
 from coltrane.models import Post, Category, Link, Photo
@@ -71,4 +71,15 @@ def tag_detail(request, tag):
 			'tag': tag, 
 			'object_list': object_list,
 		})
-		
+
+
+def correx_redirect(request, id):
+	"""
+	Redirect the browser to the content object page where a 
+	particular correction is published.
+	"""
+	correction = get_object_or_404(Change, id=id)
+	content_object = correction.get_content_object()
+	if not content_object:
+		raise Http404
+	return HttpResponseRedirect(content_object.get_absolute_url())
