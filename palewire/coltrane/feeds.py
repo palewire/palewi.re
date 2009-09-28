@@ -176,6 +176,9 @@ class RecentCorrections(Feed):
 
 	def item_pubdate(self, item):
 		return item.pub_date
+		
+	def item_link(self, item):
+		return u'http://www.palewire.com/corrections/%s/' % item.id
 
 
 class RecentBooks(Feed):
