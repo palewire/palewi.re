@@ -13,7 +13,7 @@
 			{% endifchanged %}
 			<li>
 				<a href="{{ object.url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object|striptags|truncatewords:8 }}
+				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object|striptags|truncatewords:8|slice:":75" }}
 				</a> 
 			</li>
 		{% endfor %}
