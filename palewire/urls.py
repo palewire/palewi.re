@@ -45,7 +45,8 @@ urlpatterns = patterns('django.views.generic.simple',
 	(r'^happyhours/saturday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/saturday.htm'}),
 	# Redirect old images from legacy site
 	(r'^images/(?P<file_name>[^/]+)$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
-
+	# Hard-coded flatpages
+	(r'^who-is-ben-welsh/$', 'direct_to_template', {'template': 'flatpages/bio.html'}),
 )
 
 # URLs for the new blog
