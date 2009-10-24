@@ -59,17 +59,18 @@ a.dark:active {text-decoration: underline; font-weight:bold; color: red;}
 .bioimg {text-align:center; margin-bottom:1.15em;}
 .bioimg img {width:30em;}
 #biobumper.thin {display:block; clear:both; margin-left:auto; margin-right: auto; width: 35em; height: 0.01em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
-#biotext  {width:45em; margin-right:auto; margin-left:auto;}
-#biotext p { margin-bottom:1.15em; margin-top:1.15em;}
-#biotext p a:link {text-decoration: underline; font-weight:bold; color:black;}
-#biotext p a:visited {text-decoration: underline; font-weight:bold; color:black;}
-#biotext p a:hover {text-decoration: underline; color:gray; font-weight:bold;}
-#biotext p a:active {text-decoration: underline; font-weight:normal; color: red;}
-#biotext ol, #biotext ul, #biotext li {margin-bottom: 0.5em; margin-left: 1.25em; list-style-type: disc;}
-#biotext li a:link {text-decoration: underline; font-weight:normal; color:black;}
-#biotext li a:visited {text-decoration: underline; font-weight:normal; color:black;}
-#biotext li a:hover {text-decoration: underline; color:gray; font-weight:normal;}
-#biotext li a:active {text-decoration: underline; font-weight:normal; color: red;}
+.biobumper {display:block; clear:both; margin-left:auto; margin-right: auto;width: 35em; height: 0.01em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+.biotext  {width:45em; margin-right:auto; margin-left:auto;}
+.biotext p { margin-bottom:1.15em; margin-top:1.15em;}
+.biotext p a:link {text-decoration: underline; font-weight:bold; color:black;}
+.biotext p a:visited {text-decoration: underline; font-weight:bold; color:black;}
+.biotext p a:hover {text-decoration: underline; color:gray; font-weight:bold;}
+.biotext p a:active {text-decoration: underline; font-weight:normal; color: red;}
+.biotext ol, .biotext ul, .biotext li {margin-bottom: 0.5em; margin-left: 1.25em; list-style-type: disc;}
+.biotext li a:link {text-decoration: underline; font-weight:normal; color:black;}
+.biotext li a:visited {text-decoration: underline; font-weight:normal; color:black;}
+.biotext li a:hover {text-decoration: underline; color:gray; font-weight:normal;}
+.biotext li a:active {text-decoration: underline; font-weight:normal; color: red;}
 
 /* List page stuff */
 .interiorlist {}
