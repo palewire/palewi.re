@@ -6,6 +6,7 @@ ACTIVELY_USED = {
 	'Digg': 'http://digg.com/users/palewire',
 	'Facebook': 'http://www.facebook.com/palewire',
 	'Flickr': 'http://www.flickr.com/photos/77114776@N00/',
+	'Flixster': 'http://www.flixster.com/user/palewire/',
 	'Github': 'http://github.com/palewire/',
 	'Kiva': 'http://www.kiva.org/lender/palewire',
 	'Last.FM': 'http://www.last.fm/user/palewire',

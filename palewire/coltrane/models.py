@@ -232,6 +232,17 @@ class Link(ThirdPartyBaseModel):
 		return self.title
 
 
+class Movie(ThirdPartyBaseModel):
+	"""
+	Links to movies I've seen and rated.
+	"""
+	title = models.CharField(max_length=250, blank=True, null=True)
+	rating = models.FloatField(null=True, blank=True, verbose_name='One to five star rating.')
+
+	def __unicode__(self):
+		return self.title
+
+
 class Photo(ThirdPartyBaseModel):
 	"""
 	Links to photos I want to recommend, including my own.
