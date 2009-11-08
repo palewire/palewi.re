@@ -12,7 +12,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 import re
 import time
 import datetime
-import dateutil.parser
 from coltrane import utils
 from django.utils.encoding import smart_unicode
 
@@ -78,7 +77,7 @@ class FlixsterClient(object):
 			
 			# Get the pubdate
 			pub_date = item.find('pubDate').text
-			movie_dict['pub_date'] = dateutil.parser.parse(pub_date)
+			movie_dict['pub_date'] = utils.parsedate(pub_date)
 			
 			movies.append(movie_dict)
 		
