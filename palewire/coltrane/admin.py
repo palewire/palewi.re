@@ -73,6 +73,7 @@ admin.site.register(Link, LinkAdmin)
 
 class MovieAdmin(admin.ModelAdmin):
 	list_display = ('title', 'pub_date', 'rating')
+	list_filter = ('rating',)
 	
 admin.site.register(Movie, MovieAdmin)
 
