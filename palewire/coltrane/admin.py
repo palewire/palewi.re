@@ -71,18 +71,10 @@ class LinkAdmin(admin.ModelAdmin):
 admin.site.register(Link, LinkAdmin)
 
 
-class ShoutAdmin(admin.ModelAdmin):
-	fieldsets = (
-		('Shout', {
-			'fields': ('message', 'url', 'pub_date', 'tags'),
-			'description': 'About the shout.'
-		}),
-	)
-	list_display = ('short_message', 'pub_date', 'tag_list')
-	list_filter = ('pub_date',)
-	date_hierarchy = 'pub_date'
+class MovieAdmin(admin.ModelAdmin):
+	list_display = ('title', 'pub_date', 'rating')
 	
-admin.site.register(Shout, ShoutAdmin)
+admin.site.register(Movie, MovieAdmin)
 
 
 class PhotoAdmin(admin.ModelAdmin):
@@ -99,6 +91,26 @@ class PhotoAdmin(admin.ModelAdmin):
 admin.site.register(Photo, PhotoAdmin)
 
 
+class ShoutAdmin(admin.ModelAdmin):
+	fieldsets = (
+		('Shout', {
+			'fields': ('message', 'url', 'pub_date', 'tags'),
+			'description': 'About the shout.'
+		}),
+	)
+	list_display = ('short_message', 'pub_date', 'tag_list')
+	list_filter = ('pub_date',)
+	date_hierarchy = 'pub_date'
+	
+admin.site.register(Shout, ShoutAdmin)
+
+
+class SloganAdmin(admin.ModelAdmin):
+	pass
+	
+admin.site.register(Slogan, SloganAdmin)
+
+
 class TrackAdmin(admin.ModelAdmin):
 	fieldsets = (
 		('Track', {
@@ -111,9 +123,3 @@ class TrackAdmin(admin.ModelAdmin):
 	date_hierarchy = 'pub_date'
 	
 admin.site.register(Track, TrackAdmin)
-
-
-class SloganAdmin(admin.ModelAdmin):
-	pass
-	
-admin.site.register(Slogan, SloganAdmin)
