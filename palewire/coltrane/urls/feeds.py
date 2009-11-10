@@ -24,6 +24,7 @@ feeds = {
 	'tag': TagFeed,
 	'category': CategoryFeed,
 	'corrections': RecentCorrections,
+	'movies': RecentMovies,
 }
 
 urlpatterns += patterns('',

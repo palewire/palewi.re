@@ -164,23 +164,6 @@ class RecentPosts(Feed):
 		return item.pub_date
 
 
-class RecentCorrections(Feed):
-	title = "corrections . palewire"
-	link = "http://palewire.com/feeds/corrections/"
-	description = "the latest corrections at palewire.com"
-	title_template = 'feeds/change_title.html'
-	description_template = 'feeds/change_description.html'
-
-	def items(self):
-		return Change.objects.live().order_by('-pub_date')[:10]
-
-	def item_pubdate(self, item):
-		return item.pub_date
-		
-	def item_link(self, item):
-		return u'http://www.palewire.com/corrections/%s/' % item.id
-
-
 class RecentBooks(Feed):
 	title = "books . palewire"
 	link = "http://palewire.com/feeds/books/"
@@ -211,19 +194,21 @@ class RecentCommits(Feed):
 		return item.pub_date
 
 
-class RecentShouts(Feed):
-	title = "shouts . palewire"
-	link = "http://palewire.com/feeds/shouts/"
-	description = "the latest shouts at palewire.com"
+class RecentCorrections(Feed):
+	title = "corrections . palewire"
+	link = "http://palewire.com/feeds/corrections/"
+	description = "the latest corrections at palewire.com"
+	title_template = 'feeds/change_title.html'
+	description_template = 'feeds/change_description.html'
 
 	def items(self):
-		return Shout.objects.all().order_by('-pub_date')[:10]
-
-	def item_link(self, item):
-		return item.url
+		return Change.objects.live().order_by('-pub_date')[:10]
 
 	def item_pubdate(self, item):
 		return item.pub_date
+
+	def item_link(self, item):
+		return u'http://www.palewire.com/corrections/%s/' % item.id
 
 
 class RecentLinks(Feed):
@@ -233,6 +218,21 @@ class RecentLinks(Feed):
 
 	def items(self):
 		return Link.objects.all().order_by('-pub_date')[:10]
+
+	def item_link(self, item):
+		return item.url
+
+	def item_pubdate(self, item):
+		return item.pub_date
+
+
+class RecentMovies(Feed):
+	title = "movies . palewire"
+	link = "http://palewire.com/feeds/movies/"
+	description = "the latest movies at palewire.com"
+
+	def items(self):
+		return Movie.objects.all().order_by('-pub_date')[:10]
 
 	def item_link(self, item):
 		return item.url
@@ -263,6 +263,21 @@ class RecentTracks(Feed):
 
 	def items(self):
 		return Track.objects.all().order_by('-pub_date')[:10]
+
+	def item_link(self, item):
+		return item.url
+
+	def item_pubdate(self, item):
+		return item.pub_date
+
+
+class RecentShouts(Feed):
+	title = "shouts . palewire"
+	link = "http://palewire.com/feeds/shouts/"
+	description = "the latest shouts at palewire.com"
+
+	def items(self):
+		return Shout.objects.all().order_by('-pub_date')[:10]
 
 	def item_link(self, item):
 		return item.url
