@@ -1,0 +1,57 @@
+[
+  {
+    "model" : "tests.author",
+    "pk" : 1,
+    "fields" : {
+        "first_name" : "Joel",
+        "last_name" : "Rubin"
+    }
+  },
+  {
+    "model" : "tests.author",
+    "pk" : 2,
+    "fields" : {
+        "first_name" : "Robert",
+        "last_name" : "Lopez"
+    }
+  },
+  {
+    "model" : "tests.article",
+    "pk" : 1,
+    "fields" : {
+        "author" : 1,
+        "headline" : "Interrogation, Then Revenge",
+        "url" : "http://www.latimes.com/news/local/la-me-interrogate2-2008jul02,0,2498680,full.story"
+    }
+  },
+  {
+    "model" : "tests.article",
+    "pk" : 2,
+    "fields" : {
+        "author" : 2,
+        "headline" : "Illegal dumping a problem in some Los Angeles neighborhoods",
+        "url" : "http://articles.latimes.com/2008/jun/16/local/me-dumping16"
+    }
+  },
+
+  {
+    "model" : "sites.site",
+    "pk" : 1881,
+    "fields" : {
+        "domain" : "projects.latimes.com",
+        "name" : "Los Angeles Times Data Desk"
+    }
+  },
+
+  {
+    "model" : "auth.user",
+    "pk" : 100,
+    "fields" : {
+        "username" : "Otis",
+        "password" : "34ea4aaaf24efcbb4b30d27302f8657f",
+        "first_name": "Otis",
+        "last_name": "Chandler",
+        "email": "otis@latimes.com"
+    }
+  }
+]

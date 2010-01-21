@@ -1,0 +1,34 @@
+[
+  {
+    "model" : "correx.changetype",
+    "pk" : "Update",
+    "fields" : {
+        "slug" : "update",
+        "description" : "Something old being brought up to date."
+    }
+  },
+  {
+    "model" : "correx.changetype",
+    "pk" : "Correction",
+    "fields" : {
+        "slug" : "correction",
+        "description" : "Something incorrect being acknowledged and repaired."
+    }
+  },
+  {
+    "model" : "correx.changetype",
+    "pk" : "Addition",
+    "fields" : {
+        "slug" : "addition",
+        "description" : "Something new being introduced."
+    }
+  },
+  {
+    "model" : "correx.changetype",
+    "pk" : "Deletion",
+    "fields" : {
+        "slug" : "deletion",
+        "description" : "Something existing being removed."
+    }
+  }
+]
