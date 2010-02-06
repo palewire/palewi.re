@@ -13,6 +13,7 @@ h3. TODO
 * Fix bugs with music tags from showing up the tag list page.
 * Simplify the weird tagcloud code
 * Clean out a ton of junk tags like '&'
+* Consider bringing down the size of the biggest headline
 
 * Add most popular posts at the top of the Posts log.
 * Restore photos to LA street band post
