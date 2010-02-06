@@ -20,3 +20,8 @@ urlpatterns = patterns('',
 	url(r'^(?P<tag>[^/]+)/$', 'coltrane.views.tag_detail', name='coltrane_tag_detail'),
 
 )
+
+"""
+[217.66666666666666, 434.33333333333331, 651.0, 867.66666666666663, 1084.3333333333333, 1301.0]
+
+"""

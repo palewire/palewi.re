@@ -63,9 +63,10 @@ def _group_tagged_items(tagged_item_qs):
             tag_count[ti.tag]['count'] += 1
         except KeyError:
             # But if the dictionary key doesn't yet exist, mint a new one.
-            tag_count[ti.tag] = {'font-size': None, 'count': 1}
+            tag_count[ti.tag] = {'font_size': None, 'count': 1}
 
     return tag_count
+
 
 def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC,
     min_count=5, qs=True):
@@ -89,12 +90,20 @@ def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC,
         tag_counts = dict(tagged_items)
 
     if len(tag_counts) > 0:
+
+        # Loop through the tags...
+        for tag, values in tag_counts.items():
+            # And delete any that doesn't have the minimum count
+            if values['count'] < min_count:
+                del tag_counts[tag]
+
         # Figure out the range of values and use it to calculate the 
         # thresholds where the breaks between groups will be made.
         counts = [i['count'] for i in tag_counts.values()]
         min_weight = float(min(counts))
         max_weight = float(max(counts))
         thresholds = _calculate_thresholds(min_weight, max_weight, steps)
+
         # Then loop through each of the tags...
         for tag in tag_counts.keys():
             font_set = False
@@ -102,14 +111,17 @@ def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC,
             tag_weight = _calculate_tag_weight(tag_counts[tag]['count'], max_weight, distribution)
             # Then loop through the steps...
             for i in range(steps):
+                # Until you hit the first threshold higher than the tag
                 if not font_set and tag_weight <= thresholds[i]:
+                    # Then stick it in that group
                     tag_counts[tag]['font_size'] = i + 1
+                    # And set this flag so it stops trying to test
+                    # against higher levels.
                     font_set = True
-    
+
     # Filter out any tag that falls below the minimum count
     # And reformat the dictionary as a tuple that I'd like to use in templates
-    tag_list = [(k, v['font_size'], v['count']) for k,v in 
-                    tag_counts.items() if v['count'] > min_count]
+    tag_list = [(k, v['font_size'], v['count']) for k,v in tag_counts.items()]
     # Sort by count, putting the smallest first.
     tag_list.sort(lambda x,y:cmp(x[2], y[2]))
     # Reverse it so the biggest is first

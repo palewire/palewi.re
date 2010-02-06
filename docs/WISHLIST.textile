@@ -12,6 +12,7 @@ h3. TODO
 * Migrate the swinefle and rapture domains
 * Fix bugs with music tags from showing up the tag list page.
 * Simplify the weird tagcloud code
+* Clean out a ton of junk tags like '&'
 
 * Add most popular posts at the top of the Posts log.
 * Restore photos to LA street band post
