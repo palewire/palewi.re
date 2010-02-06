@@ -10,18 +10,18 @@ h3. TODO
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Migrate the swinefle and rapture domains
+* Fix bugs with music tags from showing up the tag list page.
+* Simplify the weird tagcloud code
+
 * Add most popular posts at the top of the Posts log.
 * Restore photos to LA street band post
 * Kill periods at the end of post titles
-* hCard or resume on about page
 * Validate XHTML
 * Lateral browsing by date on post page
 * Try to get haystack working on webfaction
 * mobile phone template
 * Rewrite my bio so it's shorter and doesn't use my cliched jokes
 * Try to jazz up the portfolio part a little bit.
-* Humanize the 404 and 500 pages
 * Turn signals back on after you loaddata
 * Maybe there should be a "selected" color on the icon that's currently in view
-* Simplify the weird tagcloud code
 
