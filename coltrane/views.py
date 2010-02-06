@@ -53,8 +53,16 @@ def tag_detail(request, tag):
     """
     A list that reports all of the content with a particular tag.
     """
-    # Pull the tag
-    tag = get_object_or_404(Tag, name=tag)
+    try:
+        tag = Tag.objects.get(name=tag)
+    except Tag.DoesNotExist:
+        # If the tag isn't found, try it with hyphens removed, which
+        # was the convention on my old Wordpress blog. This can help
+        # keep old tag page links alive.
+        try:
+            tag = Tag.objects.get(name=tag.replace("-", ""))
+        except Tag.DoesNotExist:
+            raise Http404
     
     # Pull all the items with that tag.
     taggeditem_list = tag.items.all()

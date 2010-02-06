@@ -119,8 +119,7 @@ def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC,
                     # against higher levels.
                     font_set = True
 
-    # Filter out any tag that falls below the minimum count
-    # And reformat the dictionary as a tuple that I'd like to use in templates
+    # Reformat the dictionary as a tuple that I'd like to use in templates
     tag_list = [(k, v['font_size'], v['count']) for k,v in tag_counts.items()]
     # Sort by count, putting the largest first.
     tag_list.sort(key=lambda x: x[2], reverse=True)
