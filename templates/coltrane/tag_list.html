@@ -1,44 +1,45 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
+{% load humanize %}
 
 {% block title %}tags . {{ block.super }}{% endblock %}
 
 {% block content %}
-	<div class="interiorlist">
-		<h2><img style="vertical-align:text-bottom;" src="/media/icons/tags.gif" alt="tags"/>&nbsp;Tags</h2>
-		
-		<h2 style="font-size:1.3em;"> Top {{ tag_cloud|length }} tags </h2>
-		
-		<ul>
-		<div class="tagcloud">
-			{% for tag, font_size, count in tag_cloud %}
-		
-				<span class="size{{ font_size }}">
-					
-					<a href="/tags/{{ tag }}/" alt="{{ tag }}" rel="tag">
-						{{ tag.name }}
-					</a>
-				
-				</span> 
+    <div class="interiorlist">
+        <h2><img style="vertical-align:text-bottom;" src="/media/icons/tags.gif" alt="tags"/>&nbsp;Tags</h2>
+        
+        <h2 style="font-size:1.3em;"> Top {{ tag_cloud|length }} tags </h2>
+        
+        <ul>
+        <div class="tagcloud">
+            {% for tag in tag_cloud %}
+        
+                <span class="size{{ tag.font_size }}">
+                    
+                    <a href="/tags/{{ tag.tag }}/" title="{{ tag.tag }} ({{ tag.count|intcomma }})" rel="tag">
+                        {{ tag.tag.name }}
+                    </a>
+                
+                </span> 
 
-			{% endfor %}
-		</div>
-		</ul>
-		
-		<h2 style="font-size:1.3em;"> All tags </h2>
-		
-		<ul>
-		{% regroup object_list by name|first|upper as letters %}
-	    {% for letter in letters %}
-				<li class="interior-date">{{ letter.grouper }}</li>
-				{% for item in letter.list %}
-				<li>
-					<a href="/tags/{{ item }}" alt="{{ item }}" title="{{ item }}" rel="tag">
-						{{ item }}
-					</a>
-				</li>
-				{% endfor %}
-	    {% endfor %}
-		</ul>
-	</div>
+            {% endfor %}
+        </div>
+        </ul>
+        
+        <h2 style="font-size:1.3em;"> All tags </h2>
+        
+        <ul>
+        {% regroup object_list by name|first|upper as letters %}
+        {% for letter in letters %}
+                <li class="interior-date">{{ letter.grouper }}</li>
+                {% for item in letter.list %}
+                <li>
+                    <a href="/tags/{{ item }}" alt="{{ item }}" title="{{ item }}" rel="tag">
+                        {{ item }}
+                    </a>
+                </li>
+                {% endfor %}
+        {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

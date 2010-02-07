@@ -119,10 +119,12 @@ def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC,
                     # against higher levels.
                     font_set = True
 
-    # Reformat the dictionary as a tuple that I'd like to use in templates
-    tag_list = [(k, v['font_size'], v['count']) for k,v in tag_counts.items()]
+    # Create a list of dictionaries with the two new values we've created
+    tag_list = [{'tag': k, 'font_size': v['font_size'], 'count': v['count']}
+                   for k,v in tag_counts.items()]
+
     # Sort by count, putting the largest first.
-    tag_list.sort(key=lambda x: x[2], reverse=True)
+    tag_list.sort(key=lambda x: x['count'], reverse=True)
     
     # Pass out the results
     return tag_list
