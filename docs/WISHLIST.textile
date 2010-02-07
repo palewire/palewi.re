@@ -6,12 +6,9 @@ h3. TODO
 
 * Dump data from Webfaction. Migrate to Rackspace.
 * Switch domain from Webfaction to Rackspace
-* Fix the bug with the popular domain query
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Migrate the swinefle and rapture domains
-* Fix bugs with music tags from showing up the tag list page.
-* Simplify the weird tagcloud code
 * Clean out a ton of junk tags like '&'
 * Consider bringing down the size of the biggest headline
 
