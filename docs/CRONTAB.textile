@@ -2,15 +2,16 @@ h2. Crontabs
 
 # env variables
 MAILTO="ben.welsh@gmail.com"
-PYTHONPATH=/home/benwelsh/webapps/palewire/:/home/benwelsh/webapps/palewire/apps/palewire/:/home/benwelsh/webapps/palewire/lib/python2.5
+PYTHONPATH=/home/django/domains/palewire.com/code/releases/current
 DJANGO_SETTINGS_MODULE=settings
+UTILS_PATH=/home/django/domains/palewire.com/code/releases/current/coltrane/utils 
 
-# Last.fm updater
-1,11,21,31,41,51 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/lastfm.py > /home/benwelsh/cron.log 2>&1
-13,33,53 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/flickr.py > /home/benwelsh/cron.log 2>&1
-5,25,45 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/delicious.py > /home/benwelsh/cron.log 2>&1
-7,17,27,37,47,57 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/twitter.py > /home/benwelsh/cron.log 2>&1
-19,39,59 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/digg.py > /home/benwelsh/cron.log 2>&1
+1,11,21,31,41,51 * * * *  /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/lastfm.py > /dev/null 2>&1
+33 * * * *  /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/flickr.py > /dev/null 2>&1
+25 * * * *  /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/delicious.py > /dev/null 2>&1
+17,37,57 * * * *  /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/twitter.py > /dev/null 2>&1
+19 * * * *  /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/digg.py > /dev/null 2>&1
+48 * * * * /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/readernaut.py > /dev/null 2>&1
+23,43 * * * * /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/github.py > /dev/null 2>&1
+58 * * * * /home/django/domains/palewire.com/code/bin/python $UTILS_PATH/flixster.py > /dev/null 2>&1
 
-# Restart apache in case of crash
-14,34,54 * * * * /home/benwelsh/webapps/palewire/apache2/bin/start > /dev/null 2>&1
