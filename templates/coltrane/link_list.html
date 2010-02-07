@@ -1,5 +1,6 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
+{% load humanize %}
 
 {% block title %}links . {{ block.super }}{% endblock %}
 
@@ -14,11 +15,11 @@
 		
 		<ul>
 		<div class="tagcloud">
-			{% for tag, font_size, count in tag_cloud %}
-				<span class="size{{ font_size }}">
+			{% for tag in tag_cloud %}
+				<span class="size{{ tag.font_size }}">
 					
-					<a href="http://{{ tag }}" alt="{{ tag }}" rel="tag">
-						{{ tag }}
+					<a href="http://{{ tag.tag }}" title="{{ tag.tag }} ({{ tag.count }})" rel="tag">
+						{{ tag.tag }}
 					</a>
 				
 				</span> 
