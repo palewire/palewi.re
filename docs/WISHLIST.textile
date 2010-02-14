@@ -4,8 +4,7 @@ A bunch of crap I might do
 
 h3. TODO
 
-* Dump data from Webfaction. Migrate to Rackspace.
-* Switch domain from Webfaction to Rackspace
+* Write the new fab file post
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Migrate the swinefle and rapture domains
