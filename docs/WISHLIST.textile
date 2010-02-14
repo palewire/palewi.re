@@ -5,6 +5,7 @@ A bunch of crap I might do
 h3. TODO
 
 * Write the new fab file post
+* Figure out what's wrong when I try to make a new post
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Migrate the swinefle and rapture domains
