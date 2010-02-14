@@ -5,7 +5,6 @@ A bunch of crap I might do
 h3. TODO
 
 * Write the new fab file post
-* Figure out what's wrong when I try to make a new post
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Migrate the swinefle and rapture domains
@@ -21,6 +20,5 @@ h3. TODO
 * mobile phone template
 * Rewrite my bio so it's shorter and doesn't use my cliched jokes
 * Try to jazz up the portfolio part a little bit.
-* Turn signals back on after you loaddata
 * Maybe there should be a "selected" color on the icon that's currently in view
-
+* Clean up the 404s and 500s so they look better
