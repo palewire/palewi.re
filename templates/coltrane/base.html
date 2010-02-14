@@ -1,144 +1,183 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title>{% block title %}palewire{% endblock %}</title>
-	
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<meta name="Author" content="palewire.com" />
-	<meta name="description" content="{% block description %}Blog. Proprietor Ben Welsh.{% endblock %}" />
-	<meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, computer-assisted reporting, journalism{% endblock %}" />
-	<meta name="robots" content="index,nofollow" />
-	<meta name="verify-v1" content="gY50FIiS1ZkWlR0vmMn+q/qv5ihAfW8cRQIFBU1+5d0=" />
-	
-	<link rel="stylesheet" type="text/css" href="/media/reset-fonts-grids.css"/>
-	<link rel="stylesheet" type="text/css" href="/media/style.css"/>
-	
-	<link rel="alternate" type="application/rss+xml" title="the full feed" href="/feeds/the-full-feed/"/>
-	<link rel="alternate" type="application/rss+xml" title="less noise" href="/feeds/less-noise/"/>
-	<link rel="alternate" type="application/rss+xml" title="posts" href="/feeds/posts/"/>
-	<link rel="alternate" type="application/rss+xml" title="books" href="/feeds/books/"/>
-	<link rel="alternate" type="application/rss+xml" title="code commits" href="/feeds/commits/"/>
-	<link rel="alternate" type="application/rss+xml" title="comments" href="/feeds/comments/"/>
-	<link rel="alternate" type="application/rss+xml" title="corrections" href="/feeds/corrections/"/>
-	<link rel="alternate" type="application/rss+xml" title="shouts" href="/feeds/shouts/"/>
-	<link rel="alternate" type="application/rss+xml" title="links" href="/feeds/links/"/>
-	<link rel="alternate" type="application/rss+xml" title="movies" href="/feeds/movies/"/>
-	<link rel="alternate" type="application/rss+xml" title="videos" href="/feeds/videos/"/>
-	<link rel="alternate" type="application/rss+xml" title="photos" href="/feeds/photos/"/>
-	<link rel="alternate" type="application/rss+xml" title="tracks" href="/feeds/tracks/"/>
-	{% block extrarss %}
-	{% endblock %}
-	
-	{% block extralinktags %}
-	{% endblock %}
-	
-	<script type="text/javascript" src="/media/jquery-1.3.2.min.js"></script>
+    <title>{% block title %}palewire{% endblock %}</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="Author" content="palewire.com" />
+    <meta name="description" content="{% block description %}Blog. Proprietor Ben Welsh.{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, computer-assisted reporting, journalism{% endblock %}" />
+    <meta name="robots" content="index,nofollow" />
+    <meta name="verify-v1" content="gY50FIiS1ZkWlR0vmMn+q/qv5ihAfW8cRQIFBU1+5d0=" />
+    
+    <link rel="stylesheet" type="text/css" href="/media/reset-fonts-grids.css"/>
+    <link rel="stylesheet" type="text/css" href="/media/style.css"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="the full feed" href="/feeds/the-full-feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="less noise" href="/feeds/less-noise/"/>
+    <link rel="alternate" type="application/rss+xml" title="posts" href="/feeds/posts/"/>
+    <link rel="alternate" type="application/rss+xml" title="books" href="/feeds/books/"/>
+    <link rel="alternate" type="application/rss+xml" title="code commits" href="/feeds/commits/"/>
+    <link rel="alternate" type="application/rss+xml" title="comments" href="/feeds/comments/"/>
+    <link rel="alternate" type="application/rss+xml" title="corrections" href="/feeds/corrections/"/>
+    <link rel="alternate" type="application/rss+xml" title="shouts" href="/feeds/shouts/"/>
+    <link rel="alternate" type="application/rss+xml" title="links" href="/feeds/links/"/>
+    <link rel="alternate" type="application/rss+xml" title="movies" href="/feeds/movies/"/>
+    <link rel="alternate" type="application/rss+xml" title="videos" href="/feeds/videos/"/>
+    <link rel="alternate" type="application/rss+xml" title="photos" href="/feeds/photos/"/>
+    <link rel="alternate" type="application/rss+xml" title="tracks" href="/feeds/tracks/"/>
+    {% block extrarss %}
+    {% endblock %}
+    
+    {% block extralinktags %}
+    {% endblock %}
+    
+    <script type="text/javascript" src="/media/jquery-1.3.2.min.js"></script>
 
-	<script type="text/javascript"> 
-	//<![CDATA[
-	$(document).ready(function(){
-		{% include "coltrane/nav.js" %}
-		{% block extradocready %}
-		{% endblock %}
-	});
-	//]]>
-	</script>
-	{% block extrahead %}
-	{% endblock %}
-	
+    <script type="text/javascript"> 
+    //<![CDATA[
+    $(document).ready(function(){
+        {% include "coltrane/nav.js" %}
+        {% block extradocready %}
+        {% endblock %}
+    });
+    //]]>
+    </script>
+    {% block extrahead %}
+    {% endblock %}
+    
 </head>
 <body {%block extrabody %}{% endblock %}>
-	
-		<div id="doc" class="yui-t7">
+    
+        <div id="doc" class="yui-t7">
 
-		<div id="hd">
-			<h1>
-				<a href="/">
-					palewire
-				</a>
-			</h1>
-			
-			<h2>
-				<a href="/who-is-ben-welsh/">Who is Ben Welsh?</a>
-			</h2>
-		</div>
-		
-		<div id="topbar"></div>
-		<div id="navbar">
+        <div id="hd">
+            <h1>
+                <a href="/">
+                    palewire
+                </a>
+            </h1>
+            
+            <h2>
+                <a href="/who-is-ben-welsh/">Who is Ben Welsh?</a>
+            </h2>
+        </div>
+        
+        <div id="topbar"></div>
+        <div id="navbar">
 
-			<a href="{% url coltrane_app_list 1 %}" title="Applications">
-				<img src="/media/icons/apps.gif" width="30" alt="applications" />
-			</a>
-			<a href="{% url coltrane_book_list 1 %}" title="Books">
-				<img src="/media/icons/books.gif" width="30" alt="books" />
-			</a>
-			<a href="{% url coltrane_category_list %}" title="Categories">
-				<img src="/media/icons/categories.gif" width="30" alt="categories" />
-			</a>
-			<a href="{% url coltrane_commit_list 1 %}" title="Code commits">
-				<img src="/media/icons/commits.gif" width="30" alt="code commits" />
-			</a>
-			<a href="{% url coltrane_comment_list 1 %}" title="Comments">
-				<img src="/media/icons/comments.gif" width="30" alt="comments" />
-			</a>
-			<a href="{% url coltrane_correx_list 1 %}" title="Corrections">
-				<img src="/media/icons/loop.png" width="30" alt="corrections" />
-			</a>
-			<a href="/feeds/list/" title="Feeds">
-				<img src="/media/icons/feeds.gif" width="30" alt="feeds"/>
-			</a>
-			<a href="{% url coltrane_link_list 1 %}" title="Links">
-				<img src="/media/icons/links.gif" width="30" alt="links" />
-			</a>
-			<a href="{% url coltrane_movie_list 1 %}" title="Movies">
-				<img src="/media/icons/movies.gif" width="30" alt="movies" />
-			</a>
-			<a href="{% url coltrane_photo_list 1 %}" title="Photos">
-				<img src="/media/icons/photos.gif" width="30" alt="photos" />
-			</a>
-			<a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
-				<img src="/media/icons/posts.gif" width="30" alt="posts" />
-			</a>
-			<!--
-			<a href="/search/" title="Search">
-				<img src="/media/icons/search.gif" width="30" alt="search" />
-			</a>
-			-->
-			<a href="{% url coltrane_shout_list 1 %}" title="Shouts">
-				<img src="/media/icons/shouts.gif" width="30" alt="shouts" />
-			</a>
-			<a href="{% url coltrane_tag_list %}" title="Tags">
-				<img src="/media/icons/tags.gif" width="30" alt="tags" />
-			</a>
-			<a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
-				<img src="/media/icons/ticker.gif" width="30" alt="ticker" />
-			</a>
-			<a href="{% url coltrane_track_list 1 %}" title="Tracks">
-				<img src="/media/icons/tracks.gif" width="30" alt="tracks" />
-			</a>
-		</div>
-		
-		<div id="bd">
-			<div class="yui-g">
-				{% block content %}
-				{% endblock %}
-			</div>
-		</div> 
-		
-		<div id="ft">
-			<h4>
-				© 2008 palewire . 
-				<a href="/colophon/">colophon</a> . 
-				<a href="http://www.timeanddate.com/worldclock/city.html?n=137">los angeles time</a> . 
-				<a href="http://creativecommons.org/licenses/by/2.0/" rel="license">cc 2.0</a> . 
-				powered by <a id="django-link" href="http://www.djangoproject.com/">django</a>
-			</h4>
-		</div>
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_app_list 1 %}" title="Applications">
+                    <img src="/media/icons/apps.gif" width="30" alt="applications" />
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_book_list 1 %}" title="Books">
+                    <img src="/media/icons/books.gif" width="30" alt="books" />
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_category_list %}" title="Categories">
+                    <img src="/media/icons/categories.gif" width="30" alt="categories" />
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_commit_list 1 %}" title="Code commits">
+                    <img src="/media/icons/commits.gif" width="30" alt="code commits" />
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_comment_list 1 %}" title="Comments">
+                    <img src="/media/icons/comments.gif" width="30" alt="comments" />
+                </a>
+            </div>
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_correx_list 1 %}" title="Corrections">
+                    <img src="/media/icons/loop.png" width="30" alt="corrections" />
+                </a>
+           </div>
 
-	</div>
+            <div class="smalliconwrapper">
+                <a href="/feeds/list/" title="Feeds">
+                    <img src="/media/icons/feeds.gif" width="30" alt="feeds"/>
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_link_list 1 %}" title="Links">
+                    <img src="/media/icons/links.gif" width="30" alt="links" />
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_movie_list 1 %}" title="Movies">
+                    <img src="/media/icons/movies.gif" width="30" alt="movies" />
+                </a>
+            </div>
+
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_photo_list 1 %}" title="Photos">
+                    <img src="/media/icons/photos.gif" width="30" alt="photos" />
+                </a>
+            </div>
+
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
+                    <img src="/media/icons/posts.gif" width="30" alt="posts" />
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_shout_list 1 %}" title="Shouts">
+                    <img src="/media/icons/shouts.gif" width="30" alt="shouts" />
+                </a>
+            </div>
+            
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_tag_list %}" title="Tags">
+                    <img src="/media/icons/tags.gif" width="30" alt="tags" />
+                </a>
+            </div>
+
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
+                    <img src="/media/icons/ticker.gif" width="30" alt="ticker" />
+                </a>
+            </div>
+
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_track_list 1 %}" title="Tracks">
+                    <img src="/media/icons/tracks.gif" width="30" alt="tracks" />
+                </a>
+            </div>
+            
+        </div>
+        
+        <div id="bd">
+            <div class="yui-g">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div> 
+        
+        <div id="ft">
+            <h4>
+                © 2008 palewire . 
+                <a href="/colophon/">colophon</a> . 
+                <a href="http://www.timeanddate.com/worldclock/city.html?n=137">los angeles time</a> . 
+                <a href="http://creativecommons.org/licenses/by/2.0/" rel="license">cc 2.0</a> . 
+                powered by <a id="django-link" href="http://www.djangoproject.com/">django</a>
+            </h4>
+        </div>
+
+    </div>
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

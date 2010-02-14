@@ -30,6 +30,10 @@ a.dark:active {text-decoration: underline; font-weight:bold; color: red;}
 #navbar a:active{text-decoration: none; color: black; font-weight:normal;}
 #navbar a:focus {outline: none;}
 
+/* Icons */
+div.smalliconwrapper { width:33px; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline;}
+div.smalliconwrapper img { float:left;  }
+
 /* Detail page stuff */
 #detailbody {margin: 1.1em 10em 1.1em 4.5em; width:40em;}
 #detailborderbumper {clear:both; border-bottom:solid 4px #E5E5E5; margin-top:-1.35em; margin: 0.5em 10em 0.5em 4.5em;}
