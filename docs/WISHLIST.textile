@@ -4,12 +4,13 @@ A bunch of crap I might do
 
 h3. TODO
 
-* Write the new fab file post
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Migrate the swinefle and rapture domains
 * Clean out a ton of junk tags like '&'
 * Consider bringing down the size of the biggest headline
+* Fix the weird image borders in Firefox
+* Add a fabric function to push media files
 
 * Add most popular posts at the top of the Posts log.
 * Restore photos to LA street band post
