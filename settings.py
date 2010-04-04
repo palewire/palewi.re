@@ -60,8 +60,7 @@ INSTALLED_APPS = (
     'kennedy',
     'robots',
     'correx',
-    'rapture.data',
-    'rapture.update',
+    'rapture',
 
 )
 
