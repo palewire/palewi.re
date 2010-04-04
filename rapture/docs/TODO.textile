@@ -1,0 +1,6 @@
+* Keep a close eye on data in the next update to see if any new problems surface
+* Publish the all-time charts across different editions
+* Publish category detail pages
+* Come up with an "apps" icon and list page for www.palewire.com
+** Should include links to kennedy, this, and other apps I've worked on.
+* Data downloads to XLS format

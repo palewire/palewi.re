@@ -1,0 +1,60 @@
+{% extends "coltrane/base.html" %}
+
+{% block title %}the rapture index archive - {{ block.super }}{% endblock %}
+
+{% block content %}
+
+<h1>
+	<img style="vertical-align:text-bottom;" height="40" src="http://www.palewire.com/media/icons/apps-big.gif" alt="apps"/>&nbsp;
+	The Rapture Index Archive
+</h1>
+
+<div id="detailbody">
+
+	<p>
+		Welcome to palewire's archive of <a href="http://www.raptureready.com/rap2.html">The Rapture Index</a>, a "speedometer of end-time activity" published at <a href="http://www.raptureready.com">raptureready.com</a>.
+	</p>
+	<p>
+		Here you can download raw data compiling the <b>{{ edition_list.count }} update{{ edition_list.count|pluralize }}</b> since August 31, 2009, when I began monitoring the site. 
+		There's also an archive containing <b>{{ scrape_list.count }} snapshot{{ scrape_list.count|pluralize }}</b> of the source material taken during that period.
+	</p>
+	
+	<p>In the future, this site could include analysis and visualization of The Rapture Index, but for now is simply seeking to archive the data for posterity. 
+		The codebase is under development and freely available <a href="http://github.com/palewire/django-rapture/tree/master">here</a>.
+	</p>
+	
+	<p>If you have any questions or suggestions, please forward them to <a href="http://www.palewire.com/who-is-ben-welsh/">me</a>.</p>
+
+	<h2>Data downloads</h2>
+
+		<br>
+
+		<ul>
+
+			<li><a href="{% url rapture-download-xls %}">XLS</a></li>
+			<li><a href="{% url rapture-download-csv %}">CSV</a></li>
+			<li><a href="{% url rapture-download-json %}">JSON</a></li>
+			<li><a href="{% url rapture-download-xml %}">XML</a></li>
+
+		</ul>
+
+	<h2>Archived snapshots</h2>
+	
+	<br>
+	
+	<ul>
+	{% for obj in scrape_list|slice:"3" %}
+
+			<li><a href="{{ obj.get_absolute_url }}">{{ obj.end_date|date:"N d, Y, P" }}</a></li>
+
+		{% ifequal forloop.counter 3 %}
+			<li><a href="{% url rapture-archive-list %}">More...</a></li>
+		{% endifequal %}
+
+	{% endfor %}
+	
+
+	</ul>
+
+</div>
+{% endblock %}
