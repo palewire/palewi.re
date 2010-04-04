@@ -15,8 +15,7 @@ urlpatterns = patterns('',
     # Archives
     url(r'^archive/snapshot/list/$', 'rapture.archive.views.archive_list', name="rapture-archive-list"),
     url(r'^archive/snapshot/(?P<id>[0-9]+)/$', 'rapture.archive.views.archive_detail', name="rapture-archive-detail"),
-    url(r'^archive/snapshot/media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.STATIC_DOC_ROOT, 'show_indexes': True}, name="rapture-archive-media"),
+    url(r'^archive/snapshot/media/(?P<path>.*)$', 'rapture.archive.views.archive_media', name="rapture-archive-media"),
 
 )
 

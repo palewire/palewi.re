@@ -1,4 +1,5 @@
 # Helpers
+import os
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -40,12 +41,16 @@ class UpdateLog(models.Model):
     def get_absolute_url(self):
         return ('rapture-archive-detail', [str(self.id)])
 
+    def get_relative_archive_path(self):
+        if not self.archive_path:
+            return None
+        else:
+            return os.path.join(str(self.start_date.date()), str(self.start_date.strftime('%H:%M:%S')), 'rap2.html')
+
     @models.permalink
     def get_iframe_url(self):
         if not self.archive_path:
             return None
         else:
-            import os
             html_path = os.path.join(str(self.start_date.date()), str(self.start_date.strftime('%H:%M:%S')), 'rap2.html')
-            print html_path
             return ('rapture-archive-media', [html_path])
