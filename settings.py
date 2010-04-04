@@ -39,7 +39,10 @@ ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     os.path.join(settings_dir, 'templates/'),
+    os.path.join(settings_dir, 'rapture/templates/'),
 )
+
+STATIC_DOC_ROOT = os.path.join(settings_dir, 'rapture/archive/html')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -57,5 +60,8 @@ INSTALLED_APPS = (
     'kennedy',
     'robots',
     'correx',
+    'rapture.data',
+    'rapture.update',
+
 )
 
