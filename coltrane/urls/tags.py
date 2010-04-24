@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^$', 'django.views.generic.list_detail.object_list', { 
             'queryset': Tag.objects.all(),
             'template_name': 'coltrane/tag_list.html',
-            #'extra_context': {'tag_cloud': calculate_cloud(TaggedItem.objects.select_related().all(), steps=6)[:100]}
+            'extra_context': {'tag_cloud': calculate_cloud(TaggedItem.objects.select_related().all(), steps=6)[:100]}
         }, name='coltrane_tag_list'),
         
     # Detail
