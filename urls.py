@@ -86,5 +86,5 @@ urlpatterns += patterns('',
 # Goofy pluggable apps
 urlpatterns += patterns('',
     (r'^kennedy/', include('kennedy.urls')),
-    (r'^rapture/', include('rapture.urls')),
+    #(r'^rapture/', include('rapture.urls')),
 )

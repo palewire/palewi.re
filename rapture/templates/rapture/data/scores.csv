@@ -1,3 +1,0 @@
-edition,category,score,comment
-{% for obj in score_list %}{{ obj.edition.date }},{{ obj.category.name }},{{ obj.score }},{{ obj.comment }}
-{% endfor %}

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding='UTF-8'?>
-<raptureindex>{% for obj in score_list %}
-   <score edition="{{ obj.edition.date }}" category="{{ obj.category.name }}" value="{{ obj.score }}" comment="{{ obj.comment }}"/>{% endfor %}
-</raptureindex>

@@ -1,3 +1,0 @@
-h1. rapture-archive
-
-A attempt to scrape and archive the listings from RaptureReady.com's Rapture Index.
