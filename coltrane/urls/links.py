@@ -6,15 +6,15 @@ from coltrane.models import Link
 # Utils
 from coltrane.utils.cloud import calculate_cloud
 
-try:
-    cloud = calculate_cloud(Link.domains.rank()[:50], min_count=3, steps=6, qs=False)
-except:
-    cloud = None
+#try:
+#    cloud = calculate_cloud(Link.domains.rank()[:50], min_count=3, steps=6, qs=False)
+#except:
+#    cloud = None
 
 index_dict = {
 	'queryset': Link.objects.all().order_by("-pub_date"),
 	'paginate_by': 25,
-	'extra_context': {'tag_cloud': cloud}
+#	'extra_context': {'tag_cloud': cloud}
 }
 
 
