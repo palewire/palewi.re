@@ -288,6 +288,25 @@ class Track(ThirdPartyBaseModel):
     title = property(__unicode__)
 
 
+# Rankings/Clouds
+class TopTag(models.Model):
+    """
+    One of the top tags on the site.
+
+    The list is collected here so we can make a tag cloud with little overhead.
+    """
+    tag = models.OneToOneField(Tag)
+    name = models.CharField(_('name'), max_length=50, unique=True)
+    count = models.IntegerField()
+    #update = TopTagUpdateManager()
+
+    class Meta:
+        ordering = ('-count', 'name')
+
+    def __unicode__(self):
+        return u'%s (%s)' % (self.name, self.count)
+
+
 # Signals
 from correx.models import Change
 for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie]:
