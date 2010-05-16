@@ -101,7 +101,7 @@ class TopTagUpdateManager(models.Manager):
         INNER JOIN tagging_tag as t ON ti.tag_id = t.id
         WHERE ti.content_type_id
         NOT IN (SELECT id FROM django_content_type WHERE name = 'track')
-        GROUP BY tag_id
+        GROUP BY t.name
         ORDER BY 2 DESC
         LIMIT %s;
         """ % count
