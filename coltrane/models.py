@@ -226,7 +226,6 @@ class Link(ThirdPartyBaseModel):
     """
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
-    domains = LinkDomainManager()
 
     def __unicode__(self):
         return self.title
@@ -300,7 +299,7 @@ class TopDomain(models.Model):
     stratum = models.IntegerField(help_text='The font-size stratum to stick \
         this guy in when puffing up the cloud.')
     objects = models.Manager()
-    #update = TopDomainUpdateManager()
+    update = TopDomainUpdateManager()
 
     class Meta:
         ordering = ('-count', 'name')

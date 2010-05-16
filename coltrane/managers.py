@@ -23,21 +23,18 @@ class LiveCategoryManager(models.Manager):
         return super(LiveCategoryManager, self).get_query_set().filter(post_count__gt=0)
 
 
-class LinkDomainManager(models.Manager):
+class TopDomainUpdateManager(models.Manager):
     """
-    Returns an analysis of the domain names found in the Link model.
-    
-    The result is formed as a list of tuples, with the domain first and count second.
+    Updates the TopDomain model with the latest totals
     """
     
-    def rank(self):
-        """
-        All domains in the Link model, ranked from greatest to least.
-        """
+    def ranking(self, count=50, min_count=3, strata=6):
         from urlparse import urlparse
+        from coltrane.models import Link
+        from coltrane.utils.cloud import calculate_cloud
         
         # Fetch all the domains
-        domains = [urlparse(i.url)[1] for i in self.all()]
+        domains = [urlparse(i.url)[1] for i in Link.objects.all()]
         
         # Create a dict to stuff the counts
         domain_count = {}
@@ -53,11 +50,25 @@ class LinkDomainManager(models.Manager):
                 
         # Sort the results as a list of tuples, from top to bottom
         domain_tuple = domain_count.items()
-        domain_tuple.sort(lambda x,y:cmp(x[1], y[1]))
-        domain_tuple.reverse()
-        
-        # Pass out the results
-        return domain_tuple
+        domain_tuple.sort(lambda x,y:cmp(x[1], y[1]), reverse=True)
+
+        # Slice the limit and convert it to a dictionary
+        domain_dict = dict(domain_tuple[:count])
+
+        # Pass it into the cloud
+        object_list = calculate_cloud(
+            domain_dict, steps=strata, min_count=min_count, qs=False
+        )
+
+        # Empty out the model and refill it with the new data
+        self.model.objects.all().delete()
+        for obj in object_list:
+            self.model.objects.create(
+                name=obj['tag'],
+                count=obj['count'],
+                stratum=obj['font_size']
+            )
+        return True
 
 
 

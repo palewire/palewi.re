@@ -125,6 +125,13 @@ class TrackAdmin(admin.ModelAdmin):
     
 admin.site.register(Track, TrackAdmin)
 
+
+class TopDomainAdmin(admin.ModelAdmin):
+    list_display = ('name', 'count')
+    
+admin.site.register(TopDomain, TopDomainAdmin)
+
+
 class TopTagAdmin(admin.ModelAdmin):
     list_display = ('name', 'count')
     
