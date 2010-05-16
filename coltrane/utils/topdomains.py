@@ -1,5 +1,5 @@
 """
-Can be scheduled as a cron to update TopTag model
+Can be scheduled as a cron to update TopDomain model
 """
 import os
 import sys
