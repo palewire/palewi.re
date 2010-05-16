@@ -289,6 +289,26 @@ class Track(ThirdPartyBaseModel):
 
 
 # Rankings/Clouds
+class TopDomain(models.Model):
+    """
+    One of the top domains in the Link table.
+
+    The list is collected here so we can make a tag cloud with little overhead.
+    """
+    name = models.CharField(_('name'), max_length=50, unique=True)
+    count = models.IntegerField()
+    stratum = models.IntegerField(help_text='The font-size stratum to stick \
+        this guy in when puffing up the cloud.')
+    objects = models.Manager()
+    #update = TopDomainUpdateManager()
+
+    class Meta:
+        ordering = ('-count', 'name')
+
+    def __unicode__(self):
+        return u'%s (%s)' % (self.name, self.count)
+
+
 class TopTag(models.Model):
     """
     One of the top tags on the site.
