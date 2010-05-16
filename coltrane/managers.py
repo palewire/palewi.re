@@ -90,18 +90,37 @@ class TopTagUpdateManager(models.Manager):
         Refills the TopTag model with the most-commonly applied tags, using
         the provided count value as its cut-off.
         """
-        from tagging.models import TaggedItem
+        from django.db import connection
+        from tagging.models import TaggedItem, Tag
         from coltrane.utils.cloud import calculate_cloud
-        # Pull the cloud data
-        object_list = calculate_cloud(
-            TaggedItem.objects.select_related().all(), steps=strata
-        )[:100]
+
+        # Pull the cloud data, excluding tracks
+        sql = """
+        SELECT t.name, count(*)
+        FROM tagging_taggeditem as ti
+        INNER JOIN tagging_tag as t ON ti.tag_id = t.id
+        WHERE ti.content_type_id
+        NOT IN (SELECT id FROM django_content_type WHERE name = 'track')
+        GROUP BY tag_id
+        ORDER BY 2 DESC
+        LIMIT %s;
+        """ % count
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        tag_counts = {}
+        for row in cursor.fetchall():
+            tag_counts[row[0]] = {'count': row[1], 'font-size': None}
+
+        # Pass it into the cloud
+        object_list = calculate_cloud(tag_counts, steps=strata, qs=False)
+
         # Empty out the model and refill it with the new data
         self.model.objects.all().delete()
         for obj in object_list:
+            tag = Tag.objects.get(name=obj['tag'])
             self.model.objects.create(
-                tag=obj['tag'],
-                name=obj['tag'].name,
+                tag=tag,
+                name=obj['tag'],
                 count=obj['count'],
                 stratum=obj['font_size']
             )

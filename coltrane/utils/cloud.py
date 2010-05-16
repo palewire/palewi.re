@@ -87,7 +87,7 @@ def calculate_cloud(tagged_items, steps=4, distribution=LOGARITHMIC,
     if qs:
         tag_counts = _group_tagged_items(tagged_items)
     if not qs:
-        tag_counts = dict(tagged_items)
+        tag_counts = tagged_items
 
     if len(tag_counts) > 0:
 
