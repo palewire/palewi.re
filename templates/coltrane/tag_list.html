@@ -14,10 +14,10 @@
         <div class="tagcloud">
             {% for tag in tag_cloud %}
         
-                <span class="size{{ tag.font_size }}">
+                <span class="size{{ tag.stratum }}">
                     
-                    <a href="/tags/{{ tag.tag }}/" title="{{ tag.tag }} ({{ tag.count|intcomma }})" rel="tag">
-                        {{ tag.tag.name }}
+                    <a href="/tags/{{ tag.name }}/" title="{{ tag.name }} ({{ tag.count|intcomma }})" rel="tag">
+                        {{ tag.name }}
                     </a>
                 
                 </span> 

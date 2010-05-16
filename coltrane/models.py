@@ -298,7 +298,10 @@ class TopTag(models.Model):
     tag = models.OneToOneField(Tag)
     name = models.CharField(_('name'), max_length=50, unique=True)
     count = models.IntegerField()
-    #update = TopTagUpdateManager()
+    stratum = models.IntegerField(help_text='The font-size stratum to stick \
+        this guy in when puffing up the cloud.')
+    objects = models.Manager()
+    update = TopTagUpdateManager()
 
     class Meta:
         ordering = ('-count', 'name')
