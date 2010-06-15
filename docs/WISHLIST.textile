@@ -11,13 +11,15 @@ h3. TODO
 * Consider bringing down the size of the biggest headline
 * Fix the weird image borders in Firefox
 * Add a fabric function to push media files
+* Fix tufte photos
+* Try to get haystack working on rackspace
+* Upgrade to Django 1.2
 
 * Add most popular posts at the top of the Posts log.
 * Restore photos to LA street band post
 * Kill periods at the end of post titles
 * Validate XHTML
 * Lateral browsing by date on post page
-* Try to get haystack working on webfaction
 * mobile phone template
 * Rewrite my bio so it's shorter and doesn't use my cliched jokes
 * Try to jazz up the portfolio part a little bit.
