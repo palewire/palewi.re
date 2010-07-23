@@ -79,7 +79,8 @@ urlpatterns += patterns('',
     (r'^feeds/', include('coltrane.urls.feeds')),
     (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 #    (r'^robots.txt$', include('robots.urls')),
-    (r'^correx/', include('correx.urls'))
+    (r'^correx/', include('correx.urls')),
+    (r'^cache/', include('django_memcached.urls')),
 
 )
 

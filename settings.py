@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'kennedy',
     'robots',
     'correx',
+    'django_memcached',
 )
 
 if DEBUG_TOOLBAR:
