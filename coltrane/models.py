@@ -198,6 +198,17 @@ class Book(ThirdPartyBaseModel):
             return self.title
 
 
+class Link(ThirdPartyBaseModel):
+    """
+    Links to bookmarks I'd like to recommend.
+    """
+    title = models.CharField(max_length=250)
+    description = models.TextField(blank=True, null=True)
+
+    def __unicode__(self):
+        return self.title
+
+
 class Commit(ThirdPartyBaseModel):
     """
     Code I've written.
@@ -226,6 +237,19 @@ class Link(ThirdPartyBaseModel):
     """
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
+
+    def __unicode__(self):
+        return self.title
+
+
+class Location(ThirdPartyBaseModel):
+    """
+    A place where I announce my presence.
+    """
+    title = models.CharField(max_length=250)
+    description = models.TextField(blank=True, null=True)
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
 
     def __unicode__(self):
         return self.title
@@ -331,10 +355,10 @@ class TopTag(models.Model):
 
 # Signals
 from correx.models import Change
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location]:
     signals.post_save.connect(create_ticker_item, sender=modelname)
 
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location]:
     signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)
