@@ -20,6 +20,10 @@ CACHE_MIDDLEWARE_SECONDS = 60 *	5
 CACHE_MIDDLEWARE_KEY_PREFIX = 'palewire'
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
+HAYSTACK_SITECONF = 'coltrane.search_indexes'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = '/apps/palewire.com/whoosh/'
+
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
@@ -55,6 +59,7 @@ INSTALLED_APPS = (
     'robots',
     'correx',
     'django_memcached',
+    'haystack',
 )
 
 if DEBUG_TOOLBAR:
