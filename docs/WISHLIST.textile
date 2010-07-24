@@ -6,7 +6,6 @@ h3. TODO
 
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
-* Migrate the swinefle and rapture domains
 * Clean out a ton of junk tags like '&'
 * Consider bringing down the size of the biggest headline
 * Fix the weird image borders in Firefox
