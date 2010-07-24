@@ -12,6 +12,7 @@ h3. TODO
 * Add a fabric function to push media files
 * Fix tufte photos
 * Add most popular posts at the top of the Posts log.
+* Figure out the weird Haystack bugs. Permissions?
 * Restore photos to LA street band post
 * Validate XHTML
 * Lateral browsing by date on post page
