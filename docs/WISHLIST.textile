@@ -11,8 +11,6 @@ h3. TODO
 * Fix the weird image borders in Firefox
 * Add a fabric function to push media files
 * Fix tufte photos
-* Try to get haystack working on rackspace
-
 * Add most popular posts at the top of the Posts log.
 * Restore photos to LA street band post
 * Validate XHTML
