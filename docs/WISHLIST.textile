@@ -13,8 +13,6 @@ h3. TODO
 * Add a fabric function to push media files
 * Fix tufte photos
 * Try to get haystack working on rackspace
-* Upgrade to Django 1.2
-* Add Foursquare
 
 * Add most popular posts at the top of the Posts log.
 * Restore photos to LA street band post
