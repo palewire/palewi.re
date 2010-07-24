@@ -226,6 +226,21 @@ class RecentLinks(Feed):
 		return item.pub_date
 
 
+class RecentLocations(Feed):
+	title = "locations . palewire"
+	link = "http://palewire.com/feeds/locations/"
+	description = "the latest locations at palewire.com"
+
+	def items(self):
+		return Location.objects.all().order_by('-pub_date')[:10]
+
+	def item_link(self, item):
+		return item.url
+
+	def item_pubdate(self, item):
+		return item.pub_date
+
+
 class RecentMovies(Feed):
 	title = "movies . palewire"
 	link = "http://palewire.com/feeds/movies/"

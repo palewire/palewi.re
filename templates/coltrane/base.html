@@ -25,6 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="corrections" href="/feeds/corrections/"/>
     <link rel="alternate" type="application/rss+xml" title="shouts" href="/feeds/shouts/"/>
     <link rel="alternate" type="application/rss+xml" title="links" href="/feeds/links/"/>
+    <link rel="alternate" type="application/rss+xml" title="locations" href="/feeds/locations/"/>
     <link rel="alternate" type="application/rss+xml" title="movies" href="/feeds/movies/"/>
     <link rel="alternate" type="application/rss+xml" title="videos" href="/feeds/videos/"/>
     <link rel="alternate" type="application/rss+xml" title="photos" href="/feeds/photos/"/>
@@ -113,6 +114,12 @@
             <div class="smalliconwrapper">
                 <a href="{% url coltrane_link_list 1 %}" title="Links">
                     <img src="/media/icons/links.gif" width="30" alt="links" />
+                </a>
+            </div>
+
+            <div class="smalliconwrapper">
+                <a href="{% url coltrane_location_list 1 %}" title="Locations">
+                    <img src="/media/icons/locations.gif" width="30" alt="locations" />
                 </a>
             </div>
             
