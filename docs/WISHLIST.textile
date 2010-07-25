@@ -9,7 +9,6 @@ h3. TODO
 * Clean out a ton of junk tags like '&'
 * Consider bringing down the size of the biggest headline
 * Fix the weird image borders in Firefox
-* Add a fabric function to push media files
 * Fix tufte photos
 * Add most popular posts at the top of the Posts log.
 * Figure out the weird Haystack bugs. Permissions?
@@ -17,7 +16,5 @@ h3. TODO
 * Validate XHTML
 * Lateral browsing by date on post page
 * mobile phone template
-* Rewrite my bio so it's shorter and doesn't use my cliched jokes
-* Try to jazz up the portfolio part a little bit.
 * Maybe there should be a "selected" color on the icon that's currently in view
 
