@@ -2,7 +2,7 @@
 
 <div class="commentformwrapper">
 	<h2>Submit a comment</h2>
-<form id="commentform" action="{% comment_form_target %}" method="post">
+<form id="commentform" action="{% comment_form_target %}" method="post">{% csrf_token %}
 	{% for field in form %}
 	
 		{% if field.is_hidden %}
