@@ -47,7 +47,7 @@ Twitter-style infinite scroll with Django demo
                 {% for object in object_list %}
                 <li>
                     <a href="{{ object.url }}">
-                    {{ object.pub_date|date:"U" }}:&nbsp;&nbsp;&nbsp;{{ object|truncatewords:12 }}
+                    {{ object.pub_date|date:"U" }}:&nbsp;&nbsp;&nbsp;{{ object|truncatewords:10 }}
                     </a> 
                 </li>
                 {% endfor %}
