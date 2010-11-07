@@ -4,7 +4,6 @@ A bunch of crap I might do
 
 h3. TODO
 
-* Fix django-tagging bugs with Django 1.2
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Clean out a ton of junk tags like '&'
