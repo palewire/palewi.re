@@ -17,7 +17,7 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 CACHE_BACKEND =	'memcached://127.0.0.1:11211'
 CACHE_MIDDLEWARE_SECONDS = 60 *	5
-CACHE_MIDDLEWARE_KEY_PREFIX = 'palewire'
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 HAYSTACK_SITECONF = 'coltrane.search_indexes'
@@ -30,12 +30,15 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
