@@ -67,7 +67,7 @@ urlpatterns += patterns('',
     (r'^photos/', include('coltrane.urls.photos')),
     (r'^posts/', include('coltrane.urls.posts')),
     (r'^shouts/', include('coltrane.urls.shouts')),
-#    (r'^tags/', include('coltrane.urls.tags')),
+    (r'^tags/', include('coltrane.urls.tags')),
     (r'^tracks/', include('coltrane.urls.tracks')),
 
     (r'^comments/page/', include('coltrane.urls.comments')),
