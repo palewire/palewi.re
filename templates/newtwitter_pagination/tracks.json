@@ -2,6 +2,6 @@
     "page": {{ page.number }},
     "hasNext": {{ page.has_next|lower }},
     "itemList": [{% for obj in page.object_list %}
-        {"string": "{{ obj.pub_date|date:"U" }}:&nbsp;&nbsp;&nbsp;{{ obj|truncatewords:10|escapejs }}"}{% if not forloop.last %},{% endif %}{% endfor %}
+        {"string": "{{ obj.pub_date|date:"U" }}:&nbsp;&nbsp;&nbsp;{{ obj|truncatewords:10|escapejs }}", "url": "{{ obj.url }}"}{% if not forloop.last %},{% endif %}{% endfor %}
     ]
 }

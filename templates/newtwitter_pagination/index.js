@@ -1,8 +1,7 @@
 // Scroll globals
-var pageNum = {{ page.number }};
-var hasNextPage = {{ page.has_next|lower }};
-var loadInProgress = false;
-var baseUrl = '{% url coltrane_app_newtwitter_index %}';
+var pageNum = {{ page.number }}; // The latest page loaded
+var hasNextPage = {{ page.has_next|lower }}; // Indicates whether to expect another page after this one
+var baseUrl = '{% url coltrane_app_newtwitter_index %}'; // The root for the JSON calls
 
 // loadOnScroll handler
 var loadOnScroll = function() {
@@ -32,7 +31,7 @@ var loadItems = function() {
             var html = [];
             $.each(data.itemList, function(index, item){
                 /* Format the item in our HTML style */
-                html.push('<li>', item.string, '</li>')
+                html.push('<li><a href="', item.url, '">', item.string, '</a></li>')
             });
             // Pop all our items out into the page
             $("#newtwitter-anchor").before(html.join(""));
