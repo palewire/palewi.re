@@ -157,6 +157,11 @@ form#commentform {padding: 0;}
 .searchresultwrapper a:focus {outline: underline;}
 #searchbar h4 {font-weight:bold; font-size: 1.2em; margin-bottom:1em; margin-top:1em; padding-left:1.5em; font-size:1.25em;}
 
+/* misc for newtwitter example */
+ul.newtwitter { margin-left:0em !important; }
+ul.newtwitter li { list-style-type:none !important; }
+ul.newtwitter li a { text-decoration:none !important; font-weight:normal !important;}
+
 /* Pygments styles for source code in posts */
 .source .hll { background-color: #ffffcc }
 .source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}

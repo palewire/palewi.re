@@ -3,16 +3,18 @@ import time
 import datetime
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import Http404, HttpResponseRedirect
+from django.core.paginator import Paginator, InvalidPage
 from django.core.urlresolvers import reverse
 
 # Models
 from correx.models import Change
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
-from coltrane.models import Post, Category, Link, Photo
+from coltrane.models import Post, Category, Link, Photo, Track
 
-# Views
+# Generic Views
 from django.views.generic.list_detail import object_list
+from django.views.generic.simple import direct_to_template
 
 
 def index(request):
@@ -90,3 +92,54 @@ def correx_redirect(request, id):
     if not content_object:
         raise Http404
     return HttpResponseRedirect(content_object.get_absolute_url())
+
+
+def newtwitter_pagination_index(request):
+    """
+    An index page where we can lay out how to pull off Twitter style
+    pagination. 
+    
+    Passed out the 100 latest tracks to seed the page.
+    """
+    # Pull the data
+    object_list = Track.objects.all()
+    
+    # Grab the first page of 100 items
+    paginator = Paginator(object_list, 100)
+    page_obj = paginator.page(1)
+    
+    # Pass out the data
+    context = {
+        "object_list": page_obj.object_list,
+        "page": page_obj,
+    }
+    template = 'newtwitter_pagination/index.html'
+    return direct_to_template(request, template, context)
+
+
+def newtwitter_pagination_json(request, page):
+    """
+    A JSON feed to feed updates to the index page as the user
+    scrolls down the page. 
+    
+    Passes out pages of Track objects based on the `page` kwarg.
+    """
+    # Pull the data
+    object_list = Track.objects.all()
+    
+    # Pull the proper items for this page
+    paginator = Paginator(object_list, 100)
+    try:
+        page_obj = paginator.page(page)
+    except InvalidPage:
+        # Return 404 if the page doesn't exist
+        raise Http404
+    
+    # Pass out the data
+    context = {
+        "object_list": page_obj.object_list,
+        "page": page_obj,
+    }
+    template = 'newtwitter_pagination/tracks.json'
+    return direct_to_template(request, template, context, 'text/javascript')
+
