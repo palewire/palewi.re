@@ -51,10 +51,9 @@ urlpatterns = patterns('django.views.generic.simple',
 
 # URLs for the new blog
 urlpatterns += patterns('',
-
+    
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/(.*)', admin.site.root),
-    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
     
     (r'^applications/', include('coltrane.urls.apps')),
     (r'^books/', include('coltrane.urls.books')),
@@ -69,13 +68,13 @@ urlpatterns += patterns('',
     (r'^shouts/', include('coltrane.urls.shouts')),
     (r'^tags/', include('coltrane.urls.tags')),
     (r'^tracks/', include('coltrane.urls.tracks')),
-
+    
     (r'^comments/page/', include('coltrane.urls.comments')),
     (r'^comments/', include('django.contrib.comments.urls')),
-
+    
     (r'^$', include('coltrane.urls.index')),
     (r'^ticker/', include('coltrane.urls.ticker')),
-
+    
 #    (r'^search/', include('haystack.urls')),
     (r'^feeds/', include('coltrane.urls.feeds')),
     (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
@@ -84,6 +83,18 @@ urlpatterns += patterns('',
     (r'^cache/', include('django_memcached.urls')),
 
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT }),
+    )
+else:
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.generic.simple.redirect_to',
+             {'url': 'http://palewire.s3.amazonaws.com/%(path)s'}),
+    )
+
 
 # Goofy pluggable apps
 urlpatterns += patterns('',

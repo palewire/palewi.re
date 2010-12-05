@@ -12,8 +12,8 @@ SITE_ID = 1
 USE_I18N = True
 
 MEDIA_ROOT = os.path.join(settings_dir, 'media')
-MEDIA_URL = '/media/'
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
+ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
 
 CACHE_BACKEND =	'memcached://127.0.0.1:11211'
 CACHE_MIDDLEWARE_SECONDS = 60 *	5
@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'correx',
     'django_memcached',
     'haystack',
+    'django_extensions',
 )
 
 if DEBUG_TOOLBAR:
