@@ -176,7 +176,7 @@ class ThirdPartyBaseModel(models.Model):
 
     def get_absolute_icon(self):
         name = u'%ss' % self.__class__.__name__.lower()
-        return u'/media/icons/%s.gif' % name
+        return u'%sicons/%s.gif' % (settings.MEDIA_URL, name)
 
     def get_tag_list(self, last_word='and'):
         return get_text_list(self.tags.split(' '), last_word)
