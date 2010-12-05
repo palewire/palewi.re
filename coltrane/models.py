@@ -84,7 +84,7 @@ class Category(models.Model):
     get_absolute_url = models.permalink(get_absolute_url)
     
     def get_absolute_icon(self):
-        return u'/media/icons/categories.gif'
+        return u'%sicons/categories.gif' % (settings.MEDIA_URL)
 
     def get_live_post_count(self):
         from coltrane.models import Post
@@ -141,7 +141,7 @@ class Post(models.Model):
     url = property(get_absolute_url)
     
     def get_absolute_icon(self):
-        return u'/media/icons/posts.gif'
+        return u'%sicons/posts.gif' % (settings.MEDIA_URL)
 
     def get_tag_set(self):
         """
