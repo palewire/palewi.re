@@ -22,8 +22,8 @@ from django.conf import settings
 from coltrane.models import Commit
 
 # Logging
-import logging
-log = logging.getLogger("jellyroll.utils.github")
+from qiklog import QikLog
+logger = QikLog("jellyroll.utils.github")
 
 def enabled():
     ok = hasattr(settings, 'GITHUB_USER')
@@ -114,10 +114,10 @@ def update():
 
 
 def _handle_commit(commit_dict):
-    log.debug("Handling commit from %s", commit_dict['repository'])
+    logger.log.debug("Handling commit from %s", commit_dict['repository'])
     try:
-        Commit.objects.get(url=commit_dict['url'])
-        log.debug("Commit already exists.")
+        c = Commit.objects.get(url=commit_dict['url'])
+        logger.log.debug("Commit %s already exists." % c)
     except Commit.DoesNotExist:
         c = Commit(
             url = commit_dict['url'],
@@ -127,7 +127,7 @@ def _handle_commit(commit_dict):
             message = commit_dict['message'],
             )
         c.save()
-        log.debug("Adding commit.")
+        logger.log.debug("Adding commit %s." % c)
         
         
 if __name__ == '__main__':
