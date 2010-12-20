@@ -1,28 +1,19 @@
-import os
-import sys
+# Models
+from coltrane.models import Commit
 
-# Set the directories and django config so it can be run from cron.
-current_dir = os.path.abspath(__file__)
-projects_dir = os.sep.join(current_dir.split(os.sep)[:-3])
-os.environ['PYTHONPATH'] = projects_dir
-sys.path.append(projects_dir)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-
-# Text and time manipulation
+# Text and time
 import re
-import time
-import datetime
 import dateutil.parser
 from coltrane import utils
 from BeautifulSoup import BeautifulSoup
 from django.utils.encoding import smart_unicode
 
-# Local application
-from django.conf import settings
-from coltrane.models import Commit
-
 # Logging
 from qiklog import QikLog
+
+# Misc
+import os
+import sys
 
 
 class GithubClient(object):
@@ -86,7 +77,7 @@ class GithubClient(object):
         s = commit_html.find('blockquote').string.strip()
         return smart_unicode(s)
     
-    def update(self):
+    def sync(self):
         [self._handle_commit(i) for i in self.get_latest_data()]
     
     def _handle_commit(self, commit_dict):
@@ -103,11 +94,4 @@ class GithubClient(object):
                 )
             c.save()
             self.logger.log.debug("Adding commit %s." % c)
-
-
-if __name__ == '__main__':
-    github = GithubClient(settings.GITHUB_USER)
-    github.update()
-        
-        
 
