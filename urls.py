@@ -47,6 +47,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^images/(?P<file_name>[^/]+)$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
     # Hard-coded flatpages
     (r'^who-is-ben-welsh/$', 'direct_to_template', {'template': 'flatpages/bio.html'}),
+    (r'^colophon/$', 'direct_to_template', {'template': 'flatpages/colophon.html'}),
 )
 
 # URLs for the new blog
