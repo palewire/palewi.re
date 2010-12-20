@@ -89,7 +89,7 @@ class GithubClient(object):
                 entry_dict['repository'] = smart_unicode(match.group('repository'))
                 
                 # Add the others
-                entry_dict['url'] = u'http://github.com' % smart_unicode([i['href'] for i in commit_html.findAll('a') if re.search('commit', i['href'])][0])
+                entry_dict['url'] = u'http://github.com%s' % smart_unicode([i['href'] for i in commit_html.findAll('a') if re.search('commit', i['href'])][0])
                 
                 entry_dict['message'] = smart_unicode(commit_html.find('blockquote').string.strip())
                 
