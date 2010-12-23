@@ -1,13 +1,3 @@
-import os
-import sys
-
-# Set the directories and django config so it can be run from cron.
-current_dir = os.path.abspath(__file__)
-projects_dir = os.sep.join(current_dir.split(os.sep)[:-3])
-os.environ['PYTHONPATH'] = projects_dir
-sys.path.append(projects_dir)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-
 # Text and time manipulation
 import re
 import time
@@ -15,19 +5,12 @@ import datetime
 from coltrane import utils
 from django.utils.encoding import smart_unicode
 
-# Local application
-from django.conf import settings
+# Models
 from coltrane.models import Movie
 
 # Logging
 import logging
 log = logging.getLogger("jellyroll.utils.flixster")
-
-def enabled():
-	ok = hasattr(settings, 'FLIXSTER_USER')
-	if not ok:
-		log.warn('The Flixster provider is not available because the FLIXSTER_USER is undefined.')
-	return ok
 
 
 class FlixsterClient(object):

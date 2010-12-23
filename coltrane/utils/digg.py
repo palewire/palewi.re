@@ -16,13 +16,12 @@ class DiggClient(object):
     """
     logger = QikLog("coltrane.utils.digg")
 
-    def __init__(self, username, api_key, count=10):
+    def __init__(self, username, count=10):
         self.username = username
-        self.api_key = api_key
         self.count = count
         
     def __getattr__(self):
-        return DiggClient(self.username, self.api_key, self.count)
+        return DiggClient(self.username, self.count)
         
     def __repr__(self):
         return "<DiggClient: %s>" % self.username

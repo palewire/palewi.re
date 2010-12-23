@@ -8,5 +8,5 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print "Syncing Digg data"
-        client = digg.DiggClient(settings.DIGG_USER, settings.DIGG_API_KEY)
+        client = digg.DiggClient(settings.DIGG_USER)
         client.sync()
