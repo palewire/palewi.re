@@ -9,9 +9,6 @@ from qiklog import QikLog
 # Local application
 from coltrane.models import Link
 
-from pprint import pprint
-
-
 
 class DiggClient(object):
     """
