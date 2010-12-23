@@ -11,10 +11,6 @@ from django.utils.encoding import smart_unicode
 # Logging
 from qiklog import QikLog
 
-# Misc
-import os
-import sys
-
 
 class GithubClient(object):
     """

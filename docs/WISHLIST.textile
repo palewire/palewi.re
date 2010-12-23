@@ -6,6 +6,7 @@ h3. TODO
 
 * Go through and fix the timezones using pytz
 * Why am I using smart_unicode all over the place in my syncrs?
+* Set LOG_DIRECTORY for prod
 * Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Clean out a ton of junk tags like '&'
