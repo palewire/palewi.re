@@ -31,7 +31,7 @@
             };
             $('#supersized').supersized();
             var soundfile = "http://palewire.s3.amazonaws.com/bring_the_news_back/clip.wav"
-            $.sound.play(soundfile);
+            $.sound.play(soundfile, {timeout:0});
         });
     });
     //]]>
@@ -90,10 +90,8 @@
           font-weight: 700;
           text-shadow: none;
           text-decoration: none;
-          text-transform: capitalize;
           letter-spacing: 0em;
           word-spacing: 0em;
-          line-height: 1em;
         }
         #content{
             position:absolute; 
@@ -112,6 +110,7 @@
             position:absolute;
             bottom:0;
             left:20px;
+            text-align:left;
         }
         #social {
             position:absolute;
@@ -136,7 +135,8 @@
         <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fpalewire.com%2Fapplications%2Fbring-the-news-back%2F&amp;layout=box_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:60px; height:65px;" allowTransparency="true"></iframe>
     </div>
     <div id="attribution">
-        Photo by <a href="http://www.flickr.com/photos/wade-grayson/1067578594/">Wade Grayson</a>
+        Photo by <a href="http://www.flickr.com/photos/wade-grayson/1067578594/">Wade Grayson</a><br>
+        Inspiration by <a href="http://nahright.com/news/2010/12/21/showbiz-ft-krs-one-show-power/">Showbiz and KRS-One</a>
     </div>
 </div> 
  
