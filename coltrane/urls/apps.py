@@ -20,4 +20,11 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^twitter-style-infinite-scroll-with-django-demo/json/(?P<page>[0-9]+)/',
         views.newtwitter_pagination_json,
         name='coltrane_app_newtwitter_json'),
+
+    # BRING THE NEWS BACK
+    url(r'^bring-the-news-back/$',
+        'direct_to_template', {'template': 'bring_the_news_back/index.html' },
+        name='coltrane_app_newtwitter_json'),
+
+
 )

@@ -1,0 +1,147 @@
+{% load media_url %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>bring the news back . palewire</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="Author" content="palewire.com" />
+    <meta name="description" content="{% block description %}Blog. Proprietor Ben Welsh.{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, computer-assisted reporting, journalism{% endblock %}" />
+    <meta name="verify-v1" content="gY50FIiS1ZkWlR0vmMn+q/qv5ihAfW8cRQIFBU1+5d0=" />
+    <meta name="google-site-verification" content="cKY9by450sOARZLyJVRAi4Vb4ozIMCxoneuxm2HEtcY" />
+
+    <script type="text/javascript" src="{% media_url "jquery-1.4.4.min.js" %}"></script>
+    <script type="text/javascript" src="{% media_url "supersized.3.0.core.js" %}"></script>
+    <script type="text/javascript" src="{% media_url "jquery.media.js" %}"></script>
+    <script type="text/javascript" src="{% media_url "jquery.sound.js" %}"></script>
+    <script type="text/javascript"> 
+    //<![CDATA[
+    $(document).ready(function(){
+        $(function(){
+            $.fn.supersized.options = {  
+                startwidth: 800,  
+                startheight: 534,
+                vertical_center: 1,
+                slides : [
+                    {image : '{% media_url "img/krs-1024x683.jpg" %}' }
+                ]
+            };
+            $('#supersized').supersized(); 
+            var soundfile = "http://palewire.s3.amazonaws.com/bring_the_news_back/clip.mp3"
+            var soundfile = "http://dl.dropbox.com/u/743518/Inception_horn.mp3"
+            $.sound.play(soundfile, {});
+        });
+    });
+    //]]>
+    </script>
+    <style type="text/css"> 
+        *{
+            margin:0;
+            padding:0;
+        }
+        a{
+            color:#8FC2FF;
+            text-decoration: none;
+            outline: none;
+        }
+        img{
+            border:none;
+        }
+        body {
+            overflow:hidden;/*Needed to eliminate scrollbars*/
+            background:#000;
+        }
+        /*Area to place content normally*/
+        #content-wrapper{ 
+            width:100%; 
+            height:100%; 
+            position:absolute; 
+            top:0; 
+            overflow:auto; 
+            z-index:4; 
+            text-align:center; 
+        }
+        /*Supersize Plugin Styles*/
+        #loading {
+            position: absolute;
+            top: 49.5%; 
+            left: 49.5%;
+            z-index: 10;
+            width: 24px; 
+            height: 24px;
+            text-indent: -999em;
+        }
+        #supersized{
+            position:fixed;
+        }
+        #supersized img{ -ms-interpolation-mode: bicubic; }
+        #supersized img, #supersized a{
+            height:100%;
+            width:100%;
+            position:absolute;
+            z-index: -1;
+        }
+        body {
+          font-family: serif;
+          font-size: 46px;
+          font-style: italic;
+          font-weight: 700;
+          text-shadow: none;
+          text-decoration: none;
+          text-transform: capitalize;
+          letter-spacing: 0em;
+          word-spacing: 0em;
+          line-height: 1em;
+        }
+        #content{
+            position:absolute; 
+            top:20px; 
+            left:20px;
+            text-align:left;
+        }
+        p { 
+            text-transform:uppercase; 
+            color:#fff; 
+        }
+        #attribution {
+            font-family: serif;
+            font-size:9px;
+            color:#fff;
+            position:absolute;
+            bottom:0;
+            left:20px;
+        }
+        #social {
+            position:absolute;
+            bottom:0;
+            right:0;
+        }
+    </style> 
+
+</head>
+<body>
+<!--Loading display while images load--> 
+<div id="loading">&nbsp;</div> 
+ 
+<!--Content Area--> 
+<div id="content-wrapper"> 
+    <div id="content"> 
+        <p> 
+            Bring the news back!
+        </p>
+    </div> 
+    <div id="social">
+        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fpalewire.com%2Fapplications%2Fbring-the-news-back%2F&amp;layout=box_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:60px; height:65px;" allowTransparency="true"></iframe>
+    </div>
+    <div id="attribution">
+        Photo by <a href="http://www.flickr.com/photos/wade-grayson/1067578594/">Wade Grayson</a>
+    </div>
+</div> 
+ 
+<!--Slides--> 
+<div id="supersized"></div>
+</body>
+</html>
