@@ -36,10 +36,8 @@ class FlickrClient(object):
         
     def __repr__(self):
         return "<FlickrClient: %s>" % self.method
-        
-    def get_data(self, **params):
-        # http://flickr.com/services/rest/?api_key=8a3e5e27c7d2b61b26aff9cc011517fe&nojsoncallback=1&method=flickr.photos.licenses.getInfo&format=json
-        #params['method'] = params['method']
+    
+    def _get_data(self, **params):
         params['api_key'] = self.api_key
         params['format'] = 'json'
         params['nojsoncallback'] = '1'
@@ -49,49 +47,66 @@ class FlickrClient(object):
             raise FlickrError(json["code"], json["message"])
         return json
     
-    def _convert_tags(self, tags):
-        return " ".join(set(t["_content"] for t in tags["tag"] if not t["machine_tag"]))
+    def get_licenses(self):
+        d = self._get_data(method='flickr.photos.licenses.getInfo')
+        return dict((l["id"], smart_unicode(l["url"]))
+                        for l in d["licenses"]["license"])
     
-    def sync(self):
-        # Preload the list of licenses
-        licenses = self.get_data(method='flickr.photos.licenses.getInfo')
-        licenses = dict((l["id"], smart_unicode(l["url"]))
-                        for l in licenses["licenses"]["license"])
-        
-        # Handle update by pages until we see photos we've already handled
-        last_update_date = Photo.sync.get_last_update()
-        page = 1
-        while True:
-            self.logger.log.debug("Fetching page %s of photos", page)
-            resp = self.get_data(
+    def get_photo_page(self, page):
+        return self._get_data(
                 method='flickr.people.getPublicPhotos',
                 user_id=self.user_id,
                 extras="license,date_taken",
                 per_page="500",
                 page=str(page)
             )
-            photos = resp["photos"]
-            
+    
+    def get_photo_info(self, photo_id, secret):
+        return self._get_data(
+            method='flickr.photos.getInfo', 
+            photo_id=photo_id,
+            secret=secret
+        )
+    
+    def _convert_tags(self, tags):
+        return " ".join(set(t["_content"] for t in tags["tag"] if not t["machine_tag"]))
+    
+    def sync(self):
+        # Preload the list of licenses
+        licenses = self.get_licenses()
+        # Handle update by pages until we see photos we've already handled
+        last_update_date = Photo.sync.get_last_update()
+        page = 1
+        while True:
+            self.logger.log.debug("Fetching page %s of photos", page)
+            photos = self.get_photo_page(page)["photos"]
             if page > photos["pages"]:
                 self.logger.log.debug("Ran out of photos; stopping.")
                 break
                 
-            for photodict in photos["photo"]:
-                timestamp = utils.parsedate(str(photodict["datetaken"]))
+            # Loop through all the photos
+            for photo in photos["photo"]:
+                # Check if the photo is new
+                timestamp = utils.parsedate(str(photo["datetaken"]))
                 if timestamp < last_update_date:
                     self.logger.log.debug(
                         "Hit an old photo (taken %s; last update was %s); \
                         stopping." % (timestamp, last_update_date),
                     )
                     break
-                photo_id = utils.safeint(photodict["id"])
-                license = licenses[photodict["license"]]
-                secret = smart_unicode(photodict["secret"])
+                # If it is, get everything ready
+                photo_id = utils.safeint(photo["id"])
+                license = licenses[photo["license"]]
+                secret = smart_unicode(photo["secret"])
+                # And pass it to the database
                 self._handle_photo(photo_id, secret, license, timestamp)
+            
+            # Up the page count before closing the loop
             page += 1
     
     def _handle_photo(self, photo_id, secret, license, timestamp):
-        info = self.get_data(method='flickr.photos.getInfo', photo_id=photo_id, secret=secret)["photo"]
+        # Get all the data ready for the db
+        info = self.get_photo_info(photo_id=photo_id, secret=secret)["photo"]
         photo_id = str(photo_id)
         taken_by = smart_unicode(info["owner"]["username"])
         url = "http://www.flickr.com/photos/%s/%s/" % (taken_by, photo_id)
@@ -101,10 +116,10 @@ class FlickrClient(object):
             utils.safeint(info["dates"]["posted"])
         )
         tags = self._convert_tags(info["tags"])
-        
         self.logger.log.debug("Handling photo: %r (taken %s)" % (title, timestamp))
-        
+        # Check if it's already in the database
         try:
+            # If so, update it.
             photo = Photo.objects.get(url=url)
             photo.title = title
             photo.description = description
@@ -112,6 +127,7 @@ class FlickrClient(object):
             photo.tags = tags
             photo.save()
         except Photo.DoesNotExist:
+            # Otherwise create it from scratch.
             photo = Photo.objects.create(
                 title = title,
                 url = url,
