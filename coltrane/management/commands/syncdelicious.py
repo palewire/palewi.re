@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 
 class Command(BaseCommand):
-    help = 'Sync delicious bookmarks'
+    help = 'Sync Delicious bookmarks'
 
     def handle(self, *args, **options):
         print "Syncing Delicious data"

@@ -33,7 +33,7 @@ class DeliciousClient(object):
         # Enforce Yahoo's "no calls quicker than every 1 second" rule
         delta = time.time() - self.lastcall
         if delta < 2:
-            time.sleep(2 - delta)
+            time.sleep(4 - delta)
         self.lastcall = time.time()
         url = ("https://api.del.icio.us/%s?" % self.method) + urllib.urlencode(params)
         xml = utils.getxml(url, username=self.username, password=self.password)
