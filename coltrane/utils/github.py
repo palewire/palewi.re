@@ -17,7 +17,7 @@ class GithubClient(object):
     A minimal Github client. 
     """
     GITHUB_TITLE_REGEX = re.compile(r'palewire pushed to (?P<branch>(.*)) at (?P<repository>(.*))')
-    logger = QikLog("jellyroll.utils.github")
+    logger = QikLog("coltrane.utils.github")
     
     def __init__(self, username):
         self.username = username
