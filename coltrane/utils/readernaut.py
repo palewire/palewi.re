@@ -7,11 +7,9 @@ from django.utils.text import get_text_list
 from django.utils.encoding import smart_unicode
 
 # Logging
-import logging
-log = logging.getLogger("coltrane.utils.readernaut")
+from qiklog import QikLog
 
-# Local application
-from django.conf import settings
+# Models
 from coltrane.models import Book
 
 
@@ -19,6 +17,7 @@ class ReadernautClient(object):
     """
     A minimal Readernaut client. 
     """
+    logger = QikLog("coltrane.utils.readernaut")
     
     def __init__(self, username):
         self.username = username
@@ -29,8 +28,7 @@ class ReadernautClient(object):
     def __repr__(self):
         return "<ReadernautClient: %s>" % self.username
         
-    def __call__(self):
-        
+    def get_latest_data(self):
         # Fetch the XML via web request
         url = 'http://readernaut.com/api/v1/xml/%s/books/' % self.username
         xml = utils.getxml(url)
@@ -72,42 +70,31 @@ class ReadernautClient(object):
             books.append(book_dict)
             
         return books
-
-
-def update(diggs_to_fetch=10):
-    """
-    When executed, will collect update your database with the latest books.
-    """
-    # Init the DiggClient
-    readernaut = ReadernautClient(settings.READERNAUT_USER)
     
-    # Fetch the data
-    readernaut_data = readernaut()
+    def sync(self):
+        """
+        When executed, will collect update your database with the latest books.
+        """
+        [self._handle_book(book_dict) for book_dict in self.get_latest_data()]
     
-    # Now loop through the data and add the new ones.
-    [_handle_book(book_dict) for book_dict in readernaut_data]
-        
-        
-def _handle_book(book_dict):
-    """
-    Accepts a data dictionary harvest from Readernaut's API and logs any new ones the database.
-    """
-    try:
-        # Just test the URL in case it's already been logged by another bookmarking service like Delicious.
-        b = Book.objects.get(isbn=book_dict['isbn'])
-        # And just quit out silently if it already exists.
-        log.debug("Book already exists for %s" % book_dict["title"])
-    
-    except Book.DoesNotExist:
-        # If it doesn't exist, add it fresh.
-        log.debug("Adding book to %s" % book_dict["title"])
-        
-        b = Book(
-            url = book_dict['url'],
-            title = book_dict['title'],
-            authors = book_dict['authors'],
-            pub_date = book_dict['date'],
-            isbn = book_dict['isbn'],
-        )
-        b.save()
+    def _handle_book(self, book_dict):
+        """
+        Accepts a data dictionary harvest from Readernaut's API and logs any new ones the database.
+        """
+        try:
+            # Just test the URL in case it's already been logged by another bookmarking service like Delicious.
+            b = Book.objects.get(isbn=book_dict['isbn'])
+            # And just quit out silently if it already exists.
+            self.logger.log.debug("Book already exists for %s" % book_dict["title"])
+        except Book.DoesNotExist:
+            # If it doesn't exist, add it fresh.
+            self.logger.log.debug("Adding book to %s" % book_dict["title"])
+            b = Book(
+                url = book_dict['url'],
+                title = book_dict['title'],
+                authors = book_dict['authors'],
+                pub_date = book_dict['date'],
+                isbn = book_dict['isbn'],
+            )
+            b.save()
 
