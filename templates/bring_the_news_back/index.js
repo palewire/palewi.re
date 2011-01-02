@@ -11,12 +11,41 @@ var superSize = function() {
     };
     $('#supersized').supersized();
 }
+var timeout = 2000;
+var fire = "http://palewire.s3.amazonaws.com/bring_the_news_back/clip.wav"
 var dropScience = function() {
-    var soundfile = "http://palewire.s3.amazonaws.com/bring_the_news_back/clip.wav"
-    $.sound.play(soundfile);//, {'timeout': 0});
-    //$("#content").html("<p>Bring the news back!</p>");
+    $.sound.play(fire);
+    $("#content").append("<p>Bring the news back!</p>");
 }
 $(document).ready(function(){
     superSize();
-    dropScience();
+    $("#content").queue("namedQueue", function() {
+      dropScience();
+      var self = this;
+      setTimeout(function() {
+        $(self).dequeue("namedQueue");
+      }, timeout);
+    });
+    $("#content").queue("namedQueue", function() {
+      var self = this;
+      dropScience();
+      setTimeout(function() {
+        $(self).dequeue("namedQueue");
+      }, timeout);
+    });
+    $("#content").queue("namedQueue", function() {
+      var self = this;
+      dropScience();
+      setTimeout(function() {
+        $(self).dequeue("namedQueue");
+      }, timeout);
+    });
+    $("#content").queue("namedQueue", function() {
+      var self = this;
+      dropScience();
+      setTimeout(function() {
+        $(self).dequeue("namedQueue");
+      }, timeout);
+    });
+    $("#content").dequeue("namedQueue");
 });
