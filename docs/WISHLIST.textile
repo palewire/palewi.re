@@ -4,20 +4,20 @@ A bunch of crap I might do
 
 h3. TODO
 
+* URL shortener and bookmarklet
+* Maybe there should be a "selected" color on the icon that's currently in view
+* mobile phone template
+* Switch to pinboard from delicious. Or support both at least.
 * Go through and fix the timezones using pytz
-* Why am I using smart_unicode all over the place in my syncrs?
 * Set LOG_DIRECTORY for prod
-* Use a daemon and logs instead of the sloppy crons for updates
 * Improve the movies and books icons
 * Clean out a ton of junk tags like '&'
 * Consider bringing down the size of the biggest headline
+* Consider using Google Font Directory for custom fonts
 * Fix the weird image borders in Firefox
 * Fix tufte photos
 * Add most popular posts at the top of the Posts log.
 * Figure out the weird Haystack bugs. Permissions?
 * Restore photos to LA street band post
-* Validate XHTML
 * Lateral browsing by date on post page
-* mobile phone template
-* Maybe there should be a "selected" color on the icon that's currently in view
 
