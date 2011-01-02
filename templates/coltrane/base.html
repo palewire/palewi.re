@@ -1,4 +1,5 @@
 {% load media_url %}
+{% load coltrane_tags %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -185,9 +186,10 @@
             </div>
         </div> 
         
+        {% get_current_year %}
         <div id="ft">
             <h4>
-                © 2008 palewire . 
+                © {{ current_year }} palewire . 
                 <a href="/colophon/">colophon</a> . 
                 <a href="http://www.timeanddate.com/worldclock/city.html?n=137">los angeles time</a> . 
                 <a href="http://creativecommons.org/licenses/by/2.0/" rel="license">cc 2.0</a> . 
