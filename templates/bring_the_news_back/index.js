@@ -48,4 +48,6 @@ $(document).ready(function(){
       }, timeout);
     });
     $("#content").dequeue("namedQueue");
+    $("#content").click(dropScience);
 });
+
