@@ -30,3 +30,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^nicar2011/', include('nicar2011.urls')),
 
 )
+
+urlpatterns += patterns("",
+    (r'^crossdomain.xml$', 'nicar2011.views.crossdomain'),
+)
