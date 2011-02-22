@@ -26,5 +26,7 @@ urlpatterns = patterns('django.views.generic.simple',
         'direct_to_template', {'template': 'bring_the_news_back/index.html' },
         name='coltrane_app_newtwitter_json'),
 
+    # NICAR 2011
+    (r'^nicar2011/', include('nicar2011.urls')),
 
 )
