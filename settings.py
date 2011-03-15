@@ -66,6 +66,7 @@ INSTALLED_APPS = (
     'django_memcached',
     'haystack',
     'django_extensions',
+    'nicar2011',
 )
 
 if DEBUG_TOOLBAR:
