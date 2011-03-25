@@ -83,13 +83,13 @@
                     <img src="{% media_url "icons/books.gif" %}" width="30" alt="books" />
                 </a>
             </div>
-            
+            {% comment %}
             <div class="smalliconwrapper">
                 <a href="{% url coltrane_category_list %}" title="Categories">
                     <img src="{% media_url "icons/categories.gif" %}" width="30" alt="categories" />
                 </a>
             </div>
-            
+            {% endcomment%}
             <div class="smalliconwrapper">
                 <a href="{% url coltrane_commit_list 1 %}" title="Code commits">
                     <img src="{% media_url "icons/commits.gif" %}" width="30" alt="code commits" />
