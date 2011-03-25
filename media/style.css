@@ -35,10 +35,10 @@ div.smalliconwrapper { width:33px; display:-moz-inline-stack; display:inline-blo
 div.smalliconwrapper img { float:left;  }
 
 /* Detail page stuff */
-#detailbody {margin: 1.1em 10em 1.1em 4.5em; width:40em;}
+#detailbody {margin: 0.3em 9em 1.1em 4.5em; width:41em;}
 #detailborderbumper {clear:both; border-bottom:solid 4px #E5E5E5; margin-top:-1.35em; margin: 0.5em 10em 0.5em 4.5em;}
 #detailmetadata {margin-left: 1.6em; margin-top: .8em; text-align:right; margin: 0em 10em 0em 4.5em;}
-#bd h1 { font-weight:bold; font-size:2em; margin-top:1.2em; margin-bottom:1em; line-height:1.5em; } /* the detail page headline */
+#bd h1 { font-weight:bold; font-size:1.8em; margin:1.2em 0 0.3em 0.5em;} /* the detail page headline */
 #detailbody p { margin-bottom:1.15em; margin-top:1.15em;} /* the standard 'graph */
 #detailbody h2 { font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:1.2em; font-weight:bold; margin-top:1.66em;} /* the in-post subhede */
 #detailbody ol, #detailbody ul, #detailbody li {margin-bottom: 0.5em; margin-left: 1.25em;}
@@ -96,7 +96,7 @@ div.smalliconwrapper img { float:left;  }
 #django-link { color: rgb(72, 120, 88); font-weight: bold; }
 
 /* Comments */
-#comments {margin: 2em 10em 0em 2.5em; width:45em;}
+#comments {margin: 2em 10em 0em 4.5em; width:43em;}
 #comments h2 {margin-bottom:1em; font-size:1.35em; font-weight:bold;}
 .comment { margin:0 0 2em 2.5em; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
 .commenttopper { margin:0 0 0.5em 0; }
