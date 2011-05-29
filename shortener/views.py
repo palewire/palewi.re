@@ -43,6 +43,9 @@ def info(request, base62_id):
     """
     View which shows information on a particular link
     """
+    if settings.REQUIRE_LOGIN and not request.user.is_authenticated():
+        # TODO redirect to an error page
+        raise Http404
     key = base62.to_decimal(base62_id)
     link = get_object_or_404(Link, pk = key)
     values = default_values(request)
@@ -92,6 +95,9 @@ def index(request):
     """
     View for main page (lists recent and popular links)
     """
+    if settings.REQUIRE_LOGIN and not request.user.is_authenticated():
+        # TODO redirect to an error page
+        raise Http404
     values = default_values(request)
     values['recent_links'] = Link.objects.all().order_by('-date_submitted')[0:10]
     values['most_popular_links'] = Link.objects.all().order_by('-usage_count')[0:10]
