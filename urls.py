@@ -82,6 +82,7 @@ urlpatterns += patterns('',
 #    (r'^robots.txt$', include('robots.urls')),
     (r'^correx/', include('correx.urls')),
     (r'^cache/', include('django_memcached.urls')),
+    (r'!/', include('shortener.urls')),
 
 )
 

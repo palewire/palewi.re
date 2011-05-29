@@ -67,7 +67,14 @@ INSTALLED_APPS = (
     'haystack',
     'django_extensions',
     'nicar2011',
+    'shortener',
 )
+
+# Shortener settings
+REQUIRE_LOGIN = True
+SITE_NAME = 'palewire.com'
+SITE_BASE_URL = 'http://' + SITE_NAME + '/!/'
+
 
 if DEBUG_TOOLBAR:
     INTERNAL_IPS = ('127.0.0.1',)

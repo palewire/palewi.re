@@ -3,9 +3,6 @@ from django.conf.urls.defaults import *
 # Models
 from coltrane.models import Link, TopDomain
 
-# Utils
-from coltrane.utils.cloud import calculate_cloud
-
 index_dict = {
     'queryset': Link.objects.all().order_by("-pub_date"),
     'paginate_by': 25,
