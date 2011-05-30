@@ -1,29 +1,28 @@
 {% extends "coltrane/base.html" %}
 {% load greeking_tags %}
+
+{% block title %}shortened urls . {{ block.super }}{% endblock %}
+
 {% block content %}
-{% lorem_pixum 200 200 %}
-<h2>Recent Links</h2>
-<ul>
-{% for link in recent_links %}
-<li><a href="{{ link.short_url }}">{{ link.url }}</a> (Score: {{ link.usage_count }})
-(<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)</li>
-{% endfor %}
-</ul>
+    <div class="interiorlist">
+        <h2>Shortened URLs</h2>
+        <ul>
+            <h3>Recent Links</h3>
+            <ul>
+            {% for link in recent_links %}
+            <li><a href="{{ link.short_url }}">{{ link.url }}</a> (Score: {{ link.usage_count }})
+            (<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)</li>
+            {% endfor %}
+            </ul>
 
-<h2>Most Popular Links</h2>
-<ul>
-{% for link in most_popular_links %}
-<li><a href="{{ link.short_url }}">{{ link.url }}</a> (Score: {{ link.usage_count }})
-(<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)</li>
-{% endfor %}
-</ul>
+            <h3>Most Popular Links</h3>
+            <ul>
+            {% for link in most_popular_links %}
+            <li><a href="{{ link.short_url }}">{{ link.url }}</a> (Score: {{ link.usage_count }})
+            (<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)</li>
+            {% endfor %}
+            </ul>
+        </ul>
+    </div>
 {% endblock %}
 
-{% block extra_body %}
-<script>
-$(document).ready(
-  function() {
-    $("#id_u").focus().select();
-  });
-</script>  
-{% endblock %}

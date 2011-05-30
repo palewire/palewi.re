@@ -70,7 +70,6 @@ INSTALLED_APPS = (
 )
 
 # Shortener settings
-REQUIRE_LOGIN = True
 SITE_NAME = 'palewire.com'
 SITE_BASE_URL = 'http://' + SITE_NAME + '/!/'
 

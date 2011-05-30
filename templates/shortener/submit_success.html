@@ -3,27 +3,8 @@
 {% block title %}URL shortened{% endblock %}
 
 {% block content %}
-The following URL:<br/>
-<pre>
-{{ link.url }}
-</pre>
-<br/>
-Was shortened to:<br/>
-<input id="link" type="text" size="30"
+    <div class="interiorlist">
+    <input id="link" type="text" size="30" style="font-size:3em;"
        value="{{ link.short_url }}"/>
-<br/>
-<br/>
-Score: {{ link.usage_count }}
-(<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)
-<br/>
-<br/>
-{% endblock %}
-
-{% block extra_body %}
-<script>
-$(document).ready(
-  function() {
-    $("#link").focus().select();
-  });
-</script>  
+    </div>
 {% endblock %}

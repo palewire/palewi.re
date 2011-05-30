@@ -24,6 +24,7 @@ def follow(request, base62_id):
     link.save()
     return HttpResponsePermanentRedirect(link.url)
 
+
 def default_values(request, link_form=None):
     """ 
     Return a new object with the default values that are typically
@@ -39,11 +40,12 @@ def default_values(request, link_form=None):
              'link_form': link_form,
              }
 
+
 def info(request, base62_id):
     """
     View which shows information on a particular link
     """
-    if settings.REQUIRE_LOGIN and not request.user.is_authenticated():
+    if not request.user.is_authenticated():
         # TODO redirect to an error page
         raise Http404
     key = base62.to_decimal(base62_id)
@@ -55,11 +57,12 @@ def info(request, base62_id):
         values,
         context_instance=RequestContext(request))
 
+
 def submit(request):
     """
     View for submitting a URL
     """
-    if settings.REQUIRE_LOGIN and not request.user.is_authenticated():
+    if not request.user.is_authenticated():
         # TODO redirect to an error page
         raise Http404
     url = None
@@ -91,11 +94,12 @@ def submit(request):
         values,
         context_instance=RequestContext(request))
 
+
 def index(request):
     """
     View for main page (lists recent and popular links)
     """
-    if settings.REQUIRE_LOGIN and not request.user.is_authenticated():
+    if not request.user.is_authenticated():
         # TODO redirect to an error page
         raise Http404
     values = default_values(request)
@@ -106,8 +110,9 @@ def index(request):
         values,
         context_instance=RequestContext(request))
 
+
 def is_allowed_to_submit(request):
     """
     Return true if user is allowed to submit URLs
     """
-    return not settings.REQUIRE_LOGIN or request.user.is_authenticated()
+    return request.user.is_authenticated()
