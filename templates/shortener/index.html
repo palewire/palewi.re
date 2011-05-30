@@ -1,5 +1,7 @@
 {% extends "coltrane/base.html" %}
+{% load greeking_tags %}
 {% block content %}
+{% lorem_pixum 200 200 %}
 <h2>Recent Links</h2>
 <ul>
 {% for link in recent_links %}

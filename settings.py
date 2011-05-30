@@ -66,8 +66,8 @@ INSTALLED_APPS = (
     'django_memcached',
     'haystack',
     'django_extensions',
-    'nicar2011',
     'shortener',
+    'greeking',
 )
 
 # Shortener settings

@@ -101,6 +101,5 @@ else:
 # Goofy pluggable apps
 urlpatterns += patterns('',
     (r'^kennedy/', include('kennedy.urls')),
-    (r'^crossdomain.xml$', 'nicar2011.views.crossdomain'),
     #(r'^rapture/', include('rapture.urls')),
 )

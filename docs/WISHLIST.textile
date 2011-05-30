@@ -4,7 +4,7 @@ A bunch of crap I might do
 
 h3. TODO
 
-* URL shortener and bookmarklet
+* URL shortener bookmarklet
 * Maybe there should be a "selected" color on the icon that's currently in view
 * mobile phone template
 * Switch to pinboard from delicious. Or support both at least.
