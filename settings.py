@@ -61,7 +61,6 @@ INSTALLED_APPS = (
     'coltrane',
     'tagging',
     'kennedy',
-    'robots',
     'correx',
     'django_memcached',
     'haystack',
