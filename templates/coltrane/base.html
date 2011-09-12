@@ -78,11 +78,13 @@
         <div id="navbar" class="row">
             <div class="ninecol"></div>
             <div class="threecol last">
+                {% comment %}
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_app_list 1 %}" title="Applications">
                         <img src="{{ MEDIA_URL }}icons/apps.gif" width="30" alt="applications" />
                     </a>
                 </div>
+                {% endcomment %}
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
                         <img src="{{ MEDIA_URL }}icons/posts.gif" width="30" alt="posts" />
