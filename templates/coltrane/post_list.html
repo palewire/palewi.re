@@ -4,22 +4,18 @@
 {% block title %}posts . {{ block.super }}{% endblock %}
 
 {% block content %}
-	<div class="interiorlist">
-		<h2><img style="vertical-align:text-bottom;" src="/media/icons/posts.gif" alt="posts"/>&nbsp;Posts</h2>
-		<ul>
-		{% for object in object_list %}
-			{% ifchanged object.pub_date.day %}
-			<li class="interior-date">{{ object.pub_date|date:"F d, Y" }}</li>
-			{% endifchanged %}
-			<li>
-				<a href="{{ object.get_absolute_url }}">
-				{{ object.pub_date|date:"H:i" }}&nbsp;&nbsp;&nbsp;{{ object }}
-				</a> 
-			</li>
-		{% endfor %}
-		</ul>
-	</div>
-
-	{% include 'coltrane/pagination.html' %}
-
+    <div class="interiorlist twelvecol last">
+        <h2><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/posts.gif" alt="posts"/>&nbsp;Posts</h2>
+        <ul>
+        {% for object in object_list %}
+            {% ifchanged object.pub_date.year %}
+            <li class="interior-date">{{ object.pub_date|date:"Y" }}</li>
+            {% endifchanged %}
+            <li>
+                {{ object.pub_date|date:"N d" }}&nbsp;&nbsp;&nbsp;
+                <a href="{{ object.get_absolute_url }}">{{ object }}</a> 
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
