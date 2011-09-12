@@ -80,7 +80,7 @@ def tag_detail(request, tag):
     object_list.sort(key=lambda x: x.pub_date, reverse=True)
 
     # Pass it out
-    return render_to_response('coltrane/tag_detail.html', { 
+    return direct_to_template(request, 'coltrane/tag_detail.html', { 
             'tag': tag, 
             'object_list': object_list,
         })

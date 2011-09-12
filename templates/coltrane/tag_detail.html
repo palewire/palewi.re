@@ -5,20 +5,21 @@
 {% block title %}{{ tag }} . tags . {{ block.super }}{% endblock %}
 
 {% block extrarss %}
-	<link rel="alternate" type="application/rss+xml" title="latest tagged {{ tag }}" href="/feeds/tag/{{ tag }}/"/>
+    <link rel="alternate" type="application/rss+xml" title="latest tagged {{ tag }}" href="/feeds/tag/{{ tag }}/"/>
 {% endblock %}
 
 {% block content %}
-	<div class="interiorlist">
-		<h2>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</h2>
-		<ul>
-		{% for object in object_list %}
-			{% ifchanged object.pub_date.day %}<h3>{{ object.pub_date|date:"F d, Y" }}</h3>{% endifchanged %}
-			<li>
-				{{ object.get_rendered_html }}
-				</a> 
-			</li>
-		{% endfor %}
-	</div>
-
+    <div class="interiorlist twelvecol last">
+        <h2>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</h2>
+        <ul>
+        {% for object in object_list %}
+            {% ifchanged object.pub_date.month %}
+            <li class="interior-date">{{ object.pub_date|date:"N Y" }}</li>
+            {% endifchanged %}
+            <li>
+                {{ object.get_rendered_html }}
+                </a> 
+            </li>
+        {% endfor %}
+    </div>
 {% endblock %}
