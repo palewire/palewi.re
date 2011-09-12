@@ -44,11 +44,11 @@ div.smalliconwrapper img { float:left;  }
 #bd h1 { font-weight:bold; font-size:1.8em; margin:0 0 0.5em 0; line-height:150%;} /* the detail page headline */
 #bd h1 img {vertical-align:text-bottom; margin-right:0.3em;} /* Icon in the headline */
 #detailbody p { margin-bottom:1em;} /* the standard 'graph */
-#detailbody h2 { font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:1.2em; font-weight:bold; margin-top:1.66em;} /* the in-post subhede */
+#detailbody h2 { font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:1.2em; font-weight:bold; margin-top:1em;} /* the in-post subhede */
 #detailbody ol, #detailbody ul, #detailbody li {margin-bottom: 0.5em; margin-left: 1.25em;}
 #detailbody ul li {list-style-type: disc;}
 #detailbody ol li {list-style-type: decimal;}
-#detailbody blockquote {margin-top: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
+#detailbody blockquote {margin-bottom: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
 #detailbody pre { margin-left:1.2em; line-height:1.3em;}
 
 /* Metadata about blog posts */
@@ -76,7 +76,7 @@ form#commentform {padding: 0;}
 .commentformright, div.commentformleft {display: inline;float:left;margin: 0.3em 0;}
 
 /* Footer stuff */
-#ft { margin-top: 1em; font-size: .75em;  border-top:solid 2px #E5E5E5;}
+#ft { margin-top: 1em; font-size: .75em;  border-top:solid 2px #E5E5E5; padding-top:0.3em; margin-bottom:1.5em;}
 #django-link { color: rgb(72, 120, 88); font-weight: bold; }
 
 /* misc for newtwitter example */
@@ -85,6 +85,7 @@ ul.newtwitter li { list-style-type:none !important; }
 ul.newtwitter li a { text-decoration:none !important; font-weight:normal !important;}
 
 /* Pygments styles for source code in posts */
+.source {margin-bottom:1em;}
 .source .hll { background-color: #ffffcc }
 .source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}
 .source .c { color: #408080; font-style: italic } /* Comment */
