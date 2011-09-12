@@ -4,31 +4,51 @@
 {% block title %}who is ben welsh? . {{ block.super }}{% endblock %}
 
 {% block content %}
-<div class="vcard">
+<div class="vcard twelvecol last">
     
-        <div class="bioimg">
-            <img class="photo" alt="Ben Welsh" src="http://www.palewire.com/media/img/headphones.png" />
+        <div class="row">
+            <div class="threecol"></div>
+            <div class="sixcol">
+                <img class="photo" alt="Ben Welsh" title="Ben Welsh" src="{{ MEDIA_URL }}img/headphones-480.png" />
+            </div>
+            <div class="threecol last"></div>
         </div>
-        <div class="biobumper"></div>
-        <div class="biotext">
-            <p>
-                Hey. My name is <span class="fn n"><span class="given-name">Ben</span> <span class="family-name">Welsh</span></span>. This is my website.
-            </p>
-            <p>
-                If we haven’t met already, it’s pretty quick. I’m a native Iowan living in <span class="adr"><span class="locality">Los Angeles</span></span>. I like to use this space to post about whatever I’m off on at the moment. It’s supposed to be fun, but I’m not making any promises.
-            </p>
-            <p>
-                I work as a reporter, albeit a somewhat unconventional one. My job calls on me to specialize in what is often called <a href="http://en.wikipedia.org/wiki/Computer-assisted_reporting">computer-assisted reporting</a>. Journalists in the past were often
-hack novelists. I'm a hack web developer. I use computers to collect, organize, analyze and present large amounts of information. Databases. Web apps. Maps. That stuff.
-            </p>
-            <p>
-                I work at <a href="http://www.latimes.com">The Los Angeles Times</a>, a daily newspaper and 24-hour website based in <span class="adr"><span class="region">Southern California</span></span>. Nothing I write here should be read as the opinion of that organization.
-            </p>
-            <p>
-                Before working at the Times, I worked on investigative projects at <a href="http://www.publicintegrity.org">The Center for Public Integrity</a>, covered state politics and elections in Jefferson City, Missouri, helped produce long-form documentaries for cable channels like CNN and Discovery Times, and pitched in on some television and newspaper reporting in Chicago. I earned a master’s degree from the Missouri School of Journalism — where I worked at the <a href="http://www.nicar.org">National Institute for Computer-Assisted Reporting</a> (NICAR) — after receiving my undergraduate training at DePaul University.
-            </p>
+        
+        <div class="row">
+            <div class="twocol"></div>
+            <div class="detailborderbumper eightcol"></div>
+            <div class="twocol last"></div>
         </div>
-        <div class="biobumper"></div>
+        
+        <div class="biotext row">
+            <div class="onecol"></div>
+            <div class="tencol">
+                <p>
+                    Hey. My name is <span class="fn n"><span class="given-name">Ben</span> <span class="family-name">Welsh</span></span>. This is my website.
+                </p>
+                <p>
+                    If we haven’t met already, it’s pretty quick. I’m a native Iowan living in <span class="adr"><span class="locality">Los Angeles</span></span>. I like to use this space to post about whatever I’m off on at the moment. It’s supposed to be fun, but I’m not making any promises.
+                </p>
+                <p>
+                    I work as a reporter, albeit a somewhat unconventional one. My job calls on me to specialize in what is often called <a href="http://en.wikipedia.org/wiki/Computer-assisted_reporting">computer-assisted reporting</a>. Journalists in the past were often
+    hack novelists. I'm a hack web developer. I use computers to collect, organize, analyze and present large amounts of information. Databases. Web apps. Maps. That stuff.
+                </p>
+                <p>
+                    I work at <a href="http://www.latimes.com">The Los Angeles Times</a>, a daily newspaper and 24-hour website based in <span class="adr"><span class="region">Southern California</span></span>. Nothing I write here should be read as the opinion of that organization.
+                </p>
+                <p>
+                    Before working at the Times, I worked on investigative projects at <a href="http://www.publicintegrity.org">The Center for Public Integrity</a>, covered state politics and elections in Jefferson City, Missouri, helped produce long-form documentaries for cable channels like CNN and Discovery Times, and pitched in on some television and newspaper reporting in Chicago. I earned a master’s degree from the Missouri School of Journalism — where I worked at the <a href="http://www.nicar.org">National Institute for Computer-Assisted Reporting</a> (NICAR) — after receiving my undergraduate training at DePaul University.
+                </p>
+            </div>
+            <div class="onecol last"></div>
+        </div>
+
+        <div class="row">
+            <div class="twocol"></div>
+            <div class="detailborderbumper eightcol"></div>
+            <div class="twocol last"></div>
+        </div>
+
         <div class="biotext">
             <p>
                 <b>Technical Skills</b>

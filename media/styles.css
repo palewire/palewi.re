@@ -35,6 +35,14 @@ a:active {text-decoration: underline; font-weight:normal; color: red;}
 div.smalliconwrapper { width:33px; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline;}
 div.smalliconwrapper img { float:left;  }
 
+/* who-is-ben-welsh */
+.bioimg {text-align:center; margin-bottom:1.15em;}
+.bioimg img {}
+#biobumper.thin {display:block; clear:both; margin-left:auto; margin-right: auto; width: 35em; height: 0.01em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+.biobumper {display:block; clear:both; margin-left:auto; margin-right: auto;width: 35em; height: 0.01em; padding: 0.15em; background:#E5E5E5 none repeat scroll 0% 50%; color:#444444;}
+.biotext p { margin-bottom:1em;}
+.biotext ol, .biotext ul, .biotext li {margin-bottom: 0.5em; margin-left: 1.25em; list-style-type: disc;}
+
 /* The content block */
 #bd {text-align:left;}
 
