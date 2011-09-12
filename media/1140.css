@@ -84,35 +84,42 @@ max-width: 100%;
 }
 
 img {
-	height: auto;
+    height: auto;
 }
 
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 500px) {
 
-	body {
-	font-size: 14px;
-	-webkit-text-size-adjust: none;
-	}
-	
-	.row, body, .container {
-	width: 100%;
-	min-width: 0;
-	margin-left: 0px;
-	margin-right: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
-	}
-	
-	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
-	width: auto;
-	float: none;
-	margin-left: 0px;
-	margin-right: 0px;
-	padding-left: 20px;
-	padding-right: 20px;
-	}
+    body {
+    font-size: 14px;
+    -webkit-text-size-adjust: none;
+    }
+    
+    .row, body, .container {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    }
+    
+    .row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+    width: auto;
+    float: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+    
+    #whois {
+        float: none;
+        overflow: hidden;
+        padding: 10px 20px 0 25px;
+        text-align: left;
+    }
 
 }
