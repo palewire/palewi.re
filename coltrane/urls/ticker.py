@@ -10,7 +10,7 @@ urlpatterns = patterns('django.views.generic',
 	# Pagination
 	url(r'^page/(?P<page>[0-9]+)/$', 'list_detail.object_list', { 
 		'queryset': Ticker.objects.all().order_by('-pub_date'),
-		'paginate_by': 20,
+		'paginate_by': 50,
 		}, name='coltrane_ticker_list'),
 
 )
