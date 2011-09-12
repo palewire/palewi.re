@@ -15,7 +15,7 @@
         <ul>
         {% for object in object_list %}
             {% ifchanged object.pub_date.date %}
-            <li class="interior-date">{{ object.pub_date|date:"F d, Y" }}</li>
+            <li class="interior-date">{{ object.pub_date|date:"N d, Y" }}</li>
             {% endifchanged %}
                 <li>
                     {{ object.get_rendered_html }}
