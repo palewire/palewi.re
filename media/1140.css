@@ -14,7 +14,7 @@ padding-right: 20px;
 
 .row {
 width: 100%;
-max-width: 1140px;
+max-width: 900px;
 min-width: 755px;
 margin: 0 auto;
 overflow: hidden;
@@ -86,18 +86,6 @@ max-width: 100%;
 img {
 	height: auto;
 }
-
-
-/* Smaller screens */
-
-@media only screen and (max-width: 1023px) {
-
-	body {
-	font-size: 0.8em;
-	line-height: 1.5em;
-	}
-	
-	}
 
 
 /* Mobile */

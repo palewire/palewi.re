@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 {% load coltrane_tags %}
+{% get_random_slogan %}
 
 <head>
     <title>{% block title %}palewire{% endblock %}</title>
@@ -12,7 +13,7 @@
     <meta name="verify-v1" content="gY50FIiS1ZkWlR0vmMn+q/qv5ihAfW8cRQIFBU1+5d0=" />
     <meta name="google-site-verification" content="cKY9by450sOARZLyJVRAi4Vb4ozIMCxoneuxm2HEtcY" />
     
-    {# <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}reset-fonts-grids.css"/> #}
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}reset-fonts-grids.css"/>
     {# <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}style.css"/> #}
     
     <link rel="stylesheet" href="{{ MEDIA_URL }}1140.css" type="text/css" media="screen" />
@@ -44,7 +45,6 @@
     <script type="text/javascript"> 
     //<![CDATA[
     $(document).ready(function(){
-        {% include "coltrane/nav.js" %}
         {% block extradocready %}
         {% endblock %}
     });
@@ -56,61 +56,62 @@
 </head>
 <body {%block extrabody %}{% endblock %}>
     
-    <div id="doc" class="yui-t7">
-
-        <div id="hd">
-            <h1>
-                <a href="/">
-                    palewire
-                </a>
-            </h1>
-            
-            <h2>
-                <a href="/who-is-ben-welsh/">Who is Ben Welsh?</a>
-            </h2>
+    <div id="container" class="container">
+        <div id="hd" class="row">
+            <div class="ninecol">
+                <h1>
+                    <a href="/" title="{{ random_slogan }}">
+                        palewire
+                    </a>
+                </h1>
+            </div>
+            <div class="threecol last" id="whois">
+                <h2>
+                    <a href="/who-is-ben-welsh/" title="All about Ben">Who is Ben Welsh?</a>
+                </h2>
+            </div>
         </div>
-        
-        <div id="topbar"></div>
-        <div id="navbar">
-
-            <div class="smalliconwrapper">
-                <a href="{% url coltrane_app_list 1 %}" title="Applications">
-                    <img src="{{ MEDIA_URL }}icons/apps.gif" width="30" alt="applications" />
-                </a>
-            </div>
-
-            <div class="smalliconwrapper">
-                <a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
-                    <img src="{{ MEDIA_URL }}icons/posts.gif" width="30" alt="posts" />
-                </a>
-            </div>
             
-            <div class="smalliconwrapper">
-                <a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
-                    <img src="{{ MEDIA_URL }}icons/ticker.gif" width="30" alt="ticker" />
-                </a>
-            </div>
-            
+        <div id="topbar" class="row">
+            <div class="twelvecol last"></div>
         </div>
-        
-        <div id="bd">
-            <div class="yui-g">
-                {% block content %}
-                {% endblock %}
+        <div id="navbar" class="row">
+            <div class="ninecol"></div>
+            <div class="threecol last">
+                <div class="smalliconwrapper">
+                    <a href="{% url coltrane_app_list 1 %}" title="Applications">
+                        <img src="{{ MEDIA_URL }}icons/apps.gif" width="30" alt="applications" />
+                    </a>
+                </div>
+                <div class="smalliconwrapper">
+                    <a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
+                        <img src="{{ MEDIA_URL }}icons/posts.gif" width="30" alt="posts" />
+                    </a>
+                </div>
+                <div class="smalliconwrapper">
+                    <a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
+                        <img src="{{ MEDIA_URL }}icons/ticker.gif" width="30" alt="ticker" />
+                    </a>
+                </div>
             </div>
-        </div> 
-        
+        </div>
+            
+        <div id="bd" class="row">
+            {% block content %}
+            {% endblock %}
+        </div>
+            
         {% get_current_year %}
-        <div id="ft">
-            <h4>
+        <div id="ft" class="row">
+            <div class="twelvecol last">
                 © {{ current_year }} palewire . 
                 <a href="/colophon/">colophon</a> . 
                 <a href="/feeds/list/" title="Feeds">rss feeds</a> . 
                 </a>
                 powered by <a id="django-link" href="http://www.djangoproject.com/">django</a>
-            </h4>
+            </div>
         </div>
-
+        
     </div>
 
 <script type="text/javascript">

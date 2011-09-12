@@ -1,3 +1,4 @@
+import random
 from django import template
 from datetime import datetime
 from django.db.models import get_model
@@ -11,7 +12,7 @@ def do_random_slogan(parser,token):
 class RandomSloganNode(template.Node):
     def render(self, context):
         try:
-            random_slogan = Slogan.objects.all().order_by("?")[0]
+            random_slogan = random.choice(Slogan.objects.all())
             context['random_slogan'] = random_slogan
         except:
             context['random_slogan'] = ''

@@ -1,4 +1,154 @@
 /* ============================== */
+/* ! Global styles                */
+/* ============================== */
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 16px; 
+    line-height:1.5em; 
+}
+
+/* Anchor tag settings to make links appear normal until hovered over, when they should bold out */
+a:link {text-decoration: underline; font-weight:bold; color:black;}
+a:visited {text-decoration: underline; font-weight:bold; color:black;}
+a:hover {text-decoration: underline; color:gray; font-weight:bold;}
+a:active {text-decoration: underline; font-weight:bold; color: red;}
+
+/* The header */
+#hd {display:block; margin-top:1.5em; margin-bottom:0.5em;}
+#hd h1 { margin: 0; font-size: 1.8em; font-weight: bold; padding-left:0.15em; text-align:left;} /* the "palewire" title in the upper left hand corner */
+#hd h1 a {text-decoration:none;}
+#whois {text-align:right; margin-top:0.2em; } /* the WHOIS link in the upper right hand corner */
+#whois h2 { font-size:1em; display:inline; } 
+#hd span { font-size: .55em; clear:both; text-transform:lowercase;} /* The random phrase that appears on hoverover of the title */
+
+/* The horizontal gray bar that appears beneath the title line */
+#topbar {border-bottom:solid 10px #E5E5E5;}
+#navbar { text-align:right; display:block; margin-bottom: 0.25em; margin-top: 0.25em; padding: 0.15em;}
+#navbar a:link{text-decoration: none; color:black; font-weight:normal;}
+#navbar a:visited{text-decoration: none; color: black; font-weight:normal;}
+#navbar a:hover{text-decoration: none; color:black; font-weight:normal;}
+#navbar a:active{text-decoration: none; color: black; font-weight:normal;}
+#navbar a:focus {outline: none;}
+
+/* Icons */
+div.smalliconwrapper { width:33px; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline;}
+div.smalliconwrapper img { float:left;  }
+
+/* The content block */
+#bd {text-align:left;}
+
+/* Blog posts */
+#detailbody {margin: 0 1.1em 1.1em 0.15em; text-align:left;}
+.detailborderbumper {border-bottom:solid 2px #E5E5E5; margin: 0.5em 0 0.5em 0;}
+#bd h1 { font-weight:bold; font-size:1.8em; margin:0 0 0.5em 0; line-height:150%;} /* the detail page headline */
+#bd h1 img {vertical-align:text-bottom; margin-right:0.3em;} /* Icon in the headline */
+#detailbody p { margin-bottom:1em;} /* the standard 'graph */
+#detailbody h2 { font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:1.2em; font-weight:bold; margin-top:1.66em;} /* the in-post subhede */
+#detailbody ol, #detailbody ul, #detailbody li {margin-bottom: 0.5em; margin-left: 1.25em;}
+#detailbody ul li {list-style-type: disc;}
+#detailbody ol li {list-style-type: decimal;}
+#detailbody blockquote {margin-top: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
+#detailbody pre { margin-left:1.2em; line-height:1.3em;}
+
+/* Metadata about blog posts */
+#detailmetadata { text-align:right; margin: 0; }
+#detailmetadata p { margin:0.5em 0; font-size:0.95em;}
+#relatedposts {}
+
+/* Comments */
+#comments {margin: 0.3em 0 0 0;}
+#comments h2 {margin-bottom:1em; font-size:1.35em; font-weight:bold;}
+.comment { margin:0 0 2em 2.5em; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
+.commenttopper { margin:0 0 0.5em 0; }
+.commentname {block:inline; font-size:1.4em; font-weight:bold; margin: 0 0em 0 0;}
+.commentdate {block:inline; font-size: 0.8em;}
+.commenttext {block:inline; margin: 0 0 0.5em 0; }
+.commentfooter {}
+#comments a:link {text-decoration: none; font-weight:bold; color:black;}
+#comments a:visited {text-decoration: none; font-weight:bold; color:black;}
+#comments a:hover {text-decoration: none; color:gray; font-weight:bold;}
+#comments a:active {text-decoration: none; font-weight:bold; color: red;}
+form#commentform {padding: 0;}
+.commentformwrapper {font-size: 1em;}
+.commentformleft {clear: both;padding: 0.2em 0.75em 0.2em 0;text-align:right;width: 6em;font-weight: bold;}
+.commentformright {padding: 0.2em 0;text-align: left;width: 75%;}
+.commentformright, div.commentformleft {display: inline;float:left;margin: 0.3em 0;}
+
+/* Footer stuff */
+#ft { margin-top: 1em; font-size: .75em;  border-top:solid 2px #E5E5E5;}
+#django-link { color: rgb(72, 120, 88); font-weight: bold; }
+
+/* misc for newtwitter example */
+ul.newtwitter { margin-left:0em !important; }
+ul.newtwitter li { list-style-type:none !important; }
+ul.newtwitter li a { text-decoration:none !important; font-weight:normal !important;}
+
+/* Pygments styles for source code in posts */
+.source .hll { background-color: #ffffcc }
+.source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}
+.source .c { color: #408080; font-style: italic } /* Comment */
+.source .err { border: 1px solid #FF0000 } /* Error */
+.source .k { color: #008000; font-weight: bold } /* Keyword */
+.source .o { color: #666666 } /* Operator */
+.source .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.source .cp { color: #BC7A00 } /* Comment.Preproc */
+.source .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.source .cs { color: #408080; font-style: italic } /* Comment.Special */
+.source .gd { color: #A00000 } /* Generic.Deleted */
+.source .ge { font-style: italic } /* Generic.Emph */
+.source .gr { color: #FF0000 } /* Generic.Error */
+.source .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.source .gi { color: #00A000 } /* Generic.Inserted */
+.source .go { color: #808080 } /* Generic.Output */
+.source .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.source .gs { font-weight: bold } /* Generic.Strong */
+.source .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.source .gt { color: #0040D0 } /* Generic.Traceback */
+.source .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.source .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.source .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.source .kp { color: #008000 } /* Keyword.Pseudo */
+.source .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.source .kt { color: #B00040 } /* Keyword.Type */
+.source .m { color: #666666 } /* Literal.Number */
+.source .s { color: #BA2121 } /* Literal.String */
+.source .na { color: #7D9029 } /* Name.Attribute */
+.source .nb { color: #008000 } /* Name.Builtin */
+.source .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.source .no { color: #880000 } /* Name.Constant */
+.source .nd { color: #AA22FF } /* Name.Decorator */
+.source .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.source .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.source .nf { color: #0000FF } /* Name.Function */
+.source .nl { color: #A0A000 } /* Name.Label */
+.source .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.source .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.source .nv { color: #19177C } /* Name.Variable */
+.source .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.source .w { color: #bbbbbb } /* Text.Whitespace */
+.source .mf { color: #666666 } /* Literal.Number.Float */
+.source .mh { color: #666666 } /* Literal.Number.Hex */
+.source .mi { color: #666666 } /* Literal.Number.Integer */
+.source .mo { color: #666666 } /* Literal.Number.Oct */
+.source .sb { color: #BA2121 } /* Literal.String.Backtick */
+.source .sc { color: #BA2121 } /* Literal.String.Char */
+.source .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.source .s2 { color: #BA2121 } /* Literal.String.Double */
+.source .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.source .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.source .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.source .sx { color: #008000 } /* Literal.String.Other */
+.source .sr { color: #BB6688 } /* Literal.String.Regex */
+.source .s1 { color: #BA2121 } /* Literal.String.Single */
+.source .ss { color: #19177C } /* Literal.String.Symbol */
+.source .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.source .vc { color: #19177C } /* Name.Variable.Class */
+.source .vg { color: #19177C } /* Name.Variable.Global */
+.source .vi { color: #19177C } /* Name.Variable.Instance */
+.source .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+/* ============================== */
 /* ! Layout for desktop version   */
 /* ============================== */
 
