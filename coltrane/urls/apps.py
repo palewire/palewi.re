@@ -8,9 +8,12 @@ urlpatterns = patterns('django.views.generic.simple',
         name='coltrane_app_root'),
     
     # List
-    url(r'^page/(?P<page>[0-9]+)/$', 'direct_to_template', { 
-            'template': 'coltrane/app_list.html',
-        }, name='coltrane_app_list'),
+    url(r'^page/(?P<page>[0-9]+)/$', 'redirect_to', { 'url': '/ticker/page/1/' },
+        name='coltrane_app_root'),
+
+#    url(r'^page/(?P<page>[0-9]+)/$', 'direct_to_template', { 
+#            'template': 'coltrane/app_list.html',
+#        }, name='coltrane_app_list'),
     
     # newtwitter style autopagination with django
     url(r'^twitter-style-infinite-scroll-with-django-demo/$',

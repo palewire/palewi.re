@@ -16,8 +16,9 @@ urlpatterns = patterns('django.views.generic',
     url(r'^$', 'simple.redirect_to', { 'url': '/links/page/1/' }, name='coltrane_link_root'),
     
     # Pagination
-    url(r'^page/(?P<page>[0-9]+)/$', 'list_detail.object_list', index_dict, name='coltrane_link_list'),
-    
+    #url(r'^page/(?P<page>[0-9]+)/$', 'list_detail.object_list', index_dict, name='coltrane_link_list'),
+    url(r'^page/(?P<page>[0-9]+)/$', 'simple.redirect_to', { 'url': '/ticker/page/1/' },
+        name='coltrane_link_list'),
 )
 
 
