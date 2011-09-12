@@ -1,6 +1,3 @@
-
-	<a class="post" href="{{ object.get_absolute_url }}">
-		{{ object.pub_date|date:"H:i" }}&nbsp;
-		<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="posts" />&nbsp;
-		{{ object|truncatewords:8 }}
-	</a>
+{{ object.pub_date|date:"H:i" }}&nbsp;
+<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="posts" />&nbsp;
+<a class="post" href="{{ object.get_absolute_url }}">{{ object|truncatewords:8 }}</a>

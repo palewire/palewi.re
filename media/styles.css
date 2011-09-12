@@ -9,15 +9,15 @@ body {
 }
 
 /* Anchor tag settings to make links appear normal until hovered over, when they should bold out */
-a:link {text-decoration: underline; font-weight:bold; color:black;}
-a:visited {text-decoration: underline; font-weight:bold; color:black;}
-a:hover {text-decoration: underline; color:gray; font-weight:bold;}
-a:active {text-decoration: underline; font-weight:bold; color: red;}
+a:link {text-decoration: underline; font-weight:normal; color:black;}
+a:visited {text-decoration: underline; font-weight:normal; color:black;}
+a:hover {text-decoration: underline; color:gray; font-weight:normal;}
+a:active {text-decoration: underline; font-weight:normal; color: red;}
 
 /* The header */
 #hd {display:block; margin-top:1.5em; margin-bottom:0.5em;}
 #hd h1 { margin: 0; font-size: 1.8em; font-weight: bold; padding-left:0.15em; text-align:left;} /* the "palewire" title in the upper left hand corner */
-#hd h1 a {text-decoration:none;}
+#hd h1 a {text-decoration:none; font-weight:bold;}
 #whois {text-align:right; margin-top:0.2em; } /* the WHOIS link in the upper right hand corner */
 #whois h2 { font-size:1em; display:inline; } 
 #hd span { font-size: .55em; clear:both; text-transform:lowercase;} /* The random phrase that appears on hoverover of the title */
@@ -55,6 +55,11 @@ div.smalliconwrapper img { float:left;  }
 #detailmetadata { text-align:right; margin: 0; }
 #detailmetadata p { margin:0.5em 0; font-size:0.95em;}
 #relatedposts {}
+
+/* Page navigation toys */
+#paginationwrapper {clear:both; margin-top: 1em; font-size:1.2em;}
+#paginationleft {text-align:left; font-weight:bold;}
+#paginationright {text-align:right; font-weight:bold;}
 
 /* Comments */
 #comments {margin: 0.3em 0 0 0;}

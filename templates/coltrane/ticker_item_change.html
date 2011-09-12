@@ -1,6 +1,4 @@
 
-<a class="comment-ticker" href="/corrections/{{ object.id }}/">
-	{{ object.pub_date|date:"H:i" }}&nbsp;
-	<img style="vertical-align:text-top;" src="/media/icons/loop.png" alt="corrections" />&nbsp;
-	{{ object|truncatewords:8 }}
-</a>
+    {{ object.pub_date|date:"H:i" }}&nbsp;
+    <img style="vertical-align:text-top;" src="/media/icons/loop.png" alt="corrections" />&nbsp;
+    <a class="comment-ticker" href="/corrections/{{ object.id }}/">{{ object|truncatewords:8 }}</a>

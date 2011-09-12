@@ -10,20 +10,20 @@
 
 {% block content %}
 
-	<div class="interiorlist">
-		<h2><img style="vertical-align:text-bottom;" src="/media/icons/ticker.gif" alt="ticker"/>&nbsp;Ticker</h2>
-		<ul>
-		{% for object in object_list %}
-			{% ifchanged object.pub_date.date %}
-			<li class="interior-date">{{ object.pub_date|date:"F d, Y" }}</li>
-			{% endifchanged %}
-				<li>
-					{{ object.get_rendered_html }}
-				</li>
-		{% endfor %}
-		</ul>
-	</div>
-		
-	{% include 'coltrane/pagination.html' %}
-	
+    <div class="interiorlist twelvecol last">
+        <h2><img style="vertical-align:text-bottom;" src="/media/icons/ticker.gif" alt="ticker"/>&nbsp;Ticker</h2>
+        <ul>
+        {% for object in object_list %}
+            {% ifchanged object.pub_date.date %}
+            <li class="interior-date">{{ object.pub_date|date:"F d, Y" }}</li>
+            {% endifchanged %}
+                <li>
+                    {{ object.get_rendered_html }}
+                </li>
+        {% endfor %}
+        </ul>
+    </div>
+        
+    {% include 'coltrane/pagination.html' %}
+    
 {% endblock %}

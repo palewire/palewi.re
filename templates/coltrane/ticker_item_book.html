@@ -1,6 +1,5 @@
 
-	<a class="book" href="{{ object.url }}">
-		{{ object.pub_date|date:"H:i" }}&nbsp;
-		<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="books"/>&nbsp;
-		{{ object|striptags|truncatewords:8 }}
-	</a>
+    
+        {{ object.pub_date|date:"H:i" }}&nbsp;
+        <img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="books"/>&nbsp;
+        <a class="book" href="{{ object.url }}">{{ object|striptags|truncatewords:8 }}</a>

@@ -1,15 +1,15 @@
 {% if is_paginated %}
-<div id="paginationwrapper">
-	{% if has_previous %}
-	<div id="paginationleft">
-		<a href="../{{ previous }}/">< Previous</a>
-	</div>
-	{% endif %}
-
-	{% if has_next %}
-	<div id="paginationright">
-		<a href="../{{ next }}/">Next ></a>
-	</div>
-	{% endif %}
+<div id="paginationwrapper" class="row">
+    <div id="paginationleft" class="twocol">
+        {% if has_previous %}
+        <a href="../{{ previous }}/">< Previous</a>
+        {% endif %}
+    </div>
+    <div class="eightcol"></div>
+    <div id="paginationright" class="twocol last">
+        {% if has_next %}
+        <a href="../{{ next }}/">Next ></a>
+    {% endif %}
+    </div>
 </div>
 {% endif %}

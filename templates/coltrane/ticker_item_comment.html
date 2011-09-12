@@ -1,6 +1,5 @@
 
-	<a class="comment-ticker" href="{{ object.get_absolute_url }}">
-		{{ object.submit_date|date:"H:i" }}&nbsp;
-		<img style="vertical-align:text-top;" src="/media/icons/comments.gif" alt="comments" />&nbsp;
-		{{ object|truncatewords:8 }}
-	</a>
+    
+        {{ object.submit_date|date:"H:i" }}&nbsp;
+        <img style="vertical-align:text-top;" src="/media/icons/comments.gif" alt="comments" />&nbsp;
+        <a class="comment-ticker" href="{{ object.get_absolute_url }}">{{ object|truncatewords:8 }}</a>
