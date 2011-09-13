@@ -11,7 +11,7 @@
 {% block content %}
 
     <div class="interiorlist twelvecol last">
-        <h2><img style="vertical-align:text-bottom;" src="/media/icons/ticker.gif" alt="ticker"/>&nbsp;Ticker</h2>
+        <h2><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/ticker.gif" alt="ticker"/>&nbsp;Ticker</h2>
         <ul>
         {% for object in object_list %}
             {% ifchanged object.pub_date.date %}

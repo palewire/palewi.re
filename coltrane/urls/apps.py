@@ -4,16 +4,13 @@ from coltrane import views
 urlpatterns = patterns('django.views.generic.simple',
     
     # The root url
-    url(r'^$', 'redirect_to', { 'url': '/applications/page/1/' },
-        name='coltrane_app_root'),
+    url(r'^$', 'direct_to_template', { 
+            'template': 'coltrane/app_list.html',
+        }, name='coltrane_app_list'),
     
-    # List
-    url(r'^page/(?P<page>[0-9]+)/$', 'redirect_to', { 'url': '/ticker/page/1/' },
+    # Old page redirect
+    url(r'^page/(?P<page>[0-9]+)/$', 'redirect_to', { 'url': '/applications/' },
         name='coltrane_app_root'),
-
-#    url(r'^page/(?P<page>[0-9]+)/$', 'direct_to_template', { 
-#            'template': 'coltrane/app_list.html',
-#        }, name='coltrane_app_list'),
     
     # newtwitter style autopagination with django
     url(r'^twitter-style-infinite-scroll-with-django-demo/$',
