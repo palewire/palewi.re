@@ -98,8 +98,8 @@ form#commentform {padding: 0;}
 .interiorlist li.interior-date {padding-left:0; font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
 
 /* app list */ 
-.applist {padding-left: 1em; margin-bottom:1em;}
-.applist h1 {font-family:Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; font-size: 1.5em !important;}
+.applist {}
+.applist h1 {margin-bottom:1em; font-family:Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; font-size: 1.5em !important;}
 .appitem {padding-top:1em; padding-bottom:3em;}
 .appimage {vertical-align:bottom;}
 .apptext {height:auto; vertical-align:top;}
