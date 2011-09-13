@@ -4,12 +4,12 @@
 {% block title %}feeds . {{ block.super }}{% endblock %}
 
 {% block content %}
-    <div class="interiorlist">
-        <h2><img style="vertical-align:text-bottom;" src="/media/icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h2>
+    <div class="interiorlist twelvecol last feeds">
+        <h2><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h2>
         <ul>
             <li class="interior-date">Bundles</li>
             <li><a href="{% url coltrane_feeds "the-full-feed" %}">The Full Feed</a></li>
-            <li><a href="{% url coltrane_feeds "less-noise" %}">Less Noise ("Everything except tracks")</a></li>
+            <li><a href="{% url coltrane_feeds "less-noise" %}">Less Noise ("Everything but tracks")</a></li>
             <li class="interior-date">Singletons</li>
             <li><a href="{% url coltrane_feeds "books" %}">Books</a></li>
             <li><a href="{% url coltrane_feeds "commits" %}">Code commits</a></li>
