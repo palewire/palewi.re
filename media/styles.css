@@ -96,8 +96,8 @@ form#commentform {padding: 0;}
 .interiorlist {}
 .interiorlist .left-bump {margin-left:0.8em;}
 .interiorlist h3 {font-weight:bold; font-size:1.3em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
-.interiorlist ul {padding-left: 2em; padding-right:2em;}	
-.interiorlist h2 {font-family:Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; font-size: 1.5em; padding-left: 1em; margin-bottom:1em;}	/* The category header */
+.interiorlist ul {padding-left: 2em; padding-right:2em;}    
+.interiorlist h2 {font-family:Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; font-size: 1.5em; padding-left: 1em; margin-bottom:1em;}    /* The category header */
 .interiorlist li {height:1.4em; padding-left: 0.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.3em; list-style-type: none; font-size: 1em;} /* The items */
 .interiorlist li img {height:20px;}
 .interiorlist li.interior-date {padding-left:0; font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
@@ -172,24 +172,148 @@ ul.newtwitter li a { text-decoration:none !important; font-weight:normal !import
 .source .vi { color: #19177C } /* Name.Variable.Instance */
 .source .il { color: #666666 } /* Literal.Number.Integer.Long */
 
+
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+
+.container {
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.row {
+width: 100%;
+max-width: 900px;
+min-width: 755px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+margin-right: 3.8%;
+float: left;
+min-height: 1px;
+}
+
+.row .onecol {
+width: 4.85%;
+}
+
+.row .twocol {
+width: 13.45%;
+}
+
+.row .threecol {
+width: 22.05%;
+}
+
+.row .fourcol {
+width: 30.75%;
+}
+
+.row .fivecol {
+width: 39.45%;
+}
+
+.row .sixcol {
+width: 48%;
+}
+
+.row .sevencol {
+width: 56.75%;
+}
+
+.row .eightcol {
+width: 65.4%;
+}
+
+.row .ninecol {
+width: 74.05%;
+}
+
+.row .tencol {
+width: 82.7%;
+}
+
+.row .elevencol {
+width: 91.35%;
+}
+
+.row .twelvecol {
+width: 100%;
+float: left;
+}
+
+.last {
+margin-right: 0px;
+}
+
+img, object, embed {
+max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 479px) {
+
+    body {
+        -webkit-text-size-adjust: none;
+    }
+    
+    .row, body, .container {
+        width: 100%;
+        min-width: 0;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
+    .row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol  {
+        width: auto;
+        float: none;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+}
+
 /* ============================== */
 /* ! Layout for desktop version   */
 /* ============================== */
 
-	body {
-		
-	}
-	
+    body {
+        
+    }
+    
 
 /* ============================= */
 /* ! Layout for mobile version   */
 /* ============================= */
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 479px) {
 
-	body {
-		
-	}
+    body {
+        font-size: 0.8em;
+    }
+
+    #shingle {
+        font-size:1em;
+        float: left;
+        margin-bottom:5px;
+    }
+
+    #whois {
+        font-size:12px;
+        float:right;
+    }
 
 }
 
@@ -200,9 +324,9 @@ ul.newtwitter li a { text-decoration:none !important; font-weight:normal !import
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { 
 
-/*	.logo {
-		background: url(logo2x.jpg) no-repeat;
-		background-size: 212px 303px;
-	}*/
+/*    .logo {
+        background: url(logo2x.jpg) no-repeat;
+        background-size: 212px 303px;
+    }*/
 
 }

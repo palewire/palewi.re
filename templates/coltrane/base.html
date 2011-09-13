@@ -12,12 +12,10 @@
     <meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, computer-assisted reporting, journalism{% endblock %}" />
     <meta name="verify-v1" content="gY50FIiS1ZkWlR0vmMn+q/qv5ihAfW8cRQIFBU1+5d0=" />
     <meta name="google-site-verification" content="cKY9by450sOARZLyJVRAi4Vb4ozIMCxoneuxm2HEtcY" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}reset-fonts-grids.css"/>
-    {# <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}style.css"/> #}
-    
     <link rel="stylesheet" href="{{ MEDIA_URL }}styles.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}1140.css" type="text/css" media="screen" />
     
     <link rel="alternate" type="application/rss+xml" title="the full feed" href="/feeds/the-full-feed/"/>
     <link rel="alternate" type="application/rss+xml" title="less noise" href="/feeds/less-noise/"/>
@@ -60,7 +58,7 @@
         <div id="hd" class="row">
             <div class="ninecol">
                 <h1>
-                    <a href="/" title="{{ random_slogan }}">
+                    <a href="/" title="{{ random_slogan }}" id="shingle">
                         palewire
                     </a>
                 </h1>
