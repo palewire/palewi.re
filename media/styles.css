@@ -23,7 +23,7 @@ a:active {text-decoration: underline; font-weight:normal; color: red;}
 #hd span { font-size: .55em; clear:both; text-transform:lowercase;} /* The random phrase that appears on hoverover of the title */
 
 /* The horizontal gray bar that appears beneath the title line */
-#topbar {border-bottom:solid 10px #E5E5E5;}
+#topbar {border-bottom:solid 8px #E5E5E5;}
 #navbar { text-align:right; display:block; margin-bottom: 0.25em; margin-top: 0.25em; padding: 0.15em;}
 #navbar a:link{text-decoration: none; color:black; font-weight:normal;}
 #navbar a:visited{text-decoration: none; color: black; font-weight:normal;}
