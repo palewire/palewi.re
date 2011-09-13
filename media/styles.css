@@ -78,15 +78,10 @@ div.smalliconwrapper img { float:left;  }
 .commentdate {block:inline; font-size: 0.8em;}
 .commenttext {block:inline; margin: 0 0 0.5em 0; }
 .commentfooter {}
-#comments a:link {text-decoration: none; font-weight:bold; color:black;}
-#comments a:visited {text-decoration: none; font-weight:bold; color:black;}
-#comments a:hover {text-decoration: none; color:gray; font-weight:bold;}
-#comments a:active {text-decoration: none; font-weight:bold; color: red;}
 form#commentform {padding: 0;}
-.commentformwrapper {font-size: 1em;}
-.commentformleft {clear: both;padding: 0.2em 0.75em 0.2em 0;text-align:right;width: 6em;font-weight: bold;}
-.commentformright {padding: 0.2em 0;text-align: left;width: 75%;}
-.commentformright, div.commentformleft {display: inline;float:left;margin: 0.3em 0;}
+.commentlabel {font-weight: bold; margin: 0.3em 0;}
+.commentbox {padding: 0.2em 0;text-align: left; margin: 0.3em 0;}
+#id_comment { width:100%;}
 
 /* Footer stuff */
 #ft { margin-top: 1em; font-size: .75em;  border-top:solid 2px #E5E5E5; padding-top:0.3em; margin-bottom:1.5em; text-align:left;}
@@ -259,7 +254,7 @@ img {
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 479px) {
+@media handheld, only screen and (max-width: 550px) {
 
     body {
         -webkit-text-size-adjust: none;
@@ -298,7 +293,7 @@ img {
 /* ! Layout for mobile version   */
 /* ============================= */
 
-@media handheld, only screen and (max-width: 479px) {
+@media handheld, only screen and (max-width: 550px) {
 
     body {
         font-size: 0.8em;
@@ -314,6 +309,9 @@ img {
         font-size:12px;
         float:right;
     }
+
+    .commentlabel {font-weight: bold; margin: 0.3em 0;}
+    .commentbox {padding: 0.2em 0;text-align: left; margin: 0.3em 0;}
 
     .interiorlist li {height:4em; overflow:none;}
     .interior-date {height:1.5em !important;}
