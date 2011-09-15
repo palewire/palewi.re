@@ -32,8 +32,9 @@ a:active {text-decoration: underline; font-weight:normal; color: red;}
 #navbar a:focus {outline: none;}
 
 /* Icons */
-div.smalliconwrapper { width:33px; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline;}
+div.smalliconwrapper { width:33px; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline; height:38px; position:relative;}
 div.smalliconwrapper img { float:left;  }
+div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 28px; text-align:center; width:33px;}
 
 /* who-is-ben-welsh */
 .bioimg {text-align:center; margin-bottom:1.15em;}

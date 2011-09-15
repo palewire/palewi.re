@@ -44,6 +44,14 @@
     <script type="text/javascript"> 
     //<![CDATA[
     $(document).ready(function(){
+        $(".smalliconwrapper").hover(
+            function() {
+                $(".smalliconlabel", $(this)).show();
+            },
+            function () {
+                $(".smalliconlabel", $(this)).hide();
+            }
+        );
         {% block extradocready %}
         {% endblock %}
     });
@@ -81,16 +89,19 @@
                     <a href="{% url coltrane_app_list %}" title="Applications">
                         <img src="{{ MEDIA_URL }}icons/apps.gif" width="30" alt="applications" />
                     </a>
+                <div class="smalliconlabel">Apps</div>
                 </div>
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
                         <img src="{{ MEDIA_URL }}icons/posts.gif" width="30" alt="posts" />
                     </a>
+                <div class="smalliconlabel">Posts</div>
                 </div>
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
                         <img src="{{ MEDIA_URL }}icons/ticker.gif" width="30" alt="ticker" />
                     </a>
+                    <div class="smalliconlabel">Ticker</div>
                 </div>
             </div>
         </div>
