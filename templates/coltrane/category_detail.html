@@ -9,18 +9,21 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last">
-        <h2><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/posts.gif" alt="posts"/>&nbsp;Posts about {{ category.title }}</h2>
-        
-        <ul>
+        <h1><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/posts.gif" alt="posts"/>&nbsp;Posts about {{ category.title }}</h1>
         {% for object in object_list %}
             {% ifchanged object.pub_date.year %}
-            <li class="interior-date">{{ object.pub_date|date:"Y" }}</li>
+            <div class="row">
+                <div class="interior-date twelvecol last">
+                    {{ object.pub_date|date:"Y" }}
+                </div>
+            </div>
             {% endifchanged %}
-            <li>
-                {{ object.pub_date|date:"N d" }}&nbsp;&nbsp;&nbsp;
-                <a href="{{ object.get_absolute_url }}">{{ object }}</a> 
-            </li>
+            <div class="row">
+                <div class="listitem twelvecol last">
+                    {{ object.pub_date|date:"N d" }}&nbsp;&nbsp;&nbsp;
+                    <a href="{{ object.get_absolute_url }}">{{ object }}</a> 
+                </div>
+            </div>
         {% endfor %}
-        </ul>
     </div>
 {% endblock %}

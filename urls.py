@@ -48,6 +48,11 @@ urlpatterns = patterns('django.views.generic.simple',
     # Hard-coded flatpages
     (r'^who-is-ben-welsh/$', 'direct_to_template', {'template': 'flatpages/bio.html'}),
     (r'^colophon/$', 'direct_to_template', {'template': 'flatpages/colophon.html'}),
+    # Longer apps urls
+    (r'^applications/$', 'redirect_to', {'url': '/apps/'}),
+    (r'^applications/(?P<anything>.*)/$', 'redirect_to', 
+        {'url': '/apps/%(anything)s/'}
+    ),
 )
 
 # URLs for the new blog
@@ -56,7 +61,7 @@ urlpatterns += patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/(.*)', admin.site.root),
     
-    (r'^applications/', include('coltrane.urls.apps')),
+    (r'^apps/', include('coltrane.urls.apps')),
     (r'^books/', include('coltrane.urls.books')),
     (r'^commits/', include('coltrane.urls.commits')),
     (r'^categories/', include('coltrane.urls.categories')),
