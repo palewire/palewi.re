@@ -89,13 +89,12 @@ form#commentform {padding: 0;}
 
 /* List page stuff */
 .interiorlist {}
-.interiorlist .left-bump {margin-left:0.8em;}
 .interiorlist h3 {font-weight:bold; font-size:1.3em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
-.interiorlist ul {padding-left: 2em; padding-right:2em;}    
-.interiorlist h2 {font-family:Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; font-size: 1.5em; padding-left: 1em; margin-bottom:1em;}    /* The category header */
-.interiorlist li {height:1.5em; padding-left: 0.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.5em; list-style-type: none; font-size: 1em;} /* The items */
+.interiorlist ul {}    
+.interiorlist h2 {font-family:Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; font-size: 1.5em; margin-bottom:1em;}    /* The category header */
+.interiorlist li {height:1.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.5em; list-style-type: none; font-size: 1em;} /* The items */
 .interiorlist li img {height:20px;}
-.interiorlist li.interior-date {padding-left:0; font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
+.interiorlist li.interior-date {font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
 
 /* app list */ 
 .applist {}
