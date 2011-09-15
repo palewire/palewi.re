@@ -93,7 +93,7 @@ urlpatterns += patterns('',
     (r'^cache/', include('django_memcached.urls')),
     (r'!/', include('shortener.urls')),
     # Favicon
-    (r'^favicon.ico$', 'redirect_to', 
+    (r'^favicon.ico$', 'django.views.generic.simple.redirect_to', 
         {'url': 'http://palewire.s3.amazonaws.com/favicon.ico'}),
 )
 
