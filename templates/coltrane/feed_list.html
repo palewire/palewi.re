@@ -5,23 +5,24 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last feeds">
-        <h2><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h2>
+        <h1><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h1>
+        <p>Subscribe to palewire.com via RSS.</p>
         <ul>
-            <li class="interior-date">Bundles</li>
-            <li><a href="{% url coltrane_feeds "the-full-feed" %}">The Full Feed</a></li>
-            <li><a href="{% url coltrane_feeds "less-noise" %}">Less Noise ("Everything but tracks")</a></li>
-            <li class="interior-date">Singletons</li>
-            <li><a href="{% url coltrane_feeds "books" %}">Books</a></li>
-            <li><a href="{% url coltrane_feeds "commits" %}">Code commits</a></li>
-            <li><a href="{% url coltrane_feeds "comments" %}">Comments</a></li>
-            <li><a href="{% url coltrane_feeds "corrections" %}">Corrections</a></li>
-            <li><a href="{% url coltrane_feeds "links" %}">Links</a></li>
-            <li><a href="{% url coltrane_feeds "locations" %}">Locations</a></li>
-            <li><a href="{% url coltrane_feeds "movies" %}">Movies</a></li>
-            <li><a href="{% url coltrane_feeds "photos" %}">Photos</a></li>
-            <li><a href="{% url coltrane_feeds "posts" %}">Posts</a></li>
-            <li><a href="{% url coltrane_feeds "tracks" %}">Tracks</a></li>
-            <li><a href="{% url coltrane_feeds "shouts" %}">Shouts</a></li>
+            <div class="row"><div class="twelvecol last interior-date">Bundles</div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "the-full-feed" %}">The Full Feed</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "less-noise" %}">Less Noise ("Everything but tracks")</a></div></div>
+            <div class="row"><div class="twelvecol last interior-date">Singletons</div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "books" %}">Books</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "commits" %}">Code commits</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "comments" %}">Comments</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "corrections" %}">Corrections</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "links" %}">Links</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "locations" %}">Locations</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "movies" %}">Movies</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "photos" %}">Photos</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "posts" %}">Posts</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "tracks" %}">Tracks</a></div></div>
+            <div class="row"><div class="listitem twelvecol last"><a href="{% url coltrane_feeds "shouts" %}">Shouts</a></div></div>
         </ul>
     </div>
 {% endblock %}
