@@ -66,11 +66,17 @@ class GithubClient(object):
     
     def _extract_commit_url(self, commit_html):
         href_list = [i['href'] for i in commit_html.findAll('a')]
-        commit_url = [i for i in href_list if re.search('commit', i)][0]
+        try:
+            commit_url = [i for i in href_list if re.search('commit', i)][0]
+        except IndexError:
+            return ""
         return u'http://github.com%s' % smart_unicode(commit_url)
     
     def _extract_commit_message(self, commit_html):
-        s = commit_html.find('blockquote').string.strip()
+        if commit_html.find('blockquote'):
+            s = commit_html.find('blockquote').string.strip()
+        else:
+            s = ""
         return smart_unicode(s)
     
     def sync(self):
