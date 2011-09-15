@@ -89,12 +89,10 @@ form#commentform {padding: 0;}
 
 /* List page stuff */
 .interiorlist {}
-.interiorlist h3 {font-weight:bold; font-size:1.3em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
-.interiorlist ul {}    
+.interiorlist div.interior-date {font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
 .interiorlist h1 {font-family:Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; font-size: 1.5em !important; margin-bottom:1em;}    /* The category header */
-.interiorlist li {height:1.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.5em; list-style-type: none; font-size: 1em;} /* The items */
-.interiorlist li img {height:20px;}
-.interiorlist li.interior-date {font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
+.interiorlist div.listitem {height:1.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.5em; list-style-type: none; font-size: 1em;} /* The items */
+.interiorlist div.listitem img {height:20px;}
 .interiorlist p {font-size:1em; margin-top: .66em; }
 
 /* app list */ 
@@ -308,26 +306,18 @@ img {
     body {
         font-size: 0.8em;
     }
-
     #shingle {
         font-size:1em;
         float: left;
         margin-bottom:5px;
     }
-
     #whois {
         font-size:12px;
         float:right;
     }
-
     .commentlabel {font-weight: bold; margin: 0.3em 0;}
     .commentbox {padding: 0.2em 0;text-align: left; margin: 0.3em 0;}
-
-    .interiorlist li {height:4em; overflow:none;}
-    .interior-date {height:1.5em !important;}
-
     #ft { font-size:0.65em; }
-    
     .feeds li {height:2em !important;}
     .feeds .interior-date {height:2em !important;}
 }
