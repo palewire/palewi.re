@@ -13,16 +13,20 @@
     <div class="interiorlist twelvecol last">
         <h1><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/ticker.gif" alt="ticker"/>&nbsp;Ticker</h1>
         <p>My latest online activity, compiled from around the World Wide Web.</p>
-        <ul>
         {% for object in object_list %}
             {% ifchanged object.pub_date.date %}
-            <li class="interior-date">{{ object.pub_date|date:"N d, Y" }}</li>
+            <div class="row">
+                <div class="interior-date twelvecol last">
+                    {{ object.pub_date|date:"N d, Y" }}
+                </div>
+            </div>
             {% endifchanged %}
-                <li>
+            <div class="row">
+                <div class="listitem twelvecol last">
                     {{ object.get_rendered_html }}
-                </li>
+                </div>
+            </div>
         {% endfor %}
-        </ul>
     </div>
         
     {% include 'coltrane/pagination.html' %}
