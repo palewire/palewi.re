@@ -10,16 +10,21 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last">
-        <h2>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</h2>
-        <ul>
+        <h1><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/tags.gif" alt="ticker"/>&nbsp;Tags</h1>
+        <p>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</p>
         {% for object in object_list %}
             {% ifchanged object.pub_date.month %}
-            <li class="interior-date">{{ object.pub_date|date:"N Y" }}</li>
+            <div class="row">
+                <div class="interior-date twelvecol last">
+                {{ object.pub_date|date:"N Y" }}
+                </div>
+            </div>
             {% endifchanged %}
-            <li>
+            <div class="row">
+                <div class="listitem twelvecol last">
                 {{ object.get_rendered_html }}
-                </a> 
-            </li>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
