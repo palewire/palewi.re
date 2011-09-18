@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 from correx.models import Change
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
-from coltrane.models import Post, Category, Link, Photo, Track
+from coltrane.models import Post, Category, Link, Photo, Track, Ticker
 
 # Generic Views
 from django.views.generic.list_detail import object_list
@@ -23,6 +23,28 @@ def index(request):
     """
     latest_post = Post.live.latest()
     return HttpResponseRedirect(latest_post.get_absolute_url())
+
+
+def ticker_detail(request, page):
+    """
+    A tumble log of my latest online activity. Allows for filtering by content
+    type.
+    """
+    # Pull the data
+    object_list = Ticker.objects.all()
+    
+    # Grab the first page of 100 items
+    paginator = Paginator(object_list, 50)
+    page_obj = paginator.page(int(page))
+    
+    # Pass out the data
+    context = {
+        "object_list": page_obj.object_list,
+        "page": page_obj,
+    }
+    template = 'coltrane/ticker_list.html'
+    return direct_to_template(request, template, context)
+
 
 
 def post_detail(request, year, month, day, slug):
