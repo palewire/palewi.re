@@ -10,6 +10,7 @@ from django.core.urlresolvers import reverse
 from correx.models import Change
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
+from django.contrib.contenttypes.models import ContentType
 from coltrane.models import Post, Category, Link, Photo, Track, Ticker
 
 # Generic Views
@@ -30,8 +31,39 @@ def ticker_detail(request, page):
     A tumble log of my latest online activity. Allows for filtering by content
     type.
     """
-    # Pull the data
-    object_list = Ticker.objects.all()
+    # Available content type filters
+    contenttypes_whitelist = [
+        'book',
+        'change',
+        'comment',
+        'commit',
+        'link',
+        'location',
+        'movie',
+        'photo',
+        'shout',
+        'track',
+    ]
+    
+    # Check if the user has provided a filter
+    filter_string = request.GET.get("filters")
+    
+    # If there is a filter, piece it together using the content types
+    if filter_string:
+        filter_list = filter_string.split(",")
+        contenttype_list = []
+        for filter in filter_list:
+            if filter in contenttypes_whitelist:
+                try:
+                    contenttype_list.append(ContentType.objects.get(name=filter))
+                except ContentType.DoestNotExist:
+                    raise Http404
+        # Pull the data
+        object_list = Ticker.objects.filter(content_type__in=contenttype_list)
+
+    # If there's no filter, it's a lot easier
+    else:
+        object_list = Ticker.objects.all()
     
     # Grab the first page of 100 items
     paginator = Paginator(object_list, 50)
