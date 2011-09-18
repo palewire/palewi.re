@@ -55,8 +55,8 @@ def ticker_detail(request, page):
         for filter in filter_list:
             if filter in contenttypes_whitelist:
                 try:
-                    contenttype_list.append(ContentType.objects.get(name=filter))
-                except ContentType.DoestNotExist:
+                    contenttype_list.append(ContentType.objects.get(app_label='coltrane', name=filter))
+                except ContentType.DoesNotExist:
                     raise Http404
         # Pull the data
         object_list = Ticker.objects.filter(content_type__in=contenttype_list)
