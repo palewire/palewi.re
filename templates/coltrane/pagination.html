@@ -2,13 +2,13 @@
 <div id="paginationwrapper" class="row">
     <div id="paginationleft" class="twocol">
         {% if page.has_previous %}
-        <a href="../{{ page.previous_page_number }}/">< Previous</a>
+        <a href="../{{ page.previous_page_number }}/{% if filtered %}?filters={% for x in selected_slugs %}{{ x }}{% if not forloop.last %},{% endif %}{%endfor %}{% endif %}">< Previous</a>
         {% endif %}
     </div>
     <div class="eightcol"></div>
     <div id="paginationright" class="twocol last">
         {% if page.has_next %}
-        <a href="../{{ page.next_page_number }}/">Next ></a>
+        <a href="../{{ page.next_page_number }}/{% if filtered %}?filters={% for x in selected_slugs %}{{ x }}{% if not forloop.last %},{% endif %}{%endfor %}{% endif %}">Next ></a>
     {% endif %}
     </div>
 </div>

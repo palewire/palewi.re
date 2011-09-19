@@ -3,7 +3,7 @@ import time
 import datetime
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import Http404, HttpResponseRedirect
-from django.core.paginator import Paginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 
 # Models
@@ -48,31 +48,42 @@ def ticker_detail(request, page):
     # Check if the user has provided a filter
     filter_string = request.GET.get("filters")
     
+    # If there's no filter, it's a lot easier
+    object_list = Ticker.objects.all()
+    selected_slugs = contenttypes_whitelist
+    filtered = False
+
     # If there is a filter, piece it together using the content types
     if filter_string:
+        filtered = True
         filter_list = filter_string.split(",")
+        if len(filter_list) == len(contenttypes_whitelist):
+            return HttpResponseRedirect("/ticker/page/1/")
         contenttype_list = []
+        selected_slugs = []
         for filter in filter_list:
             if filter in contenttypes_whitelist:
                 try:
-                    contenttype_list.append(ContentType.objects.get(app_label='coltrane', name=filter))
+                    selected_slugs.append(filter)
+                    contenttype_list.append(ContentType.objects.get(app_label__in=['comments', 'coltrane'], name=filter))
                 except ContentType.DoesNotExist:
                     raise Http404
         # Pull the data
-        object_list = Ticker.objects.filter(content_type__in=contenttype_list)
+        object_list = object_list.filter(content_type__in=contenttype_list)
 
-    # If there's no filter, it's a lot easier
-    else:
-        object_list = Ticker.objects.all()
-    
     # Grab the first page of 100 items
     paginator = Paginator(object_list, 50)
-    page_obj = paginator.page(int(page))
+    try:
+        page_obj = paginator.page(int(page))
+    except (EmptyPage, InvalidPage):
+        raise Http404
     
     # Pass out the data
     context = {
         "object_list": page_obj.object_list,
         "page": page_obj,
+        "selected_slugs": selected_slugs,
+        "filtered": filtered,
     }
     template = 'coltrane/ticker_list.html'
     return direct_to_template(request, template, context)
