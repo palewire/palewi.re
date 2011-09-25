@@ -1,5 +1,3 @@
-
-    
-        {{ object.pub_date|date:"H:i" }}&nbsp;
-        <img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="code commits"/>&nbsp;
-        <a class="code commit" href="{{ object.url }}">{{ object|striptags|safe|truncatewords:8 }}</a>
+{{ object.pub_date|date:"H:i" }}&nbsp;
+<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="commit" title="commit"/>&nbsp;
+<a class="code commit" href="{{ object.url }}">{{ object|striptags|safe|truncatewords:8 }}</a>

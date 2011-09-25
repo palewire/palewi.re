@@ -3,14 +3,15 @@ import time
 import datetime
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import Http404, HttpResponseRedirect
-from django.core.paginator import Paginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 
 # Models
 from correx.models import Change
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
-from coltrane.models import Post, Category, Link, Photo, Track
+from django.contrib.contenttypes.models import ContentType
+from coltrane.models import Post, Category, Link, Photo, Track, Ticker
 
 # Generic Views
 from django.views.generic.list_detail import object_list
@@ -23,6 +24,70 @@ def index(request):
     """
     latest_post = Post.live.latest()
     return HttpResponseRedirect(latest_post.get_absolute_url())
+
+
+def ticker_detail(request, page):
+    """
+    A tumble log of my latest online activity. Allows for filtering by content
+    type.
+    """
+    # Available content type filters
+    contenttypes_whitelist = [
+        'book',
+        'change',
+        'comment',
+        'commit',
+        'link',
+        'location',
+        'movie',
+        'photo',
+        'shout',
+        'track',
+    ]
+    
+    # Check if the user has provided a filter
+    filter_string = request.GET.get("filters")
+    
+    # If there's no filter, it's a lot easier
+    object_list = Ticker.objects.all()
+    selected_slugs = contenttypes_whitelist
+    filtered = False
+
+    # If there is a filter, piece it together using the content types
+    if filter_string:
+        filtered = True
+        filter_list = filter_string.split(",")
+        if len(filter_list) == len(contenttypes_whitelist):
+            return HttpResponseRedirect("/ticker/page/1/")
+        contenttype_list = []
+        selected_slugs = []
+        for filter in filter_list:
+            if filter in contenttypes_whitelist:
+                try:
+                    selected_slugs.append(filter)
+                    contenttype_list.append(ContentType.objects.get(app_label__in=['comments', 'coltrane'], name=filter))
+                except ContentType.DoesNotExist:
+                    raise Http404
+        # Pull the data
+        object_list = object_list.filter(content_type__in=contenttype_list)
+
+    # Grab the first page of 100 items
+    paginator = Paginator(object_list, 50)
+    try:
+        page_obj = paginator.page(int(page))
+    except (EmptyPage, InvalidPage):
+        raise Http404
+    
+    # Pass out the data
+    context = {
+        "object_list": page_obj.object_list,
+        "page": page_obj,
+        "selected_slugs": selected_slugs,
+        "filtered": filtered,
+    }
+    template = 'coltrane/ticker_list.html'
+    return direct_to_template(request, template, context)
+
 
 
 def post_detail(request, year, month, day, slug):

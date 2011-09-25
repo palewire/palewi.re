@@ -4,6 +4,7 @@ from coltrane.models import Commit
 # Text and time
 import re
 import dateutil.parser
+from pprint import pprint
 from coltrane import utils
 from BeautifulSoup import BeautifulSoup
 from django.utils.encoding import smart_unicode
@@ -87,13 +88,14 @@ class GithubClient(object):
             c = Commit.objects.get(url=commit_dict['url'])
             self.logger.log.debug("Commit %s already exists." % c)
         except Commit.DoesNotExist:
-            c = Commit(
+            d = dict(
                 url = commit_dict['url'],
                 pub_date = commit_dict['pub_date'],
                 repository = commit_dict['repository'],
                 branch = commit_dict['branch'],
                 message = commit_dict['message'],
-                )
+            )
+            c = Commit(**d)
             c.save()
-            self.logger.log.debug("Adding commit %s." % c)
+            self.logger.log.debug("Adding commit %s." % d.get("message"))
 

@@ -4,8 +4,8 @@
 
 {% block extralinktags %}
 <link rel="home" href="/" />
-{% if has_previous %}<link rel="prev" href="/ticker/page/{{ previous }}/" />{% endif %}
-{% if has_next %}<link rel="next" href="/ticker/page/{{ next }}/" />{% endif %}
+{% if page.has_previous %}<link rel="prev" href="/ticker/page/{{ page.previous_page_number }}/" />{% endif %}
+{% if page.has_next %}<link rel="next" href="/ticker/page/{{ page.next_page_number }}/" />{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -13,6 +13,56 @@
     <div class="interiorlist twelvecol last">
         <h1><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/ticker.gif" alt="ticker"/>&nbsp;Ticker</h1>
         <p>My latest online activity, compiled from around the World Wide Web.</p>
+        <div id="tickerfilter">
+            <div class="row">
+                <div class="filterset twelvecol last">
+                    <b>Filter:</b>
+                    <input id="filterset-book" type="checkbox" value="book" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/books.gif" alt="books" title="books"/>
+                    <input id="filterset-change" type="checkbox" value="change" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/loop.png" alt="corrections" title="corrections"/>
+                    <input id="filterset-comment" type="checkbox" value="comment" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/comments.gif" alt="comments" title="comments"/>
+                    <input id="filterset-commit" type="checkbox" value="commit" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/commits.gif" alt="commits" title="commits"/>
+                    <input id="filterset-link" type="checkbox" value="link" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/links.gif" alt="links" title="links"/>
+                    <input id="filterset-location" type="checkbox" value="location" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/locations.gif" alt="locations" title="locations"/>
+                    <input id="filterset-movie" type="checkbox" value="movie" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/movies.gif" alt="movies" title="movies"/>
+                    <input id="filterset-photo" type="checkbox" value="photo" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/photos.gif" alt="photos" title="photos"/>
+                    <input id="filterset-shout" type="checkbox" value="shout" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/shouts.gif" alt="shouts" title="shouts"/>
+                    <input id="filterset-track"  type="checkbox" value="track" />
+                    <img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/tracks.gif" alt="tracks" title="tracks"/>
+                    <input class="input" type="submit" value="GO" />
+                </div>
+            </div>
+            <script type="text/javascript">
+                var preSelected = [{% for x in selected_slugs %}"{{ x }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+                $('#tickerfilter .input').click(function() {
+                  var checked = $("#tickerfilter input:checked");
+                  if (checked.length === $("#tickerfilter input:checkbox").length && 
+                      preSelected.length === $("#tickerfilter input:checkbox").length) {
+                    alert("Deselect something before you filter.");
+                  } else if (checked.length < 1) {
+                    alert("Select something before you filter.");
+                  } else {
+                      var valueList = [];
+                      checked.each(function(index) {
+                        valueList.push($(checked[index]).attr("value"));
+                      });
+                      window.location = "/ticker/page/1/?filters=" + valueList.join(",");
+                  }
+                });
+                $(preSelected).each(function(index) {
+                    $("#filterset-" + preSelected[index]).attr("checked", true);
+                });
+                $("#tickerfilter").show();
+            </script>
+        </div>
         {% for object in object_list %}
             {% ifchanged object.pub_date.date %}
             <div class="row">
