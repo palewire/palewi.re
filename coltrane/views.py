@@ -65,12 +65,20 @@ def ticker_detail(request, page):
             if filter in contenttypes_whitelist:
                 try:
                     selected_slugs.append(filter)
-                    contenttype_list.append(ContentType.objects.get(app_label__in=['comments', 'coltrane'], name=filter))
+                    contenttype_list.append(
+                        ContentType.objects.get(
+                            app_label__in=['comments', 'coltrane'],
+                            name=filter
+                        )
+                    )
                 except ContentType.DoesNotExist:
-                    raise Http404
+                    pass
+        if not contenttype_list:
+            raise Http404
+        
         # Pull the data
         object_list = object_list.filter(content_type__in=contenttype_list)
-
+    
     # Grab the first page of 100 items
     paginator = Paginator(object_list, 50)
     try:
