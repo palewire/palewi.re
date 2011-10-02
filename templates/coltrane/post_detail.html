@@ -23,9 +23,9 @@
                 {% load correx_tags %}
                 {% get_changes_for_object object 10 as change_list %}
                 {% if change_list %}
-                <div style="margin-top:1em;">
+                <div style="margin:10px 0;">
                     {% for change in change_list %}
-                        <div class="highlight" style="padding:0.5em; margin-bottom:0.25em;">
+                        <div class="changebox highlight">
                             {{ change.description|safe }} 
                             <b>&mdash;{{ change.user }}, {{ change.pub_date|date:"N j, Y" }}</b> 
                         </div>

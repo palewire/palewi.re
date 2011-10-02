@@ -60,6 +60,10 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 #detailbody blockquote {margin-bottom: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
 #detailbody pre { margin-left:1.2em; line-height:1.3em;}
 
+/* Change box, etc. */
+.highlight { background-color: #ffffcc }
+.changebox {padding:0.5em; margin-bottom:0.25em;}
+
 /* Metadata about blog posts */
 #detailmetadata { text-align:right; margin: 0; }
 #detailmetadata p { margin:0.5em 0; font-size:0.95em;}
