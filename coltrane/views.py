@@ -88,7 +88,7 @@ def ticker_detail(request, page):
     
     # Pass out the data
     context = {
-        "object_list": page_obj.object_list,
+        "object_list": page_obj.object_list.fetch_generic_relations(),
         "page": page_obj,
         "selected_slugs": selected_slugs,
         "filtered": filtered,

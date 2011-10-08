@@ -35,6 +35,7 @@ class Ticker(models.Model):
     object_id = models.PositiveIntegerField()
     pub_date = models.DateTimeField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
+    objects = GFKManager()
 
     class Meta:
         verbose_name_plural = _('Ticker')
