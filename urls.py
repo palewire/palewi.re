@@ -58,8 +58,7 @@ urlpatterns = patterns('django.views.generic.simple',
 # URLs for the new blog
 urlpatterns += patterns('',
     
-    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/(.*)', admin.site.root),
+    (r'^admin/(.*)', admin.site.urls),
     
     (r'^apps/', include('coltrane.urls.apps')),
     (r'^books/', include('coltrane.urls.books')),

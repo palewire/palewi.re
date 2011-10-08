@@ -53,7 +53,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'django.contrib.admindocs',
     'django.contrib.flatpages',
     'django.contrib.comments',
     'django.contrib.sitemaps',
