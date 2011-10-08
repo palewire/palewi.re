@@ -144,8 +144,8 @@ def tag_detail(request, tag):
             raise Http404
     
     # Pull all the items with that tag.
-    taggeditem_list = tag.items.all()
-    
+    taggeditem_list = TaggedItem.objects.filter(tag=tag).fetch_generic_relations()
+
     # Loop through the tagged items and return just the items
     object_list = [i.object for i in taggeditem_list if getattr(i.object, 'pub_date', False)]
     
