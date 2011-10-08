@@ -80,7 +80,7 @@ def ticker_detail(request, page):
         object_list = object_list.filter(content_type__in=contenttype_list)
     
     # Grab the first page of 100 items
-    paginator = Paginator(object_list, 50)
+    paginator = Paginator(object_list, 100)
     try:
         page_obj = paginator.page(int(page))
     except (EmptyPage, InvalidPage):
