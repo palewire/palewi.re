@@ -1,7 +1,7 @@
 # Helpers
 import time
 import datetime
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.http import Http404, HttpResponseRedirect
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
@@ -94,7 +94,7 @@ def ticker_detail(request, page):
         "filtered": filtered,
     }
     template = 'coltrane/ticker_list.html'
-    return direct_to_template(request, template, context)
+    return render(request, template, context)
 
 
 
@@ -115,7 +115,7 @@ def post_detail(request, year, month, day, slug):
         'object': post,
         'related_posts': related_posts
     }
-    return direct_to_template(request, 'coltrane/post_detail.html', context)
+    return render(request, 'coltrane/post_detail.html', context)
 
 
 def category_detail(request, slug):
@@ -153,7 +153,7 @@ def tag_detail(request, tag):
     object_list.sort(key=lambda x: x.pub_date, reverse=True)
 
     # Pass it out
-    return direct_to_template(request, 'coltrane/tag_detail.html', { 
+    return render(request, 'coltrane/tag_detail.html', { 
             'tag': tag, 
             'object_list': object_list,
         })
@@ -191,7 +191,7 @@ def newtwitter_pagination_index(request):
         "page": page_obj,
     }
     template = 'newtwitter_pagination/index.html'
-    return direct_to_template(request, template, context)
+    return render(request, template, context)
 
 
 def newtwitter_pagination_json(request, page):
@@ -218,5 +218,5 @@ def newtwitter_pagination_json(request, page):
         "page": page_obj,
     }
     template = 'newtwitter_pagination/tracks.json'
-    return direct_to_template(request, template, context, 'text/javascript')
+    return render(request, template, context, 'text/javascript')
 
