@@ -50,6 +50,8 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 /* Blog posts */
 #detailbody {margin: 0 1.1em 1.1em 0.15em; text-align:left;}
 .detailborderbumper {border-bottom:solid 2px #E5E5E5; margin: 0.5em 0 0.5em 0;}
+#detailborderbumper {clear:both; border-bottom:solid 2px #E5E5E5; margin: 0.5em 10em 0.5em 4.5em;} /* For legacy code in posts */
+.detailborderbreak {clear:both; border-bottom:solid 2px #E5E5E5; margin: 0.5em 10em 0.5em 4.5em;}
 #bd h1 { font-weight:bold; font-size:1.8em; margin:0 0 0.5em 0; line-height:150%;} /* the detail page headline */
 #bd h1 img {vertical-align:text-bottom; margin-right:0.3em;} /* Icon in the headline */
 #detailbody p { margin-bottom:1em;} /* the standard 'graph */
@@ -59,6 +61,7 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 #detailbody ol li {list-style-type: decimal;}
 #detailbody blockquote {margin-bottom: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
 #detailbody pre { margin-left:1.2em; line-height:1.3em;}
+
 
 /* Change box, etc. */
 .highlight { background-color: #ffffcc }
