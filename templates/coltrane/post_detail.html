@@ -46,7 +46,7 @@
         <div id="detailmetadata" class="row">
             <div class="onecol last"></div>
             <div class="tencol">
-                <p id="postpubdate">This is a post {{ object.author }} made on {{ object.pub_date|date:"F j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
+                <p id="postpubdate">This is a post <a rel="author" href="/who-is-ben-welsh/">Ben Welsh</a> made on {{ object.pub_date|date:"F j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
                 {% if object.categories.count %}
                     
                     <p id ="postcats">
