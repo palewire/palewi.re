@@ -218,5 +218,5 @@ def newtwitter_pagination_json(request, page):
         "page": page_obj,
     }
     template = 'newtwitter_pagination/tracks.json'
-    return render(request, template, context, 'text/javascript')
+    return render(request, template, context, content_type='text/javascript')
 
