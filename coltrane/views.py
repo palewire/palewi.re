@@ -2,9 +2,10 @@
 import time
 import datetime
 from django.shortcuts import get_object_or_404, render
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponseServerError
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
+from django.template import Context, loader
 
 # Models
 from correx.models import Change
@@ -220,3 +221,12 @@ def newtwitter_pagination_json(request, page):
     template = 'newtwitter_pagination/tracks.json'
     return render(request, template, context, content_type='text/javascript')
 
+
+def server_error(request, template_name='500.html'):
+    """
+    500 error handler. Necessary to make sure STATIC_URL is available.
+    """
+    t = loader.get_template(template_name)
+    return HttpResponseServerError(t.render(Context({
+        'MEDIA_URL': settings.MEDIA_URL
+    })))

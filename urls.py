@@ -115,3 +115,7 @@ urlpatterns += patterns('',
     (r'^kennedy/', include('kennedy.urls')),
     #(r'^rapture/', include('rapture.urls')),
 )
+
+# 500 page fix
+handler500 = 'coltrane.views.server_error'
+
