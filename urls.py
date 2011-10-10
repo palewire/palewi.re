@@ -102,6 +102,7 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT }),
+        (r'^500/$', 'coltrane.views.server_error'),
     )
 else:
     urlpatterns += patterns('',
