@@ -1,6 +1,5 @@
 import datetime
 from django.db import models
-from coltrane.models import *
 from django.db.models.query import QuerySet
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.generic import GenericForeignKey
