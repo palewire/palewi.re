@@ -24,9 +24,11 @@ def index(request):
     """
     The homepage of the site, which simply redirects to the latest post.
     """
-    latest_post = Post.live.latest()
-    return HttpResponseRedirect(latest_post.get_absolute_url())
-
+    try:
+        latest_post = Post.live.latest()
+        return HttpResponseRedirect(latest_post.get_absolute_url())
+    except Post.DoesNotExist:
+        return HttpResponseRedirect("/ticker/")
 
 def ticker_detail(request, page):
     """
