@@ -1,0 +1,12 @@
+. .bashrc
+
+alias ls='ls -al'
+alias c='clear'
+
+export PIP_DOWNLOAD_CACHE=/tmp/pip
+export DJANGO_SETTINGS_MODULE=settings
+export EDITOR=vim
+
+. /apps/palewire.com/bin/activate
+
+cd /apps/palewire.com/project/
