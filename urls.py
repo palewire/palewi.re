@@ -6,10 +6,11 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-#import haystack
-#haystack.autodiscover()
-
+from coltrane.models import Post
+from coltrane.feeds import FEED_DICT
 from coltrane.sitemaps import sitemaps
+from django.views.generic.simple import direct_to_template, redirect_to
+
 
 # Redirects from the old Wordpress URL structure to the new Django one.
 urlpatterns = patterns('django.views.generic.simple',
@@ -45,57 +46,151 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^happyhours/saturday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/saturday.htm'}),
     # Redirect old images from legacy site
     (r'^images/(?P<file_name>[^/]+)$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
-    # Hard-coded flatpages
-    (r'^who-is-ben-welsh/$', 'direct_to_template', {'template': 'flatpages/bio.html'}),
-    (r'^colophon/$', 'direct_to_template', {'template': 'flatpages/colophon.html'}),
     # Longer apps urls
     (r'^applications/$', 'redirect_to', {'url': '/apps/'}),
     (r'^applications/(?P<anything>.*)/$', 'redirect_to', 
         {'url': '/apps/%(anything)s/'}
     ),
+    # V2 of the blog, now replaced by the consolidated ticker
+    url(r'^books/$', 'redirect_to', 
+        { 'url': '/ticker/page/1/?filters=book' },
+        name='coltrane_book_root'),
+    url(r'^books/page/(?P<page>[0-9]+)/$', 'redirect_to', 
+        { 'url': '/ticker/page/1/?filters=book' },
+        name='coltrane_book_list'),
+    url(r'^comments/$', 'redirect_to', 
+        { 'url': '/ticker/page/1/?filters=comment' },
+        name='coltrane_comment_root'),
+    url(r'^comments/page/(?P<page>[0-9]+)/$', 'redirect_to', 
+        { 'url': '/ticker/page/1/?filters=comment' }, 
+        name='coltrane_comment_list'),
+    url(r'^commits/$', 'redirect_to', 
+        { 'url': '/ticker/page/1/?filters=commit' }, 
+        name='coltrane_commit_root'),
+    url(r'^commits/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=commit' },
+        name='coltrane_commit_list'),
+    url(r'^corrections/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=change' },
+        name='coltrane_correx_root'),
+    url(r'^corrections/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=change' },
+        name='coltrane_correx_list'),
+    url(r'^links/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=link' },
+        name='coltrane_link_root'),
+    url(r'^links/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=link' },
+        name='coltrane_link_list'),
+    url(r'^locations/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=location' },
+        name='coltrane_location_root'),
+    url(r'^locations/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=location' },
+        name='coltrane_location_list'),
+    url(r'^movies/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=movie' },
+        name='coltrane_movie_root'),
+    url(r'^movies/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=movie' },
+        name='coltrane_movie_list'),
+    url(r'^photos/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=photo', },
+        name='coltrane_photo_root'),
+    url(r'^photos/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=photo' },
+        name='coltrane_photo_list'),
+    url(r'^shouts/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=shout' },
+        name='coltrane_shout_root'),
+    url(r'^shouts/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=shout' },
+        name='coltrane_link_list'),
+    url(r'^tracks/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=track' },
+        name='coltrane_track_root'),
+    url(r'^tracks/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/ticker/page/1/?filters=track' },
+        name='coltrane_track_list'),
+    url(r'^categories/list/$', 'redirect_to', 
+        { 'url': '/ticker/page/1/' },
+        name='coltrane_category_list'),
+    url(r'^apps/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/apps/' },
+        name='coltrane_app_root'),
+    url(r'^posts/page/(?P<page>[0-9]+)/$', 'redirect_to',
+        { 'url': '/posts/'}, name='coltrane_post_archive_index'),
+    url(r'^ticker/$', 'redirect_to',
+        { 'url': '/ticker/page/1/' },
+        name='coltrane_ticker_root'),
+
 )
 
 # URLs for the new blog
 urlpatterns += patterns('',
     
+    # The index
+    url(r'^$', 'coltrane.views.index', name='coltrane_index'),
+    # Hard-coded flatpages
+    url(r'^who-is-ben-welsh/$', direct_to_template, {'template': 'flatpages/bio.html'}),
+    url(r'^colophon/$', direct_to_template, {'template': 'flatpages/colophon.html'}),
+    # The admin
     (r'^admin/', include(admin.site.urls)),
-    
-    (r'^apps/', include('coltrane.urls.apps')),
-    (r'^books/', include('coltrane.urls.books')),
-    (r'^commits/', include('coltrane.urls.commits')),
-    (r'^categories/', include('coltrane.urls.categories')),
-    url(r'^clips/$', 'django.views.generic.simple.direct_to_template',
+    # Main list pages
+    url(r'^apps/$', direct_to_template,
+        { 'template': 'coltrane/app_list.html' },
+        name='coltrane_app_list'),
+    url(r'^clips/$', direct_to_template,
         {'template': 'coltrane/clip_list.html'}, name='coltrane_clip_list'),
-    (r'^corrections/', include('coltrane.urls.corrections')),
-    (r'^links/', include('coltrane.urls.links')),
-    (r'^locations/', include('coltrane.urls.locations')),
-    (r'^movies/', include('coltrane.urls.movies')),
-    (r'^photos/', include('coltrane.urls.photos')),
-    (r'^posts/', include('coltrane.urls.posts')),
-    (r'^shouts/', include('coltrane.urls.shouts')),
-    (r'^tags/', include('coltrane.urls.tags')),
-    (r'^tracks/', include('coltrane.urls.tracks')),
-    
-    (r'^comments/page/', include('coltrane.urls.comments')),
-    (r'^comments/', include('django.contrib.comments.urls')),
-    
-    (r'^$', include('coltrane.urls.index')),
-    (r'^ticker/', include('coltrane.urls.ticker')),
-    
-#    (r'^search/', include('haystack.urls')),
-    (r'^feeds/', include('coltrane.urls.feeds')),
-    (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index',
+    url(r'^posts/$', 'django.views.generic.list_detail.object_list',
+        {'queryset': Post.live.all().order_by("-pub_date")},
+        name='coltrane_post_list'),
+    url(r'^ticker/page/(?P<page>[0-9]+)/$', 'coltrane.views.ticker_detail',
+        name='coltrane_ticker_list'),
+    # Detail pages
+    url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 
+        'coltrane.views.post_detail', name='coltrane_post_detail'),
+    url(r'categories/(?P<slug>[-\w]+)/$', 'coltrane.views.category_detail',
+        name="coltrane_category_detail"),
+    url(r'^tags/(?P<tag>[^/]+)/$', 'coltrane.views.tag_detail',
+        name='coltrane_tag_detail'),
+    url(r'^corrections/(?P<id>[0-9]+)/$', 'correx_redirect',
+        name='coltrane_correx_redirect'),
+    # Feeds
+    url(r'^feeds/list/$', direct_to_template,
+        {'template': 'coltrane/feed_list.html'}),
+    url(r'feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
+        {'feed_dict': FEED_DICT},
+        name='coltrane_feeds'),
+    # Sitemaps
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index',
         {'sitemaps': sitemaps}),
-    (r'^sitemap-(?P<section>.+)\.xml$', 'django.contrib.sitemaps.views.sitemap',
+    url(r'^sitemap-(?P<section>.+)\.xml$', 'django.contrib.sitemaps.views.sitemap',
         {'sitemaps': sitemaps}),
-    url(r'^robots\.txt$', 'django.views.generic.simple.direct_to_template',
+    # Robots and favicon
+    url(r'^robots\.txt$', direct_to_template,
         {'template': 'robots.txt', 'mimetype': 'text/plain'}, name='robots'),
+    url(r'^favicon.ico$', redirect_to, 
+        {'url': 'http://palewire.s3.amazonaws.com/favicon.ico'}),
+    # URL shortener
+    (r'!/', include('shortener.urls')),
+    # Kennedy name generator
+    (r'^kennedy/', include('kennedy.urls')),
+    # newtwitter style autopagination with django
+    url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
+        'coltrane.views.newtwitter_pagination_index',
+        name='coltrane_app_newtwitter_index'),
+    url(r'^apps/twitter-style-infinite-scroll-with-django-demo/json/(?P<page>[0-9]+)/',
+        'coltrane.views.newtwitter_pagination_json',
+        name='coltrane_app_newtwitter_json'),
+    # BRING THE NEWS BACK
+    url(r'^apps/bring-the-news-back/$', direct_to_template,
+        {'template': 'bring_the_news_back/index.html' },
+        name='coltrane_app_newtwitter_json'),
+    # Other weird stuff
+    (r'^comments/', include('django.contrib.comments.urls')),
     (r'^correx/', include('correx.urls')),
     (r'^cache/', include('django_memcached.urls')),
-    (r'!/', include('shortener.urls')),
-    # Favicon
-    (r'^favicon.ico$', 'django.views.generic.simple.redirect_to', 
-        {'url': 'http://palewire.s3.amazonaws.com/favicon.ico'}),
 )
 
 if settings.DEBUG:
@@ -110,12 +205,6 @@ else:
              {'url': 'http://palewire.s3.amazonaws.com/%(path)s'}),
     )
 
-
-# Goofy pluggable apps
-urlpatterns += patterns('',
-    (r'^kennedy/', include('kennedy.urls')),
-    #(r'^rapture/', include('rapture.urls')),
-)
 
 # 500 page fix
 handler500 = 'coltrane.views.server_error'
