@@ -10,7 +10,7 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last">
-        <h1><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/tags.gif" alt="ticker"/>&nbsp;Tags</h1>
+        <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/tags.gif" alt="ticker"/>&nbsp;Tags</h1>
         <p>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</p>
         {% for object in object_list %}
             {% ifchanged object.pub_date.month %}

@@ -11,7 +11,7 @@
         <div id="headline" class="row">
             <div class="twelvecol last">
                 <h1>
-                <img src="{{ MEDIA_URL }}icons/posts-big.gif" alt="post"/>
+                <img src="{{ STATIC_URL }}icons/posts-big.gif" alt="post"/>
                     {{ object.title }}
                 </h1>
             </div>
@@ -102,7 +102,7 @@
             <div class="tencol">
                 {% get_comment_list for object as comment_list %}
                 {% if comment_list %}
-                    <h2><img style="vertical-align:text-bottom;"src="/media/icons/comments.png" width="30"/>
+                    <h2><img style="vertical-align:text-bottom;"src="{{ STATIC_URL }}icons/comments.png" width="30"/>
                         Comments
                     </h2>
                 {% endif %}

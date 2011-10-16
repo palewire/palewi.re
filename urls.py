@@ -34,16 +34,12 @@ urlpatterns = patterns('django.views.generic.simple',
     # OpenLayers tutorial on old site.
     ('^openlayers-proportional-symbols/$', 'direct_to_template', {'template': 'flatpages/openlayers-proportional-symbols/index.html'}),
     # DC Music Stores map from old site.
-    (r'^music/$', 'direct_to_template', {'template': 'flatpages/music/default.htm'}),
+    (r'^music/$', 'redirect_to', {'url': '/'}),
     # Arcade Fire hypecloud from old site.
-    (r'^hypecloud/$', 'direct_to_template', {'template': 'flatpages/hypecloud/index.html'}),
+    (r'^hypecloud/$', 'redirect_to', {'url': '/'}),
     # DC Happy hours from old site.
-    (r'^happyhours/$', 'direct_to_template', {'template': 'flatpages/happyhours/index.htm'}),
-    (r'^happyhours/tuesday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/tuesday.htm'}),
-    (r'^happyhours/wednesday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/wednesday.htm'}),
-    (r'^happyhours/thursday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/thursday.htm'}),
-    (r'^happyhours/friday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/friday.htm'}),
-    (r'^happyhours/saturday.htm$', 'direct_to_template', {'template': 'flatpages/happyhours/saturday.htm'}),
+    (r'^happyhours/$', 'redirect_to', {'url': '/'}),
+    (r'^happyhours/(.*)$', 'redirect_to', {'url': '/'}),
     # Redirect old images from legacy site
     (r'^images/(?P<file_name>[^/]+)$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
     # Longer apps urls
@@ -195,15 +191,21 @@ urlpatterns += patterns('',
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT }),
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.STATIC_ROOT }),
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.STATIC_ROOT,
+            'show_indexes': True,
+        }),
         (r'^500/$', 'coltrane.views.server_error'),
     )
 else:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.generic.simple.redirect_to',
              {'url': 'http://palewire.s3.amazonaws.com/%(path)s'}),
-    )
+        (r'^static/(?P<path>.*)$', 'django.views.generic.simple.redirect_to',
+             {'url': 'http://palewire.s3.amazonaws.com/%(path)s'}),
+)
 
 
 # 500 page fix

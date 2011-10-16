@@ -15,9 +15,9 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     
     <link href='http://fonts.googleapis.com/css?family=Cantarell:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}reset-fonts-grids.css"/>
-    <link rel="stylesheet" href="{{ MEDIA_URL }}styles.css" type="text/css" media="screen" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="{{ MEDIA_URL }}ie.css" type="text/css" media="screen" /><![endif]-->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset-fonts-grids.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles.css" type="text/css" media="screen" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{ STATIC_URL }}ie.css" type="text/css" media="screen" /><![endif]-->
     
     <link rel="alternate" type="application/rss+xml" title="the full feed" href="/feeds/the-full-feed/"/>
     <link rel="alternate" type="application/rss+xml" title="less noise" href="/feeds/less-noise/"/>
@@ -39,7 +39,7 @@
     {% block extralinktags %}
     {% endblock %}
     
-    <script type="text/javascript" src="{{ MEDIA_URL }}css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}css3-mediaqueries.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
 
     <script type="text/javascript"> 
@@ -88,25 +88,25 @@
             <div class="threecol last">
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_app_list %}" title="Apps">
-                        <img src="{{ MEDIA_URL }}icons/apps.gif" width="30" alt="apps" />
+                        <img src="{{ STATIC_URL }}icons/apps.gif" width="30" alt="apps" />
                     </a>
                     <div class="smalliconlabel">Apps</div>
                 </div>
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_clip_list %}" title="Clips">
-                        <img src="{{ MEDIA_URL }}icons/clips.png" width="30" alt="clips" />
+                        <img src="{{ STATIC_URL }}icons/clips.png" width="30" alt="clips" />
                     </a>
                     <div class="smalliconlabel">Clips</div>
                 </div>
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_post_list %}" title="Posts">
-                        <img src="{{ MEDIA_URL }}icons/posts.gif" width="30" alt="posts" />
+                        <img src="{{ STATIC_URL }}icons/posts.gif" width="30" alt="posts" />
                     </a>
                     <div class="smalliconlabel">Posts</div>
                 </div>
                 <div class="smalliconwrapper">
                     <a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
-                        <img src="{{ MEDIA_URL }}icons/ticker.gif" width="30" alt="ticker" />
+                        <img src="{{ STATIC_URL }}icons/ticker.gif" width="30" alt="ticker" />
                     </a>
                     <div class="smalliconlabel">Ticker</div>
                 </div>

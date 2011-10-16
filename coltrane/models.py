@@ -46,7 +46,8 @@ class Ticker(models.Model):
 
     def get_rendered_html(self):
         template_name = 'coltrane/ticker_item_%s.html' % (self.content_type.name)
-        return render_to_string(template_name, { 'object': self.content_object })
+        return render_to_string(template_name, { 'object': self.content_object,
+            'STATIC_URL': settings.STATIC_URL })
 
 
 class Slogan(models.Model):
@@ -85,7 +86,7 @@ class Category(models.Model):
     get_absolute_url = models.permalink(get_absolute_url)
     
     def get_absolute_icon(self):
-        return u'%sicons/categories.gif' % (settings.MEDIA_URL)
+        return u'%sicons/categories.gif' % (settings.STATIC_URL)
 
     def get_live_post_count(self):
         from coltrane.models import Post
@@ -142,7 +143,7 @@ class Post(models.Model):
     url = property(get_absolute_url)
     
     def get_absolute_icon(self):
-        return u'%sicons/posts.gif' % (settings.MEDIA_URL)
+        return u'%sicons/posts.gif' % (settings.STATIC_URL)
 
     def get_tag_set(self):
         """
@@ -173,11 +174,12 @@ class ThirdPartyBaseModel(models.Model):
 
     def get_rendered_html(self):
         template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
-        return render_to_string(template_name, { 'object': self })
+        return render_to_string(template_name, { 'object': self,
+            'STATIC_URL': settings.STATIC_URL })
 
     def get_absolute_icon(self):
         name = u'%ss' % self.__class__.__name__.lower()
-        return u'%sicons/%s.gif' % (settings.MEDIA_URL, name)
+        return u'%sicons/%s.gif' % (settings.STATIC_URL, name)
 
     def get_tag_list(self, last_word='and'):
         return get_text_list(self.tags.split(' '), last_word)
