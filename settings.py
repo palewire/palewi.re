@@ -4,6 +4,7 @@ settings_dir = os.path.dirname(__file__)
 
 MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
+STATIC_URL = '/static/'
 from settings_private import *
 
 TEMPLATE_DEBUG = DEBUG
@@ -14,7 +15,6 @@ SITE_ID = 1
 USE_I18N = True
 
 MEDIA_ROOT = os.path.join(settings_dir, 'media')
-STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(settings_dir, 'static')
 
 CACHE_BACKEND =	'memcached://127.0.0.1:11211'
