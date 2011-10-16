@@ -14,6 +14,8 @@ SITE_ID = 1
 USE_I18N = True
 
 MEDIA_ROOT = os.path.join(settings_dir, 'media')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(settings_dir, 'static')
 
 CACHE_BACKEND =	'memcached://127.0.0.1:11211'
 CACHE_MIDDLEWARE_SECONDS = 60 *	5
@@ -57,6 +59,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
+    'django.contrib.staticfiles',
     'tagging',
     'coltrane',
     'kennedy',
