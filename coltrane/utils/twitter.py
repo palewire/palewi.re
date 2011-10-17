@@ -12,7 +12,8 @@ from httplib2 import HttpLib2Error
 from coltrane import utils
 
 # Logging
-from qiklog import QikLog
+import logging
+logger = logging.getLogger(__name__)
 
 # Models
 from coltrane.models import Shout
@@ -40,8 +41,6 @@ class TwitterClient(object):
     """
     A minimal Twitter client. 
     """
-    logger = QikLog("coltrane.utils.twitter")
-    
     def __init__(self, username):
         self.username = username
     
@@ -53,7 +52,7 @@ class TwitterClient(object):
     
     def sync(self):
         last_update_date = Shout.sync.get_last_update()
-        self.logger.log.debug("Last update date: %s", last_update_date)
+        logger.debug("Last update date: %s", last_update_date)
         xml = utils.getxml(RECENT_STATUSES_URL % self.username)
         for status in xml.getiterator("item"):
             message = status.find('title')
@@ -67,7 +66,7 @@ class TwitterClient(object):
     def _handle_status(self, message_text, url, timestamp):
         message_text, tags = _parse_message(message_text)
         if not self._status_exists(url):
-            self.logger.log.debug("Saving message: %r", message_text)
+            logger.debug("Saving message: %r", message_text)
             s = Shout.objects.create(
                 message = message_text,
                 url = url,

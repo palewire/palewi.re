@@ -10,7 +10,8 @@ from coltrane import utils
 from django.utils.encoding import smart_unicode
 
 # Logging
-from qiklog import QikLog
+import logging
+logger = logging.getLogger(__name__)
 
 
 class FlickrError(Exception):
@@ -24,8 +25,6 @@ class FlickrClient(object):
     """
     A simple Flickr client.
     """
-    logger = QikLog("coltrane.utils.flickr")
-    
     def __init__(self, api_key, user_id, method='flickr'):
         self.api_key = api_key
         self.user_id = user_id
@@ -78,10 +77,10 @@ class FlickrClient(object):
         last_update_date = Photo.sync.get_last_update()
         page = 1
         while True:
-            self.logger.log.debug("Fetching page %s of photos", page)
+            logger.debug("Fetching page %s of photos", page)
             photos = self.get_photo_page(page)["photos"]
             if page > photos["pages"]:
-                self.logger.log.debug("Ran out of photos; stopping.")
+                logger.debug("Ran out of photos; stopping.")
                 break
                 
             # Loop through all the photos
@@ -89,7 +88,7 @@ class FlickrClient(object):
                 # Check if the photo is new
                 timestamp = utils.parsedate(str(photo["datetaken"]))
                 if timestamp < last_update_date:
-                    self.logger.log.debug(
+                    logger.debug(
                         "Hit an old photo (taken %s; last update was %s); \
                         stopping." % (timestamp, last_update_date),
                     )
@@ -116,7 +115,7 @@ class FlickrClient(object):
             utils.safeint(info["dates"]["posted"])
         )
         tags = self._convert_tags(info["tags"])
-        self.logger.log.debug("Handling photo: %r (taken %s)" % (title, timestamp))
+        logger.debug("Handling photo: %r (taken %s)" % (title, timestamp))
         # Check if it's already in the database
         try:
             # If so, update it.
@@ -135,6 +134,6 @@ class FlickrClient(object):
                 pub_date = date_uploaded,
                 tags = tags
             )
-            self.logger.log.debug("Added %s" % photo)
+            logger.debug("Added %s" % photo)
 
 

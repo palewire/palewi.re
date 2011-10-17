@@ -3,19 +3,17 @@ import time
 from coltrane import utils
 from django.utils.encoding import smart_unicode
 
-# Logging
-from qiklog import QikLog
-
 # Local application
 from coltrane.models import Link
+
+import logging
+logger = logging.getLogger(__name__)
 
 
 class DiggClient(object):
     """
     A minimal Digg client. 
     """
-    logger = QikLog("coltrane.utils.digg")
-
     def __init__(self, username, count=10):
         self.username = username
         self.count = count
@@ -74,10 +72,10 @@ class DiggClient(object):
             # Just test the URL in case it's already been logged.
             l = Link.objects.get(url=d['url'])
             # And just quit out silently if it already exists.
-            self.logger.log.debug("Digg already exists for %s" % d["title"])
+            logger.debug("Digg already exists for %s" % d["title"])
         except Link.DoesNotExist:
             # If it doesn't exist, add it fresh.
-            self.logger.log.debug("Adding link to %s" % d["title"])
+            logger.debug("Adding link to %s" % d["title"])
             l = Link(
                 url = d['url'],
                 title = d['title'],

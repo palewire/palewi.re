@@ -11,7 +11,8 @@ from django.utils.encoding import smart_unicode
 from django.template.defaultfilters import slugify
 
 # Logging
-from qiklog import QikLog
+import logging
+logger = logging.getLogger(__name__)
 
 # Models
 from tagging.models import Tag
@@ -30,8 +31,6 @@ class LastFMClient(object):
     """
     A minimal Last FM client. 
     """
-    logger = QikLog("coltrane.utils.lastfm")
-    
     def __init__(self, username, tag_usage_threshold=15):
         self.username = username
         self.tag_usage_threshold = tag_usage_threshold
@@ -105,11 +104,10 @@ class LastFMClient(object):
             artist_mbid = artist_mbid is not None and artist_mbid or '',
             tags = " ".join(tags)
         )
-        t.save()
-        if created == True:
-             self.logger.log.debug(u'Logged %s - %s' % (artist_name, track_name))
+        if created:
+             logger.debug(u'Logged %s - %s' % (artist_name, track_name))
         else:
-             self.logger.log.debug("Failed to log the track %s - %s" %    (artist_name, track_name))
+             logger.debug("Failed to log the track %s - %s" %    (artist_name, track_name))
 
 
 def get_back_tags():

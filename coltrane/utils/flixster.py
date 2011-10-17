@@ -1,4 +1,5 @@
-from qiklog import QikLog
+import logging
+logger = logging.getLogger(__name__)
 from coltrane import utils
 from coltrane.models import Movie
 from django.utils.encoding import smart_unicode
@@ -8,8 +9,6 @@ class FlixsterClient(object):
     """
     A minimal Flixster client. 
     """
-    logger = QikLog("coltrane.utils.flixster")
-    
     def __init__(self, username):
         self.username = username
         
@@ -70,7 +69,7 @@ class FlixsterClient(object):
     def _handle_movie(self, movie_dict):
         try:
             Movie.objects.get(url=movie_dict['url'])
-            self.logger.log.debug("Movie already exists: %s" % movie_dict['title'])
+            logger.debug("Movie already exists: %s" % movie_dict['title'])
         except Movie.DoesNotExist:
             m = Movie(
                 title = movie_dict['title'],
@@ -79,7 +78,7 @@ class FlixsterClient(object):
                 pub_date = movie_dict['pub_date'],
                 )
             m.save()
-            self.logger.log.debug("Adding movie: %s" % m.title)
+            logger.debug("Adding movie: %s" % m.title)
 
 
 

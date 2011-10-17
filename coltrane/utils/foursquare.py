@@ -1,4 +1,5 @@
-from qiklog import QikLog
+import logging
+logger = logging.getLogger(__name__)
 from coltrane import utils
 from coltrane.models import Location
 from django.utils.encoding import smart_unicode
@@ -8,8 +9,6 @@ class FoursquareClient(object):
     """
     A minimal Foursquare client. 
     """
-    logger = QikLog("coltrane.utils.foursquare")
-    
     def __init__(self, url):
         self.url = url
     
@@ -52,10 +51,10 @@ class FoursquareClient(object):
             # Just test the URL in case it's already been logged 
             l = Location.objects.get(title=d['title'], pub_date=d['date'])
             # And just quit out silently if it already exists.
-            self.logger.log.debug("Location already exists for %s" % d["title"])
+            logger.debug("Location already exists for %s" % d["title"])
         except Location.DoesNotExist:
             # If it doesn't exist, add it fresh.
-            self.logger.log.debug("Adding location for %s" % d["title"])
+            logger.debug("Adding location for %s" % d["title"])
             l = Location(
                 url = d['url'],
                 title = d['title'],

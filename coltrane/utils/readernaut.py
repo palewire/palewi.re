@@ -7,7 +7,8 @@ from django.utils.text import get_text_list
 from django.utils.encoding import smart_unicode
 
 # Logging
-from qiklog import QikLog
+import logging
+logger = logging.getLogger(__name__)
 
 # Models
 from coltrane.models import Book
@@ -17,8 +18,6 @@ class ReadernautClient(object):
     """
     A minimal Readernaut client. 
     """
-    logger = QikLog("coltrane.utils.readernaut")
-    
     def __init__(self, username):
         self.username = username
         
@@ -85,10 +84,10 @@ class ReadernautClient(object):
             # Just test the URL in case it's already been logged by another bookmarking service like Delicious.
             b = Book.objects.get(isbn=book_dict['isbn'])
             # And just quit out silently if it already exists.
-            self.logger.log.debug("Book already exists for %s" % book_dict["title"])
+            logger.debug("Book already exists for %s" % book_dict["title"])
         except Book.DoesNotExist:
             # If it doesn't exist, add it fresh.
-            self.logger.log.debug("Adding book to %s" % book_dict["title"])
+            logger.debug("Adding book to %s" % book_dict["title"])
             b = Book(
                 url = book_dict['url'],
                 title = book_dict['title'],

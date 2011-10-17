@@ -10,7 +10,8 @@ from BeautifulSoup import BeautifulSoup
 from django.utils.encoding import smart_unicode
 
 # Logging
-from qiklog import QikLog
+import logging
+logger = logging.getLogger(__name__)
 
 
 class GithubClient(object):
@@ -18,7 +19,6 @@ class GithubClient(object):
     A minimal Github client. 
     """
     GITHUB_TITLE_REGEX = re.compile(r'palewire pushed to (?P<branch>(.*)) at (?P<repository>(.*))')
-    logger = QikLog("coltrane.utils.github")
     
     def __init__(self, username):
         self.username = username
@@ -86,7 +86,7 @@ class GithubClient(object):
     def _handle_commit(self, commit_dict):
         try:
             c = Commit.objects.get(url=commit_dict['url'])
-            self.logger.log.debug("Commit %s already exists." % c)
+            logger.debug("Commit %s already exists." % c)
         except Commit.DoesNotExist:
             d = dict(
                 url = commit_dict['url'],
@@ -97,5 +97,5 @@ class GithubClient(object):
             )
             c = Commit(**d)
             c.save()
-            self.logger.log.debug("Adding commit %s." % d.get("message"))
+            logger.debug("Adding commit %s." % d.get("message"))
 
