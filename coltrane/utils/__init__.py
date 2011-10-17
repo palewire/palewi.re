@@ -51,9 +51,7 @@ def fetch_resource(url, method="GET", body=None, username=None, password=None, h
     
     if headers is None:
         headers = DEFAULT_HTTP_HEADERS.copy()
-    print url
     response, content = h.request(url, method, body, headers)
-    print content
     return content
 
 #
