@@ -1,0 +1,7 @@
+fabfile.py
+settings_private.py
+logs/*
+static/*
+*.tar
+*.db
+*.pyc
