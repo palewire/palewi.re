@@ -63,7 +63,7 @@ class GithubClient(object):
     def _extract_entry_pubdate(self, entry):
         text = entry.find('{http://www.w3.org/2005/Atom}published').text
         dt = dateutil.parser.parse(text)
-        return dt.strftime('%Y-%m-%d %H:%M:%S')
+        return utils.utc_to_local_datetime(dt)
     
     def _extract_commit_url(self, commit_html):
         href_list = [i['href'] for i in commit_html.findAll('a')]
@@ -86,7 +86,9 @@ class GithubClient(object):
     def _handle_commit(self, commit_dict):
         try:
             c = Commit.objects.get(url=commit_dict['url'])
-            logger.debug("Commit %s already exists." % c)
+            logger.debug("Already have commit %s (%s)." % (
+                commit_dict.get("message"), commit_dict.get("pub_date")
+            ))
         except Commit.DoesNotExist:
             d = dict(
                 url = commit_dict['url'],
@@ -97,5 +99,5 @@ class GithubClient(object):
             )
             c = Commit(**d)
             c.save()
-            logger.debug("Adding commit %s." % d.get("message"))
+            logger.debug("Adding commit %s (%s)." % (d.get("message"), d.get("pub_date")))
 
