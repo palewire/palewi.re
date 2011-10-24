@@ -1,5 +1,6 @@
 import os
 import csv
+import urllib
 from dateutil.parser import parse
 from models import FreeFluVaccine
 from googlegeocoder import GoogleGeocoder
@@ -48,4 +49,18 @@ def model():
             latitude=i.get("Lat"),
             longitude=i.get("Lng"),
         )
+
+
+def images():
+    for i in FreeFluVaccine.objects.all():
+        if not os.path.exists("./%s.png" % i.id):
+            urllib.urlretrieve(
+                i.static_map,
+                "./%s.png" % i.id
+            )
+            print i
+
+
+
+
 
