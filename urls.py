@@ -173,7 +173,7 @@ urlpatterns += patterns('',
     # Kennedy name generator
     (r'^kennedy/', include('kennedy.urls')),
     # Flu Shots 2011
-    url(r'flu-shots/$', 'flushots.views.index', name='flushots-index'),
+    url(r'free-flu-shots/$', 'flushots.views.index', name='flushots-index'),
     # newtwitter style autopagination with django
     url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
         'coltrane.views.newtwitter_pagination_index',
