@@ -83,6 +83,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'shortener',
     'greeking',
+    'flushots',
 )
 
 # Shortener settings
