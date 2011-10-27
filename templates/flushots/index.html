@@ -37,7 +37,7 @@
                     {% ifchanged obj.date %}
                     <div class="row">
                         <div class="interior-date twelvecol last">
-                            {{ obj.date|date:"N j" }}
+                            {{ obj.date|date:"l, N j" }}
                         </div>
                     </div>
                     {% endifchanged %}
