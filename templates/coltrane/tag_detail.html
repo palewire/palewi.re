@@ -11,7 +11,11 @@
 {% block content %}
     <div class="interiorlist twelvecol last">
         <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/tags.gif" alt="ticker"/>&nbsp;Tags</h1>
+        {% if maxed_out %}
+        <p>The 500 most recent things tagged "{{ tag }}"</p>
+        {% else %}
         <p>{{ object_list|length|apnumber|title }} thing{{ object_list|pluralize }} tagged "{{ tag }}"</p>
+        {% endif %}
         {% for object in object_list %}
             {% ifchanged object.pub_date.month %}
             <div class="row">

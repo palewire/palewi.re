@@ -149,17 +149,26 @@ def tag_detail(request, tag):
     
     # Pull all the items with that tag.
     taggeditem_list = TaggedItem.objects.filter(tag=tag).fetch_generic_relations()
-
+    
     # Loop through the tagged items and return just the items
     object_list = [i.object for i in taggeditem_list if getattr(i.object, 'pub_date', False)]
     
     # Now resort them by the pub_date attribute we know each one should have
     object_list.sort(key=lambda x: x.pub_date, reverse=True)
+    
+    # Slice it to 500 max
+    object_list = object_list[:500]
+
+    if len(object_list) == 500:
+        maxed_out = True
+    else:
+        maxed_out = False
 
     # Pass it out
     return render(request, 'coltrane/tag_detail.html', { 
             'tag': tag, 
             'object_list': object_list,
+            'maxed_out': maxed_out,
         })
 
 
