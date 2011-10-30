@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'shortener',
     'greeking',
     'flushots',
+    'nicar.polls',
 )
 
 # Shortener settings
