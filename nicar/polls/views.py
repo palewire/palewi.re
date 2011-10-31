@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 
+
 def index(request):
     projects = Project.objects.all().order_by('-pub_date')[:5]
     return render(request, 'nicar/polls/index.html', {
@@ -22,7 +23,10 @@ def detail(request, poll_id):
 @csrf_exempt
 def vote(request, poll_id):
     p = get_object_or_404(Project, pk=poll_id)
-    if request.POST['data'] == "-1":
+    data = request.POST.get("data", None)
+    if not data:
+        return HttpResponse(status=405)
+    if data == "-1":
         value = -1
     else:
         value = 1
