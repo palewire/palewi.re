@@ -39,7 +39,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^hypecloud/$', 'redirect_to', {'url': '/'}),
     # DC Happy hours from old site.
     (r'^happyhours/$', 'redirect_to', {'url': '/'}),
-    (r'^happyhours/(.*)$', 'redirect_to', {'url': '/'}),
+    (r'^happyhours/(?P<whatever>.*)', 'redirect_to', {'url': '/'}),
     # Redirect old images from legacy site
     (r'^images/(?P<file_name>[^/]+)$', 'redirect_to', {'url': '/media/img/%(file_name)s'}),
     # Longer apps urls
