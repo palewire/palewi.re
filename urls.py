@@ -150,7 +150,7 @@ urlpatterns += patterns('',
         name="coltrane_category_detail"),
     url(r'^tags/(?P<tag>[^/]+)/$', 'coltrane.views.tag_detail',
         name='coltrane_tag_detail'),
-    url(r'^corrections/(?P<id>[0-9]+)/$', 'correx_redirect',
+    url(r'^corrections/(?P<id>[0-9]+)/$', 'coltrane.views.correx_redirect',
         name='coltrane_correx_redirect'),
     # Feeds
     url(r'^feeds/list/$', direct_to_template,
