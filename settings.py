@@ -1,6 +1,7 @@
 # Django settings for cms project.
 import os
 settings_dir = os.path.dirname(__file__)
+SETTINGS_DIR = settings_dir
 
 MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
@@ -85,6 +86,7 @@ INSTALLED_APPS = (
     'greeking',
     'flushots',
     'nicar.polls',
+    'nicar.flu_map',
 )
 
 # Shortener settings
