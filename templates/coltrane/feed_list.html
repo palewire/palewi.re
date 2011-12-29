@@ -3,6 +3,13 @@
 
 {% block title %}feeds . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="feeds"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com/feeds/list/"/>
+{% endblock %}
+
 {% block content %}
     <div class="interiorlist twelvecol last feeds">
         <h1><img style="vertical-align:text-bottom;" src="{{ MEDIA_URL }}icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h1>

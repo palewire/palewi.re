@@ -3,6 +3,13 @@
 
 {% block title %}applications . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="applications"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com/apps/"/>
+{% endblock %}
+
 {% block content %}
 
     <div class="applist twelvecol last">

@@ -4,6 +4,13 @@
 
 {% block title %}{{ tag }} . tags . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="{{ tag }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com/tags/{{ tag }}/"/>
+{% endblock %}
+
 {% block extrarss %}
     <link rel="alternate" type="application/rss+xml" title="latest tagged {{ tag }}" href="/feeds/tag/{{ tag }}/"/>
 {% endblock %}

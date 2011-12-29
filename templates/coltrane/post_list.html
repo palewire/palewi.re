@@ -3,6 +3,13 @@
 
 {% block title %}posts . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="posts"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com/posts/"/>
+{% endblock %}
+
 {% block content %}
     <div class="interiorlist twelvecol last">
         <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/posts.gif" alt="posts"/>&nbsp;Posts</h1>

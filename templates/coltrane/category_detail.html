@@ -3,6 +3,13 @@
 
 {% block title %}{{ category.title|lower }} . categories . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="Posts about {{ category }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com/categories/{{ category.slug }}/"/>
+{% endblock %}
+
 {% block extrarss %}
     <link rel="alternate" type="application/rss+xml" title="{{ category.title|lower }}" href="/feeds/category/{{ category.slug }}/"/>
 {% endblock%}

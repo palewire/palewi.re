@@ -3,6 +3,13 @@
 
 {% block title %}{{ object.title|lower }} . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="{{ object.title }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com{{ object.get_absolute_url }}"/>
+{% endblock %}
+
 {% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
 
 {% block content %}

@@ -2,6 +2,13 @@
 
 {% block title %}ticker . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="ticker"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com/ticker/page/1/"/>
+{% endblock %}
+
 {% block extralinktags %}
 <link rel="home" href="/" />
 {% if page.has_previous %}<link rel="prev" href="/ticker/page/{{ page.previous_page_number }}/" />{% endif %}
