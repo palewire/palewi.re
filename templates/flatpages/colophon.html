@@ -2,6 +2,13 @@
 
 {% block title %}colophon . {{ block.super }}{% endblock %}
 
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="Colophon"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://palewire.com/colophon/"/>
+{% endblock %}
+
 {% block content %}
 <div id="detailbody" class="row">
 <div class="twelvecol last">
