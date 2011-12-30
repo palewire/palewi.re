@@ -12,12 +12,14 @@
 
 {% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
 
+{% block extrabody %}about="http://palewire.com{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
+
 {% block content %}
     <div class="twelvecol last">
 
         <div id="headline" class="row">
             <div class="twelvecol last">
-                <h1>
+                <h1 property="rnews:headline">
                 <img src="{{ STATIC_URL }}icons/posts-big.gif" alt="post"/>
                     {{ object.title }}
                 </h1>
@@ -39,7 +41,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-                {{ object.body_html|safe }}
+                <span property="rnews:body">{{ object.body_html|safe }}</span>
             </div>
             <div class="onecol"></div>
         </div>
@@ -53,7 +55,15 @@
         <div id="detailmetadata" class="row">
             <div class="onecol last"></div>
             <div class="tencol">
-                <p id="postpubdate">This is a post <a rel="author" href="/who-is-ben-welsh/">Ben Welsh</a> made on {{ object.pub_date|date:"F j, Y" }}, {{ object.pub_date|timesince }} ago.</p>
+                <p id="postpubdate">This is a post 
+                    <span rel="rnews:createdBy">
+                        <span about="http://palewire.com/who-is-ben-welsh/" typeof="rnews:Person">
+                            <a rel="author" href="/who-is-ben-welsh/" property="rnews:name">
+                                Ben Welsh
+                            </a>
+                        </span>
+                    </span>
+    made on <span property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}">{{ object.pub_date|date:"F j, Y" }}</span<, {{ object.pub_date|timesince }} ago.</p>
                 {% if object.categories.count %}
                     
                     <p id ="postcats">
@@ -106,7 +116,7 @@
         {% load comments %}
         <div id ="comments" class="row">
             <div class="onecol last"></div>
-            <div class="tencol">
+            <div class="tencol" rel="rnews:discussedBy">
                 {% get_comment_list for object as comment_list %}
                 {% if comment_list %}
                     <h2><img style="vertical-align:text-bottom;"src="{{ STATIC_URL }}icons/comments.png" width="30"/>
@@ -115,13 +125,13 @@
                 {% endif %}
                 
                 {% for comment in comment_list %}
-                    <div id="#c{{comment.id}}" class="comment">
+                    <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://palewire.com{{ object.get_absolute_url }}#c{{comment.id}}">
                         <a name="c{{comment.id}}"></a>
                         <div class="commenttopper">
-                            <span class="commentname">{{ comment.user_name|lower }}</span>
-                            <span class="commentdate">on {{ comment.submit_date|date:"Y.m.d"}}</span>
+                            <span rel="rnews:createdBy"><span class="commentname" property="rnews:name">{{ comment.user_name|lower }}</span></span>
+                            <span property="rnews:commentTime" content="{{ comment.submit_date|date:"Y-m-d\TH:m:s" }}" class="commentdate">on {{ comment.submit_date|date:"Y.m.d"}}</span>
                         </div>
-                        <div class="commenttext">{{ comment.comment|safe }}</div>
+                        <div class="commenttext" property="rnews:commentText">{{ comment.comment|safe }}</div>
                         <div class="commentfooter"><a href="{{ comment.get_absolute_url }}">Permalink</a></div>
                     </div>
                 {% endfor %}
@@ -134,5 +144,9 @@
             </div>
             <div class="onecol"></div>
         </div>
+    </div>
+    <div style="display:none;">
+        <div property="rnews:language">en</div>
+        <div property="rnews:wordCount">{{ object.body_html|striptags|wordcount }}</div>
     </div>
 {% endblock %}

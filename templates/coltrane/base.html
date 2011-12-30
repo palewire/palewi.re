@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:rnews="http://iptc.org/std/rNews/2011-05-17#" xmlns:og="http://ogp.me/ns#">
 {% load coltrane_tags %}
 {% get_random_slogan %}
 
@@ -22,10 +22,6 @@
     <meta property="og:site_name" content="palewire"/>
     <meta property="og:description"
           content="Blog. Editor and Proprietor Ben Welsh."/>
-    <meta property="og:locality" content="Los Angeles"/>
-    <meta property="og:region" content="CA"/>
-    <meta property="og:postal-code" content="90012"/>
-    <meta property="og:country-name" content="USA"/>
     {% endblock %}
     
     {% block extrameta %}
@@ -85,7 +81,12 @@
             <div class="ninecol">
                 <h1>
                     <a href="/" title="{{ random_slogan }}" id="shingle">
-                        palewire
+                        <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
+                            <div about="http://palewire.com"
+                                  typeof="rnews:Organization">
+                                <div property="rnews:name">palewire</div>
+                            </div>
+                        </div>
                     </a>
                 </h1>
             </div>
@@ -137,7 +138,7 @@
         {% get_current_year %}
         <div id="ft" class="row">
             <div class="twelvecol last">
-                © {{ current_year }} palewire . 
+                <span property="rnews:copyrightNoticeUri">© {{ current_year }} palewire</span> . 
                 <a href="/colophon/">colophon</a> . 
                 <a href="/feeds/list/" title="Feeds">rss feeds</a> . 
                 </a>
