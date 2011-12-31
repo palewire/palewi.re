@@ -80,7 +80,7 @@ INSTALLED_APPS = (
     'kennedy',
     'correx',
     'django_memcached',
-    'haystack',
+    #'haystack',
     'django_extensions',
     'shortener',
     'greeking',
