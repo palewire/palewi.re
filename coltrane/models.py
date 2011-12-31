@@ -28,7 +28,7 @@ from coltrane.managers import *
 
 # Signals
 from django.db.models import signals
-from django.contrib.comments.signals import comment_was_posted
+from django.contrib.comments.signals import comment_will_be_posted
 from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
 
 
@@ -373,8 +373,18 @@ signals.post_save.connect(category_count, sender=Post)
 signals.post_delete.connect(category_count, sender=Post)
 
 # Comment moderation
+from django.contrib.comments.moderation import CommentModerator, moderator
+
+class ColtraneModerator(CommentModerator):
+    auto_moderate_field = 'pub_date'
+    moderate_after = -10
+    email_notification = False
+    enable_field = 'enable_comments'
+
+
 def moderate_comment(sender, comment, request, **kwargs):
-    print comment
+    comment.is_public = False
+    
     ak = akismet.Akismet(
         key = settings.AKISMET_API_KEY,
             blog_url = 'http://%s/' % Site.objects.get_current().domain
@@ -396,5 +406,5 @@ def moderate_comment(sender, comment, request, **kwargs):
         email_body = "%s"
         mail_managers ("New comment posted", email_body % (comment.get_as_text()))
 
-comment_was_posted.connect(moderate_comment)
+comment_will_be_posted.connect(moderate_comment)
 
