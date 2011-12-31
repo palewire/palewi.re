@@ -1,10 +1,13 @@
 # Helpers
+import akismet
 import datetime
 from django.db import models
+from django.utils.html import strip_tags
+from django.core.mail import mail_managers
+from django.utils.encoding import smart_str
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import truncate_html_words, truncate_words, get_text_list
-from django.utils.html import strip_tags
 
 # Settings
 from django.conf import settings
@@ -12,6 +15,7 @@ from django.conf import settings
 # Models
 from tagging.models import Tag
 from django.contrib.auth.models import User
+from django.contrib.sites.models import Site
 from django.contrib.comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 
@@ -24,6 +28,7 @@ from coltrane.managers import *
 
 # Signals
 from django.db.models import signals
+from django.contrib.comments.signals import comment_was_posted
 from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
 
 
@@ -368,13 +373,28 @@ signals.post_save.connect(category_count, sender=Post)
 signals.post_delete.connect(category_count, sender=Post)
 
 # Comment moderation
-from django.contrib.comments.moderation import CommentModerator, moderator
+def moderate_comment(sender, comment, request, **kwargs):
+    print comment
+    ak = akismet.Akismet(
+        key = settings.AKISMET_API_KEY,
+            blog_url = 'http://%s/' % Site.objects.get_current().domain
+    )
+    
+    data = {
+        'user_ip': request.META.get('REMOTE_ADDR', ''),
+        'user_agent': request.META.get('HTTP_USER_AGENT', ''),
+        'referrer': request.META.get('HTTP_REFERRER', ''),
+        'comment_type': 'comment',
+        'comment_author': smart_str(comment.user_name),
+    }
+    
+    if ak.comment_check(smart_str(comment.comment), data=data, build_data=True):
+        comment.is_removed = True
+        comment.save()
+    
+    if not comment.is_removed:
+        email_body = "%s"
+        mail_managers ("New comment posted", email_body % (comment.get_as_text()))
 
-class ColtraneModerator(CommentModerator):
-    auto_moderate_field = 'pub_date'
-    moderate_after = -10
-    email_notification = False
-    enable_field = 'enable_comments'
-
-moderator.register(Post, ColtraneModerator)
+comment_was_posted.connect(moderate_comment)
 
