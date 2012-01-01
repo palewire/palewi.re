@@ -1,4 +1,5 @@
 # Feeds
+from questionheds.feeds import RecentHeds
 from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
 
 # Models
@@ -331,4 +332,5 @@ FEED_DICT = {
     'corrections': RecentCorrections,
     'movies': RecentMovies,
     'locations': RecentLocations,
+    'questionheds': RecentHeds,
 }

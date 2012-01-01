@@ -87,6 +87,7 @@ INSTALLED_APPS = (
     'flushots',
     'nicar.polls',
     'nicar.flu_map',
+    'questionheds',
 )
 
 # Shortener settings
@@ -140,6 +141,11 @@ LOGGING = {
             'propagate': True,
         },
         'coltrane.management': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'questionheds.management': {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
             'propagate': True,
