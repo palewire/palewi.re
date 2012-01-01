@@ -8,9 +8,27 @@ from django.core.management.base import BaseCommand, CommandError
 
 class Command(BaseCommand):
     help = 'Sync Questionheds from Feedzilla'
-    
+    CATEGORIES = {
+        'Top news': 26,
+        'Sports': 1314,
+        'Art': 13,
+        'Blogs': 21,
+        'Business': 22,
+        'Celebrities': 5,
+        'Entertainment': 6,
+        'Fun stuff': 25,
+        'Health': 11,
+        'Internet': 28,
+        'Law': 591,
+        'Music': 29,
+        'Lifestyle': 2,
+        'Politics': 3,
+        'Music': 29,
+        'Programming': 16,
+    }
+
     def handle(self, *args, **options):
-        for cat in [26, 1314, 13, 21, 22, 5, 6, 25, 11, 28, 591, 29, 20, 29]:
+        for cat in self.CATEGORIES.values():
             hed_list = Feedzilla().fetch(cat=cat)
             for item in hed_list:
                 hits = Item.objects.filter(link=item['link']).count()
