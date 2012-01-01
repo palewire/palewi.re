@@ -10,7 +10,7 @@ class Command(BaseCommand):
     help = 'Sync Questionheds from Feedzilla'
     
     def handle(self, *args, **options):
-        for cat in [26, 1314, 13, 21, 22, 5, 6, 25]:
+        for cat in [26, 1314, 13, 21, 22, 5, 6, 25, 11, 28, 591, 29, 20, 29]:
             hed_list = Feedzilla().fetch(cat=cat)
             for item in hed_list:
                 hits = Item.objects.filter(link=item['link']).count()
