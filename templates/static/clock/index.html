@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+    function startTime() {
+        var today=new Date();
+        var h=today.getHours();
+        if (h > 12) {
+            h = (h-12);
+        }
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('clock').innerHTML=h+":"+m;
+        t=setTimeout('startTime()',500);
+    }
+    function checkTime(i) {
+      if (i<10) {
+        i="0" + i;
+      }
+      return i;
+    }
+    </script>
+    <style type="text/css">
+        body {background-color:black;}
+        #clock {font-size:300px; color:#B2EC5D; font-family: "Ubuntu Mono"; margin-top:200px;}
+    </style>
+</head>
+<body onload="startTime()">
+    <center>
+        <div id="clock"></div>
+    </center>
+</body>
+</html>
+
+
