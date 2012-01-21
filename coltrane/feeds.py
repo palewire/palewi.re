@@ -165,6 +165,21 @@ class RecentPosts(Feed):
         return item.pub_date
 
 
+class RecentBeers(Feed):
+    title = "beers . palewire"
+    link = "http://palewire.com/feeds/beers/"
+    description = "the latest beers at palewire.com"
+
+    def items(self):
+        return Beer.objects.all().order_by('-pub_date')[:10]
+
+    def item_link(self, item):
+        return item.url
+
+    def item_pubdate(self, item):
+        return item.pub_date
+
+
 class RecentBooks(Feed):
     title = "books . palewire"
     link = "http://palewire.com/feeds/books/"
@@ -319,6 +334,7 @@ FEED_DICT = {
     'the-full-feed': FullFeed,
     'less-noise': LessNoise,
     # Singletons
+    'beers': RecentBeers,
     'posts': RecentPosts,
     'comments': RecentComments,
     'shouts': RecentShouts,
