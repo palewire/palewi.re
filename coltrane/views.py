@@ -13,7 +13,7 @@ from correx.models import Change
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
 from django.contrib.contenttypes.models import ContentType
-from coltrane.models import Post, Category, Link, Photo, Track, Ticker
+from coltrane.models import Post, Category, Link, Photo, Track, Ticker, Beer
 
 # Generic Views
 from django.views.generic.list_detail import object_list
@@ -30,6 +30,7 @@ def index(request):
     except Post.DoesNotExist:
         return HttpResponseRedirect("/ticker/")
 
+
 def ticker_detail(request, page):
     """
     A tumble log of my latest online activity. Allows for filtering by content
@@ -37,6 +38,7 @@ def ticker_detail(request, page):
     """
     # Available content type filters
     contenttypes_whitelist = [
+        'beer',
         'book',
         'change',
         'comment',

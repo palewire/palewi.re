@@ -191,6 +191,17 @@ class ThirdPartyBaseModel(models.Model):
     tag_list = property(get_tag_list)
 
 
+class Beer(ThirdPartyBaseModel):
+    """
+    A beer I drank.
+    """
+    title = models.CharField(max_length=250, blank=True, null=True)
+    brewery = models.CharField(max_length=250)
+
+    def __unicode__(self):
+        return self.title
+
+
 class Book(ThirdPartyBaseModel):
     """
     Books I've read.
@@ -363,10 +374,10 @@ class TopTag(models.Model):
 
 # Signals
 from correx.models import Change
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location, Beer]:
     signals.post_save.connect(create_ticker_item, sender=modelname)
 
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location]:
+for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location, Beer]:
     signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)

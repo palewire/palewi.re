@@ -9,6 +9,11 @@ from django.db.models import get_model
 # Custom forms
 from coltrane.forms import PostAdminModelForm
 
+class BeerAdmin(admin.ModelAdmin):
+    pass
+    
+admin.site.register(Beer, BeerAdmin)
+
 
 class BookAdmin(admin.ModelAdmin):
     pass
