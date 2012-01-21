@@ -75,9 +75,9 @@
             "minute": "2",
             "command": "/apps/palewire.com/bin/python /apps/palewire.com/project/manage.py syncfoursquare > /dev/null 2>&1"
         },
-        "syncfoursquare": {
-            "minute": "2",
-            "command": "/apps/palewire.com/bin/python /apps/palewire.com/project/manage.py syncfoursquare > /dev/null 2>&1"
+        "syncuntappd": {
+            "minute": "38",
+            "command": "/apps/palewire.com/bin/python /apps/palewire.com/project/manage.py syncuntappd > /dev/null 2>&1"
         }
     }
 
