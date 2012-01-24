@@ -1,8 +1,10 @@
 import random
 from models import Category, Nominee
 from django.shortcuts import render
+from django.views.decorators.cache import never_cache
 
 
+@never_cache
 def index(request):
     if request.GET.get("roll", None):
         pick_list = []
