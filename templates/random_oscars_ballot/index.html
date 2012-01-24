@@ -39,6 +39,20 @@
             <form method="GET" action="">
                 <input type="submit" value="&#9859; Roll the dice &#9859;" style="padding:5px; font-size:20px;"/>
                 <input type="hidden" name="roll" value="dice">
+                <script type="text/javascript">
+                    function random()
+                    {
+                        var text = "";
+                        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                        for( var i=0; i < 5; i++ )
+                            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+                        return text;
+                    }
+                    document.write('<input type="hidden" name="id" value="' + random() + '">');
+                </script>
+                    
             </form>
             {% endif %}
             </div>
