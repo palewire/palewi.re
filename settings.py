@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'nicar.polls',
     'nicar.flu_map',
     'questionheds',
+    'random_oscars_ballot',
 )
 
 # Shortener settings

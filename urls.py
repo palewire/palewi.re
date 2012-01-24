@@ -174,6 +174,9 @@ urlpatterns += patterns('',
     (r'^kennedy/', include('kennedy.urls')),
     # Flu Shots 2011
     url(r'free-flu-shots/$', 'flushots.views.index', name='flushots-index'),
+    # Random Oscars Ballot
+    url(r'random-oscars-ballot/$', 'random_oscars_ballot.views.index',
+        name='random-oscars-ballot-index'),
     # newtwitter style autopagination with django
     url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
         'coltrane.views.newtwitter_pagination_index',
