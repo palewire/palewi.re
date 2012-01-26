@@ -1,8 +1,8 @@
 import logging
 logger = logging.getLogger(__name__)
 from django.conf import settings
-from questionheds.fetch import Feedzilla
-from questionheds.models import Item
+from wxwtf.questionheds.models import Item
+from wxwtf.questionheds.fetch import Feedzilla
 from django.core.management.base import BaseCommand, CommandError
 
 

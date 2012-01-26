@@ -75,20 +75,23 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django.contrib.staticfiles',
-    'tagging',
+     # Blog
     'coltrane',
-    'kennedy',
+     # Site extras and helpers
     'correx',
+    'tagging',
     'django_memcached',
-    #'haystack',
     'django_extensions',
-    'shortener',
     'greeking',
-    'flushots',
+    'shortener',
+    # NICAR-related apps
     'nicar.polls',
     'nicar.flu_map',
-    'questionheds',
-    'random_oscars_ballot',
+    # Goofy one-off apps
+    'wxwtf.questionheds',
+    'wxwtf.random_oscars_ballot',
+    'wxwtf.flushots',
+    'wxwtf.kennedy',
 )
 
 # Shortener settings
@@ -146,7 +149,7 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
-        'questionheds.management': {
+        'wxwtf.questionheds.management': {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
             'propagate': True,

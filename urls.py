@@ -171,11 +171,11 @@ urlpatterns += patterns('',
     # URL shortener
     (r'!/', include('shortener.urls')),
     # Kennedy name generator
-    (r'^kennedy/', include('kennedy.urls')),
+    (r'^kennedy/', include('wxwtf.kennedy.urls')),
     # Flu Shots 2011
-    url(r'free-flu-shots/$', 'flushots.views.index', name='flushots-index'),
+    url(r'free-flu-shots/$', 'wxwtf.flushots.views.index', name='flushots-index'),
     # Random Oscars Ballot
-    url(r'random-oscars-ballot/$', 'random_oscars_ballot.views.index',
+    url(r'random-oscars-ballot/$', 'wxwtf.random_oscars_ballot.views.index',
         name='random-oscars-ballot-index'),
     # newtwitter style autopagination with django
     url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
