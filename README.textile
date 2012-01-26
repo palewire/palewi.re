@@ -1,5 +1,18 @@
-h1. palewire.com
+h1. This is palewire dot com.
 
 The current edition of my blog, published at "palewire.com":http://www.palewire.com. 
 
-It's a combination of "coltrane":http://github.com/clones/django-coltrane/tree/master, "jellyroll":http://github.com/jacobian/jellyroll/tree/master and a number of other Django blogs floating around.
+h3. Much respect due
+
+This site's creation would not be possible without the generous efforts of many people who do not know me, but who freely offer their work without expectation of repayment. Such is the Internet.
+
+The list includes:
+
+* The straightforward guidance of James Bennett, his blog "coltrane":http://code.google.com/p/coltrane-blog/ and his book "Practical Django Projects":http://www.amazon.com/Practical-Django-Projects-Pratical/dp/1590599969
+* The flexible framework of Jacob Kaplan Moss's "jellyroll":https://github.com/jacobian/jellyroll and Ryan Berg's "tumble log":http://ryanberg.net/blog/2008/jun/24/basics-creating-tumblelog-django/
+* The minimal design of Scott Wallick's "work for Wordpress":http://scottwallick.com/portfolio/web-design/
+* The responsive wonder of "cssgrid.net":http://cssgrid.net/
+* The immaculate sensibility of Thomas Suh Lauder
+* The gentle mercy of Opscode’s "Chef":http://en.wikipedia.org/wiki/Chef_(software)
+* The terrible glory of "RackSpace’s OpenStack":http://en.wikipedia.org/wiki/OpenStack
+* And, of course, the entire "Django":http://www.djangoproject.com community, without whose labors I wouldn't have a job, let alone a blog
