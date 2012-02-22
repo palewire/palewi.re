@@ -5,7 +5,7 @@ from coltrane.models import *
 
 class ThirdPartyBaseAdmin(admin.ModelAdmin):
     """
-    A base admin class that serves as a base for admins for third-party data.
+    Serves as a base for admins for third-party data.
     """
     list_display = ('title', 'pub_date')
     list_filter = ('pub_date',)
