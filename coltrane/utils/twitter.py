@@ -71,6 +71,7 @@ class TwitterClient(object):
                 message = message_text,
                 url = url,
                 pub_date = timestamp,
+                tags = tags,
             )
     
     def _status_exists(self, url):
