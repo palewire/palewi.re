@@ -139,10 +139,6 @@ if TWITTER_TRANSFORM_MSG:
         # generate tags list
         tags = ' '.join( [tag[1:] for tag in TAG_RE.findall(message_text)] )
 
-        # extract defacto #tag style tweet tags
-        if not hasattr(settings, 'TWITTER_REMOVE_TAGS') or settings.TWITTER_REMOVE_TAGS == True:
-            message_text = TAG_RE.sub('',message_text)
-
         return (message_text.strip(),tags)
 else:
     _parse_message = lambda msg: (msg,list(),"")
