@@ -8,4 +8,4 @@ def index(request):
     context = {
         'object_list': obj_list,
     }
-    return render(request, "flushots/index.html", context)
+    return render(request, "wxwtf/flushots/index.html", context)

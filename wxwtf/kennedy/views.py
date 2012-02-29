@@ -36,4 +36,4 @@ def index(request):
             kennedy_name = get_random_name(gender)
             if kennedy_name:
                 context.update({'kennedy_name': kennedy_name})
-    return render(request, 'kennedy/index.html', context)
+    return render(request, 'wxwtf/kennedy/index.html', context)

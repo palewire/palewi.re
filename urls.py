@@ -186,7 +186,7 @@ urlpatterns += patterns('',
         name='coltrane_app_newtwitter_json'),
     # BRING THE NEWS BACK
     url(r'^apps/bring-the-news-back/$', direct_to_template,
-        {'template': 'bring_the_news_back/index.html' },
+        {'template': 'wxwtf/bring_the_news_back/index.html' },
         name='coltrane_app_newtwitter_json'),
     # Other weird stuff
     (r'^comments/', include('django.contrib.comments.urls')),

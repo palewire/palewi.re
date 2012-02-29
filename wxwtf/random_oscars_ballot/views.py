@@ -14,5 +14,5 @@ def index(request):
         context = {'pick_list': pick_list}
     else:
         context = {}
-    return render(request, 'random_oscars_ballot/index.html', context)
+    return render(request, 'wxwtf/random_oscars_ballot/index.html', context)
 
