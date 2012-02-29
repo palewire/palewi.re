@@ -35,6 +35,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'djangosecure.middleware.SecurityMiddleware',
     'toolbox.middleware.domains.WWWDomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -44,6 +45,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
+
+SECURE_FRAME_DENY = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 ROOT_URLCONF = 'urls'
 
@@ -85,6 +91,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'greeking',
     'shortener',
+    'djangosecure',
     # NICAR-related apps
     'nicar.polls',
     'nicar.flu_map',
