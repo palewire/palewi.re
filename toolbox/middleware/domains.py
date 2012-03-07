@@ -21,6 +21,6 @@ class DomainRedirectMiddleware(object):
     
     def process_request(self, request):
         host = request.get_host()
-        if host.startswith('www.') or "palewire" in host.split("."):
+        if 'www.' in host or "palewire" in host.split("."):
             new_uri = self.update_uri(request)
             return HttpResponsePermanentRedirect(new_uri)
