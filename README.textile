@@ -1,4 +1,4 @@
-h1. This is palewire dot com.
+h1. This is palewi.re
 
 The current edition of my blog, published at "palewire.com":http://www.palewire.com. 
 
