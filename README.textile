@@ -1,6 +1,6 @@
 h1. This is palewi.re
 
-The current edition of my blog, published at "palewire.com":http://www.palewire.com. 
+The current edition of my blog, published at "palewi.re":http://www.palewi.re. 
 
 h3. Much respect due
 
