@@ -19,7 +19,7 @@ MEDIA_ROOT = os.path.join(settings_dir, 'media')
 STATIC_ROOT = os.path.join(settings_dir, 'static')
 
 CACHE_BACKEND =	'memcached://127.0.0.1:11211'
-CACHE_MIDDLEWARE_SECONDS = 60 *	5
+CACHE_MIDDLEWARE_SECONDS = 60 * 5
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
@@ -35,7 +35,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'djangosecure.middleware.SecurityMiddleware',
+    #'djangosecure.middleware.SecurityMiddleware',
     'toolbox.middleware.domains.DomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -46,7 +46,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
-SECURE_FRAME_DENY = True
+SECURE_FRAME_DENY = False
 SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = False
 SECURE_CONTENT_TYPE_NOSNIFF = True
@@ -91,7 +91,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'greeking',
     'shortener',
-    'djangosecure',
+    #'djangosecure',
     # NICAR-related apps
     'nicar.polls',
     'nicar.flu_map',

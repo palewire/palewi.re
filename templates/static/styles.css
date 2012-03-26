@@ -60,7 +60,7 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 #detailbody ul li {list-style-type: disc;}
 #detailbody ol li {list-style-type: decimal;}
 #detailbody blockquote {margin-bottom: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
-#detailbody pre { margin-left:1.2em; line-height:1.3em;}
+#detailbody pre { margin-left:1em; line-height:1.3em;}
 
 
 /* Change box, etc. */
@@ -123,9 +123,8 @@ ul.newtwitter li { list-style-type:none !important; }
 ul.newtwitter li a { text-decoration:none !important; font-weight:normal !important;}
 
 /* Pygments styles for source code in posts */
-.source {margin-bottom:1em;}
 .source .hll { background-color: #ffffcc }
-.source  { background: #f8f8f8; width:40em; overflow:auto; padding:1em; margin-top: 1.15em;}
+.source  { background: #f8f8f8; overflow:auto; padding: 1em 1em 1em 0; margin:1em 0;}
 .source .c { color: #408080; font-style: italic } /* Comment */
 .source .err { border: 1px solid #FF0000 } /* Error */
 .source .k { color: #008000; font-weight: bold } /* Keyword */

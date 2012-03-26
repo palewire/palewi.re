@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet GeoJSON example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- All the stuff you need to install from Leaflet -->
+    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
+    <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+    <!-- My external GeoJSON file with the City Council boundaries in it -->
+    <script src="/static/leaflet-hover/citycouncil.geojson"></script>
+</head>
+<body style="margin:0; padding:0;">
+    <!-- The <div> where we're put the map -->
+    <div id="map" style="width: 100%; height: 350px;"></div>
+    <script type="text/javascript">
+        // Initialize the map object
+        var map = new L.Map('map', {
+            // Some basic options to keep the map still and prevent 
+            // the user from zooming and such.
+            scrollWheelZoom: false,
+            touchZoom: false,
+            doubleClickZoom: false,
+            zoomControl: false,
+            dragging: false
+        });
+        // Prep the background tile layer graciously provided by stamen.com
+        var stamenUrl = 'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg';
+        var stamenAttribution = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
+        var stamenLayer = new L.TileLayer(stamenUrl, {maxZoom: 18, attribution: stamenAttribution});
+        // Set the center on our city of angels
+        var center = new L.LatLng(34.0, -118.4);
+        map.setView(center, 9)
+        // Load the background tiles
+        map.addLayer(stamenLayer);
+        // Create an empty layer where we will load the polygons
+        var featureLayer = new L.GeoJSON();
+        // Set a default style for out the polygons will appear
+        var defaultStyle = {
+            color: "#2262CC",
+            weight: 2,
+            opacity: 0.6,
+            fillOpacity: 0.1,
+            fillColor: "#2262CC"
+        };
+        // Define what happens to each polygon just before it is loaded on to
+        // the map. This is Leaflet's special way of goofing around with your
+        // data, setting styles and regulating user interactions.
+        featureLayer.on("featureparse", function (e){
+            // All we're doing for now is loading the default style. 
+            // But stay tuned.
+            e.layer.setStyle(defaultStyle);
+        });
+        // Add the GeoJSON to the layer. `boundaries` is defined in the external
+        // GeoJSON file that I've loaded in the <head> of this HTML document.
+        featureLayer.addGeoJSON(boundaries);
+        // Finally, add the layer to the map.
+        map.addLayer(featureLayer);
+    </script>
+</body>
+</html>
+
