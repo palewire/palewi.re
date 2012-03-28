@@ -10,7 +10,7 @@
     <!-- jQuery so we can easily make our popup -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <!-- My external GeoJSON file with the City Council boundaries in it -->
-    <script src="http://palewire.s3.amazonaws.com/leaflet-hover/citycouncil.geojson"></script>
+    <script src="http://s3-us-west-1.amazonaws.com/palewire/leaflet-hover/citycouncil.geojson"></script>
 </head>
 <body style="margin:0; padding:0;">
     <!-- The <div> where we're put the map -->
@@ -27,7 +27,7 @@
             dragging: false
         });
         // Prep the background tile layer graciously provided by stamen.com
-        var stamenUrl = 'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg';
+        var stamenUrl = 'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png';
         var stamenAttribution = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
         var stamenLayer = new L.TileLayer(stamenUrl, {maxZoom: 18, attribution: stamenAttribution});
         // Set the center on our city of angels
@@ -66,7 +66,7 @@
                 // Change the style to the highlighted version
                 layer.setStyle(highlightStyle);
                 // Create a popup with a unique ID linked to this record
-                var popup = $("<div>", {
+                var popup = $("<div></div>", {
                     id: "popup-" + properties.DISTRICT,
                     css: {
                         position: "absolute",
@@ -79,7 +79,7 @@
                     }
                 });
                 // Insert a headline into that popup
-                var hed = $("<div>", {
+                var hed = $("<div></div>", {
                     text: "District " + properties.DISTRICT + ": " + properties.REPRESENTATIVE,
                     css: {fontSize: "16px", marginBottom: "3px"}
                 }).appendTo(popup);

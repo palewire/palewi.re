@@ -8,7 +8,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
     <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
     <!-- My external GeoJSON file with the City Council boundaries in it -->
-    <script src="http://palewire.s3.amazonaws.com/leaflet-hover/citycouncil.geojson"></script>
+    <script src="http://s3-us-west-1.amazonaws.com/palewire/leaflet-hover/citycouncil.geojson"></script>
 </head>
 <body style="margin:0; padding:0;">
     <!-- The <div> where we're put the map -->
@@ -25,7 +25,7 @@
             dragging: false
         });
         // Prep the background tile layer graciously provided by stamen.com
-        var stamenUrl = 'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg';
+        var stamenUrl = 'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png';
         var stamenAttribution = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
         var stamenLayer = new L.TileLayer(stamenUrl, {maxZoom: 18, attribution: stamenAttribution});
         // Set the center on our city of angels
