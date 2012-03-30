@@ -30,10 +30,10 @@ HAYSTACK_WHOOSH_PATH = '/apps/palewire.com/whoosh/'
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     #'djangosecure.middleware.SecurityMiddleware',
     'toolbox.middleware.domains.DomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
