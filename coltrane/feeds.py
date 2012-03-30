@@ -1,6 +1,6 @@
 # Feeds
 from wxwtf.questionheds.feeds import RecentHeds
-from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
+from django.contrib.syndication.views import Feed, FeedDoesNotExist
 
 # Models
 from coltrane.models import *
@@ -9,7 +9,7 @@ from correx.models import Change
 from django.contrib.comments.models import Comment
 
 # Helpers
-from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import get_object_or_404
 
 
 class TagFeed(Feed):
@@ -17,13 +17,11 @@ class TagFeed(Feed):
     The most recent content with a particular tag.
     """
     
-    def get_object(self, bits):
+    def get_object(self, request, slug):
         """
         Fetch the Tag object.
         """
-        if len(bits) != 1:
-            raise ObjectDoesNotExist
-        return Tag.objects.get(name__exact=bits[0])
+        return get_object_or_404(Tag, name=slug)
         
     def title(self, obj):
         """
@@ -72,13 +70,11 @@ class CategoryFeed(Feed):
     The most recent content with a particular category.
     """
     
-    def get_object(self, bits):
+    def get_object(self, request, slug):
         """
         Fetch the Tag object.
         """
-        if len(bits) != 1:
-            raise ObjectDoesNotExist
-        return Category.objects.get(slug__exact=bits[0])
+        return get_object_or_404(Category, slug=slug)
         
     def title(self, obj):
         """
@@ -329,24 +325,3 @@ class RecentComments(Feed):
         return item.submit_date
         
         
-FEED_DICT = {
-    # Bundles
-    'the-full-feed': FullFeed,
-    'less-noise': LessNoise,
-    # Singletons
-    'beers': RecentBeers,
-    'posts': RecentPosts,
-    'comments': RecentComments,
-    'shouts': RecentShouts,
-    'links': RecentLinks,
-    'photos': RecentPhotos,
-    'tracks': RecentTracks,
-    'books': RecentBooks,
-    'commits': RecentCommits,
-    'tag': TagFeed,
-    'category': CategoryFeed,
-    'corrections': RecentCorrections,
-    'movies': RecentMovies,
-    'locations': RecentLocations,
-    'questionheds': RecentHeds,
-}

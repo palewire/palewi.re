@@ -6,8 +6,8 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
+from coltrane import feeds
 from coltrane.models import Post
-from coltrane.feeds import FEED_DICT
 from coltrane.sitemaps import sitemaps
 from django.views.generic.simple import direct_to_template, redirect_to
 
@@ -155,9 +155,25 @@ urlpatterns += patterns('',
     # Feeds
     url(r'^feeds/list/$', direct_to_template,
         {'template': 'coltrane/feed_list.html'}),
-    url(r'feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
-        {'feed_dict': FEED_DICT},
-        name='coltrane_feeds'),
+    
+    url(r'feeds/the-full-feed/$', feeds.FullFeed(), name="feeds-the-full-feed"),
+    url(r'feeds/less-noise/$', feeds.LessNoise(), name="feeds-less-noise"),
+    url(r'feeds/beers/$', feeds.RecentBeers(), name="feeds-beers"),
+    url(r'feeds/posts/$', feeds.RecentPosts(), name="feeds-posts"),
+    url(r'feeds/comments/$', feeds.RecentComments(), name="feeds-comments"),
+    url(r'feeds/shouts/$', feeds.RecentShouts(), name="feeds-shouts"),
+    url(r'feeds/links/$', feeds.RecentLinks(), name="feeds-links"),
+    url(r'feeds/photos/$', feeds.RecentPhotos(), name="feeds-photos"),
+    url(r'feeds/tracks/$', feeds.RecentTracks(), name="feeds-tracks"),
+    url(r'feeds/books/$', feeds.RecentBooks(), name="feeds-books"),
+    url(r'feeds/commits/$', feeds.RecentCommits(), name="feeds-commits"),
+    url(r'feeds/tag/(?P<slug>[-\w]+)/$', feeds.TagFeed(), name="feeds-tag"),
+    url(r'feeds/category/(?P<slug>[-\w]+)/$', feeds.CategoryFeed(), name="feeds-category"),
+    url(r'feeds/corrections/$', feeds.RecentCorrections(), name="feeds-corrections"),
+    url(r'feeds/movies/$', feeds.RecentMovies(), name="feeds-movies"),
+    url(r'feeds/locations/$', feeds.RecentLocations(), name="feeds-locations"),
+    url(r'feeds/questionheds/$', feeds.RecentHeds(), name="feeds-questionheds"),
+    
     # Sitemaps
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index',
         {'sitemaps': sitemaps}),

@@ -27,11 +27,6 @@ HAYSTACK_SITECONF = 'coltrane.search_indexes'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH = '/apps/palewire.com/whoosh/'
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
-)
-
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -39,7 +34,6 @@ MIDDLEWARE_CLASSES = (
     'toolbox.middleware.domains.DomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
@@ -57,9 +51,20 @@ TEMPLATE_DIRS = (
     os.path.join(settings_dir, 'templates/'),
 )
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
 STATICFILES_DIRS = (
     os.path.join(settings_dir, 'templates/static/'),
 )
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
