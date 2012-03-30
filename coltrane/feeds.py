@@ -115,8 +115,8 @@ class CategoryFeed(Feed):
 
 class FullFeed(Feed):
     title = "the full feed . palewire"
-    link = "http://palewire.com/feeds/the-full-feed/"
-    description = "the latest from palewire.com"
+    link = "http://palewi.re/feeds/the-full-feed/"
+    description = "the latest from palewi.re"
 
     def items(self):
         return Ticker.objects.all().order_by('-pub_date')[:10]
@@ -133,8 +133,8 @@ class FullFeed(Feed):
 
 class LessNoise(Feed):
     title = "less noise . palewire"
-    link = "http://palewire.com/feeds/less-noise/"
-    description = "the latest from palewire.com, except for all those tracks"
+    link = "http://palewi.re/feeds/less-noise/"
+    description = "the latest from palewi.re, except for all those tracks"
 
     def items(self):
         return Ticker.objects.exclude(content_type__name__iexact='Track').order_by('-pub_date')[:10]
@@ -151,8 +151,8 @@ class LessNoise(Feed):
 
 class RecentPosts(Feed):
     title = "posts . palewire"
-    link = "http://palewire.com/feeds/posts/"
-    description = "the latest posts at palewire.com"
+    link = "http://palewi.re/feeds/posts/"
+    description = "the latest posts at palewi.re"
 
     def items(self):
         return Post.live.all().order_by('-pub_date')[:10]
@@ -163,8 +163,8 @@ class RecentPosts(Feed):
 
 class RecentBeers(Feed):
     title = "beers . palewire"
-    link = "http://palewire.com/feeds/beers/"
-    description = "the latest beers at palewire.com"
+    link = "http://palewi.re/feeds/beers/"
+    description = "the latest beers at palewi.re"
 
     def items(self):
         return Beer.objects.all().order_by('-pub_date')[:10]
@@ -178,8 +178,8 @@ class RecentBeers(Feed):
 
 class RecentBooks(Feed):
     title = "books . palewire"
-    link = "http://palewire.com/feeds/books/"
-    description = "the latest books at palewire.com"
+    link = "http://palewi.re/feeds/books/"
+    description = "the latest books at palewi.re"
 
     def items(self):
         return Book.objects.all().order_by('-pub_date')[:10]
@@ -193,8 +193,8 @@ class RecentBooks(Feed):
 
 class RecentCommits(Feed):
     title = "code commits . palewire"
-    link = "http://palewire.com/feeds/commits/"
-    description = "the latest code commits at palewire.com"
+    link = "http://palewi.re/feeds/commits/"
+    description = "the latest code commits at palewi.re"
 
     def items(self):
         return Commit.objects.all().order_by('-pub_date')[:10]
@@ -208,8 +208,8 @@ class RecentCommits(Feed):
 
 class RecentCorrections(Feed):
     title = "corrections . palewire"
-    link = "http://palewire.com/feeds/corrections/"
-    description = "the latest corrections at palewire.com"
+    link = "http://palewi.re/feeds/corrections/"
+    description = "the latest corrections at palewi.re"
     title_template = 'feeds/change_title.html'
     description_template = 'feeds/change_description.html'
 
@@ -220,13 +220,13 @@ class RecentCorrections(Feed):
         return item.pub_date
 
     def item_link(self, item):
-        return u'http://www.palewire.com/corrections/%s/' % item.id
+        return u'http://www.palewi.re/corrections/%s/' % item.id
 
 
 class RecentLinks(Feed):
     title = "links . palewire"
-    link = "http://palewire.com/feeds/links/"
-    description = "the latest links at palewire.com"
+    link = "http://palewi.re/feeds/links/"
+    description = "the latest links at palewi.re"
 
     def items(self):
         return Link.objects.all().order_by('-pub_date')[:10]
@@ -240,8 +240,8 @@ class RecentLinks(Feed):
 
 class RecentLocations(Feed):
     title = "locations . palewire"
-    link = "http://palewire.com/feeds/locations/"
-    description = "the latest locations at palewire.com"
+    link = "http://palewi.re/feeds/locations/"
+    description = "the latest locations at palewi.re"
 
     def items(self):
         return Location.objects.all().order_by('-pub_date')[:10]
@@ -255,8 +255,8 @@ class RecentLocations(Feed):
 
 class RecentMovies(Feed):
     title = "movies . palewire"
-    link = "http://palewire.com/feeds/movies/"
-    description = "the latest movies at palewire.com"
+    link = "http://palewi.re/feeds/movies/"
+    description = "the latest movies at palewi.re"
 
     def items(self):
         return Movie.objects.all().order_by('-pub_date')[:10]
@@ -270,8 +270,8 @@ class RecentMovies(Feed):
 
 class RecentPhotos(Feed):
     title = "photos . palewire"
-    link = "http://palewire.com/feeds/photos/"
-    description = "the latest photos at palewire.com"
+    link = "http://palewi.re/feeds/photos/"
+    description = "the latest photos at palewi.re"
 
     def items(self):
         return Photo.objects.all().order_by('-pub_date')[:10]
@@ -285,8 +285,8 @@ class RecentPhotos(Feed):
 
 class RecentTracks(Feed):
     title = "tracks . palewire"
-    link = "http://palewire.com/feeds/tracks/"
-    description = "the latest tracks at palewire.com"
+    link = "http://palewi.re/feeds/tracks/"
+    description = "the latest tracks at palewi.re"
 
     def items(self):
         return Track.objects.all().order_by('-pub_date')[:10]
@@ -300,8 +300,8 @@ class RecentTracks(Feed):
 
 class RecentShouts(Feed):
     title = "shouts . palewire"
-    link = "http://palewire.com/feeds/shouts/"
-    description = "the latest shouts at palewire.com"
+    link = "http://palewi.re/feeds/shouts/"
+    description = "the latest shouts at palewi.re"
 
     def items(self):
         return Shout.objects.all().order_by('-pub_date')[:10]
@@ -315,8 +315,8 @@ class RecentShouts(Feed):
 
 class RecentComments(Feed):
     title = "comments . palewire"
-    link = "http://palewire.com/feeds/comments/"
-    description = "the latest comments at palewire.com"
+    link = "http://palewi.re/feeds/comments/"
+    description = "the latest comments at palewi.re"
 
     def items(self):
         return Comment.objects.filter(is_public=True).order_by('-submit_date')[:10]
