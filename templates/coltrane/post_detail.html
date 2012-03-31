@@ -7,12 +7,12 @@
     {{ block.super }}
     <meta property="og:title" content="{{ object.title }}"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://palewire.com{{ object.get_absolute_url }}"/>
+    <meta property="og:url" content="http://palewi.re{{ object.get_absolute_url }}"/>
 {% endblock %}
 
 {% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
 
-{% block extrabody %}about="http://palewire.com{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
+{% block extrabody %}about="http://palewi.re{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
 
 {% block content %}
     <div class="twelvecol last">
@@ -57,7 +57,7 @@
             <div class="tencol">
                 <p id="postpubdate">This is a post 
                     <span rel="rnews:createdBy">
-                        <span about="http://palewire.com/who-is-ben-welsh/" typeof="rnews:Person">
+                        <span about="http://palewi.re/who-is-ben-welsh/" typeof="rnews:Person">
                             <a rel="author" href="/who-is-ben-welsh/" property="rnews:name">
                                 Ben Welsh
                             </a>
@@ -125,7 +125,7 @@
                 {% endif %}
                 
                 {% for comment in comment_list %}
-                    <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://palewire.com{{ object.get_absolute_url }}#c{{comment.id}}">
+                    <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://palewi.re{{ object.get_absolute_url }}#c{{comment.id}}">
                         <a name="c{{comment.id}}"></a>
                         <div class="commenttopper">
                             <span rel="rnews:createdBy"><span class="commentname" property="rnews:name">{{ comment.user_name|lower }}</span></span>

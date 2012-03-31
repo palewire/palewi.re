@@ -7,13 +7,13 @@
     {{ block.super }}
     <meta property="og:title" content="feeds"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://palewire.com/feeds/list/"/>
+    <meta property="og:url" content="http://palewi.re/feeds/list/"/>
 {% endblock %}
 
 {% block content %}
     <div class="interiorlist twelvecol last feeds">
         <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h1>
-        <p>Subscribe to palewire.com via RSS.</p>
+        <p>Subscribe to palewire via RSS.</p>
         <ul>
             <div class="row"><div class="twelvecol last interior-date">Bundles</div></div>
             <div class="row"><div class="listitem twelvecol last"><a href="{% url feeds-the-full-feed %}">The Full Feed</a></div></div>
