@@ -34,6 +34,7 @@ MIDDLEWARE_CLASSES = (
     'toolbox.middleware.domains.DomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
