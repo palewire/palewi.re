@@ -31,7 +31,7 @@
         var clicked = false;
         var soundfile = "{{ STATIC_URL }}mack/youliedtome.mp3"
         $(".button").click(function(){
-            $.sound.play(soundfile, {timeout:80000});
+            $.sound.play(soundfile);
             return false;
         });
         qs = location.search;
@@ -49,7 +49,10 @@
         <a href="#" class="button">You lied to me!</a>
     </div>
     <div id="footer">
-        <center><a href="{{ STATIC_URL }}mack/youliedtome.mp3">Download</a></center>
+        <center>
+            <a href="{{ STATIC_URL }}mack/youliedtome.mp3">Download the ringtone</a>&nbsp;
+            <a href="/mack/?autoplay">Autoplay link</a>
+        </center>
     </div>
     <script type="text/javascript">
 
