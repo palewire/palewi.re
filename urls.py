@@ -204,6 +204,9 @@ urlpatterns += patterns('',
     url(r'^apps/bring-the-news-back/$', direct_to_template,
         {'template': 'wxwtf/bring_the_news_back/index.html' },
         name='coltrane_app_newtwitter_json'),
+    # Random Oscars Ballot
+    url(r'^mack/$', direct_to_template, {'template': 'wxwtf/mack.html'},
+        name='mack'),
     # Other weird stuff
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^correx/', include('correx.urls')),
