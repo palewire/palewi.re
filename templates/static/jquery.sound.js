@@ -66,7 +66,7 @@ $.sound = {
     }
     setTimeout(function() {
         element.remove();
-    }, 2000)
+    }, 5000)
   }
 };
 

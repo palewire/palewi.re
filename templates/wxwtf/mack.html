@@ -31,7 +31,7 @@
         var clicked = false;
         var soundfile = "{{ STATIC_URL }}mack/youliedtome.mp3"
         $(".button").click(function(){
-            $.sound.play(soundfile);
+            $.sound.play(soundfile, {timeout:10000});
             return false;
         });
         qs = location.search;
