@@ -4,9 +4,9 @@
     <title>Leaflet GeoJSON example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- All the stuff you need to install from Leaflet -->
-    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
-    <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" /><![endif]-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
     <!-- jQuery so we can easily make our popup -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <!-- My external GeoJSON file with the City Council boundaries in it -->
@@ -55,9 +55,9 @@
         // Define what happens to each polygon just before it is loaded on to
         // the map. This is Leaflet's special way of goofing around with your
         // data, setting styles and regulating user interactions.
-        featureLayer.on("featureparse", function (e){
+        var onEachFeature = function(feature, layer) {
             // Load the default style. 
-            e.layer.setStyle(defaultStyle);
+            layer.setStyle(defaultStyle);
             // Create a self-invoking function that passes in the layer
             // and the properties associated with this particular record.
             (function(layer, properties) {
@@ -95,11 +95,14 @@
               });
               // Close the "anonymous" wrapper function, and call it while passing
               // in the variables necessary to make the events work the way we want.
-            })(e.layer, e.properties);
-        });
+            })(layer, feature.properties);
+        };
         // Add the GeoJSON to the layer. `boundaries` is defined in the external
         // GeoJSON file that I've loaded in the <head> of this HTML document.
-        featureLayer.addGeoJSON(boundaries);
+        var featureLayer = L.geoJson(boundaries, {
+            // And link up the function to run when loading each feature
+            onEachFeature: onEachFeature
+        });
         // Finally, add the layer to the map.
         map.addLayer(featureLayer);
     </script>
