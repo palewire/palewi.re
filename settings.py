@@ -30,7 +30,6 @@ HAYSTACK_WHOOSH_PATH = '/apps/palewire.com/whoosh/'
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'djangosecure.middleware.SecurityMiddleware',
     'toolbox.middleware.domains.DomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -39,11 +38,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
-
-SECURE_FRAME_DENY = False
-SESSION_COOKIE_SECURE = False
-SESSION_COOKIE_HTTPONLY = False
-SECURE_CONTENT_TYPE_NOSNIFF = True
 
 ROOT_URLCONF = 'urls'
 
@@ -96,7 +90,6 @@ INSTALLED_APPS = (
     'django_extensions',
     'greeking',
     'shortener',
-    #'djangosecure',
     # NICAR-related apps
     'nicar.polls',
     'nicar.flu_map',
