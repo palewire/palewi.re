@@ -35,20 +35,23 @@ def delete_ticker_item(sender, instance, signal, *args, **kwargs):
     When an object is deleted, its ticker item will also be wiped out.
     """
     from coltrane.models import Ticker
-
+    # Figure out what type of object it is
     ctype = ContentType.objects.get_for_model(instance)
-
+    
+    # If it's a comment, we'll need some special treatment
+    # since it has a different pub date field name
     if instance.__class__.__name__ == 'Comment':
         pub_date = instance.submit_date
     else:
         pub_date = instance.pub_date
-
+    
+    # Look for any Ticker item and delete it if it exists
     try:
         t = Ticker.objects.get(content_type=ctype, object_id=instance.id, pub_date=pub_date)
         t.delete()
     except Ticker.DoesNotExist:
         pass
-        
+
 
 def category_count(sender, instance, signal, *args, **kwargs):
     """
