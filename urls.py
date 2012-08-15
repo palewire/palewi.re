@@ -29,10 +29,13 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^bio/$', 'redirect_to', {'url': '/who-is-ben-welsh/'}),
     (r'^work/$', 'redirect_to', {'url': '/who-is-ben-welsh/'}),
     # Scrape pages from tutorial on old site.
-    (r'^scrape/albums/2006.html$', 'direct_to_template', {'template': 'flatpages/scrape/2006.html'}),
-    (r'^scrape/albums/2007.html$', 'direct_to_template', {'template': 'flatpages/scrape/2007.html'}),
+    (r'^scrape/albums/2006.html$', 'direct_to_template',
+        {'template': 'tutorials/scrape/2006.html'}),
+    (r'^scrape/albums/2007.html$', 'direct_to_template',
+        {'template': 'tutorials/scrape/2007.html'}),
     # OpenLayers tutorial on old site.
-    ('^openlayers-proportional-symbols/$', 'direct_to_template', {'template': 'flatpages/openlayers-proportional-symbols/index.html'}),
+    ('^openlayers-proportional-symbols/$', 'direct_to_template',
+        {'template': 'tutorials/openlayers-proportional-symbols/index.html'}),
     # DC Music Stores map from old site.
     (r'^music/$', 'redirect_to', {'url': '/'}),
     # Arcade Fire hypecloud from old site.
@@ -128,8 +131,10 @@ urlpatterns += patterns('',
     # The index
     url(r'^$', 'coltrane.views.index', name='coltrane_index'),
     # Hard-coded flatpages
-    url(r'^who-is-ben-welsh/$', direct_to_template, {'template': 'flatpages/bio.html'}),
-    url(r'^colophon/$', direct_to_template, {'template': 'flatpages/colophon.html'}),
+    url(r'^who-is-ben-welsh/$', direct_to_template,
+        {'template': 'coltrane/bio.html'}, name="coltrane_bio"),
+    url(r'^colophon/$', direct_to_template,
+        {'template': 'coltrane/colophon.html'}, name="coltrane_colophon"),
     # The admin
     (r'^admin/', include(admin.site.urls)),
     # Main list pages

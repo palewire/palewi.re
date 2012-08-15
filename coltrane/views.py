@@ -205,7 +205,7 @@ def newtwitter_pagination_index(request):
         "object_list": page_obj.object_list,
         "page": page_obj,
     }
-    template = 'newtwitter_pagination/index.html'
+    template = 'tutorials/newtwitter_/index.html'
     return render(request, template, context)
 
 
@@ -232,7 +232,7 @@ def newtwitter_pagination_json(request, page):
         "object_list": page_obj.object_list,
         "page": page_obj,
     }
-    template = 'newtwitter_pagination/tracks.json'
+    template = 'tutorials/newtwitter_pagination/tracks.json'
     return render(request, template, context, content_type='text/javascript')
 
 
