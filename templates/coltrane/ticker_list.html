@@ -6,18 +6,89 @@
     {{ block.super }}
     <meta property="og:title" content="ticker"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://palewi.re/ticker/page/1/"/>
+    <meta property="og:url" content="http://palewi.re/ticker/"/>
 {% endblock %}
 
-{% block extralinktags %}
-<link rel="home" href="/" />
-{% if page.has_previous %}<link rel="prev" href="/ticker/page/{{ page.previous_page_number }}/" />{% endif %}
-{% if page.has_next %}<link rel="next" href="/ticker/page/{{ page.next_page_number }}/" />{% endif %}
+{% block extrabottom %}
+    <script type="text/javascript">
+        // Scroll globals
+        var pageNum = {{ page.number }}; // The latest page loaded
+        var hasNextPage = {{ page.has_next|lower }}; // Indicates whether to expect another page after this one
+        var baseUrl = '/ticker/page/'; // The root for the JSON calls
+        {% with object_list|last as last_item %}
+        var prevPubDate = "{{ last_item.pub_date|date:"N d, Y" }}";
+        {% endwith %}
+        
+        // loadOnScroll handler
+        var loadOnScroll = function() {
+            if ($(window).scrollTop() > $(document).height() - ($(window).height()*3)) {
+                $(window).unbind();
+                loadItems();
+            }
+        };
+        
+        // loadOnScroll action
+        var loadItems = function() {
+            // If the next page doesn't exist, just quit now 
+            if (hasNextPage === false) {
+                return false
+            }
+            // Update the page number
+            pageNum = pageNum + 1;
+            // Configure the url we're about to hit
+            var url = baseUrl + pageNum + '.json';
+            if (window.location.search) {
+                url += window.location.search;
+            }
+            $.ajax({
+                url: url, 
+                dataType: 'json',
+                success: function(data) {
+                    // Update global next page variable
+                    hasNextPage = data.hasNext;
+                    // Loop through all items
+                    var html = [];
+                    $.each(data.itemList, function(index, item){
+                        
+                        /* Add a date header if its changed since the last item */
+                        if (prevPubDate != item.pub_date) {
+                            html.push(
+                                '<div class="row"><div class="interior-date twelvecol last">',
+                                item.pub_date,
+                                '</div></div>'
+                            );
+                        }
+                        
+                        /* Set this items date as the one to check next time */
+                        prevPubDate = item.pub_date;
+                        
+                        // Format the item in our HTML style
+                        html.push(
+                            '<div class="row"><div class="listitem twelvecol last">',
+                            item.html,
+                            '</div></div>'
+                        )
+                    });
+                    // Pop all our items out into the page
+                    $("#ticker").append(html.join(""));
+                },
+                complete: function(data, textStatus){
+                    // Close out the loading variable 
+                    loadInProgress = false;
+                    // Turn the scroll monitor back on
+                    $(window).bind('scroll', loadOnScroll);
+                }
+            });
+        };
+        
+        // Fire it up
+        $(window).bind('scroll', loadOnScroll);
+    </script>
 {% endblock %}
 
 {% block content %}
 
-    <div class="interiorlist twelvecol last">
+    <div id="ticker" class="interiorlist twelvecol last">
         <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/ticker.gif" alt="ticker"/>&nbsp;Ticker</h1>
         <p>My latest online activity compiled from around the World Wide Web.</p>
         <div id="tickerfilter">
@@ -26,7 +97,6 @@
                     <b>Filter:</b>
                     <input id="filterset-beer" type="checkbox" value="beer" />
                     <img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/beers.gif" alt="beers" title="beers"/>
-
                     <input id="filterset-book" type="checkbox" value="book" />
                     <img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/books.gif" alt="books" title="books"/>
                     <input id="filterset-change" type="checkbox" value="change" />
@@ -64,7 +134,7 @@
                       checked.each(function(index) {
                         valueList.push($(checked[index]).attr("value"));
                       });
-                      window.location = "/ticker/page/1/?filters=" + valueList.join(",");
+                      window.location = "/ticker/?filters=" + valueList.join(",");
                   }
                 });
                 $(preSelected).each(function(index) {
@@ -88,7 +158,4 @@
             </div>
         {% endfor %}
     </div>
-        
-    {% include 'coltrane/pagination.html' %}
-    
 {% endblock %}

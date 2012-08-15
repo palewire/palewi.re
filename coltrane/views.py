@@ -31,7 +31,7 @@ def index(request):
         return HttpResponseRedirect("/ticker/")
 
 
-def ticker_detail(request, page):
+def ticker_detail(request, page=1, response_type='html'):
     """
     A tumble log of my latest online activity. Allows for filtering by content
     type.
@@ -92,16 +92,28 @@ def ticker_detail(request, page):
     except (EmptyPage, InvalidPage):
         raise Http404
     
+    # Figure out what template to use
+    templates = {
+        'html': 'coltrane/ticker_list.html',
+        'json': 'coltrane/ticker_list.json',
+    }
+    template = templates[response_type]
+    
+    # Figure out the content type for the response
+    content_types = {
+        'html': 'text/html',
+        'json': 'text/javascript',
+    }
+    content_type = content_types[response_type]
+    
     # Pass out the data
     context = {
-        "object_list": page_obj.object_list.fetch_generic_relations(),
+        "object_list": list(page_obj.object_list.fetch_generic_relations()),
         "page": page_obj,
         "selected_slugs": selected_slugs,
         "filtered": filtered,
     }
-    template = 'coltrane/ticker_list.html'
-    return render(request, template, context)
-
+    return render(request, template, context, content_type=content_type)
 
 
 def post_detail(request, year, month, day, slug):
