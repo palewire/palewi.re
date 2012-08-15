@@ -19,7 +19,7 @@ from django.utils.encoding import force_unicode
 from django.conf import settings
 
 DEFAULT_HTTP_HEADERS = {
-    "User-Agent" : "palewire.com"
+    "User-Agent" : "palewi.re ticker"
 }
 
 #
