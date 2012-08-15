@@ -133,7 +133,7 @@ LOGGING = {
         'logfile': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(settings_dir, 'logs/', 'django.log'),
+            'filename': os.path.join(settings_dir, 'django.log'),
             'maxBytes': 50000,
             'backupCount': 2,
             'formatter': 'verbose',
@@ -154,17 +154,12 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
-        'coltrane.utils': {
+        'coltrane': {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
             'propagate': True,
         },
-        'coltrane.management': {
-            'handlers': ['console', 'logfile'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'wxwtf.questionheds.management': {
+        'wxwtf': {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
             'propagate': True,

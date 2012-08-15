@@ -2,7 +2,7 @@
 *#
 fabfile.py
 settings_private.py
-logs/*
+django.log
 static/*
 *.tar
 *.db
