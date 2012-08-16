@@ -1,6 +1,12 @@
-h1. This is palewi.re
+<pre><code>
+                 __             _         
+    ____  ____ _/ /__ _      __(_)_______ 
+   / __ \/ __ `/ / _ \ | /| / / / ___/ _ \
+  / /_/ / /_/ / /  __/ |/ |/ / / /  /  __/
+ / .___/\__,_/_/\___/|__/|__/_/_/   \___/ 
+/_/                                       </code></pre>
 
-The current edition of my blog, published at "palewi.re":http://www.palewi.re. 
+The current edition of my blog. Published at "palewi.re":http://www.palewi.re. 
 
 h3. Much respect due
 
