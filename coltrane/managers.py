@@ -9,7 +9,6 @@ class LivePostManager(models.Manager):
     """
     Returns all posts set to be published.
     """
-    
     def get_query_set(self):
         return super(LivePostManager, self).get_query_set().filter(status=self.model.LIVE_STATUS)
 
@@ -18,7 +17,6 @@ class LiveCategoryManager(models.Manager):
     """
     Returns all categories with at least one live post.
     """
-
     def get_query_set(self):
         return super(LiveCategoryManager, self).get_query_set().filter(post_count__gt=0)
 
@@ -27,7 +25,6 @@ class TopDomainUpdateManager(models.Manager):
     """
     Updates the TopDomain model with the latest totals
     """
-    
     def ranking(self, count=50, min_count=3, strata=6):
         from urlparse import urlparse
         from coltrane.models import Link
