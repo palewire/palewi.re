@@ -73,15 +73,7 @@ class LastFMClient(object):
         
     def _tags_for_url(self, url):
         tags = set()
-        try:
-            xml = utils.getxml(url)
-        except HttpLib2Error, e:
-            if e.code == 408:
-                return ""
-            else:
-                raise
-        except SyntaxError:
-            return ""
+        xml = utils.getxml(url)
         for t in xml.getiterator("tag"):
             count = utils.safeint(t.find("count").text)
             if count >= self.tag_usage_threshold:

@@ -8,7 +8,6 @@ from django.template.defaultfilters import slugify
 from django.utils.functional import memoize
 from django.utils.http import urlquote
 from django.utils.encoding import smart_str, smart_unicode
-from httplib2 import HttpLib2Error
 from coltrane import utils
 
 # Logging
