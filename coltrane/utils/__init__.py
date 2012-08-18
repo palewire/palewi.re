@@ -1,5 +1,6 @@
 # http
-import httplib2
+import requests
+from requests.auth import HTTPBasicAuth
 
 # Date manipulation
 import pytz
@@ -42,20 +43,31 @@ def getjson(url, **kwargs):
     return simplejson.loads(json)
 
 
-def fetch_resource(url, method="GET", body=None, username=None, password=None, headers=None):
+def fetch_resource(url, username=None, password=None, headers=None):
     """
     Fetch an URL. Return the content.
     """
-    h = httplib2.Http(timeout=15)
-    h.force_exception_to_status_code = True
+    # Empty config dict we'll add to.
+    kwargs = {}
     
-    if username is not None or password is not None:
-        h.add_credentials(username, password)
+    # Add any credentials
+    if username or password:
+        kwargs.update({
+            'auth': HTTPBasicAuth(username, password)
+        })
     
-    if headers is None:
-        headers = DEFAULT_HTTP_HEADERS.copy()
-    response, content = h.request(url, method, body, headers)
-    return content
+    # Set custom headers
+    if headers:
+        kwargs.update({
+            'headers': headers
+        })
+    else:
+        kwargs.update({
+            'headers': DEFAULT_HTTP_HEADERS.copy()
+        })
+    
+    # Make the request
+    return requests.get(url, **kwargs).content
 
 #
 # Date handling utils
