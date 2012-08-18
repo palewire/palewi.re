@@ -63,8 +63,6 @@ def ticker_detail(request, page=1, response_type='html'):
     if filter_string:
         filtered = True
         filter_list = filter_string.split(",")
-        if len(filter_list) == len(contenttypes_whitelist):
-            return HttpResponseRedirect("/ticker/page/1/")
         contenttype_list = []
         selected_slugs = []
         for filter in filter_list:
