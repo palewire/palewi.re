@@ -2,12 +2,9 @@
 from coltrane.models import Commit
 
 # Text and time
-import re
 import dateutil.parser
 from pprint import pprint
 from coltrane import utils
-from BeautifulSoup import BeautifulSoup
-from django.utils.encoding import smart_unicode
 
 # Logging
 import logging
