@@ -215,7 +215,7 @@ def newtwitter_pagination_index(request):
         "object_list": page_obj.object_list,
         "page": page_obj,
     }
-    template = 'tutorials/newtwitter_/index.html'
+    template = 'tutorials/newtwitter_pagination/index.html'
     return render(request, template, context)
 
 
