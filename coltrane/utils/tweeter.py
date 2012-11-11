@@ -2,6 +2,7 @@ import datetime
 import logging
 import dateutil
 import re
+import twitter
 from django.conf import settings
 from django.db import transaction
 from django.template.defaultfilters import slugify
@@ -21,7 +22,6 @@ from coltrane.models import Shout
 # Globals
 #
 
-RECENT_STATUSES_URL = "http://twitter.com/statuses/user_timeline/%s.rss"
 USER_URL = "http://twitter.com/%s"
 
 TWITTER_TRANSFORM_MSG = False
@@ -52,13 +52,20 @@ class TwitterClient(object):
     def sync(self):
         last_update_date = Shout.sync.get_last_update()
         logger.debug("Last update date: %s", last_update_date)
-        xml = utils.getxml(RECENT_STATUSES_URL % self.username)
-        for status in xml.getiterator("item"):
-            message = status.find('title')
-            message_text = smart_unicode(message.text)
-            url  = smart_unicode(status.find('link').text)
+        api = twitter.Api(
+            consumer_key=settings.TWITTER_CONSUMER_KEY,
+            consumer_secret=settings.TWITTER_CONSUMER_SECRET,
+            access_token_key=settings.TWITTER_ACCESS_TOKEN_KEY,
+            access_token_secret=settings.TWITTER_ACCESS_TOKEN_SECRET
+        )
+        for status in api.GetUserTimeline(settings.TWITTER_USER):
+            message_text = smart_unicode(status.text)
+            url  = smart_unicode('https://twitter.com/%s/status/%s' % (
+                settings.TWITTER_USER,
+                status.id
+            ))
             # pubDate delivered as UTC
-            timestamp = utils.parsedate(str(status.find('pubDate').text))
+            timestamp = utils.parsedate(status.created_at)
             if not self._status_exists(url):
                 self._handle_status(message_text, url, timestamp)
     
