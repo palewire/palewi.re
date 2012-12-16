@@ -78,9 +78,12 @@
         "syncuntappd": {
             "minute": "38",
             "command": "/apps/palewire.com/bin/python /apps/palewire.com/project/manage.py syncuntappd > /dev/null 2>&1"
+        },
+        "syncnewsblur": {
+            "minute": "22,44",
+            "command": "/apps/palewire.com/bin/python /apps/palewire.com/project/manage.py syncnewsblur > /dev/null 2>&1"
         }
     }
-
 }
 
 
