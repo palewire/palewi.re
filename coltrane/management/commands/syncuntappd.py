@@ -10,7 +10,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         logger.debug("Syncing Untappd data")
-        client = untappd.UntappdClient(settings.UNTAPPD_API_KEY, 'palewire')
+        client = untappd.UntappdClient(
+            settings.UNTAPPD_CLIENT_ID,
+            settings.UNTAPPD_CLIENT_SECRET,
+            'palewire'
+        )
         client.sync()
 
 

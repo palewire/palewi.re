@@ -8,9 +8,13 @@ class UntappdClient(object):
     """
     A minimal Untappd client. 
     """
-    URI = 'http://api.untappd.com/v3/user_feed?key=%(api_key)s&user=%(username)s'
-    def __init__(self, api_key, username):
-        self.url = self.URI % dict(api_key=api_key, username=username)
+    URI = 'http://api.untappd.com/v4/user/checkins/palewire/?client_id=%(client_id)s&client_secret=%(client_secret)s'
+    def __init__(self, client_id, client_secret, username):
+        self.url = self.URI % dict(
+            client_id=client_id,
+            client_secret=client_secret,
+            username=username
+        )
     
     def __getattr__(self):
         return UntappdClient(self.url)
@@ -22,12 +26,12 @@ class UntappdClient(object):
         self.location_list = []
         self.json = utils.getjson(self.url)
         self.beer_list = []
-        for b in self.json['results']:
+        for b in self.json['response']['checkins']['items']:
             d = dict(
-                title=b['beer_name'],
-                brewery=b['brewery_name'],
+                title=b['beer']['beer_name'],
+                brewery=b['brewery']['brewery_name'],
                 pub_date=utils.parsedate(b['created_at']),
-                url=b['checkin_link'],
+                url='https://untappd.com/user/palewire/checkin/%s' % b['checkin_id'],
             )
             self.beer_list.append(d)
         return self.beer_list 
