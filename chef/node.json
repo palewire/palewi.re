@@ -82,6 +82,11 @@
         "syncnewsblur": {
             "minute": "22,44",
             "command": "/apps/palewire.com/bin/python /apps/palewire.com/project/manage.py syncnewsblur > /dev/null 2>&1"
+        },
+        "backupdb": {
+            "minute": "2",
+            "hour": "0",
+            "command": "/apps/palewire.com/bin/python /apps/palewire.com/project/manage.py backupdb > /dev/null 2>&1"
         }
     }
 }
