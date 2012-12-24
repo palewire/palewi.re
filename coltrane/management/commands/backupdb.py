@@ -46,8 +46,7 @@ class Command(BaseCommand):
         db_name = settings.DATABASES['default']['NAME']
         db_pass = settings.DATABASES['default']['PASSWORD']
         os.environ['PGPASSWORD'] = db_pass
-        filename = 'postgres_%s_%s.sql.gz' % (
-            db_name,
+        filename = 'postgres_palewire_%s.sql.gz' % (
             time.strftime('%Y-%m-%d')
         )
         cmd = 'pg_dump -U %s -Fc %s > %s' % (db_user, db_name, filename)
@@ -63,7 +62,7 @@ class Command(BaseCommand):
         bucket = conn.get_bucket("palewire-backups")
         
         target = '%s' % filename
-        latest = "postgres_%s_latest.sql.gz" % db_name
+        latest = "postgres_palewire_latest.sql.gz"
     
         print "Uploading %s" % target
         mp = bucket.initiate_multipart_upload(target, reduced_redundancy=False)
