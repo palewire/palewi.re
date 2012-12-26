@@ -6,8 +6,11 @@ SETTINGS_DIR = settings_dir
 MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
 STATIC_URL = '/static/'
-from settings_private import *
 
+try:
+    from settings_dev import *
+except ImportError:
+    from settings_prod import *
 TEMPLATE_DEBUG = DEBUG
 
 TIME_ZONE = 'America/Los_Angeles'

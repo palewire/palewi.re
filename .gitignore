@@ -1,6 +1,8 @@
 *~
 *#
 fabfile.py
+settings_dev.py
+settings_prod.py
 settings_private.py
 django.log
 static/*
