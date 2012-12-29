@@ -9,6 +9,7 @@ admin.autodiscover()
 from coltrane import feeds
 from coltrane.models import Post
 from coltrane.sitemaps import sitemaps
+from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic.simple import direct_to_template, redirect_to
 
 
@@ -242,6 +243,13 @@ else:
         (r'^static/(?P<path>.*)$', 'django.views.generic.simple.redirect_to',
              {'url': 'http://palewire.s3.amazonaws.com/%(path)s'}),
 )
+
+if settings.PRODUCTION:
+    urlpatterns += patterns('',
+        url(r'^munin/(?P<path>.*)$', staff_member_required(static_serve), {
+            'document_root': settings.MUNIN_ROOT,
+        })
+   )
 
 
 # 500 page fix

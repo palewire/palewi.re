@@ -30,6 +30,8 @@ HAYSTACK_SITECONF = 'coltrane.search_indexes'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH = '/apps/palewire.com/whoosh/'
 
+MUNIN_ROOT = '/var/cache/munin/www/'
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
