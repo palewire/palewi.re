@@ -50,13 +50,13 @@ class Command(BaseCommand):
         print "Loading to new database %s" % target
         # If the db already exists, we need to drop it.
         try:
-            os.system("sudo -u %s dropdb %s" % (user, target))
+            os.system("dropdb -U %s %s" % (user, target))
         except:
             pass
         # Create the database
-        os.system("sudo -u %s createdb %s" % (user, target))
+        os.system("createdb -U %s %s" % (user, target))
         # Load the data
-        os.system("sudo -u %s pg_restore -Fc -d %s ./%s" % (user, target, source))
+        os.system("pg_restore -U %s -Fc -d %s ./%s" % (user, target, source))
         # Delete the snapshot
         os.system("rm ./%s" % source)
     
