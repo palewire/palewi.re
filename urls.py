@@ -9,6 +9,7 @@ admin.autodiscover()
 from coltrane import feeds
 from coltrane.models import Post
 from coltrane.sitemaps import sitemaps
+from django.views.static import serve as static_serve
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic.simple import direct_to_template, redirect_to
 
