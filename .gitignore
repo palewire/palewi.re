@@ -9,3 +9,5 @@ static/*
 *.tar
 *.db
 *.pyc
+chef/cookbooks/palewire/files/default/users/*
+chef/node.json

@@ -3,12 +3,24 @@ import boto
 from datetime import datetime
 from datetime import timedelta
 from django.conf import settings
+from optparse import make_option
 from django.core.management.base import BaseCommand, CommandError
 
+
+custom_options = (
+    make_option(
+        "--name",
+        action="store",
+        dest="name",
+        default='',
+        help="A custom name for the database we're creating"
+    ),
+)
 
 class Command(BaseCommand):
     args = '<date YYYY-MM-DD>'
     help = 'Load a database snapshot from our nightly archive. Pulls latest by default. Specify date for an older one.'
+    option_list = BaseCommand.option_list + custom_options
     
     def handle(self, *args, **options): 
         # If the user provides a date, try to use that
@@ -25,7 +37,8 @@ class Command(BaseCommand):
         filename = self.download(dt.strftime("%Y-%m-%d"))
         
         # Load the snapshot into the database
-        self.load("palewire_%s" % dt.strftime("%Y-%m-%d"), filename)
+        target = options.get('name') or "palewire_%s" % dt.strftime("%Y-%m-%d")
+        self.load(target, filename)
     
     def load(self, target, source):
         """

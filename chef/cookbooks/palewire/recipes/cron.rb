@@ -6,7 +6,7 @@ node[:crons].each_pair do |cronname, options|
       month options[:month] || "*"
       weekday options[:weekday] || "*"
       command options[:command]
-      user options[:user] || node[:app_user]
+      user options[:user] || node[:apps_user]
     end
 end
 

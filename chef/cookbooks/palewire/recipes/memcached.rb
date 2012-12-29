@@ -10,7 +10,7 @@ service "memcached" do
 end
 
 cookbook_file "/etc/memcached.conf" do
-  source "memcached.conf"
+  source "memcached/memcached.conf"
   mode 0640
   owner "root"
   group "root"
