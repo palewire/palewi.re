@@ -1,5 +1,15 @@
 {
     "run_list": [ 
+        "palewire::default",
+        "palewire::python",
+        "palewire::postgresql",
+        "palewire::pgpool",
+        "palewire::apps",
+        "palewire::apache",
+        "palewire::memcached",
+        "palewire::varnish",
+        "palewire::munin",
+        "palewire::monit",
         "palewire::cron"
     ],
     

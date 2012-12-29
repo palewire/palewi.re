@@ -93,13 +93,6 @@ cookbook_file "/root/.ssh/id_rsa.pub" do
   group "root"
 end
 
-cookbook_file "/etc/sudoers" do
-  source "users/sudoers"
-  mode 0440
-  owner "root"
-  group "root"
-end
-
 template "/etc/sudoers" do
   source "users/sudoers.erb"
   mode 0440
