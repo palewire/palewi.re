@@ -37,7 +37,7 @@ script "Install PyMunin" do
   user "root"
   group "root"
   code <<-EOH
-    pip install PyMunin --use-mirrors
+    pip install PyMunin --use-mirrors;
   EOH
 end
 
@@ -53,15 +53,26 @@ template "/etc/munin/plugin-conf.d/pgstats" do
   })
 end
 
-# Then the gears...
-script "Install pgstats for PyMunin" do
+# A postgresql plugin
+script "Install postgresql adaptor for python" do
   interpreter "bash"
   user "root"
   group "root"
   code <<-EOH
     pip install psycopg2 --use-mirrors;
+  EOH
+end
+
+script "Install pgstats for PyMunin" do
+  interpreter "bash"
+  user "root"
+  group "root"
+  code <<-EOH
     ln -s /usr/share/munin/plugins/pgstats /etc/munin/plugins/pgstats
   EOH
+  not_if do
+    File.exists?("/etc/munin/plugins/pgstats")
+  end
 end
 
 
@@ -73,6 +84,9 @@ script "Install memcachedstats for PyMunin" do
   code <<-EOH
     ln -s /usr/share/munin/plugins/memcachedstats /etc/munin/plugins/memcachedstats
   EOH
+  not_if do
+    File.exists?("/etc/munin/plugins/memcachedstats")
+  end
 end
 
 # Varnish plugin
@@ -83,6 +97,9 @@ script "Install varnishstats for PyMunin" do
   code <<-EOH
     ln -s /usr/share/munin/plugins/varnishstats /etc/munin/plugins/varnishstats
   EOH
+  not_if do
+    File.exists?("/etc/munin/plugins/varnishstats")
+  end
 end
 
 script "Restart Munin" do
@@ -90,7 +107,7 @@ script "Restart Munin" do
   user "root"
   group "root"
   code <<-EOH
-    service munin-node restart
-    service apache2 restart
+    service munin-node restart;
+    service apache2 restart;
   EOH
 end
