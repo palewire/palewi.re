@@ -61,6 +61,7 @@
     "varnish_whitelist": [
         ""
     ],
+    "varnish_ttl": "180s",
     
     "munin_name": "palewi.re",
     "munin_db_user": "",

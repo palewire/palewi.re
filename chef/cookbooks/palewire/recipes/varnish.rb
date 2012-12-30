@@ -15,7 +15,8 @@ template "/etc/varnish/default.vcl" do
   mode 0640
   variables({
      :apache_port => node[:apache_port],
-     :varnish_whitelist => node[:varnish_whitelist]
+     :varnish_whitelist => node[:varnish_whitelist],
+     :varnish_ttl => node[:varnish_ttl]
   })
 end
 

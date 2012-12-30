@@ -99,8 +99,8 @@ sub vcl_hit {
 */
 sub vcl_fetch {
 
-    # Get the response. Set the cache lifetime of the response to 1 hour.
-    set beresp.ttl = 1h;
+    # Get the response. Set the cache lifetime.
+    set beresp.ttl = <%= @varnish_ttl %>;
 
     # Indicate that this response is cacheable. This is important.
     set beresp.http.X-Cacheable = "YES";
