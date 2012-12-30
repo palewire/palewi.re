@@ -222,7 +222,6 @@ urlpatterns += patterns('',
     # Other weird stuff
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^correx/', include('correx.urls')),
-    (r'^cache/', include('django_memcached.urls')),
     (r'^nicar/polls/', include("nicar.polls.urls")),
     (r'^nicar/flu-map/', include("nicar.flu_map.urls")),
 )
