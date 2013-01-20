@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'coltrane',
      # Site extras and helpers
     'correx',
-    'tagging',,
+    'tagging',
     'django_extensions',
     'greeking',
     'shortener',

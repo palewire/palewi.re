@@ -233,11 +233,14 @@ class Commit(ThirdPartyBaseModel):
     Code I've written.
     """
     repository = models.CharField(max_length=100)
-    branch = models.CharField(max_length=100)
+    branch = models.CharField(max_length=100, blank=True)
     message = models.TextField()
     
     def __unicode__(self):
-        return u'%s: %s - %s' % (self.repository, self.branch, self.message)
+        if self.branch:
+            return u'%s: %s - %s' % (self.repository, self.branch, self.message)
+        else:
+            return u'%s: %s' % (self.repository, self.message)
     title = property(__unicode__)
 
     def get_short_message(self, words=8):
