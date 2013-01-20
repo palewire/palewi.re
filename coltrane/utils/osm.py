@@ -39,7 +39,6 @@ class OSMClient(object):
                 url = smart_unicode(link.find('{http://www.w3.org/2005/Atom}id').text)
             )
             commit_list.append(entry_dict)
-        print commit_list
         return commit_list
     
     def sync(self):
