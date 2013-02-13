@@ -21,7 +21,7 @@
     <meta property="og:image" content="{{ STATIC_URL }}img/facebook-icon.png"/>
     <meta property="og:site_name" content="palewire"/>
     <meta property="og:description"
-          content="Blog. Editor and Proprietor Ben Welsh."/>
+          content="Blog. Editor and Publisher Ben Welsh."/>
     {% endblock %}
     
     {% block extrameta %}
@@ -53,8 +53,8 @@
     {% endblock %}
     
     <script type="text/javascript" src="{{ STATIC_URL }}css3-mediaqueries.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-    {#<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.4.4.min.js"></script>#}
+    {#<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>#}
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery-1.4.4.min.js"></script>
     
     <script type="text/javascript"> 
     //<![CDATA[
@@ -127,6 +127,12 @@
                     <div class="smalliconlabel">Posts</div>
                 </div>
                 <div class="smalliconwrapper">
+                    <a href="{% url coltrane_talk_list %}" title="Talks">
+                        <img src="{{ STATIC_URL }}icons/talks.png" width="30" alt="talks" />
+                    </a>
+                    <div class="smalliconlabel">Talks</div>
+                </div>
+                <div class="smalliconwrapper">
                     <a href="{% url coltrane_ticker_list %}" title="Ticker">
                         <img src="{{ STATIC_URL }}icons/ticker.gif" width="30" alt="ticker" />
                     </a>
@@ -144,7 +150,7 @@
         <div id="ft" class="row">
             <div class="twelvecol last">
                 <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ current_year }}</span> palewire</span> . 
-                <a href="/colophon/">colophon</a> . 
+                <a href="{% url coltrane_colophon %}">colophon</a> . 
                 <a href="/feeds/list/" title="Feeds">rss feeds</a> . 
                 </a>
                 powered by <a id="django-link" href="http://www.djangoproject.com/">django</a> . 
@@ -156,12 +162,8 @@
 
 <script type="text/javascript">
     $(".smalliconwrapper").hover(
-        function() {
-            $(".smalliconlabel", $(this)).show();
-        },
-        function () {
-            $(".smalliconlabel", $(this)).hide();
-        }
+        function () {$(".smalliconlabel", $(this)).show();},
+        function () {$(".smalliconlabel", $(this)).hide();}
     );
 </script>
 

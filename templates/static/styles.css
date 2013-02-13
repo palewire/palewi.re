@@ -117,6 +117,12 @@ form#commentform {padding: 0;}
 .apptext h3 {font-size:1.3em; margin-top: .66em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
 .apptext p {font-size:1em; margin-top: .66em; }
 
+/* talk list */
+.talkitem {padding-top:1em; padding-bottom:1em;}
+.talktext {height:auto; vertical-align:top;}
+.talktext h3 {font-size:1.3em; margin-top: .66em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
+.talktext p {font-size:1em; margin-top: .66em; }
+
 /* misc for newtwitter example */
 ul.newtwitter { margin-left:0em !important; }
 ul.newtwitter li { list-style-type:none !important; }
