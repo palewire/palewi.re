@@ -25,6 +25,7 @@ class StaticSitemap(Sitemap):
         'apps': '/apps/',
         'clips': '/clips/',
         'posts': '/posts/',
+        'talks': '/talks/',
         'ticker': '/ticker/',
         'bring-the-news-back': '/apps/bring-the-news-back/',
         'kennedy-name-generator': '/kennedy/',
