@@ -32,27 +32,67 @@
         #map-canvas path {
           stroke-linecap: square;
         }
+        #map-legend {
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            z-index:1001;
+            font-size:12px;
+            line-height:12px;
+        }
+        .overlay-box {
+            z-index:1000;
+            background-color:white;
+            margin:0 0 2px 2px;
+            padding: 7px;
+            box-shadow: 0 0 5px #BBB;
+            font-family: "Helvetica", Arial, sans-serif;
+        }
+        .key-hed {
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+            border-bottom:1px solid #ddd;
+            width:100%;
+            float: left;
+            margin: 0 5px 5px 0;
+            padding: 0 0 2px 0;
+        }
+        .swatch {
+            display: inline;
+            float: left;
+            width: 10px;
+            height: 10px;
+            line-height:10px;
+            margin: 0 3px 0 0;
+        }
+        .key-entry {
+            display:block;
+            margin: 0 0 3px 0;
+        }
+        .black {background-color: black; color:black;}
+        .blue {background-color: blue; color:blue;}
+        .lightblue {background-color: lightblue; color:lightblue;}
+        .gold {background-color: gold; color:gold;}
+        .red {background-color: red; color:red;}
     </style>
     <script type="text/javascript" src='http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js'></script>
 </head>
 <body>
     <div id="map-container">
+        <div id="map-legend" class="overlay-box">
+            <div class="key-hed">L.A. Metro Rail in #DTLA</div>
+            <div class="key-entry"><span class="swatch black"></span>Planned regional connector</div>
+            <div class="key-entry"><span class="swatch blue"></span>Blue line</div>
+            <div class="key-entry"><span class="swatch lightblue"></span>Expo line</div>
+            <div class="key-entry"><span class="swatch gold"></span>Gold line</div>
+            <div class="key-entry"><span class="swatch red"></span>Red & purple lines</div>
+        </div>
         <div id="map-canvas" style="width:100%; height:100%"></div>
     </div>
     
 <script type="text/javascript">
 {% include "wxwtf/regional_connector/data.json" %}
-// Configure the basic map settings
-var mapOptions = {
-    maxZoom:16,
-    minZoom:13,
-    maxBounds: new L.LatLngBounds(
-        new L.LatLng(36.1912, -112.044),
-        new L.LatLng(31.5037, -122.3272)
-    )
-};
-var map = new L.Map('map-canvas', mapOptions);
-map.setView(new L.LatLng(34.052010515290775, -118.24619829654694), 15);
 
 // Set default layer options
 var layerOptions = {
@@ -88,49 +128,74 @@ var createStationMarker = function(latlng, color) {
     });
 }
 
-var onEachFeature = function(feature, layer) {
-    layer.bindPopup(feature.properties.STATION);
+var onEachStation = function(feature, layer) {
+    layer.bindPopup("<b>"+feature.properties.STATION+ " station</b>");
 };
 
-var base = createLayer("0.3.0");
-map.addLayer(base);
+var createStationLayer = function(json, color) {
+    return L.geoJson(json, {
+        pointToLayer: function(f, ll) { return createStationMarker(ll, color) },
+        onEachFeature: onEachStation
+    })
+}
 
-L.geoJson(goldline, {style: createLineStyle('gold')}).addTo(map);
-L.geoJson(redline, {style: createLineStyle('red')}).addTo(map);
-L.geoJson(expoline, {style: createLineStyle('lightblue')}).addTo(map);
-L.geoJson(blueline, {style: createLineStyle('blue')}).addTo(map);
-L.geoJson(line, {
+var baseLayer = createLayer("0.3.0");
+
+var rcLineLayer = L.geoJson(line, {
     style: { 
         color: 'black',
         opacity: 1,
         dashArray: "1,8"
     }
-}).addTo(map);
+});
+var blueLineLayer = L.geoJson(blueline, {style: createLineStyle('blue')});
+var expoLineLayer = L.geoJson(expoline, {style: createLineStyle('lightblue')});
+var goldLineLayer = L.geoJson(goldline, {style: createLineStyle('gold')});
+var redLineLayer = L.geoJson(redline, {style: createLineStyle('red')});
 
-L.geoJson(goldstations, {
-    pointToLayer: function(f, ll) { return createStationMarker(ll, 'gold') },
-    onEachFeature: onEachFeature
-}).addTo(map);
+var rcStationsLayer = createStationLayer(stops, "black");
+var goldStationsLayer = createStationLayer(goldstations, "gold");
+var expoStationsLayer = createStationLayer(expostations, "lightblue");
+var blueStationsLayer = createStationLayer(bluestations, "blue");
+var redStationsLayer = createStationLayer(redstations, "red");
 
-L.geoJson(expostations, {
-    pointToLayer: function(f, ll) { return createStationMarker(ll, 'lightblue') },
-    onEachFeature: onEachFeature
-}).addTo(map);
+var rcGroup = L.layerGroup([rcStationsLayer, rcLineLayer]);
+var blueGroup = L.layerGroup([blueStationsLayer, blueLineLayer]);
+var expoGroup = L.layerGroup([expoStationsLayer, expoLineLayer]);
+var goldGroup = L.layerGroup([goldStationsLayer, goldLineLayer]);
+var redGroup = L.layerGroup([redStationsLayer, redLineLayer]);
 
-L.geoJson(bluestations, {
-    pointToLayer: function(f, ll) { return createStationMarker(ll, 'blue') },
-    onEachFeature: onEachFeature
-}).addTo(map);
+// Configure the basic map settings
+var mapOptions = {
+    maxZoom:16,
+    minZoom:13,
+    maxBounds: new L.LatLngBounds(
+        new L.LatLng(36.1912, -112.044),
+        new L.LatLng(31.5037, -122.3272)
+    ),
+    center: new L.LatLng(34.052010515290775, -118.24619829654694),
+    zoom: 15,
+    layers: [
+        baseLayer,
+        expoGroup,
+        blueGroup,
+        redGroup,
+        rcGroup,
+        goldGroup
+    ]
+};
+var map = new L.Map('map-canvas', mapOptions);
 
-L.geoJson(redstations, {
-    pointToLayer: function(f, ll) { return createStationMarker(ll, 'red') },
-    onEachFeature: onEachFeature
-}).addTo(map);
+var overlayMaps = {
+    "Planned regional connector": rcGroup,
+    "Blue line": blueGroup,
+    "Expo line": expoGroup,
+    "Gold line": goldGroup,
+    "Red & purple lines": redGroup
+};
 
-L.geoJson(stops, {
-    pointToLayer: function(f, ll) { return createStationMarker(ll, 'black') },
-    onEachFeature: onEachFeature
-}).addTo(map);
+L.control.layers({}, overlayMaps).addTo(map);
+
 </script>
 </body>
 </html>
