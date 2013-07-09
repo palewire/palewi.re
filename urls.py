@@ -223,6 +223,10 @@ urlpatterns += patterns('',
     # Candy says...
     url(r'^candysays/$', direct_to_template, {'template': 'wxwtf/candy.html'},
         name='candy-says'),
+    # Where will the Regional Connector go?
+    url(r'^regional-connector/$', direct_to_template,
+        {'template': 'wxwtf/regional_connector/index.html'},
+        name='candy-says'),
     # Other weird stuff
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^correx/', include('correx.urls')),
