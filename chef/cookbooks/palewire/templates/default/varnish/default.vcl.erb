@@ -43,6 +43,11 @@ sub vcl_recv {
         return (pass);
     }
     
+    # Don't cache comments pages
+    if (req.url ~ "^/comments/") {
+        return (pass);
+    }
+    
     # First, check to see if this is a special PURGE request.
     # If it is, and the client isn't in our special access
     # control list above, send them a cheeky message.
