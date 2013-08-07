@@ -1,7 +1,22 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
 
+{% block extrahtmlattrs %}itemscope itemtype="http://schema.org/Article"{% endblock %}
+
 {% block title %}{{ object.title|lower }} . {{ block.super }}{% endblock %}
+
+{% block extrameta %}
+    {{ block.super }}
+    <meta itemprop="name" content="{{ object.title }}">
+    <meta itemprop="headline" content="{{ object.title }}">
+    <meta itemprop="url" content="http://palewi.re{{ object.get_absolute_url }}">
+    <meta itemprop="author" content="Ben Welsh">
+    <meta itemprop="copyrightYear" content="{{ object.pub_date|date:"Y" }}">
+    <meta itemprop="dateCreated" content="{{ object.pub_date|date:"Ymd" }}">
+    <meta itemprop="datePublished" content="{{ object.pub_date|date:"Ymd" }}">
+    <meta itemprop="inLanguage" content="en">
+    <link rel="canonical" href="http://palewi.re{{ object.get_absolute_url }}" />
+{% endblock %}
 
 {% block facebookmeta %}
     {{ block.super }}
@@ -41,7 +56,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-                <span property="rnews:body">{{ object.body_html|safe }}</span>
+                <span itemprop="articleBody" property="rnews:body">{{ object.body_html|safe }}</span>
             </div>
             <div class="onecol"></div>
         </div>
@@ -58,7 +73,7 @@
                 <p id="postpubdate">This is a post 
                     <span rel="rnews:createdBy">
                         <span about="http://palewi.re/who-is-ben-welsh/" typeof="rnews:Person">
-                            <a rel="author" href="/who-is-ben-welsh/" property="rnews:name">
+                            <a rel="author" href="http://palewi.re/who-is-ben-welsh/" property="rnews:name">
                                 Ben Welsh
                             </a>
                         </span>
