@@ -34,6 +34,7 @@ MUNIN_ROOT = '/var/cache/munin/www/'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
+    'toolbox.middleware.domains.MultipleProxyMiddleware',
     'django.middleware.common.CommonMiddleware',
     'toolbox.middleware.domains.DomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
