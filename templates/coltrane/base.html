@@ -31,21 +31,21 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}styles.css" type="text/css" media="screen" />
     <!--[if lte IE 9]><link rel="stylesheet" href="{{ STATIC_URL }}ie.css" type="text/css" media="screen" /><![endif]-->
     
-    <link rel="alternate" type="application/rss+xml" title="the full feed" href="/feeds/the-full-feed/"/>
-    <link rel="alternate" type="application/rss+xml" title="less noise" href="/feeds/less-noise/"/>
-    <link rel="alternate" type="application/rss+xml" title="posts" href="/feeds/posts/"/>
-    <link rel="alternate" type="application/rss+xml" title="beers" href="/feeds/beers/"/>
-    <link rel="alternate" type="application/rss+xml" title="books" href="/feeds/books/"/>
-    <link rel="alternate" type="application/rss+xml" title="code commits" href="/feeds/commits/"/>
-    <link rel="alternate" type="application/rss+xml" title="comments" href="/feeds/comments/"/>
-    <link rel="alternate" type="application/rss+xml" title="corrections" href="/feeds/corrections/"/>
-    <link rel="alternate" type="application/rss+xml" title="shouts" href="/feeds/shouts/"/>
-    <link rel="alternate" type="application/rss+xml" title="links" href="/feeds/links/"/>
-    <link rel="alternate" type="application/rss+xml" title="locations" href="/feeds/locations/"/>
-    <link rel="alternate" type="application/rss+xml" title="movies" href="/feeds/movies/"/>
-    <link rel="alternate" type="application/rss+xml" title="videos" href="/feeds/videos/"/>
-    <link rel="alternate" type="application/rss+xml" title="photos" href="/feeds/photos/"/>
-    <link rel="alternate" type="application/rss+xml" title="tracks" href="/feeds/tracks/"/>
+    <link rel="alternate" type="application/rss+xml" title="the full feed" href="http://palewi.re/feeds/the-full-feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="less noise" href="http://palewi.re/feeds/less-noise/"/>
+    <link rel="alternate" type="application/rss+xml" title="posts" href="http://palewi.re/feeds/posts/"/>
+    <link rel="alternate" type="application/rss+xml" title="beers" href="http://palewi.re/feeds/beers/"/>
+    <link rel="alternate" type="application/rss+xml" title="books" href="http://palewi.re/feeds/books/"/>
+    <link rel="alternate" type="application/rss+xml" title="code commits" href="http://palewi.re/feeds/commits/"/>
+    <link rel="alternate" type="application/rss+xml" title="comments" href="http://palewi.re/feeds/comments/"/>
+    <link rel="alternate" type="application/rss+xml" title="corrections" href="http://palewi.re/feeds/corrections/"/>
+    <link rel="alternate" type="application/rss+xml" title="shouts" href="http://palewi.re/feeds/shouts/"/>
+    <link rel="alternate" type="application/rss+xml" title="links" href="http://palewi.re/feeds/links/"/>
+    <link rel="alternate" type="application/rss+xml" title="locations" href="http://palewi.re/feeds/locations/"/>
+    <link rel="alternate" type="application/rss+xml" title="movies" href="http://palewi.re/feeds/movies/"/>
+    <link rel="alternate" type="application/rss+xml" title="videos" href="http://palewi.re/feeds/videos/"/>
+    <link rel="alternate" type="application/rss+xml" title="photos" href="http://palewi.re/feeds/photos/"/>
+    <link rel="alternate" type="application/rss+xml" title="tracks" href="http://palewi.re/feeds/tracks/"/>
     {% block extrarss %}
     {% endblock %}
     
@@ -97,7 +97,7 @@
             </div>
             <div class="threecol last" id="whois">
                 <h2>
-                    <a rel="author" href="{% url coltrane_bio %}" title="All about Ben">Who is Ben Welsh?</a>
+                    <a rel="author" href="http://palewi.re{% url coltrane_bio %}" title="All about Ben">Who is Ben Welsh?</a>
                 </h2>
             </div>
         </div>
@@ -109,31 +109,31 @@
             <div class="ninecol"></div>
             <div class="threecol last">
                 <div class="smalliconwrapper">
-                    <a href="{% url coltrane_app_list %}" title="Apps">
+                    <a href="http://palewi.re{% url coltrane_app_list %}" title="Apps">
                         <img src="{{ STATIC_URL }}icons/apps.gif" width="30" alt="apps" />
                     </a>
                     <div class="smalliconlabel">Apps</div>
                 </div>
                 <div class="smalliconwrapper">
-                    <a href="{% url coltrane_clip_list %}" title="Clips">
+                    <a href="http://palewi.re{% url coltrane_clip_list %}" title="Clips">
                         <img src="{{ STATIC_URL }}icons/clips.png" width="30" alt="clips" />
                     </a>
                     <div class="smalliconlabel">Clips</div>
                 </div>
                 <div class="smalliconwrapper">
-                    <a href="{% url coltrane_post_list %}" title="Posts">
+                    <a href="http://palewi.re{% url coltrane_post_list %}" title="Posts">
                         <img src="{{ STATIC_URL }}icons/posts.gif" width="30" alt="posts" />
                     </a>
                     <div class="smalliconlabel">Posts</div>
                 </div>
                 <div class="smalliconwrapper">
-                    <a href="{% url coltrane_talk_list %}" title="Talks">
+                    <a href="http://palewi.re{% url coltrane_talk_list %}" title="Talks">
                         <img src="{{ STATIC_URL }}icons/talks.png" width="30" alt="talks" />
                     </a>
                     <div class="smalliconlabel">Talks</div>
                 </div>
                 <div class="smalliconwrapper">
-                    <a href="{% url coltrane_ticker_list %}" title="Ticker">
+                    <a href="http://palewi.re{% url coltrane_ticker_list %}" title="Ticker">
                         <img src="{{ STATIC_URL }}icons/ticker.gif" width="30" alt="ticker" />
                     </a>
                     <div class="smalliconlabel">Ticker</div>
@@ -150,8 +150,8 @@
         <div id="ft" class="row">
             <div class="twelvecol last">
                 <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ current_year }}</span> palewire</span> . 
-                <a href="{% url coltrane_colophon %}">colophon</a> . 
-                <a href="/feeds/list/" title="Feeds">rss feeds</a> . 
+                <a href="http://palewi.re{% url coltrane_colophon %}">colophon</a> . 
+                <a href="http://palewi.re/feeds/list/" title="Feeds">rss feeds</a> . 
                 </a>
                 powered by <a id="django-link" href="http://www.djangoproject.com/">django</a> . 
                 hosted on an <a href="http://en.wikipedia.org/wiki/OpenStack">openstack</a> in the <a href="http://www.rackspace.com/">rackspace</a> cloud
