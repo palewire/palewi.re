@@ -9,10 +9,13 @@ argparse==1.2.1
 boto==2.6.0
 distribute==0.6.19
 django-extensions==0.5
+django-memcached==0.1.2
 docutils==0.8.1
 greeking==0.13
-httplib2==0.7.4
+httplib2==0.8
 oauth2==1.5.211
+oauthlib==0.6.0
+-e git+ssh://git@github.com/jacobian/openstack.compute.git@89c5c6a3fcc0864e6de2a8bc10bcaf93b13a259e#egg=openstack.compute-dev
 paramiko==1.9.0
 pep8==0.5.0
 prettytable==0.6.1
@@ -20,9 +23,10 @@ psycopg2==2.2.2
 pycrypto==2.6
 python-dateutil==1.4.1
 python-memcached==1.45
-python-twitter==0.8.2
+python-twitter==1.1
 pytz==2010o
-requests==0.13.6
-simplejson==2.6.2
+requests==2.0.0
+requests-oauthlib==0.4.0
+simplejson==3.3.1
 wsgiref==0.1.2
 yolk==0.4.1
