@@ -142,6 +142,7 @@
                 {% endif %}
                 
                 {% for comment in comment_list %}
+                    <aside>
                     <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://palewi.re{{ object.get_absolute_url }}#c{{comment.id}}">
                         <a name="c{{comment.id}}"></a>
                         <div class="commenttopper">
@@ -151,6 +152,7 @@
                         <div class="commenttext" property="rnews:commentText">{{ comment.comment|safe }}</div>
                         <div class="commentfooter"><a href="{{ comment.get_absolute_url }}">Permalink</a></div>
                     </div>
+                    </aside>
                 {% endfor %}
                 
                 {% if object.enable_comments %}
