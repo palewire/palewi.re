@@ -2,7 +2,6 @@
 <html lang="en" xmlns:rnews="http://iptc.org/std/rNews/2011-05-17#" xmlns:og="http://ogp.me/ns#" {% block extrahtmlattrs %}{% endblock %}>
 {% load coltrane_tags %}
 {% get_random_slogan %}
-
 <head>
     <title>{% block title %}palewire{% endblock %}</title>
     
@@ -52,6 +51,9 @@
     {% block extralinktags %}
     {% endblock %}
     
+    <!--[if lt IE 9]>
+        <script src="{{ STATIC_URL }}html5shiv.js"></script>
+    <![endif]-->
     <script type="text/javascript" src="{{ STATIC_URL }}css3-mediaqueries.js"></script>
     {#<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>#}
     <script type="text/javascript" src="{{ STATIC_URL }}jquery-1.4.4.min.js"></script>
