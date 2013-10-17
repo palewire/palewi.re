@@ -80,83 +80,88 @@
 
 </head>
 <body {%block extrabody %}{% endblock %}>
-    
+
     <div id="container" class="container">
-        <div id="hd" class="row">
-            <div class="ninecol">
-                <h1>
-                    <a href="/" title="{{ random_slogan }}" id="shingle">
-                        <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
-                            <div about="http://palewi.re"
-                                  typeof="rnews:Organization">
-                                <div property="rnews:name">palewire</div>
+
+        <nav>
+            <div id="hd" class="row">
+                <div class="ninecol">
+                    <h1>
+                        <a href="/" title="{{ random_slogan }}" id="shingle">
+                            <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
+                                <div about="http://palewi.re"
+                                      typeof="rnews:Organization">
+                                    <div property="rnews:name">palewire</div>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </h1>
-            </div>
-            <div class="threecol last" id="whois">
-                <h2>
-                    <a rel="author" href="http://palewi.re{% url coltrane_bio %}" title="All about Ben">Who is Ben Welsh?</a>
-                </h2>
-            </div>
-        </div>
-            
-        <div id="topbar" class="row">
-            <div class="twelvecol last"></div>
-        </div>
-        <div id="navbar" class="row">
-            <div class="ninecol"></div>
-            <div class="threecol last">
-                <div class="smalliconwrapper">
-                    <a href="http://palewi.re{% url coltrane_app_list %}" title="Apps">
-                        <img src="{{ STATIC_URL }}icons/apps.gif" width="30" alt="apps" />
-                    </a>
-                    <div class="smalliconlabel">Apps</div>
+                        </a>
+                    </h1>
                 </div>
-                <div class="smalliconwrapper">
-                    <a href="http://palewi.re{% url coltrane_clip_list %}" title="Clips">
-                        <img src="{{ STATIC_URL }}icons/clips.png" width="30" alt="clips" />
-                    </a>
-                    <div class="smalliconlabel">Clips</div>
-                </div>
-                <div class="smalliconwrapper">
-                    <a href="http://palewi.re{% url coltrane_post_list %}" title="Posts">
-                        <img src="{{ STATIC_URL }}icons/posts.gif" width="30" alt="posts" />
-                    </a>
-                    <div class="smalliconlabel">Posts</div>
-                </div>
-                <div class="smalliconwrapper">
-                    <a href="http://palewi.re{% url coltrane_talk_list %}" title="Talks">
-                        <img src="{{ STATIC_URL }}icons/talks.png" width="30" alt="talks" />
-                    </a>
-                    <div class="smalliconlabel">Talks</div>
-                </div>
-                <div class="smalliconwrapper">
-                    <a href="http://palewi.re{% url coltrane_ticker_list %}" title="Ticker">
-                        <img src="{{ STATIC_URL }}icons/ticker.gif" width="30" alt="ticker" />
-                    </a>
-                    <div class="smalliconlabel">Ticker</div>
+                <div class="threecol last" id="whois">
+                    <h2>
+                        <a rel="author" href="http://palewi.re{% url coltrane_bio %}" title="All about Ben">Who is Ben Welsh?</a>
+                    </h2>
                 </div>
             </div>
-        </div>
-            
+                
+            <div id="topbar" class="row">
+                <div class="twelvecol last"></div>
+            </div>
+            <div id="navbar" class="row">
+                <div class="ninecol"></div>
+                <div class="threecol last">
+                    <div class="smalliconwrapper">
+                        <a href="http://palewi.re{% url coltrane_app_list %}" title="Apps">
+                            <img src="{{ STATIC_URL }}icons/apps.gif" width="30" alt="apps" />
+                        </a>
+                        <div class="smalliconlabel">Apps</div>
+                    </div>
+                    <div class="smalliconwrapper">
+                        <a href="http://palewi.re{% url coltrane_clip_list %}" title="Clips">
+                            <img src="{{ STATIC_URL }}icons/clips.png" width="30" alt="clips" />
+                        </a>
+                        <div class="smalliconlabel">Clips</div>
+                    </div>
+                    <div class="smalliconwrapper">
+                        <a href="http://palewi.re{% url coltrane_post_list %}" title="Posts">
+                            <img src="{{ STATIC_URL }}icons/posts.gif" width="30" alt="posts" />
+                        </a>
+                        <div class="smalliconlabel">Posts</div>
+                    </div>
+                    <div class="smalliconwrapper">
+                        <a href="http://palewi.re{% url coltrane_talk_list %}" title="Talks">
+                            <img src="{{ STATIC_URL }}icons/talks.png" width="30" alt="talks" />
+                        </a>
+                        <div class="smalliconlabel">Talks</div>
+                    </div>
+                    <div class="smalliconwrapper">
+                        <a href="http://palewi.re{% url coltrane_ticker_list %}" title="Ticker">
+                            <img src="{{ STATIC_URL }}icons/ticker.gif" width="30" alt="ticker" />
+                        </a>
+                        <div class="smalliconlabel">Ticker</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
         <div id="bd" class="row">
             {% block content %}
             {% endblock %}
         </div>
             
         {% get_current_year %}
-        <div id="ft" class="row">
-            <div class="twelvecol last">
-                <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ current_year }}</span> palewire</span> . 
-                <a href="http://palewi.re{% url coltrane_colophon %}">colophon</a> . 
-                <a href="http://palewi.re/feeds/list/" title="Feeds">rss feeds</a> . 
-                </a>
-                powered by <a id="django-link" href="http://www.djangoproject.com/">django</a> . 
-                hosted on an <a href="http://en.wikipedia.org/wiki/OpenStack">openstack</a> in the <a href="http://www.rackspace.com/">rackspace</a> cloud
+        <footer>
+            <div id="ft" class="row">
+                <div class="twelvecol last">
+                    <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ current_year }}</span> palewire</span> . 
+                    <a href="http://palewi.re{% url coltrane_colophon %}">colophon</a> . 
+                    <a href="http://palewi.re/feeds/list/" title="Feeds">rss feeds</a> . 
+                    </a>
+                    powered by <a id="django-link" href="http://www.djangoproject.com/">django</a> . 
+                    hosted on an <a href="http://en.wikipedia.org/wiki/OpenStack">openstack</a> in the <a href="http://www.rackspace.com/">rackspace</a> cloud
+                </div>
             </div>
-        </div>
+        </footer>
         
     </div>
 
