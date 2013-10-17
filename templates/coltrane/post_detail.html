@@ -30,98 +30,100 @@
 {% block extrabody %}about="http://palewi.re{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
 
 {% block content %}
-    <div class="twelvecol last">
 
-        <div id="headline" class="row">
-            <div class="twelvecol last">
-                <h1 property="rnews:headline">
-                <img src="{{ STATIC_URL }}icons/posts-big.gif" alt="post"/>
-                    {{ object.title }}
-                </h1>
-            </div>
-        </div>
-        
-        <div id="detailbody" class="row">
-            <div class="onecol last"></div>
-            <div class="tencol">
-                {% load correx_tags %}
-                {% get_changes_for_object object 10 as change_list %}
-                {% if change_list %}
-                <div style="margin:10px 0;">
-                    {% for change in change_list %}
-                        <div class="changebox highlight">
-                            {{ change.description|safe }} 
-                            <b>&mdash;{{ change.user }}, {{ change.pub_date|date:"N j, Y" }}</b> 
-                        </div>
-                    {% endfor %}
+        <div class="twelvecol last">
+        <article>
+            <div id="headline" class="row">
+                <div class="twelvecol last">
+                    <h1 property="rnews:headline">
+                    <img src="{{ STATIC_URL }}icons/posts-big.gif" alt="post"/>
+                        {{ object.title }}
+                    </h1>
                 </div>
-                {% endif %}
-                <span itemprop="articleBody" property="rnews:body">{{ object.body_html|safe }}</span>
             </div>
-            <div class="onecol"></div>
-        </div>
-        
-        <div class="row">
-            <div class="onecol last"></div>
-            <div class="detailborderbumper tencol"></div>
-            <div class="onecol"></div>
-        </div>
-        
-        <div id="detailmetadata" class="row">
-            <div class="onecol last"></div>
-            <div class="tencol">
-                <p id="postpubdate">This is a post 
-                    <span rel="rnews:createdBy">
-                        <span about="http://palewi.re/who-is-ben-welsh/" typeof="rnews:Person">
-                            <a rel="author" href="http://palewi.re/who-is-ben-welsh/" property="rnews:name">
-                                Ben Welsh
-                            </a>
-                        </span>
-                    </span>
-    made on <span property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}">{{ object.pub_date|date:"F j, Y" }}</span<, {{ object.pub_date|timesince }} ago.</p>
-                {% if object.categories.count %}
-                    
-                    <p id ="postcats">
-                        It is filed with other posts about
-                        {% for cat in object.categories.all %}
-                        <a href="{{ cat.get_absolute_url }}">{{ cat.title|lower }}</a>{% if forloop.last %}.{% endif %}{% if forloop.last %}{% else %}{% ifequal forloop.revcounter0 1 %} and {% else %}, {% endifequal %}{% endif %}
+            
+            <div id="detailbody" class="row">
+                <div class="onecol last"></div>
+                <div class="tencol">
+                    {% load correx_tags %}
+                    {% get_changes_for_object object 10 as change_list %}
+                    {% if change_list %}
+                    <div style="margin:10px 0;">
+                        {% for change in change_list %}
+                            <div class="changebox highlight">
+                                {{ change.description|safe }} 
+                                <b>&mdash;{{ change.user }}, {{ change.pub_date|date:"N j, Y" }}</b> 
+                            </div>
                         {% endfor %}
-                    </p>
-                {% endif %}
-                
-                {% if object.tag_set %}
-                <p id="posttags">Topics include 
-                {% for t in object.tag_set %}
-                    {% if forloop.last %}and <a href="/tag/{{ t }}/" title="{{t}}" rel="tag">{{t}}</a>.
-                    {% else %}
-                        {% ifequal forloop.revcounter 2 %}
-                            <a href="/tags/{{ t }}/" title="{{t}}" rel="tag">{{t}}</a> 
-                        {% else %}
-                            <a href="/tags/{{ t }}/" title="{{t}}" rel="tag">{{t}}</a>, 
-                        {% endifequal %}
+                    </div>
                     {% endif %}
-                {% endfor %}
-                </p>
-                {% endif %}
-                
-                {% if related_posts %}
-                <p id="relatedposts">Some similar posts are 
-                    {% for p in related_posts %}
-                        {% if forloop.last %}and <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a>
+                    <span itemprop="articleBody" property="rnews:body">{{ object.body_html|safe }}</span>
+                </div>
+                <div class="onecol"></div>
+            </div>
+            
+            <div class="row">
+                <div class="onecol last"></div>
+                <div class="detailborderbumper tencol"></div>
+                <div class="onecol"></div>
+            </div>
+            
+            <div id="detailmetadata" class="row">
+                <div class="onecol last"></div>
+                <div class="tencol">
+                    <p id="postpubdate">This is a post 
+                        <span rel="rnews:createdBy">
+                            <span about="http://palewi.re/who-is-ben-welsh/" typeof="rnews:Person">
+                                <a rel="author" href="http://palewi.re/who-is-ben-welsh/" property="rnews:name">
+                                    Ben Welsh
+                                </a>
+                            </span>
+                        </span>
+        made on <span property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}">{{ object.pub_date|date:"F j, Y" }}</span<, {{ object.pub_date|timesince }} ago.</p>
+                    {% if object.categories.count %}
+                        
+                        <p id ="postcats">
+                            It is filed with other posts about
+                            {% for cat in object.categories.all %}
+                            <a href="{{ cat.get_absolute_url }}">{{ cat.title|lower }}</a>{% if forloop.last %}.{% endif %}{% if forloop.last %}{% else %}{% ifequal forloop.revcounter0 1 %} and {% else %}, {% endifequal %}{% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+                    
+                    {% if object.tag_set %}
+                    <p id="posttags">Topics include 
+                    {% for t in object.tag_set %}
+                        {% if forloop.last %}and <a href="/tag/{{ t }}/" title="{{t}}" rel="tag">{{t}}</a>.
                         {% else %}
                             {% ifequal forloop.revcounter 2 %}
-                                <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a> 
+                                <a href="/tags/{{ t }}/" title="{{t}}" rel="tag">{{t}}</a> 
                             {% else %}
-                                <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}},"</a> 
+                                <a href="/tags/{{ t }}/" title="{{t}}" rel="tag">{{t}}</a>, 
                             {% endifequal %}
                         {% endif %}
                     {% endfor %}
-                </p>
-                {% endif %}
+                    </p>
+                    {% endif %}
+                    
+                    {% if related_posts %}
+                    <p id="relatedposts">Some similar posts are 
+                        {% for p in related_posts %}
+                            {% if forloop.last %}and <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a>
+                            {% else %}
+                                {% ifequal forloop.revcounter 2 %}
+                                    <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a> 
+                                {% else %}
+                                    <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}},"</a> 
+                                {% endifequal %}
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="onecol"></div>
             </div>
-            <div class="onecol"></div>
-        </div>
-        
+        </article>
+
         <div class="row">
             <div class="onecol last"></div>
             <div class="detailborderbumper tencol"></div>
