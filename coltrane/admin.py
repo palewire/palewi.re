@@ -44,6 +44,8 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_filter = ('status', 'pub_date',)
     date_hierarchy = 'pub_date'
+    save_on_top = True
+    list_editable = ("status",)
 
 
 class ShoutAdmin(ThirdPartyBaseAdmin):
