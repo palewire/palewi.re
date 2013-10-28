@@ -91,10 +91,6 @@
             "minute": "19",
             "command": "/apps/palewi.re/bin/python /apps/palewi.re/project/manage.py syncdigg > /dev/null 2>&1"
         },
-        "syncreadernaut": {
-            "minute": "48",
-            "command": "/apps/palewi.re/bin/python /apps/palewi.re/project/manage.py syncreadernaut > /dev/null 2>&1"
-        },
         "syncgithub": {
             "minute": "23,43",
             "command": "/apps/palewi.re/bin/python /apps/palewi.re/project/manage.py syncgithub > /dev/null 2>&1"
