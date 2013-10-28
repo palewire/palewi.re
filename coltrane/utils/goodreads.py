@@ -14,68 +14,65 @@ logger = logging.getLogger(__name__)
 from coltrane.models import Book
 
 
-class ReadernautClient(object):
+class GoodReadsClient(object):
     """
-    A minimal Readernaut client. 
+    A minimal GoodReads client. 
     """
-    def __init__(self, username):
-        self.username = username
-        
-    def __getattr__(self):
-        return ReadernautClient(self.username)
-        
+    def __init__(self, user_id, api_key):
+        self.user_id = user_id
+        self.api_key = api_key
+
     def __repr__(self):
-        return "<ReadernautClient: %s>" % self.username
-        
+        return "<GoodReadsClient: %s>" % self.user_id
+
     def get_latest_data(self):
         # Fetch the XML via web request
-        url = 'http://readernaut.com/api/v1/xml/%s/books/' % self.username
+        url = 'https://www.goodreads.com/review/list_rss/%s?key=%s&shelf=read' % (
+            self.user_id,
+            self.api_key
+        )
         xml = utils.getxml(url)
         
         books = []
         
-        for book in xml.getchildren():
-            
+        for book in xml.getiterator("item"):
+
             # Dictionary where we'll stuff all the goodies
             book_dict = {}
-            
+
             # Get the date
-            date = book.find('created').text
+            date = book.find('pubDate').text
             book_dict['date'] = dateutil.parser.parse(date)
-            
-            # Step down the XML
-            edition = book.find('book_edition')
-            
+
             # Get the title
-            title = edition.find('title').text
+            title = book.find('title').text
             book_dict['title'] = smart_unicode(title)
-        
+
             # Get the ISBN
-            isbn = edition.find('isbn').text
+            isbn = book.find('isbn').text
+            # If no ISBN, substitute the GoodReads id
+            if not isbn:
+                isbn = 'goodreads:%s' % book.find('book_id').text
             book_dict['isbn'] = smart_unicode(isbn)
-            
-            # Get the authors as a text list
-            authors = []
-            for author in edition.getiterator('authors'):
-                name = getattr(author.find('author'), 'text', None)
-                if name:
-                    authors.append(smart_unicode(name))
-            book_dict['authors'] = get_text_list(authors, 'and')
-            
+
+            # Get the authors
+            author = book.find('author_name').text
+            book_dict['authors'] = smart_unicode(author)
+
             # Get the link
-            url = edition.find('permalink').text
+            url = book.find('guid').text
             book_dict['url'] = smart_unicode(url)
-            
+
             books.append(book_dict)
-            
+
         return books
-    
+
     def sync(self):
         """
         When executed, will collect update your database with the latest books.
         """
         [self._handle_book(book_dict) for book_dict in self.get_latest_data()]
-    
+
     def _handle_book(self, book_dict):
         """
         Accepts a data dictionary harvest from Readernaut's API and logs any new ones the database.
