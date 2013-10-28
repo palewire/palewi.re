@@ -95,6 +95,10 @@
             "minute": "23,43",
             "command": "/apps/palewi.re/bin/python /apps/palewi.re/project/manage.py syncgithub > /dev/null 2>&1"
         },
+        "syncgoodreads": {
+            "minute": "48",
+            "command": "/apps/palewi.re/bin/python /apps/palewi.re/project/manage.py syncgoodreads > /dev/null 2>&1"
+        },
         "syncflixster": {
             "minute": "58",
             "command": "/apps/palewi.re/bin/python /apps/palewi.re/project/manage.py syncflixster > /dev/null 2>&1"
