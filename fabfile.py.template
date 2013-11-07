@@ -11,18 +11,7 @@ OPENSTACK_COMPUTE_USERNAME = ''
 OPENSTACK_COMPUTE_API_KEY = ''
 
 def prod():
-    crane()
-
-def crane():
-    env.user = ''
-    env.password = ''
-    env.hosts = ['',]
-    env.chef = '/var/lib/gems/1.8/bin/chef-solo -c solo.rb -j node.json'
-    env.repo = 'git@github.com:palewire/palewire.com.git'
-    env.app_user = 'palewire'
-    env.app_path = '/apps/palewire.com/project/'
-    env.venv_activate = 'source /apps/palewire.com/bin/activate'
-
+    dodo()
 
 def dodo():
     env.user = ''
