@@ -7,13 +7,13 @@
     {{ block.super }}
     <meta property="og:title" content="posts"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://palewi.re/posts/"/>
+    <meta property="og:url" content="http://{{ current_site }}/posts/"/>
 {% endblock %}
 
 {% block content %}
     <div class="interiorlist twelvecol last">
         <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/posts.gif" alt="posts"/>&nbsp;Posts</h1>
-        <p>A complete list of articles written for palewi.re.</p>
+        <p>A complete list of articles written for this site.</p>
         {% for object in object_list %}
             {% ifchanged object.pub_date.year %}
             <div class="row">

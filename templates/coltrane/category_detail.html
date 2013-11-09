@@ -7,7 +7,7 @@
     {{ block.super }}
     <meta property="og:title" content="Posts about {{ category }}"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://palewi.re/categories/{{ category.slug }}/"/>
+    <meta property="og:url" content="http://{{ current_site }}/categories/{{ category.slug }}/"/>
 {% endblock %}
 
 {% block extrarss %}

@@ -9,25 +9,25 @@
     {{ block.super }}
     <meta itemprop="name" content="{{ object.title }}">
     <meta itemprop="headline" content="{{ object.title }}">
-    <meta itemprop="url" content="http://palewi.re{{ object.get_absolute_url }}">
+    <meta itemprop="url" content="http://{{ current_site }}{{ object.get_absolute_url }}">
     <meta itemprop="author" content="Ben Welsh">
     <meta itemprop="copyrightYear" content="{{ object.pub_date|date:"Y" }}">
     <meta itemprop="dateCreated" content="{{ object.pub_date|date:"Ymd" }}">
     <meta itemprop="datePublished" content="{{ object.pub_date|date:"Ymd" }}">
     <meta itemprop="inLanguage" content="en">
-    <link rel="canonical" href="http://palewi.re{{ object.get_absolute_url }}" />
+    <link rel="canonical" href="http://{{ current_site }}{{ object.get_absolute_url }}" />
 {% endblock %}
 
 {% block facebookmeta %}
     {{ block.super }}
     <meta property="og:title" content="{{ object.title }}"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://palewi.re{{ object.get_absolute_url }}"/>
+    <meta property="og:url" content="http://{{ current_site }}{{ object.get_absolute_url }}"/>
 {% endblock %}
 
 {% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
 
-{% block extrabody %}about="http://palewi.re{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
+{% block extrabody %}about="http://{{ current_site }}{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
 
 {% block content %}
 
@@ -73,8 +73,8 @@
                 <div class="tencol">
                     <p id="postpubdate">This is a post 
                         <span rel="rnews:createdBy" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <span about="http://palewi.re/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
-                                <a rel="author" href="http://palewi.re/who-is-ben-welsh/" property="rnews:name">
+                            <span about="http://{{ current_site }}/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
+                                <a rel="author" href="http://{{ current_site }}/who-is-ben-welsh/" property="rnews:name">
                                     Ben Welsh
                                 </a>
                             </span>
@@ -143,7 +143,7 @@
                 
                 {% for comment in comment_list %}
                     <aside>
-                    <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://palewi.re{{ object.get_absolute_url }}#c{{comment.id}}">
+                    <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://{{ current_site }}{{ object.get_absolute_url }}#c{{comment.id}}">
                         <a name="c{{comment.id}}"></a>
                         <div class="commenttopper">
                             <span rel="rnews:createdBy"><span class="commentname" property="rnews:name">{{ comment.user_name|lower }}</span></span>
