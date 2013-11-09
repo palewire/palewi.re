@@ -12,8 +12,8 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last feeds">
-        <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h1>
-        <p>Subscribe to palewire via RSS.</p>
+        <h1><img src="{{ STATIC_URL }}icons/feeds.gif" alt="feeds"/>&nbsp;Feeds</h1>
+        <p class="description">Subscribe to palewire via RSS.</p>
         <ul>
             <div class="row"><div class="twelvecol last interior-date">Bundles</div></div>
             <div class="row"><div class="listitem twelvecol last"><a href="{% url feeds-the-full-feed %}">The Full Feed</a></div></div>

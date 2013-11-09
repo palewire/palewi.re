@@ -62,7 +62,6 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 #detailbody blockquote {margin-bottom: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
 #detailbody pre { margin-left:1em; line-height:1.3em;}
 
-
 /* Change box, etc. */
 .highlight { background-color: #ffffcc }
 .changebox {padding:0.5em; margin-bottom:0.25em;}
@@ -97,8 +96,10 @@ form#commentform {padding: 0;}
 
 /* List page stuff */
 .interiorlist {}
+.interiorlist h1 {margin: 0 0 0.25em 0 !important;}
+.interiorlist h1 img {vertical-align:middle !important;}
+.interiorlist p.description {font-size:1em; margin:0 0 0.5em 0; }
 .interiorlist div.interior-date {font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
-.interiorlist h1 {font-weight:bold; font-size: 1.5em !important; margin-bottom:1em;}    /* The category header */
 .interiorlist div.listitem {height:1.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.5em; list-style-type: none; font-size: 1em;} /* The items */
 .interiorlist div.listitem img {height:20px;}
 .interiorlist p {font-size:1em; margin-top: .66em; }
@@ -109,8 +110,6 @@ form#commentform {padding: 0;}
 #tickerfilter img { height:20px;}
 
 /* app list */ 
-.applist {}
-.applist h1 {margin-bottom:1em; font-weight:bold; font-size: 1.5em !important;}
 .appitem {padding-top:1em; padding-bottom:3em;}
 .appimage {vertical-align:bottom;}
 .apptext {height:auto; vertical-align:top;}
