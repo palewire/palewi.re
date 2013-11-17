@@ -29,7 +29,7 @@
     {% endblock %}
     
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset-fonts-grids.css"/>
-    <link rel="stylesheet" href="{{ STATIC_URL }}styles.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles.css?rev=1" type="text/css" media="screen" />
     <!--[if lte IE 9]><link rel="stylesheet" href="{{ STATIC_URL }}ie.css" type="text/css" media="screen" /><![endif]-->
     
     <link rel="alternate" type="application/rss+xml" title="the full feed" href="http://{{ current_site }}/feeds/the-full-feed/"/>
@@ -57,8 +57,8 @@
         <script src="{{ STATIC_URL }}html5shiv.js"></script>
     <![endif]-->
     <script type="text/javascript" src="{{ STATIC_URL }}css3-mediaqueries.js"></script>
-    {#<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>#}
-    <script type="text/javascript" src="{{ STATIC_URL }}jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+    {#<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.4.4.min.js"></script>#}
     
     <script type="text/javascript"> 
     //<![CDATA[
