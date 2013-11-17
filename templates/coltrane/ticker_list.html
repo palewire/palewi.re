@@ -39,7 +39,7 @@
                         /* Add a date header if its changed since the last item */
                         if (prevPubDate != item.pub_date) {
                             html.push(
-                                '<div class="row tumblelog"><div class="interior-date twelvecol last">',
+                                '<div class="row tumblelog"><div class="section-hed twelvecol last">',
                                 item.pub_date,
                                 '</div></div>'
                             );
@@ -205,7 +205,7 @@
     {% for object in object_list %}
         {% ifchanged object.pub_date.date %}
         <div class="row tumblelog">
-            <div class="interior-date twelvecol last">
+            <div class="section-hed twelvecol last">
                 {{ object.pub_date|date:"N d, Y" }}
             </div>
         </div>

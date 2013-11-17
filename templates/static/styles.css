@@ -99,7 +99,7 @@ form#commentform {padding: 0;}
 .interiorlist h1 {margin: 0 0 0.25em 0 !important;}
 .interiorlist h1 img {vertical-align:middle !important;}
 .interiorlist p.description {font-size:1em; margin:0 0 0.5em 0; }
-.interiorlist div.interior-date {font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
+.interiorlist div.section-hed {font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
 .interiorlist div.listitem {height:1.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.5em; list-style-type: none; font-size: 1em;} /* The items */
 .interiorlist div.listitem img {height:20px;}
 .interiorlist p {font-size:1em; margin-top: .66em; }

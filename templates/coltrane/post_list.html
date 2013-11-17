@@ -17,7 +17,7 @@
         {% for object in object_list %}
             {% ifchanged object.pub_date.year %}
             <div class="row">
-                <div class="interior-date twelvecol last">
+                <div class="section-hed twelvecol last">
                     {{ object.pub_date|date:"Y" }}
                 </div>
             </div>

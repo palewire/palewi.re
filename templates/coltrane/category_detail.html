@@ -16,11 +16,11 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last">
-        <h1><img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/posts.gif" alt="posts"/>&nbsp;Posts about {{ category.title }}</h1>
+        <h1><img src="{{ STATIC_URL }}icons/posts.gif" alt="posts"/>Posts about {{ category.title }}</h1>
         {% for object in object_list %}
             {% ifchanged object.pub_date.year %}
             <div class="row">
-                <div class="interior-date twelvecol last">
+                <div class="section-hed twelvecol last">
                     {{ object.pub_date|date:"Y" }}
                 </div>
             </div>
