@@ -99,7 +99,8 @@ form#commentform {padding: 0;}
 .interiorlist h1 {margin: 0 0 0.25em 0 !important;}
 .interiorlist h1 img {vertical-align:middle !important;}
 .interiorlist p.description {font-size:1em; margin:0 0 0.5em 0; }
-.interiorlist div.section-hed {font-weight:bold; font-size:1.1em; margin-top: .66em; padding-top: .05em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
+.interiorlist div.section-hed {font-weight:bold; font-size:1.1em; margin: 0.4em 0 0.2em; padding: .05em 0 .25em; border-bottom:thin dotted #ccc;}
+.interiorlist div.section-hed p { font-size: 0.9em !important; font-weight:normal; margin: 0; padding: 3px 0 0 0;}
 .interiorlist div.listitem {height:1.5em; padding-top:0.4em; padding-bottom:0.4em; line-height:1.5em; list-style-type: none; font-size: 1em;} /* The items */
 .interiorlist div.listitem img {height:20px;}
 .interiorlist p {font-size:1em; margin-top: .66em; }
@@ -110,11 +111,11 @@ form#commentform {padding: 0;}
 #tickerfilter img { height:20px;}
 
 /* app list */ 
-.appitem {padding-top:1em; padding-bottom:3em;}
+.appitem {padding: 0.75em 0;}
 .appimage {vertical-align:bottom;}
 .apptext {height:auto; vertical-align:top;}
-.apptext h3 {font-size:1.3em; margin-top: .66em; padding-bottom: .25em; border-bottom:thin dotted #ccc;}
-.apptext p {font-size:1em; margin-top: .66em; }
+.apptext h3 { font-size:0.98em; }
+.apptext p { font-size:0.75em; line-height: 1.2em; padding: 0; margin:0;}
 
 /* talk list */
 .talkitem {padding-top:1em; padding-bottom:1em;}

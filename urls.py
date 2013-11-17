@@ -5,7 +5,7 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
-
+import bona_fides
 from coltrane import feeds
 from coltrane.models import Post
 from coltrane.sitemaps import sitemaps
@@ -140,9 +140,12 @@ urlpatterns += patterns('',
     # The admin
     (r'^admin/', include(admin.site.urls)),
     # Main list pages
-    url(r'^apps/$', direct_to_template,
-        { 'template': 'coltrane/app_list.html' },
-        name='coltrane_app_list'),
+    url(r'^apps/$', direct_to_template, {
+            'template': 'coltrane/app_list.html',
+            'extra_context': {
+                'app_list': bona_fides.APP_LIST,
+            }
+        }, name='coltrane_app_list'),
     url(r'^clips/$', direct_to_template,
         {'template': 'coltrane/clip_list.html'}, name='coltrane_clip_list'),
     url(r'^talks/$', direct_to_template,
