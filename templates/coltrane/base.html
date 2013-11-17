@@ -90,8 +90,8 @@
         <nav>
             <div id="hd" class="row">
                 <div class="ninecol">
-                    <h1>
-                        <a href="/" title="{{ random_slogan }}" id="shingle">
+                    <div id="shingle">
+                        <a href="/" title="{{ random_slogan }}">
                             <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
                                 <div about="http://{{ current_site }}"
                                       typeof="rnews:Organization">
@@ -99,12 +99,13 @@
                                 </div>
                             </div>
                         </a>
-                    </h1>
+                    </div>
                 </div>
                 <div class="threecol last" id="whois">
-                    <h2>
-                        <a rel="author" href="http://{{ current_site }}{% url coltrane_bio %}" title="All about Ben">Who is Ben Welsh?</a>
-                    </h2>
+                    <div>
+                        <a rel="author" href="http://{{ current_site }}{% url coltrane_bio %}"
+                            title="All about Ben">Who is Ben Welsh?</a>
+                    </div>
                 </div>
             </div>
                 

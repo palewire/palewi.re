@@ -16,10 +16,10 @@ a:active {text-decoration: underline; font-weight:normal; color: red;}
 
 /* The header */
 #hd {display:block; margin-top:1.5em; margin-bottom:0.5em;}
-#hd h1 { margin: 0; font-size: 1.8em; font-weight: bold; padding-left:0.15em; text-align:left;} /* the "palewire" title in the upper left hand corner */
-#hd h1 a {text-decoration:none; font-weight:bold;}
+#hd #shingle {font-size: 1.8em; font-weight: bold; text-align:left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
+#hd #shingle a {text-decoration:none; font-weight:bold;}
 #whois {text-align:right; margin-top:0.2em; } /* the WHOIS link in the upper right hand corner */
-#whois h2 { font-size:1em; display:inline; } 
+#whois div { font-size:1em; display:inline; } 
 #hd span { font-size: .55em; clear:both; text-transform:lowercase;} /* The random phrase that appears on hoverover of the title */
 
 /* The horizontal gray bar that appears beneath the title line */
