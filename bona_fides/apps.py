@@ -249,16 +249,34 @@ APP_LIST = [
                 description='A custom template for initializing a new Django project the Data Desk way'
             ),
             Application(
-                name='django-boundaryservice',
-                url='https://github.com/datadesk/django-boundaryservice',
+                name='table-stacker',
+                url='http://datadesk.github.io/latimes-table-stacker/',
                 image='',
-                description='A series of fixes and features for the Chicago Tribune\'s map API framework'
+                description='A framework for quickly publishing CSV files as interactive tables'
             ),
             Application(
                 name='uptime-grove',
                 url='https://github.com/datadesk/uptime-grove',
                 image='',
                 description='A nodejs plugin for Uptime that sends notifications to the Grove.io IRC service.'
+            ),
+            Application(
+                name='checkbook-la-watchdog',
+                url='https://github.com/datadesk/checkbook-la-watchdog',
+                image='',
+                description='A periodically updated archive of financial data published by the city of LA'
+            ),
+            Application(
+                name='django-boundaryservice',
+                url='https://github.com/datadesk/django-boundaryservice',
+                image='',
+                description='Fixes and features for the Chicago Tribune\'s map API framework'
+            ),
+            Application(
+                name='timeline-setter',
+                url='https://github.com/propublica/timeline-setter/commits?author=palewire',
+                image='',
+                description='Fixes and features for ProPublica\'s interactive timeline creator'
             ),
             Application(
                 name='Leaflet for Mapstraction',
@@ -325,6 +343,12 @@ APP_LIST = [
                 url='/candysays/',
                 image='',
                 description='She\'s not an anchor, she just crush a lot'
+            ),
+            Application(
+                name='LAT Soundsystem',
+                url='https://github.com/datadesk/lat-soundsystem',
+                image='',
+                description='The voice of the Los Angeles Times Data Desk'
             ),
         ]
     ),
