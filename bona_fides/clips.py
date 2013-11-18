@@ -73,13 +73,13 @@ CLIP_LIST = [
                 description='A Times analysis lays out the winning strategy in L.A.\'s 2013 race for mayor'
             ),
             Clip(
-                name='Forecast for L.A.\'s mayor race: Paltry turnout',
+                name='Forecast for mayor\'s race: Paltry turnout',
                 url='http://www.latimes.com/news/local/la-me-mayor-turnout-20130515-big-dto,0,1068221.htmlstory',
                 image='turnout.png',
                 description='The next mayor is likely to garner fewer votes than any new mayor since the pre-freeway era, according to Times projection'
             ),
             Clip(
-                name='L.A. tax vote tells tale of two realities',
+                name='Tax vote tells tale of two realities',
                 url='http://www.latimes.com/news/local/la-me-tax-two-cities-20130309,0,1992530.story',
                 image='measurea.jpg',
                 description='Those in higher-crime areas supported proposal while affluent areas rejected it, according to Times analysis'
