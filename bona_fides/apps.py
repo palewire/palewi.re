@@ -59,7 +59,7 @@ APP_LIST = [
             Application(
                 name='L.A. street quality grades',
                 url='http://graphics.latimes.com/la-streets-map/',
-                image='',
+                image='street-grades.jpg',
                 description='Explore pavement quality ratings for each of the 68,000 street segments in LA'
             ),
             Application(
@@ -77,19 +77,19 @@ APP_LIST = [
             Application(
                 name='California Schools Guide',
                 url='http://schools.latimes.com/',
-                image='',
+                image='schools-guide.jpg',
                 description='Test scores, demographics and comments about California\'s schools'
             ),
             Application(
                 name='DWP salaries database',
                 url='http://salaries.latimes.com/dwp/',
-                image='',
+                image='dwp-salaries.jpeg',
                 description='An interactive database reporting the pay of each of the department\'s employees'
             ),
             Application(
                 name='boundaries.latimes.com',
                 url='http://boundaries.latimes.com',
-                image='',
+                image='boundaries.png',
                 description='A website and API that allows anyone to quickly browse, download and reuse dozens of different maps'
             ),
             Application(
@@ -113,13 +113,13 @@ APP_LIST = [
             Application(
                 name='Billions to Spend',
                 url='http://laccd.latimes.com',
-                image='',
+                image='laccd.jpg',
                 description='The political money behind the rebuilding of the L.A. Community College District'
             ),
             Application(
                 name='datadesk.latimes.com',
                 url='http://datadesk.latimes.com',
-                image='',
+                image='datadesk.jpg',
                 description='A blog to showcase our team\'s work'
             ),
         ]
@@ -251,8 +251,14 @@ APP_LIST = [
             Application(
                 name='table-stacker',
                 url='http://datadesk.github.io/latimes-table-stacker/',
-                image='',
+                image='spreadsheets.png',
                 description='A framework for quickly publishing CSV files as interactive tables'
+            ),
+            Application(
+                name='timeline-setter',
+                url='https://github.com/propublica/timeline-setter/commits?author=palewire',
+                image='timelines.jpg',
+                description='Fixes and features for ProPublica\'s interactive timeline creator'
             ),
             Application(
                 name='uptime-grove',
@@ -273,15 +279,9 @@ APP_LIST = [
                 description='Fixes and features for the Chicago Tribune\'s map API framework'
             ),
             Application(
-                name='timeline-setter',
-                url='https://github.com/propublica/timeline-setter/commits?author=palewire',
-                image='',
-                description='Fixes and features for ProPublica\'s interactive timeline creator'
-            ),
-            Application(
                 name='Leaflet for Mapstraction',
                 url='https://github.com/mapstraction/mxn',
-                image='',
+                image='mapstraction.png',
                 description='Added support for Leaflet to the Mapstraction framework'
             ),
             Application(
