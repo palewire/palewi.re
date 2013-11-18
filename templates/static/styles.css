@@ -338,6 +338,9 @@ img {
     #ft { font-size:0.65em; }
     .feeds li {height:2em !important;}
     .feeds .interior-date {height:2em !important;}
+    .appitem, .appimage, .apptext { padding-left: 0 !important; padding-right: 0 !important; }
+    .apptext h3 { font-size:1.1em; margin: 0.25em 0;}
+    .apptext p { font-size:1em; line-height: 1.2em; padding: 0; margin:0;}
 }
 
 
