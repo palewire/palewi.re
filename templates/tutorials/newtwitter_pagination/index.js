@@ -1,7 +1,7 @@
 // Scroll globals
 var pageNum = {{ page.number }}; // The latest page loaded
 var hasNextPage = {{ page.has_next|lower }}; // Indicates whether to expect another page after this one
-var baseUrl = '{% url coltrane_app_newtwitter_index %}'; // The root for the JSON calls
+var baseUrl = "{% url 'coltrane_app_newtwitter_index' %}"; // The root for the JSON calls
 
 // loadOnScroll handler
 var loadOnScroll = function() {
