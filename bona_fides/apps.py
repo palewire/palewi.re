@@ -1,5 +1,3 @@
-
-
 class Application(object):
     """
     A piece of software that does something. Sometimes a website, sometimes not.
@@ -27,18 +25,6 @@ APP_LIST = [
         description='Maps, databases and visualizations published by our newsroom team',
         app_list=[
             Application(
-                name='How fast is LAFD where you live?',
-                url='http://graphics.latimes.com/how-fast-is-lafd/',
-                image='lafdmap.jpg',
-                description='How 911 response times stack up across L.A.'
-            ),
-            Application(
-                name='L.A. mayoral election results',
-                url='http://graphics.latimes.com/la-mayoral-maps/',
-                image='mayoralmaps.png',
-                description='Every ballot cast in the city since 2001'
-            ),
-            Application(
                 name='Mapping L.A.: Neighborhoods',
                 url='http://maps.latimes.com/neighborhoods/',
                 image='mappingla.png',
@@ -51,16 +37,28 @@ APP_LIST = [
                 description='Analysis of the latest crime patterns and trends across L.A. County'
             ),
             Application(
-                name='2012 Election Results',
-                url='http://graphics.latimes.com/2012-election-results-national-map/',
-                image='election2012.png',
-                description='Returns for <a href="http://graphics.latimes.com/2012-election-gop-results-map-iowa/">state primaries</a> and the <a href="http://graphics.latimes.com/2012-election-results-national-map/">general election</a>, with a special focus on <a href="http://graphics.latimes.com/2012-election-results-california/">California</a>'
+                name='How fast is LAFD where you live?',
+                url='http://graphics.latimes.com/how-fast-is-lafd/',
+                image='lafdmap.jpg',
+                description='How 911 response times stack up across L.A.'
+            ),
+            Application(
+                name='L.A. mayoral election results',
+                url='http://graphics.latimes.com/la-mayoral-maps/',
+                image='mayoralmaps.png',
+                description='Every ballot cast in the city since 2001'
             ),
             Application(
                 name='L.A. street quality grades',
                 url='http://graphics.latimes.com/la-streets-map/',
                 image='street-grades.jpg',
                 description='Explore pavement quality ratings for each of the 68,000 street segments in L.A.'
+            ),
+            Application(
+                name='2012 Election Results',
+                url='http://graphics.latimes.com/2012-election-results-national-map/',
+                image='election2012.png',
+                description='Returns for <a href="http://graphics.latimes.com/2012-election-gop-results-map-iowa/">state primaries</a> and the <a href="http://graphics.latimes.com/2012-election-results-national-map/">general election</a>, with a special focus on <a href="http://graphics.latimes.com/2012-election-results-california/">California</a>'
             ),
             Application(
                 name='California\'s War Dead',
@@ -177,22 +175,10 @@ APP_LIST = [
                 description='A jQuery plug-in that provides autocomplete for address searches'
             ),
             Application(
-                name='calculate',
-                url='http://datadesk.github.io/latimes-calculate/',
-                image='calculate.png',
-                description='A collection of simple math functions useful for doing journalism'
-            ),
-            Application(
-                name='python-documentcloud',
-                url='http://datadesk.github.io/python-documentcloud/',
-                image='doccloud.png',
-                description='A simple Python wrapper for the DocumentCloud API'
-            ),
-            Application(
-                name='python-lametro-api',
-                url='http://datadesk.github.io/python-lametro-api/',
-                image='metroapi.png',
-                description='A simple Python wrapper for L.A. Metro\'s API for bus stops, routes and vehicles'
+                name='python-googlegeocoder',
+                url='https://github.com/datadesk/python-googlegeocoder',
+                image='googlegeocoder.png',
+                description='A simple Python wrapper for version three of Google\'s geocoder API'
             ),
             Application(
                 name='Quiet L.A.',
@@ -219,28 +205,10 @@ APP_LIST = [
                 description='A Django database field for storing YAML data'
             ),
             Application(
-                name='python-googlegeocoder',
-                url='https://github.com/datadesk/python-googlegeocoder',
-                image='googlegeocoder.png',
-                description='A simple Python wrapper for version three of Google\'s geocoder API'
-            ),
-            Application(
-                name='latimes-statestyle',
-                url='https://github.com/datadesk/latimes-statestyle',
-                image='statestyle.gif',
-                description='A Python library that standardizes U.S. state names'
-            ),
-            Application(
                 name='django-greeking',
                 url='https://github.com/palewire/django-greeking',
                 image='greeking.jpg',
                 description='Tools for printing filler text in your Django templates, a technique from the days of hot type known as greeking'
-            ),
-            Application(
-                name='appengine-template',
-                url='https://github.com/datadesk/latimes-appengine-template',
-                image='appengine.png',
-                description='Bootstrap a Google App Engine project with Django and other goodies'
             ),
             Application(
                 name='django-project-template',
@@ -249,10 +217,28 @@ APP_LIST = [
                 description='A custom template for initializing a new Django project the Data Desk way'
             ),
             Application(
-                name='table-stacker',
-                url='http://datadesk.github.io/latimes-table-stacker/',
-                image='spreadsheets.png',
-                description='A framework for quickly publishing CSV files as interactive tables'
+                name='python-documentcloud',
+                url='http://datadesk.github.io/python-documentcloud/',
+                image='doccloud.png',
+                description='A simple Python wrapper for the DocumentCloud API'
+            ),
+            Application(
+                name='python-lametro-api',
+                url='http://datadesk.github.io/python-lametro-api/',
+                image='metroapi.png',
+                description='A simple Python wrapper for L.A. Metro\'s API for bus stops, routes and vehicles'
+            ),
+            Application(
+                name='latimes-calculate',
+                url='http://datadesk.github.io/latimes-calculate/',
+                image='calculate.png',
+                description='A collection of simple math functions useful for doing journalism'
+            ),
+            Application(
+                name='latimes-statestyle',
+                url='https://github.com/datadesk/latimes-statestyle',
+                image='statestyle.gif',
+                description='A Python library that standardizes U.S. state names'
             ),
             Application(
                 name='timeline-setter',
@@ -261,16 +247,28 @@ APP_LIST = [
                 description='Fixes and features for ProPublica\'s interactive timeline creator'
             ),
             Application(
-                name='uptime-grove',
-                url='https://github.com/datadesk/uptime-grove',
-                image='uptime-grove.png',
-                description='A nodejs plugin for Uptime that sends notifications to the Grove.io IRC service.'
-            ),
-            Application(
                 name='checkbook-la-watchdog',
                 url='https://github.com/datadesk/checkbook-la-watchdog',
                 image='checkbook-la.png',
                 description='A periodically updated archive of financial data published by the city of L.A.'
+            ),
+            Application(
+                name='appengine-template',
+                url='https://github.com/datadesk/latimes-appengine-template',
+                image='appengine.png',
+                description='Bootstrap a Google App Engine project with Django and other goodies'
+            ),
+            Application(
+                name='table-stacker',
+                url='http://datadesk.github.io/latimes-table-stacker/',
+                image='spreadsheets.png',
+                description='A framework for quickly publishing CSV files as interactive tables'
+            ),
+            Application(
+                name='uptime-grove',
+                url='https://github.com/datadesk/uptime-grove',
+                image='uptime-grove.png',
+                description='A nodejs plugin for Uptime that sends notifications to the Grove.io IRC service.'
             ),
             Application(
                 name='django-boundaryservice',
@@ -303,16 +301,28 @@ APP_LIST = [
                 description='Is it news?'
             ),
             Application(
+                name='BRING THE NEWS BACK!',
+                url='/apps/bring-the-news-back/',
+                image='bringthenewsback.png',
+                description='Excellence in art / We must preserve that'
+            ),
+            Application(
                 name='copyboy',
                 url='https://github.com/datadesk/copyboy',
                 image='copyboy.png',
                 description='A fork of GitHub\'s Campfire bot for IRC, aware of all Internet traditions'
             ),
             Application(
-                name='BRING THE NEWS BACK!',
-                url='/apps/bring-the-news-back/',
-                image='bringthenewsback.png',
-                description='Excellence in art / We must preserve that'
+                name='LAT Soundsystem',
+                url='https://github.com/datadesk/lat-soundsystem',
+                image='latsoundsystem.jpg',
+                description='The voice of the Los Angeles Times Data Desk'
+            ),
+            Application(
+                name='Candy says',
+                url='/candysays/',
+                image='candysays.png',
+                description='She\'s not an anchor, she just crush a lot'
             ),
             Application(
                 name='Kennedy Name Generator',
@@ -337,18 +347,6 @@ APP_LIST = [
                 url='/mack/?autoplay',
                 image='mack.png',
                 description='You lied to me!'
-            ),
-            Application(
-                name='Candy says',
-                url='/candysays/',
-                image='candysays.png',
-                description='She\'s not an anchor, she just crush a lot'
-            ),
-            Application(
-                name='LAT Soundsystem',
-                url='https://github.com/datadesk/lat-soundsystem',
-                image='latsoundsystem.jpg',
-                description='The voice of the Los Angeles Times Data Desk'
             ),
         ]
     ),
