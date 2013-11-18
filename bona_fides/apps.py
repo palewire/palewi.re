@@ -108,7 +108,7 @@ APP_LIST = [
                 name='spreadsheets.latimes.com',
                 url='http://spreadsheets.latimes.com',
                 image='spreadsheets.png',
-                description='A CMS for publishing interactive tables, and doing it on deadline.'
+                description='A CMS for publishing interactive tables, and doing it on deadline'
             ),
             Application(
                 name='Billions to Spend',
@@ -137,19 +137,19 @@ APP_LIST = [
             Application(
                 name='github.com/pastpages',
                 url='https://github.com/pastpages/pastpages.org',
-                image='',
+                image='pastpages-code.png',
                 description='The open-source code that powers the site'
             ),
             Application(
                 name='The PastPages API',
                 url='http://www.pastpages.org/api/docs/',
-                image='',
+                image='pastpages-api.png',
                 description='A machine-readable version for programmers to access the archive\'s database'
             ),
             Application(
                 name='pastpages2gif',
                 url='https://github.com/pastpages/pastpages2gif',
-                image='',
+                image='pastpages-gif.gif',
                 description='A tool to create animated GIFs from the homepage archive'
             ),
         ]
@@ -245,7 +245,7 @@ APP_LIST = [
             Application(
                 name='django-project-template',
                 url='https://github.com/datadesk/django-project-template',
-                image='',
+                image='django.jpg',
                 description='A custom template for initializing a new Django project the Data Desk way'
             ),
             Application(
@@ -263,19 +263,19 @@ APP_LIST = [
             Application(
                 name='uptime-grove',
                 url='https://github.com/datadesk/uptime-grove',
-                image='',
+                image='uptime-grove.png',
                 description='A nodejs plugin for Uptime that sends notifications to the Grove.io IRC service.'
             ),
             Application(
                 name='checkbook-la-watchdog',
                 url='https://github.com/datadesk/checkbook-la-watchdog',
-                image='',
+                image='checkbook-la.png',
                 description='A periodically updated archive of financial data published by the city of LA'
             ),
             Application(
                 name='django-boundaryservice',
                 url='https://github.com/datadesk/django-boundaryservice',
-                image='',
+                image='boundaries.png',
                 description='Fixes and features for the Chicago Tribune\'s map API framework'
             ),
             Application(
@@ -287,7 +287,7 @@ APP_LIST = [
             Application(
                 name='Leaflet',
                 url='https://github.com/Leaflet/Leaflet/commits?author=palewire',
-                image='',
+                image='leaflet.png',
                 description='Added linejoin and linecap support to the JavaScript mapping library'
             ),
         ]
@@ -341,23 +341,15 @@ APP_LIST = [
             Application(
                 name='Candy says',
                 url='/candysays/',
-                image='',
+                image='candysays.png',
                 description='She\'s not an anchor, she just crush a lot'
             ),
             Application(
                 name='LAT Soundsystem',
                 url='https://github.com/datadesk/lat-soundsystem',
-                image='',
+                image='latsoundsystem.jpg',
                 description='The voice of the Los Angeles Times Data Desk'
             ),
         ]
     ),
-#    Application(
-#        name='',
-#        url='',
-#        image='',
-#        description=''
-#    ),
 ]
-
-
