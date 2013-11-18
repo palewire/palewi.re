@@ -247,6 +247,12 @@ APP_LIST = [
                 description='Fixes and features for ProPublica\'s interactive timeline creator'
             ),
             Application(
+                name='palewi.re',
+                url='https://github.com/palewire/palewi.re',
+                image='palewire.jpg',
+                description='The code that power this blog'
+            ),
+            Application(
                 name='checkbook-la-watchdog',
                 url='https://github.com/datadesk/checkbook-la-watchdog',
                 image='checkbook-la.png',
