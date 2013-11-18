@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.localflavor.us.us_states import STATES_NORMALIZED
+from localflavor.us.us_states import STATES_NORMALIZED
 
 
 class Week(models.Model):

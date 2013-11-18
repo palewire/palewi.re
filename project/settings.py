@@ -2,6 +2,11 @@
 import os
 settings_dir = os.path.dirname(__file__)
 SETTINGS_DIR = settings_dir
+ROOT_DIR = os.path.join(
+    os.path.abspath(
+        os.path.join(SETTINGS_DIR, os.path.pardir),
+    ),
+)
 
 MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
@@ -14,12 +19,13 @@ except ImportError:
 TEMPLATE_DEBUG = DEBUG
 
 TIME_ZONE = 'America/Los_Angeles'
+USE_TZ = False
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
 
-MEDIA_ROOT = os.path.join(settings_dir, 'media')
-STATIC_ROOT = os.path.join(settings_dir, 'static')
+MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
+STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
 
 CACHE_BACKEND =	'memcached://127.0.0.1:11211'
 CACHE_MIDDLEWARE_SECONDS = 60 * 5
@@ -45,10 +51,10 @@ MIDDLEWARE_CLASSES = (
 #    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(settings_dir, 'templates/'),
+    os.path.join(ROOT_DIR, 'templates/'),
 )
 
 TEMPLATE_LOADERS = (
@@ -57,7 +63,7 @@ TEMPLATE_LOADERS = (
 )
 
 STATICFILES_DIRS = (
-    os.path.join(settings_dir, 'templates/static/'),
+    os.path.join(ROOT_DIR, 'templates/static/'),
 )
 
 STATICFILES_FINDERS = (

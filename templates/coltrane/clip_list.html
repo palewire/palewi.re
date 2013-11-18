@@ -13,7 +13,7 @@
 
     <div class="interiorlist applist twelvecol last">
         <h1><img src="{{ STATIC_URL }}icons/clips.png" alt="clips"/>Clips</h1>
-        <p class="description">A selection of news stories I've authored, typically based on an original data analysis and often in partnership with other reporters. Examples of my work developing software can be found <a href="{% url coltrane_app_list %}">here</a>.</p>
+        <p class="description">A selection of news stories I've authored, typically based on an original data analysis and often in partnership with other reporters. Examples of my work developing software can be found <a href="{% url 'coltrane_app_list' %}">here</a>.</p>
 
         {% for object in clip_list %}
             <a name="{{ object.name|slugify }}"></a>

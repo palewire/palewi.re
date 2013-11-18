@@ -39,7 +39,7 @@ class Link(models.Model):
     1
 
     """
-    url = models.URLField(verify_exists=True, unique=True)
+    url = models.URLField(unique=True)
     date_submitted = models.DateTimeField(default=datetime.datetime.now())
     usage_count = models.IntegerField(default=0)
 
@@ -53,6 +53,4 @@ class Link(models.Model):
         return self.to_base62() + ' : ' + self.url
 
 class LinkSubmitForm(forms.Form):
-    u = forms.URLField(verify_exists=True,
-                       label='URL to be shortened:',
-                       )
+    u = forms.URLField(label='URL to be shortened:')

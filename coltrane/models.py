@@ -5,9 +5,11 @@ from django.db import models
 from django.utils.html import strip_tags
 from django.core.mail import mail_managers
 from django.utils.encoding import smart_str
+from django.utils.text import get_text_list
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
-from django.utils.text import truncate_html_words, truncate_words, get_text_list
+from django.template.defaultfilters import truncatewords as truncate_words
+from django.template.defaultfilters import truncatewords_html as truncate_html_words
 
 # Settings
 from django.conf import settings

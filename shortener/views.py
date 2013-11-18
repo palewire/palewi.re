@@ -1,7 +1,6 @@
 import logging
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
-from django.views.generic import list_detail
 from django.shortcuts import get_object_or_404, get_list_or_404, render_to_response
 from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.utils import simplejson

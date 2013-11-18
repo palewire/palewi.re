@@ -7,6 +7,7 @@ from django.http import Http404, HttpResponseRedirect, HttpResponseServerError
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 from django.template import Context, loader
+from django.views.generic import ListView
 
 # Models
 from correx.models import Change
@@ -14,10 +15,6 @@ from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
 from django.contrib.contenttypes.models import ContentType
 from coltrane.models import Post, Category, Link, Photo, Track, Ticker, Beer
-
-# Generic Views
-from django.views.generic.list_detail import object_list
-from django.views.generic.simple import direct_to_template
 
 
 def index(request):
@@ -139,9 +136,11 @@ def category_detail(request, slug):
     A list that reports all the posts in a particular category.
     """
     category = get_object_or_404(Category, slug=slug)
-    return object_list(request, queryset = category.post_set.all(), 
-                        extra_context = {'category': category },
-                        template_name = 'coltrane/category_detail.html')
+    context = dict(
+        object_list=category.post_set.all(),
+        category=category,
+    )
+    return render(request, 'coltrane/category_detail.html', context)
 
 
 def tag_detail(request, tag):
