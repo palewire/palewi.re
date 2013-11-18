@@ -60,7 +60,7 @@ APP_LIST = [
                 name='L.A. street quality grades',
                 url='http://graphics.latimes.com/la-streets-map/',
                 image='street-grades.jpg',
-                description='Explore pavement quality ratings for each of the 68,000 street segments in LA'
+                description='Explore pavement quality ratings for each of the 68,000 street segments in L.A.'
             ),
             Application(
                 name='California\'s War Dead',
@@ -192,7 +192,7 @@ APP_LIST = [
                 name='python-lametro-api',
                 url='http://datadesk.github.io/python-lametro-api/',
                 image='metroapi.png',
-                description='A simple Python wrapper for LA Metro\'s API for bus stops, routes and vehicles'
+                description='A simple Python wrapper for L.A. Metro\'s API for bus stops, routes and vehicles'
             ),
             Application(
                 name='Quiet L.A.',
@@ -270,7 +270,7 @@ APP_LIST = [
                 name='checkbook-la-watchdog',
                 url='https://github.com/datadesk/checkbook-la-watchdog',
                 image='checkbook-la.png',
-                description='A periodically updated archive of financial data published by the city of LA'
+                description='A periodically updated archive of financial data published by the city of L.A.'
             ),
             Application(
                 name='django-boundaryservice',
