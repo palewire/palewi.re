@@ -105,32 +105,44 @@ CLIP_LIST = [
         ]
     ),
     ClipSet(
-        name='Federal government regulation',
-        description='Investigative stories that use data to develop new insights into the policies of the U.S. government',
+        name='State and federal government',
+        description='Data analysis that developed new insights into how government works',
         app_list=[
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='Hear No Evil, Smell No Evil',
+                url='http://archive.fwweekly.com/content.asp?article=6967',
+                image='txu.jpg',
+                description='State regulators don\'t seem worried about lapses in reporting power-plant pollution identified by a CPI analysis'
             ),
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='Nuclear power increasing through uprating',
+                url='http://articles.latimes.com/print/2011/apr/17/local/la-me-uprates-20110418',
+                image='uprates.jpg',
+                description='Turning up the power is a little-publicized way of getting more electricity from existing nuclear plants, according a Times analysis'
             ),
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='Clear Channel gives Tate talking points',
+                url='http://benton.org/node/5487',
+                image='tate.jpg',
+                description='FCC commissioner received talking points against the proposed satellite radio XM-Sirius merger from Clear Channel Radio'
             ),
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='Pakistan\'s $4.7 billion \'blank check\'',
+                url='http://www.publicintegrity.org/2007/05/22/5737/collateral-damage',
+                image='pakistan.jpg',
+                description='After 9/11, U.S. military funding to country soared with little oversight, according to CPI analysis'
+            ),
+            Clip(
+                name='Half of high schools met U.S. goals',
+                url='http://articles.latimes.com/print/2008/sep/05/local/me-scores5',
+                image='highschool.jpg',
+                description='The figure would have been even lower if the state hadn&rsquo;t used an easier measure than it does for lower grades',
+            ),
+            Clip(
+                name='Federal loans go for risky business',
+                url='http://www.columbiamissourian.com/stories/2005/12/27/federal-loans-go-for-risky-business',
+                image='columbia.jpg',
+                description='The high percentage of loans to Columbia bars and restaurants surpasses a national trend, according to Missourian analysis',
             ),
         ]
     ),
