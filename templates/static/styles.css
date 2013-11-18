@@ -110,7 +110,8 @@ form#commentform {padding: 0;}
 #tickerfilter input {margin-left:5px;}
 #tickerfilter img { height:20px;}
 
-/* app list */ 
+/* app list */
+.appset {padding: 0 0 1em 0; clear:both;}
 .appitem {padding: 0.75em 0;}
 .appimage {vertical-align:bottom;}
 .apptext {height:auto; vertical-align:top;}

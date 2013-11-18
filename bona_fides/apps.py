@@ -57,6 +57,12 @@ APP_LIST = [
                 description='Returns for <a href="http://graphics.latimes.com/2012-election-gop-results-map-iowa/">state primaries</a> and the <a href="http://graphics.latimes.com/2012-election-results-national-map/">general election</a>, with a special focus on <a href="http://graphics.latimes.com/2012-election-results-california/">California</a>'
             ),
             Application(
+                name='L.A. street quality grades',
+                url='http://graphics.latimes.com/la-streets-map/',
+                image='',
+                description='Explore pavement quality ratings for each of the 68,000 street segments in LA'
+            ),
+            Application(
                 name='California\'s War Dead',
                 url='http://projects.latimes.com/wardead/',
                 image='wardead.png',
@@ -67,6 +73,24 @@ APP_LIST = [
                 url='http://projects.latimes.com/hollywood/star-walk/',
                 image='starwalk.png',
                 description='A virtual tour of the 2,500 stars on the Walk of Fame'
+            ),
+            Application(
+                name='California Schools Guide',
+                url='http://schools.latimes.com/',
+                image='',
+                description='Test scores, demographics and comments about California\'s schools'
+            ),
+            Application(
+                name='DWP salaries database',
+                url='http://salaries.latimes.com/dwp/',
+                image='',
+                description='An interactive database reporting the pay of each of the department\'s employees'
+            ),
+            Application(
+                name='boundaries.latimes.com',
+                url='http://boundaries.latimes.com',
+                image='',
+                description='A website and API that allows anyone to quickly browse, download and reuse dozens of different maps'
             ),
             Application(
                 name='documents.latimes.com',
@@ -85,6 +109,18 @@ APP_LIST = [
                 url='http://spreadsheets.latimes.com',
                 image='spreadsheets.png',
                 description='A CMS for publishing interactive tables, and doing it on deadline.'
+            ),
+            Application(
+                name='Billions to Spend',
+                url='http://laccd.latimes.com',
+                image='',
+                description='The political money behind the rebuilding of the L.A. Community College District'
+            ),
+            Application(
+                name='datadesk.latimes.com',
+                url='http://datadesk.latimes.com',
+                image='',
+                description='A blog to showcase our team\'s work'
             ),
         ]
     ),
@@ -211,6 +247,30 @@ APP_LIST = [
                 url='https://github.com/datadesk/django-project-template',
                 image='',
                 description='A custom template for initializing a new Django project the Data Desk way'
+            ),
+            Application(
+                name='django-boundaryservice',
+                url='https://github.com/datadesk/django-boundaryservice',
+                image='',
+                description='A series of fixes and features for the Chicago Tribune\'s map API framework'
+            ),
+            Application(
+                name='uptime-grove',
+                url='https://github.com/datadesk/uptime-grove',
+                image='',
+                description='A nodejs plugin for Uptime that sends notifications to the Grove.io IRC service.'
+            ),
+            Application(
+                name='Leaflet for Mapstraction',
+                url='https://github.com/mapstraction/mxn',
+                image='',
+                description='Added support for Leaflet to the Mapstraction framework'
+            ),
+            Application(
+                name='Leaflet',
+                url='https://github.com/Leaflet/Leaflet/commits?author=palewire',
+                image='',
+                description='Added linejoin and linecap support to the JavaScript mapping library'
             ),
         ]
     ),
