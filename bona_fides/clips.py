@@ -63,32 +63,44 @@ CLIP_LIST = [
         ]
     ),
     ClipSet(
-        name='California and Los Angeles',
-        description='A selection of data-driven coverage for and about the Golden State and its City of Angels',
+        name='L.A. elections, government and civic life',
+        description='Data-driven coverage for and about the City of Angels',
         app_list=[
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='The road to an election romp',
+                url='http://www.latimes.com/news/local/la-me-winning-coalition-20130523,0,7639081.story',
+                image='magicmap.png',
+                description='A Times analysis lays out the winning strategy in L.A.\'s 2013 race for mayor'
             ),
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='Forecast for L.A.\'s mayor race: Paltry turnout',
+                url='http://www.latimes.com/news/local/la-me-mayor-turnout-20130515-big-dto,0,1068221.htmlstory',
+                image='turnout.png',
+                description='The next mayor is likely to garner fewer votes than any new mayor since the pre-freeway era, according to Times projection'
             ),
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='L.A. tax vote tells tale of two realities',
+                url='http://www.latimes.com/news/local/la-me-tax-two-cities-20130309,0,1992530.story',
+                image='measurea.jpg',
+                description='Those in higher-crime areas supported proposal while affluent areas rejected it, according to Times analysis'
             ),
             Clip(
-                name='',
-                url='',
-                image='',
-                description=''
+                name='Where does the Westside start?',
+                url='http://maps.latimes.com/debates/westside/',
+                image='westside.png',
+                description='Is it a fixed place, with its own borders, customs and society, or only a state of mind?'
+            ),
+            Clip(
+                name='LAPD map omits nearly 40% of crimes',
+                url='http://articles.latimes.com/print/2009/jul/09/local/me-lapd-crimemap9',
+                image='lapdmap.jpg',
+                description='The public database doesn\'t include about 19,000 serious crimes reported in other LAPD data'
+            ),
+            Clip(
+                name='Occupy L.A.: A portrait of arrested protesters',
+                url='http://latimesblogs.latimes.com/lanow/2011/12/occupy-la-a-portrait-of-the-arrested-protesters.html',
+                image='occupy.jpg',
+                description='The nearly 300 protesters arrested near City Hall skewed young, white, male and local, a Times analysis found'
             ),
         ]
     ),
