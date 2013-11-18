@@ -146,8 +146,12 @@ urlpatterns += patterns('',
                 'app_list': bona_fides.APP_LIST,
             }
         }, name='coltrane_app_list'),
-    url(r'^clips/$', direct_to_template,
-        {'template': 'coltrane/clip_list.html'}, name='coltrane_clip_list'),
+    url(r'^clips/$', direct_to_template, {
+            'template': 'coltrane/clip_list.html',
+            'extra_context': {
+                'clip_list': bona_fides.CLIP_LIST,
+            }
+        }, name='coltrane_clip_list'),
     url(r'^talks/$', direct_to_template,
         { 'template': 'coltrane/talk_list.html' },
         name='coltrane_talk_list'),

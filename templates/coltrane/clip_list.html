@@ -13,186 +13,35 @@
 
     <div class="interiorlist applist twelvecol last">
         <h1><img src="{{ STATIC_URL }}icons/clips.png" alt="clips"/>Clips</h1>
-        <p class="description">A selection of news stories I've authored, often in partnership with other reporters.</p>
-        
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://www.latimes.com/news/local/la-me-fire-response-20120518,0,5886906,full.story">
-                    <img src="{{ STATIC_URL }}clips/lafd.jpg">
-                </a>
-                <div style="font-size:9px; line-height:9px;">Photo: Lawrence K. Ho</div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://www.latimes.com/news/local/lafddata/">
-                    Life on the life: 911 breakdowns at LAFD</a></h3>
-                <p>A series of investigative stories driven by groundbreaking data analysis that uncovered deep-rooted problems in a safety net millions of Angelenos rely on when they dial 911.</p>
-            </div>
-        </div>
+        <p class="description">A selection of news stories I've authored, typically based on an original data analysis and often in partnership with other reporters. Examples of my work developing software can be found <a href="{% url coltrane_app_list %}">here</a>.</p>
 
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://www.latimes.com/news/local/la-me-winning-coalition-20130523,0,7639081.story">
-                    <img src="{{ STATIC_URL }}clips/magicmap.png">
-                </a>
+        {% for object in clip_list %}
+            <a name="{{ object.name|slugify }}"></a>
+            <div class="row appset">
+                <div class="twelvecol section-hed">
+                     {{ object.name }}
+                    <p>{{ object.description|safe }}</p>
+                </div>
+                {% for clip in object.app_list %}
+                    {% if not forloop.counter|divisibleby:'2' %}
+                    <div class="row">
+                    {% endif %}
+                        <div class="sixcol appitem {% if forloop.counter|divisibleby:'2' %}last{% endif %}">
+                            <div class="threecol appimage">
+                                <a href="{{ clip.url }}">
+                                    <img src="{{ STATIC_URL }}clips/{{ clip.image }}">
+                                </a>
+                            </div>
+                            <div class="ninecol last apptext">
+                                <h3><a href="{{ clip.url }}">{{ clip.name }}</a></h3>
+                                <p>{{ clip.description|safe }}</p>
+                            </div>
+                        </div>
+                    {% if forloop.counter|divisibleby:'2' or forloop.last %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://www.latimes.com/news/local/la-me-winning-coalition-20130523,0,7639081.story">
-                    The road to Eric Garcetti's election romp</a></h3>
-                <p>The winning strategy in L.A.'s 2013 mayor's race.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://articles.latimes.com/print/2009/jul/09/local/me-lapd-crimemap9">
-                    <img src="{{ STATIC_URL }}clips/lapdmap.jpg">
-                </a>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://articles.latimes.com/print/2009/jul/09/local/me-lapd-crimemap9">
-                    LAPD&rsquo;s public database omits nearly 40% of this year's crimes</a></h3>
-                <p>The map, touted as a way for residents to monitor the safety of their neighborhoods, doesn't include about 19,000 serious crimes reported in other LAPD data.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://www.latimes.com/news/local/la-me-mayor-turnout-20130515-big-dto,0,1068221.htmlstory">
-                    <img src="{{ STATIC_URL }}clips/turnout.png">
-                </a>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://www.latimes.com/news/local/la-me-mayor-turnout-20130515-big-dto,0,1068221.htmlstory">
-                    Forecast for L.A.'s mayor race: Paltry turnout</a></h3>
-                <p>In a city with more than 2 million eligible voters, roughly 400,000 may cast ballots in Tuesday's election.</p>
-            </div>
-        </div>
-
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://projects.latimes.com/mapping-la/debates/westside/">
-                    <img src="{{ STATIC_URL }}clips/westside.png">
-                </a>
-                    <div style="font-size:9px; line-height:9px;">Illustration: Thomas Suh Lauder</div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://projects.latimes.com/mapping-la/debates/westside/">
-                    Where does the Westside start?</a></h3>
-                <p>Is it a fixed place, with its own borders, customs and society, or only a state of mind?</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://www.latimes.com/news/local/la-me-tax-two-cities-20130309,0,1992530.story">
-                    <img src="{{ STATIC_URL }}clips/measurea.jpg">
-                </a>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://www.latimes.com/news/local/la-me-tax-two-cities-20130309,0,1992530.story">
-                    L.A. tax-hike vote patterns tell a tale of two realities</a></h3>
-                <p>Those in higher-crime areas, who vote in lower numbers, supported the proposal almost to the same extent that more affluent voters rejected it.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://archive.fwweekly.com/content.asp?article=6967">
-                    <img src="{{ STATIC_URL }}clips/txu.jpg">
-                </a>
-                    <div style="font-size:9px; line-height:9px;">Illustration: Fort Worth Weekly</div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://archive.fwweekly.com/content.asp?article=6967">
-                    Hear No Evil, Smell No Evil</a></h3>
-                <p>State regulators don’t seem worried about TXU&rsquo;s lapses in reporting power plant pollution.</p>
-            </div>
-        </div>
-
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://latimesblogs.latimes.com/lanow/2011/12/occupy-la-a-portrait-of-the-arrested-protesters.html">
-                    <img src="{{ STATIC_URL }}clips/occupy.jpg">
-                </a>
-                    <div style="font-size:9px; line-height:9px;">Photo: Mark Boster</div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://latimesblogs.latimes.com/lanow/2011/12/occupy-la-a-portrait-of-the-arrested-protesters.html
-">Occupy L.A.: A portrait of the arrested protesters</a></h3>
-                <p>The nearly 300 protesters arrested near City Hall skewed young, white, male and local.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://articles.latimes.com/print/2011/apr/17/local/la-me-uprates-20110418">
-                    <img src="{{ STATIC_URL }}clips/uprates.jpg">
-                </a>
-                    <div style="font-size:9px; line-height:9px;">Photo: <a href="http://www.flickr.com/photos/colinwood0">colinwood0</a></div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://articles.latimes.com/print/2011/apr/17/local/la-me-uprates-20110418">
-                    U.S. is increasing nuclear power through uprating</a></h3>
-                <p>Turning up the power is a little-publicized way of getting more electricity from existing nuclear plants. But scrutiny is likely to increase in the wake of Japan&rsquo;s nuclear crisis.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://projects.publicintegrity.org/telecom/telecomwatch.aspx?eid=2816">
-                    <img src="{{ STATIC_URL }}clips/tate.jpg">
-                </a>
-                <div style="font-size:9px; line-height:9px;">Photo: <a href="http://www.nndb.com/people/277/000172758/">NNDB</a></div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://projects.publicintegrity.org/telecom/telecomwatch.aspx?eid=2816">
-                    Clear Channel gives Tate talking points against XM-Sirius merger</a></h3>
-                <p>Federal Communications Commissioner Deborah Tate has received talking points against the proposed satellite radio XM-Sirius merger from Clear Channel Radio, one of the country's biggest radio broadcasters and an ardent opponent of the deal.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://projects.publicintegrity.org/MilitaryAid//report.aspx?aid=831">
-                    <img src="{{ STATIC_URL }}clips/pakistan.jpg">
-                </a>
-                <div style="font-size:9px; line-height:9px;">Photo: <a href="http://www.flickr.com/photos/aus_defence_force">aus defence force</a></div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://projects.publicintegrity.org/MilitaryAid//report.aspx?aid=831">
-                    Pakistan's $4.7 billion 'blank check' for U.S. military aid</a></h3>
-                <p>After 9/11, funding to country soars with little oversight.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://articles.latimes.com/print/2008/sep/05/local/me-scores5">
-                    <img src="{{ STATIC_URL }}clips/highschool.jpg">
-                </a>
-                <div style="font-size:9px; line-height:9px;">Photo: <a href="http://www.flickr.com/photos/bigmikelakers/">bigmikelakers</a></div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://articles.latimes.com/print/2008/sep/05/local/me-scores5">
-                    Half of high schools met U.S. goals</a></h3>
-                <p>The figure would have been even lower if the state hadn&rsquo;t used an easier measure than it does for lower grades.</p>
-            </div>
-        </div>
-
-        <div class="row appitem">
-            <div class="threecol appimage">
-                <a href="http://www.columbiamissourian.com/stories/2005/12/27/federal-loans-go-for-risky-business/">
-                    <img src="{{ STATIC_URL }}clips/columbia.jpg">
-                </a>
-                <div style="font-size:9px; line-height:9px;">Photo: <a href="http://www.flickr.com/photos/zesmerelda/">zesmerelda</a></div>
-            </div>
-            <div class="ninecol last apptext">
-                <h3><a href="http://www.columbiamissourian.com/stories/2005/12/27/federal-loans-go-for-risky-business/">
-                    Federal loans go for risky business</a></h3>
-                <p>The high percentage of loans to Columbia bars and restaurants surpasses a national trend.</p>
-            </div>
-        </div>
+        {% endfor %}
 
 {% endblock %}
