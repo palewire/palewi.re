@@ -3,9 +3,13 @@
 
 {% block title %}Twitter-style infinite scroll with django demo. {{ block.super }}{% endblock %}
 
+{% block extradocready %}
+$(window).bind('scroll', loadOnScroll);
+{% endblock %}
+
 {% block extrahead %}
 <script type="text/javascript">
-    {% include "newtwitter_pagination/index.js" %}
+    {% include "tutorials/newtwitter_pagination/index.js" %}
 </script>
 {% endblock %}
 
@@ -50,7 +54,4 @@ Twitter-style infinite scroll with Django demo
                 <div id="newtwitter-anchor"></div>
             </ul>
         </div>
-        <script type="text/javascript">
-            $(window).bind('scroll', loadOnScroll);
-        </script>
 {% endblock %}
