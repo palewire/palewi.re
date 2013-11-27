@@ -1,28 +1,80 @@
 {% extends "coltrane/base.html" %}
-{% load greeking_tags %}
+{% load greeking_tags humanize %}
 
 {% block title %}shortened urls . {{ block.super }}{% endblock %}
 
-{% block content %}
-    <div class="interiorlist">
-        <h2>Shortened URLs</h2>
-        <ul>
-            <h3>Recent Links</h3>
-            <ul>
-            {% for link in recent_links %}
-            <li><a href="{{ link.short_url }}">{{ link.url }}</a> (Score: {{ link.usage_count }})
-            (<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)</li>
-            {% endfor %}
-            </ul>
+{% block extrahead %}
+<style type="text/css">
+    table.shortener {
+        width: 100%;
+        margin: 20px 0;
+        clear: both;
+    }
+    table.shortener th {
+        font-size:11px;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    table.shortener td {
+        border-bottom: 1px dotted #ddd;
+        padding: 10px 15px 10px 0;
+        font-size: 14px;
+    }
+    table.shortener tr:first-child td {
+        padding-top: 0px;
+    }
+</style>
+{% endblock %}
 
-            <h3>Most Popular Links</h3>
-            <ul>
-            {% for link in most_popular_links %}
-            <li><a href="{{ link.short_url }}">{{ link.url }}</a> (Score: {{ link.usage_count }})
-            (<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)</li>
-            {% endfor %}
-            </ul>
-        </ul>
+{% block content %}
+    <div class="interiorlist twelvecol last">
+        <h1><img src="{{ STATIC_URL }}icons/links.gif" alt="links"/>Shortened URLs</h1>
+        <div class="row">
+            <div class="twelvecol last section-hed">Recent links</div>
+            <table class="shortener">
+                <thead>
+                    <tr>
+                        <th>Short URL</th>
+                        <th>URL</th>
+                        <th>Date</th>
+                        <th>Clicks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for link in recent_links %}
+                    <tr>
+                        <td><a href="{{ link.short_url }}">{{ link.short_url }}</a></td>
+                        <td><a href="{{ link.url }}">{{ link.url|truncatechars:75 }}</a></td>
+                        <td>{{ link.date_submitted|date:"N j, Y" }}</td>
+                        <td>{{ link.usage_count|intcomma }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="twelvecol last section-hed">Most popular links</div>
+            <table class="shortener">
+                <thead>
+                    <tr>
+                        <th>Short URL</th>
+                        <th>URL</th>
+                        <th>Date</th>
+                        <th>Clicks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for link in most_popular_links %}
+                    <tr>
+                        <td><a href="{{ link.short_url }}">{{ link.short_url }}</a></td>
+                        <td><a href="{{ link.url }}">{{ link.url|truncatechars:75 }}</a></td>
+                        <td>{{ link.date_submitted|date:"N j, Y" }}</td>
+                        <td>{{ link.usage_count|intcomma }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
 

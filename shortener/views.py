@@ -1,7 +1,7 @@
 import logging
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
-from django.shortcuts import get_object_or_404, get_list_or_404, render_to_response
+from django.shortcuts import get_object_or_404, get_list_or_404, render
 from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.utils import simplejson
 from django.template import RequestContext
@@ -40,23 +40,6 @@ def default_values(request, link_form=None):
              }
 
 
-def info(request, base62_id):
-    """
-    View which shows information on a particular link
-    """
-    if not request.user.is_authenticated():
-        # TODO redirect to an error page
-        raise Http404
-    key = base62.to_decimal(base62_id)
-    link = get_object_or_404(Link, pk = key)
-    values = default_values(request)
-    values['link'] = link
-    return render_to_response(
-        'shortener/link_info.html',
-        values,
-        context_instance=RequestContext(request))
-
-
 def submit(request):
     """
     View for submitting a URL
@@ -88,10 +71,7 @@ def submit(request):
             values,
             context_instance=RequestContext(request))
     values = default_values(request, link_form=link_form)
-    return render_to_response(
-        'shortener/submit_failed.html',
-        values,
-        context_instance=RequestContext(request))
+    return render(request, 'shortener/submit_failed.html', values)
 
 
 def index(request):
@@ -104,10 +84,7 @@ def index(request):
     values = default_values(request)
     values['recent_links'] = Link.objects.all().order_by('-date_submitted')[0:10]
     values['most_popular_links'] = Link.objects.all().order_by('-usage_count')[0:10]
-    return render_to_response(
-        'shortener/index.html',
-        values,
-        context_instance=RequestContext(request))
+    return render(request, 'shortener/index.html', values)
 
 
 def is_allowed_to_submit(request):
