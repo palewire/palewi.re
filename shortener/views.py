@@ -2,9 +2,9 @@ import logging
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.shortcuts import get_object_or_404, get_list_or_404, render
-from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponsePermanentRedirect
 from django.utils import simplejson
-from django.template import RequestContext
 from django.views.decorators.http import require_POST
 from django.db import transaction
 from django.conf import settings
@@ -18,26 +18,10 @@ def follow(request, base62_id):
     and redirects to it.
     """
     key = base62.to_decimal(base62_id)
-    link = get_object_or_404(Link, pk = key)
+    link = get_object_or_404(Link, pk=key)
     link.usage_count += 1
     link.save()
     return HttpResponsePermanentRedirect(link.url)
-
-
-def default_values(request, link_form=None):
-    """ 
-    Return a new object with the default values that are typically
-    returned in a request.
-    """
-    if not link_form:
-        link_form = LinkSubmitForm()
-    allowed_to_submit = is_allowed_to_submit(request)
-    return { 'show_bookmarklet': allowed_to_submit,
-             'show_url_form': allowed_to_submit,
-             'site_name': settings.SITE_NAME,
-             'site_base_url': settings.SITE_BASE_URL,
-             'link_form': link_form,
-             }
 
 
 def submit(request):
@@ -47,7 +31,6 @@ def submit(request):
     if not request.user.is_authenticated():
         # TODO redirect to an error page
         raise Http404
-    url = None
     link_form = None
     if request.GET:
         link_form = LinkSubmitForm(request.GET)
@@ -55,23 +38,15 @@ def submit(request):
         link_form = LinkSubmitForm(request.POST)
     if link_form and link_form.is_valid():
         url = link_form.cleaned_data['u']
-        link = None
-        try:
-            link = Link.objects.get(url = url)
-        except Link.DoesNotExist:
-            pass
-        if link == None:
-            new_link = Link(url = url)
-            new_link.save()
-            link = new_link
-        values = default_values(request)
-        values['link'] = link
-        return render_to_response(
-            'shortener/submit_success.html',
-            values,
-            context_instance=RequestContext(request))
-    values = default_values(request, link_form=link_form)
-    return render(request, 'shortener/submit_failed.html', values)
+        link, created = Link.objects.get_or_create(url=url)
+        return HttpResponse(
+            simplejson.dumps({
+                "link": link.short_url(),
+                "created": created,
+            }),
+            content_type='text/javascript'
+        )
+    return HttpResponse(status=400)
 
 
 def index(request):
@@ -81,14 +56,7 @@ def index(request):
     if not request.user.is_authenticated():
         # TODO redirect to an error page
         raise Http404
-    values = default_values(request)
+    values = {}
     values['recent_links'] = Link.objects.all().order_by('-date_submitted')[0:10]
     values['most_popular_links'] = Link.objects.all().order_by('-usage_count')[0:10]
     return render(request, 'shortener/index.html', values)
-
-
-def is_allowed_to_submit(request):
-    """
-    Return true if user is allowed to submit URLs
-    """
-    return request.user.is_authenticated()

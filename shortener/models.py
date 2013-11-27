@@ -52,5 +52,6 @@ class Link(models.Model):
     def __unicode__(self):
         return self.to_base62() + ' : ' + self.url
 
+
 class LinkSubmitForm(forms.Form):
     u = forms.URLField(label='URL to be shortened:')

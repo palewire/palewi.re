@@ -26,9 +26,30 @@
 </style>
 {% endblock %}
 
+{% block extradocready %}
+    $("#shortform button").click(
+        function (e) {
+            var val = $("#shortform input").val();
+            if (val) {
+                var url = "{% url 'shortener-submit' %}?u=" + val;
+                $.getJSON(url, function (data) {
+                    $("#shortform input").val(data.link);
+                    if (data.created) {
+
+                    }
+                });
+            }
+        }
+    );
+{% endblock %}
+
 {% block content %}
     <div class="interiorlist twelvecol last">
         <h1><img src="{{ STATIC_URL }}icons/links.gif" alt="links"/>Shortened URLs</h1>
+        <div id="shortform" class="row">
+            <input type="text"></input>
+            <button>Shorten!</button>
+        </div>
         <div class="row">
             <div class="twelvecol last section-hed">Recent links</div>
             <table class="shortener">
