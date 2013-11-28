@@ -33,11 +33,25 @@
             if (val) {
                 var url = "{% url 'shortener-submit' %}?u=" + val;
                 $.getJSON(url, function (data) {
-                    $("#shortform input").val(data.link);
+                    $("#shortform input").val(data.link.short_url);
                     if (data.created) {
-
+                        var row = [
+                            function () { return $("<td>").append($("<a>", {
+                                href: data.link.short_url,
+                                text: data.link.short_url
+                            })) }(),
+                            function () { return $("<td>").append($("<a>", {
+                                href: data.link.url,
+                                text: data.link.url
+                            }))}(),
+                            $("<td>", {text: data.link.date_submitted }),
+                            $("<td>", {text: data.link.usage_count })
+                        ];
+                        var tr = $("<tr>");
+                        $.each(row, function (i, e) { $(e).appendTo(tr); });
+                        tr.prependTo($("table.shortener tbody"));
                     }
-                });
+                }).fail(function(error) { alert("Fail. Check the console."); console.log(error); });
             }
         }
     );
@@ -45,7 +59,7 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last">
-        <h1><img src="{{ STATIC_URL }}icons/links.gif" alt="links"/>Shortened URLs</h1>
+        <h1><img src="{{ STATIC_URL }}icons/links.gif" alt="links"/>URL shortener</h1>
         <div id="shortform" class="row">
             <input type="text"></input>
             <button>Shorten!</button>
