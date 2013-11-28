@@ -124,7 +124,7 @@ CLIP_LIST = [
                 name='Clear Channel gives Tate talking points',
                 url='http://benton.org/node/5487',
                 image='tate.jpg',
-                description='FCC commissioner received talking points against the proposed satellite radio XM-Sirius merger from Clear Channel Radio'
+                description='FCC commissioner received talking points against the proposed satellite radio merger'
             ),
             Clip(
                 name='Pakistan\'s $4.7 billion \'blank check\'',
