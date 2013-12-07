@@ -152,13 +152,15 @@ class Post(models.Model):
         super(Post, self).save()
     
     def get_absolute_url(self):
-        return ('coltrane_post_detail', (), { 'year': self.pub_date.strftime("%Y"),
-                                                'month': self.pub_date.strftime("%m"),
-                                                'day': self.pub_date.strftime("%d"),
-                                                'slug': self.slug })
+        return ('coltrane_post_detail', (), {
+            'year': self.pub_date.strftime("%Y"),
+            'month': self.pub_date.strftime("%m"),
+            'day': self.pub_date.strftime("%d"),
+            'slug': self.slug
+        })
     get_absolute_url = models.permalink(get_absolute_url)
     url = property(get_absolute_url)
-    
+
     def get_absolute_icon(self):
         return u'%sicons/posts.gif' % (settings.STATIC_URL)
 
@@ -401,6 +403,7 @@ signals.post_delete.connect(category_count, sender=Post)
 # Comment moderation
 from django.contrib.comments.moderation import CommentModerator, moderator
 
+
 class ColtraneModerator(CommentModerator):
     auto_moderate_field = 'pub_date'
     moderate_after = -10
@@ -410,12 +413,12 @@ class ColtraneModerator(CommentModerator):
 
 def moderate_comment(sender, comment, request, **kwargs):
     comment.is_public = False
-    
+
     ak = akismet.Akismet(
         key = settings.AKISMET_API_KEY,
             blog_url = 'http://%s/' % Site.objects.get_current().domain
     )
-    
+
     data = {
         'user_ip': request.META.get('REMOTE_ADDR', ''),
         'user_agent': request.META.get('HTTP_USER_AGENT', ''),
@@ -423,14 +426,13 @@ def moderate_comment(sender, comment, request, **kwargs):
         'comment_type': 'comment',
         'comment_author': smart_str(comment.user_name),
     }
-    
+
     if ak.comment_check(smart_str(comment.comment), data=data, build_data=True):
         comment.is_removed = True
         comment.save()
-    
+
     if not comment.is_removed:
         email_body = "%s"
         mail_managers ("New comment posted", email_body % (comment.get_as_text()))
 
 comment_will_be_posted.connect(moderate_comment)
-
