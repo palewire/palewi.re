@@ -3,10 +3,12 @@ Django==1.6
 Fabric==1.5.1
 Jinja2==2.6
 Pygments==1.2.2
+South==0.8.4
 Sphinx==1.1.2
 akismet==0.2.0
 argparse==1.2.1
 boto==2.6.0
+distribute==0.7.3
 django-debug-toolbar==0.11.0
 django-extensions==1.2.5
 django-localflavor==1.0
