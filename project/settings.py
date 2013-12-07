@@ -47,8 +47,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#    'django.middleware.cache.UpdateCacheMiddleware',
-#    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -114,7 +112,7 @@ INSTALLED_APPS = (
 
 # Shortener settings
 SITE_NAME = 'palewi.re'
-SITE_BASE_URL = 'http://' + SITE_NAME + '/!/'
+SITE_BASE_URL = 'http://%s/!/' % SITE_NAME
 
 LOGGING = {
     'version': 1,
@@ -186,7 +184,6 @@ if DEBUG_TOOLBAR:
         'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
         'debug_toolbar.panels.template.TemplateDebugPanel',
         'debug_toolbar.panels.sql.SQLDebugPanel',
-        #'debug_toolbar.panels.cache.CacheDebugPanel',
         'debug_toolbar.panels.signals.SignalDebugPanel',
         'debug_toolbar.panels.logger.LoggingPanel',
     )
