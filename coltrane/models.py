@@ -115,17 +115,27 @@ class Post(models.Model):
         (HIDDEN_STATUS, 'Hidden'),
     )
     
-    wordpress_id = models.IntegerField(unique=True, null=True, blank=True, help_text=_('The junky old wp_posts id from before the migration'), editable=False)
-    title = models.CharField(max_length=250, help_text=_('Maximum 250 characters.'))
-    slug = models.SlugField(max_length=300, unique_for_date='pub_date', help_text=_('Suggested value automatically generated from title.'))
-    body_markup = models.TextField(help_text=_('The HTML of the post that is edited by the author.'))
-    body_html = models.TextField(null=True, blank=True, editable=False, help_text=_('The HTML of the post after it has been run through Pygments.'))
-    pub_date = models.DateTimeField(verbose_name=_('publication date'), default=datetime.datetime.now)
+    wordpress_id = models.IntegerField(unique=True, null=True, blank=True,
+        help_text=_('The junky old wp_posts id from before the migration'),
+        editable=False)
+    title = models.CharField(max_length=250,
+        help_text=_('Maximum 250 characters.'))
+    slug = models.SlugField(max_length=300, unique_for_date='pub_date',
+        help_text=_('Suggested value automatically generated from title.'))
+    body_markup = models.TextField(
+        help_text=_('The HTML of the post that is edited by the author.')
+    )
+    body_html = models.TextField(null=True, blank=True, editable=False,
+        help_text=_('The HTML of the post run through Pygments.')
+    )
+    pub_date = models.DateTimeField(_('publication date'),
+        default=datetime.datetime.now)
     author = models.ForeignKey(User)
     enable_comments = models.BooleanField(default=True)
-    status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS, help_text=_("Only entries with 'Live' status will be publicly displayed."))
+    status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
+        help_text=_("Only 'Live' entries will be publicly displayed."))
     categories = models.ManyToManyField(Category)
-    tags = TagField(help_text=_('Separate tags with spaces.'), blank=True)
+    tags = TagField(blank=True, help_text=_('Separate tags with spaces.'))
     objects = models.Manager()
     live = LivePostManager()
 

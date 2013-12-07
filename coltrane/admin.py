@@ -40,12 +40,12 @@ class PostAdmin(admin.ModelAdmin):
             'description': 'About the post.'
         }),
     )
-    list_display = ('title', 'pub_date', 'status',)
+    list_display = ('title', 'pub_date', 'status', 'enable_comments',)
     prepopulated_fields = {"slug": ("title",)}
-    list_filter = ('status', 'pub_date',)
+    list_filter = ('status', 'enable_comments', 'pub_date',)
     date_hierarchy = 'pub_date'
     save_on_top = True
-    list_editable = ("status",)
+    list_editable = ("status", 'enable_comments',)
 
 
 class ShoutAdmin(ThirdPartyBaseAdmin):
