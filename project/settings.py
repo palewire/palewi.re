@@ -100,6 +100,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'greeking',
     'shortener',
+    'south',
     # NICAR-related apps
     'nicar.polls',
     'nicar.flu_map',
