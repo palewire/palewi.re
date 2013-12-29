@@ -109,9 +109,9 @@ urlpatterns += patterns('',
     
     # The index
     url(r'^$', 'coltrane.views.index', name='coltrane_index'),
-    # Hard-coded flatpages
-    url(r'^who-is-ben-welsh/$', DirectTemplateView.as_view(
-        **{'template_name': 'coltrane/bio.html'}), name="coltrane_bio"),
+    # My bio
+    url(r'^who-is-ben-welsh/$', 'coltrane.views.bio', name="coltrane_bio"),
+    # About the site
     url(r'^colophon/$', DirectTemplateView.as_view(
         **{'template_name': 'coltrane/colophon.html'}),
         name="coltrane_colophon"),

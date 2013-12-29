@@ -13,6 +13,7 @@ from django.views.generic import ListView
 from correx.models import Change
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
+from bona_fides import models as bona_fides
 from django.contrib.contenttypes.models import ContentType
 from coltrane.models import Post, Category, Link, Photo, Track, Ticker, Beer
 
@@ -26,6 +27,16 @@ def index(request):
         return HttpResponseRedirect(latest_post.get_absolute_url())
     except Post.DoesNotExist:
         return HttpResponseRedirect("/ticker/")
+
+
+def bio(request):
+    """
+    All about Ben.
+    """
+    context = {
+        'socialmedia_list': bona_fides.SocialMediaProfile.objects.all(),
+    }
+    return render(request, 'coltrane/bio.html', context)
 
 
 def ticker_detail(request, page=1, response_type='html'):

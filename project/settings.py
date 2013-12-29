@@ -94,6 +94,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
      # Blog
     'coltrane',
+    'bona_fides',
      # Site extras and helpers
     'correx',
     'tagging',
@@ -101,6 +102,7 @@ INSTALLED_APPS = (
     'greeking',
     'shortener',
     'south',
+    'adminsortable',
     # NICAR-related apps
     'nicar.polls',
     'nicar.flu_map',
