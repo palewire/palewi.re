@@ -307,42 +307,58 @@
         <div class="biotext row">
             <div class="onecol"></div>
             <div class="tencol interiorlist">
-                <div class="row">
+                <div class="row" style="clear:both;">
                     <div class="listitem twelvecol last">
-                        <b>GPG Public Key</b>
+                        <a name="#crypto"></a>
+                        <b>Encryption</b>
                     </div>
                 </div>
-                <div class="row" style="">
-                    <pre style="">
-Version: GnuPG v1.4.12 (GNU/Linux)
+                <div class="row" style="clear:both; min-height:75px; font-size:14px;">
+                    <div class="listitem twelvecol last">
+                        <pre style="overflow:auto; min-height:75px;">
+pub   2048R/6FFB3C05 2013-12-29
+      Key fingerprint = 041B DD3C E233 4F32 CF34  A058 ACB7 D74B 6FFB 3C05
+uid                  Ben Welsh (palewire) &lt;ben.welsh@gmail.com&gt;
+sub   2048R/AABAE420 2013-12-29
+                        </pre>
+                    </div>
+                </div>
+                <div class="row" style="clear:both;"></div>
+                <div class="row" style="clear:both; padding-top:10px; min-height:500px; font-size:14px;">
+                    <div class="listitem twelvecol last">
+                    <pre style="overflow:auto;min-height:500px;"">
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1.4.14 (GNU/Linux)
 
-mQENBFG+m2gBCADQmbEYPTKHlF1eykr+BHU6OhW4InhwkMMNLDaJ5AicP79NNzGS
-u7CWXWGFAk8l6UJhjbUF4ZUICw5UibgQJwSHwI+bagkidMQ/PhERaa7hCoycZzxf
-d3o9QfHp/al5Ma0jZ4+zyz0x7TWy9VIDiqj9BCot4gvrR+edbb6E6xjWDmFJcYGU
-OzsvpzSFwE4HOSmRjS3sWK89HPqTXmzTw5MivZsazD0LTrp6hBVPhJB9MP8JEqO5
-eIw43Z8ZvGqkOrvGcL22ABfOpUeMoplrvBInyD25PhBWDtpGQk5xRgSTikaOLKn/
-/3E8c9vRmUqf1Z/F8bICNCyLOQm9Lk7RR1HdABEBAAG0H0JlbiBXZWxzaCA8YmVu
-LndlbHNoQGdtYWlsLmNvbT6JAT4EEwECACgFAlG+m2gCGwMFCQHhM4AGCwkIBwMC
-BhUIAgkKCwQWAgMBAh4BAheAAAoJEIW2f+23I9VSUQYIAK4zUxzbnA0RqIaEzUCX
-o1h8YiqLt5hGv0mrdwkNulqllaYdinhbs00Wf2aAKT72PGqMOdA7Zu4IagfUs8Wv
-CGBd1KnsyZMF1ojkiiEoT4tOxxCAj8qxV7sglFXCTMwrOcu9HoZltsIjCWibFKSW
-woSDbYQSoATa2THe7Jj7EWrYLTWGuGjCtChZ70KvKcolMl7sKZuLRSz+0FDPUQEp
-j0kSeh8U5kMRVT0W314fP+L9vj8XBGDOs2v2OJAZ/eHpfu7/gvhzB2qGPgFtKxSZ
-fyutnpFvqlyRPT8mua01/DIQKt43xBTI7c0AFvg98AYPI52592bqnpSAGbw027d+
-miW5AQ0EUb6baAEIANgB6Mo3SxBt0/iJxSIhPxRCSO5GQ3YRoddPbUhLLaN+fTUX
-CVWzLqtDxtWhyfqn/M51323kvxqlyeFAuHlex0aqEsz6RFpSU73gahzAUBp6DGyZ
-rqguETkESFGCCM+5OgDqIVfBM2+HWNH3/NI/3VKgPTSMH3hWTGeFSJnwmyhAoyFk
-M70gLUgTSxHJShGMFzn/zLQZj7d6CQcNHMaJqLT8oqySArjibvwII7SICKYxwMx/
-HEQLJxuNoC5tAeZo6/RQedjrDIzcpWv1x8WQ1QPggEOsm5FjWzlHk9Um5K4Gy8Um
-Dqi55+xEE2KbW7SR1cbUCzFMQGd/5QCZXrYbf2MAEQEAAYkBJQQYAQIADwUCUb6b
-aAIbDAUJAeEzgAAKCRCFtn/ttyPVUtNECACJ4WIu//v/95qQLcpWz5s2UXra+2Ra
-ygzk1oEZvP1ztB/lHvjnlCWSl671jVSLY68AvqxAaHZyB89sQZMcGBFeNwr9QN49
-kBuDG0rm/cnzN9SrNZs8fBwDIjX221XFuh51vWNKEWGcT964QplY4t9XuCJfeGK9
-i7fiaWaDGkXyNbDQq2r/f4xcrohBtLA3NoN+gDwjS6fdvfg5LqQTVqsbWDtaYZOl
-gHovaDK419tBF638EIvrsHPoyeJw7MYvv3Ro2jwhfV94DUIY4oVMQl5JEJ5Mm2I5
-lHMoZCJntqX+NA7GHcS65IgyvrewzuKz5BJASB/kAs80ushgV6PkpuvW
-=+sGx
+mQENBFK/cn4BCAC9B1VnLtBVAd2v2YLuBydboamXaZmaloqWm1jvWQkkWQaGzhue
+1/wxVAWXHsHrgM8aCqDtg4CxVGK+coMdSD6+sSHw6/RC513L6x5bm0YqG6N15bgf
+o/7X46l1ERih/zBY2QAsEThwR7UamxBHDdi2BU/RSIpvHkU1O5RNYdlBz5haroKx
+rrtWqfrLPOt73HkeADm/wRFL6ukb89Jbu6GnnRJp07HWmqcI95R8NZtI2wytFrhv
+Kbe6oWxOWmKoAKoTqZstZ8hJmgCQYCjOHIukA0XvVhWSScSzDf0upNJxpEhGKCL/
+EYZ5Vc/4AMqPVyV1d89XbAYYuwOwY1/hZR4ZABEBAAG0KkJlbiBXZWxzaCAocGFs
+ZXdpcmUpIDxiZW4ud2Vsc2hAZ21haWwuY29tPokBOAQTAQIAIgUCUr9yfgIbAwYL
+CQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQrLfXS2/7PAW98Qf/UfbgmQJz7D78
+sg8wijWcV3bbmqo6NCYBOrtzS4Qhk/9Bc3KexmWwF0aKivwPCFMPCbJqtAAdebBm
+Z2X0jPi41EJRUvvUs3qnyR4pGjcE6DxGXaaL6/mS0Ao3qH52t1fTIhvcZvkj167B
+4+ZJvKzBMjXOmTnf7Qqn76st8MANVenIwMoU2BtBU3axYLLR+TY/Ae2+amB1Iclk
+hDd/1ddhjbnM+vxHWyGzl5FtzwsY0Nc0s7J/zgQkhR2mDQU3OTRml8o3M3sdCa8j
+C/8VILsCe1m+bGBz9Wrzfdv6QYaqyhWco36eOm1QAWELoS1dS7enfcpn+iWxWHaP
+Xp6cXrz2i7kBDQRSv3J+AQgAvRlLFLAJ1DjMmZ2aYiU0XU6LrWufSBIXKR5LtSjb
+RX482O/u4v5Q0ojIX40QGWRQLdcbnI0og8OvUuLIVPPCgyFWDsQU9FgrSLUoq8KY
+Nzn19PpF/kmzsASOJgIGwOVB0dMxUHXs83507ucLao2Czpu+I/1GM5bsD8THTke6
+UPfHDqjjHL6qoAGzxgkklSsDIalQAVo+nGE7a7eMCqGjyke1fH1nDp+HochNSJlz
+FhqT+xCUB8etneAuaQ8ZxugG4J+mOWUVXh3fFLf0yN50m/BKpYjd2iEsaR2xQ4/U
+3CNly1Gw7H53bxmUJMbiz5CP8wFgxlvcTsh/U2fQf+Gs3wARAQABiQEfBBgBAgAJ
+BQJSv3J+AhsMAAoJEKy310tv+zwF1owIAKlbkd9YApcVjLO7dB5f2X0GQbywrdmk
+opETjjmGb4/oby2kACF6FaYt8idZ0cOSsrnMNQOZiFMWHDb1qLB1jE32YRnXuEPb
+su7vucyMNF4LRNWbbjt6cKpX08gOd9TWiCcrfNMpqaQ7UxGxKhWBtTjwLp0Ni2EC
+Tt+Cc9qkk2LTV6FpQk6tIT5Ej+S8POk6AqOW1PojpP2XCmnQcIRbmDUKbiviH+1L
+ZZ62o1j1TEUpeFyTtxnIXzrJlby1nb+WqzFl6CUYXd4pEBOikVdhgCX8/1iixkgs
+WfkMyvvPP8GbyD1VHOdgV3UEeVsakRowwn3EZjXUhddsErb04pfPX/0=
+=RBj4
+-----END PGP PUBLIC KEY BLOCK-----
                     </pre>
+                </div>
                 </div>
             </div>
             <div class="onecol last"></div>
