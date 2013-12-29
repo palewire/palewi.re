@@ -48,7 +48,7 @@ class Link(models.Model):
 
     def short_url(self):
         return settings.SITE_BASE_URL + self.to_base62()
-    
+
     def __unicode__(self):
         return self.to_base62() + ' : ' + self.url
 
