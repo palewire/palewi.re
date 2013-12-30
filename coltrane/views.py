@@ -34,6 +34,7 @@ def bio(request):
     All about Ben.
     """
     context = {
+        'award_list': bona_fides.Award.objects.all(),
         'socialmedia_list': bona_fides.SocialMediaProfile.objects.all(),
     }
     return render(request, 'coltrane/bio.html', context)
