@@ -135,15 +135,6 @@
     }
 },
 {
-    "pk": 16, 
-    "model": "bona_fides.award", 
-    "fields": {
-        "url": "http://annenberg.usc.edu/News%20and%20Events/News/120227SeldenRing.aspx", 
-        "order": 16, 
-        "title": "2012 Selden Ring Award for Investigative Reporting, Finalist"
-    }
-},
-{
     "pk": 17, 
     "model": "bona_fides.award", 
     "fields": {
@@ -210,7 +201,7 @@
     "pk": 24, 
     "model": "bona_fides.award", 
     "fields": {
-        "url": "http://depaul.edu/magazine/#Welsh", 
+        "url": "http://www.flickr.com/photos/77114776@N00/4068262073/in/photolist-7cuUzx", 
         "order": 24, 
         "title": " 2009 \"14 under 40\" list of alumni success stories, DePaul University Magazine"
     }
