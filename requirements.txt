@@ -9,6 +9,7 @@ akismet==0.2.0
 argparse==1.2.1
 boto==2.6.0
 distribute==0.7.3
+django-admin-sortable==1.6.3
 django-debug-toolbar==0.11.0
 django-extensions==1.2.5
 django-localflavor==1.0
