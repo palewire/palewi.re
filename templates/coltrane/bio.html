@@ -56,7 +56,13 @@
         <div class="biotext row">
             <div class="onecol"></div>
             <div class="tencol interiorlist">
-                    <div class="row"><div class="listitem twelvecol last"><b>Technical skills</b></div></div>
+                    <div class="row">
+                    <div class="listitem twelvecol last">
+                        <a href="#skills" name="skills">
+                            <b>Technical skills</b>
+                        </a>
+                    </div>
+                    </div>
                     <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Programming with Python and Perl</div></div>
                     <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Database-driven web development with Django</div></div>
                     <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Database administration with PostgreSQL, MySQL and Microsoft SQL Server</div></div>
@@ -80,7 +86,7 @@
             <div class="tencol interiorlist">
                 <div class="row">
                     <div class="listitem twelvecol last">
-                        <a name="honors"><b>Honors</b></a>
+                        <a href="#honors" name="honors"><b>Honors</b></a>
                     </div>
                 </div>
                 {% for obj in award_list %}
@@ -106,7 +112,7 @@
             <div class="onecol"></div>
             <div class="tencol interiorlist">
             <div class="row"><div class="listitem twelvecol last">
-                <a name="social"><b>Social media</b></a>
+                <a href="#social" name="social"><b>Social media</b></a>
             </div></div>
                 {% for obj in socialmedia_list %}
                 {% if not forloop.counter|divisibleby:"2" %}<div class="row">{% endif %}
@@ -128,7 +134,7 @@
             <div class="onecol"></div>
             <div class="tencol interiorlist">
             <div class="row"><div class="listitem twelvecol last">
-                <b>Contact me</b>
+                <a href="#contact" name="contact"><b>Contact me</b></a>
             </div></div>
                 <div class="row" style="height:70px;"><div class="listitem sixcol">
                     <a rel="me" class="url" href="aim:GoIM?screenname=palewiredotcom"><img src="http://api.oscar.aol.com/presence/icon?k=pa1veJZRXJ9a45iK&amp;t=palewiredotcom" style="border:0;"/></a> &nbsp;palewiredotcom
@@ -150,8 +156,9 @@
             <div class="tencol interiorlist">
                 <div class="row" style="clear:both;">
                     <div class="listitem twelvecol last">
-                        <a name="crypto"></a>
-                        <b>Encryption</b>
+                        <a href="#crypto" name="crypto">
+                            <b>Encryption</b>
+                        </a>
                     </div>
                 </div>
                 <div class="row" style="clear:both; min-height:75px; font-size:14px;">
