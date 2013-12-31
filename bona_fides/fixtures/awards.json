@@ -3,7 +3,7 @@
     "pk": 1, 
     "model": "bona_fides.award", 
     "fields": {
-        "url": "http://journalists.org/2013/09/16/2013-online-journalism-awards-finalists-announced/", 
+        "url": "http://www.ire.org/blog/ire-news/2013/12/03/winning-t-shirt-selected-nicar-2014/", 
         "order": 1, 
         "title": "2014 NICAR T-shirt Contest, Runner up"
     }
