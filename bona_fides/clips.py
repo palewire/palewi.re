@@ -22,7 +22,7 @@ class ClipSet(object):
 CLIP_LIST = [
     ClipSet(
         name='Life on the line: 911 breakdowns at LAFD',
-        description='An investigative series driven by a groundbreaking data analysis that uncovered deep-rooted problems in a safety net millions of Angelenos rely on when they dial 911',
+        description='A groundbreaking data analysis that uncovered deep-rooted problems in the safety net Angelenos rely on when they dial 911',
         app_list=[
             Clip(
                 name='Dispatch lag slows call response',
