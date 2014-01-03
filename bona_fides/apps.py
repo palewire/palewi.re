@@ -43,6 +43,12 @@ APP_LIST = [
                 description='How 911 response times stack up across L.A.'
             ),
             Application(
+                name='The line that help didn\'t cross',
+                url='http://graphics.latimes.com/lafd-borders/',
+                image='lafdborders.png',
+                description='How city borders hold up urgent 911 responses'
+            ),
+            Application(
                 name='L.A. mayoral election results',
                 url='http://graphics.latimes.com/la-mayoral-maps/',
                 image='mayoralmaps.png',
