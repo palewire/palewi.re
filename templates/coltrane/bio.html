@@ -31,21 +31,35 @@
             <div class="onecol"></div>
             <div class="tencol">
                 <p>
-                    Hello. My name is <span class="fn n"><span class="given-name">Ben</span> <span class="family-name">Welsh</span></span>. I’m a native Iowan living in <span class="adr"><span class="locality">Los Angeles</span></span>.
+                    Hello. My name is <span class="fn n"><span class="given-name">Ben</span> <span class="family-name">Welsh</span></span>. 
+                    I’m a native Iowan living in <span class="adr"><span class="locality">Los Angeles</span></span>.
                 </p>
                 <p>
-                    I am a reporter, albeit an unconventional one. I specialize in what is called <a href="http://en.wikipedia.org/wiki/Computer-assisted_reporting">computer-assisted reporting</a>. Journalists in the past were often
-    hack novelists. I'm a hack computer programmer. I use computers to collect, organize, analyze and present large amounts of information.
+                    I am a reporter, albeit an unconventional one. I specialize in what is called 
+                    <a href="http://en.wikipedia.org/wiki/Computer-assisted_reporting">computer-assisted reporting</a>. Journalists in the past were often
+                    hack novelists. I'm a hack computer programmer. I use computers to collect, organize, analyze and present large amounts of information.
                 </p>
                 <p>
-                    I work at the <a href="http://www.latimes.com">Los Angeles Times</a>, a daily newspaper and 24-hour website based in <span class="adr"><span class="region">Southern California</span></span>. Before working at The Times, I worked on investigative projects at <a href="http://www.publicintegrity.org">The Center for Public Integrity</a>, helped produce long-form documentaries for cable channels like CNN, and pitched in on some television and newspaper reporting.</p>
-               <p>I earned a master&rsquo;s degree from the Missouri School of Journalism &mdash; where I worked at the <a href="http://www.nicar.org">National Institute for Computer-Assisted Reporting</a> (NICAR). I received my undergraduate training at DePaul University in Chicago.
+                    I work at the <a href="http://www.latimes.com">Los Angeles Times</a>, a daily newspaper and 24-hour 
+                    website based in <span class="adr"><span class="region">Southern California</span></span>. Before working at The Times, 
+                    I worked on investigative projects at <a href="http://www.publicintegrity.org">The Center for Public Integrity</a>, helped 
+                    produce long-form documentaries for cable channels like CNN, and pitched in on some television and newspaper reporting.
                 </p>
-                <p>I am also the editor and publisher of <a href="http://pastpages.org">PastPages</a>, an archive dedicated to the preservation of online news.</p>
-                <p>Elsewhere on the site you can find samples of
+                <p>
+                    I earned a master&rsquo;s degree from the Missouri School of Journalism &mdash; where I worked at the 
+                    <a href="http://www.nicar.org">National Institute for Computer-Assisted Reporting</a> (NICAR). I received my 
+                    undergraduate training at DePaul University in Chicago.
+                </p>
+                <p>
+                    I am also the editor and publisher of <a href="http://pastpages.org">PastPages</a>, an archive dedicated 
+                    to the preservation of online news.
+                </p>
+                <p>
+                    Elsewhere on the site you can find samples of
                     <a href="{% url 'coltrane_app_list' %}">my programming work</a>,
                     <a href="{% url 'coltrane_clip_list' %}">my news clips</a>
-                    and <a href="{% url 'coltrane_talk_list' %}">my public-speaking engagements</a>.</p>
+                    and <a href="{% url 'coltrane_talk_list' %}">my public-speaking engagements</a>.
+                </p>
             </div>
             <div class="onecol last"></div>
         </div>
@@ -60,20 +74,19 @@
             <div class="onecol"></div>
             <div class="tencol interiorlist">
                     <div class="row">
-                    <div class="listitem twelvecol last">
-                        <a href="#skills" name="skills">
-                            <b>Technical skills</b>
-                        </a>
+                        <div class="listitem twelvecol last">
+                            <a href="#skills" name="skills">
+                                <b>Technical skills</b>
+                            </a>
+                        </div>
                     </div>
+                    {% for obj in skill_list %}
+                    <div class="row">
+                        <div class="listitem twelvecol last">
+                            &nbsp;&bull;&nbsp;&nbsp; {{ obj }}
+                        </div>
                     </div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Programming with Python and Perl</div></div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Database-driven web development with Django</div></div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Database administration with PostgreSQL, MySQL and Microsoft SQL Server</div></div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;UI development with JavaScript, CSS and HTML5 web standards</div></div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Development and deployment with Rackspace, Amazon Web Services and Google App Engine</div></div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Online cartography with GeoDjango, PostGIS, TileMill and JavaScript UI libraries</div></div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Data visualization with D3 and other browser-based libraries</div>
-                    <div class="row"><div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;Getting it done on deadline</div></div>
+                    {% endfor %}
             </div>
             <div class="onecol last"></div>
         </div>

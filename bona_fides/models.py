@@ -28,3 +28,16 @@ class SocialMediaProfile(Sortable):
 
     def __unicode__(self):
         return self.title
+
+
+class Skill(Sortable):
+    """
+    A technical skill I have and will mention about on my bio page.
+    """
+    title = models.CharField(max_length=250)
+
+    class Meta(Sortable.Meta):
+        pass
+
+    def __unicode__(self):
+        return self.title

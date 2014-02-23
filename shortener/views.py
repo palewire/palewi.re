@@ -1,10 +1,10 @@
 import logging
+import json as simplejson
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.http import HttpResponsePermanentRedirect
-from django.utils import simplejson
 from django.template.defaultfilters import date as dateformat
 from django.views.decorators.http import require_POST
 from django.db import transaction

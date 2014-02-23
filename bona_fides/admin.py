@@ -8,12 +8,16 @@ class AwardAdmin(SortableAdmin):
     search_fields = ("title",)
 
 
-admin.site.register(models.Award, AwardAdmin)
-
-
 class SocialMediaProfileAdmin(SortableAdmin):
     list_display = ("title", "url")
     search_fields = ("title",)
 
 
+class SkillAdmin(SortableAdmin):
+    list_display = ("title",)
+    search_fields = ("title",)
+
+
+admin.site.register(models.Skill, SkillAdmin)
+admin.site.register(models.Award, AwardAdmin)
 admin.site.register(models.SocialMediaProfile, SocialMediaProfileAdmin)
