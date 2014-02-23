@@ -1,5 +1,5 @@
 BeautifulSoup==3.2.0
-Django==1.6
+Django==1.6.2
 Fabric==1.5.1
 Jinja2==2.6
 Pygments==1.2.2
@@ -8,7 +8,6 @@ Sphinx==1.1.2
 akismet==0.2.0
 argparse==1.2.1
 boto==2.6.0
-distribute==0.7.3
 django-admin-sortable==1.6.3
 django-debug-toolbar==0.11.0
 django-extensions==1.2.5
@@ -25,6 +24,7 @@ prettytable==0.6.1
 psycopg2==2.2.2
 pycrypto==2.6
 python-dateutil==1.4.1
+python-magic==0.4.6
 python-memcached==1.45
 python-twitter==1.1
 pytz==2010o
@@ -33,5 +33,4 @@ requests-oauthlib==0.4.0
 simplejson==3.3.1
 six==1.4.1
 sqlparse==0.1.10
-wsgiref==0.1.2
 yolk==0.4.1
