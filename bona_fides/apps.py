@@ -126,6 +126,12 @@ APP_LIST = [
                 image='datadesk.jpg',
                 description='A blog to showcase our team\'s work'
             ),
+            Application(
+                name='Oct. 2013 Buenos Aires elecciones',
+                url='https://github.com/palermo-hollywood/election-2013',
+                image='buenos-aires.png',
+                description='Election map that started at a hack day and ended in Buenos Aires daily newspaper'
+            ),
         ]
     ),
     ApplicationSet(
