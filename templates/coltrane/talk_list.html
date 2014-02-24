@@ -10,6 +10,14 @@
     <meta property="og:url" content="http://{{ current_site }}/talks/"/>
 {% endblock %}
 
+{% block extrahead %}
+<script type="text/javascript" src="http://palewire.s3.amazonaws.com/laziestloader-0.0.1/jquery.laziestloader.js"></script>
+{% endblock %}
+
+{% block extradocready %}
+$('.iframe').laziestloader({threshold:300});
+{% endblock %}
+
 {% block content %}
 
     <div class="interiorlist applist twelvecol last">
@@ -23,12 +31,12 @@
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe width="533" height="300" src="http://www.youtube.com/embed/1vpYv0KBOTc" frameborder="0" allowfullscreen></iframe>
+                <iframe width="533" height="300" class="iframe" data-src="http://www.youtube.com/embed/1vpYv0KBOTc" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/el-cartografo-en-su-laberinto/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/el-cartografo-en-su-laberinto/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -41,7 +49,7 @@
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/la-political-calculus/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/la-political-calculus/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -56,12 +64,12 @@
 
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                <iframe class="iframe" data-src="http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/django-retrained/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/django-retrained/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -74,7 +82,7 @@
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/is-911-a-joke-in-your-town/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/is-911-a-joke-in-your-town/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -87,7 +95,7 @@
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/documentcloud-at-latimes/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/documentcloud-at-latimes/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -101,7 +109,7 @@
         <div class="row">
             <div class="twelvecol last">
                 <iframe width="533" height="429"
-                    src="http://www.youtube.com/embed/S62J6SssxNE#t=6m36s"
+                    class="iframe" data-src="http://www.youtube.com/embed/S62J6SssxNE#t=6m36s"
                     frameborder="0" allowfullscreen>
                 </iframe>
             </div>
@@ -115,14 +123,14 @@
         <div class="row">
             <div class="twelvecol last">
                 <iframe width="533" height="429"
-                    src="http://www.youtube.com/embed/iP-On8PzEy8"
+                    class="iframe" data-src="http://www.youtube.com/embed/iP-On8PzEy8"
                     frameborder="0" allowfullscreen>
                 </iframe>
             </div>
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/human-assisted-reporting/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/human-assisted-reporting/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -135,7 +143,7 @@
         </div>
         <div class="row">
             <div class="sixcol">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/love-flat-files/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/love-flat-files/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -148,7 +156,7 @@
         </div>
         <div class="row">
             <div class="sixcol">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/locating-the-story/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/locating-the-story/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -161,7 +169,7 @@
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/postgis-is-your-new-bicycle/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/postgis-is-your-new-bicycle/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -174,7 +182,7 @@
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/guidos-way/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/guidos-way/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -188,7 +196,7 @@
         </div>
         <div class="row">
             <div class="twelvecol last">
-                <iframe src="http://palewire.s3.amazonaws.com/talks/pluggable-maps/index.html"
+                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/pluggable-maps/index.html"
                     frameborder="0" width="533" height="400" 
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
@@ -202,7 +210,7 @@
         <div class="row">
             <div class="twelvecol last">
                 <iframe width="533" height="399"
-                    src="http://www.youtube.com/embed/eLQ9xc_Dm3g"
+                    class="iframe" data-src="http://www.youtube.com/embed/eLQ9xc_Dm3g"
                     frameborder="0" allowfullscreen>
                 </iframe>
             </div>
