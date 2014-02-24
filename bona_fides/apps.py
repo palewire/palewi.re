@@ -277,16 +277,22 @@ APP_LIST = [
                 description='A framework for quickly publishing CSV files as interactive tables'
             ),
             Application(
-                name='uptime-grove',
-                url='https://github.com/datadesk/uptime-grove',
-                image='uptime-grove.png',
-                description='A nodejs plugin for Uptime that sends notifications to the Grove.io IRC service.'
-            ),
-            Application(
                 name='django-boundaryservice',
                 url='https://github.com/datadesk/django-boundaryservice',
                 image='boundaries.png',
                 description='Fixes and features for the Chicago Tribune\'s map API framework'
+            ),
+            Application(
+                name='uptime-grove',
+                url='https://github.com/datadesk/uptime-grove',
+                image='uptime-grove.png',
+                description='A nodejs plugin for Uptime that sends notifications to the Grove.io IRC service'
+            ),
+            Application(
+                name='rackspacestats for pymunin',
+                url='https://github.com/palewire/PyMunin/blob/master/pymunin/plugins/rackspacestats.py',
+                image='rackspace.png',
+                description='Munin plugin to monitor stats for Rackspace Cloud'
             ),
             Application(
                 name='Leaflet for Mapstraction',
