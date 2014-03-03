@@ -76,7 +76,7 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 /* Comments */
 #comments {margin: 0.3em 0 0 0;}
 #comments h2 {margin-bottom:1em; font-size:1.35em; font-weight:bold;}
-.comment { margin:0 0 2em 2.5em; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
+.comment { margin:0 0 2em 0; padding-left:.66em; border-left: 0.2em #E5E5E5 solid;}
 .commenttopper { margin:0 0 0.5em 0; }
 .commentname {block:inline; font-size:1.4em; font-weight:bold; margin: 0 0em 0 0;}
 .commentdate {block:inline; font-size: 0.8em;}

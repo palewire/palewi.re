@@ -57,18 +57,14 @@
                     {% endif %}
                     <span itemprop="articleBody" property="rnews:body">{{ object.body_html|safe }}</span>
                 </div>
-                <div class="onecol"></div>
             </div>
             
             <div class="row">
-                <div class="onecol last"></div>
-                <div class="detailborderbumper tencol"></div>
-                <div class="onecol"></div>
+                <div class="detailborderbumper twelvecol last"></div>
             </div>
             
             <div id="detailmetadata" class="row">
-                <div class="onecol last"></div>
-                <div class="tencol">
+                <div class="twelvecol last">
                     <p id="postpubdate">This is a post 
                         <span rel="rnews:createdBy" itemprop="author" itemscope itemtype="http://schema.org/Person">
                             <span about="http://{{ current_site }}/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
@@ -118,27 +114,21 @@
                     </p>
                     {% endif %}
                 </div>
-                <div class="onecol"></div>
             </div>
         </article>
 
         <div class="row">
-            <div class="onecol last"></div>
-            <div class="detailborderbumper tencol"></div>
-            <div class="onecol"></div>
+            <div class="detailborderbumper twelvecol last"></div>
         </div>
         
         {% load comments %}
         <div id ="comments" class="row">
-            <div class="onecol last"></div>
-            <div class="tencol" rel="rnews:discussedBy">
+            <div class="twelvecol last" rel="rnews:discussedBy">
                 {% get_comment_list for object as comment_list %}
                 {% if comment_list %}
-                    <h2><img style="vertical-align:text-bottom;"src="{{ STATIC_URL }}icons/comments.png" width="30"/>
-                        Comments
-                    </h2>
+                    <h2>Comments</h2>
                 {% endif %}
-                
+
                 {% for comment in comment_list %}
                     <aside>
                     <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://{{ current_site }}{{ object.get_absolute_url }}#c{{comment.id}}">
@@ -152,14 +142,11 @@
                     </div>
                     </aside>
                 {% endfor %}
-                
+
                 {% if object.enable_comments %}
-
                     {% render_comment_form for object %}
-
                 {% endif %}
             </div>
-            <div class="onecol"></div>
         </div>
     </div>
     <div style="display:none;">
