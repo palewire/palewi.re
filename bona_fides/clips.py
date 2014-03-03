@@ -49,7 +49,7 @@ CLIP_LIST = [
                 description='A Times investigation finds wide geographic disparities in how quickly LAFD rescuers deliver aid'
             ),
             Clip(
-                name='Flawed data stall California\'s 911 upgrades',
+                name='Flawed data stall 911 upgrades',
                 url='http://www.latimes.com/news/local/lafddata/la-me-ems-data-problems-20121222,0,6217938.story',
                 image='lafd-data.jpeg',
                 description='Poor record-keeping stymies state effort to improve emergency responses, a Times investigation found'
