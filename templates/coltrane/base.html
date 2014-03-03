@@ -113,38 +113,35 @@
                 <div class="twelvecol last"></div>
             </div>
             <div id="navbar" class="row">
-                <div class="ninecol"></div>
-                <div class="threecol last">
-                    <div class="smalliconwrapper">
-                        <a href="http://{{ current_site }}{% url 'coltrane_app_list' %}" title="Apps">
-                            <img src="{{ STATIC_URL }}icons/apps.gif" width="30" alt="apps" />
-                        </a>
-                        <div class="smalliconlabel">Apps</div>
-                    </div>
-                    <div class="smalliconwrapper">
-                        <a href="http://{{ current_site }}{% url 'coltrane_clip_list' %}" title="Clips">
-                            <img src="{{ STATIC_URL }}icons/clips.png" width="30" alt="clips" />
-                        </a>
-                        <div class="smalliconlabel">Clips</div>
-                    </div>
-                    <div class="smalliconwrapper">
-                        <a href="http://{{ current_site }}{% url 'coltrane_post_list' %}" title="Posts">
-                            <img src="{{ STATIC_URL }}icons/posts.gif" width="30" alt="posts" />
-                        </a>
-                        <div class="smalliconlabel">Posts</div>
-                    </div>
-                    <div class="smalliconwrapper">
-                        <a href="http://{{ current_site }}{% url 'coltrane_talk_list' %}" title="Talks">
-                            <img src="{{ STATIC_URL }}icons/talks.png" width="30" alt="talks" />
-                        </a>
-                        <div class="smalliconlabel">Talks</div>
-                    </div>
-                    <div class="smalliconwrapper">
-                        <a href="http://{{ current_site }}{% url 'coltrane_ticker_list' %}" title="Ticker">
-                            <img src="{{ STATIC_URL }}icons/ticker.gif" width="30" alt="ticker" />
-                        </a>
-                        <div class="smalliconlabel">Ticker</div>
-                    </div>
+                <div class="eightcol"></div>
+                <div class="fourcol last">
+                    <ul>
+                        <li>
+                            <a href="http://{{ current_site }}{% url 'coltrane_app_list' %}" title="Apps">
+                                Apps
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://{{ current_site }}{% url 'coltrane_clip_list' %}" title="Clips">
+                                Clips
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://{{ current_site }}{% url 'coltrane_post_list' %}" title="Posts">
+                                Posts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://{{ current_site }}{% url 'coltrane_talk_list' %}" title="Talks">
+                                Talks
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://{{ current_site }}{% url 'coltrane_ticker_list' %}" title="Ticker">
+                                Ticker
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

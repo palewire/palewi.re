@@ -12,7 +12,7 @@
 
 {% block content %}
     <div class="interiorlist twelvecol last">
-        <h1><img src="{{ STATIC_URL }}icons/posts.gif" alt="posts"/>Posts</h1>
+        <h1>Posts</h1>
         <p class="description">A complete list of articles written for this site.</p>
         {% for object in object_list %}
             {% ifchanged object.pub_date.year %}
