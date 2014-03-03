@@ -9,8 +9,15 @@
     <meta property="og:url" content="http://{{ current_site }}/clips/"/>
 {% endblock %}
 
-{% block content %}
+{% block extrahead %}
+<script type="text/javascript" src="http://palewire.s3.amazonaws.com/laziestloader-0.0.1/jquery.laziestloader.js"></script>
+{% endblock %}
 
+{% block extradocready %}
+$('img').laziestloader({threshold:300});
+{% endblock %}
+
+{% block content %}
     <div class="interiorlist applist twelvecol last">
         <h1>Clips</h1>
         <p class="description">A selection of news stories I've authored, typically based on an original data analysis and often in partnership with other reporters. Examples of my work developing software can be found <a href="{% url 'coltrane_app_list' %}">here</a>.</p>
@@ -29,7 +36,11 @@
                         <div class="sixcol appitem {% if forloop.counter|divisibleby:'2' %}last{% endif %}">
                             <div class="threecol appimage">
                                 <a href="{{ clip.url }}">
-                                    <img src="{{ STATIC_URL }}clips/{{ clip.image }}">
+                                    <img src="{{ STATIC_URL }}img/blank-white.jpg" 
+                                        data-src="{{ STATIC_URL }}clips/{{ clip.image }}">
+                                    <noscript>
+                                      <img src="{{ STATIC_URL }}clips/{{ clip.image }}" />
+                                    </noscript>
                                 </a>
                             </div>
                             <div class="ninecol last apptext">
