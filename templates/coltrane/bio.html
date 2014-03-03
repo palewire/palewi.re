@@ -188,7 +188,7 @@ WfkMyvvPP8GbyD1VHOdgV3UEeVsakRowwn3EZjXUhddsErb04pfPX/0=
             </div></div>
                 {% for obj in socialmedia_list %}
                 {% if not forloop.counter|divisibleby:"2" %}<div class="row">{% endif %}
-                    <div class="listitem sixcol {% if forloop.counter|divisibleby:"2" %}last{% endif %}">&nbsp;&bull;&nbsp;&nbsp;
+                    <div class="listitem sixcol {% if forloop.counter|divisibleby:"2" %}last{% endif %}">&nbsp;&bull;&nbsp;
                         <a rel="me" class="url" href="{{ obj.url }}">{{ obj.title }}</a>
                     </div>
                 {% if forloop.counter|divisibleby:"2" or forloop.last %}</div>{% endif %}
@@ -215,7 +215,7 @@ WfkMyvvPP8GbyD1VHOdgV3UEeVsakRowwn3EZjXUhddsErb04pfPX/0=
                     {% for obj in skill_list %}
                     <div class="row">
                         <div class="listitem twelvecol last">
-                            &nbsp;&bull;&nbsp;&nbsp; {{ obj }}
+                            &nbsp;&bull;&nbsp; {{ obj }}
                         </div>
                     </div>
                     {% endfor %}
@@ -239,7 +239,7 @@ WfkMyvvPP8GbyD1VHOdgV3UEeVsakRowwn3EZjXUhddsErb04pfPX/0=
                 </div>
                 {% for obj in award_list %}
                 <div class="row">
-                    <div class="listitem twelvecol last">&nbsp;&bull;&nbsp;&nbsp;
+                    <div class="listitem twelvecol last">&nbsp;&bull;&nbsp;
                         {% if obj.url %}<a href="{{ obj.url }}">{% endif %}
                             {{ obj.title }}
                         {% if obj.url %}</a>{% endif %}
