@@ -12,10 +12,14 @@
 
 {% block extrahead %}
 <script type="text/javascript" src="http://palewire.s3.amazonaws.com/laziestloader-0.0.1/jquery.laziestloader.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jquery.fitvids.1.1.0.js"></script>
 {% endblock %}
 
 {% block extradocready %}
-$('.iframe').laziestloader({threshold:300});
+$('.iframe').laziestloader({threshold:300}, function() {
+    $(".interiorlist").fitVids();
+});
+$(".interiorlist").fitVids();
 {% endblock %}
 
 {% block content %}
@@ -30,8 +34,8 @@ $('.iframe').laziestloader({threshold:300});
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe width="533" height="300" class="iframe" data-src="http://www.youtube.com/embed/1vpYv0KBOTc" frameborder="0" allowfullscreen></iframe>
+            <div class="eightcol last">
+                <iframe width="533" height="300" class="iframe video" data-src="http://www.youtube.com/embed/1vpYv0KBOTc" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <div class="row">
@@ -63,8 +67,8 @@ $('.iframe').laziestloader({threshold:300});
         </div>
 
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe video" data-src="http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
         </div>
         <div class="row">
@@ -107,9 +111,9 @@ $('.iframe').laziestloader({threshold:300});
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
+            <div class="eightcol last">
                 <iframe width="533" height="429"
-                    class="iframe" data-src="http://www.youtube.com/embed/S62J6SssxNE#t=6m36s"
+                    class="iframe video" data-src="http://www.youtube.com/embed/S62J6SssxNE#t=6m36s"
                     frameborder="0" allowfullscreen>
                 </iframe>
             </div>
@@ -121,9 +125,9 @@ $('.iframe').laziestloader({threshold:300});
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
+            <div class="eightcol last">
                 <iframe width="533" height="429"
-                    class="iframe" data-src="http://www.youtube.com/embed/iP-On8PzEy8"
+                    class="iframe video" data-src="http://www.youtube.com/embed/iP-On8PzEy8"
                     frameborder="0" allowfullscreen>
                 </iframe>
             </div>
@@ -208,9 +212,9 @@ $('.iframe').laziestloader({threshold:300});
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
+            <div class="eightcol last">
                 <iframe width="533" height="399"
-                    class="iframe" data-src="http://www.youtube.com/embed/eLQ9xc_Dm3g"
+                    class="iframe video" data-src="http://www.youtube.com/embed/eLQ9xc_Dm3g"
                     frameborder="0" allowfullscreen>
                 </iframe>
             </div>
