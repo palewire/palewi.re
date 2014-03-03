@@ -319,7 +319,7 @@ img {
 @media handheld, only screen and (max-width: 550px) {
 
     body {
-        font-size: 0.8em;
+        font-size: 0.85em;
     }
     #shingle {
         font-size:1em;
