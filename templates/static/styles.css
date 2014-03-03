@@ -4,7 +4,7 @@
 
 body {
     font-family: "Helvetica", "Liberation Sans", Arial, sans-serif;
-    font-size: 16px; 
+    font-size: 18px; 
     line-height:1.5em; 
 }
 
@@ -15,18 +15,18 @@ a:hover {text-decoration: underline; color:gray; font-weight:normal;}
 a:active {text-decoration: underline; font-weight:normal; color: red;}
 
 /* The header */
-#hd {display:block; margin-top:1.5em; margin-bottom:0.5em;}
-#hd #shingle {font-size: 1.8em; font-weight: bold; text-align:left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
+#hd {display:block; margin-top:0.75em; margin-bottom:0.5em; font-size: 0.85em;}
+#hd #shingle {font-size: 1.9em; font-weight: bold; text-align:left; padding-left:0.15em;} /* the "palewire" title in the upper left hand corner */
 #hd #shingle a {text-decoration:none; font-weight:bold;}
-#whois {text-align:right; margin-top:0.2em; } /* the WHOIS link in the upper right hand corner */
+#whois {text-align:right; margin-top:0.2em; font-size:1.1em; } /* the WHOIS link in the upper right hand corner */
 #whois div { font-size:1em; display:inline; } 
 #hd span { font-size: .55em; clear:both; text-transform:lowercase;} /* The random phrase that appears on hoverover of the title */
 
 /* The horizontal gray bar that appears beneath the title line */
-#topbar {border-bottom:solid 8px #E5E5E5;}
+#topbar {border-bottom:solid 10px #E5E5E5;}
 #navbar { text-align:right; display:block; margin-bottom: 0.25em; padding: 0.15em;}
-#navbar ul {float:right; list-style-type: none; font-size:0.8em;}
-#navbar ul li {float: left; list-style-position: inside; margin-left:0.3em;}
+#navbar ul {float:right; list-style-type: none; font-size:0.775em;}
+#navbar ul li {float: left; list-style-position: inside; margin-left:0.125em;}
 
 /* Icons */
 div.smalliconwrapper { width:33px; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline; height:38px; position:relative;}
