@@ -34,8 +34,7 @@
         <div class="twelvecol last">
         <article itemscope itemtype="http://schema.org/Article">
             <div id="headline" class="row">
-                <div class="onecol last"></div>
-                <div class="tencol">
+                <div class="twelvecol last">
                     <h1 itemprop="name" property="rnews:headline">
                         {{ object.title }}
                     </h1>
@@ -43,8 +42,7 @@
             </div>
             
             <div id="detailbody" class="row">
-                <div class="onecol last"></div>
-                <div class="tencol">
+                <div class="twelvecol last">
                     {% load correx_tags %}
                     {% get_changes_for_object object 10 as change_list %}
                     {% if change_list %}

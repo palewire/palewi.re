@@ -49,7 +49,7 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 .detailborderbumper {border-bottom:solid 2px #E5E5E5; margin: 0.5em 0 0.5em 0;}
 #detailborderbumper {clear:both; border-bottom:solid 2px #E5E5E5; margin: 0.5em 10em 0.5em 4.5em;} /* For legacy code in posts */
 .detailborderbreak {clear:both; border-bottom:solid 2px #E5E5E5; margin: 1.5em 25%; width:50%; text-align:center;}
-#bd h1 {font-weight:bold; font-size:1.65em; margin:0 0 0.5em 0; line-height:150%;} /* the detail page headline */
+#bd h1 {font-weight:bold; font-size:1.75em; margin:0 0 0.5em 0; line-height:150%;} /* the detail page headline */
 #bd h1 img {vertical-align:text-bottom; margin-right:0.3em;} /* Icon in the headline */
 #detailbody p {margin-bottom:1em;} /* the standard 'graph */
 #detailbody h2 {font-family: Verdana, sans-serif; font-weight:bold; margin:1em 0 0.5em 0;} /* the in-post subhede */
