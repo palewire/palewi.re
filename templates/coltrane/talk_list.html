@@ -17,10 +17,13 @@
 {% endblock %}
 
 {% block extradocready %}
+var customVids = {
+    customSelector: "iframe[data-src*='docs.google.com'], iframe[data-src*='sh-medieteknik.solidtango.com']"
+};
 $('.iframe').laziestloader({threshold:300}, function() {
-    $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com']" });
+    $(".interiorlist").fitVids(customVids);
 });
-$(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com']" });
+$(".interiorlist").fitVids(customVids);
 {% endblock %}
 
 {% block content %}
@@ -46,7 +49,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>You Must Learn @ NICAR 2014</h3>
+                <h3>You Must Learn @ NICAR 2014 (Baltimore)</h3>
             </div>
         </div>
         <div class="row">
@@ -54,6 +57,19 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
                 <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1f9RJO8-6pxJn1LWvVmWaLPuVzklxiTSJL5PScl3NcPI/embed?start=false&loop=false&delayms=3000"
                     frameborder="0" width="533" height="428"
                     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+        </div>
+
+
+        <div class="row talkitem">
+            <div class="twelvecol last talktext">
+                <h3>What is a Data Desk? @ Nordic Data Journalism Conference 2013 (Stockholm)</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="eightcol last">
+                <iframe class="iframe video" data-src="https://sh-medieteknik.solidtango.com/widgets/thumbnail/7efzycfn#t=770"
+                    width="533" height="300" scrolling="0" frameborder="0"></iframe>
             </div>
         </div>
 
@@ -77,7 +93,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>L.A.'s Political Calculus @ Festival of Books 2013</h3>
+                <h3>L.A.'s Political Calculus @ Festival of Books 2013 (Los Angeles)</h3>
             </div>
         </div>
         <div class="row">
@@ -90,7 +106,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>Django Retrained @ NICAR 2013</h3>
+                <h3>Django Retrained @ NICAR 2013 (Louisville)</h3>
             </div>
         </div>
 
@@ -107,7 +123,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>Is 911 a joke in your town? @ NICAR 2013</h3>
+                <h3>Is 911 a joke in your town? @ NICAR 2013 (Louisville)</h3>
             </div>
         </div>
         <div class="row">
@@ -118,7 +134,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>How we use DocumentCloud at the Los Angeles Times @ NICAR 2013</h3>
+                <h3>How we use DocumentCloud at the Los Angeles Times @ NICAR 2013 (Louisville)</h3>
             </div>
         </div>
         <div class="row">
@@ -129,7 +145,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>What is a Data Desk? @ ONALA May 16, 2012</h3>
+                <h3>What is a Data Desk? @ ONALA May 16, 2012 (Los Angeles)</h3>
             </div>
         </div>
         <div class="row">
@@ -143,7 +159,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>Human-assisted reporting @ NICAR 2012, ISOJ 2012</h3>
+                <h3>Human-assisted reporting @ ISOJ 2012 (Austin)</h3>
             </div>
         </div>
         <div class="row">
@@ -173,7 +189,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>Locating the story @ NICAR 2012</h3>
+                <h3>Locating the story @ NICAR 2012 (St. Louis)</h3>
             </div>
         </div>
         <div class="row">
@@ -184,7 +200,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>PostGIS is your new bicycle @ NICAR 2011</h3>
+                <h3>PostGIS is your new bicycle @ NICAR 2011 (Raleigh)</h3>
             </div>
         </div>
         <div class="row">
@@ -195,7 +211,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
         
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>Guido's way: How to break news on Google App Engine @ NICAR 2011</h3>
+                <h3>Guido's way: How to break news on Google App Engine @ NICAR 2011 (Raleigh)</h3>
             </div>
         </div>
         <div class="row">
@@ -206,7 +222,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>Pluggable Maps @ Hacks/Hackers Dec. 15, 2010</h3>
+                <h3>Pluggable Maps @ Hacks/Hackers Dec. 15, 2010 (Los Angeles)</h3>
             </div>
         </div>
         <div class="row">
@@ -217,7 +233,7 @@ $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com'
         
         <div class="row talkitem">
             <div class="twelvecol last talktext">
-                <h3>Django in Journalism @ DjangoCon 2008</h3>
+                <h3>Django in Journalism @ DjangoCon 2008 (Mountain View)</h3>
             </div>
         </div>
         <div class="row">
