@@ -13,21 +13,50 @@
 {% block extrahead %}
 <script type="text/javascript" src="http://palewire.s3.amazonaws.com/laziestloader-0.0.1/jquery.laziestloader.js"></script>
 <script type="text/javascript" src="http://palewire.s3.amazonaws.com/jquery.fitvids.1.1.0.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jquery.responsiveiframe.js"></script>
 {% endblock %}
 
 {% block extradocready %}
 $('.iframe').laziestloader({threshold:300}, function() {
-    $(".interiorlist").fitVids();
+    $(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com']" });
 });
-$(".interiorlist").fitVids();
+$(".interiorlist").fitVids({ customSelector: "iframe[data-src*='docs.google.com']" });
 {% endblock %}
 
 {% block content %}
 
     <div class="interiorlist applist twelvecol last">
         <h1>Talks</h1>
-        <p class="description">A selection of slides, videos and other materials from my public-speaking appearances.</p>
-        
+        <p class="description">
+            A selection of slides, videos and other materials 
+            from my public-speaking appearances.
+        </p>
+
+        <div class="row talkitem">
+            <div class="twelvecol last talktext">
+                <h3>What is a Data Desk?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000"
+                    frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+        </div>
+
+        <div class="row talkitem">
+            <div class="twelvecol last talktext">
+                <h3>You Must Learn @ NICAR 2014</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1f9RJO8-6pxJn1LWvVmWaLPuVzklxiTSJL5PScl3NcPI/embed?start=false&loop=false&delayms=3000"
+                    frameborder="0" width="533" height="428"
+                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+        </div>
+
         <div class="row talkitem">
             <div class="twelvecol last talktext">
                 <h3>El Cartografo en su Laberinto @ Data Fest 2013 (Buenos Aires)</h3>
@@ -35,14 +64,14 @@ $(".interiorlist").fitVids();
         </div>
         <div class="row">
             <div class="eightcol last">
-                <iframe width="533" height="300" class="iframe video" data-src="http://www.youtube.com/embed/1vpYv0KBOTc" frameborder="0" allowfullscreen></iframe>
+                <iframe width="533" height="300" class="iframe video"
+                    data-src="http://www.youtube.com/embed/1vpYv0KBOTc" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/el-cartografo-en-su-laberinto/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1r7xANBupherX9z_FdKTnhkeg1L5pu2oe94eHgGka_-k/embed?start=false&loop=false&delayms=3000"
+                    frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -52,10 +81,9 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/la-political-calculus/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1k1-5i0vQQLIwiid_Ov2d_beiLkbyMXoSviFHtBZC4Kw/embed?start=false&loop=false&delayms=3000"
+                    frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -72,10 +100,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/django-retrained/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1mwzJ4494rdSEhex2aPjBH2se3F-UBZjrgoLzfD1tYGc/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -85,10 +111,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/is-911-a-joke-in-your-town/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1_1BCtJVJuDQKy99X9tSHc4veSVrX3UX040Gmrn6kL8M/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -98,10 +122,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/documentcloud-at-latimes/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1ym7axgHp8KddfYsxond9r2t9w9Tzv48z02N1ySPcXOc/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -133,10 +155,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/human-assisted-reporting/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1sW3iLUDXs7NTdo7EUUxD7X3vnIWYo7G8orMf5FT05Zk/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -146,10 +166,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="sixcol">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/love-flat-files/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframes slides" data-src="https://docs.google.com/presentation/d/1IybYcc0eVL-Rchm7lEQNwrM-AHRfr_M8ewfGYYNjeu8/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -159,10 +177,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="sixcol">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/locating-the-story/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/11_6sSd31mEy7VkQdG-YY_mQtlktKPt0ZuuaFwFy6H3w/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
 
@@ -172,10 +188,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/postgis-is-your-new-bicycle/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1uhVAiEKlJWCfOOEldPQUl0_tErm-E-2Xvlv0IURh0CE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
         
@@ -185,13 +199,10 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/guidos-way/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1lwf4yowXoSz8P6RsnTyFRY-45z7q3vklciMY5uzLQgA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
-
 
         <div class="row talkitem">
             <div class="twelvecol last talktext">
@@ -199,10 +210,8 @@ $(".interiorlist").fitVids();
             </div>
         </div>
         <div class="row">
-            <div class="twelvecol last">
-                <iframe class="iframe" data-src="http://palewire.s3.amazonaws.com/talks/pluggable-maps/index.html"
-                    frameborder="0" width="533" height="400" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="eightcol last">
+                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/19_cEPdkLJS3Z5POylyEqPH6R9TTEzXcox4KZkclSXUc/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div>
         
@@ -221,5 +230,4 @@ $(".interiorlist").fitVids();
         </div>
 
     </div>
-    
 {% endblock %}
