@@ -70,25 +70,25 @@ CLIP_LIST = [
                 name="LAFD jobs gone in 60 seconds",
                 url="http://www.latimes.com/local/la-me-lafd-hiring-20140227,0,5250682.story",
                 image="",
-                description="Hopefuls who submitted key paperwork more than one minute after the filing period opened were eliminated."
+                description="Hopefuls who submitted key paperwork more than one minute after the filing period opened were eliminated"
             ),
             Clip(
                 name="Nearly 1 in 5 recruits related to firefighters",
                 url="http://www.latimes.com/local/la-me-0228-lafd-recruit-20140228,0,1584181.story",
                 image="",
-                description="Of the 70 recruits now in training, 13 are sons of firefighters and three are nephews."
+                description="Of the 70 recruits hired, 13 are sons of firefighters and three are nephews"
             ),
             Clip(
                 name="Two L.A. fire commanders reassigned",
                 url="http://www.latimes.com/local/la-me-0301-lafd-hiring-20140301,0,5887646.story",
                 image="",
-                description="The two, who oversaw hiring and training, have sons who advanced in the recruiting process."
+                description="The two, who oversaw hiring and training, have sons who advanced in the recruiting process"
             ),
             Clip(
                 name="LAFD recruit program is suspended",
                 url="http://www.latimes.com/local/la-me-lafd-20140321,0,6241555.story",
                 image="",
-                description="The mayor suspended firefighter hiring with the release of emails that show special recruitment workshops for relatives of LAFD insiders."
+                description="The mayor suspended firefighter hiring with the release of emails that show special recruitment workshops for relatives of LAFD insiders"
             ),
         ]
     ),
