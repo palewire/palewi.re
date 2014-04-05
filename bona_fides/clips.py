@@ -109,16 +109,22 @@ CLIP_LIST = [
                 description='The next mayor is likely to garner fewer votes than any new mayor since the pre-freeway era, according to Times projection'
             ),
             Clip(
-                name='Tax vote tells tale of two realities',
-                url='http://www.latimes.com/news/local/la-me-tax-two-cities-20130309,0,1992530.story',
-                image='measurea.jpg',
-                description='Those in higher-crime areas supported proposal while affluent areas rejected it, according to Times analysis'
-            ),
-            Clip(
                 name='Where does the Westside start?',
                 url='http://maps.latimes.com/debates/westside/',
                 image='westside.png',
                 description='Is it a fixed place, with its own borders, customs and society, or only a state of mind?'
+            ),
+            Clip(
+                name='L.A.\'s Eastside: Where do you draw the line?',
+                url='http://maps.latimes.com/debates/eastside/',
+                image='eastside.png',
+                description='With no official definition, there\'s no official answer'
+            ),
+            Clip(
+                name='Tax vote tells tale of two realities',
+                url='http://www.latimes.com/news/local/la-me-tax-two-cities-20130309,0,1992530.story',
+                image='measurea.jpg',
+                description='Those in higher-crime areas supported proposal while affluent areas rejected it, according to Times analysis'
             ),
             Clip(
                 name='LAPD map omits nearly 40% of crimes',
