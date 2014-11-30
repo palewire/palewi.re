@@ -67,6 +67,12 @@ APP_LIST = [
                 description='Returns for <a href="http://graphics.latimes.com/2012-election-gop-results-map-iowa/">state primaries</a> and the <a href="http://graphics.latimes.com/2012-election-results-national-map/">general election</a>, with a special focus on <a href="http://graphics.latimes.com/2012-election-results-california/">California</a>'
             ),
             Application(
+                name='Find Obamacare doctors in California',
+                url='http://graphics.latimes.com/dr-network/',
+                image='dr-network.png',
+                description='Search for physicians listed by Covered California health plans for individual policies in 2015.'
+            ),
+            Application(
                 name='California\'s War Dead',
                 url='http://projects.latimes.com/wardead/',
                 image='wardead.png',
