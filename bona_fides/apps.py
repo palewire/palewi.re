@@ -70,7 +70,7 @@ APP_LIST = [
                 name='Find Obamacare doctors in California',
                 url='http://graphics.latimes.com/dr-network/',
                 image='dr-network.png',
-                description='Search for physicians listed by Covered California health plans for individual policies in 2015.'
+                description='Search for physicians listed by Covered California health plans for individual policies in 2015'
             ),
             Application(
                 name='California\'s War Dead',
