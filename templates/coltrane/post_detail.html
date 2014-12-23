@@ -98,21 +98,6 @@
                     {% endfor %}
                     </p>
                     {% endif %}
-                    
-                    {% if related_posts %}
-                    <p id="relatedposts">Some similar posts are 
-                        {% for p in related_posts %}
-                            {% if forloop.last %}and <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a>
-                            {% else %}
-                                {% ifequal forloop.revcounter 2 %}
-                                    <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a> 
-                                {% else %}
-                                    <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}},"</a> 
-                                {% endifequal %}
-                            {% endif %}
-                        {% endfor %}
-                    </p>
-                    {% endif %}
                 </div>
             </div>
         </article>
