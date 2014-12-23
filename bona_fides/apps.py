@@ -127,12 +127,6 @@ APP_LIST = [
                 description='The political money behind the rebuilding of the L.A. Community College District'
             ),
             Application(
-                name='datadesk.latimes.com',
-                url='http://datadesk.latimes.com',
-                image='datadesk.jpg',
-                description='A blog to showcase our team\'s work'
-            ),
-            Application(
                 name='Oct. 2013 Buenos Aires elecciones',
                 url='https://github.com/palermo-hollywood/election-2013',
                 image='buenos-aires.png',
@@ -189,8 +183,26 @@ APP_LIST = [
         ]
     ),
     ApplicationSet(
+        name='California Civic Data Coalition',
+        description='A loosely-coupled team of developers from the Data Desk, the Center for Investigative Reporting and Stanford\'s Computational Journalism Program',
+        app_list=[
+            Application(
+                name='django-calaccess-raw-data',
+                url='',
+                image='',
+                description=''
+            ),
+            Application(
+                name='django-calaccess-campaign-browser',
+                url='',
+                image='',
+                description=''
+            )
+        ]
+    ),
+    ApplicationSet(
         name='Open-source software',
-        description='Free and open code projects that I\'ve developed or contributed to',
+        description='Miscellaneous free and open code projects that I\'ve developed or contributed to',
         app_list=[
             Application(
                 name='python-elections',
