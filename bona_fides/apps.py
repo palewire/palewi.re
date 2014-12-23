@@ -136,7 +136,7 @@ APP_LIST = [
                 name='Oct. 2013 Buenos Aires elecciones',
                 url='https://github.com/palermo-hollywood/election-2013',
                 image='buenos-aires.png',
-                description='Election map that started at a hack day and ended in Buenos Aires daily newspaper'
+                description='Election map that started at a hack day and ended in a Buenos Aires daily newspaper'
             ),
         ]
     ),
@@ -154,7 +154,7 @@ APP_LIST = [
                 name='github.com/pastpages',
                 url='https://github.com/pastpages/pastpages.org',
                 image='pastpages-code.png',
-                description='The open-source code that powers the site'
+                description='The open-source code that powers PastPages'
             ),
             Application(
                 name='Storytracker',
