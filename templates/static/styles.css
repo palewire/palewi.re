@@ -112,7 +112,7 @@ form#commentform {padding: 0;}
 .appitem {padding: 0.75em 0;}
 .appimage {vertical-align:bottom;}
 .apptext {height:auto; vertical-align:top;}
-.apptext h3 { font-size:0.98em; }
+.apptext h3 { font-size:0.98em; line-height:1.2em; }
 .apptext p { font-size:0.75em; line-height: 1.2em; padding: 0; margin:0;}
 
 /* talk list */
