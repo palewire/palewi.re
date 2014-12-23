@@ -157,10 +157,28 @@ APP_LIST = [
                 description='The open-source code that powers the site'
             ),
             Application(
+                name='Storytracker',
+                url='http://storytracker.pastpages.org',
+                image='',
+                description='Tools for tracking stories on news homepages'
+            ),
+            Application(
                 name='The PastPages API',
                 url='http://www.pastpages.org/api/docs/',
                 image='pastpages-api.png',
                 description='A machine-readable version for programmers to access the archive\'s database'
+            ),
+            Application(
+                name='django-urlarchivefield',
+                url='http://www.github.com/pastpages/django-urlarchivefield/',
+                image='',
+                description='A custom Django model field that automatically archives a URL'
+            ),
+            Application(
+                name='storysniffer',
+                url='http://www.github.com/pastpages/storysniffer/',
+                image='',
+                description='Inspect a URL and estimate if it links to news story'
             ),
             Application(
                 name='pastpages2gif',
