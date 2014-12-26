@@ -153,7 +153,7 @@ APP_LIST = [
             Application(
                 name='Storytracker',
                 url='http://storytracker.pastpages.org',
-                image='',
+                image='storytracker.gif',
                 description='Tools for tracking stories on news homepages'
             ),
             Application(
