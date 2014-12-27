@@ -61,7 +61,13 @@ APP_LIST = [
                 description='Explore pavement quality ratings for each of the 68,000 street segments in L.A.'
             ),
             Application(
-                name='2012 Election Results',
+                name='2014 election results',
+                url='http://graphics.latimes.com/2014-election-results-california-statewide/',
+                image='election2014.png',
+                description='Returns for <a href="http://graphics.latimes.com/2014-election-results-nationwide/">Congress</a>, <a href="http://graphics.latimes.com/2014-election-results-california-statewide/">California</a> and other <a href="http://graphics.latimes.com/2014-election-results-marijuana/">interesting races</a>'
+            ),
+            Application(
+                name='2012 election results',
                 url='http://graphics.latimes.com/2012-election-results-national-map/',
                 image='election2012.png',
                 description='Returns for <a href="http://graphics.latimes.com/2012-election-gop-results-map-iowa/">state primaries</a> and the <a href="http://graphics.latimes.com/2012-election-results-national-map/">general election</a>, with a special focus on <a href="http://graphics.latimes.com/2012-election-results-california/">California</a>'
