@@ -165,13 +165,13 @@ APP_LIST = [
             Application(
                 name='django-urlarchivefield',
                 url='http://www.github.com/pastpages/django-urlarchivefield/',
-                image='',
+                image='urlarchivefield.png',
                 description='A custom Django model field that automatically archives a URL'
             ),
             Application(
                 name='storysniffer',
                 url='http://www.github.com/pastpages/storysniffer/',
-                image='',
+                image='storysniffer.png',
                 description='Inspect a URL and estimate if it links to news story'
             ),
             Application(
@@ -184,19 +184,19 @@ APP_LIST = [
     ),
     ApplicationSet(
         name='California Civic Data Coalition',
-        description='A loosely-coupled team of developers from the Data Desk, the Center for Investigative Reporting and Stanford\'s Computational Journalism Program',
+        description='A loosely-coupled team from the Data Desk, the Center for Investigative Reporting and Stanford\'s Computational Journalism Lab',
         app_list=[
             Application(
                 name='django-calaccess-raw-data',
-                url='',
-                image='',
-                description=''
+                url='http://django-calaccess-raw-data.californiacivicdata.org/',
+                image='django-calaccess-raw-data.png',
+                description='Download, extract and load California\'s CAL-ACCESS database'
             ),
             Application(
                 name='django-calaccess-campaign-browser',
-                url='',
-                image='',
-                description=''
+                url='http://django-calaccess-campaign-browser.californiacivicdata.org/',
+                image='django-calaccess-campaign-browser.png',
+                description='Refine and investigate campaign finance data in California\'s CAL-ACCESS database'
             )
         ]
     ),
