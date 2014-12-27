@@ -136,7 +136,7 @@ APP_LIST = [
     ),
     ApplicationSet(
         name='PastPages',
-        description='A crowd-funded, open-source website that archives dozens of news hompages each hour',
+        description='A crowd-funded, open-source website that archives dozens of news homepages each hour',
         app_list=[
             Application(
                 name='pastpages.org',
