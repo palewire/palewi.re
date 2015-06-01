@@ -1,5 +1,6 @@
 # Django settings for cms project.
 import os
+from django.core.exceptions import SuspiciousOperation
 settings_dir = os.path.dirname(__file__)
 SETTINGS_DIR = settings_dir
 ROOT_DIR = os.path.join(
