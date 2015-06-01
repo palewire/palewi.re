@@ -12,5 +12,5 @@ try:
     import newrelic.agent
     newrelic.agent.initialize('/apps/palewi.re/repo/project/newrelic.ini')
     application = newrelic.agent.wsgi_application()(application)
-except:
+except ImportError:
     pass
