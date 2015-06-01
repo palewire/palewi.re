@@ -34,3 +34,4 @@ simplejson==3.3.1
 six==1.4.1
 sqlparse==0.1.11
 yolk==0.4.1
+newrelic
