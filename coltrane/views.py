@@ -60,10 +60,10 @@ def ticker_detail(request, page=1, response_type='html'):
         'shout',
         'track',
     ]
-    
+
     # Check if the user has provided a filter
     filter_string = request.GET.get("filters")
-    
+
     # If there's no filter, it's a lot easier
     object_list = Ticker.objects.all()
     selected_slugs = contenttypes_whitelist
@@ -89,31 +89,31 @@ def ticker_detail(request, page=1, response_type='html'):
                     pass
         if not contenttype_list:
             raise Http404
-        
+
         # Pull the data
         object_list = object_list.filter(content_type__in=contenttype_list)
-    
+
     # Grab the first page of 100 items
     paginator = Paginator(object_list, 100)
     try:
         page_obj = paginator.page(int(page))
     except (EmptyPage, InvalidPage):
         raise Http404
-    
+
     # Figure out what template to use
     templates = {
         'html': 'coltrane/ticker_list.html',
         'json': 'coltrane/ticker_list.json',
     }
     template = templates[response_type]
-    
+
     # Figure out the content type for the response
     content_types = {
         'html': 'text/html',
         'json': 'text/javascript',
     }
     content_type = content_types[response_type]
-    
+
     # Pass out the data
     context = {
         "object_list": list(page_obj.object_list.fetch_generic_relations()),
@@ -136,10 +136,8 @@ def post_detail(request, year, month, day, slug):
         pub_date__day=pub_date.day,
         slug=slug
     )
-    related_posts = TaggedItem.objects.get_related(post, get_model('coltrane', 'post'))[:5]
     context = {
         'object': post,
-        'related_posts': related_posts
     }
     return render(request, 'coltrane/post_detail.html', context)
 
@@ -170,16 +168,16 @@ def tag_detail(request, tag):
             tag = Tag.objects.get(name=tag.replace("-", ""))
         except Tag.DoesNotExist:
             raise Http404
-    
+
     # Pull all the items with that tag.
     taggeditem_list = TaggedItem.objects.filter(tag=tag).fetch_generic_relations()
-    
+
     # Loop through the tagged items and return just the items
     object_list = [i.object for i in taggeditem_list if getattr(i.object, 'pub_date', False)]
-    
+
     # Now resort them by the pub_date attribute we know each one should have
     object_list.sort(key=lambda x: x.pub_date, reverse=True)
-    
+
     # Slice it to 500 max
     object_list = object_list[:500]
 
@@ -189,8 +187,8 @@ def tag_detail(request, tag):
         maxed_out = False
 
     # Pass it out
-    return render(request, 'coltrane/tag_detail.html', { 
-            'tag': tag, 
+    return render(request, 'coltrane/tag_detail.html', {
+            'tag': tag,
             'object_list': object_list,
             'maxed_out': maxed_out,
         })
@@ -198,7 +196,7 @@ def tag_detail(request, tag):
 
 def correx_redirect(request, id):
     """
-    Redirect the browser to the content object page where a 
+    Redirect the browser to the content object page where a
     particular correction is published.
     """
     correction = get_object_or_404(Change, id=id)
@@ -211,17 +209,17 @@ def correx_redirect(request, id):
 def newtwitter_pagination_index(request):
     """
     An index page where we can lay out how to pull off Twitter style
-    pagination. 
-    
+    pagination.
+
     Passed out the 100 latest tracks to seed the page.
     """
     # Pull the data
     object_list = Track.objects.all()
-    
+
     # Grab the first page of 100 items
     paginator = Paginator(object_list, 100)
     page_obj = paginator.page(1)
-    
+
     # Pass out the data
     context = {
         "object_list": page_obj.object_list,
@@ -234,13 +232,13 @@ def newtwitter_pagination_index(request):
 def newtwitter_pagination_json(request, page):
     """
     A JSON feed to feed updates to the index page as the user
-    scrolls down the page. 
-    
+    scrolls down the page.
+
     Passes out pages of Track objects based on the `page` kwarg.
     """
     # Pull the data
     object_list = Track.objects.all()
-    
+
     # Pull the proper items for this page
     paginator = Paginator(object_list, 100)
     try:
@@ -248,7 +246,7 @@ def newtwitter_pagination_json(request, page):
     except InvalidPage:
         # Return 404 if the page doesn't exist
         raise Http404
-    
+
     # Pass out the data
     context = {
         "object_list": page_obj.object_list,
