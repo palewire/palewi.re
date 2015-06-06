@@ -1,5 +1,5 @@
 {
-    "run_list": [ 
+    "run_list": [
         "palewire::default",
         "palewire::python",
         "palewire::postgresql",
@@ -10,30 +10,31 @@
         "palewire::varnish",
         "palewire::munin",
         "palewire::monit",
+        "palewire::newrelic",
         "palewire::cron"
     ],
-    
+
     "base_packages": [
         "git-core",
         "bash-completion",
         "zip",
         "unzip"
     ],
-    
+
     "users": {
         "palewire": {
           "id": 1001,
           "full_name": "palewire"
         }
     },
-    
+
     "groups": {
         "palewire": {
           "gid": 201,
           "members": ["palewire"]
         }
     },
-    
+
     "ubuntu_python_packages": [
         "python-setuptools",
         "python-pip",
@@ -41,12 +42,12 @@
         "libpq-dev",
         "python-virtualenv"
         ],
-    
+
     "pip_python_packages": {},
-    
+
     "apps_user": "palewire",
     "apps_password": "palewire",
-    
+
     "apps": [{
         "name": "palewi.re",
         "repo": "git://github.com/palewire/palewi.re.git",
@@ -56,20 +57,20 @@
         "db_password": "",
         "apache_server_name": ""
     }],
-    
+
     "apache_port": "8008",
     "varnish_whitelist": [
         ""
     ],
     "varnish_ttl": "180s",
-    
+
     "munin_name": "palewi.re",
     "munin_db_user": "",
     "munin_db_name": "",
     "munin_include_db_list": "",
-    
+
     "monit_test_ip": "",
-    
+
     "crons": {
         "synclastfm": {
             "minute": "1,11,21,31,41,51",

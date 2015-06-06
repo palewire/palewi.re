@@ -6,4 +6,4 @@ def ssh():
     """
     Log into the remote host using SSH
     """
-    local("ssh ubuntu@%s -i %s" % (env.hosts[0], env.key_filename[0]))
+    local("ssh %s@%s -i %s" % (env.app_user, env.hosts[0], env.key_filename[0]))

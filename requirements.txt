@@ -27,7 +27,7 @@ python-dateutil==1.4.1
 python-magic==0.4.6
 python-memcached
 python-twitter==1.1
-pyt
+pytz
 requests==2.0.0
 requests-oauthlib==0.4.0
 simplejson==3.3.1
