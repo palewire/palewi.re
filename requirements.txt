@@ -1,6 +1,6 @@
 BeautifulSoup==3.2.0
 Django==1.6.2
-Fabric==1.5.1
+Fabric
 Jinja2==2.6
 Pygments==1.2.2
 South==0.8.4
@@ -25,13 +25,13 @@ psycopg2==2.2.2
 pycrypto==2.6
 python-dateutil==1.4.1
 python-magic==0.4.6
-python-memcached==1.45
+python-memcached
 python-twitter==1.1
-pytz==2010o
+pyt
 requests==2.0.0
 requests-oauthlib==0.4.0
 simplejson==3.3.1
-six==1.4.1
+six
 sqlparse==0.1.11
-yolk==0.4.1
+yolk
 newrelic
