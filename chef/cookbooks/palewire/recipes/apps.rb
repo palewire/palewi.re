@@ -48,23 +48,23 @@ end
 
 # Loop through all the apps we want to configure
 node[:apps].each do |app|
-    
+
     # Make the directory for the app
     virtualenv "/apps/#{app[:name]}" do
         owner node[:apps_user]
         group node[:apps_group]
         mode 0775
     end
-    
+
     # Make the directory for the repo
-    directory "/apps/#{app[:name]}/project" do
+    directory "/apps/#{app[:name]}/repo" do
         owner node[:apps_user]
         group node[:apps_group]
         mode 0775
     end
-    
+
     # Pull the git repo
-    git "/apps/#{app[:name]}/project"  do
+    git "/apps/#{app[:name]}/repo"  do
       repository app[:repo]
       reference "HEAD"
       revision app[:branch]
@@ -72,13 +72,13 @@ node[:apps].each do |app|
       group node[:apps_group]
       action :sync
     end
-    
+
     # Install the virtualenv requirements
     script "Install Requirements" do
       interpreter "bash"
       user node[:apps_user]
       group node[:apps_group]
-      code "/apps/#{app[:name]}/bin/pip install -r /apps/#{app[:name]}/project/requirements.txt"
+      code "/apps/#{app[:name]}/bin/pip install -r /apps/#{app[:name]}/repo/requirements.txt"
     end
 
     # Create the database user

@@ -8,12 +8,11 @@ package "libapache2-mod-wsgi" do
     :upgrade
 end
 
-# Restart apache
-service "apache2" do
-  enabled true
-  running true
-  supports :status => true, :restart => true, :start => true, :stop => true
-  action [:restart,]
+# install mod-rpaf so apache can use the X-Forwarded-For
+# header to see the real incoming IP addresses. This prevents server-status
+# from being publicly available
+package "libapache2-mod-rpaf" do
+    :upgrade
 end
 
 # Set the port for Apache since Varnish will be on :80
@@ -25,7 +24,6 @@ template "/etc/apache2/ports.conf" do
   variables({
      :apache_port => node[:apache_port]
   })
-  notifies :restart, resources(:service => "apache2")
 end
 
 # Set a virtual host file for each app
@@ -41,22 +39,27 @@ node[:apps].each do |app|
          :app_name => app[:name],
          :apps_user => node[:apps_user]
       })
-      notifies :restart, resources(:service => "apache2")
     end
 end
 
 cookbook_file "/etc/apache2/apache2.conf" do
-  source "apache/apache2.conf" 
+  source "apache/apache2.conf"
   mode 0640
   owner "root"
   group "root"
-  notifies :restart, resources(:service => "apache2")
 end
 
 bash "Remove default apache config" do
   user "root"
   group "root"
-  code "rm /etc/apache2/sites-enabled/000-default"
+  code "rm /etc/apache2/sites-enabled/000-default.conf"
   ignore_failure true
 end
 
+script "restart-apache" do
+  interpreter "bash"
+  user "root"
+  code <<-EOH
+    apachectl restart
+  EOH
+end

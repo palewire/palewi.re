@@ -106,7 +106,7 @@ urlpatterns = patterns('',
 
 # URLs for the new blog
 urlpatterns += patterns('',
-    
+
     # The index
     url(r'^$', 'coltrane.views.index', name='coltrane_index'),
     # My bio
@@ -142,7 +142,7 @@ urlpatterns += patterns('',
         {'response_type': 'json'},
         name='coltrane_ticker_json'),
     # Detail pages
-    url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 
+    url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         'coltrane.views.post_detail', name='coltrane_post_detail'),
     url(r'categories/(?P<slug>[-\w]+)/$', 'coltrane.views.category_detail',
         name="coltrane_category_detail"),
@@ -153,7 +153,7 @@ urlpatterns += patterns('',
     # Feeds
     url(r'^feeds/list/$', DirectTemplateView.as_view(
         **{'template_name': 'coltrane/feed_list.html'})),
-    
+
     url(r'feeds/the-full-feed/$', feeds.FullFeed(), name="feeds-the-full-feed"),
     url(r'feeds/less-noise/$', feeds.LessNoise(), name="feeds-less-noise"),
     url(r'feeds/beers/$', feeds.RecentBeers(), name="feeds-beers"),
@@ -171,7 +171,7 @@ urlpatterns += patterns('',
     url(r'feeds/movies/$', feeds.RecentMovies(), name="feeds-movies"),
     url(r'feeds/locations/$', feeds.RecentLocations(), name="feeds-locations"),
     url(r'feeds/questionheds/$', feeds.RecentHeds(), name="feeds-questionheds"),
-    
+
     # Sitemaps
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index',
         {'sitemaps': sitemaps}),
@@ -240,9 +240,7 @@ else:
 
 if settings.PRODUCTION:
     urlpatterns += patterns('',
-        url(r'^munin/(?P<path>.*)$', staff_member_required(static_serve), {
-            'document_root': settings.MUNIN_ROOT,
-        })
+        url(r'^app_status/$', 'toolbox.views.app_status', name='status'),
    )
 
 

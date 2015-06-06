@@ -12,11 +12,11 @@ package "libproj-dev" do
     :upgrade
 end
 
-package "postgresql-9.1-postgis" do
+package "postgresql-9.4-postgis-2.1" do
     :upgrade
 end
 
-package "postgresql-server-dev-9.1" do
+package "postgresql-server-dev-9.4" do
     :upgrade
 end
 

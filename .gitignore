@@ -12,3 +12,4 @@ static/*
 chef/cookbooks/palewire/files/default/users/*
 chef/node.json
 newrelic.ini
+fabfile/env.py

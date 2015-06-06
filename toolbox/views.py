@@ -1,4 +1,13 @@
 from django.views.generic import TemplateView
+from django.http import HttpResponse
+
+
+def app_status(request):
+    """
+    Page for Varnish to check the server/app status
+    """
+    return HttpResponse("ok")
+
 
 class DirectTemplateView(TemplateView):
     extra_context = None

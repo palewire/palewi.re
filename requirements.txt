@@ -7,7 +7,7 @@ South==0.8.4
 Sphinx==1.1.2
 akismet==0.2.0
 argparse==1.2.1
-boto==2.6.0
+boto
 django-admin-sortable==1.6.3
 django-debug-toolbar==1.0.1
 django-extensions==1.2.5

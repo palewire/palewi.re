@@ -1,8 +1,15 @@
 <VirtualHost *:<%= @apache_port %>>
     ServerName <%= @server_name %>
     ServerAlias <%= @server_name %>
-    WSGIScriptAlias / /apps/<%= @app_name %>/project/apache/django.wsgi
-    WSGIDaemonProcess <%= @app_name %> user=<%= @apps_user %> display-name=%{GROUP} processes=2 threads=15
+    WSGIScriptAlias / /apps/<%= @app_name %>/repo/project/wsgi_prod.py
+    WSGIDaemonProcess <%= @app_name %> user=<%= @apps_user %> processes=2 threads=15 display-name=%{GROUP} python-path=/apps/<%= @app_name %>/lib/python2.7/site-packages/:/apps/<%= @app_name %>/repo/
     WSGIProcessGroup <%= @app_name %>
     WSGIApplicationGroup %{GLOBAL}
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    <Directory /apps/<%= @app_name %>/repo/project/>
+        <Files wsgi_prod.py>
+            Require all granted
+        </Files>
+    </Directory>
 </VirtualHost>
