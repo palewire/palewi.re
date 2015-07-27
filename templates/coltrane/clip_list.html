@@ -34,15 +34,17 @@ $('img').laziestloader({threshold:300});
                     <div class="row">
                     {% endif %}
                         <div class="sixcol appitem {% if forloop.counter|divisibleby:'2' %}last{% endif %}">
+                            {% if clip.image %}
                             <div class="threecol appimage">
                                 <a href="{{ clip.url }}">
-                                    <img src="{{ STATIC_URL }}img/blank-white.jpg" 
+                                    <img src="{{ STATIC_URL }}img/blank-white.jpg"
                                         data-src="{{ STATIC_URL }}clips/{{ clip.image }}">
                                     <noscript>
                                       <img src="{{ STATIC_URL }}clips/{{ clip.image }}" />
                                     </noscript>
                                 </a>
                             </div>
+                            {% endif %}
                             <div class="ninecol last apptext">
                                 <h3><a href="{{ clip.url }}">{{ clip.name }}</a></h3>
                                 <p>{{ clip.description|safe }}</p>

@@ -63,6 +63,48 @@ CLIP_LIST = [
         ]
     ),
     ClipSet(
+        name="Compton Fire Department at a 'crossroads'",
+        description="A series of scoops that triggered change at the troubled fire agency",
+        app_list=[
+            Clip(
+                 name="Nearly 1 in 4 Compton firefighters working without EMT permit",
+                 url="http://www.latimes.com/local/lanow/la-me-ln-compton-firefighters-without-emt-permit-20150326-story.html",
+                 image="",
+                 description="Many lack the key credential, a Times investigation finds"
+            ),
+            Clip(
+                 name="Lawmakers calls for stricter EMT requirements",
+                 url="http://www.latimes.com/local/lanow/la-me-ln-emt-law-20150327-story.html",
+                 image="",
+                 description="Law would require firefighters be certified",
+            ),
+            Clip(
+                 name="Defibrillators off Compton trucks, ambulances",
+                 url="http://www.latimes.com/local/california/la-me-0607-compton-aed-20150707-story.html",
+                 image="",
+                 description="County regulators order them removed after Times report"
+            ),
+            Clip(
+                name="Compton fire chief put on leave",
+                url="http://www.latimes.com/local/lanow/la-me-compton-fire-chief-20150707-story.html",
+                image="",
+                description="Interim chief named to fix the fire agency"
+            ),
+            Clip(
+                name="Confidential audit another blow to Compton Fire",
+                url="http://www.latimes.com/local/lanow/la-me-ln-compton-fire-audit-20150714-story.html",
+                image="",
+                description="Outside report identifies more issues",
+            ),
+            Clip(
+                name="Regulator calls for an overhaul",
+                url="http://www.latimes.com/local/lanow/la-me-ln-compton-fire-20150724-story.html",
+                image="",
+                description="Oversight agency calls for broad and potentially costly change",
+            ),
+        ]
+    ),
+    ClipSet(
         name="LAFD hiring controversy",
         description="A series of investigative reports that prompted an overhaul of how city firefighters are hired",
         app_list=[
@@ -142,7 +184,7 @@ CLIP_LIST = [
     ),
     ClipSet(
         name='State and federal government',
-        description='Data analysis that developed new insights into how government works',
+        description='Data analysis that developed new insights into how government works, or doesn\'t',
         app_list=[
             Clip(
                 name='Hear No Evil, Smell No Evil',
