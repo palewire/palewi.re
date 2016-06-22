@@ -22,7 +22,11 @@ def index(request):
     """
     The homepage of the site, which simply redirects to the bio.
     """
-    return HttpResponseRedirect("/who-is-ben-welsh/")
+    try:
+        latest_post = Post.live.latest()
+        return HttpResponseRedirect(latest_post.get_absolute_url())
+    except Post.DoesNotExist:
+        return HttpResponseRedirect("/ticker/")
 
 
 def bio(request):
