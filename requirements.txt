@@ -1,5 +1,5 @@
 BeautifulSoup==3.2.0
-Django==1.7
+Django==1.8.18
 Fabric
 Jinja2==2.6
 Pygments==1.2.2
@@ -21,7 +21,7 @@ oauthlib==0.6.0
 paramiko==1.9.0
 pep8==0.5.0
 prettytable==0.6.1
-psycopg2==2.2.2
+psycopg2==2.4.5
 pycrypto==2.6
 python-dateutil==1.4.1
 python-magic==0.4.6
@@ -35,4 +35,4 @@ six
 sqlparse==0.1.11
 yolk
 newrelic
-django-contrib-comments==1.5.1
+django-contrib-comments==1.6.2

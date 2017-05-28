@@ -1,7 +1,7 @@
 # Signals
 from django.db.models import signals
 from django.dispatch import dispatcher
-from django.contrib.comments.signals import comment_was_posted
+from django_comments.signals import comment_was_posted
 
 # Models
 from django.contrib.contenttypes.models import ContentType
@@ -37,14 +37,14 @@ def delete_ticker_item(sender, instance, signal, *args, **kwargs):
     from coltrane.models import Ticker
     # Figure out what type of object it is
     ctype = ContentType.objects.get_for_model(instance)
-    
+
     # If it's a comment, we'll need some special treatment
     # since it has a different pub date field name
     if instance.__class__.__name__ == 'Comment':
         pub_date = instance.submit_date
     else:
         pub_date = instance.pub_date
-    
+
     # Look for any Ticker item and delete it if it exists
     try:
         t = Ticker.objects.get(content_type=ctype, object_id=instance.id, pub_date=pub_date)
@@ -66,20 +66,20 @@ def category_count(sender, instance, signal, *args, **kwargs):
 def on_comment_was_posted(sender, comment, request, *args, **kwargs):
     """
     Spam guard for comments.
-    
+
     Lifted from this guy: http://sciyoshi.com/blog/2008/aug/27/using-akismet-djangos-new-comments-framework/
     """
-    
+
     from django.contrib.sites.models import Site
     from django.conf import settings
     from django.template import Context, loader
     from django.core.mail import send_mail
-    
+
     try:
         from akismet import Akismet
     except:
         return
-    
+
     # use TypePad's AntiSpam if the key is specified in settings.py
     if hasattr(settings, 'TYPEPAD_ANTISPAM_API_KEY'):
         ak = Akismet(
@@ -92,7 +92,7 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
             key=settings.AKISMET_API_KEY,
             blog_url='http://%s/' % Site.objects.get(pk=settings.SITE_ID).domain
         )
-    
+
     if ak.verify_key():
         data = {
             'user_ip': request.META.get('REMOTE_ADDR', '127.0.0.1'),
@@ -111,7 +111,7 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
             comment.is_public = False
             comment.is_removed = True
             comment.save()
-        
+
         # If it's not...
         else:
             # Send an email

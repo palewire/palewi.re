@@ -18,7 +18,7 @@ from django.conf import settings
 from tagging.models import Tag
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
-from django.contrib.comments.models import Comment
+from django_comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 
 # Fields
@@ -30,7 +30,7 @@ from coltrane.managers import *
 
 # Signals
 from django.db.models import signals
-from django.contrib.comments.signals import comment_will_be_posted
+from django_comments.signals import comment_will_be_posted
 from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
 
 
@@ -390,7 +390,7 @@ signals.post_save.connect(category_count, sender=Post)
 signals.post_delete.connect(category_count, sender=Post)
 
 # Comment moderation
-from django.contrib.comments.moderation import CommentModerator, moderator
+from django_comments.moderation import CommentModerator, moderator
 
 
 class ColtraneModerator(CommentModerator):

@@ -465,9 +465,11 @@ class Tag(models.Model):
         ordering = ('name',)
         verbose_name = _('tag')
         verbose_name_plural = _('tags')
+        app_label = "tagging"
 
     def __unicode__(self):
         return self.name
+
 
 class TaggedItem(models.Model):
     """
@@ -480,6 +482,7 @@ class TaggedItem(models.Model):
     objects = TaggedItemManager()
 
     class Meta:
+        app_label = "tagging"
         # Enforce unique tag association per object
         unique_together = (('tag', 'content_type', 'object_id'),)
         verbose_name = _('tagged item')
