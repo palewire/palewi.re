@@ -10,7 +10,7 @@ class LivePostManager(models.Manager):
     Returns all posts set to be published.
     """
     def get_queryset(self):
-        return super(LivePostManager, self).get_query_set().filter(status=self.model.LIVE_STATUS)
+        return super(LivePostManager, self).get_queryset().filter(status=self.model.LIVE_STATUS)
 
 
 class LiveCategoryManager(models.Manager):
@@ -18,7 +18,7 @@ class LiveCategoryManager(models.Manager):
     Returns all categories with at least one live post.
     """
     def get_queryset(self):
-        return super(LiveCategoryManager, self).get_query_set().filter(post_count__gt=0)
+        return super(LiveCategoryManager, self).get_queryset().filter(post_count__gt=0)
 
 
 class TopDomainUpdateManager(models.Manager):
