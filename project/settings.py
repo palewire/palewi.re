@@ -101,7 +101,6 @@ INSTALLED_APPS = (
     'tagging',
     'django_extensions',
     'greeking',
-    'shortener',
     'south',
     'adminsortable',
     # NICAR-related apps

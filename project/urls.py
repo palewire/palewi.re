@@ -182,8 +182,6 @@ urlpatterns += patterns('',
         **{'template_name': 'robots.txt', 'content_type': 'text/plain'}), name='robots'),
     url(r'^favicon.ico$', RedirectView.as_view(
         url='http://palewire.s3.amazonaws.com/favicon.ico')),
-    # URL shortener
-    (r'!/', include('shortener.urls')),
     # Kennedy name generator
     (r'^kennedy/', include('wxwtf.kennedy.urls')),
     # Flu Shots 2011
@@ -246,4 +244,3 @@ if settings.PRODUCTION:
 
 # 500 page fix
 handler500 = 'coltrane.views.server_error'
-
