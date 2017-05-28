@@ -1,5 +1,4 @@
 from django.contrib import admin
-from tagging.models import Tag
 from coltrane.models import *
 
 
@@ -58,14 +57,6 @@ class TickerAdmin(ThirdPartyBaseAdmin):
     search_fields = []
 
 
-class TopDomainAdmin(admin.ModelAdmin):
-    list_display = ('name', 'count')
-
-
-class TopTagAdmin(admin.ModelAdmin):
-    list_display = ('name', 'count')
-
-
 class TrackAdmin(ThirdPartyBaseAdmin):
     list_display = ('artist_name', 'track_name', 'pub_date')
     search_fields = ('artist_name', 'track_name')
@@ -82,6 +73,4 @@ admin.site.register(Photo, ThirdPartyBaseAdmin)
 admin.site.register(Shout, ShoutAdmin)
 admin.site.register(Slogan, admin.ModelAdmin)
 admin.site.register(Ticker, TickerAdmin)
-admin.site.register(TopDomain, TopDomainAdmin)
-admin.site.register(TopTag, TopTagAdmin)
 admin.site.register(Track, TrackAdmin)

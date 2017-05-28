@@ -1,7 +1,7 @@
 import random
 from django import template
 from datetime import datetime
-from django.db.models import get_model
+from django.apps import apps
 from coltrane.models import Post, Slogan
 
 
@@ -36,7 +36,7 @@ def do_latest_content(parser, token):
     model_args = bits[1].split('.')
     if len(model_args) != 2:
         raise template.TemplateSyntaxError("First argument to 'get_latest_content' must be an 'application_name'.'model name' string")
-    model = get_model(*model_args)
+    model = apps.get_model(*model_args)
     if model is None:
         raise template.TemplateSyntaxError("'get_latest_content' tag got an invalid model: %s" % bits[1])
     return LatestContentNode(model, bits[2], bits[4])
@@ -68,6 +68,3 @@ register.tag('get_latest_content', do_latest_content)
 register.tag('get_random_slogan', do_random_slogan)
 register.tag('get_all_slogans', do_all_slogans)
 register.tag('get_current_year', do_current_year)
-
-
-

@@ -11,8 +11,6 @@ from django.views.generic import ListView
 
 # Models
 from correx.models import Change
-from django.db.models import get_model
-from tagging.models import Tag, TaggedItem
 from bona_fides import models as bona_fides
 from django.contrib.contenttypes.models import ContentType
 from coltrane.models import Post, Category, Link, Photo, Track, Ticker, Beer
@@ -152,46 +150,6 @@ def category_detail(request, slug):
         category=category,
     )
     return render(request, 'coltrane/category_detail.html', context)
-
-
-def tag_detail(request, tag):
-    """
-    A list that reports all of the content with a particular tag.
-    """
-    try:
-        tag = Tag.objects.get(name=tag)
-    except Tag.DoesNotExist:
-        # If the tag isn't found, try it with hyphens removed, which
-        # was the convention on my old Wordpress blog. This can help
-        # keep old tag page links alive.
-        try:
-            tag = Tag.objects.get(name=tag.replace("-", ""))
-        except Tag.DoesNotExist:
-            raise Http404
-
-    # Pull all the items with that tag.
-    taggeditem_list = TaggedItem.objects.filter(tag=tag).fetch_generic_relations()
-
-    # Loop through the tagged items and return just the items
-    object_list = [i.object for i in taggeditem_list if getattr(i.object, 'pub_date', False)]
-
-    # Now resort them by the pub_date attribute we know each one should have
-    object_list.sort(key=lambda x: x.pub_date, reverse=True)
-
-    # Slice it to 500 max
-    object_list = object_list[:500]
-
-    if len(object_list) == 500:
-        maxed_out = True
-    else:
-        maxed_out = False
-
-    # Pass it out
-    return render(request, 'coltrane/tag_detail.html', {
-            'tag': tag,
-            'object_list': object_list,
-            'maxed_out': maxed_out,
-        })
 
 
 def correx_redirect(request, id):

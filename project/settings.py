@@ -98,8 +98,6 @@ INSTALLED_APPS = (
     'django_comments',
      # Site extras and helpers
     'correx',
-    'tagging',
-    'django_extensions',
     'greeking',
     'adminsortable',
     # NICAR-related apps
@@ -143,10 +141,6 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler',
             'filters': ['require_debug_false', 'skip_suspicious_operations'],
         },
-        'null': {
-            'level':'DEBUG',
-            'class':'django.utils.log.NullHandler',
-        },
         'console':{
             'level':'DEBUG',
             'class':'logging.StreamHandler',
@@ -185,10 +179,6 @@ LOGGING = {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
             'propagate': True,
-        },
-        'django.security.DisallowedHost': {
-            'handlers': ['null'],
-            'propagate': False,
         },
     }
 }

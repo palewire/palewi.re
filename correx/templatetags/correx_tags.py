@@ -6,7 +6,7 @@ register = template.Library()
 from correx.models import Change
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
-from django.db.models import get_app, get_model
+from django.apps import apps
 from django.contrib.contenttypes.models import ContentType
 
 # Text manipulation
@@ -31,13 +31,13 @@ class ChangesByObjectNode(template.Node):
 
 
 def do_changes_for_object(parser, token):
-	""" 
+	"""
 	Gets a list of the changes for a particular object.
-	
+
 	Syntax::
 
 		{% get_changes_for_object [object] [count] as [varname] %}
-	
+
 	Example usage::
 
 		{% load correx_tags %}
@@ -45,9 +45,9 @@ def do_changes_for_object(parser, token):
 		{% for change in change_list %}
 			<li>{{ change.pub_date }} - {{ change.get_change_type_display }} - {{ change.description }}</li>
 		{% endfor %}
-		
+
 	Good for pulling the list into object_detail pages.
-		
+
 	"""
 	bits = token.contents.split()
 	if len(bits) != 5:
@@ -64,7 +64,7 @@ class ChangesByModelNode(template.Node):
 		self.varname = varname
 
 	def render(self, context):
-		model = get_model(*self.model.split('.'))
+		model = apps.get_model(*self.model.split('.'))
 		if model is None:
 			raise template.TemplateSyntaxError(_('get_changes_for_model tag was given an invalid model: %s') % self.model)
 		ct = ContentType.objects.get_for_model(model)
@@ -74,15 +74,15 @@ class ChangesByModelNode(template.Node):
 
 
 def do_changes_for_model(parser, token):
-	""" 
+	"""
 	Gets a list of the most recent changes for particular model.
 
 	Syntax::
-	
+
 		{% get_changes_for_model [app_label].[model_name] [count] as [varname] %}
 
 	Example usage::
-	
+
 		{% load correx_tags %}
 		{% get_changes_for_model newspaper.Article 5 as change_list %}
 		{% for change in change_list %}
@@ -115,7 +115,7 @@ class ChangesByAppNode(template.Node):
 
 
 def do_changes_for_app(parser, token):
-	""" 
+	"""
 	Gets a list of the most recent changes for particular app.
 
 	Syntax::
@@ -158,7 +158,7 @@ class ChangesBySiteNode(template.Node):
 
 
 def do_changes_for_site(parser, token):
-	""" 
+	"""
 	Gets a list of the most recent changes for particular site.
 
 	Syntax::
@@ -199,11 +199,11 @@ class ChangesByUserNode(template.Node):
 
 
 def do_changes_for_user(parser, token):
-	""" 
+	"""
 	Gets a list of  the most recent changes for particular user.
-	
+
 	Syntax::
-	
+
 		{% get_changes_for_user [username] [count] as [varname] %}
 
 	Example usage::
@@ -236,13 +236,13 @@ class LatestChangesNode(template.Node):
 
 
 def do_latest_changes(parser, token):
-	""" 
+	"""
 	Gets a list of the most recent changes regardless of user, site, app, model or object.
-	
+
 	Syntax::
 
 		{% get_latest_changes [count] as [varname] %}
-	
+
 	Example usage::
 
 		{% load correx_tags %}
@@ -250,11 +250,11 @@ def do_latest_changes(parser, token):
 		{% for change in latest_changes %}
 			<li>{{ change.pub_date}} - {{ change.get_change_type_display }} - {{ change.description }}</li>
 		{% endfor %}
-		
+
 	Good for pulling the list into sidebars that run across an app or site.
 
 	"""
-	
+
 	bits = token.contents.split()
 	if len(bits) != 4:
 		raise template.TemplateSyntaxError (_("get_latest_changes tag takes exactly four arguments"))

@@ -4,65 +4,11 @@ from django.contrib.syndication.views import Feed, FeedDoesNotExist
 
 # Models
 from coltrane.models import *
-from tagging.models import *
 from correx.models import Change
 from django_comments.models import Comment
 
 # Helpers
 from django.shortcuts import get_object_or_404
-
-
-class TagFeed(Feed):
-    """
-    The most recent content with a particular tag.
-    """
-
-    def get_object(self, request, slug):
-        """
-        Fetch the Tag object.
-        """
-        return get_object_or_404(Tag, name=slug)
-
-    def title(self, obj):
-        """
-        Set the feed title.
-        """
-        return "%s . tags . palewire" % obj.name.lower()
-
-    def description(self, obj):
-        """
-        Set the feed description.
-        """
-        return "the latest tagged %s" % obj.name.lower()
-
-    def link(self, obj):
-        """
-        Set the feed link.
-        """
-        if not obj:
-            raise FeedDoesNotExist
-        return u'/tags/%s/' % obj.name
-
-    def items(self, obj):
-        """
-        Fetch the latest 10 objects with a particular tag, which is passed as the `obj` argument.
-        """
-        # Pull all the items with that tag.
-        taggeditem_list = obj.items.all()
-        # Loop through the tagged items and return just the items with a pub_date attribute
-        object_list = [i.object for i in taggeditem_list if getattr(i.object, 'pub_date', False)]
-        # Now resort them by the pub_date attribute with the newest coming first
-        object_list.sort(key=lambda x: x.pub_date, reverse=True)
-        # And return the first ten.
-        return object_list[:10]
-
-    def item_link(self, obj):
-        """
-        Set the URL for each tagged item, using the url attribute we have on each of our models.
-        """
-        if not obj:
-            raise FeedDoesNotExist
-        return obj.url
 
 
 class CategoryFeed(Feed):

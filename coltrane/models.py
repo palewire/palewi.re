@@ -15,15 +15,13 @@ from django.template.defaultfilters import truncatewords_html as truncate_html_w
 from django.conf import settings
 
 # Models
-from tagging.models import Tag
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django_comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 
 # Fields
-from tagging.fields import TagField
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes import fields as generic
 
 # Managers
 from coltrane.managers import *
@@ -135,7 +133,6 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
         help_text=_("Only 'Live' entries will be publicly displayed."))
     categories = models.ManyToManyField(Category)
-    tags = TagField(blank=True, help_text=_('Separate tags with spaces.'))
     objects = models.Manager()
     live = LivePostManager()
 
@@ -164,13 +161,6 @@ class Post(models.Model):
     def get_absolute_icon(self):
         return u'%sicons/posts.gif' % (settings.STATIC_URL)
 
-    def get_tag_set(self):
-        """
-        Returns attached tags as a queryset.
-        """
-        return Tag.objects.get_for_object(self)
-    tag_set = property(get_tag_set)
-
     def get_rendered_html(self):
         template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
         return render_to_string(template_name, { 'object': self })
@@ -182,7 +172,6 @@ class ThirdPartyBaseModel(models.Model):
     """
     url = models.URLField(max_length=1000)
     pub_date = models.DateTimeField(default=datetime.datetime.now, verbose_name=_('publication date'))
-    tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
     objects = models.Manager()
     sync = SyncManager()
 
@@ -199,10 +188,6 @@ class ThirdPartyBaseModel(models.Model):
     def get_absolute_icon(self):
         name = u'%ss' % self.__class__.__name__.lower()
         return u'%sicons/%s.gif' % (settings.STATIC_URL, name)
-
-    def get_tag_list(self, last_word='and'):
-        return get_text_list(self.tags.split(' '), last_word)
-    tag_list = property(get_tag_list)
 
 
 class Beer(ThirdPartyBaseModel):
@@ -334,48 +319,6 @@ class Track(ThirdPartyBaseModel):
     def __unicode__(self):
         return u"%s - %s" % (self.artist_name, self.track_name)
     title = property(__unicode__)
-
-
-# Rankings/Clouds
-class TopDomain(models.Model):
-    """
-    One of the top domains in the Link table.
-
-    The list is collected here so we can make a tag cloud with little overhead.
-    """
-    name = models.CharField(_('name'), max_length=50, unique=True)
-    count = models.IntegerField()
-    stratum = models.IntegerField(help_text='The font-size stratum to stick \
-        this guy in when puffing up the cloud.')
-    objects = models.Manager()
-    update = TopDomainUpdateManager()
-
-    class Meta:
-        ordering = ('-count', 'name')
-
-    def __unicode__(self):
-        return u'%s (%s)' % (self.name, self.count)
-
-
-class TopTag(models.Model):
-    """
-    One of the top tags on the site.
-
-    The list is collected here so we can make a tag cloud with little overhead.
-    """
-    tag = models.OneToOneField(Tag)
-    name = models.CharField(_('name'), max_length=50, unique=True)
-    count = models.IntegerField()
-    stratum = models.IntegerField(help_text='The font-size stratum to stick \
-        this guy in when puffing up the cloud.')
-    objects = models.Manager()
-    update = TopTagUpdateManager()
-
-    class Meta:
-        ordering = ('-count', 'name')
-
-    def __unicode__(self):
-        return u'%s (%s)' % (self.name, self.count)
 
 
 # Signals

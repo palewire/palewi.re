@@ -5,7 +5,7 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes import fields as generic
 from django.contrib.contenttypes.models import ContentType
 
 # Signals
@@ -22,8 +22,8 @@ from django.utils.translation import ugettext_lazy as _
 
 class ChangeType(models.Model):
 	"""
-	The type of change being recorded. 
-	
+	The type of change being recorded.
+
 	Seeded with correction, update, addition and deletion by default.
 	"""
 	name = models.CharField(max_length=20, primary_key=True, help_text=_('The name of the change type'))
@@ -38,7 +38,7 @@ class ChangeType(models.Model):
 
 	def __unicode__(self):
 		return u'%s (%s)' % (self.name, self.change_count)
-		
+
 	def get_absolute_url(self):
 		return u'/change-log/type/%s/' % self.slug
 
@@ -52,7 +52,7 @@ class ChangeType(models.Model):
 			root = '/media/'
 		path = os.path.join(root, 'img')
 		return u'%s/%s.gif' % (path, self.slug)
-		
+
 	def count_changes(self):
 		"""
 		Counts the total number of live changes of this type and saves the result to the `change_count` field.
@@ -65,26 +65,26 @@ class ChangeType(models.Model):
 class Change(models.Model):
 	"""
 	A change that is optionally related to a site, app, model or object.
-	
+
 	``Managers``
-		
+
 		``live()``
-			The custom manager live() returns only changes where `is_public` is True. 
-			
+			The custom manager live() returns only changes where `is_public` is True.
+
 			Example::
-	
+
 				Change.objects.live()
-	
+
 	"""
 	# A list of all the installed apps in a set of paired tuples.
 	# I've excluded the django contrib apps and included them as
-	# strings to avoid "magic numbers" and so that it won't matter 
+	# strings to avoid "magic numbers" and so that it won't matter
 	# if you change their order in settings.py
 	# Any modules with parent folders are stripped down with the split function.
 	installed_apps = [(i.split('.')[-1], i.split('.')[-1]) for i in settings.INSTALLED_APPS if i.find('django')]
 	installed_apps.sort()
 	APP_CHOICES = installed_apps
-	
+
 	# The change
 	description    = models.TextField(help_text=_('A description of the change'))
 	change_type    = models.ForeignKey(ChangeType, help_text=_('The type of change'), verbose_name=_('Type'))
@@ -100,10 +100,10 @@ class Change(models.Model):
 	content_type   = models.ForeignKey(ContentType, null=True, blank=True, related_name="content_type_set_for_%(class)s", help_text=_('The table or model being changed. Optional.'), verbose_name=_('Model'))
 	object_id      = models.PositiveIntegerField(null=True, blank=True, help_text=_('The particular database record being changed. Optional.'))
 	content_object = generic.GenericForeignKey(ct_field='content_type', fk_field='object_id')
-	
+
 	# Managers
 	objects = ChangeManager()
-	
+
 	class Meta:
 		db_table = 'django_content_changelog'
 		ordering = ['-pub_date']
@@ -123,7 +123,7 @@ class Change(models.Model):
 		return u'%s...' % (self.description[:50])
 	get_short_description.short_description = _('Description')
 	short_description = property(get_short_description)
-	
+
 	def get_content_object(self):
 		"""
 		The object connected to this record by the content_object generic foreign key.

@@ -38,17 +38,17 @@ except AttributeError:
 
 class TwitterClient(object):
     """
-    A minimal Twitter client. 
+    A minimal Twitter client.
     """
     def __init__(self, username):
         self.username = username
-    
+
     def __getattr__(self):
         return TwitterClient(self.username)
-    
+
     def __repr__(self):
         return "<TwitterClient: %s>" % self.username
-    
+
     def sync(self):
         last_update_date = Shout.sync.get_last_update()
         logger.debug("Last update date: %s", last_update_date)
@@ -68,7 +68,7 @@ class TwitterClient(object):
             timestamp = utils.parsedate(status.created_at)
             if not self._status_exists(url):
                 self._handle_status(message_text, url, timestamp)
-    
+
     def _handle_status(self, message_text, url, timestamp):
         message_text, tags = _parse_message(message_text)
         if not self._status_exists(url):
@@ -77,9 +77,8 @@ class TwitterClient(object):
                 message = message_text,
                 url = url,
                 pub_date = timestamp,
-                tags = tags,
             )
-    
+
     def _status_exists(self, url):
         try:
             Shout.objects.get(url=url)
@@ -117,11 +116,11 @@ if TWITTER_TRANSFORM_MSG:
         user = matchobj.group('username')[1:]
         link = USER_URL % user
         return USER_LINK_TPL % (link,user,''.join(['@',user]))
-            
+
     def _parse_message(message_text):
         """
         Parse out some semantics for teh lulz.
-        
+
         """
         tags = ""
 
@@ -133,7 +132,7 @@ if TWITTER_TRANSFORM_MSG:
         for link in URL_RE.finditer(message_text):
             link_html = LINK_LINK_TPL % (link.group(0), link.group(0), link.group(0))
             message_text = message_text.replace(link.group(0), link_html)
-        
+
         # remove leading username
         message_text = USERNAME_RE.sub('',message_text)
 
@@ -149,8 +148,3 @@ if TWITTER_TRANSFORM_MSG:
         return (message_text.strip(),tags)
 else:
     _parse_message = lambda msg: (msg,list(),"")
-
-
-
-
-

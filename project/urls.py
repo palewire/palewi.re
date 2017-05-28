@@ -21,8 +21,9 @@ urlpatterns = patterns('',
     (r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         RedirectView.as_view(url='/posts/%(year)s/%(month)s/%(day)s/%(slug)s/')
     ),
-    # Redirects old tag pages to the new tag pages
-    (r'^tag/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/tags/%(tag)s/')),
+    # Redirects old tag pages
+    (r'^tag/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
+    (r'^tags/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
     # Redirects old feeds to new feeds
     (r'^comments/feed/$', RedirectView.as_view(url='/feeds/comments/')),
     (r'^feed/$', RedirectView.as_view(url='/feeds/posts/')),
@@ -146,8 +147,6 @@ urlpatterns += patterns('',
         'coltrane.views.post_detail', name='coltrane_post_detail'),
     url(r'categories/(?P<slug>[-\w]+)/$', 'coltrane.views.category_detail',
         name="coltrane_category_detail"),
-    url(r'^tags/(?P<tag>[^/]+)/$', 'coltrane.views.tag_detail',
-        name='coltrane_tag_detail'),
     url(r'^corrections/(?P<id>[0-9]+)/$', 'coltrane.views.correx_redirect',
         name='coltrane_correx_redirect'),
     # Feeds
@@ -165,7 +164,6 @@ urlpatterns += patterns('',
     url(r'feeds/tracks/$', feeds.RecentTracks(), name="feeds-tracks"),
     url(r'feeds/books/$', feeds.RecentBooks(), name="feeds-books"),
     url(r'feeds/commits/$', feeds.RecentCommits(), name="feeds-commits"),
-    url(r'feeds/tag/(?P<slug>[-\w]+)/$', feeds.TagFeed(), name="feeds-tag"),
     url(r'feeds/category/(?P<slug>[-\w]+)/$', feeds.CategoryFeed(), name="feeds-category"),
     url(r'feeds/corrections/$', feeds.RecentCorrections(), name="feeds-corrections"),
     url(r'feeds/movies/$', feeds.RecentMovies(), name="feeds-movies"),

@@ -1,5 +1,5 @@
 BeautifulSoup==3.2.0
-Django==1.8.18
+Django==1.9.13
 Fabric
 Jinja2==2.6
 Pygments==1.2.2
@@ -7,7 +7,7 @@ Sphinx==1.1.2
 akismet==0.2.0
 argparse==1.2.1
 boto
-django-admin-sortable==1.6.3
+django-admin-sortable==1.8.3
 django-debug-toolbar==1.0.1
 django-extensions==1.2.5
 django-localflavor==1.0
