@@ -7,6 +7,6 @@ def _venv(cmd):
     """
     with cd(env.project_dir):
         sudo(
-            "%s && %s && %s" % (env.activate, env.activate, cmd),
+            "%s && %s" % (env.activate, cmd),
             user=env.app_user
         )

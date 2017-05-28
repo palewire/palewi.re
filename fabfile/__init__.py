@@ -48,6 +48,7 @@ __all__ = (
     'pep8',
     'pipinstall',
     'ps',
+    'prod',
     'pull',
     'pushrawdata',
     'pushsettings',

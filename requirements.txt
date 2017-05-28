@@ -35,4 +35,4 @@ six
 sqlparse==0.1.11
 yolk
 newrelic
-django-comments==1.5.1
+django-contrib-comments==1.5.1
