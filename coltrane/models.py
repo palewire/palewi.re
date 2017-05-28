@@ -65,7 +65,7 @@ class Slogan(models.Model):
 
     class Meta:
         ordering = ['title']
-        
+
     def __unicode__(self):
         return self.title
 
@@ -80,18 +80,18 @@ class Category(models.Model):
     post_count = models.IntegerField(default=0, editable=False)
     objects = models.Manager()
     live = LiveCategoryManager()
-    
+
     class Meta:
         ordering = ['title']
         verbose_name_plural = _('Categories')
-        
+
     def __unicode__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         return('coltrane_category_detail', [self.slug])
     get_absolute_url = models.permalink(get_absolute_url)
-    
+
     def get_absolute_icon(self):
         return u'%sicons/categories.gif' % (settings.STATIC_URL)
 
@@ -102,8 +102,8 @@ class Category(models.Model):
 
 class Post(models.Model):
     """
-    Blog posts. For longer stuff I write. 
-    
+    Blog posts. For longer stuff I write.
+
     Supports pygments by placing code in <pre lang="xxx"> tags.
     """
     LIVE_STATUS = 1
@@ -114,7 +114,7 @@ class Post(models.Model):
         (DRAFT_STATUS, 'Draft'),
         (HIDDEN_STATUS, 'Hidden'),
     )
-    
+
     wordpress_id = models.IntegerField(unique=True, null=True, blank=True,
         help_text=_('The junky old wp_posts id from before the migration'),
         editable=False)
@@ -142,7 +142,7 @@ class Post(models.Model):
     class Meta:
         ordering = ['-pub_date']
         get_latest_by = 'pub_date'
-    
+
     def __unicode__(self):
         return self.title
 
@@ -150,7 +150,7 @@ class Post(models.Model):
         from coltrane.utils.pygmenter import pygmenter
         self.body_html = pygmenter(self.body_markup)
         super(Post, self).save()
-    
+
     def get_absolute_url(self):
         return ('coltrane_post_detail', (), {
             'year': self.pub_date.strftime("%Y"),
@@ -185,7 +185,7 @@ class ThirdPartyBaseModel(models.Model):
     tags = TagField(help_text=_('Separate tags with spaces.'), max_length=1000)
     objects = models.Manager()
     sync = SyncManager()
-    
+
     class Meta:
         ordering = ('-pub_date',)
         abstract = True
@@ -249,7 +249,7 @@ class Commit(ThirdPartyBaseModel):
     repository = models.CharField(max_length=100)
     branch = models.CharField(max_length=100, blank=True)
     message = models.TextField()
-    
+
     def __unicode__(self):
         if self.branch:
             return u'%s: %s - %s' % (self.repository, self.branch, self.message)
@@ -260,22 +260,11 @@ class Commit(ThirdPartyBaseModel):
     def get_short_message(self, words=8):
         """
         Trims message to the specified number of words.
-        
+
         Good for use in the admin.
         """
         return truncate_words(strip_tags(self.message), words)
     short_message = property(get_short_message)
-
-
-class Link(ThirdPartyBaseModel):
-    """
-    Links to bookmarks I'd like to recommend.
-    """
-    title = models.CharField(max_length=250)
-    description = models.TextField(blank=True, null=True)
-
-    def __unicode__(self):
-        return self.title
 
 
 class Location(ThirdPartyBaseModel):
@@ -321,11 +310,11 @@ class Shout(ThirdPartyBaseModel):
 
     def __unicode__(self):
         return self.message
-        
+
     def get_short_message(self, words=8):
         """
         Trims message to the specified number of words.
-        
+
         Good for use in the admin.
         """
         return truncate_words(strip_tags(self.message), words)

@@ -6,7 +6,7 @@ from django.contrib.syndication.views import Feed, FeedDoesNotExist
 from coltrane.models import *
 from tagging.models import *
 from correx.models import Change
-from django.contrib.comments.models import Comment
+from django_comments.models import Comment
 
 # Helpers
 from django.shortcuts import get_object_or_404
@@ -16,13 +16,13 @@ class TagFeed(Feed):
     """
     The most recent content with a particular tag.
     """
-    
+
     def get_object(self, request, slug):
         """
         Fetch the Tag object.
         """
         return get_object_or_404(Tag, name=slug)
-        
+
     def title(self, obj):
         """
         Set the feed title.
@@ -42,7 +42,7 @@ class TagFeed(Feed):
         if not obj:
             raise FeedDoesNotExist
         return u'/tags/%s/' % obj.name
-        
+
     def items(self, obj):
         """
         Fetch the latest 10 objects with a particular tag, which is passed as the `obj` argument.
@@ -55,7 +55,7 @@ class TagFeed(Feed):
         object_list.sort(key=lambda x: x.pub_date, reverse=True)
         # And return the first ten.
         return object_list[:10]
-        
+
     def item_link(self, obj):
         """
         Set the URL for each tagged item, using the url attribute we have on each of our models.
@@ -69,13 +69,13 @@ class CategoryFeed(Feed):
     """
     The most recent content with a particular category.
     """
-    
+
     def get_object(self, request, slug):
         """
         Fetch the Tag object.
         """
         return get_object_or_404(Category, slug=slug)
-        
+
     def title(self, obj):
         """
         Set the feed title.
@@ -95,7 +95,7 @@ class CategoryFeed(Feed):
         if not obj:
             raise FeedDoesNotExist
         return obj.get_absolute_url()
-        
+
     def items(self, obj):
         """
         Fetch the latest 10 posts in a particular category, which is passed as the `obj` argument.
@@ -103,7 +103,7 @@ class CategoryFeed(Feed):
         object_list = obj.post_set.all().order_by("-pub_date")
         # And return the first ten.
         return object_list[:10]
-        
+
     def item_link(self, obj):
         """
         Set the URL for each tagged item, using the url attribute we have on each of our models.
@@ -123,7 +123,7 @@ class FullFeed(Feed):
 
     def item_pubdate(self, item):
         return item.pub_date
-        
+
     def item_link(self, item):
         try:
             return item.content_object.url
@@ -320,8 +320,6 @@ class RecentComments(Feed):
 
     def items(self):
         return Comment.objects.filter(is_public=True).order_by('-submit_date')[:10]
-        
+
     def item_pubdate(self, item):
         return item.submit_date
-        
-        

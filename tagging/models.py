@@ -277,9 +277,9 @@ class TaggedItemManager(models.Manager):
           Now that the queryset-refactor branch is in the trunk, this can be
           tidied up significantly.
     """
-    def get_query_set(self):
+    def get_queryset(self):
         return GFKQuerySet(self.model)
-    
+
     def get_by_model(self, queryset_or_model, tags):
         """
         Create a ``QuerySet`` containing instances of the specified

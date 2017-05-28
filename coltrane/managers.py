@@ -9,7 +9,7 @@ class LivePostManager(models.Manager):
     """
     Returns all posts set to be published.
     """
-    def get_query_set(self):
+    def get_queryset(self):
         return super(LivePostManager, self).get_query_set().filter(status=self.model.LIVE_STATUS)
 
 
@@ -17,7 +17,7 @@ class LiveCategoryManager(models.Manager):
     """
     Returns all categories with at least one live post.
     """
-    def get_query_set(self):
+    def get_queryset(self):
         return super(LiveCategoryManager, self).get_query_set().filter(post_count__gt=0)
 
 
@@ -29,13 +29,13 @@ class TopDomainUpdateManager(models.Manager):
         from urlparse import urlparse
         from coltrane.models import Link
         from coltrane.utils.cloud import calculate_cloud
-        
+
         # Fetch all the domains
         domains = [urlparse(i.url)[1] for i in Link.objects.all()]
-        
+
         # Create a dict to stuff the counts
         domain_count = {}
-        
+
         # Loop through all the domains
         for d in domains:
             try:
@@ -44,7 +44,7 @@ class TopDomainUpdateManager(models.Manager):
             except KeyError:
                 # If it doesn't exist yet, add it to the dict
                 domain_count[d] = {'count': 1, 'font-size': None}
-                
+
         # Sort the results as a list of tuples, from top to bottom
         domain_tuple = domain_count.items()
         domain_tuple.sort(lambda x,y:cmp(x[1], y[1]), reverse=True)
@@ -92,7 +92,7 @@ class TopTagUpdateManager(models.Manager):
     """
     Updates the TopTag model with the latest totals
     """
-    
+
     def ranking(self, count=100, strata=6):
         """
         Refills the TopTag model with the most-commonly applied tags, using
@@ -140,7 +140,7 @@ class GFKManager(models.Manager):
     A manager that returns a GFKQuerySet instead of a regular QuerySet.
 
     """
-    def get_query_set(self):
+    def get_queryset(self):
         return GFKQuerySet(self.model)
 
 
@@ -158,11 +158,11 @@ class GFKQuerySet(QuerySet):
         qs = self._clone()
 
         gfk_fields = [g for g in self.model._meta.virtual_fields if isinstance(g, GenericForeignKey)]
-        
+
         ct_map = {}
         item_map = {}
         data_map = {}
-        
+
         for item in qs:
             for gfk in gfk_fields:
                 ct_id_field = self.model._meta.get_field(gfk.ct_field).column
@@ -170,14 +170,14 @@ class GFKQuerySet(QuerySet):
                     (getattr(item, ct_id_field)), {}
                     )[getattr(item, gfk.fk_field)] = (gfk.name, item.id)
             item_map[item.id] = item
-        
+
         for (ct_id), items_ in ct_map.items():
             if (ct_id):
                 ct = ContentType.objects.get_for_id(ct_id)
                 for o in ct.model_class().objects.select_related().filter(id__in=items_.keys()).all():
                     (gfk_name, item_id) = items_[o.id]
                     data_map[(ct_id, o.id)] = o
-        
+
         for item in qs:
             for gfk in gfk_fields:
                 if (getattr(item, gfk.fk_field) != None):

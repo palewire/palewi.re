@@ -1,5 +1,5 @@
 BeautifulSoup==3.2.0
-Django==1.6.2
+Django==1.7
 Fabric
 Jinja2==2.6
 Pygments==1.2.2
@@ -35,3 +35,4 @@ six
 sqlparse==0.1.11
 yolk
 newrelic
+django-comments==1.5.1

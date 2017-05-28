@@ -212,7 +212,7 @@ urlpatterns += patterns('',
         **{'template_name': 'wxwtf/regional_connector/index.html'}),
         name='candy-says'),
     # Other weird stuff
-    (r'^comments/', include('django.contrib.comments.urls')),
+    (r'^comments/', include('django_comments.urls')),
     (r'^correx/', include('correx.urls')),
     (r'^nicar/polls/', include("nicar.polls.urls")),
     (r'^nicar/flu-map/', include("nicar.flu_map.urls")),

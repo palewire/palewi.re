@@ -89,19 +89,18 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'django.contrib.comments',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django.contrib.staticfiles',
      # Blog
     'coltrane',
     'bona_fides',
+    'django_comments',
      # Site extras and helpers
     'correx',
     'tagging',
     'django_extensions',
     'greeking',
-    'south',
     'adminsortable',
     # NICAR-related apps
     'nicar.polls',
