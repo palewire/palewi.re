@@ -3,7 +3,6 @@ Django==1.8.18
 Fabric
 Jinja2==2.6
 Pygments==1.2.2
-South==0.8.4
 Sphinx==1.1.2
 akismet==0.2.0
 argparse==1.2.1
