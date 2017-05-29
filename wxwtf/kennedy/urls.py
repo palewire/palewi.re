@@ -1,5 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from wxwtf.kennedy import views
 
-urlpatterns = patterns('wxwtf.kennedy.views',
-    url(r'^$', 'index', name='kennedy_index'),
-)
+
+urlpatterns = [
+    url(r'^$', views.index, name='kennedy_index'),
+]

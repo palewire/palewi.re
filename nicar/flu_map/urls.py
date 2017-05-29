@@ -1,5 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from nicar.flu_map import views
 
-urlpatterns = patterns('',
-    url(r'^$', 'nicar.flu_map.views.index'),
-)
+
+urlpatterns = [
+    url(r'^$', views.index),
+]

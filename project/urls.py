@@ -1,58 +1,63 @@
 import os
 this_dir = os.path.dirname(__file__)
 
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf import settings
 from django.contrib import admin
-admin.autodiscover()
 import bona_fides
 from coltrane import feeds
+from coltrane import views
 from coltrane.models import Post
 from coltrane.sitemaps import sitemaps
+from django.contrib.sitemaps import views as sitemap_views
 from django.views.static import serve as static_serve
+from wxwtf.flushots import views as flushots_views
+from wxwtf.random_oscars_ballot import views as random_oscars_ballot_views
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import RedirectView, ListView
 from toolbox.views import DirectTemplateView
+from toolbox import views as toolbox_views
+admin.autodiscover()
 
 
 # Redirects from the old Wordpress URL structure to the new Django one.
-urlpatterns = patterns('',
+urlpatterns = [
     # Redirect links to old blog to new posts
-    (r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+    url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         RedirectView.as_view(url='/posts/%(year)s/%(month)s/%(day)s/%(slug)s/')
     ),
     # Redirects old tag pages
-    (r'^tag/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
-    (r'^tags/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
+    url(r'^tag/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
+    url(r'^tags/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
     # Redirects old feeds to new feeds
-    (r'^comments/feed/$', RedirectView.as_view(url='/feeds/comments/')),
-    (r'^feed/$', RedirectView.as_view(url='/feeds/posts/')),
-    (r'^feed/atom/$', RedirectView.as_view(url='/feeds/posts/')),
-    (r'^feed/rss/$', RedirectView.as_view(url='/feeds/posts/')),
+    url(r'^comments/feed/$', RedirectView.as_view(url='/feeds/comments/')),
+    url(r'^feed/$', RedirectView.as_view(url='/feeds/posts/')),
+    url(r'^feed/atom/$', RedirectView.as_view(url='/feeds/posts/')),
+    url(r'^feed/rss/$', RedirectView.as_view(url='/feeds/posts/')),
     # Redirects from old flatpages
-    (r'^bio/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
-    (r'^work/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
+    url(r'^bio/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
+    url(r'^work/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
     # Scrape pages from tutorial on old site.
-    (r'^scrape/albums/2006.html$', DirectTemplateView.as_view(
+    url(r'^scrape/albums/2006.html$', DirectTemplateView.as_view(
         template_name='tutorials/scrape/2006.html')),
-    (r'^scrape/albums/2007.html$', DirectTemplateView.as_view(
+    url(r'^scrape/albums/2007.html$', DirectTemplateView.as_view(
         template_name='tutorials/scrape/2007.html')),
     # OpenLayers tutorial on old site.
-    ('^openlayers-proportional-symbols/$', DirectTemplateView.as_view(
+    url('^openlayers-proportional-symbols/$', DirectTemplateView.as_view(
         template_name='tutorials/openlayers-proportional-symbols/index.html')),
     # DC Music Stores map from old site.
-    (r'^music/$', RedirectView.as_view(url='/')),
+    url(r'^music/$', RedirectView.as_view(url='/')),
     # Arcade Fire hypecloud from old site.
-    (r'^hypecloud/$', RedirectView.as_view(url='/')),
+    url(r'^hypecloud/$', RedirectView.as_view(url='/')),
     # DC Happy hours from old site.
-    (r'^happyhours/$', RedirectView.as_view(url='/')),
-    (r'^happyhours/(?P<whatever>.*)', RedirectView.as_view(url='/')),
+    url(r'^happyhours/$', RedirectView.as_view(url='/')),
+    url(r'^happyhours/(?P<whatever>.*)', RedirectView.as_view(url='/')),
     # Redirect old images from legacy site
-    (r'^images/(?P<file_name>[^/]+)$', RedirectView.as_view(
+    url(r'^images/(?P<file_name>[^/]+)$', RedirectView.as_view(
         url='/media/img/%(file_name)s')),
     # Longer apps urls
-    (r'^applications/$', RedirectView.as_view(url='/apps/')),
-    (r'^applications/(?P<anything>.*)/$', RedirectView.as_view(
+    url(r'^applications/$', RedirectView.as_view(url='/apps/')),
+    url(r'^applications/(?P<anything>.*)/$', RedirectView.as_view(
         url='/apps/%(anything)s/')),
     # V2 of the blog, now replaced by the consolidated ticker
     url(r'^books/$', RedirectView.as_view(url='/ticker/?filters=book'),
@@ -103,21 +108,21 @@ urlpatterns = patterns('',
         url='/posts/'), name='coltrane_post_archive_index'),
     url(r'^ticker/page/(?P<page>[0-9]+)/$', RedirectView.as_view(
         url='/ticker/'), name='coltrane_ticker_root'),
-)
+]
 
 # URLs for the new blog
-urlpatterns += patterns('',
+urlpatterns += [
 
     # The index
-    url(r'^$', 'coltrane.views.index', name='coltrane_index'),
+    url(r'^$', views.index, name='coltrane_index'),
     # My bio
-    url(r'^who-is-ben-welsh/$', 'coltrane.views.bio', name="coltrane_bio"),
+    url(r'^who-is-ben-welsh/$', views.bio, name="coltrane_bio"),
     # About the site
     url(r'^colophon/$', DirectTemplateView.as_view(
         **{'template_name': 'coltrane/colophon.html'}),
         name="coltrane_colophon"),
     # The admin
-    (r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     # Main list pages
     url(r'^apps/$', DirectTemplateView.as_view(**{
             'template_name': 'coltrane/app_list.html',
@@ -137,17 +142,17 @@ urlpatterns += patterns('',
     url(r'^posts/$', ListView.as_view(
         queryset=Post.live.all().order_by("-pub_date")),
         name='coltrane_post_list'),
-    url(r'^ticker/$', 'coltrane.views.ticker_detail',
+    url(r'^ticker/$', views.ticker_detail,
         name='coltrane_ticker_list'),
-    url(r'^ticker/page/(?P<page>[0-9]+).json$', 'coltrane.views.ticker_detail',
+    url(r'^ticker/page/(?P<page>[0-9]+).json$', views.ticker_detail,
         {'response_type': 'json'},
         name='coltrane_ticker_json'),
     # Detail pages
     url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
-        'coltrane.views.post_detail', name='coltrane_post_detail'),
-    url(r'categories/(?P<slug>[-\w]+)/$', 'coltrane.views.category_detail',
+        views.post_detail, name='coltrane_post_detail'),
+    url(r'categories/(?P<slug>[-\w]+)/$', views.category_detail,
         name="coltrane_category_detail"),
-    url(r'^corrections/(?P<id>[0-9]+)/$', 'coltrane.views.correx_redirect',
+    url(r'^corrections/(?P<id>[0-9]+)/$', views.correx_redirect,
         name='coltrane_correx_redirect'),
     # Feeds
     url(r'^feeds/list/$', DirectTemplateView.as_view(
@@ -171,73 +176,83 @@ urlpatterns += patterns('',
     url(r'feeds/questionheds/$', feeds.RecentHeds(), name="feeds-questionheds"),
 
     # Sitemaps
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index',
+    url(r'^sitemap\.xml$', sitemap_views.index,
         {'sitemaps': sitemaps}),
-    url(r'^sitemap-(?P<section>.+)\.xml$', 'django.contrib.sitemaps.views.sitemap',
+    url(r'^sitemap-(?P<section>.+)\.xml$', sitemap_views.sitemap,
         {'sitemaps': sitemaps}),
+
     # Robots and favicon
     url(r'^robots\.txt$', DirectTemplateView.as_view(
         **{'template_name': 'robots.txt', 'content_type': 'text/plain'}), name='robots'),
     url(r'^favicon.ico$', RedirectView.as_view(
         url='http://palewire.s3.amazonaws.com/favicon.ico')),
+
     # Kennedy name generator
-    (r'^kennedy/', include('wxwtf.kennedy.urls')),
+    url(r'^kennedy/', include('wxwtf.kennedy.urls')),
+
     # Flu Shots 2011
-    url(r'free-flu-shots/$', 'wxwtf.flushots.views.index', name='flushots-index'),
+    url(r'free-flu-shots/$', flushots_views.index, name='flushots-index'),
+
     # Random Oscars Ballot
-    url(r'random-oscars-ballot/$', 'wxwtf.random_oscars_ballot.views.index',
+    url(r'random-oscars-ballot/$', random_oscars_ballot_views.index,
         name='random-oscars-ballot-index'),
+
     # newtwitter style autopagination with django
     url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
-        'coltrane.views.newtwitter_pagination_index',
+        views.newtwitter_pagination_index,
         name='coltrane_app_newtwitter_index'),
     url(r'^apps/twitter-style-infinite-scroll-with-django-demo/json/(?P<page>[0-9]+)/',
-        'coltrane.views.newtwitter_pagination_json',
+        views.newtwitter_pagination_json,
         name='coltrane_app_newtwitter_json'),
+
     # BRING THE NEWS BACK
     url(r'^apps/bring-the-news-back/$', DirectTemplateView.as_view(
         **{'template_name': 'wxwtf/bring_the_news_back/index.html' }),
         name='coltrane_app_newtwitter_json'),
+
     # Return of the Mack ringtone
     url(r'^mack/$', DirectTemplateView.as_view(**{'template_name': 'wxwtf/mack.html'}),
         name='mack'),
+
     # Candy says...
     url(r'^candysays/$', DirectTemplateView.as_view(**{
         'template_name': 'wxwtf/candy.html'}),
         name='candy-says'),
+
     # Where will the Regional Connector go?
     url(r'^regional-connector/$', DirectTemplateView.as_view(
         **{'template_name': 'wxwtf/regional_connector/index.html'}),
         name='candy-says'),
+
     # Other weird stuff
-    (r'^comments/', include('django_comments.urls')),
-    (r'^correx/', include('correx.urls')),
-    (r'^nicar/polls/', include("nicar.polls.urls")),
-    (r'^nicar/flu-map/', include("nicar.flu_map.urls")),
-)
+    url(r'^comments/', include('django_comments.urls')),
+    url(r'^correx/', include('correx.urls')),
+    url(r'^nicar/polls/', include("nicar.polls.urls")),
+    url(r'^nicar/flu-map/', include("nicar.flu_map.urls")),
+]
 
 if settings.DEBUG:
-    urlpatterns += patterns('',
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', static_serve,
             {'document_root': settings.STATIC_ROOT, 'show_indexes': True, }),
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+        url(r'^static/(?P<path>.*)$', static_serve, {
             'document_root': settings.STATIC_ROOT,
             'show_indexes': True,
         }),
-        (r'^500/$', 'coltrane.views.server_error'),
-    )
+        url(r'^500/$', views.server_error),
+    ]
 else:
-    urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', RedirectView.as_view(
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', RedirectView.as_view(
              url='http://palewire.s3.amazonaws.com/%(path)s')),
-        (r'^static/(?P<path>.*)$', RedirectView.as_view(
+        url(r'^static/(?P<path>.*)$', RedirectView.as_view(
              url='http://palewire.s3.amazonaws.com/%(path)s')),
-)
+    ]
 
 if settings.PRODUCTION:
-    urlpatterns += patterns('',
-        url(r'^app_status/$', 'toolbox.views.app_status', name='status'),
-   )
+    urlpatterns += [
+        url(r'^app_status/$', toolbox_views.app_status, name='status'),
+    ]
 
 
 # 500 page fix

@@ -1,7 +1,9 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from nicar.polls import views
 
-urlpatterns = patterns('',
-    url(r'^$', 'nicar.polls.views.index'),
-    url(r'^(?P<poll_id>\d+)/$', 'nicar.polls.views.detail'),
-    url(r'^(?P<poll_id>\d+)/vote/$', 'nicar.polls.views.vote'),
-)
+
+urlpatterns = [
+    url(r'^$', views.index),
+    url(r'^(?P<poll_id>\d+)/$', views.detail),
+    url(r'^(?P<poll_id>\d+)/vote/$', views.vote),
+]

@@ -8,6 +8,7 @@ ROOT_DIR = os.path.join(
         os.path.join(SETTINGS_DIR, os.path.pardir),
     ),
 )
+BASE_DIR = ROOT_DIR
 
 MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
@@ -17,7 +18,6 @@ try:
     from settings_dev import *
 except ImportError:
     from settings_prod import *
-TEMPLATE_DEBUG = DEBUG
 
 TIME_ZONE = 'America/Los_Angeles'
 USE_TZ = False
@@ -52,14 +52,29 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'project.urls'
 
-TEMPLATE_DIRS = (
-    os.path.join(ROOT_DIR, 'templates/'),
-)
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                "django.contrib.auth.context_processors.auth",
+                "django.core.context_processors.debug",
+                "django.core.context_processors.i18n",
+                "django.core.context_processors.media",
+                "django.core.context_processors.static",
+                "django.core.context_processors.request",
+                "django.contrib.messages.context_processors.messages",
+                "django.core.context_processors.csrf",
+                "toolbox.context_processors.sites.current_site",
+            ],
+        },
+    },
+]
 
 STATICFILES_DIRS = (
     os.path.join(ROOT_DIR, 'templates/static/'),
@@ -70,18 +85,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.request",
-    "django.contrib.messages.context_processors.messages",
-    "django.core.context_processors.csrf",
-    "toolbox.context_processors.sites.current_site",
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

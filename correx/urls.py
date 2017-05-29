@@ -1,6 +1,8 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from correx import views
 
-urlpatterns = patterns('correx.views',
-    url(r'^admin/filter/contenttype/$', 'filter_contenttypes_by_app',
+
+urlpatterns = [
+    url(r'^admin/filter/contenttype/$', views.filter_contenttypes_by_app,
         name="filter-contenttypes-by-app"),
-)
+]
