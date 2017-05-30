@@ -16,6 +16,17 @@ class Award(Sortable):
         return self.title
 
 
+class Clip(models.Model):
+    """
+    A story, app or other things I've published.
+    """
+    title = models.CharField(max_length=1000)
+    url = models.CharField(max_length=1000, blank=True)
+
+    def __unicode__(self):
+        return self.title
+
+
 class SocialMediaProfile(Sortable):
     """
     A link to a social media profile I have on another site.
