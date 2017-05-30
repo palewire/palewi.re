@@ -3,7 +3,6 @@ import urllib
 import datetime
 from coltrane import utils
 from httplib2 import HttpLib2Error
-from django.utils.functional import memoize
 
 # Text
 from django.utils.http import urlquote
@@ -52,37 +51,8 @@ class LastFMClient(object):
             url = smart_unicode(track.find('url').text)
             timestamp = datetime.datetime.fromtimestamp(int(track.find('date').get('uts')))
             if timestamp > last_update_date:
-                tags = self._tags_for_track(artist_name, track_name)
+                tags = []
                 self._handle_track(artist_name, artist_mbid, track_name, track_mbid, url, timestamp, tags)
-
-    def _tags_for_track(self, artist_name, track_name):
-        """
-        Get the top tags for a track. Also fetches tags for the artist. Only
-        includes tracks that break a certain threshold of usage, defined by
-        settings.LASTFM_TAG_USAGE_THRESHOLD (which defaults to 15).
-        """
-        urls = [
-            ARTIST_TAGS_URL % (urlquote(artist_name)),
-            TRACK_TAGS_URL % (urlquote(artist_name), urlquote(track_name)),
-        ]
-        tags = set()
-        for url in urls:
-            tags.update(self._tags_for_url(url))
-        return tags
-
-    def _tags_for_url(self, url):
-        tags = set()
-        xml = utils.getxml(url)
-        for t in xml.getiterator("tag"):
-            count = utils.safeint(t.find("count").text)
-            if count >= self.tag_usage_threshold:
-                tag = slugify(smart_unicode(t.find("name").text))
-                tags.add(tag[:50])
-        return tags
-
-    # Memoize tags to avoid unnecessary API calls.
-    _tag_cache = {}
-    _tags_for_url = memoize(_tags_for_url, _tag_cache, 1)
 
     def _handle_track(self, artist_name, artist_mbid, track_name, track_mbid,
         url, timestamp, tags):
