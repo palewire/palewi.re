@@ -21,7 +21,17 @@ class Clip(models.Model):
     A story, app or other things I've published.
     """
     title = models.CharField(max_length=1000)
+    TYPE_CHOICES = (
+        ("app", "App"),
+        ("story", 'Story'),
+        ("software", "Software"),
+    )
+    type = models.CharField(max_length=100, choices=TYPE_CHOICES)
+    date = models.DateField()
     url = models.CharField(max_length=1000, blank=True)
+
+    class Meta:
+        ordering = ("-date",)
 
     def __unicode__(self):
         return self.title

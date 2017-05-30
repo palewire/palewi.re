@@ -3,6 +3,7 @@ from django.contrib import admin
 from adminsortable.admin import SortableAdmin
 
 
+@admin.register(models.Award)
 class AwardAdmin(SortableAdmin):
     list_display = ("title", "url")
     search_fields = ("title",)
@@ -10,20 +11,19 @@ class AwardAdmin(SortableAdmin):
 
 @admin.register(models.Clip)
 class ClipAdmin(SortableAdmin):
-    list_display = ("title", "url")
+    list_display = ("title", "type", "date", "url")
+    list_filter = ("type",)
     search_fields = ("title",)
+    date_hierarchy = "date"
 
 
+@admin.register(models.SocialMediaProfile)
 class SocialMediaProfileAdmin(SortableAdmin):
     list_display = ("title", "url")
     search_fields = ("title",)
 
 
+@admin.register(models.Skill)
 class SkillAdmin(SortableAdmin):
     list_display = ("title",)
     search_fields = ("title",)
-
-
-admin.site.register(models.Skill, SkillAdmin)
-admin.site.register(models.Award, AwardAdmin)
-admin.site.register(models.SocialMediaProfile, SocialMediaProfileAdmin)
