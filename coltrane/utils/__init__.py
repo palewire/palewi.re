@@ -10,7 +10,7 @@ import dateutil.parser
 import dateutil.tz
 
 # Serialization
-from django.utils import simplejson
+import simplejson
 from anyetree import etree
 
 # Text manipulation
@@ -49,13 +49,13 @@ def fetch_resource(url, username=None, password=None, headers=None):
     """
     # Empty config dict we'll add to.
     kwargs = {}
-    
+
     # Add any credentials
     if username or password:
         kwargs.update({
             'auth': HTTPBasicAuth(username, password)
         })
-    
+
     # Set custom headers
     if headers:
         kwargs.update({
@@ -65,7 +65,7 @@ def fetch_resource(url, username=None, password=None, headers=None):
         kwargs.update({
             'headers': DEFAULT_HTTP_HEADERS.copy()
         })
-    
+
     # Make the request
     return requests.get(url, **kwargs).content
 
