@@ -7,4 +7,4 @@ class ChangeManager(models.Manager):
 		"""
 		All changes set for publication.
 		"""
-		return self.get_query_set().filter(is_public=True)
+		return self.get_queryset().filter(is_public=True)

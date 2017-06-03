@@ -83,7 +83,7 @@ class LessNoise(Feed):
     description = "the latest from palewi.re, except for all those tracks"
 
     def items(self):
-        return Ticker.objects.exclude(content_type__name__iexact='Track').order_by('-pub_date')[:10]
+        return Ticker.objects.exclude(content_type__model__iexact='Track').order_by('-pub_date')[:10]
 
     def item_pubdate(self, item):
         return item.pub_date
