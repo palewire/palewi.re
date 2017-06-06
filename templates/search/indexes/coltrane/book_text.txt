@@ -1,1 +1,0 @@
-{{ object.title }}{% if object.authors %} by {{ object.authors }}{% endif %}
