@@ -89,13 +89,11 @@
         </div>
 
         {% load comments %}
+        {% get_comment_list for object as comment_list %}
+        {% if comment_list %}
         <div id ="comments" class="row">
             <div class="twelvecol last" rel="rnews:discussedBy">
-                {% get_comment_list for object as comment_list %}
-                {% if comment_list %}
-                    <h2>Comments</h2>
-                {% endif %}
-
+                <h2>Comments</h2>
                 {% for comment in comment_list %}
                     <aside>
                     <div id="#c{{comment.id}}" class="comment" typeof="rnews:comment" about="http://{{ current_site }}{{ object.get_absolute_url }}#c{{comment.id}}">
@@ -109,12 +107,10 @@
                     </div>
                     </aside>
                 {% endfor %}
-
-                {% if object.enable_comments %}
-                    {% render_comment_form for object %}
-                {% endif %}
             </div>
         </div>
+        {% endif %}
+
     </div>
     <div style="display:none;">
         <div property="rnews:language">en</div>

@@ -17,7 +17,6 @@ from django.conf import settings
 # Models
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
-from django_comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 
 # Fields
@@ -28,7 +27,6 @@ from coltrane.managers import *
 
 # Signals
 from django.db.models import signals
-from django_comments.signals import comment_will_be_posted
 from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
 
 
@@ -129,7 +127,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField(_('publication date'),
         default=datetime.datetime.now)
     author = models.ForeignKey(User)
-    enable_comments = models.BooleanField(default=True)
+    enable_comments = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
         help_text=_("Only 'Live' entries will be publicly displayed."))
     categories = models.ManyToManyField(Category)
@@ -323,48 +321,11 @@ class Track(ThirdPartyBaseModel):
 
 # Signals
 from correx.models import Change
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location, Beer]:
+for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Change, Movie, Location, Beer]:
     signals.post_save.connect(create_ticker_item, sender=modelname)
 
-for modelname in [Link, Photo, Post, Shout, Track, Comment, Book, Commit, Change, Movie, Location, Beer]:
+for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Change, Movie, Location, Beer]:
     signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)
 signals.post_delete.connect(category_count, sender=Post)
-
-# Comment moderation
-from django_comments.moderation import CommentModerator, moderator
-
-
-class ColtraneModerator(CommentModerator):
-    auto_moderate_field = 'pub_date'
-    moderate_after = -10
-    email_notification = False
-    enable_field = 'enable_comments'
-
-
-def moderate_comment(sender, comment, request, **kwargs):
-    comment.is_public = False
-
-    ak = akismet.Akismet(
-        key = settings.AKISMET_API_KEY,
-            blog_url = 'http://%s/' % Site.objects.get_current().domain
-    )
-
-    data = {
-        'user_ip': request.META.get('REMOTE_ADDR', ''),
-        'user_agent': request.META.get('HTTP_USER_AGENT', ''),
-        'referrer': request.META.get('HTTP_REFERRER', ''),
-        'comment_type': 'comment',
-        'comment_author': smart_str(comment.user_name),
-    }
-
-    if ak.comment_check(smart_str(comment.comment), data=data, build_data=True):
-        comment.is_removed = True
-        comment.save()
-
-    if not comment.is_removed:
-        email_body = "%s"
-        mail_managers ("New comment posted", email_body % (comment.get_as_text()))
-
-comment_will_be_posted.connect(moderate_comment)
