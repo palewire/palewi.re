@@ -1,5 +1,6 @@
 from coltrane.models import Post, Category
-from django.contrib.sitemaps import GenericSitemap, Sitemap
+from django.contrib import sitemaps
+from django.contrib.sitemaps import GenericSitemap
 
 post_dict = {
     'queryset': Post.live.all(),
@@ -12,12 +13,12 @@ category_dict = {
 
 class AbstractSitemapClass(object):
     url = None
-    
+
     def get_absolute_url(self):
         return self.url
 
 
-class StaticSitemap(Sitemap):
+class StaticSitemap(sitemaps.Sitemap):
     pages = {
         'bio':'/who-is-ben-welsh/',
         'colophon':'/colophon/',
@@ -37,7 +38,7 @@ class StaticSitemap(Sitemap):
         sitemap_class = AbstractSitemapClass()
         sitemap_class.url = pages[page]
         main_sitemaps.append(sitemap_class)
-    
+
     def items(self):
         return self.main_sitemaps
 

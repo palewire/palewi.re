@@ -177,9 +177,10 @@ urlpatterns += [
 
     # Sitemaps
     url(r'^sitemap\.xml$', sitemap_views.index,
-        {'sitemaps': sitemaps}),
+        {'sitemaps': sitemaps},),
     url(r'^sitemap-(?P<section>.+)\.xml$', sitemap_views.sitemap,
-        {'sitemaps': sitemaps}),
+        {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
 
     # Robots and favicon
     url(r'^robots\.txt$', DirectTemplateView.as_view(
