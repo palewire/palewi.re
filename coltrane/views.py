@@ -78,7 +78,7 @@ def ticker_detail(request, page=1, response_type='html'):
                     selected_slugs.append(filter)
                     contenttype_list.append(
                         ContentType.objects.get(
-                            app_label__in=['comments', 'coltrane', 'correx'],
+                            app_label__in=['coltrane', 'correx'],
                             name=filter
                         )
                     )
