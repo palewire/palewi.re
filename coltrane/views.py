@@ -78,8 +78,8 @@ def ticker_detail(request, page=1, response_type='html'):
                     selected_slugs.append(filter)
                     contenttype_list.append(
                         ContentType.objects.get(
-                            app_label__in=['coltrane', 'correx'],
-                            name=filter
+                            app_label=['coltrane', 'correx'],
+                            model__iexact=filter
                         )
                     )
                 except ContentType.DoesNotExist:
