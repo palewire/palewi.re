@@ -18,16 +18,16 @@
         {% with object_list|last as last_item %}
         var prevPubDate = "{{ last_item.pub_date|date:"N d, Y" }}";
         {% endwith %}
-        
+
         // loadOnScroll action
         var loadItems = function(url) {
-            // If the next page doesn't exist, just quit now 
+            // If the next page doesn't exist, just quit now
             if (hasNextPage === false) {
                 return false
             }
             // Update the page number and set the url if an url is not providsed
             $.ajax({
-                url: url, 
+                url: url,
                 dataType: 'json',
                 success: function(data) {
                     // Update global next page variable
@@ -35,7 +35,7 @@
                     // Loop through all items
                     var html = [];
                     $.each(data.itemList, function(index, item){
-                        
+
                         /* Add a date header if its changed since the last item */
                         if (prevPubDate != item.pub_date) {
                             html.push(
@@ -44,10 +44,10 @@
                                 '</div></div>'
                             );
                         }
-                        
+
                         // Set this items date as the one to check next time
                         prevPubDate = item.pub_date;
-                        
+
                         // Format the item in our HTML style
                         html.push(
                             '<div class="row tumblelog"><div class="listitem twelvecol last">',
@@ -59,7 +59,7 @@
                     $("#ticker").append(html.join(""));
                 },
                 complete: function(data, textStatus){
-                    // Close out the loading variable 
+                    // Close out the loading variable
                     loadInProgress = false;
                     // Turn the scroll monitor back on
                     $(window).bind('scroll', loadOnScroll);
@@ -86,8 +86,8 @@
             }
         };
         $(window).bind('scroll', loadOnScroll);
-        
-        // Figure out what boxes should be selected 
+
+        // Figure out what boxes should be selected
         var preSelected;
         // If there is a hash in the url, try to use that to filter the ticker
         if (window.location.hash) {
@@ -109,12 +109,12 @@
                 {% endfor %}
             ];
         }
-        
+
         // Check on all the preselected boxes
         $(preSelected).each(function(index) {
             $("#filterset-" + preSelected[index]).attr("checked", true);
         });
-        
+
         // What to do when somebody clicks on a box
         var onFiltersetChange = function() {
           // Get all the checked boxes
@@ -142,10 +142,10 @@
               $(".tumblelog", "#ticker").remove();
           }
         };
-        
+
         // Hook the change function to the boxes
         $('#tickerfilter input').change(onFiltersetChange);
-        
+
         // What to do when somebody clicks the clear button
         $("button#clear").click(function() {
             // Select the boxes
@@ -182,8 +182,6 @@
                 <img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/books.gif" alt="books" title="books"/>
                 <input id="filterset-change" class="filterset" type="checkbox" value="change" />
                 <img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/loop.png" alt="corrections" title="corrections"/>
-                <input id="filterset-comment" class="filterset" type="checkbox" value="comment" />
-                <img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/comments.gif" alt="comments" title="comments"/>
                 <input id="filterset-commit" class="filterset" type="checkbox" value="commit" />
                 <img style="vertical-align:text-bottom;" src="{{ STATIC_URL }}icons/commits.gif" alt="commits" title="commits"/>
                 <input id="filterset-link" class="filterset" type="checkbox" value="link" />

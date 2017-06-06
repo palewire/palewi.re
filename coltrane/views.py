@@ -49,7 +49,6 @@ def ticker_detail(request, page=1, response_type='html'):
         'beer',
         'book',
         'change',
-        'comment',
         'commit',
         'link',
         'location',
