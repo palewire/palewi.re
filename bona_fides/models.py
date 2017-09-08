@@ -29,7 +29,7 @@ class Clip(models.Model):
     )
     type = models.CharField(max_length=100, choices=TYPE_CHOICES)
     date = models.DateField()
-    url = models.CharField(max_length=1000, blank=True)
+    url = models.CharField(max_length=1000, blank=True, unique=True)
 
     class Meta:
         ordering = ("-date",)
