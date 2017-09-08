@@ -23,6 +23,7 @@ class Clip(models.Model):
     title = models.CharField(max_length=1000)
     TYPE_CHOICES = (
         ("app", "App"),
+        ("lesson-plan", "Lesson plan"),
         ("story", 'Story'),
         ("software", "Software"),
     )
