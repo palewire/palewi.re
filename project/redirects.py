@@ -18,7 +18,9 @@ patterns = [
     url(r'^feed/rss/$', RedirectView.as_view(url='/feeds/posts/')),
     # Redirects from old flatpages
     url(r'^bio/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
-    url(r'^work/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
+    # Redirects from old clips pages
+    url(r'^apps/$', RedirectView.as_view(url='/work/'), name='coltrane_app_list'),
+    url(r'^clips/$', RedirectView.as_view(url='/work/'), name='coltrane_clip_list'),
     # Scrape pages from tutorial on old site.
     url(r'^scrape/albums/2006.html$', DirectTemplateView.as_view(
         template_name='tutorials/scrape/2006.html')),

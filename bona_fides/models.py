@@ -18,7 +18,7 @@ class Award(Sortable):
 
 class Clip(models.Model):
     """
-    A story, app or other things I've published.
+    A story, app or other thing I've published.
     """
     title = models.CharField(max_length=1000)
     TYPE_CHOICES = (
@@ -35,7 +35,7 @@ class Clip(models.Model):
         ordering = ("-date",)
 
     def __unicode__(self):
-        return self.title
+        return u'{}: {}'.format(self.get_type_display(), self.title)
 
 
 class SocialMediaProfile(Sortable):

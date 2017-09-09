@@ -8,6 +8,7 @@ import bona_fides
 from coltrane import feeds
 from coltrane import views
 from coltrane.models import Post
+from bona_fides.models import Clip
 from coltrane.sitemaps import sitemaps
 from redirects import patterns as redirectpatterns
 from django.contrib.sitemaps import views as sitemap_views
@@ -20,7 +21,8 @@ from toolbox.views import DirectTemplateView
 from toolbox import views as toolbox_views
 admin.autodiscover()
 
-# URLs for the new blog
+
+# URLs for the blog
 blogpatterns = [
 
     # The index
@@ -34,16 +36,10 @@ blogpatterns = [
     # The admin
     url(r'^admin/', include(admin.site.urls)),
     # Main list pages
-    url(r'^apps/$', DirectTemplateView.as_view(**{
-            'template_name': 'coltrane/app_list.html',
+    url(r'^work/$', DirectTemplateView.as_view(**{
+            'template_name': 'coltrane/work_list.html',
             'extra_context': {
-                'app_list': bona_fides.APP_LIST,
-            }
-        }), name='coltrane_app_list'),
-    url(r'^clips/$', DirectTemplateView.as_view(**{
-            'template_name': 'coltrane/clip_list.html',
-            'extra_context': {
-                'clip_list': bona_fides.CLIP_LIST,
+                'object_list': Clip.objects.all(),
             }
         }), name='coltrane_clip_list'),
     url(r'^talks/$', DirectTemplateView.as_view(

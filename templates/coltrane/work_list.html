@@ -1,0 +1,33 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}work . {{ block.super }}{% endblock %}
+
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="work"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://{{ current_site }}/work/"/>
+{% endblock %}
+
+{% block content %}
+    <div class="interiorlist twelvecol last">
+        <h1>Work</h1>
+        <p class="description">News stories, apps and open-source software I've authored, typically in partnership with others.</p>
+        {% for object in object_list %}
+            {% ifchanged object.date.year %}
+            <div class="row">
+                <div class="section-hed twelvecol last">
+                    {{ object.date|date:"Y" }}
+                </div>
+            </div>
+            {% endifchanged %}
+            <div class="row">
+                <div class="listitem twelvecol last">
+                    {{ object.date|date:"N d" }}&nbsp;&nbsp;&nbsp;
+                    <a href="{{ object.url }}">{{ object }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
