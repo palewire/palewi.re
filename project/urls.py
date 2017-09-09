@@ -41,7 +41,7 @@ blogpatterns = [
             'extra_context': {
                 'object_list': Clip.objects.all(),
             }
-        }), name='coltrane_clip_list'),
+        }), name='coltrane_work_list'),
     url(r'^talks/$', DirectTemplateView.as_view(
         **{ 'template_name': 'coltrane/talk_list.html' }),
         name='coltrane_talk_list'),
