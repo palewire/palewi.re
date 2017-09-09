@@ -73,7 +73,7 @@ class Talk(models.Model):
     venue = models.CharField(max_length=1000, help_text="The host of the talk")
     location = models.CharField(max_length=1000, help_text="The location of the venue")
     date = models.DateField(help_text="The date of the talk")
-    video_url = models.CharField(max_length=1000, unique=True)
+    video_url = models.CharField(max_length=1000, blank=True)
     slides_url = models.CharField(max_length=1000, blank=True)
 
     class Meta:
