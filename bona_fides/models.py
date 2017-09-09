@@ -29,7 +29,7 @@ class Clip(models.Model):
     )
     type = models.CharField(max_length=100, choices=TYPE_CHOICES)
     date = models.DateField()
-    url = models.CharField(max_length=1000, blank=True, unique=True)
+    url = models.CharField(max_length=1000, unique=True)
 
     class Meta:
         ordering = ("-date",)
@@ -60,6 +60,24 @@ class Skill(Sortable):
 
     class Meta(Sortable.Meta):
         pass
+
+    def __unicode__(self):
+        return self.title
+
+
+class Talk(models.Model):
+    """
+    A public speech.
+    """
+    title = models.CharField(max_length=1000, help_text="The title of the talk")
+    venue = models.CharField(max_length=1000, help_text="The host of the talk")
+    location = models.CharField(max_length=1000, help_text="The location of the venue")
+    date = models.DateField(help_text="The date of the talk")
+    video_url = models.CharField(max_length=1000, unique=True)
+    slides_url = models.CharField(max_length=1000, blank=True)
+
+    class Meta:
+        ordering = ("-date",)
 
     def __unicode__(self):
         return self.title
