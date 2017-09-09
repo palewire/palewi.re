@@ -27,3 +27,10 @@ class SocialMediaProfileAdmin(SortableAdmin):
 class SkillAdmin(SortableAdmin):
     list_display = ("title",)
     search_fields = ("title",)
+
+
+@admin.register(models.Talk)
+class TalkAdmin(SortableAdmin):
+    list_display = ("title", "venue", "location", "date")
+    search_fields = ("title", "venue")
+    date_hierarchy = "date"
