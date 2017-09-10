@@ -29,13 +29,15 @@
             <div class="row">
                 <div class="listitem twelvecol last">
                     {{ object.date|date:"N" }}&nbsp;&nbsp;&nbsp;
-                    {{ object.title }} @ {{ object.venue }} ({{ object.location }})
+                    "{{ object.title }}" at {{ object.venue }} in {{ object.location }}
+                    (
                     {% if object.video_url %}
-                        <a href="{{ object.video_url }}">Video</a>
+                        <a href="{{ object.video_url }}">Video</a>{% if object.slides_url %}, {% endif %}
                     {% endif %}
                     {% if object.slides_url %}
                         <a href="{{ object.slides_url }}">Slides</a>
                     {% endif %}
+                    )
                 </div>
             </div>
         {% endfor %}
