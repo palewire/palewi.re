@@ -10,338 +10,35 @@
     <meta property="og:url" content="http://{{ current_site }}/talks/"/>
 {% endblock %}
 
-{% block extrahead %}
-<script type="text/javascript" src="http://palewire.s3.amazonaws.com/laziestloader-0.0.1/jquery.laziestloader.js"></script>
-<script type="text/javascript" src="http://palewire.s3.amazonaws.com/jquery.fitvids.1.1.0.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}jquery.responsiveiframe.js"></script>
-{% endblock %}
-
-{% block extradocready %}
-var customVids = {
-    customSelector: "iframe[data-src*='docs.google.com'], iframe[data-src*='sh-medieteknik.solidtango.com']"
-};
-$('.iframe').laziestloader({threshold:300}, function() {
-    $(".interiorlist").fitVids(customVids);
-});
-$(".interiorlist").fitVids(customVids);
-{% endblock %}
-
 {% block content %}
 
     <div class="interiorlist applist twelvecol last">
         <h1>Talks</h1>
         <p class="description">
-            A selection of slides, videos and other materials
-            from my public-speaking appearances.
+            A selection of slides and videos from my public-speaking appearances.
         </p>
 
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Show and Tell with the L.A. Times Data Desk @ Hacks/Hackers, November 2015 (Los Angeles)</h3>
+        {% for object in object_list %}
+            {% ifchanged object.date.year %}
+            <div class="row">
+                <div class="section-hed twelvecol last">
+                    {{ object.date|date:"Y" }}
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides"
-                        src="https://docs.google.com/presentation/d/1ybqJBreNfV29zzJyePB9GqHPHqZ9oxezG8adl91rK7k/embed?start=false&loop=false&delayms=3000"
-                        frameborder="0" width="533" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            {% endifchanged %}
+            <div class="row">
+                <div class="listitem twelvecol last">
+                    {{ object.date|date:"N" }}&nbsp;&nbsp;&nbsp;
+                    {{ object.title }} @ {{ object.venue }} ({{ object.location }})
+                    {% if object.video_url %}
+                        <a href="{{ object.video_url }}">Video</a>
+                    {% endif %}
+                    {% if object.slides_url %}
+                        <a href="{{ object.slides_url }}">Slides</a>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>The Open Data Opportunity @ The Milken Institute, November 2015 (Santa Monica)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" width="533" height="300" src="https://www.youtube.com/embed/JBeYpuDuHeo" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Package data like software and the stories will flow like wine @ Media Party, August 2015 (Buenos Aires)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" width="533" height="300" src="https://www.youtube.com/embed/yGGLT43sdIY" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="eightcol last">
-                <iframe class="iframe slides"
-                        src="https://docs.google.com/presentation/d/1BWIyHq3bPAEBhckYRQ_2I5e2AzChFuMN8z9KMOejpQ4/embed?start=false&loop=false&delayms=3000"
-                        frameborder="0" width="533" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>California Civic Data Coalition @ News Challenge announcement, July 2015 (Austin)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" width="533" height="300" src="https://www.youtube.com/embed/5TC2RXYgPBE" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Django + Memento @ Dodging the Memory Hole II, May 2015 (Charlotte)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" src="https://docs.google.com/presentation/d/1fu4IWbnu3QnYk45eQWtSoB0d4xlYCjQIcZ0S56AfOes/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Introducing Storytracker @ Dodging the Memory Hole, Nov. 2014 (Columbia, Missouri)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" width="533" height="300" src="https://www.youtube.com/embed/U9TVHr3j0ws" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="eightcol last">
-                <iframe class="iframe slides" src="https://docs.google.com/presentation/d/1Yf3YcuCL7Hj6GW_YSWhyIIfvKWaaS4oGFQmQNWqd1fE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>What is a Data Desk? and First Web Scraper @ CCCB Lab, Dec. 2014 (Barcelona)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" data-src="http://player.vimeo.com/video/114955572?title=0&amp;byline=0&amp;portrait=0" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            </div>
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000"
-                    frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-            <div class="eightcol last">
-                <iframe class="iframe video" data-src="http://player.vimeo.com/video/114955600?title=0&amp;byline=0&amp;portrait=0" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>You Must Learn @ NICAR 2014 (Baltimore)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe width="533" height="300" class="iframe video" data-src="http://www.youtube.com/embed/kMWXhYFlEPY" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1f9RJO8-6pxJn1LWvVmWaLPuVzklxiTSJL5PScl3NcPI/embed?start=false&loop=false&delayms=3000"
-                    frameborder="0" width="533" height="428"
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>What is a Data Desk? @ DataVis LA, Feb. 2014 (Santa Monica)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" data-src="http://player.vimeo.com/hubnut/album/2785993?color=44bbff&amp;background=000000&amp;slideshow=0&amp;video_title=1&amp;video_byline=1"
-                    width="533" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>What is a Data Desk? @ Nordic Data Journalism Conference 2013 (Stockholm)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" data-src="https://sh-medieteknik.solidtango.com/widgets/thumbnail/7efzycfn#t=770"
-                    width="533" height="300" scrolling="0" frameborder="0"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>El Cartografo en su Laberinto @ Data Fest 2013 (Buenos Aires)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe width="533" height="300" class="iframe video"
-                    data-src="http://www.youtube.com/embed/1vpYv0KBOTc" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1r7xANBupherX9z_FdKTnhkeg1L5pu2oe94eHgGka_-k/embed?start=false&loop=false&delayms=3000"
-                    frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>L.A.'s Political Calculus @ Festival of Books 2013 (Los Angeles)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1k1-5i0vQQLIwiid_Ov2d_beiLkbyMXoSviFHtBZC4Kw/embed?start=false&loop=false&delayms=3000"
-                    frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Django Retrained @ NICAR 2013 (Louisville)</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe video" data-src="http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1mwzJ4494rdSEhex2aPjBH2se3F-UBZjrgoLzfD1tYGc/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Is 911 a joke in your town? @ NICAR 2013 (Louisville)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1_1BCtJVJuDQKy99X9tSHc4veSVrX3UX040Gmrn6kL8M/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>How we use DocumentCloud at the Los Angeles Times @ NICAR 2013 (Louisville)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1ym7axgHp8KddfYsxond9r2t9w9Tzv48z02N1ySPcXOc/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>What is a Data Desk? @ ONALA May 16, 2012 (Los Angeles)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe width="533" height="429"
-                    class="iframe video" data-src="http://www.youtube.com/embed/S62J6SssxNE#t=6m36s"
-                    frameborder="0" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Human-assisted reporting @ ISOJ 2012 (Austin)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe width="533" height="429"
-                    class="iframe video" data-src="http://www.youtube.com/embed/iP-On8PzEy8"
-                    frameborder="0" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1sW3iLUDXs7NTdo7EUUxD7X3vnIWYo7G8orMf5FT05Zk/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>How I learned to stop worrying and love flat files @ NICAR 2012 (St. Louis)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframes slides" data-src="https://docs.google.com/presentation/d/1IybYcc0eVL-Rchm7lEQNwrM-AHRfr_M8ewfGYYNjeu8/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Locating the story @ NICAR 2012 (St. Louis)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/11_6sSd31mEy7VkQdG-YY_mQtlktKPt0ZuuaFwFy6H3w/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>PostGIS is your new bicycle @ NICAR 2011 (Raleigh)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1uhVAiEKlJWCfOOEldPQUl0_tErm-E-2Xvlv0IURh0CE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Guido's way: How to break news on Google App Engine @ NICAR 2011 (Raleigh)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/1lwf4yowXoSz8P6RsnTyFRY-45z7q3vklciMY5uzLQgA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Pluggable Maps @ Hacks/Hackers Dec. 15, 2010 (Los Angeles)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe class="iframe slides" data-src="https://docs.google.com/presentation/d/19_cEPdkLJS3Z5POylyEqPH6R9TTEzXcox4KZkclSXUc/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="428" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-
-        <div class="row talkitem">
-            <div class="twelvecol last talktext">
-                <h3>Django in Journalism @ DjangoCon 2008 (Mountain View)</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="eightcol last">
-                <iframe width="533" height="399"
-                    class="iframe video" data-src="http://www.youtube.com/embed/eLQ9xc_Dm3g"
-                    frameborder="0" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+        {% endfor %}
 
     </div>
 {% endblock %}

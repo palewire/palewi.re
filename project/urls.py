@@ -8,8 +8,8 @@ import bona_fides
 from coltrane import feeds
 from coltrane import views
 from coltrane.models import Post
-from bona_fides.models import Clip
 from coltrane.sitemaps import sitemaps
+from bona_fides.models import Clip, Talk
 from redirects import patterns as redirectpatterns
 from django.contrib.sitemaps import views as sitemap_views
 from django.views.static import serve as static_serve
@@ -42,9 +42,12 @@ blogpatterns = [
                 'object_list': Clip.objects.all(),
             }
         }), name='coltrane_work_list'),
-    url(r'^talks/$', DirectTemplateView.as_view(
-        **{ 'template_name': 'coltrane/talk_list.html' }),
-        name='coltrane_talk_list'),
+    url(r'^talks/$', DirectTemplateView.as_view(**{
+            'template_name': 'coltrane/talk_list.html',
+            'extra_context': {
+                'object_list': Talk.objects.all(),
+            }
+        }), name='coltrane_talk_list'),
     url(r'^posts/$', ListView.as_view(
         queryset=Post.live.all().order_by("-pub_date")),
         name='coltrane_post_list'),
