@@ -32,21 +32,6 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}styles.css?rev=1" type="text/css" media="screen" />
     <!--[if lte IE 9]><link rel="stylesheet" href="{{ STATIC_URL }}ie.css" type="text/css" media="screen" /><![endif]-->
 
-    <link rel="alternate" type="application/rss+xml" title="the full feed" href="http://{{ current_site }}/feeds/the-full-feed/"/>
-    <link rel="alternate" type="application/rss+xml" title="less noise" href="http://{{ current_site }}/feeds/less-noise/"/>
-    <link rel="alternate" type="application/rss+xml" title="posts" href="http://{{ current_site }}/feeds/posts/"/>
-    <link rel="alternate" type="application/rss+xml" title="beers" href="http://{{ current_site }}/feeds/beers/"/>
-    <link rel="alternate" type="application/rss+xml" title="books" href="http://{{ current_site }}/feeds/books/"/>
-    <link rel="alternate" type="application/rss+xml" title="code commits" href="http://{{ current_site }}/feeds/commits/"/>
-    <link rel="alternate" type="application/rss+xml" title="comments" href="http://{{ current_site }}/feeds/comments/"/>
-    <link rel="alternate" type="application/rss+xml" title="corrections" href="http://{{ current_site }}/feeds/corrections/"/>
-    <link rel="alternate" type="application/rss+xml" title="shouts" href="http://{{ current_site }}/feeds/shouts/"/>
-    <link rel="alternate" type="application/rss+xml" title="links" href="http://{{ current_site }}/feeds/links/"/>
-    <link rel="alternate" type="application/rss+xml" title="locations" href="http://{{ current_site }}/feeds/locations/"/>
-    <link rel="alternate" type="application/rss+xml" title="movies" href="http://{{ current_site }}/feeds/movies/"/>
-    <link rel="alternate" type="application/rss+xml" title="videos" href="http://{{ current_site }}/feeds/videos/"/>
-    <link rel="alternate" type="application/rss+xml" title="photos" href="http://{{ current_site }}/feeds/photos/"/>
-    <link rel="alternate" type="application/rss+xml" title="tracks" href="http://{{ current_site }}/feeds/tracks/"/>
     {% block extrarss %}
     {% endblock %}
 
@@ -130,11 +115,6 @@
                                 Talks
                             </a>
                         </li>
-                        <li>
-                            <a href="http://{{ current_site }}{% url 'coltrane_ticker_list' %}" title="Ticker">
-                                Ticker
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -151,8 +131,6 @@
                 <div class="twelvecol last">
                     <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ current_year }}</span> palewire</span> .
                     <a href="http://{{ current_site }}{% url 'coltrane_colophon' %}">colophon</a> .
-                    <a href="http://{{ current_site }}/feeds/list/" title="Feeds">rss feeds</a> .
-                    </a>
                     powered by <a id="django-link" href="http://www.djangoproject.com/">django</a> .
                 </div>
             </div>

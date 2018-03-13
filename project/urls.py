@@ -51,38 +51,11 @@ blogpatterns = [
     url(r'^posts/$', ListView.as_view(
         queryset=Post.live.all().order_by("-pub_date")),
         name='coltrane_post_list'),
-    url(r'^ticker/$', views.ticker_detail,
-        name='coltrane_ticker_list'),
-    url(r'^ticker/page/(?P<page>[0-9]+).json$', views.ticker_detail,
-        {'response_type': 'json'},
-        name='coltrane_ticker_json'),
     # Detail pages
     url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         views.post_detail, name='coltrane_post_detail'),
     url(r'categories/(?P<slug>[-\w]+)/$', views.category_detail,
         name="coltrane_category_detail"),
-    url(r'^corrections/(?P<id>[0-9]+)/$', views.correx_redirect,
-        name='coltrane_correx_redirect'),
-    # Feeds
-    url(r'^feeds/list/$', DirectTemplateView.as_view(
-        **{'template_name': 'coltrane/feed_list.html'})),
-
-    url(r'feeds/the-full-feed/$', feeds.FullFeed(), name="feeds-the-full-feed"),
-    url(r'feeds/less-noise/$', feeds.LessNoise(), name="feeds-less-noise"),
-    url(r'feeds/beers/$', feeds.RecentBeers(), name="feeds-beers"),
-    url(r'feeds/posts/$', feeds.RecentPosts(), name="feeds-posts"),
-    url(r'feeds/comments/$', feeds.RecentComments(), name="feeds-comments"),
-    url(r'feeds/shouts/$', feeds.RecentShouts(), name="feeds-shouts"),
-    url(r'feeds/links/$', feeds.RecentLinks(), name="feeds-links"),
-    url(r'feeds/photos/$', feeds.RecentPhotos(), name="feeds-photos"),
-    url(r'feeds/tracks/$', feeds.RecentTracks(), name="feeds-tracks"),
-    url(r'feeds/books/$', feeds.RecentBooks(), name="feeds-books"),
-    url(r'feeds/commits/$', feeds.RecentCommits(), name="feeds-commits"),
-    url(r'feeds/category/(?P<slug>[-\w]+)/$', feeds.CategoryFeed(), name="feeds-category"),
-    url(r'feeds/corrections/$', feeds.RecentCorrections(), name="feeds-corrections"),
-    url(r'feeds/movies/$', feeds.RecentMovies(), name="feeds-movies"),
-    url(r'feeds/locations/$', feeds.RecentLocations(), name="feeds-locations"),
-    url(r'feeds/questionheds/$', feeds.RecentHeds(), name="feeds-questionheds"),
 
     # Sitemaps
     url(r'^sitemap\.xml$', sitemap_views.index,
