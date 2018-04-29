@@ -1,7 +1,41 @@
 import boto
 import time
 import boto.ec2
-from fabric.api import env, task
+from fabric.api import env, task, sudo
+from fabric.contrib.project import rsync_project
+from .app import pushsettings, manage
+
+
+@task
+def bootstrap():
+    installchef()
+    cook()
+    pushsettings()
+    manage("loaddb")
+
+
+@task
+def installchef():
+    """
+    Install all the dependencies to run a Chef cookbook
+    """
+    # Install dependencies
+    sudo('apt-get update', pty=True)
+    sudo('apt-get install -y git-core', pty=True)
+    # Install Chef
+    sudo('curl -L https://www.opscode.com/chef/install.sh | bash', pty=True)
+    sudo('ln -s /opt/chef/bin/chef-solo /usr/local/bin/chef-solo')
+
+
+@task
+def cook():
+    """
+    Update Chef cookbook and execute it.
+    """
+    sudo('mkdir -p /etc/chef')
+    sudo('chown ubuntu -R /etc/chef')
+    rsync_project("/etc/chef/", "./chef/")
+    sudo('cd /etc/chef && %s' % env.chef, pty=True)
 
 
 @task

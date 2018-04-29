@@ -1,23 +1,25 @@
-from .bootstrap import bootstrap
-from .clean import clean
-from .collectstatic import collectstatic
-from .cook import cook
-from .createserver import createserver
-from .deploy import deploy
-from .installchef import installchef
-from .manage import manage
-from .migrate import migrate
-from .pipinstall import pipinstall
-from .ps import ps
-from .pull import pull
-from .restartapache import restartapache
-from .restartvarnish import restartvarnish
-from .rmpyc import rmpyc
-from .rs import rs
-from .pushsettings import pushsettings
-from .ssh import ssh
+from .app import (
+    clean,
+    collectstatic,
+    deploy,
+    manage,
+    migrate,
+    pipinstall,
+    pull,
+    pushsettings,
+    ssh,
+    restartapache,
+    restartvarnish
+)
+from .chef import (
+    bootstrap,
+    cook,
+    createserver,
+    installchef,
+)
+from .local import rs, rmpyc
+from .env import *
 
-from env import *
 
 __all__ = (
     'bootstrap',
