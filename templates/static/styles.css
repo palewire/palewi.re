@@ -59,6 +59,16 @@ div.smalliconlabel { display:none; font-size: 0.70em; position: absolute; top: 2
 #detailbody ol li {list-style-type: decimal;}
 #detailbody blockquote {margin-bottom: 1.15em; background:#F8F8F8 none repeat scroll 0 0; margin-left: 1.2em; line-height: 1.3em; padding: 1em; font-family:monospace; }
 #detailbody pre { margin-left:1em; line-height:1.3em;}
+.latimes-tour video {
+    width: 100%;
+    height: auto;
+}
+@media(max-width: 480px) {
+    figure.latimes-tour {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
 
 /* Change box, etc. */
 .highlight { background-color: #ffffcc }
