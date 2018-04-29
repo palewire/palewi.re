@@ -1,5 +1,5 @@
 import os
-from fabric.api import env, cd, sudo, task, local, run
+from fabric.api import env, cd, sudo, task, local, run, settings
 
 
 @task
@@ -30,6 +30,7 @@ def deploy():
     with settings(warn_only=True):
         clean()
     pipinstall()
+    collectstatic()
     restartapache()
 
 

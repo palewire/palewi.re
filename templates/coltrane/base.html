@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
     {% block facebookmeta %}
-    <!-- Facebook Open Graph tags -->
     <meta property="fb:admins" content="1257725335"/>
     <meta property="fb:app_id" content="190069391088781"/>
     <meta property="og:image" content="{{ STATIC_URL }}img/facebook-icon.png"/>
@@ -87,7 +86,7 @@
                 </div>
                 <div class="threecol last" id="whois">
                     <div>
-                        <a rel="author" href="http://{{ current_site }}{% url 'coltrane_bio' %}"
+                        <a rel="author" href="{% url 'coltrane_bio' %}"
                             title="All about Ben">Who is Ben Welsh?</a>
                     </div>
                 </div>
@@ -101,17 +100,17 @@
                 <div class="fourcol last">
                     <ul>
                         <li>
-                            <a href="http://{{ current_site }}{% url 'coltrane_post_list' %}" title="Posts">
+                            <a href="{% url 'coltrane_post_list' %}" title="Posts">
                                 Posts
                             </a>
                         </li>
                         <li>
-                            <a href="http://{{ current_site }}{% url 'coltrane_work_list' %}" title="Work">
+                            <a href="{% url 'coltrane_work_list' %}" title="Work">
                                 Work
                             </a>
                         </li>
                         <li>
-                            <a href="http://{{ current_site }}{% url 'coltrane_talk_list' %}" title="Talks">
+                            <a href="{% url 'coltrane_talk_list' %}" title="Talks">
                                 Talks
                             </a>
                         </li>
@@ -130,21 +129,13 @@
             <div id="ft" class="row">
                 <div class="twelvecol last">
                     <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ current_year }}</span> palewire</span> .
-                    <a href="http://{{ current_site }}{% url 'coltrane_colophon' %}">colophon</a> .
+                    <a href="{% url 'coltrane_colophon' %}">colophon</a> .
                     powered by <a id="django-link" href="http://www.djangoproject.com/">django</a> .
                 </div>
             </div>
         </footer>
 
     </div>
-
-<script type="text/javascript">
-    $(".smalliconwrapper").hover(
-        function () {$(".smalliconlabel", $(this)).show();},
-        function () {$(".smalliconlabel", $(this)).hide();}
-    );
-</script>
-
 {% block extrabottom %}
 {% endblock %}
 </body>
