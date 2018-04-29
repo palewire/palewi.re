@@ -130,6 +130,7 @@ class Post(models.Model):
     enable_comments = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
         help_text=_("Only 'Live' entries will be publicly displayed."))
+    repr_image = models.CharField(max_length=1000, blank=True, default="")
     categories = models.ManyToManyField(Category)
     objects = models.Manager()
     live = LivePostManager()

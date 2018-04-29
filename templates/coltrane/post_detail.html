@@ -23,6 +23,9 @@
     <meta property="og:title" content="{{ object.title }}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="http://{{ current_site }}{{ object.get_absolute_url }}"/>
+    {% if object.repr_image %}
+    <meta property="og:image" content="{{ object.repr_image }}"/>
+    {% endif %}
 {% endblock %}
 
 {% block extrabody %}about="http://{{ current_site }}{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}

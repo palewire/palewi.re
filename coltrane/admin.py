@@ -35,7 +35,7 @@ class PostAdmin(admin.ModelAdmin):
             'description': 'The post itself.'
         }),
         ('Meta', {
-            'fields': ('status', 'categories', 'enable_comments',),
+            'fields': ('status', 'repr_image', 'categories', 'enable_comments',),
             'description': 'About the post.'
         }),
     )
