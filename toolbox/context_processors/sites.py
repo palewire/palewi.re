@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.contrib.sites.models import Site
 
 
@@ -11,3 +12,7 @@ def current_site(request):
         }
     except Site.DoesNotExist:
         return {'current_site':''}
+
+
+def now(request):
+    return {"now": datetime.now()}

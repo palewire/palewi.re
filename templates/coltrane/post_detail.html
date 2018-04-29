@@ -39,58 +39,34 @@
                 </div>
             </div>
 
+            <p id="postpubdate">By
+                <span rel="rnews:createdBy" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                    <span about="/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
+                        <a rel="author" href="/who-is-ben-welsh/" property="rnews:name">
+                            Ben Welsh
+                        </a>
+                    </span>
+                </span> • <span itemprop="datePublished" property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}">
+                        <time datetime="{{ object.pub_date|date:"Y-m-d" }}" pubdate>
+                            {{ object.pub_date|date:"F j, Y" }}
+                        </time>
+                </span>
+            </p>
+
             <div id="detailbody" class="row">
                 <div class="twelvecol last">
-                    {% load correx_tags %}
-                    {% get_changes_for_object object 10 as change_list %}
-                    {% if change_list %}
-                    <div style="margin:10px 0;">
-                        {% for change in change_list %}
-                            <div class="changebox highlight">
-                                {{ change.description|safe }}
-                                <b>&mdash;{{ change.user }}, {{ change.pub_date|date:"N j, Y" }}</b>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
                     <span itemprop="articleBody" property="rnews:body">{{ object.body_html|safe }}</span>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="detailborderbumper twelvecol last"></div>
-            </div>
-
-            <div id="detailmetadata" class="row">
-                <div class="twelvecol last">
-                    <p id="postpubdate">This is a post
-                        <span rel="rnews:createdBy" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <span about="http://{{ current_site }}/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
-                                <a rel="author" href="http://{{ current_site }}/who-is-ben-welsh/" property="rnews:name">
-                                    Ben Welsh
-                                </a>
-                            </span>
-                        </span>
-        made on <span  itemprop="datePublished" property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}"><time datetime="{{ object.pub_date|date:"Y-m-d" }}" pubdate>{{ object.pub_date|date:"F j, Y" }}</time></span>, {{ object.pub_date|timesince }} ago.</p>
-                    {% if object.categories.count %}
-                        <p id ="postcats">
-                            It is filed with other posts about
-                            {% for cat in object.categories.all %}
-                            <a href="{{ cat.get_absolute_url }}">{{ cat.title|lower }}</a>{% if forloop.last %}.{% endif %}{% if forloop.last %}{% else %}{% ifequal forloop.revcounter0 1 %} and {% else %}, {% endifequal %}{% endif %}
-                            {% endfor %}
-                        </p>
-                    {% endif %}
                 </div>
             </div>
         </article>
 
+        {% load comments %}
+        {% get_comment_list for object as comment_list %}
+        {% if comment_list %}
         <div class="row">
             <div class="detailborderbumper twelvecol last"></div>
         </div>
 
-        {% load comments %}
-        {% get_comment_list for object as comment_list %}
-        {% if comment_list %}
         <div id ="comments" class="row">
             <div class="twelvecol last" rel="rnews:discussedBy">
                 <h2>Comments</h2>

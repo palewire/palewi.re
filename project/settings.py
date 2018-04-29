@@ -71,6 +71,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.csrf",
                 "toolbox.context_processors.sites.current_site",
+                "toolbox.context_processors.sites.now",
             ],
         },
     },

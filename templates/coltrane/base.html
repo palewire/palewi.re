@@ -29,7 +29,7 @@
     {% endblock %}
 
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset-fonts-grids.css"/>
-    <link rel="stylesheet" href="{{ STATIC_URL }}styles.css?rev=1" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles.css?rev={{ now.isoformat }}" type="text/css" media="screen" />
     <!--[if lte IE 9]><link rel="stylesheet" href="{{ STATIC_URL }}ie.css" type="text/css" media="screen" /><![endif]-->
 
     {% block extrarss %}
