@@ -8,11 +8,3 @@ def migrate():
     Run Django's migrate command
     """
     _venv("python manage.py migrate")
-
-
-@task
-def syncdb():
-    """
-    Run Django's syncdb command
-    """
-    _venv("python manage.py syncdb")

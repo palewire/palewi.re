@@ -7,7 +7,6 @@ from .deploy import deploy
 from .installchef import installchef
 from .manage import manage
 from .migrate import migrate
-from. migrate import syncdb
 from .pipinstall import pipinstall
 from .ps import ps
 from .pull import pull
