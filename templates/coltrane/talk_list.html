@@ -28,7 +28,7 @@
             {% endifchanged %}
             <div class="row">
                 <div class="listitem twelvecol last">
-                    {{ object.date|date:"N" }}&nbsp;&nbsp;&nbsp;
+                    {{ object.date|date:"N" }}&nbsp;
                     {{ object.title }} at {{ object.venue }} in {{ object.location }}
                     ({% if object.video_url %}<a target="_blank" href="{{ object.video_url }}">Video &raquo;</a>{% if object.slides_url %} {% endif %}{% endif %}{% if object.slides_url %}<a target="_blank" href="{{ object.slides_url }}">Slides &raquo;</a>{% endif %})
                 </div>

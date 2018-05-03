@@ -32,7 +32,7 @@
 
 {% block content %}
 
-        <div class="twelvecol last">
+    <div class="twelvecol last">
         <article itemscope itemtype="http://schema.org/Article">
             <div id="headline" class="row">
                 <div class="twelvecol last">
@@ -42,20 +42,20 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div id="detailpubdate" class="row">
                 <div class="twelvecol last">
-                <p id="postpubdate">
-                    By
-                    <span rel="rnews:createdBy" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                        <span about="/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
-                            <a style="text-decoration:none;" rel="author" href="/who-is-ben-welsh/" property="rnews:name">Ben Welsh</a>
+                    <p>
+                        By
+                        <span rel="rnews:createdBy" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                            <span about="/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
+                                <a rel="author" href="/who-is-ben-welsh/" property="rnews:name">Ben Welsh</a>
+                            </span>
+                        </span> • <span itemprop="datePublished" property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}">
+                                <time datetime="{{ object.pub_date|date:"Y-m-d" }}" pubdate>
+                                    {{ object.pub_date|date:"F j, Y" }}
+                                </time>
                         </span>
-                    </span> • <span itemprop="datePublished" property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}">
-                            <time datetime="{{ object.pub_date|date:"Y-m-d" }}" pubdate>
-                                {{ object.pub_date|date:"F j, Y" }}
-                            </time>
-                    </span>
-                </p>
+                    </p>
                 </div>
             </div>
 
