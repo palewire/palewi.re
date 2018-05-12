@@ -7,8 +7,16 @@ def collectstatic():
     """
     Roll out the latest static files
     """
-    _venv("rm -rf ./static")
-    _venv("python manage.py collectstatic --noinput")
+    local("rm -rf ./static")
+    local("python manage.py collectstatic --noinput")
+
+
+@task
+def publishstatic():
+    """
+    Roll out the latest static files
+    """
+    local("python manage.py publishstatic")
 
 
 @task
@@ -31,6 +39,7 @@ def deploy():
         clean()
     pipinstall()
     collectstatic()
+    publishstatic()
     restartapache()
 
 
