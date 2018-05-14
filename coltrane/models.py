@@ -15,6 +15,7 @@ from django.template.defaultfilters import truncatewords_html as truncate_html_w
 from django.conf import settings
 
 # Models
+from autoarchive.models import AutoArchiveModel
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.contrib.contenttypes.models import ContentType
@@ -96,7 +97,7 @@ class Category(models.Model):
         return Post.live.filter(categories=self).count()
 
 
-class Post(models.Model):
+class Post(AutoArchiveModel):
     """
     Blog posts. For longer stuff I write.
 
@@ -156,6 +157,14 @@ class Post(models.Model):
         })
     get_absolute_url = models.permalink(get_absolute_url)
     url = property(get_absolute_url)
+
+    def get_archive_url(self):
+        domain = 'http://palewi.re'
+        cache_buster = "?timestamp={}".format(datetime.datetime.now().strftime("%s"))
+        return domain + self.get_absolute_url() + cache_buster
+
+    def get_publication_status(self):
+        return self.status == 1
 
     def get_absolute_icon(self):
         return u'%sicons/posts.gif' % (settings.STATIC_URL)

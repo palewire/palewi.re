@@ -96,6 +96,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django.contrib.staticfiles',
+    'autoarchive',
      # Blog
     'coltrane',
     'bona_fides',
