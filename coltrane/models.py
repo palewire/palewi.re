@@ -159,11 +159,19 @@ class Post(AutoArchiveModel):
     url = property(get_absolute_url)
 
     def get_archive_url(self):
+        """
+        Overriding the URL to send to Internet Archive so that it has a cachebuster.
+        """
         domain = 'http://palewi.re'
         cache_buster = "?timestamp={}".format(datetime.datetime.now().strftime("%s"))
         return domain + self.get_absolute_url() + cache_buster
 
     def get_publication_status(self):
+        """
+        Overriding the autoarchiver's indicator of whether or not this post is live.
+
+        My posts are live when the `status` field equals 1. I know. It's dumb.
+        """
         return self.status == 1
 
     def get_absolute_icon(self):
