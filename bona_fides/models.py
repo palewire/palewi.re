@@ -1,5 +1,6 @@
 from django.db import models
 from adminsortable.models import Sortable
+from autoarchive.models import AutoArchiveModel
 
 
 class Award(Sortable):
@@ -16,7 +17,7 @@ class Award(Sortable):
         return self.title
 
 
-class Clip(models.Model):
+class Clip(AutoArchiveModel):
     """
     A story, app or other thing I've published.
     """
@@ -36,6 +37,9 @@ class Clip(models.Model):
 
     def __unicode__(self):
         return u'{}: {}'.format(self.get_type_display(), self.title)
+
+    def get_archive_url(self):
+        return self.url
 
 
 class SocialMediaProfile(Sortable):
