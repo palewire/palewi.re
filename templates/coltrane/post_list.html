@@ -24,8 +24,8 @@
             {% endifchanged %}
             <div class="row">
                 <div class="listitem twelvecol last">
-                    {{ object.pub_date|date:"N d" }}&nbsp;&nbsp;&nbsp;
-                    <a href="{{ object.get_absolute_url }}">{{ object }}</a> 
+                    {{ object.pub_date|date:"N d" }} •
+                    <a href="{{ object.get_absolute_url }}">{{ object }}</a>
                 </div>
             </div>
         {% endfor %}
