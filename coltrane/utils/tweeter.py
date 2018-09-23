@@ -127,7 +127,7 @@ if TWITTER_TRANSFORM_MSG:
         message_text = message_text.replace('\n','')
 
         # convert links to HTML
-        links = [ link for link in URL_RE.findall(message_text) ]
+        links = [link for link in URL_RE.findall(message_text)]
         for link in URL_RE.finditer(message_text):
             link_html = LINK_LINK_TPL % (link.group(0), link.group(0), link.group(0))
             message_text = message_text.replace(link.group(0), link_html)
