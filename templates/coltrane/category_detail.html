@@ -7,7 +7,7 @@
     {{ block.super }}
     <meta property="og:title" content="Posts about {{ category }}"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://{{ current_site }}/categories/{{ category.slug }}/"/>
+    <meta property="og:url" content="https://{{ current_site }}/categories/{{ category.slug }}/"/>
 {% endblock %}
 
 {% block extrarss %}
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="listitem twelvecol last">
                     {{ object.pub_date|date:"N d" }}&nbsp;&nbsp;&nbsp;
-                    <a href="{{ object.get_absolute_url }}">{{ object }}</a> 
+                    <a href="{{ object.get_absolute_url }}">{{ object }}</a>
                 </div>
             </div>
         {% endfor %}
