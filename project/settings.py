@@ -1,8 +1,7 @@
 # Django settings for cms project.
 import os
-from django.core.exceptions import SuspiciousOperation
-settings_dir = os.path.dirname(__file__)
-SETTINGS_DIR = settings_dir
+
+SETTINGS_DIR = os.path.dirname(__file__)
 ROOT_DIR = os.path.join(
     os.path.abspath(
         os.path.join(SETTINGS_DIR, os.path.pardir),
@@ -25,8 +24,8 @@ LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
 
-MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
-STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 CACHE_BACKEND =	'memcached://127.0.0.1:11211'
 CACHE_MIDDLEWARE_SECONDS = 60 * 5
@@ -78,7 +77,7 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = (
-    os.path.join(ROOT_DIR, 'templates/static/'),
+    os.path.join(BASE_DIR, 'templates/static/'),
 )
 
 STATICFILES_FINDERS = (
@@ -120,14 +119,6 @@ SITE_NAME = 'palewi.re'
 SITE_BASE_URL = 'http://%s/!/' % SITE_NAME
 
 
-def skip_suspicious_operations(record):
-  if record.exc_info:
-    exc_value = record.exc_info[1]
-    if isinstance(exc_value, SuspiciousOperation):
-      return False
-  return True
-
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -135,16 +126,12 @@ LOGGING = {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
         },
-        'skip_suspicious_operations': {
-            '()': 'django.utils.log.CallbackFilter',
-            'callback': skip_suspicious_operations,
-         },
     },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['require_debug_false', 'skip_suspicious_operations'],
+            'filters': ['require_debug_false',],
         },
         'console':{
             'level':'DEBUG',
@@ -154,10 +141,13 @@ LOGGING = {
         'logfile': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(settings_dir, 'django.log'),
+            'filename': os.path.join(SETTINGS_DIR, 'django.log'),
             'maxBytes': 50000,
             'backupCount': 2,
             'formatter': 'verbose',
+        },
+        'null': {
+            'class': 'logging.NullHandler',
         },
     },
     'formatters': {
@@ -174,6 +164,10 @@ LOGGING = {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
+        },
+        'django.security.DisallowedHost': {
+            'handlers': ['null'],
+            'propagate': False,
         },
         'coltrane': {
             'handlers': ['console', 'logfile'],
