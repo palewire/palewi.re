@@ -3,7 +3,7 @@ BeautifulSoup==3.2.0
 boto==2.45.0
 Django==1.11.1
 django-admin-sortable==2.1
-django-autoarchive==0.0.2
+django-autoarchive==0.0.3
 django-contrib-comments==1.8.0
 django-debug-toolbar==1.0.1
 django-localflavor==1.0
