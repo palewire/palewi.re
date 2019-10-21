@@ -1,7 +1,7 @@
 akismet==0.2.0
 BeautifulSoup==3.2.0
 boto==2.45.0
-Django==1.11.1
+Django==1.11.23
 django-admin-sortable==2.1
 django-autoarchive==0.0.3
 django-contrib-comments==1.8.0
