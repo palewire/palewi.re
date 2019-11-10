@@ -16,17 +16,6 @@ from django.contrib.contenttypes.models import ContentType
 from coltrane.models import Post, Category, Link, Photo, Track, Ticker, Beer
 
 
-def index(request):
-    """
-    The homepage of the site, which simply redirects to the bio.
-    """
-    try:
-        latest_post = Post.live.latest()
-        return HttpResponseRedirect(latest_post.get_absolute_url())
-    except Post.DoesNotExist:
-        return HttpResponseRedirect("/ticker/")
-
-
 def bio(request):
     """
     All about Ben.
