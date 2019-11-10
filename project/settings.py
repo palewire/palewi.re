@@ -103,10 +103,7 @@ INSTALLED_APPS = (
      # Site extras and helpers
     'correx',
     'greeking',
-    'adminsortable',
-    # NICAR-related apps
-    'nicar.polls',
-    'nicar.flu_map',
+    'adminsortable'
 )
 
 # Shortener settings
