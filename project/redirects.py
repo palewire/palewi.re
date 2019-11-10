@@ -48,6 +48,12 @@ patterns = [
             url='https://web.archive.org/web/20160413124128/http://palewi.re/kennedy/'
         )
     ),
+    url(
+        r'^colophon/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20191110230741/https://palewi.re/colophon/'
+        )
+    ),
     # DC Music Stores map from old site.
     url(r'^music/$', RedirectView.as_view(url='/')),
     # Arcade Fire hypecloud from old site.

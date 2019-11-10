@@ -31,10 +31,6 @@ blogpatterns = [
     ),
     # My bio
     url(r'^who-is-ben-welsh/$', views.bio, name="coltrane_bio"),
-    # About the site
-    url(r'^colophon/$', DirectTemplateView.as_view(
-        **{'template_name': 'coltrane/colophon.html'}),
-        name="coltrane_colophon"),
     # The admin
     url(r'^admin/', include(admin.site.urls)),
     # Main list pages
