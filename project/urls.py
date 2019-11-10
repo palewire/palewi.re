@@ -26,7 +26,11 @@ admin.autodiscover()
 blogpatterns = [
 
     # The index
-    url(r'^$', views.index, name='coltrane_index'),
+    url(
+        r'^$',
+        RedirectView.as_view(url='/who-is-ben-welsh/'),
+        name='coltrane_index'
+    ),
     # My bio
     url(r'^who-is-ben-welsh/$', views.bio, name="coltrane_bio"),
     # About the site
