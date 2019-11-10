@@ -69,38 +69,8 @@ blogpatterns = [
     url(r'^favicon.ico$', RedirectView.as_view(
         url='http://palewire.s3.amazonaws.com/favicon.ico')),
 
-    # newtwitter style autopagination with django
-    url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
-        views.newtwitter_pagination_index,
-        name='coltrane_app_newtwitter_index'),
-    url(r'^apps/twitter-style-infinite-scroll-with-django-demo/json/(?P<page>[0-9]+)/',
-        views.newtwitter_pagination_json,
-        name='coltrane_app_newtwitter_json'),
-
-    # BRING THE NEWS BACK
-    url(r'^apps/bring-the-news-back/$', DirectTemplateView.as_view(
-        **{'template_name': 'wxwtf/bring_the_news_back/index.html' }),
-        name='coltrane_app_newtwitter_json'),
-
-    # Return of the Mack ringtone
-    url(r'^mack/$', DirectTemplateView.as_view(**{'template_name': 'wxwtf/mack.html'}),
-        name='mack'),
-
-    # Candy says...
-    url(r'^candysays/$', DirectTemplateView.as_view(**{
-        'template_name': 'wxwtf/candy.html'}),
-        name='candy-says'),
-
-    # Where will the Regional Connector go?
-    url(r'^regional-connector/$', DirectTemplateView.as_view(
-        **{'template_name': 'wxwtf/regional_connector/index.html'}),
-        name='candy-says'),
-
-    # Other weird stuff
-    url(r'^comments/', include('django_comments.urls')),
+    # Corrections
     url(r'^correx/', include('correx.urls')),
-    url(r'^nicar/polls/', include("nicar.polls.urls")),
-    url(r'^nicar/flu-map/', include("nicar.flu_map.urls")),
 ]
 
 if settings.DEBUG:

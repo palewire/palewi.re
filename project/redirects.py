@@ -54,6 +54,48 @@ patterns = [
             url='https://web.archive.org/web/20191110230741/https://palewi.re/colophon/'
         )
     ),
+    url(
+        r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20161227151249/http://palewi.re/apps/twitter-style-infinite-scroll-with-django-demo/'
+        )
+    ),
+    url(
+        r'^apps/bring-the-news-back/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20191110231324/http://palewi.re/apps/bring-the-news-back/'
+        )
+    ),
+    url(
+        r'^mack/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20121109101143/http://palewi.re/mack/'
+        )
+    ),
+    url(
+        r'^mack/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20160413123742/http://palewi.re/candysays/'
+        )
+    ),
+    url(
+        r'^regional-connector/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20161229055224/http://palewi.re/regional-connector/'
+        )
+    ),
+    url(
+        r'^nicar/polls/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20191110232017/https://palewi.re/nicar/polls/'
+        )
+    ),
+    url(
+        r'^nicar/flu-map/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20191110232108/https://palewi.re/nicar/flu-map/'
+        )
+    ),
     # DC Music Stores map from old site.
     url(r'^music/$', RedirectView.as_view(url='/')),
     # Arcade Fire hypecloud from old site.

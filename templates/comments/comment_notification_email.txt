@@ -1,5 +1,0 @@
-A comment has been left on {{ content_object }}
-
-"""
-{{ comment.comment }}
-"""
