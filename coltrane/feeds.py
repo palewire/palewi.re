@@ -1,5 +1,4 @@
 # Feeds
-from wxwtf.questionheds.feeds import RecentHeds
 from django.contrib.syndication.views import Feed, FeedDoesNotExist
 
 # Models

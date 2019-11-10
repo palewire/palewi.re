@@ -13,7 +13,6 @@ from bona_fides.models import Clip, Talk
 from redirects import patterns as redirectpatterns
 from django.contrib.sitemaps import views as sitemap_views
 from django.views.static import serve as static_serve
-from wxwtf.random_oscars_ballot import views as random_oscars_ballot_views
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import RedirectView, ListView
 from toolbox.views import DirectTemplateView

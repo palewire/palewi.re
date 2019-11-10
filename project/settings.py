@@ -107,11 +107,6 @@ INSTALLED_APPS = (
     # NICAR-related apps
     'nicar.polls',
     'nicar.flu_map',
-    # Goofy one-off apps
-    'wxwtf.questionheds',
-    'wxwtf.random_oscars_ballot',
-    'wxwtf.flushots',
-    'wxwtf.kennedy',
 )
 
 # Shortener settings
