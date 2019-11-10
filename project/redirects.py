@@ -29,6 +29,13 @@ patterns = [
     # OpenLayers tutorial on old site.
     url('^openlayers-proportional-symbols/$', DirectTemplateView.as_view(
         template_name='tutorials/openlayers-proportional-symbols/index.html')),
+    # 2011 free flu shots app
+    url(
+        r'^free-flu-shots/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20130718063144/palewi.re/free-flu-shots/'
+        )
+    ),
     # DC Music Stores map from old site.
     url(r'^music/$', RedirectView.as_view(url='/')),
     # Arcade Fire hypecloud from old site.

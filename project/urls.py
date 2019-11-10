@@ -13,7 +13,6 @@ from bona_fides.models import Clip, Talk
 from redirects import patterns as redirectpatterns
 from django.contrib.sitemaps import views as sitemap_views
 from django.views.static import serve as static_serve
-from wxwtf.flushots import views as flushots_views
 from wxwtf.random_oscars_ballot import views as random_oscars_ballot_views
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import RedirectView, ListView
@@ -55,6 +54,7 @@ blogpatterns = [
     url(r'^posts/$', ListView.as_view(
         queryset=Post.live.all().order_by("-pub_date")),
         name='coltrane_post_list'),
+
     # Detail pages
     url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         views.post_detail, name='coltrane_post_detail'),
@@ -76,9 +76,6 @@ blogpatterns = [
 
     # Kennedy name generator
     url(r'^kennedy/', include('wxwtf.kennedy.urls')),
-
-    # Flu Shots 2011
-    url(r'free-flu-shots/$', flushots_views.index, name='flushots-index'),
 
     # Random Oscars Ballot
     url(r'random-oscars-ballot/$', random_oscars_ballot_views.index,
