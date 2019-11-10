@@ -46,6 +46,18 @@ def post_detail(request, year, month, day, slug):
     return render(request, 'coltrane/post_detail.html', context)
 
 
+def category_detail(request, slug):
+    """
+    A list that reports all the posts in a particular category.
+    """
+    category = get_object_or_404(Category, slug=slug)
+    context = dict(
+        object_list=category.post_set.all(),
+        category=category,
+    )
+    return render(request, 'coltrane/category_detail.html', context)
+
+
 def server_error(request, template_name='500.html'):
     """
     500 error handler. Necessary to make sure STATIC_URL is available.
