@@ -30,7 +30,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset-fonts-grids.css"/>
     <link rel="stylesheet" href="{{ STATIC_URL }}styles.css?rev={{ now.isoformat }}" type="text/css" media="screen" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="{{ STATIC_URL }}ie.css" type="text/css" media="screen" /><![endif]-->
 
     {% block extrarss %}
     {% endblock %}
@@ -38,9 +37,6 @@
     {% block extralinktags %}
     {% endblock %}
 
-    <!--[if lt IE 9]>
-        <script src="{{ STATIC_URL }}html5shiv.js"></script>
-    <![endif]-->
     <script type="text/javascript" src="{{ STATIC_URL }}css3-mediaqueries.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}jquery-1.10.2.min.js"></script>
 
