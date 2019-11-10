@@ -36,6 +36,12 @@ patterns = [
             url='https://web.archive.org/web/20130718063144/palewi.re/free-flu-shots/'
         )
     ),
+    url(
+        r'^random-oscars-ballot/$',
+        RedirectView.as_view(
+            url='https://web.archive.org/web/20191110225501/https://palewi.re/random-oscars-ballot/'
+        )
+    ),
     # DC Music Stores map from old site.
     url(r'^music/$', RedirectView.as_view(url='/')),
     # Arcade Fire hypecloud from old site.

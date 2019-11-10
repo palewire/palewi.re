@@ -77,10 +77,6 @@ blogpatterns = [
     # Kennedy name generator
     url(r'^kennedy/', include('wxwtf.kennedy.urls')),
 
-    # Random Oscars Ballot
-    url(r'random-oscars-ballot/$', random_oscars_ballot_views.index,
-        name='random-oscars-ballot-index'),
-
     # newtwitter style autopagination with django
     url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
         views.newtwitter_pagination_index,
