@@ -74,9 +74,6 @@ blogpatterns = [
     url(r'^favicon.ico$', RedirectView.as_view(
         url='http://palewire.s3.amazonaws.com/favicon.ico')),
 
-    # Kennedy name generator
-    url(r'^kennedy/', include('wxwtf.kennedy.urls')),
-
     # newtwitter style autopagination with django
     url(r'^apps/twitter-style-infinite-scroll-with-django-demo/$',
         views.newtwitter_pagination_index,
