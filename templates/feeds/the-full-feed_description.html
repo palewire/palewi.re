@@ -1,9 +1,0 @@
-{% if obj.content_object.body %}
-	{{ obj.content_object.body|safe }}
-{% endif %}
-{% if not obj.content_object.body %}
-	{% if obj.content_object.description %}
-		{{ obj.content_object.description|safe }}
-	{% else %}
-	{% endif %}
-{% endif %}

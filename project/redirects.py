@@ -11,11 +11,11 @@ patterns = [
     # Redirects old tag pages
     url(r'^tag/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
     url(r'^tags/(?P<tag>[^/]+)/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
-    # Redirects old feeds to new feeds
-    url(r'^comments/feed/$', RedirectView.as_view(url='/feeds/comments/')),
-    url(r'^feed/$', RedirectView.as_view(url='/feeds/posts/')),
-    url(r'^feed/atom/$', RedirectView.as_view(url='/feeds/posts/')),
-    url(r'^feed/rss/$', RedirectView.as_view(url='/feeds/posts/')),
+    # Redirects old feeds
+    url(r'^comments/feed/$', RedirectView.as_view(url='/')),
+    url(r'^feed/$', RedirectView.as_view(url='/')),
+    url(r'^feed/atom/$', RedirectView.as_view(url='/')),
+    url(r'^feed/rss/$', RedirectView.as_view(url='/')),
     # Redirects from old flatpages
     url(r'^bio/$', RedirectView.as_view(url='/who-is-ben-welsh/')),
     # Redirects from old clips pages

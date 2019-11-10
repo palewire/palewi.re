@@ -5,7 +5,6 @@ from django.conf.urls import include, url
 from django.conf import settings
 from django.contrib import admin
 import bona_fides
-from coltrane import feeds
 from coltrane import views
 from coltrane.models import Post
 from coltrane.sitemaps import sitemaps
