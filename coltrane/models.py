@@ -196,15 +196,6 @@ class ThirdPartyBaseModel(models.Model):
         abstract = True
         get_latest_by = 'pub_date'
 
-    def get_rendered_html(self):
-        template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
-        return render_to_string(template_name, { 'object': self,
-            'STATIC_URL': settings.STATIC_URL })
-
-    def get_absolute_icon(self):
-        name = u'%ss' % self.__class__.__name__.lower()
-        return u'%sicons/%s.gif' % (settings.STATIC_URL, name)
-
 
 class Beer(ThirdPartyBaseModel):
     """
