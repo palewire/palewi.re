@@ -52,8 +52,6 @@ blogpatterns = [
     # Detail pages
     url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         views.post_detail, name='coltrane_post_detail'),
-    url(r'categories/(?P<slug>[-\w]+)/$', views.category_detail,
-        name="coltrane_category_detail"),
 
     # Sitemaps
     url(r'^sitemap\.xml$', sitemap_views.index,

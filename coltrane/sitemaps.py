@@ -1,14 +1,10 @@
-from coltrane.models import Post, Category
+from coltrane.models import Post
 from django.contrib import sitemaps
 from django.contrib.sitemaps import GenericSitemap
 
 post_dict = {
     'queryset': Post.live.all(),
     'date_field': 'pub_date',
-}
-
-category_dict = {
-    'queryset': Category.live.all(),
 }
 
 class AbstractSitemapClass(object):
@@ -38,5 +34,4 @@ class StaticSitemap(sitemaps.Sitemap):
 sitemaps = {
     'static': StaticSitemap,
     'posts': GenericSitemap(post_dict, priority=0.9),
-    'categories': GenericSitemap(category_dict, priority=0.6),
 }
