@@ -2,10 +2,10 @@
 import time
 import datetime
 from django.conf import settings
+from django.shortcuts import render
 from django.views.generic import ListView
 from django.template import Context, loader
-from django.http import HttpResponseServerError
-from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseServerError, Http404
 
 # Models
 from coltrane.models import Post
@@ -30,13 +30,15 @@ def post_detail(request, year, month, day, slug):
     """
     date_stamp = time.strptime(year+month+day, "%Y%m%d")
     pub_date = datetime.date(*date_stamp[:3])
-    post = get_object_or_404(
-        Post,
-        pub_date__year=pub_date.year,
-        pub_date__month=pub_date.month,
-        pub_date__day=pub_date.day,
-        slug=slug
-    )
+    try:
+        post = Post.live.get(
+            pub_date__year=pub_date.year,
+            pub_date__month=pub_date.month,
+            pub_date__day=pub_date.day,
+            slug=slug
+        )
+    except Post.DoesNotExist:
+        raise Http404
     context = {
         'object': post,
     }
