@@ -39,7 +39,6 @@ class Ticker(models.Model):
     object_id = models.PositiveIntegerField()
     pub_date = models.DateTimeField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    objects = GFKManager()
 
     class Meta:
         verbose_name_plural = _('Ticker')
@@ -47,11 +46,6 @@ class Ticker(models.Model):
 
     def __unicode__(self):
         return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
-
-    def get_rendered_html(self):
-        template_name = 'coltrane/ticker_item_%s.html' % (self.content_type.name)
-        return render_to_string(template_name, { 'object': self.content_object,
-            'STATIC_URL': settings.STATIC_URL })
 
 
 class Slogan(models.Model):
