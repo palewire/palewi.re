@@ -69,6 +69,7 @@ blogpatterns = [
         url='http://palewire.s3.amazonaws.com/favicon.ico')),
 
     # Corrections
+    url(r'^comments/', include('django_comments.urls')),
     url(r'^correx/', include('correx.urls')),
 ]
 
