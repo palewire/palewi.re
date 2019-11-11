@@ -2,12 +2,21 @@
 
 {% block title %}work . {{ block.super }}{% endblock %}
 
+{% block canonicalurl %}https://{{ current_site }}/work/{% endblock %}
+
 {% block facebookmeta %}
     {{ block.super }}
     <meta property="og:title" content="work"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="https://{{ current_site }}/work/"/>
 {% endblock %}
+
+{% block googleurl %}https://{{ current_site }}/work/{% endblock %}
+{% block googleheadline %}work{% endblock %}
+{% block googledescription %}Stories, apps and open-source software I've authored, typically in partnership with others.{% endblock %}
+{% block googlecreated %}2019-11-10T00:00:00{% endblock %}
+{% block googlepublished %}2019-11-10T00:00:00{% endblock %}
+{% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
 
 {% block content %}
     <div class="interiorlist twelvecol last">

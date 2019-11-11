@@ -7,14 +7,17 @@
 
     {% block meta %}
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+
     <meta name="author" content="Ben Welsh" />
     <meta name="description" content="{% block description %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
     <meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, data journalism, computer-assisted reporting, journalism{% endblock %}" />
+
     <meta name="verify-v1" content="gY50FIiS1ZkWlR0vmMn+q/qv5ihAfW8cRQIFBU1+5d0=" />
     <meta name="google-site-verification" content="yrVbQvYyAcy-Xa_1JbW8IErxVsErovb8oN6I54H01H4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
-    {% endblock %}
+
+    <link rel="canonical" href="{% block canonicalurl %}{% endblock %}" />
 
     {% block facebookmeta %}
     <meta property="fb:admins" content="1257725335"/>
@@ -23,6 +26,44 @@
     <meta property="og:site_name" content="palewire"/>
     <meta property="og:description"
           content="Blog. Editor and Publisher Ben Welsh."/>
+    {% endblock %}
+
+    {% block googlemeta %}
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{% block googleurl %}https://palewi.re/{% endblock %}"
+      },
+      "headline": "{% block googleheadline %}palewire{% endblock %}",
+      "description": "{% block googledescription %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}",
+      "inLanguage": "en_US",
+      "dateCreated": "{% block googlecreated %}{% endblock %}",
+      "datePublished": "{% block googlepublished %}{% endblock %}",
+      "dateModified": "{% block googlemodified %}{% endblock %}",
+      "publisher": {
+        "@type": "NewsMediaOrganization",
+        "name": "palewire",
+        "url": "https://palewi.re",
+        "location": {
+            "@type": "Place",
+            "name": "Los Angeles"
+        },
+        "logo": {
+        "@type": "ImageObject",
+            "contentUrl": "{{ STATIC_URL }}img/facebook-icon.png",
+            "url": "{{ STATIC_URL }}img/facebook-icon.png"
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ben Welsh"
+      }
+    }
+    </script>
+    {% endblock %}
     {% endblock %}
 
     {% block extrameta %}

@@ -2,12 +2,21 @@
 
 {% block title %}who is ben welsh? . {{ block.super }}{% endblock %}
 
+{% block canonicalurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
+
 {% block facebookmeta %}
     {{ block.super }}
     <meta property="og:title" content="Who is Ben Welsh?"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="https://{{ current_site }}/who-is-ben-welsh/"/>
 {% endblock %}
+
+{% block googleurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
+{% block googleheadline %}who is ben welsh?{% endblock %}
+{% block googledescription %}hello. my name is ben.{% endblock %}
+{% block googlecreated %}2019-11-10T00:00:00{% endblock %}
+{% block googlepublished %}2019-11-10T00:00:00{% endblock %}
+{% block googlemodified %}2019-11-10T00:00:00{% endblock %}
 
 {% block content %}
 <div class="vcard twelvecol last">

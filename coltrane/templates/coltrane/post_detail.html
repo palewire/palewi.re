@@ -4,28 +4,35 @@
 
 {% block title %}{{ object.title|lower }} . {{ block.super }}{% endblock %}
 
+{% block canonicalurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+
 {% block extrameta %}
     {{ block.super }}
     <meta itemprop="name" content="{{ object.title }}">
     <meta itemprop="headline" content="{{ object.title }}">
-    <meta itemprop="url" content="http://{{ current_site }}{{ object.get_absolute_url }}">
+    <meta itemprop="url" content="https://{{ current_site }}{{ object.get_absolute_url }}">
     <meta itemprop="author" content="Ben Welsh">
     <meta itemprop="copyrightYear" content="{{ object.pub_date|date:"Y" }}">
     <meta itemprop="dateCreated" content="{{ object.pub_date|date:"Ymd" }}">
     <meta itemprop="datePublished" content="{{ object.pub_date|date:"Ymd" }}">
     <meta itemprop="inLanguage" content="en">
-    <link rel="canonical" href="https://{{ current_site }}{{ object.get_absolute_url }}" />
 {% endblock %}
 
 {% block facebookmeta %}
     {{ block.super }}
     <meta property="og:title" content="{{ object.title }}"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://{{ current_site }}{{ object.get_absolute_url }}"/>
+    <meta property="og:url" content="https://{{ current_site }}{{ object.get_absolute_url }}"/>
     {% if object.repr_image %}
     <meta property="og:image" content="{{ object.repr_image }}"/>
     {% endif %}
 {% endblock %}
+
+{% block googleurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+{% block googleheadline %}{{ object.title|lower }}{% endblock %}
+{% block googlecreated %}{{ object.pub_date|date:"c" }}{% endblock %}
+{% block googlepublished %}{{ object.pub_date|date:"c" }}{% endblock %}
+{% block googlemodified %}{{ object.pub_date|date:"c" }}{% endblock %}
 
 {% block extrabody %}about="http://{{ current_site }}{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
 
