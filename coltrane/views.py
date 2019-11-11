@@ -1,21 +1,15 @@
 # Helpers
 import time
 import datetime
-from django.views.generic.list import ListView
 from django.conf import settings
-from django.shortcuts import get_object_or_404, render
-from django.http import Http404, HttpResponseRedirect, HttpResponseServerError
-from django.core.paginator import Paginator, InvalidPage, EmptyPage
-from django.core.urlresolvers import reverse
-from django.template import Context, loader
 from django.views.generic import ListView
+from django.template import Context, loader
+from django.http import HttpResponseServerError
+from django.shortcuts import get_object_or_404, render
 
 # Models
-from correx.models import Change
+from coltrane.models import Post
 from bona_fides import models as bona_fides
-from django.contrib.contenttypes.models import ContentType
-from coltrane.models import Post, Category, Link, Photo, Track, Ticker, Beer
-from bona_fides.models import Clip, Talk
 
 
 def bio(request):
@@ -36,7 +30,8 @@ def post_detail(request, year, month, day, slug):
     """
     date_stamp = time.strptime(year+month+day, "%Y%m%d")
     pub_date = datetime.date(*date_stamp[:3])
-    post = get_object_or_404(Post,
+    post = get_object_or_404(
+        Post,
         pub_date__year=pub_date.year,
         pub_date__month=pub_date.month,
         pub_date__day=pub_date.day,
@@ -60,12 +55,12 @@ def server_error(request, template_name='500.html'):
 
 
 class ClipListView(ListView):
-    model = Clip
+    model = bona_fides.Clip
     template_name = "coltrane/clip_list.html"
 
 
 class TalkListView(ListView):
-    model = Talk
+    model = bona_fides.Talk
     template_name = "coltrane/talk_list.html"
 
 

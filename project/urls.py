@@ -1,21 +1,18 @@
-import os
-this_dir = os.path.dirname(__file__)
-
-from django.conf.urls import include, url
 from django.conf import settings
-from django.contrib import admin
-import bona_fides
-from coltrane import views
-from coltrane.models import Post
-from coltrane.sitemaps import sitemaps
-from bona_fides.models import Clip, Talk
+from django.conf.urls import include, url
 from redirects import patterns as redirectpatterns
-from django.contrib.sitemaps import views as sitemap_views
-from django.views.static import serve as static_serve
-from django.contrib.admin.views.decorators import staff_member_required
-from django.views.generic import RedirectView, ListView
-from toolbox.views import DirectTemplateView
+
+# Views
+from coltrane import views
+from coltrane.sitemaps import sitemaps
 from toolbox import views as toolbox_views
+from toolbox.views import DirectTemplateView
+from django.views.generic import RedirectView
+from django.views.static import serve as static_serve
+from django.contrib.sitemaps import views as sitemap_views
+
+# Admin
+from django.contrib import admin
 admin.autodiscover()
 
 
