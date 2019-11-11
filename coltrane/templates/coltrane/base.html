@@ -5,6 +5,7 @@
 <head>
     <title>{% block title %}palewire{% endblock %}</title>
 
+    {% block meta %}
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="author" content="Ben Welsh" />
     <meta name="description" content="{% block description %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
@@ -13,6 +14,7 @@
     <meta name="google-site-verification" content="yrVbQvYyAcy-Xa_1JbW8IErxVsErovb8oN6I54H01H4" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+    {% endblock %}
 
     {% block facebookmeta %}
     <meta property="fb:admins" content="1257725335"/>
@@ -26,26 +28,11 @@
     {% block extrameta %}
     {% endblock %}
 
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset-fonts-grids.css"/>
-    <link rel="stylesheet" href="{{ STATIC_URL }}styles.css?rev={{ now.isoformat }}" type="text/css" media="screen" />
-
-    {% block extrarss %}
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset-fonts-grids.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}styles.css?rev={{ now.isoformat }}" />
     {% endblock %}
 
-    {% block extralinktags %}
-    {% endblock %}
-
-    <script type="text/javascript" src="{{ STATIC_URL }}css3-mediaqueries.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}jquery-1.10.2.min.js"></script>
-
-    <script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function(){
-        {% block extradocready %}
-        {% endblock %}
-    });
-    //]]>
-    </script>
     {% block extrahead %}
     {% endblock %}
 </head>
