@@ -28,43 +28,53 @@ blogpatterns = [
         RedirectView.as_view(url='/who-is-ben-welsh/'),
         name='coltrane_index'
     ),
+
     # My bio
     url(r'^who-is-ben-welsh/$', views.bio, name="coltrane_bio"),
+
     # The admin
     url(r'^admin/', include(admin.site.urls)),
+
     # Main list pages
-    url(r'^work/$', DirectTemplateView.as_view(**{
-            'template_name': 'coltrane/work_list.html',
-            'extra_context': {
-                'object_list': Clip.objects.all(),
-            }
-        }), name='coltrane_work_list'),
-    url(r'^talks/$', DirectTemplateView.as_view(**{
-            'template_name': 'coltrane/talk_list.html',
-            'extra_context': {
-                'object_list': Talk.objects.all(),
-            }
-        }), name='coltrane_talk_list'),
-    url(r'^posts/$', ListView.as_view(
-        queryset=Post.live.all().order_by("-pub_date")),
-        name='coltrane_post_list'),
+    url(r'^work/$', views.ClipListView.as_view(), name='coltrane_work_list'),
+    url(r'^talks/$', views.TalkListView.as_view(), name='coltrane_talk_list'),
+    url(r'^posts/$', views.PostListView.as_view(), name='coltrane_post_list'),
 
     # Detail pages
-    url(r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
-        views.post_detail, name='coltrane_post_detail'),
+    url(
+        r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+        views.post_detail,
+        name='coltrane_post_detail'
+    ),
 
     # Sitemaps
-    url(r'^sitemap\.xml$', sitemap_views.index,
-        {'sitemaps': sitemaps},),
-    url(r'^sitemap-(?P<section>.+)\.xml$', sitemap_views.sitemap,
+    url(
+        r'^sitemap\.xml$',
+        sitemap_views.index,
+        {'sitemaps': sitemaps}
+    ),
+    url(
+        r'^sitemap-(?P<section>.+)\.xml$',
+        sitemap_views.sitemap,
         {'sitemaps': sitemaps},
-        name='django.contrib.sitemaps.views.sitemap'),
+        name='django.contrib.sitemaps.views.sitemap'
+    ),
 
     # Robots and favicon
-    url(r'^robots\.txt$', DirectTemplateView.as_view(
-        **{'template_name': 'robots.txt', 'content_type': 'text/plain'}), name='robots'),
-    url(r'^favicon.ico$', RedirectView.as_view(
-        url='http://palewire.s3.amazonaws.com/favicon.ico')),
+    url(
+        r'^robots\.txt$',
+        DirectTemplateView.as_view(
+            template_name='robots.txt',
+            content_type='text/plain'
+        ),
+        name='robots'
+    ),
+    url(
+        r'^favicon.ico$',
+        RedirectView.as_view(
+            url='http://palewire.s3.amazonaws.com/favicon.ico'
+        )
+    ),
 
     # Corrections
     url(r'^comments/', include('django_comments.urls')),

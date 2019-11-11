@@ -2,8 +2,6 @@
 <html lang="en"
       xmlns:rnews="http://iptc.org/std/rNews/2011-05-17#"
       xmlns:og="http://ogp.me/ns#" {% block extrahtmlattrs %}{% endblock %}>
-{% load coltrane_tags %}
-{% get_random_slogan %}
 <head>
     <title>{% block title %}palewire{% endblock %}</title>
 
@@ -59,7 +57,7 @@
             <div id="hd" class="row">
                 <div class="ninecol">
                     <div id="shingle">
-                        <a href="/" title="{{ random_slogan }}">
+                        <a href="/">
                             <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
                                 <div about="http://{{ current_site }}"
                                       typeof="rnews:Organization">
@@ -109,12 +107,10 @@
             {% endblock %}
         </div>
 
-        {% get_current_year %}
         <footer>
             <div id="ft" class="row">
                 <div class="twelvecol last">
-                    <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ current_year }}</span> palewire</span> .
-                    powered by <a id="django-link" href="http://www.djangoproject.com/">django</a> .
+                    <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ now|date:"Y" }}</span> palewire</span>
                 </div>
             </div>
         </footer>

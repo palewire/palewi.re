@@ -1,6 +1,7 @@
 # Helpers
 import time
 import datetime
+from django.views.generic.list import ListView
 from django.conf import settings
 from django.shortcuts import get_object_or_404, render
 from django.http import Http404, HttpResponseRedirect, HttpResponseServerError
@@ -14,6 +15,7 @@ from correx.models import Change
 from bona_fides import models as bona_fides
 from django.contrib.contenttypes.models import ContentType
 from coltrane.models import Post, Category, Link, Photo, Track, Ticker, Beer
+from bona_fides.models import Clip, Talk
 
 
 def bio(request):
@@ -55,3 +57,17 @@ def server_error(request, template_name='500.html'):
         'MEDIA_URL': settings.MEDIA_URL,
         'STATIC_URL': settings.STATIC_URL,
     })))
+
+
+class ClipListView(ListView):
+    model = Clip
+    template_name = "coltrane/clip_list.html"
+
+
+class TalkListView(ListView):
+    model = Talk
+    template_name = "coltrane/talk_list.html"
+
+
+class PostListView(ListView):
+    queryset = Post.live.all().order_by("-pub_date")
