@@ -21,17 +21,9 @@ class AbstractSitemapClass(object):
 class StaticSitemap(sitemaps.Sitemap):
     pages = {
         'bio':'/who-is-ben-welsh/',
-        'colophon':'/colophon/',
-        'feeds': '/feeds/list/',
-        'apps': '/apps/',
         'clips': '/clips/',
         'posts': '/posts/',
         'talks': '/talks/',
-        'ticker': '/ticker/',
-        'bring-the-news-back': '/apps/bring-the-news-back/',
-        'kennedy-name-generator': '/kennedy/',
-        'random-oscars-ballot': '/apps/random-oscars-ballot/',
-        'return-of-the-mack-ringtone': '/mack/',
     }
     main_sitemaps = []
     for page in pages.keys():

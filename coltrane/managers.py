@@ -21,7 +21,6 @@ class LiveCategoryManager(models.Manager):
         return super(LiveCategoryManager, self).get_queryset().filter(post_count__gt=0)
 
 
-
 class SyncManager(models.Manager):
     """
     A set of utilities for working with the third-party models.
