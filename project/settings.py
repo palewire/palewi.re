@@ -15,10 +15,9 @@ MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'templates/static/'),
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -27,6 +26,8 @@ USE_TZ = False
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
+
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
