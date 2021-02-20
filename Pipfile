@@ -19,7 +19,10 @@ bs4 = "*"
 Django = "==1.11.23"
 Jinja2 = "*"
 Pygments = "*"
-savepagenow = "1.1.1"
+dj-database-url = "*"
+django-heroku = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.8"

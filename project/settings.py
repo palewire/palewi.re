@@ -1,17 +1,26 @@
 # Django settings for cms project.
 import os
+import dj_database_url
+import django_heroku
 
-SETTINGS_DIR = os.path.dirname(__file__)
-ROOT_DIR = os.path.join(
-    os.path.abspath(
-        os.path.join(SETTINGS_DIR, os.path.pardir),
-    ),
-)
-BASE_DIR = ROOT_DIR
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SETTINGS_DIR = os.path.join(BASE_DIR, 'project')
+ROOT_DIR = BASE_DIR
+
+DEBUG = True
+PRODUCTION = False
+SECRET_KEY = "%ppjxiq8eyx=rj(0s(rzgziq&f@h0i!@gi1v1f2pw@yi4+an%0"
 
 MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = 'http://palewire.s3.amazonaws.com/admin/'
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'templates/static/'),
+)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 TIME_ZONE = 'America/Los_Angeles'
 USE_TZ = False
@@ -19,19 +28,16 @@ LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
 
-CACHE_BACKEND =	'memcached://127.0.0.1:11211'
-CACHE_MIDDLEWARE_SECONDS = 60 * 5
-CACHE_MIDDLEWARE_KEY_PREFIX = ''
-CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
-
-HAYSTACK_SITECONF = 'coltrane.search_indexes'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
-HAYSTACK_WHOOSH_PATH = '/apps/palewire.com/whoosh/'
-
-MUNIN_ROOT = '/var/cache/munin/www/'
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
@@ -46,39 +52,29 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'project.urls'
 
+WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                "django.contrib.auth.context_processors.auth",
-                "django.template.context_processors.debug",
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
                 "django.template.context_processors.i18n",
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
-                "django.template.context_processors.request",
-                "django.contrib.messages.context_processors.messages",
-                "django.template.context_processors.csrf",
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
                 "toolbox.context_processors.current_site",
                 "toolbox.context_processors.now",
             ],
+            'debug': DEBUG,
         },
     },
 ]
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'templates/static/'),
-)
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
 
 
 INSTALLED_APPS = (
@@ -99,11 +95,6 @@ INSTALLED_APPS = (
     'greeking',
     'adminsortable'
 )
-
-# Shortener settings
-SITE_NAME = 'palewi.re'
-SITE_BASE_URL = 'http://%s/!/' % SITE_NAME
-
 
 LOGGING = {
     'version': 1,
@@ -168,7 +159,5 @@ LOGGING = {
     }
 }
 
-try:
-    from .settings_dev import *
-except ImportError:
-    from .settings_prod import *
+# Activate Django-Heroku.
+django_heroku.settings(locals())
