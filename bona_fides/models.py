@@ -1,6 +1,5 @@
 from django.db import models
 from adminsortable.models import Sortable
-from autoarchive.models import AutoArchiveModel
 
 
 class Award(Sortable):
@@ -17,7 +16,7 @@ class Award(Sortable):
         return self.title
 
 
-class Clip(AutoArchiveModel):
+class Clip(models.Model):
     """
     A story, app or other thing I've published.
     """

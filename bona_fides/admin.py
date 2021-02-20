@@ -1,4 +1,4 @@
-import models
+from bona_fides import models
 from django.contrib import admin
 from adminsortable.admin import SortableAdmin
 

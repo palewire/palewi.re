@@ -1,5 +1,4 @@
 # Helpers
-import akismet
 import datetime
 from django.db import models
 from django.utils.html import strip_tags
@@ -15,7 +14,6 @@ from django.template.defaultfilters import truncatewords_html as truncate_html_w
 from django.conf import settings
 
 # Models
-from autoarchive.models import AutoArchiveModel
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.contrib.contenttypes.models import ContentType
@@ -91,7 +89,7 @@ class Category(models.Model):
         return Post.live.filter(categories=self).count()
 
 
-class Post(AutoArchiveModel):
+class Post(models.Model):
     """
     Blog posts. For longer stuff I write.
 

@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls import include, url
-from redirects import patterns as redirectpatterns
+from .redirects import patterns as redirectpatterns
 
 # Views
 from coltrane import views
