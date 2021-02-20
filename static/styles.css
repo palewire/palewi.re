@@ -1,0 +1,863 @@
+/* ============================== */
+/* ! Global styles                */
+/* ============================== */
+
+body {
+  font-family: "Helvetica", "Liberation Sans", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.65em;
+}
+
+/* Anchor tag settings to make links appear normal until hovered over, when they should bold out */
+a:link {
+  text-decoration: underline;
+  font-weight: normal;
+  color: black;
+}
+a:visited {
+  text-decoration: underline;
+  font-weight: normal;
+  color: black;
+}
+a:hover {
+  text-decoration: underline;
+  color: gray;
+  font-weight: normal;
+}
+a:active {
+  text-decoration: underline;
+  font-weight: normal;
+  color: red;
+}
+
+/* The header */
+#hd {
+  display: block;
+  margin-top: 0.75em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+#hd #shingle {
+  font-size: 1.7em;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 0.15em;
+} /* the "palewire" title in the upper left hand corner */
+#hd #shingle a {
+  text-decoration: none;
+  font-weight: bold;
+}
+#whois {
+  text-align: right;
+  margin-top: 0.2em;
+  font-size: 1.1em;
+} /* the WHOIS link in the upper right hand corner */
+#whois div {
+  font-size: 1em;
+  display: inline;
+}
+#hd span {
+  font-size: 0.55em;
+  clear: both;
+  text-transform: lowercase;
+} /* The random phrase that appears on hoverover of the title */
+
+/* The horizontal gray bar that appears beneath the title line */
+#topbar {
+  border-bottom: solid 10px #e5e5e5;
+}
+#navbar {
+  text-align: right;
+  display: block;
+  margin-bottom: 0.25em;
+  padding: 0.15em;
+}
+#navbar ul {
+  float: right;
+  list-style-type: none;
+  font-size: 1em;
+}
+#navbar ul li {
+  float: left;
+  list-style-position: inside;
+  margin-left: 0.5em;
+}
+
+/* Icons */
+div.smalliconwrapper {
+  width: 33px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  height: 38px;
+  position: relative;
+}
+div.smalliconwrapper img {
+  float: left;
+}
+div.smalliconlabel {
+  display: none;
+  font-size: 0.7em;
+  position: absolute;
+  top: 28px;
+  text-align: center;
+  width: 30px;
+}
+
+/* who-is-ben-welsh */
+.bioimg {
+  text-align: center;
+  margin-bottom: 1.15em;
+}
+.bioimg img {
+}
+#biobumper.thin {
+  display: block;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35em;
+  height: 0.01em;
+  padding: 0.15em;
+  background: #e5e5e5 none repeat scroll 0% 50%;
+  color: #444444;
+}
+.biobumper {
+  display: block;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35em;
+  height: 0.01em;
+  padding: 0.15em;
+  background: #e5e5e5 none repeat scroll 0% 50%;
+  color: #444444;
+}
+.biotext p {
+  margin-bottom: 1em;
+}
+.biotext ol,
+.biotext ul,
+.biotext li {
+  margin-bottom: 0.5em;
+  margin-left: 1.25em;
+  list-style-type: disc;
+}
+
+/* The content block */
+#bd {
+  text-align: left;
+}
+
+/* Blog posts */
+#detailbody {
+  margin: 0 1.1em 1.1em 0em;
+  text-align: left;
+}
+.detailborderbumper {
+  border-bottom: solid 2px #e5e5e5;
+  margin: 0.5em 0 0.5em 0;
+}
+#detailborderbumper {
+  clear: both;
+  border-bottom: solid 2px #e5e5e5;
+  margin: 0.5em 10em 0.5em 4.5em;
+} /* For legacy code in posts */
+.detailborderbreak {
+  clear: both;
+  border-bottom: solid 2px #e5e5e5;
+  margin: 1.5em 25%;
+  width: 50%;
+  text-align: center;
+}
+#bd h1 {
+  font-weight: bold;
+  font-size: 1.9em;
+  margin: 0 0 0.1em 0;
+  line-height: 130%;
+} /* the detail page headline */
+#bd h1 img {
+  vertical-align: text-bottom;
+  margin-right: 0.3em;
+} /* Icon in the headline */
+#detailpubdate p {
+  margin-bottom: 0.75em;
+  font-size: 0.85em;
+}
+#detailpubdate a {
+  text-decoration: none;
+}
+#detailbody p {
+  margin-bottom: 1em;
+  line-height: 1.5em;
+} /* the standard 'graph */
+#detailbody h2 {
+  font-family: Verdana, sans-serif;
+  font-weight: bold;
+  margin: 1em 0 0.5em 0;
+} /* the in-post subhede */
+#detailbody ol,
+#detailbody ul,
+#detailbody li {
+  margin-bottom: 0.5em;
+  margin-left: 1.25em;
+}
+#detailbody ul li {
+  list-style-type: disc;
+}
+#detailbody ol li {
+  list-style-type: decimal;
+}
+#detailbody blockquote {
+  margin-bottom: 1.15em;
+  background: #f8f8f8 none repeat scroll 0 0;
+  margin-left: 1.2em;
+  line-height: 1.3em;
+  padding: 1em;
+  font-family: monospace;
+}
+#detailbody pre {
+  margin-left: 1em;
+  line-height: 1.3em;
+}
+.latimes-tour video {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 480px) {
+  figure.latimes-tour {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #headline .twelvecol,
+  #detailpubdate .twelvecol,
+  #detailbody .twelvecol {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Change box, etc. */
+.highlight {
+  background-color: #ffffcc;
+}
+.changebox {
+  padding: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+/* Metadata about blog posts */
+#detailmetadata {
+  text-align: right;
+  margin: 0;
+}
+#detailmetadata p {
+  margin: 0.5em 0;
+  font-size: 0.95em;
+}
+#relatedposts {
+}
+
+/* Page navigation toys */
+#paginationwrapper {
+  clear: both;
+  margin-top: 1em;
+  font-size: 1.2em;
+}
+#paginationleft {
+  text-align: left;
+  font-weight: bold;
+}
+#paginationright {
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Comments */
+#comments {
+  margin: 0.3em 0 0 0;
+}
+#comments h2 {
+  margin-bottom: 1em;
+  font-size: 1.35em;
+  font-weight: bold;
+}
+.comment {
+  margin: 0 0 2em 0;
+  padding-left: 0.66em;
+  border-left: 0.2em #e5e5e5 solid;
+}
+.commenttopper {
+  margin: 0 0 0.5em 0;
+}
+.commentname {
+  block: inline;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0 0em 0 0;
+}
+.commentdate {
+  block: inline;
+  font-size: 0.8em;
+}
+.commenttext {
+  block: inline;
+  margin: 0 0 0.5em 0;
+}
+.commentfooter {
+}
+form#commentform {
+  padding: 0;
+}
+.commentlabel {
+  font-weight: bold;
+  margin: 0.3em 0;
+}
+.commentbox {
+  padding: 0.2em 0;
+  text-align: left;
+  margin: 0.3em 0;
+}
+#id_comment {
+  width: 100%;
+}
+
+/* Footer stuff */
+#ft {
+  margin-top: 1em;
+  font-size: 0.75em;
+  border-top: solid 2px #e5e5e5;
+  padding-top: 0.3em;
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+#django-link {
+  color: rgb(72, 120, 88);
+  font-weight: bold;
+}
+
+/* List page stuff */
+.interiorlist {
+}
+.interiorlist h1 {
+  margin: 0 0 0.25em 0 !important;
+}
+.interiorlist h1 img {
+  vertical-align: middle !important;
+}
+.interiorlist p.description {
+  font-size: 1em;
+  margin: 0 0 0.5em 0;
+}
+.interiorlist div.section-hed {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0.4em 0 0.2em;
+  padding: 0.05em 0 0.25em;
+  border-bottom: thin dotted #ccc;
+}
+.interiorlist div.section-hed p {
+  font-size: 0.9em !important;
+  font-weight: normal;
+  margin: 0;
+  padding: 3px 0 0 0;
+}
+.interiorlist div.listitem {
+  min-height: 1.5em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  line-height: 1.5em;
+  list-style-type: none;
+  font-size: 1em;
+} /* The items */
+.interiorlist div.listitem img {
+  height: 20px;
+}
+.interiorlist p {
+  font-size: 1em;
+  margin-top: 0.66em;
+}
+@media (max-width: 480px) {
+  .interiorlist div.listitem {
+    padding-left: 0;
+  }
+}
+
+/* Ticker filter */
+#tickerfilter {
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+#tickerfilter input {
+  margin-left: 5px;
+}
+#tickerfilter img {
+  height: 20px;
+}
+
+/* app list */
+.appset {
+  padding: 0 0 1em 0;
+  clear: both;
+}
+.appitem {
+  padding: 0.75em 0;
+}
+.appimage {
+  vertical-align: bottom;
+}
+.apptext {
+  height: auto;
+  vertical-align: top;
+}
+.apptext h3 {
+  font-size: 0.98em;
+  line-height: 1.2em;
+}
+.apptext p {
+  font-size: 0.75em;
+  line-height: 1.2em;
+  padding: 0;
+  margin: 0;
+}
+
+/* talk list */
+.talkitem {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.talktext {
+  height: auto;
+  vertical-align: top;
+}
+.talktext h3 {
+  font-size: 1.3em;
+  margin-top: 0.66em;
+  padding-bottom: 0.25em;
+  border-bottom: thin dotted #ccc;
+}
+.talktext p {
+  font-size: 1em;
+  margin-top: 0.66em;
+}
+
+/* misc for newtwitter example */
+ul.newtwitter {
+  margin-left: 0em !important;
+}
+ul.newtwitter li {
+  list-style-type: none !important;
+}
+ul.newtwitter li a {
+  text-decoration: none !important;
+  font-weight: normal !important;
+}
+
+/* Pygments styles for source code in posts */
+.source .hll {
+  background-color: #ffffcc;
+}
+.source {
+  background: #f8f8f8;
+  overflow: auto;
+  padding: 1em 1em 1em 0;
+  margin: 1em 0;
+}
+.source .c {
+  color: #408080;
+  font-style: italic;
+} /* Comment */
+.source .err {
+  border: 1px solid #ff0000;
+} /* Error */
+.source .k {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword */
+.source .o {
+  color: #666666;
+} /* Operator */
+.source .cm {
+  color: #408080;
+  font-style: italic;
+} /* Comment.Multiline */
+.source .cp {
+  color: #bc7a00;
+} /* Comment.Preproc */
+.source .c1 {
+  color: #408080;
+  font-style: italic;
+} /* Comment.Single */
+.source .cs {
+  color: #408080;
+  font-style: italic;
+} /* Comment.Special */
+.source .gd {
+  color: #a00000;
+} /* Generic.Deleted */
+.source .ge {
+  font-style: italic;
+} /* Generic.Emph */
+.source .gr {
+  color: #ff0000;
+} /* Generic.Error */
+.source .gh {
+  color: #000080;
+  font-weight: bold;
+} /* Generic.Heading */
+.source .gi {
+  color: #00a000;
+} /* Generic.Inserted */
+.source .go {
+  color: #808080;
+} /* Generic.Output */
+.source .gp {
+  color: #000080;
+  font-weight: bold;
+} /* Generic.Prompt */
+.source .gs {
+  font-weight: bold;
+} /* Generic.Strong */
+.source .gu {
+  color: #800080;
+  font-weight: bold;
+} /* Generic.Subheading */
+.source .gt {
+  color: #0040d0;
+} /* Generic.Traceback */
+.source .kc {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Constant */
+.source .kd {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Declaration */
+.source .kn {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Namespace */
+.source .kp {
+  color: #008000;
+} /* Keyword.Pseudo */
+.source .kr {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Reserved */
+.source .kt {
+  color: #b00040;
+} /* Keyword.Type */
+.source .m {
+  color: #666666;
+} /* Literal.Number */
+.source .s {
+  color: #ba2121;
+} /* Literal.String */
+.source .na {
+  color: #7d9029;
+} /* Name.Attribute */
+.source .nb {
+  color: #008000;
+} /* Name.Builtin */
+.source .nc {
+  color: #0000ff;
+  font-weight: bold;
+} /* Name.Class */
+.source .no {
+  color: #880000;
+} /* Name.Constant */
+.source .nd {
+  color: #aa22ff;
+} /* Name.Decorator */
+.source .ni {
+  color: #999999;
+  font-weight: bold;
+} /* Name.Entity */
+.source .ne {
+  color: #d2413a;
+  font-weight: bold;
+} /* Name.Exception */
+.source .nf {
+  color: #0000ff;
+} /* Name.Function */
+.source .nl {
+  color: #a0a000;
+} /* Name.Label */
+.source .nn {
+  color: #0000ff;
+  font-weight: bold;
+} /* Name.Namespace */
+.source .nt {
+  color: #008000;
+  font-weight: bold;
+} /* Name.Tag */
+.source .nv {
+  color: #19177c;
+} /* Name.Variable */
+.source .ow {
+  color: #aa22ff;
+  font-weight: bold;
+} /* Operator.Word */
+.source .w {
+  color: #bbbbbb;
+} /* Text.Whitespace */
+.source .mf {
+  color: #666666;
+} /* Literal.Number.Float */
+.source .mh {
+  color: #666666;
+} /* Literal.Number.Hex */
+.source .mi {
+  color: #666666;
+} /* Literal.Number.Integer */
+.source .mo {
+  color: #666666;
+} /* Literal.Number.Oct */
+.source .sb {
+  color: #ba2121;
+} /* Literal.String.Backtick */
+.source .sc {
+  color: #ba2121;
+} /* Literal.String.Char */
+.source .sd {
+  color: #ba2121;
+  font-style: italic;
+} /* Literal.String.Doc */
+.source .s2 {
+  color: #ba2121;
+} /* Literal.String.Double */
+.source .se {
+  color: #bb6622;
+  font-weight: bold;
+} /* Literal.String.Escape */
+.source .sh {
+  color: #ba2121;
+} /* Literal.String.Heredoc */
+.source .si {
+  color: #bb6688;
+  font-weight: bold;
+} /* Literal.String.Interpol */
+.source .sx {
+  color: #008000;
+} /* Literal.String.Other */
+.source .sr {
+  color: #bb6688;
+} /* Literal.String.Regex */
+.source .s1 {
+  color: #ba2121;
+} /* Literal.String.Single */
+.source .ss {
+  color: #19177c;
+} /* Literal.String.Symbol */
+.source .bp {
+  color: #008000;
+} /* Name.Builtin.Pseudo */
+.source .vc {
+  color: #19177c;
+} /* Name.Variable.Class */
+.source .vg {
+  color: #19177c;
+} /* Name.Variable.Global */
+.source .vi {
+  color: #19177c;
+} /* Name.Variable.Instance */
+.source .il {
+  color: #666666;
+} /* Literal.Number.Integer.Long */
+
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.row {
+  width: 100%;
+  max-width: 755px;
+  min-width: 755px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.onecol,
+.twocol,
+.threecol,
+.fourcol,
+.fivecol,
+.sixcol,
+.sevencol,
+.eightcol,
+.ninecol,
+.tencol,
+.elevencol {
+  margin-right: 3.8%;
+  float: left;
+  min-height: 1px;
+}
+
+.row .onecol {
+  width: 4.85%;
+}
+
+.row .twocol {
+  width: 13.45%;
+}
+
+.row .threecol {
+  width: 22.05%;
+}
+
+.row .fourcol {
+  width: 30.75%;
+}
+
+.row .fivecol {
+  width: 39.45%;
+}
+
+.row .sixcol {
+  width: 48%;
+}
+
+.row .sevencol {
+  width: 56.75%;
+}
+
+.row .eightcol {
+  width: 65.4%;
+}
+
+.row .ninecol {
+  width: 74.05%;
+}
+
+.row .tencol {
+  width: 82.7%;
+}
+
+.row .elevencol {
+  width: 91.35%;
+}
+
+.row .twelvecol {
+  width: 100%;
+  float: left;
+}
+
+.last {
+  margin-right: 0px;
+}
+
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 550px) {
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
+  .row,
+  body,
+  .container {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .row .onecol,
+  .row .twocol,
+  .row .threecol,
+  .row .fourcol,
+  .row .fivecol,
+  .row .sixcol,
+  .row .sevencol,
+  .row .eightcol,
+  .row .ninecol,
+  .row .tencol,
+  .row .elevencol,
+  .row .twelvecol {
+    width: auto;
+    float: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+body {
+}
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 550px) {
+  body {
+    font-size: 0.85em;
+  }
+  #shingle {
+    font-size: 1em;
+    float: left;
+    margin-bottom: 5px;
+  }
+  #whois {
+    font-size: 1em;
+    float: right;
+  }
+  .commentlabel {
+    font-weight: bold;
+    margin: 0.3em 0;
+  }
+  .commentbox {
+    padding: 0.2em 0;
+    text-align: left;
+    margin: 0.3em 0;
+  }
+  #ft {
+    font-size: 0.65em;
+  }
+  .feeds li {
+    height: 2em !important;
+  }
+  .feeds .interior-date {
+    height: 2em !important;
+  }
+  .appitem,
+  .appimage,
+  .apptext {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .apptext h3 {
+    font-size: 1em;
+    margin: 0.25em 0;
+  }
+  .apptext p {
+    font-size: 0.98em;
+    line-height: 1.2em;
+    padding: 0;
+    margin: 0;
+  }
+}

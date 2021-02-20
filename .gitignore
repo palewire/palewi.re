@@ -2,16 +2,10 @@ staticfiles/
 db.sqlite3
 *~
 *#
-fabfile.py
 settings_dev.py
 settings_prod.py
 settings_private.py
 django.log
-static/*
 *.tar
 *.db
 *.pyc
-chef/cookbooks/palewire/files/default/users/*
-chef/node.json
-newrelic.ini
-fabfile/env.py
