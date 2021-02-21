@@ -12,7 +12,7 @@ class Award(Sortable):
     class Meta(Sortable.Meta):
         pass
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -34,7 +34,7 @@ class Clip(models.Model):
     class Meta:
         ordering = ("-date",)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'{}: {}'.format(self.get_type_display(), self.title)
 
     def get_archive_url(self):
@@ -51,7 +51,7 @@ class SocialMediaProfile(Sortable):
     class Meta(Sortable.Meta):
         pass
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -64,7 +64,7 @@ class Skill(Sortable):
     class Meta(Sortable.Meta):
         pass
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -82,5 +82,5 @@ class Talk(models.Model):
     class Meta:
         ordering = ("-date",)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
