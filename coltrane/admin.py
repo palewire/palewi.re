@@ -68,7 +68,7 @@ class ShoutAdmin(ThirdPartyBaseAdmin):
 
 @admin.register(models.Ticker)
 class TickerAdmin(ThirdPartyBaseAdmin):
-    list_display = ['__unicode__', 'pub_date']
+    list_display = ['__str__', 'pub_date']
     search_fields = []
 
 

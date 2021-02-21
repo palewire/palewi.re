@@ -42,7 +42,7 @@ class Ticker(models.Model):
         verbose_name_plural = _('Ticker')
         ordering = ('-pub_date',)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
 
 
@@ -55,7 +55,7 @@ class Slogan(models.Model):
     class Meta:
         ordering = ['title']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -74,7 +74,7 @@ class Category(models.Model):
         ordering = ['title']
         verbose_name_plural = _('Categories')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
@@ -132,7 +132,7 @@ class Post(models.Model):
         ordering = ['-pub_date']
         get_latest_by = 'pub_date'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def save(self, force_insert=False, force_update=False):
@@ -196,7 +196,7 @@ class Beer(ThirdPartyBaseModel):
     title = models.CharField(max_length=250, blank=True, null=True)
     brewery = models.CharField(max_length=250)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -208,7 +208,7 @@ class Book(ThirdPartyBaseModel):
     title = models.CharField(max_length=250)
     authors = models.CharField(max_length=250, blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         if self.authors:
             return "%s by %s" % (self.title, self.authors)
         else:
@@ -222,7 +222,7 @@ class Link(ThirdPartyBaseModel):
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -234,12 +234,12 @@ class Commit(ThirdPartyBaseModel):
     branch = models.CharField(max_length=100, blank=True)
     message = models.TextField()
 
-    def __unicode__(self):
+    def __str__(self):
         if self.branch:
             return u'%s: %s - %s' % (self.repository, self.branch, self.message)
         else:
             return u'%s: %s' % (self.repository, self.message)
-    title = property(__unicode__)
+    title = property(__str__)
 
     def get_short_message(self, words=8):
         """
@@ -260,7 +260,7 @@ class Location(ThirdPartyBaseModel):
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -271,7 +271,7 @@ class Movie(ThirdPartyBaseModel):
     title = models.CharField(max_length=250, blank=True, null=True)
     rating = models.FloatField(null=True, blank=True, verbose_name='One to five star rating.')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -282,7 +282,7 @@ class Photo(ThirdPartyBaseModel):
     title = models.CharField(max_length=250, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -292,7 +292,7 @@ class Shout(ThirdPartyBaseModel):
     """
     message = models.TextField(max_length=140)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.message
 
     def get_short_message(self, words=8):
@@ -315,9 +315,9 @@ class Track(ThirdPartyBaseModel):
     track_mbid = models.CharField(verbose_name = _("MusicBrainz Track ID"), max_length=36, blank=True)
     artist_mbid = models.CharField(verbose_name = _("MusicBrainz Artist ID"), max_length=36, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return u"%s - %s" % (self.artist_name, self.track_name)
-    title = property(__unicode__)
+    title = property(__str__)
 
 
 # Signals
