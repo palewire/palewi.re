@@ -116,14 +116,6 @@ LOGGING = {
             'class':'logging.StreamHandler',
             'formatter': 'verbose'
         },
-        'logfile': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(SETTINGS_DIR, 'django.log'),
-            'maxBytes': 50000,
-            'backupCount': 2,
-            'formatter': 'verbose',
-        },
         'null': {
             'class': 'logging.NullHandler',
         },
@@ -148,12 +140,12 @@ LOGGING = {
             'propagate': False,
         },
         'coltrane': {
-            'handlers': ['console', 'logfile'],
+            'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True,
         },
         'wxwtf': {
-            'handlers': ['console', 'logfile'],
+            'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True,
         },
