@@ -8,7 +8,7 @@ SETTINGS_DIR = os.path.join(BASE_DIR, 'project')
 ROOT_DIR = BASE_DIR
 
 DEBUG = True
-PRODUCTION = False
+PRODUCTION = os.environ.get("PRODUCTION") == "true"
 SECRET_KEY = "%ppjxiq8eyx=rj(0s(rzgziq&f@h0i!@gi1v1f2pw@yi4+an%0"
 
 MEDIA_URL = 'http://palewire.s3.amazonaws.com/'
