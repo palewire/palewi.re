@@ -1,6 +1,7 @@
 # Helpers
 import datetime
 from django.db import models
+from django.urls import reverse
 from django.utils.html import strip_tags
 from django.core.mail import mail_managers
 from django.utils.encoding import smart_str
@@ -140,7 +141,7 @@ class Post(models.Model):
         super(Post, self).save()
 
     def get_absolute_url(self):
-        return ('coltrane_post_detail', (), {
+        return reverse('coltrane_post_detail', args=(), kwargs={
             'year': self.pub_date.strftime("%Y"),
             'month': self.pub_date.strftime("%m"),
             'day': self.pub_date.strftime("%d"),
