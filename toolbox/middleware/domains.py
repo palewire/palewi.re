@@ -1,6 +1,4 @@
-from django.core import urlresolvers
 from django.utils.http import urlquote
-from django.core.urlresolvers import resolve
 from django.contrib.sites.models import Site
 from django.http import HttpResponsePermanentRedirect
 

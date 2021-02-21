@@ -95,15 +95,9 @@ else:
              url='http://palewire.s3.amazonaws.com/%(path)s')),
     ]
 
-if settings.PRODUCTION:
-    blogpatterns += [
-        url(r'^app_status/$', toolbox_views.app_status, name='status'),
-    ]
-
 # Combine patterns
 urlpatterns = redirectpatterns
 urlpatterns += blogpatterns
-
 
 # 500 page fix
 handler500 = 'coltrane.views.server_error'

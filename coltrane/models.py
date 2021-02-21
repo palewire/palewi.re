@@ -319,11 +319,10 @@ class Track(ThirdPartyBaseModel):
 
 
 # Signals
-from correx.models import Change
-for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Change, Movie, Location, Beer]:
+for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Movie, Location, Beer]:
     signals.post_save.connect(create_ticker_item, sender=modelname)
 
-for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Change, Movie, Location, Beer]:
+for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Movie, Location, Beer]:
     signals.post_delete.connect(delete_ticker_item, sender=modelname)
 
 signals.post_save.connect(category_count, sender=Post)
