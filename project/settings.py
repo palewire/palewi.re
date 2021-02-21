@@ -148,5 +148,7 @@ LOGGING = {
     }
 }
 
+GITHUB_USER = 'palewire'
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())

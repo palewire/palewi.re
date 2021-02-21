@@ -10,11 +10,10 @@ import dateutil.parser
 import dateutil.tz
 
 # Serialization
-import simplejson
-from anyetree import etree
+import json
 
 # Text manipulation
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 
 # Django
 from django.conf import settings
@@ -27,20 +26,12 @@ DEFAULT_HTTP_HEADERS = {
 # URL fetching sugar
 #
 
-def getxml(url, **kwargs):
-    """
-    Fetch and parse some XML. Returns an ElementTree.
-    """
-    xml = fetch_resource(url, **kwargs)
-    return etree.fromstring(xml)
-
-
 def getjson(url, **kwargs):
     """
     Fetch and parse some JSON. Returns the deserialized JSON.
     """
-    json = fetch_resource(url, **kwargs)
-    return simplejson.loads(json)
+    data = fetch_resource(url, **kwargs)
+    return json.loads(data)
 
 
 def fetch_resource(url, username=None, password=None, headers=None):
@@ -88,7 +79,7 @@ def safeint(s):
     Always returns an int. Returns 0 on failure.
     """
     try:
-        return int(force_unicode(s))
+        return int(force_text(s))
     except (ValueError, TypeError):
         return 0
 
