@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_DIR = os.path.join(BASE_DIR, 'project')
 ROOT_DIR = BASE_DIR
 
-DEBUG = True
+DEBUG = os.environ.get("DEBUG") == "true"
 PRODUCTION = os.environ.get("PRODUCTION") == "true"
 SECRET_KEY = "%ppjxiq8eyx=rj(0s(rzgziq&f@h0i!@gi1v1f2pw@yi4+an%0"
 
