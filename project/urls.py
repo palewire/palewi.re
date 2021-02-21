@@ -13,7 +13,7 @@ from django.contrib.sitemaps import views as sitemap_views
 
 # Admin
 from django.contrib import admin
-admin.autodiscover()
+from django.urls import path
 
 
 # URLs for the blog
@@ -30,7 +30,7 @@ blogpatterns = [
     url(r'^who-is-ben-welsh/$', views.bio, name="coltrane_bio"),
 
     # The admin
-    url(r'^admin/', include(admin.site.urls)),
+    path('admin/', admin.site.urls),
 
     # Main list pages
     url(r'^work/$', views.ClipListView.as_view(), name='coltrane_work_list'),
@@ -75,7 +75,6 @@ blogpatterns = [
 
     # Corrections
     url(r'^comments/', include('django_comments.urls')),
-    url(r'^correx/', include('correx.urls')),
 ]
 
 if settings.DEBUG:

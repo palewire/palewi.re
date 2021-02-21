@@ -123,10 +123,6 @@ patterns = [
         name='coltrane_commit_root'),
     url(r'^commits/page/(?P<page>[0-9]+)/$', RedirectView.as_view(
         url='/ticker/?filters=commit'), name='coltrane_commit_list'),
-    url(r'^corrections/$', RedirectView.as_view(url='/ticker/?filters=change'),
-        name='coltrane_correx_root'),
-    url(r'^corrections/page/(?P<page>[0-9]+)/$', RedirectView.as_view(
-        url='/ticker/?filters=change'), name='coltrane_correx_list'),
     url(r'^links/$', RedirectView.as_view(url='/ticker/?filters=link'),
         name='coltrane_link_root'),
     url(r'^links/page/(?P<page>[0-9]+)/$', RedirectView.as_view(

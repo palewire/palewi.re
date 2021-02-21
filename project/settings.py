@@ -40,9 +40,8 @@ DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.gzip.GZipMiddleware',
-    'toolbox.middleware.domains.MultipleProxyMiddleware',
     'django.middleware.common.CommonMiddleware',
     'toolbox.middleware.domains.DomainRedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,6 +78,7 @@ TEMPLATES = [
 
 
 INSTALLED_APPS = (
+    'django.contrib.messages',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -92,7 +92,6 @@ INSTALLED_APPS = (
     'bona_fides',
     'django_comments',
      # Site extras and helpers
-    'correx',
     'greeking',
     'adminsortable'
 )

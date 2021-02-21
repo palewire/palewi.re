@@ -33,7 +33,7 @@ class Ticker(models.Model):
     """
     A tumblelog of the latest content items, pushed automagically by the functions in signals.py.
     """
-    content_type = models.ForeignKey(ContentType)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     pub_date = models.DateTimeField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
@@ -79,7 +79,6 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return('coltrane_category_detail', [self.slug])
-    get_absolute_url = models.permalink(get_absolute_url)
 
     def get_absolute_icon(self):
         return u'%sicons/categories.gif' % (settings.STATIC_URL)
@@ -119,7 +118,7 @@ class Post(models.Model):
     )
     pub_date = models.DateTimeField(_('publication date'),
         default=datetime.datetime.now)
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     enable_comments = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
         help_text=_("Only 'Live' entries will be publicly displayed."))
@@ -147,7 +146,6 @@ class Post(models.Model):
             'day': self.pub_date.strftime("%d"),
             'slug': self.slug
         })
-    get_absolute_url = models.permalink(get_absolute_url)
     url = property(get_absolute_url)
 
     def get_archive_url(self):

@@ -167,7 +167,7 @@ class Migration(migrations.Migration):
                 ('enable_comments', models.BooleanField(default=True)),
                 ('status', models.IntegerField(default=1, help_text="Only 'Live' entries will be publicly displayed.", choices=[(1, b'Live'), (2, b'Draft'), (3, b'Hidden')])),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=255, blank=True)),
-                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
                 ('categories', models.ManyToManyField(to='coltrane.Category')),
             ],
             options={
@@ -209,7 +209,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('object_id', models.PositiveIntegerField()),
                 ('pub_date', models.DateTimeField()),
-                ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
+                ('content_type', models.ForeignKey(to='contenttypes.ContentType', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ('-pub_date',),

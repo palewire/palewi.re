@@ -87,17 +87,17 @@ class Change(models.Model):
 
 	# The change
 	description    = models.TextField(help_text=_('A description of the change'))
-	change_type    = models.ForeignKey(ChangeType, help_text=_('The type of change'), verbose_name=_('Type'))
+	change_type    = models.ForeignKey(ChangeType, help_text=_('The type of change'), verbose_name=_('Type'), on_delete=models.CASCADE)
 	pub_date       = models.DateTimeField(default=datetime.datetime.now, verbose_name=_('Publication date'))
 	is_public      = models.BooleanField(default=False, help_text=_('Check this box to publish the comment on the live site.'), verbose_name=_('Publish'))
 
 	# Optional connection to the user making the change
-	user           = models.ForeignKey(User, blank=True, null=True, related_name="%(class)s_comments", help_text=_('The name of the user responsible for the change. Optional.'))
+	user           = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="%(class)s_comments", help_text=_('The name of the user responsible for the change. Optional.'))
 
 	# Optional connections to sites, apps, models and objects in the database
-	site           = models.ForeignKey(Site, null=True, blank=True, help_text=_('The site being changed. Optional.'))
+	site           = models.ForeignKey(Site, on_delete=models.CASCADE, null=True, blank=True, help_text=_('The site being changed. Optional.'))
 	content_app    = models.CharField(max_length=200, choices=APP_CHOICES, null=True, blank=True, help_text=_('The application being changed. Optional.'), verbose_name=_('App'))
-	content_type   = models.ForeignKey(ContentType, null=True, blank=True, related_name="content_type_set_for_%(class)s", help_text=_('The table or model being changed. Optional.'), verbose_name=_('Model'))
+	content_type   = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True, blank=True, related_name="content_type_set_for_%(class)s", help_text=_('The table or model being changed. Optional.'), verbose_name=_('Model'))
 	object_id      = models.PositiveIntegerField(null=True, blank=True, help_text=_('The particular database record being changed. Optional.'))
 	content_object = generic.GenericForeignKey(ct_field='content_type', fk_field='object_id')
 
