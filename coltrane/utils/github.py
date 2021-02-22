@@ -3,7 +3,6 @@ from coltrane.models import Commit
 
 # Text and time
 import dateutil.parser
-from pprint import pprint
 from coltrane import utils
 
 # Logging
@@ -56,13 +55,13 @@ class GithubClient(object):
 
     def _handle_commit(self, commit_dict):
         try:
-            c = Commit.objects.get(url=commit_dict["url"])
+            Commit.objects.get(url=commit_dict["url"])
             logger.debug(
                 "Already have commit %s (%s)."
                 % (commit_dict.get("message"), commit_dict.get("pub_date"))
             )
         except Commit.DoesNotExist:
-            c = Commit.objects.create(**commit_dict)
+            Commit.objects.create(**commit_dict)
             logger.debug(
                 "Adding commit %s (%s)."
                 % (commit_dict.get("message"), commit_dict.get("pub_date"))

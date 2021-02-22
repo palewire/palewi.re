@@ -1,5 +1,3 @@
-from django.db.models import signals
-from django.dispatch import dispatcher
 from django.contrib.contenttypes.models import ContentType
 
 

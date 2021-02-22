@@ -1,5 +1,4 @@
 from django.utils.http import urlquote
-from django.contrib.sites.models import Site
 from django.http import HttpResponsePermanentRedirect
 
 
@@ -34,9 +33,7 @@ class DomainRedirectMiddleware(object):
             request.is_secure() and "https" or "http",
             self.host,
             urlquote(request.path),
-            (request.method == "GET" and len(request.GET) > 0)
-            and "?%s" % request.GET.urlencode()
-            or "",
+            (request.method == "GET" and len(request.GET) > 0) and "?%s" % request.GET.urlencode() or "",
         )
 
     def process_request(self, request):

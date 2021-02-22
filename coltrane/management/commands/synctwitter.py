@@ -1,9 +1,9 @@
-import logging
-
-logger = logging.getLogger(__name__)
 from django.conf import settings
 from coltrane.utils import tweeter
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
+
+import logging
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):

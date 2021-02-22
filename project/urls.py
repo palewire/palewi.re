@@ -1,14 +1,11 @@
-from django.conf import settings
 from django.conf.urls import include, url
 from .redirects import patterns as redirectpatterns
 
 # Views
 from coltrane import views
 from coltrane.sitemaps import sitemaps
-from toolbox import views as toolbox_views
 from toolbox.views import DirectTemplateView
 from django.views.generic import RedirectView
-from django.views.static import serve as static_serve
 from django.contrib.sitemaps import views as sitemap_views
 
 # Admin

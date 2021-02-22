@@ -1,8 +1,5 @@
 import datetime
 from django.db import models
-from django.db.models.query import QuerySet
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericForeignKey
 
 
 class LivePostManager(models.Manager):

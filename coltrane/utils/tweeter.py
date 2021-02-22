@@ -1,22 +1,17 @@
-import datetime
-import logging
-import dateutil
 import re
 import twitter
+
+# Django
 from django.conf import settings
-from django.db import transaction
-from django.template.defaultfilters import slugify
-from django.utils.http import urlquote
-from django.utils.encoding import smart_str, smart_text
+from django.utils.encoding import smart_text
+
+# App
 from coltrane import utils
+from coltrane.models import Shout
 
 # Logging
 import logging
-
 logger = logging.getLogger(__name__)
-
-# Models
-from coltrane.models import Shout
 
 #
 # Globals
@@ -74,7 +69,7 @@ class TwitterClient(object):
         message_text, tags = _parse_message(message_text)
         if not self._status_exists(url):
             logger.debug("Saving message: %r", message_text)
-            s = Shout.objects.create(
+            Shout.objects.create(
                 message=message_text,
                 url=url,
                 pub_date=timestamp,
@@ -93,64 +88,62 @@ class TwitterClient(object):
 # Tweet transformation
 #
 
-if TWITTER_TRANSFORM_MSG:
-    USER_LINK_TPL = '<a href="%s" title="%s">%s</a>'
-    LINK_LINK_TPL = '<a href="%s" title="%s">%s</a>'
-    TAG_RE = re.compile(r"(?P<tag>\#\w+)")
-    USER_RE = re.compile(r"(?P<username>@\w+)")
-    RT_RE = re.compile(r"RT\s+(?P<username>@\w+)")
-    USERNAME_RE = re.compile(r"^%s:" % settings.TWITTER_USER)
+USER_LINK_TPL = '<a href="%s" title="%s">%s</a>'
+LINK_LINK_TPL = '<a href="%s" title="%s">%s</a>'
+TAG_RE = re.compile(r"(?P<tag>\#\w+)")
+USER_RE = re.compile(r"(?P<username>@\w+)")
+RT_RE = re.compile(r"RT\s+(?P<username>@\w+)")
+USERNAME_RE = re.compile(r"^%s:" % settings.TWITTER_USER)
 
-    # modified from django.forms.fields.url_re
-    URL_RE = re.compile(
-        r"https?://"
-        r"(?:(?:[A-Z0-9-]+\.)+[A-Z]{2,6}|"
-        r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"
-        r"(?::\d+)?"
-        r"(?:/\S+|/?)",
-        re.IGNORECASE,
-    )
-
-    def _transform_retweet(matchobj):
-        if "%s" in TWITTER_RETWEET_TXT:
-            return TWITTER_RETWEET_TXT % matchobj.group("username")
-        return TWITTER_RETWEET_TXT
-
-    def _transform_user_ref_to_link(matchobj):
-        user = matchobj.group("username")[1:]
-        link = USER_URL % user
-        return USER_LINK_TPL % (link, user, "".join(["@", user]))
-
-    def _parse_message(message_text):
-        """
-        Parse out some semantics for teh lulz.
-
-        """
-        tags = ""
-
-        # remove newlines
-        message_text = message_text.replace("\n", "")
-
-        # convert links to HTML
-        links = [link for link in URL_RE.findall(message_text)]
-        for link in URL_RE.finditer(message_text):
-            link_html = LINK_LINK_TPL % (link.group(0), link.group(0), link.group(0))
-            message_text = message_text.replace(link.group(0), link_html)
-
-        # remove leading username
-        message_text = USERNAME_RE.sub("", message_text)
-
-        # check for RT-type retweet syntax
-        message_text = RT_RE.sub(_transform_retweet, message_text)
-
-        # replace @user references with links to their timeline
-        message_text = USER_RE.sub(_transform_user_ref_to_link, message_text)
-
-        # generate tags list
-        tags = " ".join([tag[1:] for tag in TAG_RE.findall(message_text)])
-
-        return (message_text.strip(), tags)
+# modified from django.forms.fields.url_re
+URL_RE = re.compile(
+    r"https?://"
+    r"(?:(?:[A-Z0-9-]+\.)+[A-Z]{2,6}|"
+    r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"
+    r"(?::\d+)?"
+    r"(?:/\S+|/?)",
+    re.IGNORECASE,
+)
 
 
-else:
-    _parse_message = lambda msg: (msg, list(), "")
+def _transform_retweet(matchobj):
+    if "%s" in TWITTER_RETWEET_TXT:
+        return TWITTER_RETWEET_TXT % matchobj.group("username")
+    return TWITTER_RETWEET_TXT
+
+
+def _transform_user_ref_to_link(matchobj):
+    user = matchobj.group("username")[1:]
+    link = USER_URL % user
+    return USER_LINK_TPL % (link, user, "".join(["@", user]))
+
+
+def _parse_message(message_text):
+    """
+    Parse out some semantics for teh lulz.
+
+    """
+    tags = ""
+
+    # remove newlines
+    message_text = message_text.replace("\n", "")
+
+    # convert links to HTML
+    [link for link in URL_RE.findall(message_text)]
+    for link in URL_RE.finditer(message_text):
+        link_html = LINK_LINK_TPL % (link.group(0), link.group(0), link.group(0))
+        message_text = message_text.replace(link.group(0), link_html)
+
+    # remove leading username
+    message_text = USERNAME_RE.sub("", message_text)
+
+    # check for RT-type retweet syntax
+    message_text = RT_RE.sub(_transform_retweet, message_text)
+
+    # replace @user references with links to their timeline
+    message_text = USER_RE.sub(_transform_user_ref_to_link, message_text)
+
+    # generate tags list
+    tags = " ".join([tag[1:] for tag in TAG_RE.findall(message_text)])
+
+    return (message_text.strip(), tags)
