@@ -19,5 +19,8 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/install-pipenv
 
-      - name: Lint notebooks
+      - name: flake8
         run: flake8
+
+      - name: Django
+        run: pipenv run python manage.py check
