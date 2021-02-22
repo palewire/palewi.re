@@ -56,6 +56,19 @@ a:active {
   font-size: 1em;
   display: inline;
 }
+#whois {
+  text-align: right;
+}
+#whois ul {
+  float: right;
+  list-style-type: none;
+  font-size: 1em;
+}
+#whois ul li {
+  float: left;
+  list-style-position: inside;
+  margin-left: 0.5em;
+}
 #hd span {
   font-size: 0.55em;
   clear: both;
@@ -65,22 +78,7 @@ a:active {
 /* The horizontal gray bar that appears beneath the title line */
 #topbar {
   border-bottom: solid 10px #e5e5e5;
-}
-#navbar {
-  text-align: right;
-  display: block;
-  margin-bottom: 0.25em;
-  padding: 0.15em;
-}
-#navbar ul {
-  float: right;
-  list-style-type: none;
-  font-size: 1em;
-}
-#navbar ul li {
-  float: left;
-  list-style-position: inside;
-  margin-left: 0.5em;
+  margin-bottom: 20px;
 }
 
 /* Icons */

@@ -96,19 +96,6 @@
                     </div>
                 </div>
                 <div class="fourcol last" id="whois">
-                    <div>
-                        <a rel="author" href="{% url 'coltrane_bio' %}"
-                            title="All about Ben">Who is Ben Welsh?</a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="topbar" class="row">
-                <div class="twelvecol last"></div>
-            </div>
-            <div id="navbar" class="row">
-                <div class="eightcol"></div>
-                <div class="fourcol last">
                     <ul>
                         <li>
                             <a href="{% url 'coltrane_post_list' %}" title="Posts">
@@ -125,8 +112,17 @@
                                 Talks
                             </a>
                         </li>
+                        <li>
+                            <a href="{% url 'coltrane_bio' %}" title="Who is Ben Welsh?">
+                                About
+                            </a>
+                        </li>
                     </ul>
                 </div>
+            </div>
+
+            <div id="topbar" class="row">
+                <div class="twelvecol last"></div>
             </div>
         </nav>
 
