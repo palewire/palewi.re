@@ -20,7 +20,7 @@ jobs:
         uses: ./.github/actions/install-pipenv
 
       - name: flake8
-        run: flake8
+        run: pipenv run flake8
 
       - name: Django
         run: pipenv run python manage.py check
