@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0006_auto_20170908_1548'),
+        ("bona_fides", "0006_auto_20170908_1548"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='clip',
-            name='url',
+            model_name="clip",
+            name="url",
             field=models.CharField(blank=True, max_length=1000, unique=True),
         ),
     ]

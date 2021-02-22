@@ -8,28 +8,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coltrane', '0004_post_repr_image'),
+        ("coltrane", "0004_post_repr_image"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='movie',
-            name='rating',
-            field=models.FloatField(blank=True, null=True, verbose_name='One to five star rating.'),
+            model_name="movie",
+            name="rating",
+            field=models.FloatField(
+                blank=True, null=True, verbose_name="One to five star rating."
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='repr_image',
-            field=models.CharField(blank=True, default='', max_length=1000),
+            model_name="post",
+            name="repr_image",
+            field=models.CharField(blank=True, default="", max_length=1000),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='slug',
-            field=models.SlugField(help_text='Suggested value automatically generated from title.', max_length=300, unique_for_date='pub_date'),
+            model_name="post",
+            name="slug",
+            field=models.SlugField(
+                help_text="Suggested value automatically generated from title.",
+                max_length=300,
+                unique_for_date="pub_date",
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='status',
-            field=models.IntegerField(choices=[(1, 'Live'), (2, 'Draft'), (3, 'Hidden')], default=1, help_text="Only 'Live' entries will be publicly displayed."),
+            model_name="post",
+            name="status",
+            field=models.IntegerField(
+                choices=[(1, "Live"), (2, "Draft"), (3, "Hidden")],
+                default=1,
+                help_text="Only 'Live' entries will be publicly displayed.",
+            ),
         ),
     ]

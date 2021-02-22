@@ -5,9 +5,9 @@ from django.http import HttpResponsePermanentRedirect
 
 class MultipleProxyMiddleware(object):
     FORWARDED_FOR_FIELDS = [
-        'HTTP_X_FORWARDED_FOR',
-        'HTTP_X_FORWARDED_HOST',
-        'HTTP_X_FORWARDED_SERVER',
+        "HTTP_X_FORWARDED_FOR",
+        "HTTP_X_FORWARDED_HOST",
+        "HTTP_X_FORWARDED_SERVER",
     ]
 
     def process_request(self, request):
@@ -17,8 +17,8 @@ class MultipleProxyMiddleware(object):
         """
         for field in self.FORWARDED_FOR_FIELDS:
             if field in request.META:
-                if ',' in request.META[field]:
-                    parts = request.META[field].split(',')
+                if "," in request.META[field]:
+                    parts = request.META[field].split(",")
                     request.META[field] = parts[-1].strip()
 
 
@@ -26,19 +26,21 @@ class DomainRedirectMiddleware(object):
     """
     Redirect traffic to all sibling domains to http://palewi.re
     """
-    host = 'palewi.re'
+
+    host = "palewi.re"
 
     def update_uri(self, request):
-        return '%s://%s%s%s' % (
-            request.is_secure() and 'https' or 'http',
+        return "%s://%s%s%s" % (
+            request.is_secure() and "https" or "http",
             self.host,
             urlquote(request.path),
-            (request.method == 'GET' and len(request.GET) > 0)
-                and '?%s' % request.GET.urlencode() or ''
+            (request.method == "GET" and len(request.GET) > 0)
+            and "?%s" % request.GET.urlencode()
+            or "",
         )
 
     def process_request(self, request):
         host = request.get_host()
-        if host in ['www.palewire.com', 'palewire.com', "www.palewi.re"]:
+        if host in ["www.palewire.com", "palewire.com", "www.palewi.re"]:
             new_uri = self.update_uri(request)
             return HttpResponsePermanentRedirect(new_uri)

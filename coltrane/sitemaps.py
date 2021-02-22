@@ -3,9 +3,10 @@ from django.contrib import sitemaps
 from django.contrib.sitemaps import GenericSitemap
 
 post_dict = {
-    'queryset': Post.live.all(),
-    'date_field': 'pub_date',
+    "queryset": Post.live.all(),
+    "date_field": "pub_date",
 }
+
 
 class AbstractSitemapClass(object):
     url = None
@@ -16,10 +17,10 @@ class AbstractSitemapClass(object):
 
 class StaticSitemap(sitemaps.Sitemap):
     pages = {
-        'bio':'/who-is-ben-welsh/',
-        'clips': '/clips/',
-        'posts': '/posts/',
-        'talks': '/talks/',
+        "bio": "/who-is-ben-welsh/",
+        "clips": "/clips/",
+        "posts": "/posts/",
+        "talks": "/talks/",
     }
     main_sitemaps = []
     for page in pages.keys():
@@ -32,6 +33,6 @@ class StaticSitemap(sitemaps.Sitemap):
 
 
 sitemaps = {
-    'static': StaticSitemap,
-    'posts': GenericSitemap(post_dict, priority=0.9),
+    "static": StaticSitemap,
+    "posts": GenericSitemap(post_dict, priority=0.9),
 }

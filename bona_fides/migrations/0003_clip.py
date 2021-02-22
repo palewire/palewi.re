@@ -8,16 +8,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0002_auto_20170529_2228'),
+        ("bona_fides", "0002_auto_20170529_2228"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Clip',
+            name="Clip",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=1000)),
-                ('url', models.CharField(blank=True, max_length=1000)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=1000)),
+                ("url", models.CharField(blank=True, max_length=1000)),
             ],
         ),
     ]

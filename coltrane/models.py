@@ -34,27 +34,32 @@ class Ticker(models.Model):
     """
     A tumblelog of the latest content items, pushed automagically by the functions in signals.py.
     """
+
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     pub_date = models.DateTimeField()
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    content_object = generic.GenericForeignKey("content_type", "object_id")
 
     class Meta:
-        verbose_name_plural = _('Ticker')
-        ordering = ('-pub_date',)
+        verbose_name_plural = _("Ticker")
+        ordering = ("-pub_date",)
 
     def __str__(self):
-        return u'%s: %s' % (self.content_type.model_class().__name__, self.content_object)
+        return u"%s: %s" % (
+            self.content_type.model_class().__name__,
+            self.content_object,
+        )
 
 
 class Slogan(models.Model):
     """
     The slogans that randomly appear at the top of the blog when the logo is hovered over.
     """
-    title = models.CharField(max_length=250, help_text=_('Maximum 250 characters.'))
+
+    title = models.CharField(max_length=250, help_text=_("Maximum 250 characters."))
 
     class Meta:
-        ordering = ['title']
+        ordering = ["title"]
 
     def __str__(self):
         return self.title
@@ -64,28 +69,35 @@ class Category(models.Model):
     """
     Topic labels for grouping blog entries.
     """
-    title = models.CharField(max_length=250, help_text=_('Maximum 250 characters.'))
-    slug = models.SlugField(unique=True, help_text=_('Suggested value automatically generated from title. Must be unique.'))
+
+    title = models.CharField(max_length=250, help_text=_("Maximum 250 characters."))
+    slug = models.SlugField(
+        unique=True,
+        help_text=_(
+            "Suggested value automatically generated from title. Must be unique."
+        ),
+    )
     description = models.TextField(null=True, blank=True)
     post_count = models.IntegerField(default=0, editable=False)
     objects = models.Manager()
     live = LiveCategoryManager()
 
     class Meta:
-        ordering = ['title']
-        verbose_name_plural = _('Categories')
+        ordering = ["title"]
+        verbose_name_plural = _("Categories")
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return('coltrane_category_detail', [self.slug])
+        return ("coltrane_category_detail", [self.slug])
 
     def get_absolute_icon(self):
-        return u'%sicons/categories.gif' % (settings.STATIC_URL)
+        return u"%sicons/categories.gif" % (settings.STATIC_URL)
 
     def get_live_post_count(self):
         from coltrane.models import Post
+
         return Post.live.filter(categories=self).count()
 
 
@@ -95,65 +107,85 @@ class Post(models.Model):
 
     Supports pygments by placing code in <pre lang="xxx"> tags.
     """
+
     LIVE_STATUS = 1
     DRAFT_STATUS = 2
     HIDDEN_STATUS = 3
     STATUS_CHOICES = (
-        (LIVE_STATUS, 'Live'),
-        (DRAFT_STATUS, 'Draft'),
-        (HIDDEN_STATUS, 'Hidden'),
+        (LIVE_STATUS, "Live"),
+        (DRAFT_STATUS, "Draft"),
+        (HIDDEN_STATUS, "Hidden"),
     )
 
-    wordpress_id = models.IntegerField(unique=True, null=True, blank=True,
-        help_text=_('The junky old wp_posts id from before the migration'),
-        editable=False)
-    title = models.CharField(max_length=250,
-        help_text=_('Maximum 250 characters.'))
-    slug = models.SlugField(max_length=300, unique_for_date='pub_date',
-        help_text=_('Suggested value automatically generated from title.'))
+    wordpress_id = models.IntegerField(
+        unique=True,
+        null=True,
+        blank=True,
+        help_text=_("The junky old wp_posts id from before the migration"),
+        editable=False,
+    )
+    title = models.CharField(max_length=250, help_text=_("Maximum 250 characters."))
+    slug = models.SlugField(
+        max_length=300,
+        unique_for_date="pub_date",
+        help_text=_("Suggested value automatically generated from title."),
+    )
     body_markup = models.TextField(
-        help_text=_('The HTML of the post that is edited by the author.')
+        help_text=_("The HTML of the post that is edited by the author.")
     )
-    body_html = models.TextField(null=True, blank=True, editable=False,
-        help_text=_('The HTML of the post run through Pygments.')
+    body_html = models.TextField(
+        null=True,
+        blank=True,
+        editable=False,
+        help_text=_("The HTML of the post run through Pygments."),
     )
-    pub_date = models.DateTimeField(_('publication date'),
-        default=datetime.datetime.now)
+    pub_date = models.DateTimeField(
+        _("publication date"), default=datetime.datetime.now
+    )
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     enable_comments = models.BooleanField(default=False)
-    status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
-        help_text=_("Only 'Live' entries will be publicly displayed."))
+    status = models.IntegerField(
+        choices=STATUS_CHOICES,
+        default=LIVE_STATUS,
+        help_text=_("Only 'Live' entries will be publicly displayed."),
+    )
     repr_image = models.CharField(max_length=1000, blank=True, default="")
     categories = models.ManyToManyField(Category)
     objects = models.Manager()
     live = LivePostManager()
 
     class Meta:
-        ordering = ['-pub_date']
-        get_latest_by = 'pub_date'
+        ordering = ["-pub_date"]
+        get_latest_by = "pub_date"
 
     def __str__(self):
         return self.title
 
     def save(self, force_insert=False, force_update=False):
         from coltrane.utils.pygmenter import pygmenter
+
         self.body_html = pygmenter(self.body_markup)
         super(Post, self).save()
 
     def get_absolute_url(self):
-        return reverse('coltrane_post_detail', args=(), kwargs={
-            'year': self.pub_date.strftime("%Y"),
-            'month': self.pub_date.strftime("%m"),
-            'day': self.pub_date.strftime("%d"),
-            'slug': self.slug
-        })
+        return reverse(
+            "coltrane_post_detail",
+            args=(),
+            kwargs={
+                "year": self.pub_date.strftime("%Y"),
+                "month": self.pub_date.strftime("%m"),
+                "day": self.pub_date.strftime("%d"),
+                "slug": self.slug,
+            },
+        )
+
     url = property(get_absolute_url)
 
     def get_archive_url(self):
         """
         Overriding the URL to send to Internet Archive so that it has a cachebuster.
         """
-        domain = 'http://palewi.re'
+        domain = "http://palewi.re"
         cache_buster = "?timestamp={}".format(datetime.datetime.now().strftime("%s"))
         return domain + self.get_absolute_url() + cache_buster
 
@@ -166,32 +198,38 @@ class Post(models.Model):
         return self.status == 1
 
     def get_absolute_icon(self):
-        return u'%sicons/posts.gif' % (settings.STATIC_URL)
+        return u"%sicons/posts.gif" % (settings.STATIC_URL)
 
     def get_rendered_html(self):
-        template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
-        return render_to_string(template_name, { 'object': self })
+        template_name = "coltrane/ticker_item_%s.html" % (
+            self.__class__.__name__.lower()
+        )
+        return render_to_string(template_name, {"object": self})
 
 
 class ThirdPartyBaseModel(models.Model):
     """
     A base model for the data we'll be pulling from third-party sites.
     """
+
     url = models.URLField(max_length=1000)
-    pub_date = models.DateTimeField(default=datetime.datetime.now, verbose_name=_('publication date'))
+    pub_date = models.DateTimeField(
+        default=datetime.datetime.now, verbose_name=_("publication date")
+    )
     objects = models.Manager()
     sync = SyncManager()
 
     class Meta:
-        ordering = ('-pub_date',)
+        ordering = ("-pub_date",)
         abstract = True
-        get_latest_by = 'pub_date'
+        get_latest_by = "pub_date"
 
 
 class Beer(ThirdPartyBaseModel):
     """
     A beer I drank.
     """
+
     title = models.CharField(max_length=250, blank=True, null=True)
     brewery = models.CharField(max_length=250)
 
@@ -203,6 +241,7 @@ class Book(ThirdPartyBaseModel):
     """
     Books I've read.
     """
+
     isbn = models.CharField(max_length=20, unique=True)
     title = models.CharField(max_length=250)
     authors = models.CharField(max_length=250, blank=True, null=True)
@@ -218,6 +257,7 @@ class Link(ThirdPartyBaseModel):
     """
     Links to bookmarks I'd like to recommend.
     """
+
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
 
@@ -229,15 +269,17 @@ class Commit(ThirdPartyBaseModel):
     """
     Code I've written.
     """
+
     repository = models.CharField(max_length=100)
     branch = models.CharField(max_length=100, blank=True)
     message = models.TextField()
 
     def __str__(self):
         if self.branch:
-            return u'%s: %s - %s' % (self.repository, self.branch, self.message)
+            return u"%s: %s - %s" % (self.repository, self.branch, self.message)
         else:
-            return u'%s: %s' % (self.repository, self.message)
+            return u"%s: %s" % (self.repository, self.message)
+
     title = property(__str__)
 
     def get_short_message(self, words=8):
@@ -247,6 +289,7 @@ class Commit(ThirdPartyBaseModel):
         Good for use in the admin.
         """
         return truncate_words(strip_tags(self.message), words)
+
     short_message = property(get_short_message)
 
 
@@ -254,6 +297,7 @@ class Location(ThirdPartyBaseModel):
     """
     A place where I announce my presence.
     """
+
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
     latitude = models.FloatField(null=True)
@@ -267,8 +311,11 @@ class Movie(ThirdPartyBaseModel):
     """
     Links to movies I've seen and rated.
     """
+
     title = models.CharField(max_length=250, blank=True, null=True)
-    rating = models.FloatField(null=True, blank=True, verbose_name='One to five star rating.')
+    rating = models.FloatField(
+        null=True, blank=True, verbose_name="One to five star rating."
+    )
 
     def __str__(self):
         return self.title
@@ -278,6 +325,7 @@ class Photo(ThirdPartyBaseModel):
     """
     Links to photos I want to recommend, including my own.
     """
+
     title = models.CharField(max_length=250, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
@@ -289,6 +337,7 @@ class Shout(ThirdPartyBaseModel):
     """
     Shorter things I blast out.
     """
+
     message = models.TextField(max_length=140)
 
     def __str__(self):
@@ -301,6 +350,7 @@ class Shout(ThirdPartyBaseModel):
         Good for use in the admin.
         """
         return truncate_words(strip_tags(self.message), words)
+
     short_message = property(get_short_message)
     title = property(get_short_message)
 
@@ -309,13 +359,19 @@ class Track(ThirdPartyBaseModel):
     """
     Links to tracks I've listened to.
     """
+
     artist_name = models.CharField(max_length=250)
     track_name = models.CharField(max_length=250)
-    track_mbid = models.CharField(verbose_name = _("MusicBrainz Track ID"), max_length=36, blank=True)
-    artist_mbid = models.CharField(verbose_name = _("MusicBrainz Artist ID"), max_length=36, blank=True)
+    track_mbid = models.CharField(
+        verbose_name=_("MusicBrainz Track ID"), max_length=36, blank=True
+    )
+    artist_mbid = models.CharField(
+        verbose_name=_("MusicBrainz Artist ID"), max_length=36, blank=True
+    )
 
     def __str__(self):
         return u"%s - %s" % (self.artist_name, self.track_name)
+
     title = property(__str__)
 
 

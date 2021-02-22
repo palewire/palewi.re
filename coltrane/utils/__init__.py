@@ -18,13 +18,12 @@ from django.utils.encoding import force_text
 # Django
 from django.conf import settings
 
-DEFAULT_HTTP_HEADERS = {
-    "User-Agent" : "palewi.re ticker"
-}
+DEFAULT_HTTP_HEADERS = {"User-Agent": "palewi.re ticker"}
 
 #
 # URL fetching sugar
 #
+
 
 def getjson(url, **kwargs):
     """
@@ -43,26 +42,22 @@ def fetch_resource(url, username=None, password=None, headers=None):
 
     # Add any credentials
     if username or password:
-        kwargs.update({
-            'auth': HTTPBasicAuth(username, password)
-        })
+        kwargs.update({"auth": HTTPBasicAuth(username, password)})
 
     # Set custom headers
     if headers:
-        kwargs.update({
-            'headers': headers
-        })
+        kwargs.update({"headers": headers})
     else:
-        kwargs.update({
-            'headers': DEFAULT_HTTP_HEADERS.copy()
-        })
+        kwargs.update({"headers": DEFAULT_HTTP_HEADERS.copy()})
 
     # Make the request
     return requests.get(url, **kwargs).content
 
+
 #
 # Date handling utils
 #
+
 
 def parsedate(s):
     """
@@ -83,12 +78,14 @@ def safeint(s):
     except (ValueError, TypeError):
         return 0
 
+
 #
 # Timezone adjustment
 #
 
-UTC = pytz.timezone('UTC')
+UTC = pytz.timezone("UTC")
 LOCAL = pytz.timezone(settings.TIME_ZONE)
+
 
 def utc_to_local_datetime(dt):
     """
@@ -96,15 +93,17 @@ def utc_to_local_datetime(dt):
     """
     return dt.astimezone(LOCAL)
 
+
 def utc_to_local_timestamp(ts, orig_tz=UTC):
     """
     Convert a timestamp object into a tz-aware datetime object.
     """
-    timestamp = datetime.datetime.fromtimestamp(ts,tz=orig_tz)
+    timestamp = datetime.datetime.fromtimestamp(ts, tz=orig_tz)
     return timestamp.astimezone(LOCAL)
+
 
 def utc_to_local_timestruct(ts, orig_tz=UTC):
     """
     Convert a timestruct object into a tz-aware datetime object.
     """
-    return utc_to_local_timestamp(time.mktime(ts),orig_tz)
+    return utc_to_local_timestamp(time.mktime(ts), orig_tz)

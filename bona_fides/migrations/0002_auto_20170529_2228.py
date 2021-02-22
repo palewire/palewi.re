@@ -8,23 +8,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0001_initial'),
+        ("bona_fides", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='award',
-            name='order',
+            model_name="award",
+            name="order",
             field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
         ),
         migrations.AlterField(
-            model_name='skill',
-            name='order',
+            model_name="skill",
+            name="order",
             field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
         ),
         migrations.AlterField(
-            model_name='socialmediaprofile',
-            name='order',
+            model_name="socialmediaprofile",
+            name="order",
             field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
         ),
     ]

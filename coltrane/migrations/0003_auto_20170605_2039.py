@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coltrane', '0002_auto_20170528_0928'),
+        ("coltrane", "0002_auto_20170528_0928"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='enable_comments',
+            model_name="post",
+            name="enable_comments",
             field=models.BooleanField(default=False),
         ),
     ]

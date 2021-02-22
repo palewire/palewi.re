@@ -8,13 +8,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0005_clip_type'),
+        ("bona_fides", "0005_clip_type"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='clip',
-            name='type',
-            field=models.CharField(choices=[(b'app', b'App'), (b'lesson-plan', b'Lesson plan'), (b'story', b'Story'), (b'software', b'Software')], max_length=100),
+            model_name="clip",
+            name="type",
+            field=models.CharField(
+                choices=[
+                    (b"app", b"App"),
+                    (b"lesson-plan", b"Lesson plan"),
+                    (b"story", b"Story"),
+                    (b"software", b"Software"),
+                ],
+                max_length=100,
+            ),
         ),
     ]

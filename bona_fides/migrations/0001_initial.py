@@ -9,46 +9,84 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Award',
+            name="Award",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order', models.PositiveIntegerField(db_index=True, default=1, editable=False)),
-                ('title', models.CharField(max_length=1000)),
-                ('url', models.CharField(blank=True, max_length=1000)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "order",
+                    models.PositiveIntegerField(
+                        db_index=True, default=1, editable=False
+                    ),
+                ),
+                ("title", models.CharField(max_length=1000)),
+                ("url", models.CharField(blank=True, max_length=1000)),
             ],
             options={
-                'ordering': ['order'],
-                'abstract': False,
+                "ordering": ["order"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Skill',
+            name="Skill",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order', models.PositiveIntegerField(db_index=True, default=1, editable=False)),
-                ('title', models.CharField(max_length=250)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "order",
+                    models.PositiveIntegerField(
+                        db_index=True, default=1, editable=False
+                    ),
+                ),
+                ("title", models.CharField(max_length=250)),
             ],
             options={
-                'ordering': ['order'],
-                'abstract': False,
+                "ordering": ["order"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='SocialMediaProfile',
+            name="SocialMediaProfile",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order', models.PositiveIntegerField(db_index=True, default=1, editable=False)),
-                ('title', models.CharField(max_length=250)),
-                ('url', models.CharField(max_length=1000)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "order",
+                    models.PositiveIntegerField(
+                        db_index=True, default=1, editable=False
+                    ),
+                ),
+                ("title", models.CharField(max_length=250)),
+                ("url", models.CharField(max_length=1000)),
             ],
             options={
-                'ordering': ['order'],
-                'abstract': False,
+                "ordering": ["order"],
+                "abstract": False,
             },
         ),
     ]

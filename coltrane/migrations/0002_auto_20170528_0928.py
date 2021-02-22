@@ -8,14 +8,14 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coltrane', '0001_initial'),
+        ("coltrane", "0001_initial"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='TopDomain',
+            name="TopDomain",
         ),
         migrations.DeleteModel(
-            name='TopTag',
+            name="TopTag",
         ),
     ]

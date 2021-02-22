@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coltrane', '0003_auto_20170605_2039'),
+        ("coltrane", "0003_auto_20170605_2039"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='repr_image',
-            field=models.CharField(blank=True, default=b'', max_length=1000),
+            model_name="post",
+            name="repr_image",
+            field=models.CharField(blank=True, default=b"", max_length=1000),
         ),
     ]

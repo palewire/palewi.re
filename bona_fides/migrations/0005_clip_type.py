@@ -8,14 +8,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0004_auto_20170529_2256'),
+        ("bona_fides", "0004_auto_20170529_2256"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='clip',
-            name='type',
-            field=models.CharField(choices=[(b'app', b'App'), (b'story', b'Story'), (b'software', b'Software')], default='', max_length=100),
+            model_name="clip",
+            name="type",
+            field=models.CharField(
+                choices=[
+                    (b"app", b"App"),
+                    (b"story", b"Story"),
+                    (b"software", b"Software"),
+                ],
+                default="",
+                max_length=100,
+            ),
             preserve_default=False,
         ),
     ]

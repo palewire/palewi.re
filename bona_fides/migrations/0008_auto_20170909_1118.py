@@ -8,28 +8,51 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0007_auto_20170908_1554'),
+        ("bona_fides", "0007_auto_20170908_1554"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Talk',
+            name="Talk",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(help_text=b'The title of the talk', max_length=1000)),
-                ('venue', models.CharField(help_text=b'The host of the talk', max_length=1000)),
-                ('location', models.CharField(help_text=b'The location of the venue', max_length=1000)),
-                ('date', models.DateField(help_text=b'The date of the talk')),
-                ('video_url', models.CharField(max_length=1000, unique=True)),
-                ('slides_url', models.CharField(blank=True, max_length=1000)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        help_text=b"The title of the talk", max_length=1000
+                    ),
+                ),
+                (
+                    "venue",
+                    models.CharField(
+                        help_text=b"The host of the talk", max_length=1000
+                    ),
+                ),
+                (
+                    "location",
+                    models.CharField(
+                        help_text=b"The location of the venue", max_length=1000
+                    ),
+                ),
+                ("date", models.DateField(help_text=b"The date of the talk")),
+                ("video_url", models.CharField(max_length=1000, unique=True)),
+                ("slides_url", models.CharField(blank=True, max_length=1000)),
             ],
             options={
-                'ordering': ('-date',),
+                "ordering": ("-date",),
             },
         ),
         migrations.AlterField(
-            model_name='clip',
-            name='url',
+            model_name="clip",
+            name="url",
             field=models.CharField(max_length=1000, unique=True),
         ),
     ]

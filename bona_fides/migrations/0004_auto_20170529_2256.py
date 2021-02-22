@@ -8,17 +8,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0003_clip'),
+        ("bona_fides", "0003_clip"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='clip',
-            options={'ordering': ('-date',)},
+            name="clip",
+            options={"ordering": ("-date",)},
         ),
         migrations.AddField(
-            model_name='clip',
-            name='date',
+            model_name="clip",
+            name="date",
             field=models.DateField(default=None),
             preserve_default=False,
         ),

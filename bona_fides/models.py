@@ -6,6 +6,7 @@ class Award(Sortable):
     """
     An award I have received or been nominated for.
     """
+
     title = models.CharField(max_length=1000)
     url = models.CharField(max_length=1000, blank=True)
 
@@ -20,11 +21,12 @@ class Clip(models.Model):
     """
     A story, app or other thing I've published.
     """
+
     title = models.CharField(max_length=1000)
     TYPE_CHOICES = (
         ("app", "App"),
         ("lesson-plan", "Lesson plan"),
-        ("story", 'Story'),
+        ("story", "Story"),
         ("software", "Software"),
     )
     type = models.CharField(max_length=100, choices=TYPE_CHOICES)
@@ -35,7 +37,7 @@ class Clip(models.Model):
         ordering = ("-date",)
 
     def __str__(self):
-        return u'{}: {}'.format(self.get_type_display(), self.title)
+        return u"{}: {}".format(self.get_type_display(), self.title)
 
     def get_archive_url(self):
         return self.url
@@ -45,6 +47,7 @@ class SocialMediaProfile(Sortable):
     """
     A link to a social media profile I have on another site.
     """
+
     title = models.CharField(max_length=250)
     url = models.CharField(max_length=1000)
 
@@ -59,6 +62,7 @@ class Skill(Sortable):
     """
     A technical skill I have and will mention about on my bio page.
     """
+
     title = models.CharField(max_length=250)
 
     class Meta(Sortable.Meta):
@@ -72,6 +76,7 @@ class Talk(models.Model):
     """
     A public speech.
     """
+
     title = models.CharField(max_length=1000, help_text="The title of the talk")
     venue = models.CharField(max_length=1000, help_text="The host of the talk")
     location = models.CharField(max_length=1000, help_text="The location of the venue")

@@ -18,69 +18,53 @@ from django.urls import path
 
 # URLs for the blog
 blogpatterns = [
-
     # The index
-    url(
-        r'^$',
-        RedirectView.as_view(url='/who-is-ben-welsh/'),
-        name='coltrane_index'
-    ),
-
+    url(r"^$", RedirectView.as_view(url="/who-is-ben-welsh/"), name="coltrane_index"),
     # My bio
-    url(r'^who-is-ben-welsh/$', views.bio, name="coltrane_bio"),
-
+    url(r"^who-is-ben-welsh/$", views.bio, name="coltrane_bio"),
     # The admin
-    path('admin/', admin.site.urls),
-
+    path("admin/", admin.site.urls),
     # Main list pages
-    url(r'^work/$', views.ClipListView.as_view(), name='coltrane_work_list'),
-    url(r'^talks/$', views.TalkListView.as_view(), name='coltrane_talk_list'),
-    url(r'^posts/$', views.PostListView.as_view(), name='coltrane_post_list'),
-
+    url(r"^work/$", views.ClipListView.as_view(), name="coltrane_work_list"),
+    url(r"^talks/$", views.TalkListView.as_view(), name="coltrane_talk_list"),
+    url(r"^posts/$", views.PostListView.as_view(), name="coltrane_post_list"),
     # Detail pages
     url(
-        r'^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+        r"^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$",
         views.post_detail,
-        name='coltrane_post_detail'
+        name="coltrane_post_detail",
     ),
-
     # Sitemaps
+    url(r"^sitemap\.xml$", sitemap_views.index, {"sitemaps": sitemaps}),
     url(
-        r'^sitemap\.xml$',
-        sitemap_views.index,
-        {'sitemaps': sitemaps}
-    ),
-    url(
-        r'^sitemap-(?P<section>.+)\.xml$',
+        r"^sitemap-(?P<section>.+)\.xml$",
         sitemap_views.sitemap,
-        {'sitemaps': sitemaps},
-        name='django.contrib.sitemaps.views.sitemap'
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
     ),
-
     # Robots and favicon
     url(
-        r'^robots\.txt$',
+        r"^robots\.txt$",
         DirectTemplateView.as_view(
-            template_name='robots.txt',
-            content_type='text/plain'
+            template_name="robots.txt", content_type="text/plain"
         ),
-        name='robots'
+        name="robots",
     ),
     url(
-        r'^favicon.ico$',
-        RedirectView.as_view(
-            url='http://palewire.s3.amazonaws.com/favicon.ico'
-        )
+        r"^favicon.ico$",
+        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/favicon.ico"),
     ),
-
     # Corrections
-    url(r'^comments/', include('django_comments.urls')),
-
+    url(r"^comments/", include("django_comments.urls")),
     # Static and media
-    url(r'^media/(?P<path>.*)$', RedirectView.as_view(
-         url='http://palewire.s3.amazonaws.com/%(path)s')),
-    url(r'^static/(?P<path>.*)$', RedirectView.as_view(
-         url='http://palewire.s3.amazonaws.com/%(path)s')),
+    url(
+        r"^media/(?P<path>.*)$",
+        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/%(path)s"),
+    ),
+    url(
+        r"^static/(?P<path>.*)$",
+        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/%(path)s"),
+    ),
 ]
 
 # Combine patterns
@@ -88,4 +72,4 @@ urlpatterns = redirectpatterns
 urlpatterns += blogpatterns
 
 # 500 page fix
-handler500 = 'coltrane.views.server_error'
+handler500 = "coltrane.views.server_error"
