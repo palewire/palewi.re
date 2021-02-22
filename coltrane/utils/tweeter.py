@@ -57,7 +57,7 @@ class TwitterClient(object):
             access_token_key=settings.TWITTER_ACCESS_TOKEN_KEY,
             access_token_secret=settings.TWITTER_ACCESS_TOKEN_SECRET
         )
-        for status in api.GetUserTimeline(settings.TWITTER_USER):
+        for status in api.GetUserTimeline(screen_name=settings.TWITTER_USER):
             message_text = smart_text(status.text)
             url  = smart_text('https://twitter.com/%s/status/%s' % (
                 settings.TWITTER_USER,
