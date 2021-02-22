@@ -75,25 +75,13 @@ blogpatterns = [
 
     # Corrections
     url(r'^comments/', include('django_comments.urls')),
-]
 
-if settings.DEBUG:
-    blogpatterns += [
-        url(r'^media/(?P<path>.*)$', static_serve,
-            {'document_root': settings.STATIC_ROOT, 'show_indexes': True, }),
-        url(r'^static/(?P<path>.*)$', static_serve, {
-            'document_root': settings.STATIC_ROOT,
-            'show_indexes': True,
-        }),
-        url(r'^500/$', views.server_error),
-    ]
-else:
-    blogpatterns += [
-        url(r'^media/(?P<path>.*)$', RedirectView.as_view(
-             url='http://palewire.s3.amazonaws.com/%(path)s')),
-        url(r'^static/(?P<path>.*)$', RedirectView.as_view(
-             url='http://palewire.s3.amazonaws.com/%(path)s')),
-    ]
+    # Static and media
+    url(r'^media/(?P<path>.*)$', RedirectView.as_view(
+         url='http://palewire.s3.amazonaws.com/%(path)s')),
+    url(r'^static/(?P<path>.*)$', RedirectView.as_view(
+         url='http://palewire.s3.amazonaws.com/%(path)s')),
+]
 
 # Combine patterns
 urlpatterns = redirectpatterns

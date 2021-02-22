@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_DIR = os.path.join(BASE_DIR, 'project')
 ROOT_DIR = BASE_DIR
 
-DEBUG = os.environ.get("DEBUG") == "true"
+DEBUG = os.environ.get("DEBUG") != "false"
 PRODUCTION = os.environ.get("PRODUCTION") == "true"
 SECRET_KEY = os.environ.get("SECRET_KEY","foobar")
 
@@ -31,8 +31,10 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'palewire',
+        'USER': 'postgres',
+        'HOST': 'localhost',
     }
 }
 DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))

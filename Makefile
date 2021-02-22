@@ -7,7 +7,7 @@ downloaddb:
 
 
 restoredb:
-	pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d entry latest.dump
+	pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d palewire latest.dump
 
 
 loaddb:
