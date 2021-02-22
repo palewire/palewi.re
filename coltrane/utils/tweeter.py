@@ -7,7 +7,7 @@ from django.conf import settings
 from django.db import transaction
 from django.template.defaultfilters import slugify
 from django.utils.http import urlquote
-from django.utils.encoding import smart_str, smart_unicode
+from django.utils.encoding import smart_str, smart_text
 from coltrane import utils
 
 # Logging
@@ -58,8 +58,8 @@ class TwitterClient(object):
             access_token_secret=settings.TWITTER_ACCESS_TOKEN_SECRET
         )
         for status in api.GetUserTimeline(settings.TWITTER_USER):
-            message_text = smart_unicode(status.text)
-            url  = smart_unicode('https://twitter.com/%s/status/%s' % (
+            message_text = smart_text(status.text)
+            url  = smart_text('https://twitter.com/%s/status/%s' % (
                 settings.TWITTER_USER,
                 status.id
             ))
