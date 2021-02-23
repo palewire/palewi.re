@@ -93,6 +93,7 @@ INSTALLED_APPS = (
     # Site extras and helpers
     "greeking",
     "adminsortable",
+    'whitenoise.runserver_nostatic',
 )
 
 LOGGING = {
