@@ -2,7 +2,7 @@ from django.db import models
 from adminsortable.models import Sortable
 
 
-class Award(Sortable):
+class Award(models.Model):
     """
     An award I have received or been nominated for.
     """
@@ -10,7 +10,7 @@ class Award(Sortable):
     title = models.CharField(max_length=1000)
     url = models.CharField(max_length=1000, blank=True)
 
-    class Meta(Sortable.Meta):
+    class Meta:
         pass
 
     def __str__(self):
@@ -43,7 +43,7 @@ class Clip(models.Model):
         return self.url
 
 
-class SocialMediaProfile(Sortable):
+class SocialMediaProfile(models.Model):
     """
     A link to a social media profile I have on another site.
     """
@@ -51,21 +51,21 @@ class SocialMediaProfile(Sortable):
     title = models.CharField(max_length=250)
     url = models.CharField(max_length=1000)
 
-    class Meta(Sortable.Meta):
+    class Meta:
         pass
 
     def __str__(self):
         return self.title
 
 
-class Skill(Sortable):
+class Skill(models.Model):
     """
     A technical skill I have and will mention about on my bio page.
     """
 
     title = models.CharField(max_length=250)
 
-    class Meta(Sortable.Meta):
+    class Meta:
         pass
 
     def __str__(self):

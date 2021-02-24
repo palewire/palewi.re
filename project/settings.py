@@ -104,7 +104,6 @@ INSTALLED_APPS = (
     "django_comments",
     # Site extras and helpers
     "greeking",
-    "adminsortable",
     'whitenoise.runserver_nostatic',
     'sass_processor',
 )

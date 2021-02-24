@@ -26,6 +26,7 @@ flake8 = "*"
 black = "*"
 libsass = "*"
 django-sass-processor = "*"
+django-compressor = "*"
 
 [requires]
 python_version = "3.8"
