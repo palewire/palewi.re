@@ -4,6 +4,7 @@ nav {
   margin-top: 0.75em;
   margin-bottom: 0.5em;
   font-size: 1em;
+  line-height: 1.7em;
   .shingle {
       font-size: 1.7em;
       font-weight: bold;
@@ -20,16 +21,16 @@ nav {
   }
   .links {
     text-align: right;
-    font-size: 1em;
     ul {
       float: right;
       list-style-type: none;
-      font-size: 1em;
     }
     li {
       float: left;
       list-style-position: inside;
       margin-left: 0.5em;
+      font-size: .9em;
+      font-weight: 300;
     }
   }
 }

@@ -1,6 +1,6 @@
-#bd h1 {
-  font-weight: bold;
-  font-size: 1.9em;
+.content h1 {
+  font-weight: 800;
+  font-size: 2em;
   margin: 0 0 0.1em 0;
   line-height: 130%;
 } 
@@ -11,20 +11,21 @@
 }
 
 #detailpubdate p {
-  margin-bottom: 0.75em;
+  margin-bottom: 1.5em;
   font-size: 0.85em;
+  font-weight: 300;
 }
 #detailpubdate a {
   text-decoration: none;
 }
 #detailbody p {
-  margin-bottom: 1em;
-  line-height: 1.5em;
-} /* the standard 'graph */
+  margin-bottom: 1.25em;
+  font-weight: 300;
+}
 #detailbody h2 {
-  font-family: Verdana, sans-serif;
+  font-size: 1.15em;
   font-weight: bold;
-  margin: 1em 0 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
 } /* the in-post subhede */
 #detailbody ol,
 #detailbody ul,
