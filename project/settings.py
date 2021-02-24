@@ -24,7 +24,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Static files
 #
 
-STATIC_ROOT = os.path.join(BASE_DIR, ".staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 SASS_PROCESSOR_ROOT = STATIC_ROOT
 STATICFILES_STORAGE = "toolbox.storage.WhiteNoiseStaticFilesStorage"
 STATICFILES_FINDERS = [
