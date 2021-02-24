@@ -37,15 +37,21 @@ a:active {
   margin-bottom: 0.5em;
   font-size: 1em;
 }
-#hd #shingle {
+/* the "palewire" title in the upper left hand corner */
+#hd .shingle {
   font-size: 1.7em;
   font-weight: bold;
   text-align: left;
   padding-left: 0.15em;
-} /* the "palewire" title in the upper left hand corner */
-#hd #shingle a {
-  text-decoration: none;
-  font-weight: bold;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  @media (max-width: 550px) {
+    font-size: 1em;
+    float: left;
+    margin-bottom: 5px;
+  }
 }
 #whois {
   text-align: right;
@@ -815,7 +821,7 @@ body {
   body {
     font-size: 0.85em;
   }
-  #shingle {
+  .shingle {
     font-size: 1em;
     float: left;
     margin-bottom: 5px;

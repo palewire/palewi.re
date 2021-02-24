@@ -24,6 +24,8 @@ gunicorn = "*"
 whitenoise = "*"
 flake8 = "*"
 black = "*"
+libsass = "*"
+django-sass-processor = "*"
 
 [requires]
 python_version = "3.8"

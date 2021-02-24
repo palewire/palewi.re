@@ -1,4 +1,4 @@
-<!doctype html>
+{% load sass_tags %}<!doctype html>
 <html lang="en"
       xmlns:rnews="http://iptc.org/std/rNews/2011-05-17#"
       xmlns:og="http://ogp.me/ns#" {% block extrahtmlattrs %}{% endblock %}>
@@ -71,7 +71,7 @@
 
     {% block css %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset-fonts-grids.css" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}styles.css?rev={{ now.isoformat }}" />
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'styles.css' %}" />
     {% endblock %}
 
     {% block extrahead %}
@@ -84,7 +84,7 @@
         <nav>
             <div id="hd" class="row">
                 <div class="eightcol">
-                    <div id="shingle">
+                    <div class="shingle">
                         <a href="/">
                             <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
                                 <div about="http://{{ current_site }}"

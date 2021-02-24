@@ -11,13 +11,27 @@ DEBUG = os.environ.get("DEBUG") != "false"
 PRODUCTION = os.environ.get("PRODUCTION") == "true"
 SECRET_KEY = os.environ.get("SECRET_KEY", "foobar")
 
+#
+# Media files
+#
+
 MEDIA_URL = "http://palewire.s3.amazonaws.com/"
 ADMIN_MEDIA_PREFIX = "http://palewire.s3.amazonaws.com/admin/"
 STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#
+# Static files
+#
+
 STATIC_ROOT = os.path.join(BASE_DIR, ".staticfiles")
-STATICFILES_DIRS = ()
+SASS_PROCESSOR_ROOT = STATIC_ROOT
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
 
 TIME_ZONE = "America/Los_Angeles"
 USE_TZ = False
@@ -92,6 +106,7 @@ INSTALLED_APPS = (
     "greeking",
     "adminsortable",
     'whitenoise.runserver_nostatic',
+    'sass_processor',
 )
 
 LOGGING = {
