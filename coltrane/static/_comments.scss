@@ -1,0 +1,59 @@
+#comments {
+  margin: 0.3em 0 0 0;
+}
+#comments h2 {
+  margin-bottom: 1em;
+  font-size: 1.35em;
+  font-weight: bold;
+}
+.comment {
+  margin: 0 0 2em 0;
+  padding-left: 0.66em;
+  border-left: 0.2em #e5e5e5 solid;
+}
+.commenttopper {
+  margin: 0 0 0.5em 0;
+}
+.commentname {
+  block: inline;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0 0em 0 0;
+}
+.commentdate {
+  block: inline;
+  font-size: 0.8em;
+}
+.commenttext {
+  block: inline;
+  margin: 0 0 0.5em 0;
+}
+.commentfooter {
+}
+form#commentform {
+  padding: 0;
+}
+.commentlabel {
+  font-weight: bold;
+  margin: 0.3em 0;
+}
+.commentbox {
+  padding: 0.2em 0;
+  text-align: left;
+  margin: 0.3em 0;
+}
+#id_comment {
+  width: 100%;
+}
+
+@media handheld, only screen and (max-width: 550px) {
+  .commentlabel {
+    font-weight: bold;
+    margin: 0.3em 0;
+  }
+  .commentbox {
+    padding: 0.2em 0;
+    text-align: left;
+    margin: 0.3em 0;
+  }
+}

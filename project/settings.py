@@ -171,4 +171,4 @@ TWITTER_RETWEET_TXT = "RT %s: "
 TWITTER_REMOVE_LINKS = False
 
 # Activate Django-Heroku.
-django_heroku.settings(locals(), staticfiles=False)
+django_heroku.settings(locals())

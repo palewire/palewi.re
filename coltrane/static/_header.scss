@@ -55,3 +55,10 @@
   border-bottom: solid 10px #e5e5e5;
   margin-bottom: 20px;
 }
+
+@media handheld, only screen and (max-width: 550px) {
+  #whois {
+    font-size: 1em;
+    float: right;
+  }
+}
