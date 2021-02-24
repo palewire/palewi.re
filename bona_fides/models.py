@@ -1,5 +1,4 @@
 from django.db import models
-from adminsortable.models import Sortable
 
 
 class Award(models.Model):
