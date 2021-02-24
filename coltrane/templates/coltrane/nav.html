@@ -1,0 +1,43 @@
+<nav>
+    <div class="row">
+        <div class="eightcol">
+            <div class="shingle">
+                <a href="/">
+                    <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
+                        <div about="http://{{ current_site }}"
+                              typeof="rnews:Organization">
+                            <div property="rnews:name">palewire</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="fourcol last links">
+            <ul>
+                <li>
+                    <a href="{% url 'coltrane_post_list' %}" title="Posts">
+                        Posts
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'coltrane_work_list' %}" title="Work">
+                        Work
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'coltrane_talk_list' %}" title="Talks">
+                        Talks
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'coltrane_bio' %}" title="Who is Ben Welsh?">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="row topbar">
+    <div class="twelvecol last"></div>
+</div>

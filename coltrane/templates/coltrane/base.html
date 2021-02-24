@@ -80,50 +80,9 @@
 
     <div id="container" class="container">
 
-        <nav>
-            <div id="hd" class="row">
-                <div class="eightcol">
-                    <div class="shingle">
-                        <a href="/">
-                            <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
-                                <div about="http://{{ current_site }}"
-                                      typeof="rnews:Organization">
-                                    <div property="rnews:name">palewire</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="fourcol last" id="whois">
-                    <ul>
-                        <li>
-                            <a href="{% url 'coltrane_post_list' %}" title="Posts">
-                                Posts
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'coltrane_work_list' %}" title="Work">
-                                Work
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'coltrane_talk_list' %}" title="Talks">
-                                Talks
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'coltrane_bio' %}" title="Who is Ben Welsh?">
-                                About
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="topbar" class="row">
-                <div class="twelvecol last"></div>
-            </div>
-        </nav>
+        {% block nav %}
+            {% include "coltrane/nav.html" %}
+        {% endblock %}
 
         <div id="bd" class="row">
             {% block content %}

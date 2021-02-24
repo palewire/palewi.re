@@ -1,0 +1,44 @@
+/* The header */
+nav {
+  display: block;
+  margin-top: 0.75em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  .shingle {
+      font-size: 1.7em;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 0.15em;
+      a {
+        text-decoration: none;
+        font-weight: bold;
+      }
+      @media (max-width: 550px) {
+        float: left;
+        margin-bottom: 5px;
+      }
+  }
+  .links {
+    text-align: right;
+    font-size: 1em;
+    ul {
+      float: right;
+      list-style-type: none;
+      font-size: 1em;
+    }
+    li {
+      float: left;
+      list-style-position: inside;
+      margin-left: 0.5em;
+    }
+  }
+}
+
+.topbar {
+  border-bottom: solid 10px #e5e5e5;
+  margin-bottom: 20px;
+}
+
+
+
+

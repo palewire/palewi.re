@@ -1,18 +1,8 @@
 @import "reset";
 @import "grid";
-
-body {
-  font-family: "Helvetica", "Liberation Sans", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.65em;
-  text-align: left;
-  @media (max-width: 550px) {
-    font-size: 0.85em;
-  }
-}
-
+@import "fonts";
 @import "hyperlinks";
-@import "header";
+@import "nav";
 @import "bumper";
 @import "images";
 @import "bio";
