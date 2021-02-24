@@ -24,9 +24,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Static files
 #
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-SASS_PROCESSOR_ROOT = STATIC_ROOT
-STATICFILES_STORAGE = "toolbox.storage.WhiteNoiseStaticFilesStorage"
+#STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "staticfiles")
+#STATICFILES_STORAGE = "toolbox.storage.WhiteNoiseStaticFilesStorage"
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -171,4 +171,4 @@ TWITTER_RETWEET_TXT = "RT %s: "
 TWITTER_REMOVE_LINKS = False
 
 # Activate Django-Heroku.
-django_heroku.settings(locals(), staticfiles=False)
+django_heroku.settings(locals())
