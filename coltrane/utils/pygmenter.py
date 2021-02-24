@@ -5,10 +5,10 @@ import functools
 from pygments.lexers import LEXERS, get_lexer_by_name
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 
 # a tuple of known lexer names
-_lexer_names = functools.reduce(lambda a, b: a + b[2], LEXERS.itervalues(), ())
+_lexer_names = functools.reduce(lambda a, b: a + b[2], LEXERS.values(), ())
 
 
 def pygmenter(raw_html):
