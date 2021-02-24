@@ -13,6 +13,7 @@ nav {
       a {
         text-decoration: none;
         font-weight: bold;
+        color: $black;
       }
       @media (max-width: 550px) {
         float: left;
@@ -31,6 +32,12 @@ nav {
       margin-left: 0.5em;
       font-size: .9em;
       font-weight: 300;
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

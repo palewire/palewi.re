@@ -1,14 +1,13 @@
 a:link {
   text-decoration: underline;
-  color: black;
+  color: $dark-gray;
 }
 a:visited {
   text-decoration: underline;
-  color: black;
+  color: $dark-gray;
 }
 a:hover {
-  text-decoration: underline;
-  color: gray;
+  text-decoration: none;
 }
 a:active {
   text-decoration: underline;
