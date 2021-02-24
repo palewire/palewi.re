@@ -24,9 +24,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Static files
 #
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "staticfiles")
-#STATICFILES_STORAGE = "toolbox.storage.WhiteNoiseStaticFilesStorage"
+# STATICFILES_STORAGE = "toolbox.storage.WhiteNoiseStaticFilesStorage"
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
