@@ -12,48 +12,30 @@ ul.bullets {
 }
 
 
-/* Old List page stuff */
-.interiorlist h1 {
-  margin: 0 0 0.25em 0 !important;
+.interiorlist {
+    p.description {
+      font-size: 1em;
+      margin: 0 0 0.5em 0;
+    }
+    .section-hed {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin: 0.4em 0 0.2em;
+      padding: 0.05em 0 0.25em;
+      border-bottom: thin dotted #ccc;
+    }
+    .listitem {
+      min-height: 1.5em;
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
+      line-height: 1.5em;
+      list-style-type: none;
+      font-size: 1em;
+      @media (max-width: 480px) {
+          padding-left: 0;
+      }
+    }
 }
-.interiorlist h1 img {
-  vertical-align: middle !important;
-}
-.interiorlist p.description {
-  font-size: 1em;
-  margin: 0 0 0.5em 0;
-}
-.interiorlist div.section-hed {
-  font-weight: bold;
-  font-size: 1.1em;
-  margin: 0.4em 0 0.2em;
-  padding: 0.05em 0 0.25em;
-  border-bottom: thin dotted #ccc;
-}
-.interiorlist div.section-hed p {
-  font-size: 0.9em !important;
-  font-weight: normal;
-  margin: 0;
-  padding: 3px 0 0 0;
-}
-.interiorlist div.listitem {
-  min-height: 1.5em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-  line-height: 1.5em;
-  list-style-type: none;
-  font-size: 1em;
-} /* The items */
-.interiorlist div.listitem img {
-  height: 20px;
-}
-.interiorlist p {
-  font-size: 1em;
-  margin-top: 0.66em;
-}
-@media (max-width: 480px) {
-  .interiorlist div.listitem {
-    padding-left: 0;
-  }
-}
+
+
 

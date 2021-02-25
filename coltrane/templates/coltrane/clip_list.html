@@ -19,23 +19,23 @@
 {% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
 
 {% block content %}
-    <div class="interiorlist twelvecol last">
-        <h1>Work</h1>
-        <p class="description">Stories, apps and open-source software I've authored, typically in partnership with others.</p>
-        {% for object in object_list %}
-            {% ifchanged object.date.year %}
-            <div class="row">
-                <div class="section-hed twelvecol last">
-                    {{ object.date|date:"Y" }}
-                </div>
+<div class="interiorlist twelvecol last">
+    <h1>Work</h1>
+    <p class="description">Stories, apps and open-source software I've authored, typically in partnership with others.</p>
+    {% for object in object_list %}
+        {% ifchanged object.date.year %}
+        <div class="row">
+            <div class="section-hed twelvecol last">
+                {{ object.date|date:"Y" }}
             </div>
-            {% endifchanged %}
-            <div class="row">
-                <div class="listitem twelvecol last">
-                    {{ object.date|date:"N d" }} •
-                    <a href="{{ object.url }}">{{ object.title }}</a>
-                </div>
+        </div>
+        {% endifchanged %}
+        <div class="row">
+            <div class="listitem twelvecol last">
+                {{ object.date|date:"N d" }} •
+                <a href="{{ object.url }}">{{ object.title }}</a>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
