@@ -24,7 +24,11 @@
         <div class="row">
             <div class="twocol"></div>
             <div class="eightcol">
-                <img class="photo" alt="Ben Welsh" title="Ben Welsh" src="{{ STATIC_URL }}img/ben-blue-800.jpg" />
+                <picture class="photo">
+                  <source type="image/webp" srcset="{{ STATIC_URL }}img/ben-blue-800.webp">
+                  <source type="image/jpeg" srcset="{{ STATIC_URL }}img/ben-blue-800.jpg">
+                  <img width=493 height=277 src="{{ STATIC_URL }}img/ben-blue-800.jpg" alt="Ben Welsh" title="Ben Welsh">
+                </picture>
             </div>
             <div class="twocol last"></div>
         </div>
