@@ -1,3 +1,6 @@
+serve:
+	pipenv run python manage.py runserver
+
 backupdb:
 	heroku pg:backups:capture
 
