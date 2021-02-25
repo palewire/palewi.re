@@ -1,16 +1,14 @@
 ul.bullets {
+  padding-left: 0;
   li {
     min-height: 1.5em;
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
-    padding-left: 1em;
-    text-indent: -1em;
+    padding: 0.4em 0 0.4em 0;
     line-height: 1.5em;
     font-size: 1em;
-    list-style: disc inside;
+    list-style-type: square;
+    list-style-position: outside;
   }
 }
-
 
 .interiorlist {
     p.description {

@@ -154,7 +154,7 @@
     </div></div>
         {% for obj in socialmedia_list %}
         {% if not forloop.counter|divisibleby:"2" %}<div class="row">{% endif %}
-            <div class="listitem sixcol {% if forloop.counter|divisibleby:"2" %}last{% endif %}">&nbsp;&bull;&nbsp;
+            <div class="listitem sixcol {% if forloop.counter|divisibleby:"2" %}last{% endif %}">
                 <a rel="me" class="url" href="{{ obj.url }}">{{ obj.title }}</a>
             </div>
         {% if forloop.counter|divisibleby:"2" or forloop.last %}</div>{% endif %}
@@ -171,18 +171,16 @@
 <div class="biotext row">
     <div class="onecol"></div>
     <div class="tencol interiorlist">
-            <div class="row">
-                <div class="listitem twelvecol last">
-                        <b>Technical skills</b>
-                </div>
+        <div class="row">
+            <div class="listitem twelvecol last">
+                    <b>Technical skills</b>
             </div>
-            {% for obj in skill_list %}
-            <div class="row">
-                <div class="listitem twelvecol last">
-                    &nbsp;&bull;&nbsp; {{ obj }}
-                </div>
-            </div>
-            {% endfor %}
+        </div>
+        <ul class="bullets">
+        {% for obj in skill_list %}
+            <li>{{ obj }}</li>
+        {% endfor %}
+        </ul>
     </div>
     <div class="onecol last"></div>
 </div>
@@ -201,15 +199,15 @@
                 <b>Honors</b>
             </div>
         </div>
+        <ul class="bullets">
         {% for obj in award_list %}
-        <div class="row">
-            <div class="listitem twelvecol last">&nbsp;&bull;&nbsp;
-                {% if obj.url %}<a href="{{ obj.url }}">{% endif %}
-                    {{ obj.title }}
-                {% if obj.url %}</a>{% endif %}
-            </div>
-        </div>
+          <li>
+            {% if obj.url %}<a href="{{ obj.url }}">{% endif %}
+                {{ obj.title }}
+            {% if obj.url %}</a>{% endif %}
+          </li>
         {% endfor %}
+        </ul>
     </div>
     <div class="onecol last"></div>
 </div>

@@ -1,13 +1,37 @@
-.content h1 {
-  font-weight: 800;
-  font-size: 2.5em;
-  margin: 0 0 0.1em 0;
-  line-height: 130%;
-} 
-
 #detailbody {
   margin: 0 1.1em 1.1em 0em;
   text-align: left;
+  p {
+    margin-bottom: 1.25em;
+    font-weight: 300;
+  }
+  h2 {
+    font-size: 1.15em;
+    font-weight: bold;
+    margin: 1.5em 0 0.3em 0;
+  }
+  ol, ul, li {
+    margin-bottom: 0.5em;
+    margin-left: 1.25em;
+  }
+  ul li {
+    list-style-type: disc;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+  blockquote {
+    margin-bottom: 1.15em;
+    background: #f8f8f8 none repeat scroll 0 0;
+    margin-left: 1.2em;
+    line-height: 1.3em;
+    padding: 1em;
+    font-family: monospace;
+  }
+  pre {
+    margin-left: 1em;
+    line-height: 1.3em;
+  }
 }
 
 #detailpubdate p {
@@ -15,39 +39,7 @@
   font-size: 0.8em;
   font-weight: 300;
 }
-#detailbody p {
-  margin-bottom: 1.25em;
-  font-weight: 300;
-}
-#detailbody h2 {
-  font-size: 1.15em;
-  font-weight: bold;
-  margin: 1.5em 0 0.3em 0;
-} /* the in-post subhede */
-#detailbody ol,
-#detailbody ul,
-#detailbody li {
-  margin-bottom: 0.5em;
-  margin-left: 1.25em;
-}
-#detailbody ul li {
-  list-style-type: disc;
-}
-#detailbody ol li {
-  list-style-type: decimal;
-}
-#detailbody blockquote {
-  margin-bottom: 1.15em;
-  background: #f8f8f8 none repeat scroll 0 0;
-  margin-left: 1.2em;
-  line-height: 1.3em;
-  padding: 1em;
-  font-family: monospace;
-}
-#detailbody pre {
-  margin-left: 1em;
-  line-height: 1.3em;
-}
+
 .latimes-tour video {
   width: 100%;
   height: auto;

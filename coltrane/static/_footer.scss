@@ -6,14 +6,7 @@
   margin-bottom: 1em;
   text-align: left;
   padding-top: 0.5em;
-}
-#django-link {
-  color: rgb(72, 120, 88);
-  font-weight: bold;
-}
-
-@media (max-width: 550px) {
-  #ft {
+  @media (max-width: 550px) {
     font-size: 0.65em;
   }
 }
