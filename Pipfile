@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 django-admin-sortable = "==2.2.3"
-django-contrib-comments = "==2.0.0"
+django-contrib-comments = "==2.1.0"
 greeking = "*"
 psycopg2-binary = "*"
 python-dateutil = "*"
@@ -15,7 +15,7 @@ python-twitter = "*"
 pytz = "*"
 requests = "*"
 bs4 = "*"
-Django = "==3.1.7"
+Django = "==3.2"
 Jinja2 = "*"
 Pygments = "*"
 dj-database-url = "*"
