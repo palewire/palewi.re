@@ -1,6 +1,5 @@
-from django.contrib.syndication.views import Feed
-from django.urls import reverse
 from coltrane.models import Post
+from django.contrib.syndication.views import Feed
 
 
 class LatestPostsFeed(Feed):
