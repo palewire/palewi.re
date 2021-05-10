@@ -4,6 +4,7 @@ from .redirects import patterns as redirectpatterns
 # Views
 from coltrane import views
 from coltrane.sitemaps import sitemaps
+from coltrane.feeds import LatestPostsFeed
 from toolbox.views import DirectTemplateView
 from django.views.generic import RedirectView
 from django.contrib.sitemaps import views as sitemap_views
@@ -40,6 +41,7 @@ blogpatterns = [
         name="django.contrib.sitemaps.views.sitemap",
     ),
     # Robots and favicon
+    path('feeds/posts/', LatestPostsFeed()),
     url(
         r"^robots\.txt$",
         DirectTemplateView.as_view(

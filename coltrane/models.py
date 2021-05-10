@@ -158,7 +158,6 @@ class Post(models.Model):
 
     def save(self, force_insert=False, force_update=False):
         from coltrane.utils.pygmenter import pygmenter
-
         self.body_html = pygmenter(self.body_markup)
         super(Post, self).save()
 
