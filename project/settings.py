@@ -35,6 +35,7 @@ STATICFILES_FINDERS = [
 
 TIME_ZONE = "America/Los_Angeles"
 USE_TZ = False
+USE_DEPRECATED_PYTZ = True
 LANGUAGE_CODE = "en-us"
 SITE_ID = 1
 USE_I18N = True

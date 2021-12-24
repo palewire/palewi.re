@@ -3,8 +3,8 @@ import datetime
 from django.db import models
 from django.urls import reverse
 from django.utils.html import strip_tags
+from django.utils.translation import gettext as _
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import truncatewords as truncate_words
 
 # Settings
