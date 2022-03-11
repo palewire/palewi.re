@@ -40,6 +40,7 @@ USE_I18N = True
 
 ALLOWED_HOSTS = ["*"]
 SESSION_COOKIE_DOMAIN = "palewi.re"
+CSRF_TRUSTED_ORIGINS = ["https://palewi.re"]
 
 DATABASES = {
     "default": {
