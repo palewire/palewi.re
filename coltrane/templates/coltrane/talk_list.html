@@ -22,7 +22,7 @@
     <div class="interiorlist applist twelvecol last">
         <h1>Talks</h1>
         <p class="description">
-            A selection of slides and videos from my public-speaking appearances.
+            A selection of recordings, slides and other materials from my public-speaking appearances.
         </p>
 
         {% for object in object_list %}
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="listitem twelvecol last">
                     {{ object.date|date:"N" }} •
-                    {{ object.title }} at {{ object.venue }} in {{ object.location }}
+                    “{{ object.title }}” at {{ object.venue }} in {{ object.location }}
                     {% if object.video_url or object.slides_url %}({% if object.video_url %}<a target="_blank" href="{{ object.video_url }}">Video &raquo;</a>{% if object.slides_url %} {% endif %}{% endif %}{% if object.slides_url %}<a target="_blank" href="{{ object.slides_url }}">Slides &raquo;</a>{% endif %}){% endif %}
                 </div>
             </div>
