@@ -21,6 +21,7 @@ nav {
       @media (max-width: 550px) {
         float: left;
         margin-bottom: 5px;
+        padding-left: 0;
       }
   }
   .links {
@@ -40,6 +41,9 @@ nav {
       }
       a:hover {
         text-decoration: underline;
+      }
+      @media (max-width: 550px) {
+        font-size: .825em;
       }
     }
   }

@@ -1,0 +1,52 @@
+{% extends "coltrane/base.html" %}
+
+{% block title %}docs . {{ block.super }}{% endblock %}
+
+{% block canonicalurl %}https://{{ current_site }}/docs/{% endblock %}
+
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="docs"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://{{ current_site }}/posts/"/>
+{% endblock %}
+
+{% block googleurl %}https://{{ current_site }}/docs/{% endblock %}
+{% block googleheadline %}docs{% endblock %}
+{% block googledescription %}Documentation for my lesson plans and open-source software{% endblock %}
+{% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
+
+{% block content %}
+    <div class="interiorlist twelvecol last">
+        <h1>Docs</h1>
+        <p class="description">Documentation for my lesson plans and open-source software</p>
+
+        <div class="row">
+            <div class="section-hed twelvecol last">
+                Lesson plans
+            </div>
+        </div>
+        {% for object in lesson_list %}
+        <div class="row">
+            <div class="listitem twelvecol last">
+                <a href="{{ object.url }}">{{ object.title }}</a>
+                {% if object.description %} • {{ object.description }}{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="section-hed twelvecol last">
+                Open-source software
+            </div>
+        </div>
+        {% for object in software_list %}
+        <div class="row">
+            <div class="listitem twelvecol last">
+                <a href="{{ object.url }}">{{ object.title }}</a>
+                {% if object.description %} • {{ object.description }}{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

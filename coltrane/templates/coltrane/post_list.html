@@ -14,14 +14,12 @@
 {% block googleurl %}https://{{ current_site }}/posts/{% endblock %}
 {% block googleheadline %}posts{% endblock %}
 {% block googledescription %}A complete list of articles written for this site.{% endblock %}
-{% block googlecreated %}2019-11-10T00:00:00{% endblock %}
-{% block googlepublished %}2019-11-10T00:00:00{% endblock %}
 {% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
 
 {% block content %}
     <div class="interiorlist twelvecol last">
         <h1>Posts</h1>
-        <p class="description">A complete list of articles written for this site.</p>
+        <p class="description">A complete list of articles written for this site</p>
         {% for object in object_list %}
             {% ifchanged object.pub_date.year %}
             <div class="row">

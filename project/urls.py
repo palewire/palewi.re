@@ -26,6 +26,7 @@ blogpatterns = [
     url(r"^work/$", views.ClipListView.as_view(), name="coltrane_work_list"),
     url(r"^talks/$", views.TalkListView.as_view(), name="coltrane_talk_list"),
     url(r"^posts/$", views.PostListView.as_view(), name="coltrane_post_list"),
+    url(r"^docs/$", views.DocListView.as_view(), name="coltrane_doc_list"),
     # Detail pages
     url(
         r"^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$",

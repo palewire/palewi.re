@@ -22,13 +22,13 @@ class Clip(models.Model):
     """
 
     title = models.CharField(max_length=1000)
-    TYPE_CHOICES = (
+    CLIP_CHOICES = (
         ("app", "App"),
         ("lesson-plan", "Lesson plan"),
         ("story", "Story"),
         ("software", "Software"),
     )
-    type = models.CharField(max_length=100, choices=TYPE_CHOICES)
+    type = models.CharField(max_length=100, choices=CLIP_CHOICES)
     date = models.DateField()
     url = models.CharField(max_length=1000, unique=True)
 
@@ -88,3 +88,24 @@ class Talk(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Doc(models.Model):
+    """
+    A tutorial or other documentation site.
+    """
+
+    title = models.CharField(max_length=1000)
+    DOC_CHOICES = (
+        ("lesson-plan", "Lesson plan"),
+        ("software", "Software"),
+    )
+    type = models.CharField(max_length=100, choices=DOC_CHOICES)
+    description = models.TextField(blank=True)
+    url = models.CharField(max_length=1000, unique=True)
+
+    class Meta:
+        ordering = ("type", "title")
+
+    def __str__(self):
+        return f"{self.get_type_display()}: {self.title}"

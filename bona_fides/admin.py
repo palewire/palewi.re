@@ -34,3 +34,10 @@ class TalkAdmin(SortableAdmin):
     list_display = ("title", "venue", "location", "date")
     search_fields = ("title", "venue")
     date_hierarchy = "date"
+
+
+@admin.register(models.Doc)
+class DocAdmin(SortableAdmin):
+    list_display = ("title", "type")
+    search_fields = ("title", "description")
+    list_filter = ("type",)

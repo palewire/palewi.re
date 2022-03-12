@@ -5,7 +5,7 @@ import datetime
 # Helpers
 from django.conf import settings
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from django.template import Context, loader
 from django.http import HttpResponseServerError, Http404
 
@@ -76,3 +76,13 @@ class TalkListView(ListView):
 
 class PostListView(ListView):
     queryset = Post.live.all().order_by("-pub_date")
+
+
+class DocListView(TemplateView):
+    template_name = "coltrane/doc_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lesson_list'] = bona_fides.Doc.objects.filter(type="lesson-plan")
+        context['software_list'] = bona_fides.Doc.objects.filter(type="software")
+        return context
