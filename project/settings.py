@@ -26,9 +26,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'sass_processor.finders.CssFinder',
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "sass_processor.finders.CssFinder",
 ]
 
 TIME_ZONE = "America/Los_Angeles"
@@ -105,8 +105,8 @@ INSTALLED_APPS = (
     "django_comments",
     # Site extras and helpers
     "greeking",
-    'whitenoise.runserver_nostatic',
-    'sass_processor',
+    "whitenoise.runserver_nostatic",
+    "sass_processor",
 )
 
 LOGGING = {

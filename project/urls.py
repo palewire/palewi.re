@@ -42,7 +42,7 @@ blogpatterns = [
         name="django.contrib.sitemaps.views.sitemap",
     ),
     # Robots and favicon
-    path('feeds/posts/', LatestPostsFeed()),
+    path("feeds/posts/", LatestPostsFeed()),
     url(
         r"^robots\.txt$",
         DirectTemplateView.as_view(

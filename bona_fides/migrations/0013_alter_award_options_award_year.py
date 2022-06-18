@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0012_doc_alter_award_id_alter_clip_id_alter_skill_id_and_more'),
+        ("bona_fides", "0012_doc_alter_award_id_alter_clip_id_alter_skill_id_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='award',
-            options={'ordering': ('-year', 'title')},
+            name="award",
+            options={"ordering": ("-year", "title")},
         ),
         migrations.AddField(
-            model_name='award',
-            name='year',
+            model_name="award",
+            name="year",
             field=models.IntegerField(blank=True, null=True),
         ),
     ]

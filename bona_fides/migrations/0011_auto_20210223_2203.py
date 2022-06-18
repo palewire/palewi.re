@@ -6,32 +6,32 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0010_auto_20210220_1641'),
+        ("bona_fides", "0010_auto_20210220_1641"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='award',
+            name="award",
             options={},
         ),
         migrations.AlterModelOptions(
-            name='skill',
+            name="skill",
             options={},
         ),
         migrations.AlterModelOptions(
-            name='socialmediaprofile',
+            name="socialmediaprofile",
             options={},
         ),
         migrations.RemoveField(
-            model_name='award',
-            name='order',
+            model_name="award",
+            name="order",
         ),
         migrations.RemoveField(
-            model_name='skill',
-            name='order',
+            model_name="skill",
+            name="order",
         ),
         migrations.RemoveField(
-            model_name='socialmediaprofile',
-            name='order',
+            model_name="socialmediaprofile",
+            name="order",
         ),
     ]

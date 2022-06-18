@@ -6,46 +6,73 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bona_fides', '0011_auto_20210223_2203'),
+        ("bona_fides", "0011_auto_20210223_2203"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Doc',
+            name="Doc",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=1000)),
-                ('type', models.CharField(choices=[('lesson-plan', 'Lesson plan'), ('software', 'Software')], max_length=100)),
-                ('description', models.TextField(blank=True)),
-                ('url', models.CharField(max_length=1000, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=1000)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("lesson-plan", "Lesson plan"),
+                            ("software", "Software"),
+                        ],
+                        max_length=100,
+                    ),
+                ),
+                ("description", models.TextField(blank=True)),
+                ("url", models.CharField(max_length=1000, unique=True)),
             ],
             options={
-                'ordering': ('type', 'title'),
+                "ordering": ("type", "title"),
             },
         ),
         migrations.AlterField(
-            model_name='award',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="award",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='clip',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="clip",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='skill',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="skill",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='socialmediaprofile',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="socialmediaprofile",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='talk',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="talk",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
     ]

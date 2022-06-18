@@ -37,7 +37,7 @@ class Clip(models.Model):
         ordering = ("-date",)
 
     def __str__(self):
-        return u"{}: {}".format(self.get_type_display(), self.title)
+        return "{}: {}".format(self.get_type_display(), self.title)
 
     def get_archive_url(self):
         return self.url

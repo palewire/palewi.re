@@ -40,7 +40,7 @@ class Ticker(models.Model):
         ordering = ("-pub_date",)
 
     def __str__(self):
-        return u"%s: %s" % (
+        return "%s: %s" % (
             self.content_type.model_class().__name__,
             self.content_object,
         )
@@ -88,7 +88,7 @@ class Category(models.Model):
         return ("coltrane_category_detail", [self.slug])
 
     def get_absolute_icon(self):
-        return u"%sicons/categories.gif" % (settings.STATIC_URL)
+        return "%sicons/categories.gif" % (settings.STATIC_URL)
 
     def get_live_post_count(self):
         from coltrane.models import Post
@@ -158,6 +158,7 @@ class Post(models.Model):
 
     def save(self, force_insert=False, force_update=False):
         from coltrane.utils.pygmenter import pygmenter
+
         self.body_html = pygmenter(self.body_markup)
         super(Post, self).save()
 
@@ -192,7 +193,7 @@ class Post(models.Model):
         return self.status == 1
 
     def get_absolute_icon(self):
-        return u"%sicons/posts.gif" % (settings.STATIC_URL)
+        return "%sicons/posts.gif" % (settings.STATIC_URL)
 
     def get_rendered_html(self):
         template_name = "coltrane/ticker_item_%s.html" % (
@@ -270,9 +271,9 @@ class Commit(ThirdPartyBaseModel):
 
     def __str__(self):
         if self.branch:
-            return u"%s: %s - %s" % (self.repository, self.branch, self.message)
+            return "%s: %s - %s" % (self.repository, self.branch, self.message)
         else:
-            return u"%s: %s" % (self.repository, self.message)
+            return "%s: %s" % (self.repository, self.message)
 
     title = property(__str__)
 
@@ -364,7 +365,7 @@ class Track(ThirdPartyBaseModel):
     )
 
     def __str__(self):
-        return u"%s - %s" % (self.artist_name, self.track_name)
+        return "%s - %s" % (self.artist_name, self.track_name)
 
     title = property(__str__)
 

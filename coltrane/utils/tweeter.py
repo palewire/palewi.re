@@ -11,6 +11,7 @@ from coltrane.models import Shout
 
 # Logging
 import logging
+
 logger = logging.getLogger(__name__)
 
 #

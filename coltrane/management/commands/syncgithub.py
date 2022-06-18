@@ -3,6 +3,7 @@ from coltrane.utils import github
 from django.core.management.base import BaseCommand
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 
