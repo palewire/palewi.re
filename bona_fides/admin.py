@@ -5,8 +5,10 @@ from adminsortable.admin import SortableAdmin
 
 @admin.register(models.Award)
 class AwardAdmin(SortableAdmin):
-    list_display = ("title", "url")
+    list_display = ("title", "url", "year")
     search_fields = ("title",)
+    list_filter = ("year",)
+    list_editable = ("year",)
 
 
 @admin.register(models.Clip)

@@ -8,9 +8,10 @@ class Award(models.Model):
 
     title = models.CharField(max_length=1000)
     url = models.CharField(max_length=1000, blank=True)
+    year = models.IntegerField(null=True, blank=True)
 
     class Meta:
-        pass
+        ordering = ("-year", "title")
 
     def __str__(self):
         return self.title
