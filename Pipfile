@@ -28,6 +28,7 @@ black = "*"
 libsass = "*"
 django-sass-processor = "*"
 django-compressor = "*"
+django-proxy = "*"
 
 [requires]
 python_version = "3.9"

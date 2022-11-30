@@ -65,6 +65,11 @@ blogpatterns = [
         r"^static/(?P<path>.*)$",
         RedirectView.as_view(url="http://palewire.s3.amazonaws.com/%(path)s"),
     ),
+    # Mastodon
+    path(".well-known/webfinger", views.wellknown_webfinger),
+    path(".well-known/host-meta", views.wellknown_hostmeta),
+    path(".well-known/nodeinfo", views.wellknown_nodeinfo),
+    path("@palewire", views.username_redirect),
 ]
 
 # Combine patterns

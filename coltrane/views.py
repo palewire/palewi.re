@@ -3,11 +3,12 @@ import time
 import datetime
 
 # Helpers
+from proxy.views import proxy_view
 from django.conf import settings
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 from django.template import Context, loader
-from django.http import HttpResponseServerError, Http404
+from django.http import HttpResponseServerError, Http404, HttpResponseRedirect
 
 # Models
 from coltrane.models import Post
@@ -86,3 +87,26 @@ class DocListView(TemplateView):
         context["lesson_list"] = bona_fides.Doc.objects.filter(type="lesson-plan")
         context["software_list"] = bona_fides.Doc.objects.filter(type="software")
         return context
+
+
+#
+# Mastodon
+#
+
+def wellknown_webfinger(request):
+    remote_url = f"https://mastodon.palewi.re/.well-known/webfinger?{request.META['QUERY_STRING']}"
+    return proxy_view(request, remote_url)
+
+
+def wellknown_hostmeta(request):
+    remote_url = f"https://mastodon.palewi.re/.well-known/host-meta?{request.META['QUERY_STRING']}"
+    return proxy_view(request, remote_url)
+
+
+def wellknown_nodeinfo(request):
+    remote_url = "https://mastodon.palewi.re/.well-known/nodeinfo"
+    return proxy_view(request, remote_url)
+
+
+def username_redirect(request):
+    return HttpResponseRedirect("https://mastodon.palewi.re/@palewire")
