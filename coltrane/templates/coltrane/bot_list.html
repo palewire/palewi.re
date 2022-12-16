@@ -32,7 +32,7 @@
         {% for object in object_list %}
             <div class="row">
                 <div class="listitem twelvecol last">
-                    • {{ object.title }} (<a target="_blank" href="{{ object.mastodon_url }}">Mastodon &raquo;</a>, <a target="_blank" href="{{ object.twitter_url }}">Twitter &raquo;</a>)
+                    • {{ object.title }} (<a target="_blank" href="{{ object.mastodon_url }}">Mastodon &raquo;</a> <a target="_blank" href="{{ object.twitter_url }}">Twitter &raquo;</a>)
                 </div>
             </div>
         {% endfor %}
