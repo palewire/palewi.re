@@ -9,6 +9,10 @@
     <meta property="og:title" content="bots"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="https://{{ current_site }}/bots/"/>
+    <link rel="me" href="https://mastodon.palewi.re/@palewire">
+    {% for object in object_list %}
+    <link rel="me" href="https://mastodon.palewi.re/{{ object.title }}">
+    {% endfor %}
 {% endblock %}
 
 {% block googleurl %}https://{{ current_site }}/bots/{% endblock %}
