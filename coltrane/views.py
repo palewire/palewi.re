@@ -89,6 +89,22 @@ class DocListView(TemplateView):
         return context
 
 
+class BotListView(TemplateView):
+    template_name = "coltrane/bot_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list'] = [
+            dict(title="@DivineAnnDvorak", twitter_url="https://twitter.com/divineanndvorak", mastodon_url="https://mastodon.palewi.re/@divineanndvorak"),
+            dict(title="@LAXweather", twitter_url="https://twitter.com/laxweatherbot", mastodon_url="https://mastodon.palewi.re/@laxweather"),
+            dict(title="@MuckRockBot", twitter_url="https://twitter.com/muckrockbot", mastodon_url="https://mastodon.palewi.re/@muckrockbot"),
+            dict(title="@NewsHomepages", twitter_url="https://twitter.com/newshomepages", mastodon_url="https://mastodon.palewi.re/@newshomepages"),
+            dict(title="@OldLAPhotos", twitter_url="https://twitter.com/oldlaphotos", mastodon_url="https://mastodon.palewi.re/@oldlaphotos"),
+            dict(title="@SanbornMaps", twitter_url="https://twitter.com/sanbornmaps", mastodon_url="https://mastodon.palewi.re/@sanbornmaps"),
+        ]
+        return context
+
+
 #
 # Mastodon
 #

@@ -1,0 +1,37 @@
+{% extends "coltrane/base.html" %}
+
+{% block title %}bots . {{ block.super }}{% endblock %}
+
+{% block canonicalurl %}https://{{ current_site }}/bots/{% endblock %}
+
+{% block facebookmeta %}
+    {{ block.super }}
+    <meta property="og:title" content="bots"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://{{ current_site }}/bots/"/>
+{% endblock %}
+
+{% block googleurl %}https://{{ current_site }}/bots/{% endblock %}
+{% block googleheadline %}bots{% endblock %}
+{% block googledescription %}My fleet of automated accounts.{% endblock %}
+{% block googlecreated %}2022-12-16T00:00:00{% endblock %}
+{% block googlepublished %}2022-12-16T00:00:00{% endblock %}
+{% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
+
+{% block content %}
+    <div class="interiorlist applist twelvecol last">
+        <h1>Bots</h1>
+        <p class="description">
+            My fleet of automated accounts.
+        </p>
+
+        {% for object in object_list %}
+            <div class="row">
+                <div class="listitem twelvecol last">
+                    {{ object.date|date:"N" }} •
+                    “{{ object.title }}” (<a target="_blank" href="{{ object.mastodon_url }}">Mastodon &raquo;</a>, <a target="_blank" href="{{ object.twitter_url }}">Twitter &raquo;</a>)
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
