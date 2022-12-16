@@ -17,7 +17,7 @@
 
 {% block googleurl %}https://{{ current_site }}/bots/{% endblock %}
 {% block googleheadline %}bots{% endblock %}
-{% block googledescription %}My fleet of automated accounts.{% endblock %}
+{% block googledescription %}My fleet of automated accounts{% endblock %}
 {% block googlecreated %}2022-12-16T00:00:00{% endblock %}
 {% block googlepublished %}2022-12-16T00:00:00{% endblock %}
 {% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
@@ -26,7 +26,7 @@
     <div class="interiorlist applist twelvecol last">
         <h1>Bots</h1>
         <p class="description">
-            My fleet of automated accounts.
+            My fleet of automated accounts
         </p>
 
         {% for object in object_list %}
