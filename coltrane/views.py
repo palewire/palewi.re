@@ -100,6 +100,7 @@ class BotListView(TemplateView):
             dict(title="@MuckRockBot", twitter_url="https://twitter.com/muckrockbot", mastodon_url="https://mastodon.palewi.re/@muckrockbot"),
             dict(title="@NewsHomepages", twitter_url="https://twitter.com/newshomepages", mastodon_url="https://mastodon.palewi.re/@newshomepages"),
             dict(title="@OldLAPhotos", twitter_url="https://twitter.com/oldlaphotos", mastodon_url="https://mastodon.palewi.re/@oldlaphotos"),
+            dict(title="@ReutersJobs", twitter_url="https://twitter.com/reutersjobs", mastodon_url="https://mastodon.palewi.re/@reutersjobs"),
             dict(title="@SanbornMaps", twitter_url="https://twitter.com/sanbornmaps", mastodon_url="https://mastodon.palewi.re/@sanbornmaps"),
         ]
         return context
