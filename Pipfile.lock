@@ -236,11 +236,11 @@
         },
         "django-proxy": {
             "hashes": [
-                "sha256:6926bd5a9f377c2c6b1c636ae583d11fec9e106378cd69905592c7df049305a7",
-                "sha256:f63a2724867f864511e5b3c689e1029cc78bfe8a50ec77d2703a57eba20138ff"
+                "sha256:cc0cf1e95f1f3c062de0d473b15fc6d0af88aa76d7d495ddbb4e3f12a4785c11",
+                "sha256:ea4a0acb2a27fe237c7370a057d182677f876796d0e05a5c72453939dc5bf118"
             ],
             "index": "pypi",
-            "version": "==1.2.1"
+            "version": "==1.3.0"
         },
         "django-sass-processor": {
             "hashes": [
