@@ -268,11 +268,11 @@
         },
         "greeking": {
             "hashes": [
-                "sha256:69a2005054019984f86795d14caa8090dcfaa9038106d50678bab9c7df5326c8",
-                "sha256:872cd12a9b2048a37182b1aa1edb65e5fafd504dd03675b449994a76db6d758a"
+                "sha256:04fca4751e560c4a9754616c74f8eb0f1329711ee8fd65809ce5ce4f8c994977",
+                "sha256:3d41839ad6d2a2e4ce725a51918540bc5c0321182f4e6deb597c7bb6533b50f9"
             ],
             "index": "pypi",
-            "version": "==3.0.0"
+            "version": "==4.0.1"
         },
         "gunicorn": {
             "hashes": [
