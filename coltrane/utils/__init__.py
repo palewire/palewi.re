@@ -13,7 +13,7 @@ import dateutil.tz
 import json
 
 # Text manipulation
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str as force_text
 
 # Django
 from django.conf import settings
