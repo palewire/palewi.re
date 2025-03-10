@@ -1,4 +1,5 @@
 name: Lint
+
 on:
   push:
   workflow_dispatch:
@@ -8,14 +9,20 @@ jobs:
     name: "Tests"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repo
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - id: install
-        name: Install Python, pipenv and Pipfile packages
-        uses: palewire/install-python-pipenv-pipfile@v2
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: '3.9'
+          cache: 'pipenv'
+
+      - name: Install pipenv
+        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+
+      - name: Install dependencies
+        run: pipenv install --dev
 
       - name: flake8
         run: pipenv run flake8
