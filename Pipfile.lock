@@ -249,11 +249,11 @@
         },
         "django-sass-processor": {
             "hashes": [
-                "sha256:1e9d04769f76d89bbf77b9b279ba83dfacad9c98c03ca8a58ecfc29d997e6fcf",
-                "sha256:7b76560172f72519cfcda944feeb517b37f40f5562196298245f5569c2d02f91"
+                "sha256:59c1028b5a5bd0158a0ea92ac5d538e5d89eb547e910a45e334d9c7b3b814b18",
+                "sha256:604b00b19f7bbccfb838f766a284257bad3bb4ec3012f0770a1415913783bacc"
             ],
             "index": "pypi",
-            "version": "==1.4.1"
+            "version": "==1.4.2"
         },
         "flake8": {
             "hashes": [
