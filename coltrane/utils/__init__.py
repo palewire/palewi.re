@@ -3,11 +3,11 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # Date manipulation
-import pytz
 import time
 import datetime
 import dateutil.parser
 import dateutil.tz
+from zoneinfo import ZoneInfo
 
 # Serialization
 import json
@@ -83,8 +83,8 @@ def safeint(s):
 # Timezone adjustment
 #
 
-UTC = pytz.timezone("UTC")
-LOCAL = pytz.timezone(settings.TIME_ZONE)
+UTC = ZoneInfo("UTC")
+LOCAL = ZoneInfo(settings.TIME_ZONE)
 
 
 def utc_to_local_datetime(dt):

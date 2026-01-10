@@ -1,235 +1,235 @@
-from django.urls import re_path as url
+from django.urls import re_path
 from django.views.generic import RedirectView
 from toolbox.views import DirectTemplateView
 
 
 patterns = [
     # Redirect links to old blog to new posts
-    url(
+    re_path(
         r"^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$",
         RedirectView.as_view(url="/posts/%(year)s/%(month)s/%(day)s/%(slug)s/"),
     ),
     # Redirects old tag pages
-    url(r"^tag/(?P<tag>[^/]+)/$", RedirectView.as_view(url="/who-is-ben-welsh/")),
-    url(r"^tags/(?P<tag>[^/]+)/$", RedirectView.as_view(url="/who-is-ben-welsh/")),
+    re_path(r"^tag/(?P<tag>[^/]+)/$", RedirectView.as_view(url="/who-is-ben-welsh/")),
+    re_path(r"^tags/(?P<tag>[^/]+)/$", RedirectView.as_view(url="/who-is-ben-welsh/")),
     # Redirects old feeds
-    url(r"^comments/feed/$", RedirectView.as_view(url="/")),
-    url(r"^feed/$", RedirectView.as_view(url="/")),
-    url(r"^feed/atom/$", RedirectView.as_view(url="/")),
-    url(r"^feed/rss/$", RedirectView.as_view(url="/")),
+    re_path(r"^comments/feed/$", RedirectView.as_view(url="/")),
+    re_path(r"^feed/$", RedirectView.as_view(url="/")),
+    re_path(r"^feed/atom/$", RedirectView.as_view(url="/")),
+    re_path(r"^feed/rss/$", RedirectView.as_view(url="/")),
     # Redirects from old flatpages
-    url(r"^bio/$", RedirectView.as_view(url="/who-is-ben-welsh/")),
+    re_path(r"^bio/$", RedirectView.as_view(url="/who-is-ben-welsh/")),
     # Redirects from old clips pages
-    url(r"^apps/$", RedirectView.as_view(url="/work/"), name="coltrane_app_list"),
-    url(r"^clips/$", RedirectView.as_view(url="/work/"), name="coltrane_clip_list"),
+    re_path(r"^apps/$", RedirectView.as_view(url="/work/"), name="coltrane_app_list"),
+    re_path(r"^clips/$", RedirectView.as_view(url="/work/"), name="coltrane_clip_list"),
     # Scrape pages from tutorial on old site.
-    url(
+    re_path(
         r"^scrape/albums/2006.html$",
         DirectTemplateView.as_view(template_name="tutorials/scrape/2006.html"),
     ),
-    url(
+    re_path(
         r"^scrape/albums/2007.html$",
         DirectTemplateView.as_view(template_name="tutorials/scrape/2007.html"),
     ),
     # OpenLayers tutorial on old site.
-    url(
+    re_path(
         "^openlayers-proportional-symbols/$",
         DirectTemplateView.as_view(
             template_name="tutorials/openlayers-proportional-symbols/index.html"
         ),
     ),
     # 2011 free flu shots app
-    url(
+    re_path(
         r"^free-flu-shots/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20130718063144/palewi.re/free-flu-shots/"
         ),
     ),
-    url(
+    re_path(
         r"^random-oscars-ballot/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20191110225501/https://palewi.re/random-oscars-ballot/"
         ),
     ),
-    url(
+    re_path(
         r"^kennedy/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20160413124128/http://palewi.re/kennedy/"
         ),
     ),
-    url(
+    re_path(
         r"^colophon/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20191110230741/https://palewi.re/colophon/"
         ),
     ),
-    url(
+    re_path(
         r"^apps/twitter-style-infinite-scroll-with-django-demo/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20161227151249/http://palewi.re/apps/twitter-style-infinite-scroll-with-django-demo/"
         ),
     ),
-    url(
+    re_path(
         r"^apps/bring-the-news-back/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20191110231324/http://palewi.re/apps/bring-the-news-back/"
         ),
     ),
-    url(
+    re_path(
         r"^mack/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20121109101143/http://palewi.re/mack/"
         ),
     ),
-    url(
+    re_path(
         r"^mack/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20160413123742/http://palewi.re/candysays/"
         ),
     ),
-    url(
+    re_path(
         r"^regional-connector/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20161229055224/http://palewi.re/regional-connector/"
         ),
     ),
-    url(
+    re_path(
         r"^nicar/polls/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20191110232017/https://palewi.re/nicar/polls/"
         ),
     ),
-    url(
+    re_path(
         r"^nicar/flu-map/$",
         RedirectView.as_view(
             url="https://web.archive.org/web/20191110232108/https://palewi.re/nicar/flu-map/"
         ),
     ),
     # DC Music Stores map from old site.
-    url(r"^music/$", RedirectView.as_view(url="/")),
+    re_path(r"^music/$", RedirectView.as_view(url="/")),
     # Arcade Fire hypecloud from old site.
-    url(r"^hypecloud/$", RedirectView.as_view(url="/")),
+    re_path(r"^hypecloud/$", RedirectView.as_view(url="/")),
     # DC Happy hours from old site.
-    url(r"^happyhours/$", RedirectView.as_view(url="/")),
-    url(r"^happyhours/(?P<whatever>.*)", RedirectView.as_view(url="/")),
+    re_path(r"^happyhours/$", RedirectView.as_view(url="/")),
+    re_path(r"^happyhours/(?P<whatever>.*)", RedirectView.as_view(url="/")),
     # Redirect old images from legacy site
-    url(
+    re_path(
         r"^images/(?P<file_name>[^/]+)$",
         RedirectView.as_view(url="/media/img/%(file_name)s"),
     ),
     # Longer apps urls
-    url(r"^applications/$", RedirectView.as_view(url="/apps/")),
-    url(
+    re_path(r"^applications/$", RedirectView.as_view(url="/apps/")),
+    re_path(
         r"^applications/(?P<anything>.*)/$",
         RedirectView.as_view(url="/apps/%(anything)s/"),
     ),
     # V2 of the blog, now replaced by the consolidated ticker
-    url(
+    re_path(
         r"^books/$",
         RedirectView.as_view(url="/ticker/?filters=book"),
         name="coltrane_book_root",
     ),
-    url(
+    re_path(
         r"^books/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=book"),
         name="coltrane_book_list",
     ),
-    url(
+    re_path(
         r"^comments/$",
         RedirectView.as_view(url="/ticker/?filters=comment"),
         name="coltrane_comment_root",
     ),
-    url(
+    re_path(
         r"^comments/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=comment"),
         name="coltrane_comment_list",
     ),
-    url(
+    re_path(
         r"^commits/$",
         RedirectView.as_view(url="/ticker/?filters=commit"),
         name="coltrane_commit_root",
     ),
-    url(
+    re_path(
         r"^commits/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=commit"),
         name="coltrane_commit_list",
     ),
-    url(
+    re_path(
         r"^links/$",
         RedirectView.as_view(url="/ticker/?filters=link"),
         name="coltrane_link_root",
     ),
-    url(
+    re_path(
         r"^links/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=link"),
         name="coltrane_link_list",
     ),
-    url(
+    re_path(
         r"^locations/$",
         RedirectView.as_view(url="/ticker/?filters=location"),
         name="coltrane_location_root",
     ),
-    url(
+    re_path(
         r"^locations/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=location"),
         name="coltrane_location_list",
     ),
-    url(
+    re_path(
         r"^movies/$",
         RedirectView.as_view(url="/ticker/?filters=movie"),
         name="coltrane_movie_root",
     ),
-    url(
+    re_path(
         r"^movies/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=movie"),
         name="coltrane_movie_list",
     ),
-    url(
+    re_path(
         r"^photos/$",
         RedirectView.as_view(url="/ticker/?filters=photo"),
         name="coltrane_photo_root",
     ),
-    url(
+    re_path(
         r"^photos/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=photo"),
         name="coltrane_photo_list",
     ),
-    url(
+    re_path(
         r"^shouts/$",
         RedirectView.as_view(url="/ticker/?filters=shout"),
         name="coltrane_shout_root",
     ),
-    url(
+    re_path(
         r"^shouts/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=shout"),
         name="coltrane_link_list",
     ),
-    url(
+    re_path(
         r"^tracks/$",
         RedirectView.as_view(url="/ticker/?filters=track"),
         name="coltrane_track_root",
     ),
-    url(
+    re_path(
         r"^tracks/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/?filters=track"),
         name="coltrane_track_list",
     ),
-    url(
+    re_path(
         r"^categories/list/$",
         RedirectView.as_view(url="/ticker/"),
         name="coltrane_category_list",
     ),
-    url(
+    re_path(
         r"^apps/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/apps/"),
         name="coltrane_app_root",
     ),
-    url(
+    re_path(
         r"^posts/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/posts/"),
         name="coltrane_post_archive_index",
     ),
-    url(
+    re_path(
         r"^ticker/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/ticker/"),
         name="coltrane_ticker_root",
