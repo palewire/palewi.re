@@ -1,4 +1,4 @@
-from django.urls import include, re_path as url
+from django.urls import include, path, re_path
 from .redirects import patterns as redirectpatterns
 
 # Views
@@ -11,32 +11,33 @@ from django.contrib.sitemaps import views as sitemap_views
 
 # Admin
 from django.contrib import admin
-from django.urls import path
 
 
 # URLs for the blog
 blogpatterns = [
     # The index
-    url(r"^$", RedirectView.as_view(url="/who-is-ben-welsh/"), name="coltrane_index"),
+    re_path(
+        r"^$", RedirectView.as_view(url="/who-is-ben-welsh/"), name="coltrane_index"
+    ),
     # My bio
-    url(r"^who-is-ben-welsh/$", views.bio, name="coltrane_bio"),
+    re_path(r"^who-is-ben-welsh/$", views.bio, name="coltrane_bio"),
     # The admin
     path("admin/", admin.site.urls),
     # Main list pages
-    url(r"^work/$", views.ClipListView.as_view(), name="coltrane_work_list"),
-    url(r"^talks/$", views.TalkListView.as_view(), name="coltrane_talk_list"),
-    url(r"^posts/$", views.PostListView.as_view(), name="coltrane_post_list"),
-    url(r"^docs/$", views.DocListView.as_view(), name="coltrane_doc_list"),
-    url(r"^bots/$", views.BotListView.as_view(), name="coltrane_bot_list"),
+    re_path(r"^work/$", views.ClipListView.as_view(), name="coltrane_work_list"),
+    re_path(r"^talks/$", views.TalkListView.as_view(), name="coltrane_talk_list"),
+    re_path(r"^posts/$", views.PostListView.as_view(), name="coltrane_post_list"),
+    re_path(r"^docs/$", views.DocListView.as_view(), name="coltrane_doc_list"),
+    re_path(r"^bots/$", views.BotListView.as_view(), name="coltrane_bot_list"),
     # Detail pages
-    url(
+    re_path(
         r"^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$",
         views.post_detail,
         name="coltrane_post_detail",
     ),
     # Sitemaps
-    url(r"^sitemap\.xml$", sitemap_views.index, {"sitemaps": sitemaps}),
-    url(
+    re_path(r"^sitemap\.xml$", sitemap_views.index, {"sitemaps": sitemaps}),
+    re_path(
         r"^sitemap-(?P<section>.+)\.xml$",
         sitemap_views.sitemap,
         {"sitemaps": sitemaps},
@@ -44,25 +45,25 @@ blogpatterns = [
     ),
     # Robots and favicon
     path("feeds/posts/", LatestPostsFeed()),
-    url(
+    re_path(
         r"^robots\.txt$",
         DirectTemplateView.as_view(
             template_name="robots.txt", content_type="text/plain"
         ),
         name="robots",
     ),
-    url(
+    re_path(
         r"^favicon.ico$",
         RedirectView.as_view(url="http://palewire.s3.amazonaws.com/favicon.ico"),
     ),
     # Corrections
-    url(r"^comments/", include("django_comments.urls")),
+    re_path(r"^comments/", include("django_comments.urls")),
     # Static and media
-    url(
+    re_path(
         r"^media/(?P<path>.*)$",
         RedirectView.as_view(url="http://palewire.s3.amazonaws.com/%(path)s"),
     ),
-    url(
+    re_path(
         r"^static/(?P<path>.*)$",
         RedirectView.as_view(url="http://palewire.s3.amazonaws.com/%(path)s"),
     ),
