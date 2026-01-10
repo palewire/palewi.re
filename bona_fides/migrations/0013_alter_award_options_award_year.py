@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("bona_fides", "0012_doc_alter_award_id_alter_clip_id_alter_skill_id_and_more"),
     ]

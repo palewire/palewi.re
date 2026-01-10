@@ -4,11 +4,20 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
+pre-commit = "*"
 
 [packages]
+Django = "==4.2.27"
 django-admin-sortable = "==2.3"
 django-contrib-comments = "==2.2.0"
+django-sass-processor = "*"
+django-compressor = "*"
+django-proxy = "*"
+libsass = "*"
+dj-database-url = "*"
+django-heroku = "*"
+gunicorn = "*"
+whitenoise = "*"
 greeking = "*"
 psycopg2-binary = "*"
 python-dateutil = "*"
@@ -16,22 +25,11 @@ python-twitter = "*"
 pytz = "*"
 requests = "*"
 bs4 = "*"
-Django = "==4.0.8"
 Jinja2 = "*"
 Pygments = "*"
-dj-database-url = "*"
-django-heroku = "*"
-gunicorn = "*"
-whitenoise = "*"
-flake8 = "*"
-black = "*"
-libsass = "*"
-django-sass-processor = "*"
-django-compressor = "*"
-django-proxy = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.12"
 
 [pipenv]
 allow_prereleases = true

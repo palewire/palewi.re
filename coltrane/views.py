@@ -94,16 +94,50 @@ class BotListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['object_list'] = [
-            dict(title="@DivineAnnDvorak", twitter_url="https://twitter.com/divineanndvorak", mastodon_url="https://mastodon.palewi.re/@divineanndvorak"),
-            dict(title="@LAXweather", twitter_url="https://twitter.com/laxweatherbot", mastodon_url="https://mastodon.palewi.re/@laxweather"),
-            dict(title="@MuckRockBot", twitter_url="https://twitter.com/muckrockbot", mastodon_url="https://mastodon.palewi.re/@muckrockbot"),
-            dict(title="@NewsHomepages", twitter_url="https://twitter.com/newshomepages", mastodon_url="https://mastodon.palewi.re/@newshomepages"),
-            dict(title="@NYCDataBot", mastodon_url="https://mastodon.palewi.re/@nycdatabot"),
-            dict(title="@OldLAPhotos", twitter_url="https://twitter.com/oldlaphotos", mastodon_url="https://mastodon.palewi.re/@oldlaphotos"),
-            dict(title="@RandomPigeonGPT", mastodon_url="https://mastodon.palewi.re/@RandomPigeonGPT"),
-            dict(title="@ReutersJobs", twitter_url="https://twitter.com/reutersjobs", mastodon_url="https://mastodon.palewi.re/@ReutersJobs"),
-            dict(title="@SanbornMaps", twitter_url="https://twitter.com/sanbornmaps", mastodon_url="https://mastodon.palewi.re/@sanbornmaps"),
+        context["object_list"] = [
+            dict(
+                title="@DivineAnnDvorak",
+                twitter_url="https://twitter.com/divineanndvorak",
+                mastodon_url="https://mastodon.palewi.re/@divineanndvorak",
+            ),
+            dict(
+                title="@LAXweather",
+                twitter_url="https://twitter.com/laxweatherbot",
+                mastodon_url="https://mastodon.palewi.re/@laxweather",
+            ),
+            dict(
+                title="@MuckRockBot",
+                twitter_url="https://twitter.com/muckrockbot",
+                mastodon_url="https://mastodon.palewi.re/@muckrockbot",
+            ),
+            dict(
+                title="@NewsHomepages",
+                twitter_url="https://twitter.com/newshomepages",
+                mastodon_url="https://mastodon.palewi.re/@newshomepages",
+            ),
+            dict(
+                title="@NYCDataBot",
+                mastodon_url="https://mastodon.palewi.re/@nycdatabot",
+            ),
+            dict(
+                title="@OldLAPhotos",
+                twitter_url="https://twitter.com/oldlaphotos",
+                mastodon_url="https://mastodon.palewi.re/@oldlaphotos",
+            ),
+            dict(
+                title="@RandomPigeonGPT",
+                mastodon_url="https://mastodon.palewi.re/@RandomPigeonGPT",
+            ),
+            dict(
+                title="@ReutersJobs",
+                twitter_url="https://twitter.com/reutersjobs",
+                mastodon_url="https://mastodon.palewi.re/@ReutersJobs",
+            ),
+            dict(
+                title="@SanbornMaps",
+                twitter_url="https://twitter.com/sanbornmaps",
+                mastodon_url="https://mastodon.palewi.re/@sanbornmaps",
+            ),
         ]
         return context
 
@@ -111,6 +145,7 @@ class BotListView(TemplateView):
 #
 # Mastodon
 #
+
 
 def wellknown_webfinger(request):
     remote_url = f"https://mastodon.palewi.re/.well-known/webfinger?{request.META['QUERY_STRING']}"

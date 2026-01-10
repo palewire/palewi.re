@@ -1,316 +1,316 @@
 [
 {
-    "pk": 1, 
-    "model": "bona_fides.award", 
+    "pk": 1,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.ire.org/blog/ire-news/2013/12/03/winning-t-shirt-selected-nicar-2014/", 
-        "order": 1, 
+        "url": "http://www.ire.org/blog/ire-news/2013/12/03/winning-t-shirt-selected-nicar-2014/",
+        "order": 1,
         "title": "2014 NICAR T-shirt Contest, Runner up"
     }
 },
 {
-    "pk": 2, 
-    "model": "bona_fides.award", 
+    "pk": 2,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/2013/09/16/2013-online-journalism-awards-finalists-announced/", 
-        "order": 2, 
+        "url": "http://journalists.org/2013/09/16/2013-online-journalism-awards-finalists-announced/",
+        "order": 2,
         "title": "2013 Online Journalism Awards, Finalist, Topical Reporting (Large)"
     }
 },
 {
-    "pk": 3, 
-    "model": "bona_fides.award", 
+    "pk": 3,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/2013/09/16/2013-online-journalism-awards-finalists-announced/", 
-        "order": 3, 
+        "url": "http://journalists.org/2013/09/16/2013-online-journalism-awards-finalists-announced/",
+        "order": 3,
         "title": "2013 Online Journalism Awards, Finalist, Innovative Investigative Journalism (Large)"
     }
 },
 {
-    "pk": 4, 
-    "model": "bona_fides.award", 
+    "pk": 4,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.amazon.com/The-Best-American-Infographics-2013/dp/0547973373", 
-        "order": 4, 
+        "url": "http://www.amazon.com/The-Best-American-Infographics-2013/dp/0547973373",
+        "order": 4,
         "title": "2013 Best American Infographics, One of 10 Best Interactive Infographics "
     }
 },
 {
-    "pk": 5, 
-    "model": "bona_fides.award", 
+    "pk": 5,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://blogs.laweekly.com/informer/2013/08/ben_welsh_web_awards.php", 
-        "order": 5, 
+        "url": "http://blogs.laweekly.com/informer/2013/08/ben_welsh_web_awards.php",
+        "order": 5,
         "title": "2013 L.A. Weekly Web Awards, Winner, Savviest Online Presence"
     }
 },
 {
-    "pk": 6, 
-    "model": "bona_fides.award", 
+    "pk": 6,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://datadrivenjournalism.net/news_and_analysis/2013_data_journalism_awards_finalists_announced", 
-        "order": 6, 
+        "url": "http://datadrivenjournalism.net/news_and_analysis/2013_data_journalism_awards_finalists_announced",
+        "order": 6,
         "title": "2013 Data Journalism Awards, Finalist, Data-Driven Investigative Journalism in Big Media"
     }
 },
 {
-    "pk": 7, 
-    "model": "bona_fides.award", 
+    "pk": 7,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "", 
-        "order": 7, 
+        "url": "",
+        "order": 7,
         "title": "2012 California Newspaper Publishers Assn, Winner, Best Coverage of Local Government "
     }
 },
 {
-    "pk": 8, 
-    "model": "bona_fides.award", 
+    "pk": 8,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.latimes.com/news/local/readers-rep/la-me-rr-winners-of-times-2012-editorial-awards-20130418,0,1152447.story", 
-        "order": 8, 
+        "url": "http://www.latimes.com/news/local/readers-rep/la-me-rr-winners-of-times-2012-editorial-awards-20130418,0,1152447.story",
+        "order": 8,
         "title": "2012 Los Angeles Times Editorial Awards, Winner, President's Prize"
     }
 },
 {
-    "pk": 9, 
-    "model": "bona_fides.award", 
+    "pk": 9,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.latimes.com/news/local/readers-rep/la-me-rr-winners-of-times-2012-editorial-awards-20130418,0,1152447.story", 
-        "order": 9, 
+        "url": "http://www.latimes.com/news/local/readers-rep/la-me-rr-winners-of-times-2012-editorial-awards-20130418,0,1152447.story",
+        "order": 9,
         "title": "2012 Los Angeles Times Editorial Awards, Winner, Graphics"
     }
 },
 {
-    "pk": 10, 
-    "model": "bona_fides.award", 
+    "pk": 10,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.snd.org/2013/02/snd34-best-of-digital-design-unofficial-results-including-awards-of-excellence-and-medal-winners/", 
-        "order": 10, 
+        "url": "http://www.snd.org/2013/02/snd34-best-of-digital-design-unofficial-results-including-awards-of-excellence-and-medal-winners/",
+        "order": 10,
         "title": "SND34, Best of Digital Design, Data Project (Breaking News), Award of Excellence"
     }
 },
 {
-    "pk": 11, 
-    "model": "bona_fides.award", 
+    "pk": 11,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.ire.org/blog/2012-car-conference-blog/2013/01/17/winning-t-shirt-selected-nicar-2013/", 
-        "order": 11, 
+        "url": "http://www.ire.org/blog/2012-car-conference-blog/2013/01/17/winning-t-shirt-selected-nicar-2013/",
+        "order": 11,
         "title": "2013 NICAR T-shirt Contest, Winner"
     }
 },
 {
-    "pk": 12, 
-    "model": "bona_fides.award", 
+    "pk": 12,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/2012/08/29/2012-online-journalism-awards-finalists-announced/", 
-        "order": 12, 
+        "url": "http://journalists.org/2012/08/29/2012-online-journalism-awards-finalists-announced/",
+        "order": 12,
         "title": "2012 Online Journalism Awards, Finalist, Technical Innovation in the Service of Digital Journalism"
     }
 },
 {
-    "pk": 13, 
-    "model": "bona_fides.award", 
+    "pk": 13,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/2012/09/24/2012-online-journalism-award-winners-announced/", 
-        "order": 13, 
+        "url": "http://journalists.org/2012/09/24/2012-online-journalism-award-winners-announced/",
+        "order": 13,
         "title": "2012 Online Journalism Awards, Winner, Breaking News (Large)"
     }
 },
 {
-    "pk": 14, 
-    "model": "bona_fides.award", 
+    "pk": 14,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://nieman.harvard.edu/newsitem.aspx?id=100193", 
-        "order": 14, 
+        "url": "http://nieman.harvard.edu/newsitem.aspx?id=100193",
+        "order": 14,
         "title": " 2012 Worth Bingham Prize for Investigative Journalism, Winner"
     }
 },
 {
-    "pk": 15, 
-    "model": "bona_fides.award", 
+    "pk": 15,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://annenberg.usc.edu/News%20and%20Events/News/120227SeldenRing.aspx", 
-        "order": 15, 
+        "url": "http://annenberg.usc.edu/News%20and%20Events/News/120227SeldenRing.aspx",
+        "order": 15,
         "title": "2012 Selden Ring Award for Investigative Reporting, Finalist"
     }
 },
 {
-    "pk": 17, 
-    "model": "bona_fides.award", 
+    "pk": 17,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://ire.org/conferences/nicar-2012/nicar-t-shirt/", 
-        "order": 17, 
+        "url": "http://ire.org/conferences/nicar-2012/nicar-t-shirt/",
+        "order": 17,
         "title": "2012 NICAR T-shirt Contest, Winner"
     }
 },
 {
-    "pk": 18, 
-    "model": "bona_fides.award", 
+    "pk": 18,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://latimesblogs.latimes.com/readers/2012/05/la-times-2011-editorial-awards-1.html", 
-        "order": 18, 
+        "url": "http://latimesblogs.latimes.com/readers/2012/05/la-times-2011-editorial-awards-1.html",
+        "order": 18,
         "title": "2011 Los Angeles Times Editorial Awards, Winner, Digital Presentation"
     }
 },
 {
-    "pk": 19, 
-    "model": "bona_fides.award", 
+    "pk": 19,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://latimesblogs.latimes.com/readers/2012/05/la-times-2011-editorial-awards-1.html", 
-        "order": 19, 
+        "url": "http://latimesblogs.latimes.com/readers/2012/05/la-times-2011-editorial-awards-1.html",
+        "order": 19,
         "title": "2011 Los Angeles Times Editorial Awards, Winner, Publisher's Prize"
     }
 },
 {
-    "pk": 20, 
-    "model": "bona_fides.award", 
+    "pk": 20,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.ire.org/awards/ire-awards/winners/2011-ire-awards-winners/", 
-        "order": 20, 
+        "url": "http://www.ire.org/awards/ire-awards/winners/2011-ire-awards-winners/",
+        "order": 20,
         "title": "2011 IRE Finalist, Print/Online (Large)"
     }
 },
 {
-    "pk": 21, 
-    "model": "bona_fides.award", 
+    "pk": 21,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/awards/2011-awards/", 
-        "order": 21, 
+        "url": "http://journalists.org/awards/2011-awards/",
+        "order": 21,
         "title": " 2011 Online Journalism Awards, Finalist, Outstanding Informational Graphic or Data Visualization"
     }
 },
 {
-    "pk": 22, 
-    "model": "bona_fides.award", 
+    "pk": 22,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.flickr.com/photos/palewire/5638065157/in/photostream", 
-        "order": 22, 
+        "url": "http://www.flickr.com/photos/palewire/5638065157/in/photostream",
+        "order": 22,
         "title": "2011 \"25 under 35\" list, Editor and Publisher magazine"
     }
 },
 {
-    "pk": 23, 
-    "model": "bona_fides.award", 
+    "pk": 23,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/awards/past-winners-2010/", 
-        "order": 23, 
+        "url": "http://journalists.org/awards/past-winners-2010/",
+        "order": 23,
         "title": "2010 Online Journalism Awards, Finalist, Community Collaboration"
     }
 },
 {
-    "pk": 24, 
-    "model": "bona_fides.award", 
+    "pk": 24,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.flickr.com/photos/77114776@N00/4068262073/in/photolist-7cuUzx", 
-        "order": 24, 
+        "url": "http://www.flickr.com/photos/77114776@N00/4068262073/in/photolist-7cuUzx",
+        "order": 24,
         "title": " 2009 \"14 under 40\" list of alumni success stories, DePaul University Magazine"
     }
 },
 {
-    "pk": 25, 
-    "model": "bona_fides.award", 
+    "pk": 25,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://latimesblogs.latimes.com/readers/2010/05/winners-of-times-editorial-awards.html", 
-        "order": 25, 
+        "url": "http://latimesblogs.latimes.com/readers/2010/05/winners-of-times-editorial-awards.html",
+        "order": 25,
         "title": "2009 Los Angeles Times Editorial Awards, Winner, Multimedia"
     }
 },
 {
-    "pk": 26, 
-    "model": "bona_fides.award", 
+    "pk": 26,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://latimesblogs.latimes.com/readers/2010/05/winners-of-times-editorial-awards.html", 
-        "order": 26, 
+        "url": "http://latimesblogs.latimes.com/readers/2010/05/winners-of-times-editorial-awards.html",
+        "order": 26,
         "title": "2009 Los Angeles Times Editorial Awards, Winner, Online Presentation"
     }
 },
 {
-    "pk": 27, 
-    "model": "bona_fides.award", 
+    "pk": 27,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/awards/past-winners-2009/", 
-        "order": 27, 
+        "url": "http://journalists.org/awards/past-winners-2009/",
+        "order": 27,
         "title": "2009 Online Journalism Awards, Finalist, Community Collaboration"
     }
 },
 {
-    "pk": 28, 
-    "model": "bona_fides.award", 
+    "pk": 28,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/awards/past-winners-2009/", 
-        "order": 28, 
+        "url": "http://journalists.org/awards/past-winners-2009/",
+        "order": 28,
         "title": "2009 Online Journalism Awards, Finalist, Multimedia Feature Presentation"
     }
 },
 {
-    "pk": 29, 
-    "model": "bona_fides.award", 
+    "pk": 29,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.ire.org/awards/ire-awards/winners/2008-ire-awards-winners/", 
-        "order": 29, 
+        "url": "http://www.ire.org/awards/ire-awards/winners/2008-ire-awards-winners/",
+        "order": 29,
         "title": "2008 IRE Certificate, Winner, Local Circulation Weeklies"
     }
 },
 {
-    "pk": 30, 
-    "model": "bona_fides.award", 
+    "pk": 30,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://scripps.com/foundation/news/releases/09march13.html", 
-        "order": 30, 
+        "url": "http://scripps.com/foundation/news/releases/09march13.html",
+        "order": 30,
         "title": "2008 Scripps Howard Foundation, Winner, Web Reporting"
     }
 },
 {
-    "pk": 31, 
-    "model": "bona_fides.award", 
+    "pk": 31,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.sej.org/contest/index.htm", 
-        "order": 31, 
+        "url": "http://www.sej.org/contest/index.htm",
+        "order": 31,
         "title": "2008 SEJ Awards, Winner, Outstanding Online Reporting"
     }
 },
 {
-    "pk": 32, 
-    "model": "bona_fides.award", 
+    "pk": 32,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "", 
-        "order": 32, 
+        "url": "",
+        "order": 32,
         "title": "2008 SPJ-Fort Worth First Amendment Awards, Winner, Green News "
     }
 },
 {
-    "pk": 33, 
-    "model": "bona_fides.award", 
+    "pk": 33,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://journalists.org/awards/past-winners-2009/", 
-        "order": 33, 
+        "url": "http://journalists.org/awards/past-winners-2009/",
+        "order": 33,
         "title": "2008 Online Journalism Awards, Finalist, Outstanding Use of Digital Technology"
     }
 },
 {
-    "pk": 34, 
-    "model": "bona_fides.award", 
+    "pk": 34,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.marketwire.com/press-release/Society-Of-Professional-Journalists-843541.html", 
-        "order": 34, 
+        "url": "http://www.marketwire.com/press-release/Society-Of-Professional-Journalists-843541.html",
+        "order": 34,
         "title": "2007 SPJ Sigma Delta Chi Awards, Winner, Online Non-Deadline Reporting (Independent) and Online"
     }
 },
 {
-    "pk": 35, 
-    "model": "bona_fides.award", 
+    "pk": 35,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://www.healthjournalism.org/awards-winners.php?Year=2007", 
-        "order": 35, 
+        "url": "http://www.healthjournalism.org/awards-winners.php?Year=2007",
+        "order": 35,
         "title": " 2007 AHCJ Awards, Winner, Trade/Online Journals/Newsletters"
     }
 },
 {
-    "pk": 36, 
-    "model": "bona_fides.award", 
+    "pk": 36,
+    "model": "bona_fides.award",
     "fields": {
-        "url": "http://ire.org/awards/ire-awards/winners/2007-ire-awards-winners/", 
-        "order": 36, 
+        "url": "http://ire.org/awards/ire-awards/winners/2007-ire-awards-winners/",
+        "order": 36,
         "title": "2007 IRE Certificate, Winner, Online"
     }
 }

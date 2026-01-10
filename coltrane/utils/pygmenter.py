@@ -1,6 +1,7 @@
 """
 Snippet adapted from http://www.djangosnippets.org/snippets/360/
 """
+
 import functools
 from pygments.lexers import LEXERS, get_lexer_by_name
 from pygments import highlight

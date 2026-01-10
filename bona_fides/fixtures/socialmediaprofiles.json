@@ -1,136 +1,136 @@
 [
 {
-    "pk": 1, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 1,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://delicious.com/palewire", 
-        "order": 1, 
+        "url": "http://delicious.com/palewire",
+        "order": 1,
         "title": "Delicious"
     }
 },
 {
-    "pk": 2, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 2,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.donorschoose.org/palewire", 
-        "order": 2, 
+        "url": "http://www.donorschoose.org/palewire",
+        "order": 2,
         "title": "Donors Choose"
     }
 },
 {
-    "pk": 3, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 3,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.facebook.com/palewire", 
-        "order": 3, 
+        "url": "http://www.facebook.com/palewire",
+        "order": 3,
         "title": "Facebook"
     }
 },
 {
-    "pk": 4, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 4,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.flickr.com/photos/77114776@N00/", 
-        "order": 4, 
+        "url": "http://www.flickr.com/photos/77114776@N00/",
+        "order": 4,
         "title": "Flickr"
     }
 },
 {
-    "pk": 5, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 5,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.flixster.com/user/palewire", 
-        "order": 5, 
+        "url": "http://www.flixster.com/user/palewire",
+        "order": 5,
         "title": "Flixster"
     }
 },
 {
-    "pk": 6, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 6,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://github.com/palewire/", 
-        "order": 6, 
+        "url": "http://github.com/palewire/",
+        "order": 6,
         "title": "GitHub"
     }
 },
 {
-    "pk": 7, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 7,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.kiva.org/lender/palewire", 
-        "order": 9, 
+        "url": "http://www.kiva.org/lender/palewire",
+        "order": 9,
         "title": "Kiva"
     }
 },
 {
-    "pk": 8, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 8,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.last.fm/user/palewire", 
-        "order": 10, 
+        "url": "http://www.last.fm/user/palewire",
+        "order": 10,
         "title": "Last.FM"
     }
 },
 {
-    "pk": 9, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 9,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.linkedin.com/pub/ben-welsh/9/3b4/256", 
-        "order": 11, 
+        "url": "http://www.linkedin.com/pub/ben-welsh/9/3b4/256",
+        "order": 11,
         "title": "LinkedIn"
     }
 },
 {
-    "pk": 10, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 10,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.openstreetmap.org/user/palewire/", 
-        "order": 12, 
+        "url": "http://www.openstreetmap.org/user/palewire/",
+        "order": 12,
         "title": "OpenStreetMap"
     }
 },
 {
-    "pk": 11, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 11,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://stackoverflow.com/users/281558/palewire", 
-        "order": 13, 
+        "url": "http://stackoverflow.com/users/281558/palewire",
+        "order": 13,
         "title": "StackOverflow"
     }
 },
 {
-    "pk": 12, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 12,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://twitter.com/palewire", 
-        "order": 14, 
+        "url": "http://twitter.com/palewire",
+        "order": 14,
         "title": "Twitter"
     }
 },
 {
-    "pk": 13, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 13,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://untappd.com/user/palewire", 
-        "order": 15, 
+        "url": "http://untappd.com/user/palewire",
+        "order": 15,
         "title": "Untappd"
     }
 },
 {
-    "pk": 14, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 14,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "http://www.goodreads.com/user/show/15990772-ben-welsh", 
-        "order": 7, 
+        "url": "http://www.goodreads.com/user/show/15990772-ben-welsh",
+        "order": 7,
         "title": "GoodReads"
     }
 },
 {
-    "pk": 15, 
-    "model": "bona_fides.socialmediaprofile", 
+    "pk": 15,
+    "model": "bona_fides.socialmediaprofile",
     "fields": {
-        "url": "https://plus.google.com/106133448962646193402?rel=author", 
-        "order": 8, 
+        "url": "https://plus.google.com/106133448962646193402?rel=author",
+        "order": 8,
         "title": "Google+"
     }
 }

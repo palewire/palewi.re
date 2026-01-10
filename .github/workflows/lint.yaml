@@ -5,17 +5,37 @@ on:
   workflow_dispatch:
 
 jobs:
+  lint-python:
+    name: Lint Python code
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v6
+
+      - id: check-ruff
+        name: Check with Ruff
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: 'check --exit-zero --verbose'
+
+      - id: format-ruff
+        name: Format with Ruff
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: 'format --check --verbose'
+
   tests:
     name: "Tests"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.9'
+          python-version: '3.12'
           cache: 'pipenv'
 
       - name: Install pipenv
@@ -23,9 +43,6 @@ jobs:
 
       - name: Install dependencies
         run: pipenv install --dev
-
-      - name: flake8
-        run: pipenv run flake8
 
       - name: Django
         run: pipenv run python manage.py check
