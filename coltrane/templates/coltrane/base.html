@@ -34,6 +34,7 @@
         <meta property="og:title" content="{% block ogtitle %}palewire{% endblock %}"/>
         <meta property="og:description" content="{% block ogdescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}"/>
         <meta property="og:url" content="{% block ogurl %}https://palewi.re/{% endblock %}"/>
+        <meta property="og:image" content="{% block ogimage %}https://palewi.re/static/img/facebook-icon.png{% endblock %}"/>
         {% endblock %}
 
         {% block twittermeta %}
@@ -41,6 +42,7 @@
         <meta name="twitter:title" content="{% block twittertitle %}palewire{% endblock %}" />
         <meta name="twitter:description" content="{% block twitterdescription %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
         <meta name="twitter:url" content="{% block twitterurl %}https://palewi.re/{% endblock %}" />
+        <meta name="twitter:image" content="{% block twitterimage %}https://palewi.re/static/img/facebook-icon.png{% endblock %}" />
         <meta name="twitter:creator" content="@palewire" />
         {% endblock %}
 
@@ -56,7 +58,8 @@
             "url": "{% block googleurl %}https://palewi.re/{% endblock %}",
             "name": "{% block googleheadline %}palewire{% endblock %}",
             "description": "{% block googledescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}",
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "image": "https://palewi.re/static/img/facebook-icon.png"
         }
         </script>
         {% endblock %}
