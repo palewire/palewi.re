@@ -56,11 +56,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "[django-html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4
-  },
 
   "emmet.includeLanguages": { "django-html": "html" },
 
@@ -74,7 +69,8 @@
   "files.associations": {
     "*.yaml": "yaml",
     "*.yml": "yaml",
-    "*.md": "markdown"
+    "*.md": "markdown",
+    "**/templates/**/*.html": "django-html"
   },
 
   "files.exclude": {
