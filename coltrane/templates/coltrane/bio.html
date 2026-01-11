@@ -62,14 +62,11 @@
         <div class="row"><div class="listitem twelvecol last">
             <b>Email</b>
         </div></div>
-        <div class="row" style="height:70px;">
+        <ul class="bullets">
         {% for item in email_list %}
-            <div class="listitem sixcol {% if forloop.counter|divisibleby:"2" %}last{% endif %}">
-                <a rel="me" href="mailto:{{ item }}">{{ item }}</a>
-            </div>
-            {% if forloop.counter|divisibleby:"2" and not forloop.last %}</div><div class="row" style="height:70px;">{% endif %}
+            <li><a rel="me" href="mailto:{{ item }}">{{ item }}</a></li>
         {% endfor %}
-        </div>
+        </ul>
     </div>
     <div class="onecol last"></div>
 </div>
@@ -87,13 +84,11 @@
     <div class="row"><div class="listitem twelvecol last">
     <b>Social media</b>
     </div></div>
+        <ul class="bullets">
         {% for obj in socialmedia_list %}
-        {% if not forloop.counter|divisibleby:"2" %}<div class="row">{% endif %}
-            <div class="listitem sixcol {% if forloop.counter|divisibleby:"2" %}last{% endif %}">
-                <a rel="me" class="url" href="{{ obj.url }}">{{ obj.title }}</a>
-            </div>
-        {% if forloop.counter|divisibleby:"2" or forloop.last %}</div>{% endif %}
+            <li><a rel="me" class="url" href="{{ obj.url }}">{{ obj.title }}</a></li>
         {% endfor %}
+        </ul>
     </div>
     <div class="onecol last"></div>
 </div>
