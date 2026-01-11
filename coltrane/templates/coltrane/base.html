@@ -49,6 +49,7 @@
         {% endblock %}
 
         {% block preconnect %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         {% endblock %}
 
@@ -83,6 +84,7 @@
     {% endblock %}
 
     {% block css %}
+    <link rel="preload" as="style" href="{% sass_src 'styles.scss' %}" />
     <link rel="stylesheet" type="text/css" href="{% sass_src 'styles.scss' %}" />
     {% endblock %}
 
