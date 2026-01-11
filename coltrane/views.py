@@ -48,6 +48,7 @@ def _load_yaml_list(path, key):
 
 BIO_EMAIL_LIST = _load_yaml_list(CONTENT_PATH / "bio_meta.yaml", "emails")
 BIO_SKILL_LIST = _load_yaml_list(CONTENT_PATH / "bio_skills.yaml", "skills")
+BIO_SOCIAL_LIST = _load_yaml_list(CONTENT_PATH / "bio_meta.yaml", "socials")
 
 
 def bio(request):
@@ -57,7 +58,7 @@ def bio(request):
     context = {
         "bio_html": mark_safe(_load_bio_html()),
         "award_list": bona_fides.Award.objects.all(),
-        "socialmedia_list": bona_fides.SocialMediaProfile.objects.all(),
+        "socialmedia_list": BIO_SOCIAL_LIST,
         "email_list": BIO_EMAIL_LIST,
         "skill_list": BIO_SKILL_LIST,
     }

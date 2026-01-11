@@ -3,3 +3,18 @@ emails:
   - ben@palewi.re
   - ben.welsh@thomsonreuters.com
   - benjamin.welsh@journalism.cuny.edu
+socials:
+  - title: Bluesky
+    url: https://bsky.app/profile/palewi.re
+  - title: GitHub
+    url: https://github.com/palewire/
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/palewire/
+  - title: Mastodon
+    url: https://mastodon.palewi.re/@palewire
+  - title: Observable
+    url: https://observablehq.com/@palewire
+  - title: Reddit
+    url: https://www.reddit.com/user/palewire/
+  - title: 𝕏
+    url: https://x.com/palewire

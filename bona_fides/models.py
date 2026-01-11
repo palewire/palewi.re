@@ -43,21 +43,6 @@ class Clip(models.Model):
         return self.url
 
 
-class SocialMediaProfile(models.Model):
-    """
-    A link to a social media profile I have on another site.
-    """
-
-    title = models.CharField(max_length=250)
-    url = models.CharField(max_length=1000)
-
-    class Meta:
-        ordering = ("title",)
-
-    def __str__(self):
-        return self.title
-
-
 class Skill(models.Model):
     """
     A technical skill I have and will mention about on my bio page.

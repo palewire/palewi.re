@@ -19,12 +19,6 @@ class ClipAdmin(SortableAdmin):
     date_hierarchy = "date"
 
 
-@admin.register(models.SocialMediaProfile)
-class SocialMediaProfileAdmin(SortableAdmin):
-    list_display = ("title", "url")
-    search_fields = ("title",)
-
-
 @admin.register(models.Skill)
 class SkillAdmin(SortableAdmin):
     list_display = ("title",)
