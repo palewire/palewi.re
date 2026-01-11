@@ -4,17 +4,19 @@
 
 {% block canonicalurl %}https://{{ current_site }}/docs/{% endblock %}
 
-{% block facebookmeta %}
-    {{ block.super }}
-    <meta property="og:title" content="docs"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://{{ current_site }}/posts/"/>
-{% endblock %}
+{% block ogtitle %}docs{% endblock %}
+{% block ogtype %}website{% endblock %}
+{% block ogurl %}https://{{ current_site }}/docs/{% endblock %}
+{% block ogdescription %}Documentation for my lesson plans and open-source software.{% endblock %}
+
+{% block twittertitle %}docs{% endblock %}
+{% block twitterdescription %}Documentation for my lesson plans and open-source software.{% endblock %}
+{% block twitterurl %}https://{{ current_site }}/docs/{% endblock %}
 
 {% block googleurl %}https://{{ current_site }}/docs/{% endblock %}
 {% block googleheadline %}docs{% endblock %}
-{% block googledescription %}Documentation for my lesson plans and open-source software{% endblock %}
-{% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
+{% block googledescription %}Documentation for my lesson plans and open-source software.{% endblock %}
+{% block googletype %}CollectionPage{% endblock %}
 
 {% block content %}
     <div class="interiorlist twelvecol last">

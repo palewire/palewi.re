@@ -3,77 +3,64 @@
       xmlns:rnews="http://iptc.org/std/rNews/2011-05-17#"
       xmlns:og="http://ogp.me/ns#" {% block extrahtmlattrs %}{% endblock %}>
 <head>
-    <title>{% block title %}palewire{% endblock %}</title>
+        <title>{% block title %}palewire{% endblock %}</title>
 
-    {% block meta %}
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+        {% block meta %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="robots" content="index,follow" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="color-scheme" content="light" />
 
-    <meta name="author" content="Ben Welsh" />
-    <meta name="description" content="{% block description %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
-    <meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, data journalism, computer-assisted reporting, journalism{% endblock %}" />
+        <link rel="icon" href="{{ STATIC_URL }}favicon.ico" />
 
-    <meta name="verify-v1" content="gY50FIiS1ZkWlR0vmMn+q/qv5ihAfW8cRQIFBU1+5d0=" />
-    <meta name="google-site-verification" content="yrVbQvYyAcy-Xa_1JbW8IErxVsErovb8oN6I54H01H4" />
+        <meta name="author" content="Ben Welsh" />
+        <meta name="description" content="{% block description %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
+        <meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, data journalism, computer-assisted reporting, journalism{% endblock %}" />
 
-    <link rel="canonical" href="{% block canonicalurl %}{% endblock %}" />
-    <link rel="alternate"
-          type="application/rss+xml"
-          title="Latest posts"
-          href="https://palewi.re/feeds/posts/" />
-    <link rel="me" href="https://mastodon.palewi.re/@palewire">
+        <meta name="google-site-verification" content="yrVbQvYyAcy-Xa_1JbW8IErxVsErovb8oN6I54H01H4" />
 
-    {% block facebookmeta %}
-    <meta property="fb:admins" content="1257725335"/>
-    <meta property="fb:app_id" content="190069391088781"/>
-    <meta property="og:image" content="{{ STATIC_URL }}img/facebook-icon.png"/>
-    <meta property="og:site_name" content="palewire"/>
-    <meta property="og:description"
-          content="Blog. Editor and Publisher Ben Welsh."/>
-    {% endblock %}
+        <link rel="canonical" href="{% block canonicalurl %}https://palewi.re/{% endblock %}" />
+        <link rel="alternate"
+                    type="application/rss+xml"
+                    title="Latest posts"
+                    href="https://palewi.re/feeds/posts/" />
+        <link rel="me" href="https://mastodon.palewi.re/@palewire">
 
-    {% block preconnect %}
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    {% endblock %}
+        {% block facebookmeta %}
+        <meta property="og:site_name" content="palewire"/>
+        <meta property="og:type" content="{% block ogtype %}website{% endblock %}"/>
+        <meta property="og:title" content="{% block ogtitle %}palewire{% endblock %}"/>
+        <meta property="og:description" content="{% block ogdescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}"/>
+        <meta property="og:url" content="{% block ogurl %}https://palewi.re/{% endblock %}"/>
+        {% endblock %}
 
-    {% block googlemeta %}
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "NewsArticle",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{% block googleurl %}https://palewi.re/{% endblock %}"
-      },
-      "headline": "{% block googleheadline %}palewire{% endblock %}",
-      "description": "{% block googledescription %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}",
-      "inLanguage": "en_US",
-      "dateCreated": "{% block googlecreated %}{% endblock %}",
-      "datePublished": "{% block googlepublished %}{% endblock %}",
-      "dateModified": "{% block googlemodified %}{% endblock %}",
-      "publisher": {
-        "@type": "NewsMediaOrganization",
-        "name": "palewire",
-        "url": "https://palewi.re",
-        "location": {
-            "@type": "Place",
-            "name": "Los Angeles"
-        },
-        "logo": {
-        "@type": "ImageObject",
-            "contentUrl": "{{ STATIC_URL }}img/facebook-icon.png",
-            "url": "{{ STATIC_URL }}img/facebook-icon.png"
+        {% block twittermeta %}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="{% block twittertitle %}palewire{% endblock %}" />
+        <meta name="twitter:description" content="{% block twitterdescription %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
+        <meta name="twitter:url" content="{% block twitterurl %}https://palewi.re/{% endblock %}" />
+        <meta name="twitter:creator" content="@palewire" />
+        {% endblock %}
+
+        {% block preconnect %}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        {% endblock %}
+
+        {% block googlemeta %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "{% block googletype %}WebSite{% endblock %}",
+            "url": "{% block googleurl %}https://palewi.re/{% endblock %}",
+            "name": "{% block googleheadline %}palewire{% endblock %}",
+            "description": "{% block googledescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}",
+            "inLanguage": "en-US"
         }
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Ben Welsh"
-      }
-    }
-    </script>
-    {% endblock %}
-    {% endblock %}
+        </script>
+        {% endblock %}
+        {% endblock %}
 
     {% block extrameta %}
     {% endblock %}

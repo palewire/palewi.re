@@ -4,19 +4,21 @@
 
 {% block canonicalurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
 
-{% block facebookmeta %}
-    {{ block.super }}
-    <meta property="og:title" content="Who is Ben Welsh?"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://{{ current_site }}/who-is-ben-welsh/"/>
-{% endblock %}
+{% block ogtitle %}Who is Ben Welsh?{% endblock %}
+{% block ogtype %}profile{% endblock %}
+{% block ogurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
+{% block ogdescription %}hello.{% endblock %}
+
+{% block twittertitle %}Who is Ben Welsh?{% endblock %}
+{% block twitterdescription %}hello.{% endblock %}
+{% block twitterurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
 
 {% block googleurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
 {% block googleheadline %}who is ben welsh?{% endblock %}
 {% block googledescription %}hello.{% endblock %}
 {% block googlecreated %}2019-11-10T00:00:00{% endblock %}
 {% block googlepublished %}2019-11-10T00:00:00{% endblock %}
-{% block googlemodified %}2019-11-10T00:00:00{% endblock %}
+{% block googletype %}ProfilePage{% endblock %}
 
 {% block content %}
 <div class="vcard twelvecol last">

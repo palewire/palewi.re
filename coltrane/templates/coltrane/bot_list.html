@@ -4,11 +4,17 @@
 
 {% block canonicalurl %}https://{{ current_site }}/bots/{% endblock %}
 
-{% block facebookmeta %}
+{% block ogtitle %}bots{% endblock %}
+{% block ogtype %}website{% endblock %}
+{% block ogurl %}https://{{ current_site }}/bots/{% endblock %}
+{% block ogdescription %}My fleet of automated accounts.{% endblock %}
+
+{% block twittertitle %}bots{% endblock %}
+{% block twitterdescription %}My fleet of automated accounts.{% endblock %}
+{% block twitterurl %}https://{{ current_site }}/bots/{% endblock %}
+
+{% block extrameta %}
     {{ block.super }}
-    <meta property="og:title" content="bots"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://{{ current_site }}/bots/"/>
     <link rel="me" href="https://mastodon.palewi.re/@palewire">
     {% for object in object_list %}
     <link rel="me" href="https://mastodon.palewi.re/{{ object.title }}">
@@ -20,7 +26,7 @@
 {% block googledescription %}My fleet of automated accounts{% endblock %}
 {% block googlecreated %}2022-12-16T00:00:00{% endblock %}
 {% block googlepublished %}2022-12-16T00:00:00{% endblock %}
-{% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
+{% block googletype %}CollectionPage{% endblock %}
 
 {% block content %}
     <div class="interiorlist applist twelvecol last">

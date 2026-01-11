@@ -4,17 +4,19 @@
 
 {% block canonicalurl %}https://{{ current_site }}/posts/{% endblock %}
 
-{% block facebookmeta %}
-    {{ block.super }}
-    <meta property="og:title" content="posts"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://{{ current_site }}/posts/"/>
-{% endblock %}
+{% block ogtitle %}posts{% endblock %}
+{% block ogtype %}website{% endblock %}
+{% block ogurl %}https://{{ current_site }}/posts/{% endblock %}
+{% block ogdescription %}A complete list of articles written for this site.{% endblock %}
+
+{% block twittertitle %}posts{% endblock %}
+{% block twitterdescription %}A complete list of articles written for this site.{% endblock %}
+{% block twitterurl %}https://{{ current_site }}/posts/{% endblock %}
 
 {% block googleurl %}https://{{ current_site }}/posts/{% endblock %}
 {% block googleheadline %}posts{% endblock %}
 {% block googledescription %}A complete list of articles written for this site.{% endblock %}
-{% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
+{% block googletype %}CollectionPage{% endblock %}
 
 {% block content %}
     <div class="interiorlist twelvecol last">

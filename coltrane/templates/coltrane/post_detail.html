@@ -1,10 +1,19 @@
 {% extends "coltrane/base.html" %}
 
-{% block extrahtmlattrs %}itemscope itemtype="http://schema.org/Article"{% endblock %}
+{% block extrahtmlattrs %}itemscope itemtype="https://schema.org/Article"{% endblock %}
 
 {% block title %}{{ object.title|lower }} . {{ block.super }}{% endblock %}
 
 {% block canonicalurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+
+{% block ogtitle %}{{ object.title }}{% endblock %}
+{% block ogtype %}article{% endblock %}
+{% block ogurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+{% block ogdescription %}{{ object.body_html|striptags|truncatechars:180 }}{% endblock %}
+
+{% block twittertitle %}{{ object.title }}{% endblock %}
+{% block twitterdescription %}{{ object.body_html|striptags|truncatechars:180 }}{% endblock %}
+{% block twitterurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
 
 {% block extrameta %}
     {{ block.super }}
@@ -18,23 +27,36 @@
     <meta itemprop="inLanguage" content="en">
 {% endblock %}
 
-{% block facebookmeta %}
-    {{ block.super }}
-    <meta property="og:title" content="{{ object.title }}"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://{{ current_site }}{{ object.get_absolute_url }}"/>
-    {% if object.repr_image %}
-    <meta property="og:image" content="{{ object.repr_image }}"/>
-    {% endif %}
-{% endblock %}
-
 {% block googleurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
 {% block googleheadline %}{{ object.title|lower }}{% endblock %}
-{% block googlecreated %}{{ object.pub_date|date:"c" }}{% endblock %}
-{% block googlepublished %}{{ object.pub_date|date:"c" }}{% endblock %}
-{% block googlemodified %}{{ object.pub_date|date:"c" }}{% endblock %}
+{% block googledescription %}{{ object.body_html|striptags|truncatechars:180 }}{% endblock %}
 
-{% block extrabody %}about="http://{{ current_site }}{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
+{% block googlemeta %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "{{ object.title|escapejs }}",
+            "description": "{{ object.body_html|striptags|truncatechars:180|escapejs }}",
+            "inLanguage": "en-US",
+            "url": "https://{{ current_site }}{{ object.get_absolute_url }}",
+            "datePublished": "{{ object.pub_date|date:"c" }}",
+            "dateModified": "{{ object.pub_date|date:"c" }}",
+            "author": {
+                "@type": "Person",
+                "name": "Ben Welsh",
+                "url": "https://{{ current_site }}/who-is-ben-welsh/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "palewire"
+            }{% if object.repr_image %},
+            "image": "{{ object.repr_image }}"{% endif %}
+        }
+        </script>
+{% endblock %}
+
+{% block extrabody %}about="https://{{ current_site }}{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
 
 {% block content %}
 

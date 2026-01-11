@@ -4,19 +4,21 @@
 
 {% block canonicalurl %}https://{{ current_site }}/talks/{% endblock %}
 
-{% block facebookmeta %}
-    {{ block.super }}
-    <meta property="og:title" content="talks"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://{{ current_site }}/talks/"/>
-{% endblock %}
+{% block ogtitle %}talks{% endblock %}
+{% block ogtype %}website{% endblock %}
+{% block ogurl %}https://{{ current_site }}/talks/{% endblock %}
+{% block ogdescription %}A selection of recordings, slides and other materials from my public-speaking appearances.{% endblock %}
+
+{% block twittertitle %}talks{% endblock %}
+{% block twitterdescription %}A selection of recordings, slides and other materials from my public-speaking appearances.{% endblock %}
+{% block twitterurl %}https://{{ current_site }}/talks/{% endblock %}
 
 {% block googleurl %}https://{{ current_site }}/talks/{% endblock %}
 {% block googleheadline %}talks{% endblock %}
 {% block googledescription %}A selection of slides and videos from my public-speaking appearances.{% endblock %}
 {% block googlecreated %}2019-11-10T00:00:00{% endblock %}
 {% block googlepublished %}2019-11-10T00:00:00{% endblock %}
-{% block googlemodified %}{{ object_list.0.date|date:'c' }}{% endblock %}
+{% block googletype %}CollectionPage{% endblock %}
 
 {% block content %}
     <div class="interiorlist applist twelvecol last">
