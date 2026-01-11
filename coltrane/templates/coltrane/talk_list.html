@@ -36,11 +36,11 @@
             </div>
             {% endifchanged %}
             <div class="row">
-                <div class="listitem twelvecol last">
+                <article class="listitem twelvecol last">
                     {{ object.date|date:"N" }} •
                     “{{ object.title }}” at {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}
                     {% if object.video_url or object.slides_url %}({% if object.video_url %}<a target="_blank" href="{{ object.video_url }}">Video &raquo;</a>{% if object.slides_url %} {% endif %}{% endif %}{% if object.slides_url %}<a target="_blank" href="{{ object.slides_url }}">Materials &raquo;</a>{% endif %}){% endif %}
-                </div>
+                </article>
             </div>
         {% endfor %}
     </div>

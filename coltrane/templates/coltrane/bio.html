@@ -23,17 +23,17 @@
 {% block content %}
 <div class="vcard twelvecol last">
 
-<div class="row">
-    <div class="twocol"></div>
-    <div class="eightcol">
-        <picture class="photo">
-          <source type="image/webp" srcset="{{ STATIC_URL }}img/ben-blue-800.webp">
-          <source type="image/jpeg" srcset="{{ STATIC_URL }}img/ben-blue-800.jpg">
-          <img width=493 height=277 src="{{ STATIC_URL }}img/ben-blue-800.jpg" alt="Ben Welsh" title="Ben Welsh">
-        </picture>
-    </div>
-    <div class="twocol last"></div>
-</div>
+<section class="row">
+        <div class="twocol"></div>
+        <div class="eightcol">
+                <picture class="photo">
+                    <source type="image/webp" srcset="{{ STATIC_URL }}img/ben-blue-800.webp">
+                    <source type="image/jpeg" srcset="{{ STATIC_URL }}img/ben-blue-800.jpg">
+                    <img width=493 height=277 src="{{ STATIC_URL }}img/ben-blue-800.jpg" alt="Ben Welsh" title="Ben Welsh">
+                </picture>
+        </div>
+        <div class="twocol last"></div>
+</section>
 
 <div class="row">
     <div class="twocol"></div>
@@ -41,13 +41,13 @@
     <div class="twocol last"></div>
 </div>
 
-<div class="biotext row">
+<section class="biotext row">
     <div class="onecol"></div>
     <div class="tencol">
         {{ bio_html }}
     </div>
     <div class="onecol last"></div>
-</div>
+</section>
 
 <div class="row">
     <div class="twocol"></div>
@@ -55,12 +55,11 @@
     <div class="twocol last"></div>
 </div>
 
-<a name="email"></a>
-<div class="biotext row">
+<section id="email" class="biotext row">
     <div class="onecol"></div>
     <div class="tencol interiorlist">
         <div class="row"><div class="listitem twelvecol last">
-            <b>Email</b>
+            <h2>Email</h2>
         </div></div>
         <ul class="bullets">
         {% for item in email_list %}
@@ -69,7 +68,7 @@
         </ul>
     </div>
     <div class="onecol last"></div>
-</div>
+</section>
 
 <div class="row">
     <div class="twocol"></div>
@@ -77,12 +76,11 @@
     <div class="twocol last"></div>
 </div>
 
-<a name="social-media"></a>
-<div class="biotext row">
+<section id="social-media" class="biotext row">
     <div class="onecol"></div>
     <div class="tencol interiorlist">
     <div class="row"><div class="listitem twelvecol last">
-    <b>Social media</b>
+    <h2>Social media</h2>
     </div></div>
         <ul class="bullets">
         {% for obj in socialmedia_list %}
@@ -91,7 +89,7 @@
         </ul>
     </div>
     <div class="onecol last"></div>
-</div>
+</section>
 
 <div class="row">
     <div class="twocol"></div>
@@ -99,13 +97,12 @@
     <div class="twocol last"></div>
 </div>
 
-<a name="skills"></a>
-<div class="biotext row">
+<section id="skills" class="biotext row">
     <div class="onecol"></div>
     <div class="tencol interiorlist">
         <div class="row">
             <div class="listitem twelvecol last">
-                <b>Technical skills</b>
+                <h2>Technical skills</h2>
             </div>
         </div>
         <ul class="bullets">
@@ -115,7 +112,7 @@
         </ul>
     </div>
     <div class="onecol last"></div>
-</div>
+</section>
 
 <div class="row">
     <div class="twocol"></div>
@@ -123,13 +120,12 @@
     <div class="twocol last"></div>
 </div>
 
-<a name="honors"></a>
-<div class="biotext row">
+<section id="honors" class="biotext row">
     <div class="onecol"></div>
     <div class="tencol interiorlist">
         <div class="row">
             <div class="listitem twelvecol last">
-                <b>Honors</b>
+                <h2>Honors</h2>
             </div>
         </div>
         <ul class="bullets">
@@ -142,5 +138,5 @@
         </ul>
     </div>
     <div class="onecol last"></div>
-</div>
+</section>
 {% endblock %}

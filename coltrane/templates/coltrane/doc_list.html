@@ -30,10 +30,10 @@
         </div>
         {% for object in lesson_list %}
         <div class="row">
-            <div class="listitem twelvecol last">
+            <article class="listitem twelvecol last">
                 <a href="{{ object.url }}">{{ object.title }}</a>
                 {% if object.description %} • {{ object.description }}{% endif %}
-            </div>
+            </article>
         </div>
         {% endfor %}
 
@@ -44,10 +44,10 @@
         </div>
         {% for object in software_list %}
         <div class="row">
-            <div class="listitem twelvecol last">
+            <article class="listitem twelvecol last">
                 <a href="{{ object.url }}">{{ object.title }}</a>
                 {% if object.description %} • {{ object.description }}{% endif %}
-            </div>
+            </article>
         </div>
         {% endfor %}
     </div>

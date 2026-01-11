@@ -17,13 +17,10 @@
 
 {% block extrameta %}
     {{ block.super }}
-    <meta itemprop="name" content="{{ object.title }}">
     <meta itemprop="headline" content="{{ object.title }}">
     <meta itemprop="url" content="https://{{ current_site }}{{ object.get_absolute_url }}">
     <meta itemprop="author" content="Ben Welsh">
-    <meta itemprop="copyrightYear" content="{{ object.pub_date|date:"Y" }}">
-    <meta itemprop="dateCreated" content="{{ object.pub_date|date:"Ymd" }}">
-    <meta itemprop="datePublished" content="{{ object.pub_date|date:"Ymd" }}">
+    <meta itemprop="datePublished" content="{{ object.pub_date|date:"c" }}">
     <meta itemprop="inLanguage" content="en">
 {% endblock %}
 
@@ -56,43 +53,42 @@
         </script>
 {% endblock %}
 
-{% block extrabody %}about="https://{{ current_site }}{{ object.get_absolute_url }}" typeof="rnews:Article"{% endblock %}
+{% block extrabody %}{% endblock %}
 
 {% block content %}
 
-    <div class="twelvecol last">
-        <article itemscope itemtype="http://schema.org/Article">
-            <div id="headline" class="row">
-                <div class="twelvecol last">
-                    <h1 itemprop="name" property="rnews:headline">
-                        {{ object.title }}
-                    </h1>
-                </div>
+    <article class="twelvecol last" itemscope itemtype="https://schema.org/Article">
+        <div id="headline" class="row">
+            <div class="twelvecol last">
+                <h1 itemprop="headline">
+                    {{ object.title }}
+                </h1>
             </div>
+        </div>
 
-            <div id="detailpubdate" class="row">
-                <div class="twelvecol last">
-                    <p>
-                        By
-                        <span rel="rnews:createdBy" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <span about="/who-is-ben-welsh/" typeof="rnews:Person" itemprop="name">
-                                <a rel="author" href="/who-is-ben-welsh/" property="rnews:name">Ben Welsh</a>
-                            </span>
-                        </span> • <span itemprop="datePublished" property="rnews:dateCreated" content="{{ object.pub_date|date:"Y-m-d" }}">
-                                <time datetime="{{ object.pub_date|date:"Y-m-d" }}" pubdate>
-                                    {{ object.pub_date|date:"F j, Y" }}
-                                </time>
+        <div id="detailpubdate" class="row">
+            <div class="twelvecol last">
+                <p>
+                    By
+                    <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <span itemprop="name">
+                            <a rel="author" href="/who-is-ben-welsh/">Ben Welsh</a>
                         </span>
-                    </p>
-                </div>
+                    </span>
+                    •
+                    <time datetime="{{ object.pub_date|date:"Y-m-d" }}" itemprop="datePublished">
+                        {{ object.pub_date|date:"F j, Y" }}
+                    </time>
+                </p>
             </div>
+        </div>
 
-            <div id="detailbody" class="row">
-                <div class="twelvecol last">
-                    <span itemprop="articleBody" property="rnews:body">{{ object.body_html|safe }}</span>
-                </div>
+        <div id="detailbody" class="row">
+            <div class="twelvecol last" itemprop="articleBody">
+                {{ object.body_html|safe }}
             </div>
-        </article>
+        </div>
+    </article>
 
         {% load comments %}
         {% get_comment_list for object as comment_list %}
@@ -121,7 +117,6 @@
         </div>
         {% endif %}
 
-    </div>
     <div style="display:none;">
         <div property="rnews:language">en</div>
         <div property="rnews:wordCount">{{ object.body_html|striptags|wordcount }}</div>

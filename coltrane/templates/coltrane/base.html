@@ -94,13 +94,17 @@
     <div id="container" class="container">
 
         {% block nav %}
-            {% include "coltrane/nav.html" %}
+        <header>
+            <nav aria-label="Primary">
+                {% include "coltrane/nav.html" %}
+            </nav>
+        </header>
         {% endblock %}
 
-        <div id="bd" class="row content">
+        <main id="bd" class="row content" role="main">
             {% block content %}
             {% endblock %}
-        </div>
+        </main>
 
         <footer>
             <div id="ft" class="row">

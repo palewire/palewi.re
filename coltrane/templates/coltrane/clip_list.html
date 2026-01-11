@@ -33,10 +33,10 @@
         </div>
         {% endifchanged %}
         <div class="row">
-            <div class="listitem twelvecol last">
+            <article class="listitem twelvecol last">
                 {{ object.date|date:"N d" }} •
                 <a href="{{ object.url }}">{{ object.title }}</a>
-            </div>
+            </article>
         </div>
     {% endfor %}
 </div>
