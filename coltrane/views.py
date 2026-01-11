@@ -24,17 +24,13 @@ from coltrane.models import Post
 from bona_fides import models as bona_fides
 
 
-BIO_MARKDOWN_PATH = Path(__file__).resolve().parent / "content" / "bio.md"
-BIO_META_PATH = Path(__file__).resolve().parent / "content" / "bio_meta.yaml"
-BIO_SKILLS_PATH = Path(__file__).resolve().parent / "content" / "bio_skills.yaml"
+CONTENT_PATH = Path(__file__).resolve().parent / "content"
 
 
 @lru_cache(maxsize=1)
 def _load_bio_html():
-    try:
-        bio_markdown = BIO_MARKDOWN_PATH.read_text(encoding="utf-8")
-    except FileNotFoundError:
-        return "<p>Bio unavailable.</p>"
+    bio_path = CONTENT_PATH / "bio.md"
+    bio_markdown = bio_path.read_text(encoding="utf-8")
     replacements = {
         "work_url": reverse("coltrane_work_list"),
         "doc_url": reverse("coltrane_doc_list"),
@@ -45,16 +41,13 @@ def _load_bio_html():
 
 
 def _load_yaml_list(path, key):
-    try:
-        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    except FileNotFoundError:
-        return []
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     values = data.get(key, [])
     return values if isinstance(values, list) else []
 
 
-BIO_EMAIL_LIST = _load_yaml_list(BIO_META_PATH, "emails")
-BIO_SKILL_LIST = _load_yaml_list(BIO_SKILLS_PATH, "skills")
+BIO_EMAIL_LIST = _load_yaml_list(CONTENT_PATH / "bio_meta.yaml", "emails")
+BIO_SKILL_LIST = _load_yaml_list(CONTENT_PATH / "bio_skills.yaml", "skills")
 
 
 def bio(request):
