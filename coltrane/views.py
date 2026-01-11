@@ -1,3 +1,4 @@
+from functools import lru_cache
 from pathlib import Path
 
 # Time
@@ -6,6 +7,7 @@ import datetime
 
 # Third-party
 import markdown
+import yaml
 
 # Helpers
 from proxy.views import proxy_view
@@ -23,8 +25,11 @@ from bona_fides import models as bona_fides
 
 
 BIO_MARKDOWN_PATH = Path(__file__).resolve().parent / "content" / "bio.md"
+BIO_META_PATH = Path(__file__).resolve().parent / "content" / "bio_meta.yaml"
+BIO_SKILLS_PATH = Path(__file__).resolve().parent / "content" / "bio_skills.yaml"
 
 
+@lru_cache(maxsize=1)
 def _load_bio_html():
     try:
         bio_markdown = BIO_MARKDOWN_PATH.read_text(encoding="utf-8")
@@ -39,7 +44,17 @@ def _load_bio_html():
     return markdown.markdown(bio_markdown, extensions=["extra"])
 
 
-BIO_HTML = mark_safe(_load_bio_html())
+def _load_yaml_list(path, key):
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except FileNotFoundError:
+        return []
+    values = data.get(key, [])
+    return values if isinstance(values, list) else []
+
+
+BIO_EMAIL_LIST = _load_yaml_list(BIO_META_PATH, "emails")
+BIO_SKILL_LIST = _load_yaml_list(BIO_SKILLS_PATH, "skills")
 
 
 def bio(request):
@@ -47,10 +62,11 @@ def bio(request):
     All about Ben.
     """
     context = {
-        "bio_html": BIO_HTML,
+        "bio_html": mark_safe(_load_bio_html()),
         "award_list": bona_fides.Award.objects.all(),
         "socialmedia_list": bona_fides.SocialMediaProfile.objects.all(),
-        "skill_list": bona_fides.Skill.objects.all(),
+        "email_list": BIO_EMAIL_LIST,
+        "skill_list": BIO_SKILL_LIST,
     }
     return render(request, "coltrane/bio.html", context)
 

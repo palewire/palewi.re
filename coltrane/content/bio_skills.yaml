@@ -1,0 +1,16 @@
+# Skills to feature on the bio page. Order matters.
+skills:
+  - News writing and editing
+  - Computer programming with Python, Node.js, Perl and Ruby
+  - Data analysis with pandas, Jupyter notebooks, SQL and other statistical tools
+  - Data mining with large-language models and other machine-learning tools
+  - Data pipelining with GitHub Actions and other automation tools
+  - Data visualization with d3.js, Datawrapper, Flourish and other browser-based libraries
+  - Digital cartography with Protomaps, Maplibre, Mapbox, QGIS and PostGIS
+  - User interface development with JavaScript, CSS, Svelte, React and HTML5 web standards
+  - Static-site publishing with common Node.js frameworks like SvelteKit, React and Observable
+  - Database-driven web development with Django
+  - Database administration with PostgreSQL, MySQL and Microsoft SQL Server
+  - Deployment with Amazon Web Services, Google Cloud, Vercel, Rackspace and Heroku
+  - Commercial drone flight and photography
+  - Doing it all on deadline

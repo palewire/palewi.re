@@ -28,6 +28,7 @@ Jinja2 = "*"
 Pygments = "*"
 tzdata = "*"
 markdown = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.12"

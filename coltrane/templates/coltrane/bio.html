@@ -59,18 +59,14 @@
     <div class="tencol interiorlist">
         <div class="row"><div class="listitem twelvecol last">
             <b>Email</b>
-        </div>
-    </div>
-    <div class="row" style="height:70px;">
-        <div class="listitem sixcol last" >
-            <a rel="me" href="mailto:b@palewi.re">
-                b@palewi.re
-            </a>
-        </div>
-        <div class="listitem sixcol">
-            <a rel="me" href="mailto:ben.welsh@thomsonreuters.com">
-                ben.welsh@thomsonreuters.com
-            </a>
+        </div></div>
+        <div class="row" style="height:70px;">
+        {% for item in email_list %}
+            <div class="listitem sixcol {% if forloop.counter|divisibleby:"2" %}last{% endif %}">
+                <a rel="me" href="mailto:{{ item }}">{{ item }}</a>
+            </div>
+            {% if forloop.counter|divisibleby:"2" and not forloop.last %}</div><div class="row" style="height:70px;">{% endif %}
+        {% endfor %}
         </div>
     </div>
     <div class="onecol last"></div>
@@ -96,6 +92,7 @@
             </div>
         {% if forloop.counter|divisibleby:"2" or forloop.last %}</div>{% endif %}
         {% endfor %}
+    </div>
     <div class="onecol last"></div>
 </div>
 
@@ -111,24 +108,13 @@
     <div class="tencol interiorlist">
         <div class="row">
             <div class="listitem twelvecol last">
-                    <b>Technical skills</b>
+                <b>Technical skills</b>
             </div>
         </div>
         <ul class="bullets">
-            <li>News writing and editing</li>
-            <li>Computer programming with Python, Node.js, Perl and Ruby</li>
-            <li>Data analysis with pandas, Jupyter notebooks, SQL and other statistical tools</li>
-            <li>Data mining with large-language models and other machine-learning tools</li>
-            <li>Data pipelining with GitHub Actions and other automation tools</li>
-            <li>Data visualization with d3.js, Datawrapper, Flourish and other browser-based libraries</li>
-            <li>Digital cartography with Protomaps, Maplibre, Mapbox, QGIS and PostGIS</li>
-            <li>User interface development with JavaScript, CSS, Svelte, React and HTML5 web standards</li>
-            <li>Static-site publishing with common Node.js frameworks like SvelteKit, React and Observable</li>
-            <li>Database-driven web development with Django</li>
-            <li>Database administration with PostgreSQL, MySQL and Microsoft SQL Server</li>
-            <li>Deployment with Amazon Web Services, Google Cloud, Vercel, Rackspace and Heroku</li>
-            <li>Commercial drone flight and photography</li>
-            <li>Doing it all on deadline</li>
+        {% for skill in skill_list %}
+            <li>{{ skill }}</li>
+        {% endfor %}
         </ul>
     </div>
     <div class="onecol last"></div>
@@ -151,15 +137,13 @@
         </div>
         <ul class="bullets">
         {% for obj in award_list %}
-          <li>
-            {% if obj.url %}<a href="{{ obj.url }}">{% endif %}
-                {{ obj.title }}
-            {% if obj.url %}</a>{% endif %}
-          </li>
+            <li>
+                {% if obj.url %}<a href="{{ obj.url }}">{{ obj.title }}</a>{% else %}{{ obj.title }}{% endif %}
+                {% if obj.year %} ({{ obj.year }}){% endif %}
+            </li>
         {% endfor %}
         </ul>
     </div>
     <div class="onecol last"></div>
-</div>
 </div>
 {% endblock %}
