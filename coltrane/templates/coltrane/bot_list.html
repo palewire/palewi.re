@@ -28,6 +28,29 @@
 {% block googlepublished %}2022-12-16T00:00:00{% endblock %}
 {% block googletype %}CollectionPage{% endblock %}
 
+{% block googlemeta %}
+        {{ block.super }}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "url": "https://{{ current_site }}/bots/",
+            "itemListOrder": "Unordered",
+            "numberOfItems": {{ object_list|length }},
+            "itemListElement": [
+                {% for object in object_list %}
+                {
+                    "@type": "ListItem",
+                    "position": {{ forloop.counter }},
+                    "name": "{{ object.title|escapejs }}",
+                    "url": "{{ object.mastodon_url|default:object.twitter_url }}"
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }
+        </script>
+{% endblock %}
+
 {% block content %}
     <div class="interiorlist applist twelvecol last">
         <h1>Bots</h1>

@@ -18,6 +18,28 @@
 {% block googledescription %}A complete list of articles written for this site.{% endblock %}
 {% block googletype %}CollectionPage{% endblock %}
 
+{% block googlemeta %}
+        {{ block.super }}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "url": "https://{{ current_site }}/posts/",
+            "itemListOrder": "Descending",
+            "numberOfItems": {{ object_list|length }},
+            "itemListElement": [
+                {% for object in object_list %}
+                {
+                    "@type": "ListItem",
+                    "position": {{ forloop.counter }},
+                    "url": "https://{{ current_site }}{{ object.get_absolute_url }}"
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }
+        </script>
+{% endblock %}
+
 {% block content %}
     <div class="interiorlist twelvecol last">
         <h1>Posts</h1>

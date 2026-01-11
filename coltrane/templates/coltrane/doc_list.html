@@ -18,6 +18,50 @@
 {% block googledescription %}Documentation for my lesson plans and open-source software.{% endblock %}
 {% block googletype %}CollectionPage{% endblock %}
 
+{% block googlemeta %}
+        {{ block.super }}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "url": "https://{{ current_site }}/docs/",
+            "itemListOrder": "Unordered",
+            "numberOfItems": {{ lesson_list|length }},
+            "name": "Lesson plans",
+            "itemListElement": [
+                {% for object in lesson_list %}
+                {
+                    "@type": "ListItem",
+                    "position": {{ forloop.counter }},
+                    "url": "{{ object.url }}",
+                    "name": "{{ object.title|escapejs }}"
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "url": "https://{{ current_site }}/docs/",
+            "itemListOrder": "Unordered",
+            "numberOfItems": {{ software_list|length }},
+            "name": "Open-source software",
+            "itemListElement": [
+                {% for object in software_list %}
+                {
+                    "@type": "ListItem",
+                    "position": {{ forloop.counter }},
+                    "url": "{{ object.url }}",
+                    "name": "{{ object.title|escapejs }}"
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }
+        </script>
+{% endblock %}
+
 {% block content %}
     <div class="interiorlist twelvecol last">
         <h1>Docs</h1>

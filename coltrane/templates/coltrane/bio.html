@@ -20,6 +20,22 @@
 {% block googlepublished %}2019-11-10T00:00:00{% endblock %}
 {% block googletype %}ProfilePage{% endblock %}
 
+{% block googlemeta %}
+        {{ block.super }}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Ben Welsh",
+            "url": "https://{{ current_site }}/who-is-ben-welsh/",
+            "image": "https://{{ current_site }}{{ STATIC_URL }}img/ben-blue-800.jpg",
+            "sameAs": [
+                {% for obj in socialmedia_list %}"{{ obj.url }}"{% if not forloop.last %}, {% endif %}{% endfor %}
+            ]
+        }
+        </script>
+{% endblock %}
+
 {% block content %}
 <div class="vcard twelvecol last">
 
