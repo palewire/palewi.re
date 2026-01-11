@@ -148,7 +148,7 @@
         <ul class="bullets">
         {% for obj in award_list %}
             <li>
-                {% if obj.url %}<a href="{{ obj.url }}">{% if obj.year %}{{ obj.year }} {% endif %}{{ obj.title }}</a>{% else %}{% if obj.year %}{{ obj.year }} {% endif %}{{ obj.title }}{% endif %}
+                {% if obj.url %}<a href="{{ obj.url }}">{{ obj.title }}</a>{% else %}{{ obj.title }}{% endif %}
             </li>
         {% endfor %}
         </ul>
