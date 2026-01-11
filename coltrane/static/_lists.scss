@@ -11,26 +11,26 @@ ul.bullets {
 }
 
 .interiorlist {
-    p.description {
-      font-size: 1em;
-      margin: 0 0 0.5em 0;
+  p.description {
+    font-size: 1em;
+    margin: 0 0 0.5em 0;
+  }
+  .section-hed {
+    font-weight: 700;
+    font-size: 1.1em;
+    margin: 0.4em 0 0.2em;
+    padding: 0.05em 0 0.25em;
+    border-bottom: thin dotted #ccc;
+  }
+  .listitem {
+    min-height: 1.5em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    line-height: 1.5em;
+    list-style-type: none;
+    font-size: 1em;
+    @media (max-width: 480px) {
+      padding-left: 0;
     }
-    .section-hed {
-      font-weight: 700;
-      font-size: 1.1em;
-      margin: 0.4em 0 0.2em;
-      padding: 0.05em 0 0.25em;
-      border-bottom: thin dotted #ccc;
-    }
-    .listitem {
-      min-height: 1.5em;
-      padding-top: 0.4em;
-      padding-bottom: 0.4em;
-      line-height: 1.5em;
-      list-style-type: none;
-      font-size: 1em;
-      @media (max-width: 480px) {
-          padding-left: 0;
-      }
-    }
+  }
 }

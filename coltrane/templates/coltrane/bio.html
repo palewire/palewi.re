@@ -45,7 +45,7 @@
                 <picture class="photo">
                     <source type="image/webp" srcset="{{ STATIC_URL }}img/ben-blue-800.webp">
                     <source type="image/jpeg" srcset="{{ STATIC_URL }}img/ben-blue-800.jpg">
-                    <img width=493 height=277 src="{{ STATIC_URL }}img/ben-blue-800.jpg" alt="Ben Welsh" title="Ben Welsh">
+                    <img width="493" height="277" src="{{ STATIC_URL }}img/ben-blue-800.jpg" alt="Ben Welsh" title="Ben Welsh">
                 </picture>
         </div>
         <div class="twocol last"></div>
@@ -76,7 +76,8 @@
     <div class="tencol interiorlist">
         <div class="row"><div class="listitem twelvecol last">
             <h2>Email</h2>
-        </div></div>
+        </div>
+    </div>
         <ul class="bullets">
         {% for item in email_list %}
             <li><a rel="me" href="mailto:{{ item }}">{{ item }}</a></li>
@@ -155,4 +156,6 @@
     </div>
     <div class="onecol last"></div>
 </section>
+
+</div>
 {% endblock %}
