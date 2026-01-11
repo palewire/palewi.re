@@ -34,6 +34,7 @@
         <meta property="og:title" content="{% block ogtitle %}palewire{% endblock %}"/>
         <meta property="og:description" content="{% block ogdescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}"/>
         <meta property="og:url" content="{% block ogurl %}https://palewi.re/{% endblock %}"/>
+        <meta property="og:locale" content="{% block oglocale %}en_US{% endblock %}"/>
         <meta property="og:image" content="{% block ogimage %}https://palewi.re/static/img/facebook-icon.png{% endblock %}"/>
         {% endblock %}
 
@@ -43,6 +44,7 @@
         <meta name="twitter:description" content="{% block twitterdescription %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
         <meta name="twitter:url" content="{% block twitterurl %}https://palewi.re/{% endblock %}" />
         <meta name="twitter:image" content="{% block twitterimage %}https://palewi.re/static/img/facebook-icon.png{% endblock %}" />
+        <meta name="twitter:site" content="@palewire" />
         <meta name="twitter:creator" content="@palewire" />
         {% endblock %}
 
@@ -60,6 +62,18 @@
             "description": "{% block googledescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}",
             "inLanguage": "en-US",
             "image": "https://palewi.re/static/img/facebook-icon.png"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "palewire",
+            "url": "https://palewi.re/",
+            "logo": "https://palewi.re/static/img/facebook-icon.png",
+            "sameAs": [
+                "https://mastodon.palewi.re/@palewire"
+            ]
         }
         </script>
         {% endblock %}
