@@ -1,18 +1,45 @@
+from pathlib import Path
+
 # Time
 import time
 import datetime
+
+# Third-party
+import markdown
 
 # Helpers
 from proxy.views import proxy_view
 from django.conf import settings
 from django.shortcuts import render
+from django.utils.safestring import mark_safe
 from django.views.generic import ListView, TemplateView
 from django.template import Context, loader
 from django.http import HttpResponseServerError, Http404, HttpResponseRedirect
+from django.urls import reverse
 
 # Models
 from coltrane.models import Post
 from bona_fides import models as bona_fides
+
+
+BIO_MARKDOWN_PATH = Path(__file__).resolve().parent / "content" / "bio.md"
+
+
+def _load_bio_html():
+    try:
+        bio_markdown = BIO_MARKDOWN_PATH.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return "<p>Bio unavailable.</p>"
+    replacements = {
+        "work_url": reverse("coltrane_work_list"),
+        "doc_url": reverse("coltrane_doc_list"),
+        "talk_url": reverse("coltrane_talk_list"),
+    }
+    bio_markdown = bio_markdown.format(**replacements)
+    return markdown.markdown(bio_markdown, extensions=["extra"])
+
+
+BIO_HTML = mark_safe(_load_bio_html())
 
 
 def bio(request):
@@ -20,6 +47,7 @@ def bio(request):
     All about Ben.
     """
     context = {
+        "bio_html": BIO_HTML,
         "award_list": bona_fides.Award.objects.all(),
         "socialmedia_list": bona_fides.SocialMediaProfile.objects.all(),
         "skill_list": bona_fides.Skill.objects.all(),

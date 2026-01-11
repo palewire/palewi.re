@@ -27,6 +27,7 @@ bs4 = "*"
 Jinja2 = "*"
 Pygments = "*"
 tzdata = "*"
+markdown = "*"
 
 [requires]
 python_version = "3.12"
