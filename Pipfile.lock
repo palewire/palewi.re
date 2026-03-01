@@ -260,12 +260,12 @@
         },
         "gunicorn": {
             "hashes": [
-                "sha256:4b1ab820ffc316352da7146005a9e66044a131434b17a7d2a9fb0604f1268864",
-                "sha256:b9b88f0ebc5a0fcd1e9e29a1f045f56f5402c6423ee3e3f675f679d0db5345d1"
+                "sha256:1426611d959fa77e7de89f8c0f32eed6aa03ee735f98c01efba3e281b1c47616",
+                "sha256:d0b1236ccf27f72cfe14bce7caadf467186f19e865094ca84221424e839b8b8b"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==25.0.0"
+            "version": "==25.1.0"
         },
         "idna": {
             "hashes": [
