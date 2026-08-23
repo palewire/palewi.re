@@ -20,7 +20,7 @@ secrets, generated files, local databases, or `.goals/` agent state.
 ## Project map
 
 - `coltrane/`: publishing features and content
-  - `coltrane/content/`: YAML-backed bio-page content (awards, clips, docs, talks)
+  - `coltrane/content/`: YAML-backed content (awards, clips, docs, talks, slogans, bots)
   - `coltrane/content_loaders.py`: validated loaders for all YAML content types
 - `toolbox/`: shared utilities
 - `project/`: Django settings and URL routing
@@ -101,3 +101,32 @@ skills:
 ```
 
 Order is preserved as written.
+
+### slogans.yaml
+
+Short phrases that appear in the site header. Each entry has one required field.
+
+```yaml
+slogans:
+  - title: "phrase here"
+```
+
+Ordered alphabetically by title. Titles must be non-empty strings. An empty
+list is valid.  Use `random_slogan()` from `coltrane.content_loaders` to pick
+one at random for display.
+
+### bots.yaml
+
+Automated accounts listed on `/bots/`. Each entry requires `title` and
+`mastodon_url`; `twitter_url` is optional and defaults to an empty string.
+
+```yaml
+bots:
+  - title: "@BotName"
+    mastodon_url: "https://mastodon.example.com/@botname"  # required, unique
+    twitter_url: "https://twitter.com/botname"             # optional, unique if set
+```
+
+Order is preserved as written (no automatic sorting). Both `mastodon_url` and
+non-empty `twitter_url` values must be unique across the list. URLs must start
+with `http`.

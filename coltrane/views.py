@@ -19,7 +19,7 @@ from django.views.generic import ListView, TemplateView
 # Helpers
 from proxy.views import proxy_view
 
-from coltrane.content_loaders import load_awards, load_clips, load_docs, load_talks
+from coltrane.content_loaders import load_awards, load_bots, load_clips, load_docs, load_talks
 
 # Models
 from coltrane.models import Post
@@ -139,53 +139,7 @@ class BotListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["object_list"] = [
-            dict(
-                title="@DivineAnnDvorak",
-                twitter_url="https://twitter.com/divineanndvorak",
-                mastodon_url="https://mastodon.palewi.re/@divineanndvorak",
-            ),
-            dict(
-                title="@LAXweather",
-                twitter_url="https://twitter.com/laxweatherbot",
-                mastodon_url="https://mastodon.palewi.re/@laxweather",
-            ),
-            dict(
-                title="@MuckRockBot",
-                twitter_url="https://twitter.com/muckrockbot",
-                mastodon_url="https://mastodon.palewi.re/@muckrockbot",
-            ),
-            dict(
-                title="@NewsHomepages",
-                twitter_url="https://twitter.com/newshomepages",
-                mastodon_url="https://mastodon.palewi.re/@newshomepages",
-            ),
-            dict(
-                title="@NYCDataBot",
-                twitter_url="",
-                mastodon_url="https://mastodon.palewi.re/@nycdatabot",
-            ),
-            dict(
-                title="@OldLAPhotos",
-                twitter_url="https://twitter.com/oldlaphotos",
-                mastodon_url="https://mastodon.palewi.re/@oldlaphotos",
-            ),
-            dict(
-                title="@RandomPigeonGPT",
-                twitter_url="",
-                mastodon_url="https://mastodon.palewi.re/@RandomPigeonGPT",
-            ),
-            dict(
-                title="@ReutersJobs",
-                twitter_url="https://twitter.com/reutersjobs",
-                mastodon_url="https://mastodon.palewi.re/@ReutersJobs",
-            ),
-            dict(
-                title="@SanbornMaps",
-                twitter_url="https://twitter.com/sanbornmaps",
-                mastodon_url="https://mastodon.palewi.re/@sanbornmaps",
-            ),
-        ]
+        context["object_list"] = load_bots()
         return context
 
 

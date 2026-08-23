@@ -8,9 +8,12 @@ import yaml
 from coltrane.content_loaders import (
     ContentError,
     load_awards,
+    load_bots,
     load_clips,
     load_docs,
+    load_slogans,
     load_talks,
+    random_slogan,
 )
 
 
@@ -198,3 +201,123 @@ def test_docs_empty_list_ok(tmp_path):
     p = tmp_path / "docs.yaml"
     p.write_text("docs: []\n")
     assert load_docs(p) == []
+
+
+# ---------------------------------------------------------------------------
+# slogans.yaml
+# ---------------------------------------------------------------------------
+
+
+def test_slogans_yaml_loads():
+    """Production slogans.yaml loads without error."""
+    slogans = load_slogans()
+    assert len(slogans) > 0
+
+
+def test_slogans_sorted_alphabetically():
+    """Slogans are sorted alphabetically by title."""
+    slogans = load_slogans()
+    titles = [s.title for s in slogans]
+    assert titles == sorted(titles)
+
+
+def test_slogan_missing_title_raises(tmp_path):
+    p = tmp_path / "slogans.yaml"
+    p.write_text("slogans:\n  - note: oops\n")
+    with pytest.raises(ContentError, match="title"):
+        load_slogans(p)
+
+
+def test_slogans_empty_list_ok(tmp_path):
+    p = tmp_path / "slogans.yaml"
+    p.write_text("slogans: []\n")
+    assert load_slogans(p) == []
+
+
+def test_slogans_bad_top_level_raises(tmp_path):
+    p = tmp_path / "slogans.yaml"
+    p.write_text("- a\n- b\n")
+    with pytest.raises(ContentError, match="mapping"):
+        load_slogans(p)
+
+
+def test_random_slogan_returns_slogan(tmp_path):
+    p = tmp_path / "slogans.yaml"
+    p.write_text("slogans:\n  - title: only one\n")
+    result = random_slogan(p)
+    assert result is not None
+    assert result.title == "only one"
+
+
+def test_random_slogan_empty_returns_none(tmp_path):
+    p = tmp_path / "slogans.yaml"
+    p.write_text("slogans: []\n")
+    assert random_slogan(p) is None
+
+
+# ---------------------------------------------------------------------------
+# bots.yaml
+# ---------------------------------------------------------------------------
+
+
+def test_bots_yaml_loads():
+    """Production bots.yaml loads without error."""
+    bots = load_bots()
+    assert len(bots) > 0
+
+
+def test_bots_order_preserved():
+    """Bots preserve the order defined in the YAML file."""
+    bots = load_bots()
+    # The first bot in the file is @DivineAnnDvorak
+    assert bots[0].title == "@DivineAnnDvorak"
+
+
+def test_bots_twitter_url_optional(tmp_path):
+    """A bot with an empty twitter_url is valid."""
+    p = tmp_path / "bots.yaml"
+    p.write_text("bots:\n  - title: '@TestBot'\n    mastodon_url: 'https://example.com/@test'\n    twitter_url: ''\n")
+    bots = load_bots(p)
+    assert bots[0].twitter_url == ""
+
+
+def test_bots_missing_mastodon_url_raises(tmp_path):
+    p = tmp_path / "bots.yaml"
+    p.write_text("bots:\n  - title: '@Test'\n    twitter_url: ''\n")
+    with pytest.raises(ContentError, match="mastodon_url"):
+        load_bots(p)
+
+
+def test_bots_duplicate_mastodon_url_raises(tmp_path):
+    p = tmp_path / "bots.yaml"
+    p.write_text(
+        "bots:\n"
+        "  - title: '@A'\n    mastodon_url: 'https://m.example.com/@a'\n"
+        "  - title: '@B'\n    mastodon_url: 'https://m.example.com/@a'\n"
+    )
+    with pytest.raises(ContentError, match="duplicate"):
+        load_bots(p)
+
+
+def test_bots_duplicate_twitter_url_raises(tmp_path):
+    p = tmp_path / "bots.yaml"
+    p.write_text(
+        "bots:\n"
+        "  - title: '@A'\n    mastodon_url: 'https://m.example.com/@a'\n    twitter_url: 'https://twitter.com/shared'\n"
+        "  - title: '@B'\n    mastodon_url: 'https://m.example.com/@b'\n    twitter_url: 'https://twitter.com/shared'\n"
+    )
+    with pytest.raises(ContentError, match="duplicate"):
+        load_bots(p)
+
+
+def test_bots_invalid_mastodon_url_raises(tmp_path):
+    p = tmp_path / "bots.yaml"
+    p.write_text("bots:\n  - title: '@X'\n    mastodon_url: 'not-a-url'\n")
+    with pytest.raises(ContentError, match="URL"):
+        load_bots(p)
+
+
+def test_bots_empty_list_ok(tmp_path):
+    p = tmp_path / "bots.yaml"
+    p.write_text("bots: []\n")
+    assert load_bots(p) == []

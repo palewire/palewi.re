@@ -3,7 +3,7 @@
 import pytest
 from django.contrib.auth.models import User
 
-from coltrane.models import Post, Slogan
+from coltrane.models import Post
 
 
 @pytest.fixture
@@ -33,12 +33,6 @@ def test_live_post_manager_returns_live_only(author):
     assert post in live
     for p in live:
         assert p.status == Post.LIVE_STATUS
-
-
-@pytest.mark.django_db
-def test_slogan_str():
-    slogan = Slogan.objects.create(title="Test slogan")
-    assert str(slogan) == "Test slogan"
 
 
 def test_post_get_publication_status():
