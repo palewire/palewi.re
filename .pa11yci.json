@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "args": [
+        "--disable-dev-shm-usage",
+        "--no-sandbox"
+      ]
+    },
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 500
+  },
+  "urls": [
+    "http://127.0.0.1:8000/who-is-ben-welsh/",
+    "http://127.0.0.1:8000/posts/",
+    "http://127.0.0.1:8000/work/",
+    "http://127.0.0.1:8000/talks/",
+    "http://127.0.0.1:8000/docs/"
+  ]
+}
