@@ -40,21 +40,31 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 
 ## Deployment
 
-- Deploys to Heroku from `main` after CI passes.
+- The `palewire` app is the **production** stage of the **palewire** Heroku pipeline.
+- The pipeline is connected to `palewire/palewi.re` on GitHub.
+- To enable **auto-deploy from `main` after CI passes**, open the pipeline in the Heroku Dashboard
+  → Production → "Enable Automatic Deploys" → branch `main` → tick "Wait for CI to pass before deploy".
 - `Procfile` runs `python manage.py migrate --noinput` as the release step.
 - `/health/` endpoint verifies DB connectivity.
-- For rollback: `heroku rollback vN`.
+- Rollback: `heroku releases --app palewire` then `heroku rollback vN --app palewire`.
+- Stack: heroku-24 (Cedar). Buildpacks: `heroku/python` + `heroku-buildpack-django-sass`.
+
+## Review Apps
+
+Review Apps are **manually created** (no auto-create on PR). To create one:
+1. Open the [palewire pipeline](https://dashboard.heroku.com/pipelines/de4cf89d-89a1-444d-813e-506da286d905).
+2. Click **Open app** next to the pull request under Review Apps.
 
 ## Post-deployment smoke checks
 
-The `.github/workflows/smoke.yaml` workflow verifies health, bio page, and root redirect.
-Run it manually via **Actions → Smoke test → Run workflow**, or trigger it automatically by
-configuring Heroku's Deploy Hook to send a `repository_dispatch` event.
+`.github/workflows/smoke.yaml` fires automatically when the **CI** workflow completes on `main`
+(giving Heroku ~90 s to deploy), or run it manually via **Actions → Smoke test → Run workflow**.
+No Heroku API token is required.
 
 ## Branch protection
 
-`main` is protected by a GitHub ruleset (Protect main) that requires the **Lint** and **Test**
-CI jobs to pass before merging. Repository admins can bypass in emergencies.
+`main` is protected by GitHub ruleset **"Protect main"** (id: 21237273) requiring the **Lint**
+and **Test** CI jobs to pass before merge. Repository admins can bypass in emergencies.
 
 ## Adding tests
 

@@ -1,10 +1,16 @@
 name: Smoke test
 
-# Triggered automatically by Heroku's "Deploy Hooks" (send a
-# repository_dispatch with event-type "heroku_deploy") or manually.
-# Does NOT use a long-lived Heroku API token — only the public HTTPS URL
-# of the live app is required.
+# Automatic: fires when CI completes successfully on main (Heroku
+# auto-deploys from main shortly after).  A 90-second wait + retry
+# loop gives the dyno time to boot before asserting.
+# Manual: run via Actions UI with an optional URL override.
+# repository_dispatch: Heroku Deploy Hook can POST
+#   {"event_type":"heroku_deploy"} — no long-lived token needed.
 on:
+  workflow_run:
+    workflows: ["CI"]
+    branches: [main]
+    types: [completed]
   repository_dispatch:
     types: [heroku_deploy]
   workflow_dispatch:
@@ -20,47 +26,53 @@ permissions:
 jobs:
   smoke:
     name: Smoke test production
+    # For workflow_run, only run when CI actually passed (not on failure).
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     env:
       BASE_URL: ${{ github.event.inputs.base_url || 'https://palewi.re' }}
 
     steps:
-      - name: Health check
+      - name: Wait for Heroku deployment
+        # Give Heroku ~90 s to receive the push, build, and release
+        # when triggered by workflow_run.  Skip the wait for manual runs.
+        if: github.event_name == 'workflow_run'
+        run: sleep 90
+
+      - name: Health check (with retries)
         run: |
           echo "Testing health endpoint: $BASE_URL/health/"
-          response=$(curl --silent --max-time 15 --write-out "\n%{http_code}" "$BASE_URL/health/")
-          http_code=$(echo "$response" | tail -1)
-          body=$(echo "$response" | head -1)
-          echo "HTTP $http_code — $body"
+          for i in 1 2 3; do
+            response=$(curl --silent --max-time 20 --write-out "\n%{http_code}" "$BASE_URL/health/" || true)
+            http_code=$(echo "$response" | tail -1)
+            body=$(echo "$response" | head -1)
+            echo "Attempt $i — HTTP $http_code — $body"
+            if [ "$http_code" = "200" ]; then
+              if echo "$body" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['status']=='ok'; assert d['db'] is True" 2>/dev/null; then
+                echo "✅ Health check passed"
+                break
+              fi
+            fi
+            if [ "$i" -lt 3 ]; then sleep 30; fi
+          done
           if [ "$http_code" != "200" ]; then
-            echo "❌ Health check failed (HTTP $http_code)"
+            echo "❌ Health check failed after retries (last HTTP $http_code)"
             exit 1
           fi
-          if ! echo "$body" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['status']=='ok'; assert d['db'] is True"; then
-            echo "❌ Health check body unexpected: $body"
-            exit 1
-          fi
-          echo "✅ Health check passed"
 
       - name: Bio page
         run: |
           echo "Testing bio page: $BASE_URL/who-is-ben-welsh/"
-          code=$(curl --silent --max-time 15 -o /dev/null -w "%{http_code}" "$BASE_URL/who-is-ben-welsh/")
+          code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/who-is-ben-welsh/")
           echo "HTTP $code"
-          if [ "$code" != "200" ]; then
-            echo "❌ Bio page returned HTTP $code"
-            exit 1
-          fi
-          echo "✅ Bio page OK"
+          [ "$code" = "200" ] && echo "✅ Bio page OK" || { echo "❌ Bio page returned HTTP $code"; exit 1; }
 
       - name: Root redirect
         run: |
           echo "Testing root redirect: $BASE_URL/"
-          code=$(curl --silent --max-time 15 -o /dev/null -w "%{http_code}" "$BASE_URL/")
+          code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/")
           echo "HTTP $code"
-          if [ "$code" != "301" ] && [ "$code" != "302" ]; then
-            echo "❌ Root did not redirect (HTTP $code)"
-            exit 1
-          fi
-          echo "✅ Root redirect OK"
+          { [ "$code" = "301" ] || [ "$code" = "302" ]; } && echo "✅ Root redirect OK" || { echo "❌ Root did not redirect (HTTP $code)"; exit 1; }

@@ -25,6 +25,9 @@
   "buildpacks": [
     {
       "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/drpancake/heroku-buildpack-django-sass.git"
     }
   ],
   "formation": {
