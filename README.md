@@ -15,20 +15,16 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 git clone https://github.com/palewire/palewi.re.git
 cd palewi.re
 
-# Install dependencies (creates .venv automatically)
-make install
-
-# Create local database
-createdb palewire
-
-# Apply migrations
-make migrate
+# Install dependencies, create the database, and apply migrations
+make bootstrap
 
 # Start server
 make serve
 ```
 
-Open <http://localhost:8000> in your browser.
+Open the URL printed by the server. Linked Git worktrees automatically use
+separate PostgreSQL databases and available local ports, so multiple agents can
+run the site at the same time.
 
 ## Environment variables
 
@@ -47,7 +43,9 @@ Run the complete quality gate before opening a pull request:
 make check
 ```
 
-This runs Ruff linting/formatting checks and the full pytest suite.
+This runs Ruff linting and formatting checks, ty static analysis, Django's
+system and migration checks, and the full pytest suite. CI uses the same Make
+targets.
 
 To auto-format code:
 

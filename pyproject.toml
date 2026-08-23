@@ -27,6 +27,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "click>=8.1",
     "pre-commit>=4.2",
     "pytest>=8.4",
     "pytest-django>=4.11",
