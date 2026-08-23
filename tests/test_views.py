@@ -7,6 +7,8 @@ from django.db import DatabaseError
 from django.test import Client
 from django.test.utils import override_settings
 
+from coltrane.views import server_error
+
 
 @pytest.fixture
 def client():
@@ -71,6 +73,18 @@ def test_not_found_page_offers_navigation(client):
     assert '<meta name="robots" content="noindex" />' in content
     assert 'href="/">Go to the homepage' in content
     assert 'href="/posts/">Posts</a>' in content
+
+
+@override_settings(DEBUG=False)
+def test_server_error_page_uses_simplified_message(rf):
+    response = server_error(rf.get("/"))
+
+    assert response.status_code == 500
+    content = response.content.decode()
+    assert "<title>Server error · palewire</title>" in content
+    assert '<meta name="robots" content="noindex" />' in content
+    assert '<h1 id="error-heading">500</h1>' in content
+    assert "Something went wrong. Please try again later." in content
 
 
 @pytest.mark.django_db
