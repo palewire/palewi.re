@@ -59,7 +59,9 @@ make fmt
 make test
 ```
 
-Tests require a running PostgreSQL database. Set `DATABASE_URL` or rely on the default (`postgres://postgres@localhost/palewire`).
+Tests require a running PostgreSQL database. Set `DATABASE_URL` or rely on the
+default: `postgres://postgres@localhost/palewire` in a normal clone, or an
+automatically named isolated database in a linked worktree.
 
 ## Deployment
 

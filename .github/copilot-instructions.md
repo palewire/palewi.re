@@ -38,7 +38,8 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 - **Tests**: pytest-django in `tests/`. Requires PostgreSQL.
 - **Settings**: `PRODUCTION=true` enables full security hardening. `SECRET_KEY` must be set in production.
 - **Static files**: Served by WhiteNoise from `collected_static/`. Run `python manage.py collectstatic` before Heroku deploys.
-- **Database**: dj-database-url parses `DATABASE_URL`. Default local: `postgres://postgres@localhost/palewire`.
+- **Database**: dj-database-url parses `DATABASE_URL`. A normal clone defaults to
+  `postgres://postgres@localhost/palewire`; linked worktrees use isolated database names.
 - **django-heroku is removed**: Database, WhiteNoise, and security are configured explicitly in `project/settings.py`.
 
 ## Deployment
