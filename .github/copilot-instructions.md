@@ -32,7 +32,7 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.
-- **Bootstrap**: use `make bootstrap` in local worktrees, CI, and agent environments.
+- **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; CI uses `make ci-bootstrap`.
 - **Linting**: Ruff with `select = ["E", "F", "W", "I", "UP"]` (UP031 ignored).
 - **Type checking**: `ty check .` — Django dynamic attributes are downgraded to warnings; new code should pass clean.
 - **Tests**: pytest-django in `tests/`. Requires PostgreSQL.
