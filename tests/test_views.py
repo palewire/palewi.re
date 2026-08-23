@@ -62,15 +62,15 @@ def test_bots_list_ok(client):
 
 @pytest.mark.django_db
 @override_settings(DEBUG=False)
-def test_not_found_page_offers_navigation(client):
+def test_not_found_page_uses_simplified_message(client):
     response = client.get("/this-page-does-not-exist/")
 
     assert response.status_code == 404
     content = response.content.decode()
     assert "<title>Page not found · palewire</title>" in content
     assert '<meta name="robots" content="noindex" />' in content
-    assert 'href="/">Go to the homepage' in content
-    assert 'href="/posts/">Posts</a>' in content
+    assert '<h1 id="error-heading">404</h1>' in content
+    assert "This page could not be found." in content
 
 
 @pytest.mark.django_db
