@@ -58,3 +58,7 @@ def test_bio_page_renders_with_manifest_storage() -> None:
     ):
         response = Client().get("/who-is-ben-welsh/")
     assert response.status_code == 200
+    content = response.content.decode()
+    assert "/static/img/ben-blue-800." in content
+    assert "/static/img/ben-blue-800.webp" not in content
+    assert "/static/img/ben-blue-800.jpg" not in content

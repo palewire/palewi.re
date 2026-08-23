@@ -1,4 +1,5 @@
 {% extends "coltrane/base.html" %}
+{% load static %}
 
 {% block title %}who is ben welsh? . {{ block.super }}{% endblock %}
 
@@ -28,7 +29,7 @@
             "@type": "Person",
             "name": "Ben Welsh",
             "url": "https://{{ current_site }}/who-is-ben-welsh/",
-            "image": "https://{{ current_site }}{{ STATIC_URL }}img/ben-blue-800.jpg",
+            "image": "https://{{ current_site }}{% static 'img/ben-blue-800.jpg' %}",
             "sameAs": [
                 {% for obj in socialmedia_list %}"{{ obj.url }}"{% if not forloop.last %}, {% endif %}{% endfor %}
             ]
@@ -43,9 +44,16 @@
         <div class="twocol"></div>
         <div class="eightcol">
                 <picture class="photo">
-                    <source type="image/webp" srcset="{{ STATIC_URL }}img/ben-blue-800.webp">
-                    <source type="image/jpeg" srcset="{{ STATIC_URL }}img/ben-blue-800.jpg">
-                    <img width="493" height="277" src="{{ STATIC_URL }}img/ben-blue-800.jpg" alt="Ben Welsh" title="Ben Welsh">
+                    <source type="image/webp" srcset="{% static 'img/ben-blue-800.webp' %}" width="800" height="450">
+                    <source type="image/jpeg" srcset="{% static 'img/ben-blue-800.jpg' %}" width="800" height="450">
+                    <img
+                        width="800"
+                        height="450"
+                        src="{% static 'img/ben-blue-800.jpg' %}"
+                        alt="Ben Welsh"
+                        title="Ben Welsh"
+                        fetchpriority="high"
+                    >
                 </picture>
         </div>
         <div class="twocol last"></div>
