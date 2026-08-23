@@ -1,4 +1,5 @@
 import datetime
+
 from django.db import models
 
 
@@ -8,7 +9,7 @@ class LivePostManager(models.Manager):
     """
 
     def get_queryset(self):
-        qs = super(LivePostManager, self).get_queryset()
+        qs = super().get_queryset()
         return qs.filter(status=self.model.LIVE_STATUS)
 
 
@@ -18,7 +19,7 @@ class LiveCategoryManager(models.Manager):
     """
 
     def get_queryset(self):
-        qs = super(LiveCategoryManager, self).get_queryset()
+        qs = super().get_queryset()
         return qs.filter(post_count__gt=0)
 
 

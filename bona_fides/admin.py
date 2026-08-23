@@ -1,10 +1,10 @@
-from bona_fides import models
 from django.contrib import admin
-from adminsortable.admin import SortableAdmin
+
+from bona_fides import models
 
 
 @admin.register(models.Award)
-class AwardAdmin(SortableAdmin):
+class AwardAdmin(admin.ModelAdmin):
     list_display = ("title", "url", "year")
     search_fields = ("title",)
     list_filter = ("year",)
@@ -12,7 +12,7 @@ class AwardAdmin(SortableAdmin):
 
 
 @admin.register(models.Clip)
-class ClipAdmin(SortableAdmin):
+class ClipAdmin(admin.ModelAdmin):
     list_display = ("title", "type", "date", "url")
     list_filter = ("type",)
     search_fields = ("title",)
@@ -20,20 +20,20 @@ class ClipAdmin(SortableAdmin):
 
 
 @admin.register(models.Skill)
-class SkillAdmin(SortableAdmin):
+class SkillAdmin(admin.ModelAdmin):
     list_display = ("title",)
     search_fields = ("title",)
 
 
 @admin.register(models.Talk)
-class TalkAdmin(SortableAdmin):
+class TalkAdmin(admin.ModelAdmin):
     list_display = ("title", "venue", "location", "date")
     search_fields = ("title", "venue")
     date_hierarchy = "date"
 
 
 @admin.register(models.Doc)
-class DocAdmin(SortableAdmin):
+class DocAdmin(admin.ModelAdmin):
     list_display = ("title", "type")
     search_fields = ("title", "description")
     list_filter = ("type",)

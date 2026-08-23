@@ -1,28 +1,28 @@
 # Helpers
 import datetime
-from django.db import models
-from django.urls import reverse
-from django.utils.html import strip_tags
-from django.utils.translation import gettext as _
-from django.template.loader import render_to_string
-from django.template.defaultfilters import truncatewords as truncate_words
 
 # Settings
 from django.conf import settings
 
 # Models
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.models import ContentType
 
 # Fields
 from django.contrib.contenttypes import fields as generic
-
-# Managers
-from coltrane.managers import LiveCategoryManager, LivePostManager, SyncManager
+from django.contrib.contenttypes.models import ContentType
+from django.db import models
 
 # Signals
 from django.db.models import signals
-from coltrane.signals import create_ticker_item, delete_ticker_item, category_count
+from django.template.defaultfilters import truncatewords as truncate_words
+from django.template.loader import render_to_string
+from django.urls import reverse
+from django.utils.html import strip_tags
+from django.utils.translation import gettext as _
+
+# Managers
+from coltrane.managers import LiveCategoryManager, LivePostManager, SyncManager
+from coltrane.signals import category_count, create_ticker_item, delete_ticker_item
 
 
 class Ticker(models.Model):
@@ -68,9 +68,7 @@ class Category(models.Model):
     title = models.CharField(max_length=250, help_text=_("Maximum 250 characters."))
     slug = models.SlugField(
         unique=True,
-        help_text=_(
-            "Suggested value automatically generated from title. Must be unique."
-        ),
+        help_text=_("Suggested value automatically generated from title. Must be unique."),
     )
     description = models.TextField(null=True, blank=True)
     post_count = models.IntegerField(default=0, editable=False)
@@ -125,18 +123,14 @@ class Post(models.Model):
         unique_for_date="pub_date",
         help_text=_("Suggested value automatically generated from title."),
     )
-    body_markup = models.TextField(
-        help_text=_("The HTML of the post that is edited by the author.")
-    )
+    body_markup = models.TextField(help_text=_("The HTML of the post that is edited by the author."))
     body_html = models.TextField(
         null=True,
         blank=True,
         editable=False,
         help_text=_("The HTML of the post run through Pygments."),
     )
-    pub_date = models.DateTimeField(
-        _("publication date"), default=datetime.datetime.now
-    )
+    pub_date = models.DateTimeField(_("publication date"), default=datetime.datetime.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     enable_comments = models.BooleanField(default=False)
     status = models.IntegerField(
@@ -156,11 +150,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, force_insert=False, force_update=False):
+    def save(self, force_insert=False, force_update=False, **kwargs):
         from coltrane.utils.pygmenter import pygmenter
 
         self.body_html = pygmenter(self.body_markup)
-        super(Post, self).save()
+        super().save(force_insert=force_insert, force_update=force_update, **kwargs)
 
     def get_absolute_url(self):
         return reverse(
@@ -196,9 +190,7 @@ class Post(models.Model):
         return "%sicons/posts.gif" % (settings.STATIC_URL)
 
     def get_rendered_html(self):
-        template_name = "coltrane/ticker_item_%s.html" % (
-            self.__class__.__name__.lower()
-        )
+        template_name = "coltrane/ticker_item_%s.html" % (self.__class__.__name__.lower())
         return render_to_string(template_name, {"object": self})
 
 
@@ -208,9 +200,7 @@ class ThirdPartyBaseModel(models.Model):
     """
 
     url = models.URLField(max_length=1000)
-    pub_date = models.DateTimeField(
-        default=datetime.datetime.now, verbose_name=_("publication date")
-    )
+    pub_date = models.DateTimeField(default=datetime.datetime.now, verbose_name=_("publication date"))
     objects = models.Manager()
     sync = SyncManager()
 
@@ -308,9 +298,7 @@ class Movie(ThirdPartyBaseModel):
     """
 
     title = models.CharField(max_length=250, blank=True, null=True)
-    rating = models.FloatField(
-        null=True, blank=True, verbose_name="One to five star rating."
-    )
+    rating = models.FloatField(null=True, blank=True, verbose_name="One to five star rating.")
 
     def __str__(self):
         return self.title
@@ -357,12 +345,8 @@ class Track(ThirdPartyBaseModel):
 
     artist_name = models.CharField(max_length=250)
     track_name = models.CharField(max_length=250)
-    track_mbid = models.CharField(
-        verbose_name=_("MusicBrainz Track ID"), max_length=36, blank=True
-    )
-    artist_mbid = models.CharField(
-        verbose_name=_("MusicBrainz Artist ID"), max_length=36, blank=True
-    )
+    track_mbid = models.CharField(verbose_name=_("MusicBrainz Track ID"), max_length=36, blank=True)
+    artist_mbid = models.CharField(verbose_name=_("MusicBrainz Artist ID"), max_length=36, blank=True)
 
     def __str__(self):
         return "%s - %s" % (self.artist_name, self.track_name)

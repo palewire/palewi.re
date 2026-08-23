@@ -1,0 +1,65 @@
+[project]
+name = "palewi-re"
+version = "0.1.0"
+description = "palewi.re — Ben Welsh's personal site"
+requires-python = ">=3.12"
+dependencies = [
+    "Django~=5.2",
+    "dj-database-url>=2.3",
+    "django-contrib-comments==2.2.0",
+    "django-sass-processor>=1.4",
+    "django-compressor>=4.5",
+    "django-proxy>=1.2",
+    "libsass>=0.23",
+    "gunicorn>=23.0",
+    "whitenoise[brotli]>=6.9",
+    "greeking>=1.1",
+    "psycopg[binary]>=3.2",
+    "python-dateutil>=2.9",
+    "requests>=2.32",
+    "beautifulsoup4>=4.13",
+    "Jinja2>=3.1",
+    "Pygments>=2.19",
+    "tzdata>=2025.1",
+    "markdown>=3.7",
+    "pyyaml>=6.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2",
+    "pytest>=8.4",
+    "pytest-django>=4.11",
+    "pytest-cov>=6.1",
+    "coverage[toml]>=7.8",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501", "UP031"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "project.settings"
+python_files = ["tests.py", "test_*.py"]
+addopts = "--cov=. --cov-report=term-missing --cov-fail-under=40"
+
+[tool.coverage.run]
+omit = [
+    "*/migrations/*",
+    "*/staticfiles/*",
+    "manage.py",
+    "wsgi.py",
+]
+
+[tool.coverage.report]
+show_missing = true

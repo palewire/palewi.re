@@ -38,9 +38,7 @@ class DomainRedirectMiddleware:
             "https" if request.is_secure() else "http",
             self.host,
             quote(request.path),
-            (request.method == "GET" and len(request.GET) > 0)
-            and "?%s" % request.GET.urlencode()
-            or "",
+            (request.method == "GET" and len(request.GET) > 0) and "?%s" % request.GET.urlencode() or "",
         )
 
     def __init__(self, get_response):

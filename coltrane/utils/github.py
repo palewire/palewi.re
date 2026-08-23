@@ -1,17 +1,17 @@
 # Models
-from coltrane.models import Commit
+# Logging
+import logging
 
 # Text and time
 import dateutil.parser
-from coltrane import utils
 
-# Logging
-import logging
+from coltrane import utils
+from coltrane.models import Commit
 
 logger = logging.getLogger(__name__)
 
 
-class GithubClient(object):
+class GithubClient:
     """
     A minimal Github client.
     """
@@ -32,9 +32,7 @@ class GithubClient(object):
         return "<GithubClient: %s>" % self.username
 
     def get_latest_data(self):
-        self.json = [
-            d for d in utils.getjson(self.feed_url) if d["type"] == "PushEvent"
-        ]
+        self.json = [d for d in utils.getjson(self.feed_url) if d["type"] == "PushEvent"]
         for entry in self.json:
             for commit in entry["payload"]["commits"]:
                 # Create a dict to stuff the goodies
@@ -56,13 +54,7 @@ class GithubClient(object):
     def _handle_commit(self, commit_dict):
         try:
             Commit.objects.get(url=commit_dict["url"])
-            logger.debug(
-                "Already have commit %s (%s)."
-                % (commit_dict.get("message"), commit_dict.get("pub_date"))
-            )
+            logger.debug("Already have commit %s (%s)." % (commit_dict.get("message"), commit_dict.get("pub_date")))
         except Commit.DoesNotExist:
             Commit.objects.create(**commit_dict)
-            logger.debug(
-                "Adding commit %s (%s)."
-                % (commit_dict.get("message"), commit_dict.get("pub_date"))
-            )
+            logger.debug("Adding commit %s (%s)." % (commit_dict.get("message"), commit_dict.get("pub_date")))

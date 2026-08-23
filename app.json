@@ -1,0 +1,58 @@
+{
+  "name": "palewi.re",
+  "description": "Ben Welsh's personal site — Django blog and portfolio.",
+  "repository": "https://github.com/palewire/palewi.re",
+  "keywords": ["python", "django"],
+  "env": {
+    "SECRET_KEY": {
+      "description": "Django secret key used for cryptographic signing.",
+      "generator": "secret"
+    },
+    "PRODUCTION": {
+      "description": "Set to 'true' to enable production security settings.",
+      "value": "true"
+    },
+    "DEBUG": {
+      "description": "Set to 'true' to enable Django debug mode. Leave unset in production.",
+      "value": ""
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "scripts": {
+    "postdeploy": "python manage.py migrate --noinput"
+  },
+  "environments": {
+    "review": {
+      "formation": {
+        "web": {
+          "quantity": 1,
+          "size": "eco"
+        }
+      },
+      "scripts": {
+        "postdeploy": "python manage.py migrate --noinput"
+      }
+    },
+    "test": {
+      "scripts": {
+        "test": "uv run pytest tests/"
+      },
+      "addons": ["heroku-postgresql:essential-0"]
+    }
+  }
+}

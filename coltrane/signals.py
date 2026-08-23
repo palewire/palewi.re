@@ -12,23 +12,17 @@ def create_ticker_item(sender, instance, signal, *args, **kwargs):
         if kwargs["created"]:
             ctype = ContentType.objects.get_for_model(instance)
             pub_date = instance.pub_date
-            Ticker.objects.get_or_create(
-                content_type=ctype, object_id=instance.id, pub_date=pub_date
-            )
+            Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
     # Check to see if the object is a comment, and it has been approved
     elif instance.__class__.__name__ == "Comment":
         if instance.is_public:
             ctype = ContentType.objects.get_for_model(instance)
             pub_date = instance.submit_date
-            Ticker.objects.get_or_create(
-                content_type=ctype, object_id=instance.id, pub_date=pub_date
-            )
+            Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=pub_date)
     elif instance.__class__.__name__ == "Change":
         if instance.is_public:
             ctype = ContentType.objects.get_for_model(instance)
-            Ticker.objects.get_or_create(
-                content_type=ctype, object_id=instance.id, pub_date=instance.pub_date
-            )
+            Ticker.objects.get_or_create(content_type=ctype, object_id=instance.id, pub_date=instance.pub_date)
 
 
 def delete_ticker_item(sender, instance, signal, *args, **kwargs):
@@ -49,9 +43,7 @@ def delete_ticker_item(sender, instance, signal, *args, **kwargs):
 
     # Look for any Ticker item and delete it if it exists
     try:
-        t = Ticker.objects.get(
-            content_type=ctype, object_id=instance.id, pub_date=pub_date
-        )
+        t = Ticker.objects.get(content_type=ctype, object_id=instance.id, pub_date=pub_date)
         t.delete()
     except Ticker.DoesNotExist:
         pass

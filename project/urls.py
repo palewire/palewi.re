@@ -1,24 +1,23 @@
+# Admin
+from django.contrib import admin
+from django.contrib.sitemaps import views as sitemap_views
 from django.urls import include, path, re_path
-from .redirects import patterns as redirectpatterns
+from django.views.generic import RedirectView
 
 # Views
 from coltrane import views
-from coltrane.sitemaps import sitemaps
 from coltrane.feeds import LatestPostsFeed
-from toolbox.views import DirectTemplateView
-from django.views.generic import RedirectView
-from django.contrib.sitemaps import views as sitemap_views
+from coltrane.sitemaps import sitemaps
+from toolbox.views import DirectTemplateView, health_check
 
-# Admin
-from django.contrib import admin
-
+from .redirects import patterns as redirectpatterns
 
 # URLs for the blog
 blogpatterns = [
+    # Health check
+    path("health/", health_check, name="health_check"),
     # The index
-    re_path(
-        r"^$", RedirectView.as_view(url="/who-is-ben-welsh/"), name="coltrane_index"
-    ),
+    re_path(r"^$", RedirectView.as_view(url="/who-is-ben-welsh/"), name="coltrane_index"),
     # My bio
     re_path(r"^who-is-ben-welsh/$", views.bio, name="coltrane_bio"),
     # The admin
@@ -47,9 +46,7 @@ blogpatterns = [
     path("feeds/posts/", LatestPostsFeed()),
     re_path(
         r"^robots\.txt$",
-        DirectTemplateView.as_view(
-            template_name="robots.txt", content_type="text/plain"
-        ),
+        DirectTemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
         name="robots",
     ),
     re_path(

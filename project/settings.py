@@ -1,15 +1,19 @@
-# Django settings for cms project.
+# Django settings for palewi.re
 import os
+
 import dj_database_url
-import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_DIR = os.path.join(BASE_DIR, "project")
 ROOT_DIR = BASE_DIR
 
-DEBUG = os.environ.get("DEBUG") != "false"
 PRODUCTION = os.environ.get("PRODUCTION") == "true"
-SECRET_KEY = os.environ.get("SECRET_KEY", "foobar")
+DEBUG = not PRODUCTION and os.environ.get("DEBUG", "true").lower() != "false"
+
+_default_secret = "" if PRODUCTION else "dev-only-insecure-secret-key-not-for-production"
+SECRET_KEY = os.environ.get("SECRET_KEY", _default_secret)
+if PRODUCTION and not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY must be set in production.")
 
 #
 # Media files
@@ -17,12 +21,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "foobar")
 
 MEDIA_URL = "http://palewire.s3.amazonaws.com/"
 ADMIN_MEDIA_PREFIX = "http://palewire.s3.amazonaws.com/admin/"
-STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 #
 # Static files
 #
+
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "collected_static")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_FINDERS = [
@@ -37,31 +44,35 @@ LANGUAGE_CODE = "en-us"
 SITE_ID = 1
 USE_I18N = True
 
-ALLOWED_HOSTS = ["*"]
-SESSION_COOKIE_DOMAIN = "palewi.re"
-CSRF_TRUSTED_ORIGINS = ["https://palewi.re"]
+ALLOWED_HOSTS = (
+    ["palewi.re", "www.palewi.re", ".palewi.re", ".herokuapp.com"]
+    if PRODUCTION
+    else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+)
+SESSION_COOKIE_DOMAIN = "palewi.re" if PRODUCTION else None
+CSRF_TRUSTED_ORIGINS = ["https://palewi.re", "https://*.palewi.re", "https://*.herokuapp.com"]
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "palewire",
-        "USER": "postgres",
-        "HOST": "localhost",
-    }
+    "default": dj_database_url.config(
+        default="postgres://postgres@localhost/palewire",
+        conn_max_age=500,
+        ssl_require=PRODUCTION,
+    )
 }
-DATABASES["default"].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
-MIDDLEWARE = (
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-)
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
 
 ROOT_URLCONF = "project.urls"
 
@@ -88,7 +99,7 @@ TEMPLATES = [
 ]
 
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -106,7 +117,7 @@ INSTALLED_APPS = (
     "greeking",
     "whitenoise.runserver_nostatic",
     "sass_processor",
-)
+]
 
 LOGGING = {
     "version": 1,
@@ -170,5 +181,15 @@ TWITTER_ACCESS_TOKEN_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 TWITTER_RETWEET_TXT = "RT %s: "
 TWITTER_REMOVE_LINKS = False
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+#
+# Production security
+#
+
+if PRODUCTION:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
