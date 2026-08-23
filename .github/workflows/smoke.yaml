@@ -1,16 +1,9 @@
 name: Smoke test
 
-# Automatic: fires when CI completes successfully on main (Heroku
-# auto-deploys from main shortly after).  A 90-second wait + retry
-# loop gives the dyno time to boot before asserting.
+# Automatic: fires after Heroku reports a successful production deployment.
 # Manual: run via Actions UI with an optional URL override.
-# repository_dispatch: Heroku Deploy Hook can POST
-#   {"event_type":"heroku_deploy"} — no long-lived token needed.
 on:
-  workflow_run:
-    workflows: ["CI"]
-    branches: [main]
-    types: [completed]
+  deployment_status:
   repository_dispatch:
     types: [heroku_deploy]
   workflow_dispatch:
@@ -26,22 +19,16 @@ permissions:
 jobs:
   smoke:
     name: Smoke test production
-    # For workflow_run, only run when CI actually passed (not on failure).
     if: >
-      github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success'
+      github.event_name != 'deployment_status' ||
+      (github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'palewire')
     runs-on: ubuntu-latest
 
     env:
       BASE_URL: ${{ github.event.inputs.base_url || 'https://palewi.re' }}
 
     steps:
-      - name: Wait for Heroku deployment
-        # Give Heroku ~90 s to receive the push, build, and release
-        # when triggered by workflow_run.  Skip the wait for manual runs.
-        if: github.event_name == 'workflow_run'
-        run: sleep 90
-
       - name: Health check (with retries)
         run: |
           echo "Testing health endpoint: $BASE_URL/health/"

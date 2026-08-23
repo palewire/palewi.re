@@ -57,8 +57,8 @@ Review Apps are **manually created** (no auto-create on PR). To create one:
 
 ## Post-deployment smoke checks
 
-`.github/workflows/smoke.yaml` fires automatically when the **CI** workflow completes on `main`
-(giving Heroku ~90 s to deploy), or run it manually via **Actions → Smoke test → Run workflow**.
+`.github/workflows/smoke.yaml` fires automatically after Heroku reports a successful deployment,
+or run it manually via **Actions → Smoke test → Run workflow**.
 No Heroku API token is required.
 
 ## Branch protection
