@@ -1,11 +1,26 @@
 {% extends "coltrane/base.html" %}
 
-{% block title %}404 Error (Page Not Found) . {{ block.super }}{% endblock %}
+{% block title %}Page not found · {{ block.super }}{% endblock %}
+{% block robots %}noindex{% endblock %}
 
 {% block content %}
-
-    <div class="twelvecol last">
-        <h1 style="text-align:center;">Sorry, the page you're looking for could not be found.</h1>
-    </div>
-
+<section class="twelvecol last error-page" aria-labelledby="error-heading">
+    <h1 id="error-heading">Page not found.</h1>
+    <p class="error-page__message">
+        The page may have moved, or the address might be wrong.
+    </p>
+    <p class="error-page__home">
+        <a href="/">Go to the homepage <span aria-hidden="true">→</span></a>
+    </p>
+    <nav class="error-page__nav" aria-label="More places to visit">
+        <p>Or keep looking:</p>
+        <ul>
+            <li><a href="{% url 'coltrane_post_list' %}">Posts</a></li>
+            <li><a href="{% url 'coltrane_work_list' %}">Work</a></li>
+            <li><a href="{% url 'coltrane_talk_list' %}">Talks</a></li>
+            <li><a href="{% url 'coltrane_doc_list' %}">Docs</a></li>
+            <li><a href="{% url 'coltrane_bio' %}">About</a></li>
+        </ul>
+    </nav>
+</section>
 {% endblock %}
