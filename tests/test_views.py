@@ -24,6 +24,10 @@ def test_root_redirects_to_bio(client):
 def test_bio_page_ok(client):
     response = client.get("/who-is-ben-welsh/")
     assert response.status_code == 200
+    content = response.content.decode()
+    assert 'width="800"' in content
+    assert 'height="450"' in content
+    assert 'fetchpriority="high"' in content
 
 
 @pytest.mark.django_db

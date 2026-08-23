@@ -8,6 +8,13 @@ img {
   height: auto;
 }
 
+picture.photo,
+picture.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 figure {
   margin: 0;
   padding: 0;
