@@ -200,7 +200,9 @@ TWITTER_REMOVE_LINKS = False
 #
 
 if PRODUCTION:
-    SECURE_SSL_REDIRECT = True
+    # Cloudflare may connect to the Heroku origin over HTTP after terminating
+    # TLS. Allow that deployment to disable Django's redirect and avoid a loop.
+    SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "true").lower() == "true"
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 31536000
