@@ -80,5 +80,15 @@ jobs:
       - name: Django system check
         run: uv run python manage.py check
 
+      - name: Build production static files
+        env:
+          PRODUCTION: "true"
+          SECURE_SSL_REDIRECT: "false"
+          SECRET_KEY: ci-static-build-secret-with-more-than-fifty-characters
+        run: |
+          uv run python manage.py compilescss --verbosity 0
+          uv run python manage.py collectstatic --noinput --clear
+          grep -q '"styles.css"' collected_static/staticfiles.json
+
       - name: Run tests
         run: uv run pytest --tb=short

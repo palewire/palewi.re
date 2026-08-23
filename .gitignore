@@ -1,4 +1,5 @@
 staticfiles/
+coltrane/static/styles.css
 .staticfiles/
 db.sqlite3
 *~
@@ -30,3 +31,6 @@ collected_static/
 # Build / packaging
 dist/
 *.egg-info/
+
+# Goal-skill artifacts
+.goals/
