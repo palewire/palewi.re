@@ -3,9 +3,15 @@
 from unittest.mock import patch
 
 import pytest
-from django.core.management import call_command
+from django.core.management import call_command, get_commands
 from django.core.management.base import CommandError
 from django.test import override_settings
+
+
+def test_legacy_sync_commands_are_removed():
+    commands = get_commands()
+    assert "syncgithub" not in commands
+    assert "synctwitter" not in commands
 
 
 @pytest.mark.django_db

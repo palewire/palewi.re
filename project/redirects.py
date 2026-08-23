@@ -103,102 +103,6 @@ patterns = [
         r"^applications/(?P<anything>.*)/$",
         RedirectView.as_view(url="/apps/%(anything)s/"),
     ),
-    # V2 of the blog, now replaced by the consolidated ticker
-    re_path(
-        r"^books/$",
-        RedirectView.as_view(url="/ticker/?filters=book"),
-        name="coltrane_book_root",
-    ),
-    re_path(
-        r"^books/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=book"),
-        name="coltrane_book_list",
-    ),
-    re_path(
-        r"^comments/$",
-        RedirectView.as_view(url="/ticker/?filters=comment"),
-        name="coltrane_comment_root",
-    ),
-    re_path(
-        r"^comments/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=comment"),
-        name="coltrane_comment_list",
-    ),
-    re_path(
-        r"^commits/$",
-        RedirectView.as_view(url="/ticker/?filters=commit"),
-        name="coltrane_commit_root",
-    ),
-    re_path(
-        r"^commits/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=commit"),
-        name="coltrane_commit_list",
-    ),
-    re_path(
-        r"^links/$",
-        RedirectView.as_view(url="/ticker/?filters=link"),
-        name="coltrane_link_root",
-    ),
-    re_path(
-        r"^links/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=link"),
-        name="coltrane_link_list",
-    ),
-    re_path(
-        r"^locations/$",
-        RedirectView.as_view(url="/ticker/?filters=location"),
-        name="coltrane_location_root",
-    ),
-    re_path(
-        r"^locations/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=location"),
-        name="coltrane_location_list",
-    ),
-    re_path(
-        r"^movies/$",
-        RedirectView.as_view(url="/ticker/?filters=movie"),
-        name="coltrane_movie_root",
-    ),
-    re_path(
-        r"^movies/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=movie"),
-        name="coltrane_movie_list",
-    ),
-    re_path(
-        r"^photos/$",
-        RedirectView.as_view(url="/ticker/?filters=photo"),
-        name="coltrane_photo_root",
-    ),
-    re_path(
-        r"^photos/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=photo"),
-        name="coltrane_photo_list",
-    ),
-    re_path(
-        r"^shouts/$",
-        RedirectView.as_view(url="/ticker/?filters=shout"),
-        name="coltrane_shout_root",
-    ),
-    re_path(
-        r"^shouts/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=shout"),
-        name="coltrane_link_list",
-    ),
-    re_path(
-        r"^tracks/$",
-        RedirectView.as_view(url="/ticker/?filters=track"),
-        name="coltrane_track_root",
-    ),
-    re_path(
-        r"^tracks/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/?filters=track"),
-        name="coltrane_track_list",
-    ),
-    re_path(
-        r"^categories/list/$",
-        RedirectView.as_view(url="/ticker/"),
-        name="coltrane_category_list",
-    ),
     re_path(
         r"^apps/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/apps/"),
@@ -208,10 +112,5 @@ patterns = [
         r"^posts/page/(?P<page>[0-9]+)/$",
         RedirectView.as_view(url="/posts/"),
         name="coltrane_post_archive_index",
-    ),
-    re_path(
-        r"^ticker/page/(?P<page>[0-9]+)/$",
-        RedirectView.as_view(url="/ticker/"),
-        name="coltrane_ticker_root",
     ),
 ]

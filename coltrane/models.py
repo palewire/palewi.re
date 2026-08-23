@@ -6,44 +6,16 @@ from django.conf import settings
 
 # Models
 from django.contrib.auth.models import User
-
-# Fields
-from django.contrib.contenttypes import fields as generic
-from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 # Signals
 from django.db.models import signals
-from django.template.defaultfilters import truncatewords as truncate_words
-from django.template.loader import render_to_string
 from django.urls import reverse
-from django.utils.html import strip_tags
 from django.utils.translation import gettext as _
 
 # Managers
-from coltrane.managers import LiveCategoryManager, LivePostManager, SyncManager
-from coltrane.signals import category_count, create_ticker_item, delete_ticker_item
-
-
-class Ticker(models.Model):
-    """
-    A tumblelog of the latest content items, pushed automagically by the functions in signals.py.
-    """
-
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    pub_date = models.DateTimeField()
-    content_object = generic.GenericForeignKey("content_type", "object_id")
-
-    class Meta:
-        verbose_name_plural = _("Ticker")
-        ordering = ("-pub_date",)
-
-    def __str__(self):
-        return "%s: %s" % (
-            self.content_type.model_class().__name__,
-            self.content_object,
-        )
+from coltrane.managers import LiveCategoryManager, LivePostManager
+from coltrane.signals import category_count
 
 
 class Category(models.Model):
@@ -175,177 +147,7 @@ class Post(models.Model):
     def get_absolute_icon(self):
         return "%sicons/posts.gif" % (settings.STATIC_URL)
 
-    def get_rendered_html(self):
-        template_name = "coltrane/ticker_item_%s.html" % (self.__class__.__name__.lower())
-        return render_to_string(template_name, {"object": self})
-
-
-class ThirdPartyBaseModel(models.Model):
-    """
-    A base model for the data we'll be pulling from third-party sites.
-    """
-
-    url = models.URLField(max_length=1000)
-    pub_date = models.DateTimeField(default=datetime.datetime.now, verbose_name=_("publication date"))
-    objects = models.Manager()
-    sync = SyncManager()
-
-    class Meta:
-        ordering = ("-pub_date",)
-        abstract = True
-        get_latest_by = "pub_date"
-
-
-class Beer(ThirdPartyBaseModel):
-    """
-    A beer I drank.
-    """
-
-    title = models.CharField(max_length=250, blank=True, null=True)
-    brewery = models.CharField(max_length=250)
-
-    def __str__(self):
-        return self.title
-
-
-class Book(ThirdPartyBaseModel):
-    """
-    Books I've read.
-    """
-
-    isbn = models.CharField(max_length=20, unique=True)
-    title = models.CharField(max_length=250)
-    authors = models.CharField(max_length=250, blank=True, null=True)
-
-    def __str__(self):
-        if self.authors:
-            return "%s by %s" % (self.title, self.authors)
-        else:
-            return self.title
-
-
-class Link(ThirdPartyBaseModel):
-    """
-    Links to bookmarks I'd like to recommend.
-    """
-
-    title = models.CharField(max_length=250)
-    description = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.title
-
-
-class Commit(ThirdPartyBaseModel):
-    """
-    Code I've written.
-    """
-
-    repository = models.CharField(max_length=100)
-    branch = models.CharField(max_length=100, blank=True)
-    message = models.TextField()
-
-    def __str__(self):
-        if self.branch:
-            return "%s: %s - %s" % (self.repository, self.branch, self.message)
-        else:
-            return "%s: %s" % (self.repository, self.message)
-
-    title = property(__str__)
-
-    def get_short_message(self, words=8):
-        """
-        Trims message to the specified number of words.
-
-        Good for use in the admin.
-        """
-        return truncate_words(strip_tags(self.message), words)
-
-    short_message = property(get_short_message)
-
-
-class Location(ThirdPartyBaseModel):
-    """
-    A place where I announce my presence.
-    """
-
-    title = models.CharField(max_length=250)
-    description = models.TextField(blank=True, null=True)
-    latitude = models.FloatField(null=True)
-    longitude = models.FloatField(null=True)
-
-    def __str__(self):
-        return self.title
-
-
-class Movie(ThirdPartyBaseModel):
-    """
-    Links to movies I've seen and rated.
-    """
-
-    title = models.CharField(max_length=250, blank=True, null=True)
-    rating = models.FloatField(null=True, blank=True, verbose_name="One to five star rating.")
-
-    def __str__(self):
-        return self.title
-
-
-class Photo(ThirdPartyBaseModel):
-    """
-    Links to photos I want to recommend, including my own.
-    """
-
-    title = models.CharField(max_length=250, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.title
-
-
-class Shout(ThirdPartyBaseModel):
-    """
-    Shorter things I blast out.
-    """
-
-    message = models.TextField(max_length=140)
-
-    def __str__(self):
-        return self.message
-
-    def get_short_message(self, words=8):
-        """
-        Trims message to the specified number of words.
-
-        Good for use in the admin.
-        """
-        return truncate_words(strip_tags(self.message), words)
-
-    short_message = property(get_short_message)
-    title = property(get_short_message)
-
-
-class Track(ThirdPartyBaseModel):
-    """
-    Links to tracks I've listened to.
-    """
-
-    artist_name = models.CharField(max_length=250)
-    track_name = models.CharField(max_length=250)
-    track_mbid = models.CharField(verbose_name=_("MusicBrainz Track ID"), max_length=36, blank=True)
-    artist_mbid = models.CharField(verbose_name=_("MusicBrainz Artist ID"), max_length=36, blank=True)
-
-    def __str__(self):
-        return "%s - %s" % (self.artist_name, self.track_name)
-
-    title = property(__str__)
-
 
 # Signals
-for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Movie, Location, Beer]:
-    signals.post_save.connect(create_ticker_item, sender=modelname)
-
-for modelname in [Link, Photo, Post, Shout, Track, Book, Commit, Movie, Location, Beer]:
-    signals.post_delete.connect(delete_ticker_item, sender=modelname)
-
 signals.post_save.connect(category_count, sender=Post)
 signals.post_delete.connect(category_count, sender=Post)
