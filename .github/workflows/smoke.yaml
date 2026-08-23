@@ -32,20 +32,22 @@ jobs:
       - name: Health check (with retries)
         run: |
           echo "Testing health endpoint: $BASE_URL/health/"
+          health_ok=false
           for i in 1 2 3; do
             response=$(curl --silent --max-time 20 --write-out "\n%{http_code}" "$BASE_URL/health/" || true)
-            http_code=$(echo "$response" | tail -1)
-            body=$(echo "$response" | head -1)
+            http_code=$(printf '%s\n' "$response" | tail -1)
+            body=$(printf '%s\n' "$response" | sed '$d')
             echo "Attempt $i — HTTP $http_code — $body"
             if [ "$http_code" = "200" ]; then
-              if echo "$body" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['status']=='ok'; assert d['db'] is True" 2>/dev/null; then
+              if printf '%s' "$body" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['status']=='ok'; assert d['db'] is True" 2>/dev/null; then
                 echo "✅ Health check passed"
+                health_ok=true
                 break
               fi
             fi
             if [ "$i" -lt 3 ]; then sleep 30; fi
           done
-          if [ "$http_code" != "200" ]; then
+          if [ "$health_ok" != "true" ]; then
             echo "❌ Health check failed after retries (last HTTP $http_code)"
             exit 1
           fi

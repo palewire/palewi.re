@@ -2,12 +2,14 @@
 
 export UV_NO_ENV_FILE = 1
 
-.PHONY: help bootstrap install serve check test lint typecheck django-check migrations-check fmt migrate
+.PHONY: help bootstrap ci-bootstrap install hooks database serve check test lint typecheck django-check migrations-check fmt migrate
 
 help:
 	@echo "Available targets:"
 	@echo "  bootstrap  Prepare dependencies, database, migrations, and hooks"
-	@echo "  install    Install all dependencies (requires uv)"
+	@echo "  ci-bootstrap  Prepare dependencies, database, and migrations for CI"
+	@echo "  install    Install all dependencies without changing Git hooks"
+	@echo "  hooks      Install pre-commit hooks"
 	@echo "  serve      Start the development server"
 	@echo "  check      Run the same lint, type, Django, migration, and test checks as CI"
 	@echo "  test       Run tests only"
@@ -18,11 +20,17 @@ help:
 
 install:
 	uv sync --locked --group dev
+
+hooks:
 	uv run pre-commit install
 
-bootstrap: install
+database:
 	uv run python -m scripts.worktree create-database
 	uv run python manage.py migrate
+
+bootstrap: install hooks database
+
+ci-bootstrap: install database
 
 serve:
 	uv run python -m scripts.worktree serve
