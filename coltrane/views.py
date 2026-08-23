@@ -19,7 +19,7 @@ from django.views.generic import ListView, TemplateView
 # Helpers
 from proxy.views import proxy_view
 
-from bona_fides import models as bona_fides
+from coltrane.content_loaders import load_awards, load_clips, load_docs, load_talks
 
 # Models
 from coltrane.models import Post
@@ -57,7 +57,7 @@ def bio(request):
     """
     context = {
         "bio_html": mark_safe(_load_bio_html()),
-        "award_list": bona_fides.Award.objects.all(),
+        "award_list": load_awards(),
         "socialmedia_list": BIO_SOCIAL_LIST,
         "email_list": BIO_EMAIL_LIST,
         "skill_list": BIO_SKILL_LIST,
@@ -101,14 +101,22 @@ def server_error(request, template_name="500.html"):
     )
 
 
-class ClipListView(ListView):
-    model = bona_fides.Clip
+class ClipListView(TemplateView):
     template_name = "coltrane/clip_list.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["object_list"] = load_clips()
+        return context
 
-class TalkListView(ListView):
-    model = bona_fides.Talk
+
+class TalkListView(TemplateView):
     template_name = "coltrane/talk_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["object_list"] = load_talks()
+        return context
 
 
 class PostListView(ListView):
@@ -120,8 +128,9 @@ class DocListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["lesson_list"] = bona_fides.Doc.objects.filter(type="lesson-plan")
-        context["software_list"] = bona_fides.Doc.objects.filter(type="software")
+        all_docs = load_docs()
+        context["lesson_list"] = [d for d in all_docs if d.type == "lesson-plan"]
+        context["software_list"] = [d for d in all_docs if d.type == "software"]
         return context
 
 
