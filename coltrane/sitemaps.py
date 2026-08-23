@@ -1,6 +1,7 @@
-from coltrane.models import Post
 from django.contrib import sitemaps
 from django.contrib.sitemaps import GenericSitemap
+
+from coltrane.models import Post
 
 post_dict = {
     "queryset": Post.live.all(),
@@ -8,7 +9,7 @@ post_dict = {
 }
 
 
-class AbstractSitemapClass(object):
+class AbstractSitemapClass:
     url = None
 
     def get_absolute_url(self):

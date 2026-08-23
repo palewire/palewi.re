@@ -1,28 +1,28 @@
-from functools import lru_cache
-from pathlib import Path
+import datetime
 
 # Time
 import time
-import datetime
+from functools import lru_cache
+from pathlib import Path
 
 # Third-party
 import markdown
 import yaml
+from django.conf import settings
+from django.http import Http404, HttpResponseRedirect, HttpResponseServerError
+from django.shortcuts import render
+from django.template import loader
+from django.urls import reverse
+from django.utils.safestring import mark_safe
+from django.views.generic import ListView, TemplateView
 
 # Helpers
 from proxy.views import proxy_view
-from django.conf import settings
-from django.shortcuts import render
-from django.utils.safestring import mark_safe
-from django.views.generic import ListView, TemplateView
-from django.template import Context, loader
-from django.http import HttpResponseServerError, Http404, HttpResponseRedirect
-from django.urls import reverse
+
+from bona_fides import models as bona_fides
 
 # Models
 from coltrane.models import Post
-from bona_fides import models as bona_fides
-
 
 CONTENT_PATH = Path(__file__).resolve().parent / "content"
 
@@ -93,12 +93,10 @@ def server_error(request, template_name="500.html"):
     t = loader.get_template(template_name)
     return HttpResponseServerError(
         t.render(
-            Context(
-                {
-                    "MEDIA_URL": settings.MEDIA_URL,
-                    "STATIC_URL": settings.STATIC_URL,
-                }
-            )
+            {
+                "MEDIA_URL": settings.MEDIA_URL,
+                "STATIC_URL": settings.STATIC_URL,
+            }
         )
     )
 
@@ -155,6 +153,7 @@ class BotListView(TemplateView):
             ),
             dict(
                 title="@NYCDataBot",
+                twitter_url="",
                 mastodon_url="https://mastodon.palewi.re/@nycdatabot",
             ),
             dict(
@@ -164,6 +163,7 @@ class BotListView(TemplateView):
             ),
             dict(
                 title="@RandomPigeonGPT",
+                twitter_url="",
                 mastodon_url="https://mastodon.palewi.re/@RandomPigeonGPT",
             ),
             dict(

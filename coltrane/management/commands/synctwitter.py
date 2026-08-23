@@ -1,8 +1,9 @@
+import logging
+
 from django.conf import settings
-from coltrane.utils import tweeter
 from django.core.management.base import BaseCommand
 
-import logging
+from coltrane.utils import tweeter
 
 logger = logging.getLogger(__name__)
 

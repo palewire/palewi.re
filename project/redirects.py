@@ -1,7 +1,7 @@
 from django.urls import re_path
 from django.views.generic import RedirectView
-from toolbox.views import DirectTemplateView
 
+from toolbox.views import DirectTemplateView
 
 patterns = [
     # Redirect links to old blog to new posts
@@ -34,34 +34,24 @@ patterns = [
     # OpenLayers tutorial on old site.
     re_path(
         "^openlayers-proportional-symbols/$",
-        DirectTemplateView.as_view(
-            template_name="tutorials/openlayers-proportional-symbols/index.html"
-        ),
+        DirectTemplateView.as_view(template_name="tutorials/openlayers-proportional-symbols/index.html"),
     ),
     # 2011 free flu shots app
     re_path(
         r"^free-flu-shots/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20130718063144/palewi.re/free-flu-shots/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20130718063144/palewi.re/free-flu-shots/"),
     ),
     re_path(
         r"^random-oscars-ballot/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20191110225501/https://palewi.re/random-oscars-ballot/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20191110225501/https://palewi.re/random-oscars-ballot/"),
     ),
     re_path(
         r"^kennedy/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20160413124128/http://palewi.re/kennedy/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20160413124128/http://palewi.re/kennedy/"),
     ),
     re_path(
         r"^colophon/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20191110230741/https://palewi.re/colophon/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20191110230741/https://palewi.re/colophon/"),
     ),
     re_path(
         r"^apps/twitter-style-infinite-scroll-with-django-demo/$",
@@ -77,33 +67,23 @@ patterns = [
     ),
     re_path(
         r"^mack/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20121109101143/http://palewi.re/mack/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20121109101143/http://palewi.re/mack/"),
     ),
     re_path(
         r"^mack/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20160413123742/http://palewi.re/candysays/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20160413123742/http://palewi.re/candysays/"),
     ),
     re_path(
         r"^regional-connector/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20161229055224/http://palewi.re/regional-connector/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20161229055224/http://palewi.re/regional-connector/"),
     ),
     re_path(
         r"^nicar/polls/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20191110232017/https://palewi.re/nicar/polls/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20191110232017/https://palewi.re/nicar/polls/"),
     ),
     re_path(
         r"^nicar/flu-map/$",
-        RedirectView.as_view(
-            url="https://web.archive.org/web/20191110232108/https://palewi.re/nicar/flu-map/"
-        ),
+        RedirectView.as_view(url="https://web.archive.org/web/20191110232108/https://palewi.re/nicar/flu-map/"),
     ),
     # DC Music Stores map from old site.
     re_path(r"^music/$", RedirectView.as_view(url="/")),

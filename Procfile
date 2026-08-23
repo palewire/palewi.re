@@ -1,2 +1,2 @@
-release: chmod u+x release.sh && ./release.sh
+release: python manage.py migrate --noinput
 web: gunicorn wsgi:application --log-file -

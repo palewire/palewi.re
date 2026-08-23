@@ -1,4 +1,7 @@
+# Logging
+import logging
 import re
+
 import twitter
 
 # Django
@@ -8,9 +11,6 @@ from django.utils.encoding import smart_text
 # App
 from coltrane import utils
 from coltrane.models import Shout
-
-# Logging
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +33,7 @@ except AttributeError:
 #
 
 
-class TwitterClient(object):
+class TwitterClient:
     """
     A minimal Twitter client.
     """
@@ -58,9 +58,7 @@ class TwitterClient(object):
         )
         for status in api.GetUserTimeline(screen_name=settings.TWITTER_USER):
             message_text = smart_text(status.text)
-            url = smart_text(
-                "https://twitter.com/%s/status/%s" % (settings.TWITTER_USER, status.id)
-            )
+            url = smart_text("https://twitter.com/%s/status/%s" % (settings.TWITTER_USER, status.id))
             # pubDate delivered as UTC
             timestamp = utils.parsedate(status.created_at)
             if not self._status_exists(url):

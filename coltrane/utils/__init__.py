@@ -1,22 +1,23 @@
 # http
-import requests
-from requests.auth import HTTPBasicAuth
-
-# Date manipulation
-import time
 import datetime
-import dateutil.parser
-import dateutil.tz
-from zoneinfo import ZoneInfo
 
 # Serialization
 import json
 
-# Text manipulation
-from django.utils.encoding import force_str as force_text
+# Date manipulation
+import time
+from zoneinfo import ZoneInfo
+
+import dateutil.parser
+import dateutil.tz
+import requests
 
 # Django
 from django.conf import settings
+
+# Text manipulation
+from django.utils.encoding import force_str as force_text
+from requests.auth import HTTPBasicAuth
 
 DEFAULT_HTTP_HEADERS = {"User-Agent": "palewi.re ticker"}
 

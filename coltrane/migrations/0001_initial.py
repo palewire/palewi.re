@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
-from django.db import models, migrations
 import datetime
+
 from django.conf import settings
+from django.db import migrations, models
 
 # import tagging.fields
 
@@ -31,9 +29,7 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("title", models.CharField(max_length=250, null=True, blank=True)),
@@ -61,9 +57,7 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("isbn", models.CharField(unique=True, max_length=20)),
@@ -91,9 +85,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "title",
-                    models.CharField(
-                        help_text="Maximum 250 characters.", max_length=250
-                    ),
+                    models.CharField(help_text="Maximum 250 characters.", max_length=250),
                 ),
                 (
                     "slug",
@@ -126,9 +118,7 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("repository", models.CharField(max_length=100)),
@@ -157,9 +147,7 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("title", models.CharField(max_length=250)),
@@ -187,9 +175,7 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("title", models.CharField(max_length=250)),
@@ -219,17 +205,13 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("title", models.CharField(max_length=250, null=True, blank=True)),
                 (
                     "rating",
-                    models.FloatField(
-                        null=True, verbose_name=b"One to five star rating.", blank=True
-                    ),
+                    models.FloatField(null=True, verbose_name=b"One to five star rating.", blank=True),
                 ),
             ],
             options={
@@ -254,9 +236,7 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("title", models.CharField(max_length=250, null=True, blank=True)),
@@ -293,9 +273,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "title",
-                    models.CharField(
-                        help_text="Maximum 250 characters.", max_length=250
-                    ),
+                    models.CharField(help_text="Maximum 250 characters.", max_length=250),
                 ),
                 (
                     "slug",
@@ -307,9 +285,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "body_markup",
-                    models.TextField(
-                        help_text="The HTML of the post that is edited by the author."
-                    ),
+                    models.TextField(help_text="The HTML of the post that is edited by the author."),
                 ),
                 (
                     "body_html",
@@ -322,9 +298,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 ("enable_comments", models.BooleanField(default=True)),
                 (
@@ -338,9 +312,7 @@ class Migration(migrations.Migration):
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=255, blank=True)),
                 (
                     "author",
-                    models.ForeignKey(
-                        to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE
-                    ),
+                    models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE),
                 ),
                 ("categories", models.ManyToManyField(to="coltrane.Category")),
             ],
@@ -365,9 +337,7 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("message", models.TextField(max_length=140)),
@@ -393,9 +363,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "title",
-                    models.CharField(
-                        help_text="Maximum 250 characters.", max_length=250
-                    ),
+                    models.CharField(help_text="Maximum 250 characters.", max_length=250),
                 ),
             ],
             options={
@@ -419,9 +387,7 @@ class Migration(migrations.Migration):
                 ("pub_date", models.DateTimeField()),
                 (
                     "content_type",
-                    models.ForeignKey(
-                        to="contenttypes.ContentType", on_delete=models.CASCADE
-                    ),
+                    models.ForeignKey(to="contenttypes.ContentType", on_delete=models.CASCADE),
                 ),
             ],
             options={
@@ -504,24 +470,18 @@ class Migration(migrations.Migration):
                 ("url", models.URLField(max_length=1000)),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        default=datetime.datetime.now, verbose_name="publication date"
-                    ),
+                    models.DateTimeField(default=datetime.datetime.now, verbose_name="publication date"),
                 ),
                 # ('tags', tagging.fields.TagField(help_text='Separate tags with spaces.', max_length=1000, blank=True)),
                 ("artist_name", models.CharField(max_length=250)),
                 ("track_name", models.CharField(max_length=250)),
                 (
                     "track_mbid",
-                    models.CharField(
-                        max_length=36, verbose_name="MusicBrainz Track ID", blank=True
-                    ),
+                    models.CharField(max_length=36, verbose_name="MusicBrainz Track ID", blank=True),
                 ),
                 (
                     "artist_mbid",
-                    models.CharField(
-                        max_length=36, verbose_name="MusicBrainz Artist ID", blank=True
-                    ),
+                    models.CharField(max_length=36, verbose_name="MusicBrainz Artist ID", blank=True),
                 ),
             ],
             options={

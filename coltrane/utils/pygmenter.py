@@ -3,10 +3,11 @@ Snippet adapted from http://www.djangosnippets.org/snippets/360/
 """
 
 import functools
-from pygments.lexers import LEXERS, get_lexer_by_name
+
+from bs4 import BeautifulSoup
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
-from bs4 import BeautifulSoup
+from pygments.lexers import LEXERS, get_lexer_by_name
 
 # a tuple of known lexer names
 _lexer_names = functools.reduce(lambda a, b: a + b[2], LEXERS.values(), ())

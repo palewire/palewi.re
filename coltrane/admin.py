@@ -1,5 +1,6 @@
-from coltrane import models
 from django.contrib import admin
+
+from coltrane import models
 
 
 @admin.register(models.Slogan)

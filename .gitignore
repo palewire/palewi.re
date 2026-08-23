@@ -10,3 +10,23 @@ django.log
 *.tar
 *.db
 *.pyc
+
+# Python / uv
+__pycache__/
+*.py[cod]
+.venv/
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Env
+.env
+
+# Collected static
+collected_static/
+
+# Build / packaging
+dist/
+*.egg-info/
