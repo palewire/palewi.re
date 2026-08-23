@@ -24,3 +24,12 @@ repos:
       - id: ruff
         args: [--fix]
       - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: ty
+        name: ty (static type analysis)
+        language: system
+        entry: env UV_NO_ENV_FILE=1 uv run ty check --exit-zero-on-warning
+        types: [python]
+        pass_filenames: false

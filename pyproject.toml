@@ -32,6 +32,7 @@ dev = [
     "pytest-django>=4.11",
     "pytest-cov>=6.1",
     "coverage[toml]>=7.8",
+    "ty>=0.0.10",
 ]
 
 [tool.uv]
@@ -63,3 +64,15 @@ omit = [
 
 [tool.coverage.report]
 show_missing = true
+
+[tool.ty]
+# Django uses many dynamic attributes (get_FOO_display, .objects, etc.) that
+# ty cannot statically resolve. We treat those categories as warnings rather
+# than errors so ty still catches real new mistakes in our own code.
+[tool.ty.rules]
+unresolved-attribute = "warn"
+invalid-argument-type = "warn"
+invalid-assignment = "warn"
+invalid-method-override = "warn"
+no-matching-overload = "warn"
+unresolved-import = "warn"

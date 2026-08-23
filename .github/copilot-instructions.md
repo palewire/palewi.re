@@ -25,12 +25,13 @@ Always run before committing:
 make check
 ```
 
-This runs Ruff lint + format check + pytest with coverage.
+This runs Ruff lint + format check, **ty static type analysis**, and pytest with coverage.
 
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.
 - **Linting**: Ruff with `select = ["E", "F", "W", "I", "UP"]` (UP031 ignored).
+- **Type checking**: `ty check .` — Django dynamic attributes are downgraded to warnings; new code should pass clean.
 - **Tests**: pytest-django in `tests/`. Requires PostgreSQL.
 - **Settings**: `PRODUCTION=true` enables full security hardening. `SECRET_KEY` must be set in production.
 - **Static files**: Served by WhiteNoise from `collected_static/`. Run `python manage.py collectstatic` before Heroku deploys.
@@ -43,6 +44,17 @@ This runs Ruff lint + format check + pytest with coverage.
 - `Procfile` runs `python manage.py migrate --noinput` as the release step.
 - `/health/` endpoint verifies DB connectivity.
 - For rollback: `heroku rollback vN`.
+
+## Post-deployment smoke checks
+
+The `.github/workflows/smoke.yaml` workflow verifies health, bio page, and root redirect.
+Run it manually via **Actions → Smoke test → Run workflow**, or trigger it automatically by
+configuring Heroku's Deploy Hook to send a `repository_dispatch` event.
+
+## Branch protection
+
+`main` is protected by a GitHub ruleset (Protect main) that requires the **Lint** and **Test**
+CI jobs to pass before merging. Repository admins can bypass in emergencies.
 
 ## Adding tests
 

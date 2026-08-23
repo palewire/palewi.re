@@ -33,6 +33,12 @@ jobs:
       - name: Format with Ruff
         run: uv run ruff format --check .
 
+      - name: Install dev dependencies
+        run: uv sync --group dev
+
+      - name: Type check with ty
+        run: uv run ty check --exit-zero-on-warning .
+
   test:
     name: Test
     runs-on: ubuntu-latest

@@ -2,17 +2,18 @@
 
 export UV_NO_ENV_FILE = 1
 
-.PHONY: help install serve check test lint fmt migrate
+.PHONY: help install serve check test lint typecheck fmt migrate
 
 help:
 	@echo "Available targets:"
-	@echo "  install   Install all dependencies (requires uv)"
-	@echo "  serve     Start the development server"
-	@echo "  check     Run the full quality gate (lint + format + tests)"
-	@echo "  test      Run tests only"
-	@echo "  lint      Run Ruff linter"
-	@echo "  fmt       Auto-format with Ruff"
-	@echo "  migrate   Apply database migrations"
+	@echo "  install    Install all dependencies (requires uv)"
+	@echo "  serve      Start the development server"
+	@echo "  check      Run the full quality gate (lint + typecheck + tests)"
+	@echo "  test       Run tests only"
+	@echo "  lint       Run Ruff linter and format check"
+	@echo "  typecheck  Run ty static type analysis"
+	@echo "  fmt        Auto-format with Ruff"
+	@echo "  migrate    Apply database migrations"
 
 install:
 	uv sync --group dev
@@ -21,7 +22,7 @@ install:
 serve:
 	uv run python manage.py runserver
 
-check: lint
+check: lint typecheck
 	uv run pytest tests/
 
 test:
@@ -30,6 +31,9 @@ test:
 lint:
 	uv run ruff check .
 	uv run ruff format --check .
+
+typecheck:
+	uv run ty check --exit-zero-on-warning .
 
 fmt:
 	uv run ruff check --fix .
