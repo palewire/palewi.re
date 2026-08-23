@@ -47,7 +47,10 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 - `Procfile` runs `python manage.py migrate --noinput` as the release step.
 - `/health/` endpoint verifies DB connectivity.
 - Rollback: `heroku releases --app palewire` then `heroku rollback vN --app palewire`.
-- Stack: heroku-24 (Cedar). Buildpacks: `heroku/python` + `heroku-buildpack-django-sass`.
+- Stack: heroku-24 (Cedar). Buildpack: `heroku/python`.
+- Production sets `SECURE_SSL_REDIRECT=false` because Cloudflare terminates TLS
+  before connecting to the Heroku origin; Cloudflare remains responsible for
+  redirecting public HTTP traffic to HTTPS.
 
 ## Review Apps
 
