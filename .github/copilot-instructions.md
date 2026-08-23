@@ -12,10 +12,12 @@ This is a Django 5.2 personal site for Ben Welsh. The main apps are:
 ## Setup
 
 ```bash
-uv sync --group dev
-createdb palewire
-uv run python manage.py migrate
+make bootstrap
 ```
+
+Read `AGENTS.md` for the shared development workflow. Linked worktrees receive
+an isolated PostgreSQL database and local server port automatically. Use
+`make serve`; do not hard-code port 8000 or share another worktree's database.
 
 ## Quality gate
 
@@ -30,12 +32,14 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.
+- **Bootstrap**: use `make bootstrap` in local worktrees, CI, and agent environments.
 - **Linting**: Ruff with `select = ["E", "F", "W", "I", "UP"]` (UP031 ignored).
 - **Type checking**: `ty check .` — Django dynamic attributes are downgraded to warnings; new code should pass clean.
 - **Tests**: pytest-django in `tests/`. Requires PostgreSQL.
 - **Settings**: `PRODUCTION=true` enables full security hardening. `SECRET_KEY` must be set in production.
 - **Static files**: Served by WhiteNoise from `collected_static/`. Run `python manage.py collectstatic` before Heroku deploys.
-- **Database**: dj-database-url parses `DATABASE_URL`. Default local: `postgres://postgres@localhost/palewire`.
+- **Database**: dj-database-url parses `DATABASE_URL`. A normal clone defaults to
+  `postgres://postgres@localhost/palewire`; linked worktrees use isolated database names.
 - **django-heroku is removed**: Database, WhiteNoise, and security are configured explicitly in `project/settings.py`.
 
 ## Deployment

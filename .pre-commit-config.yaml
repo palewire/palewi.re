@@ -18,15 +18,18 @@ repos:
       - id: debug-statements
       - id: check-ast
 
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.13
-    hooks:
-      - id: ruff
-        args: [--fix]
-      - id: ruff-format
-
   - repo: local
     hooks:
+      - id: ruff
+        name: ruff
+        language: system
+        entry: env UV_NO_ENV_FILE=1 uv run ruff check --fix
+        types: [python]
+      - id: ruff-format
+        name: ruff format
+        language: system
+        entry: env UV_NO_ENV_FILE=1 uv run ruff format
+        types: [python]
       - id: ty
         name: ty (static type analysis)
         language: system

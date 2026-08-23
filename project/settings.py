@@ -1,7 +1,10 @@
 # Django settings for palewi.re
 import os
+from pathlib import Path
 
 import dj_database_url
+
+from project.worktree import default_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_DIR = os.path.join(BASE_DIR, "project")
@@ -68,7 +71,7 @@ CSRF_TRUSTED_ORIGINS = os.environ.get(
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://postgres@localhost/palewire",
+        default=default_database_url(Path(BASE_DIR)),
         conn_max_age=500,
         ssl_require=PRODUCTION,
     )

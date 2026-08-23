@@ -1,0 +1,53 @@
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+      - Makefile
+      - pyproject.toml
+      - uv.lock
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+      - Makefile
+      - pyproject.toml
+      - uv.lock
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: palewire
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+
+      - name: Configure development environment
+        run: |
+          echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/palewire" >> "$GITHUB_ENV"
+          echo "SECRET_KEY=copilot-setup-key" >> "$GITHUB_ENV"
+          echo "UV_NO_ENV_FILE=1" >> "$GITHUB_ENV"
+
+      - name: Bootstrap development environment
+        run: make bootstrap

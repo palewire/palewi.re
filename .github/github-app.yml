@@ -1,0 +1,27 @@
+instructions: |
+  Read AGENTS.md before making changes.
+  Use the commands below instead of creating a separate environment.
+  Never edit files in another worktree or the project's main checkout.
+
+scripts:
+  - name: Setup
+    command: make bootstrap
+    triggers:
+      - session.create
+  - name: Run server
+    command: make serve
+  - name: Check
+    command: make check
+  - name: Test
+    command: make test
+  - name: Archive cleanup
+    command: uv run python -m scripts.worktree drop-database
+    triggers:
+      - session.archive
+
+server_ready_pattern: 'Starting development server at (http://\S+)'
+auto_open_in_browser: true
+
+automation:
+  auto_issue_session: true
+  remote_control: false
