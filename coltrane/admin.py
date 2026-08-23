@@ -3,11 +3,6 @@ from django.contrib import admin
 from coltrane import models
 
 
-@admin.register(models.Slogan)
-class SloganAdmin(admin.ModelAdmin):
-    pass
-
-
 @admin.register(models.Beer)
 @admin.register(models.Book)
 @admin.register(models.Link)

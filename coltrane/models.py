@@ -46,20 +46,6 @@ class Ticker(models.Model):
         )
 
 
-class Slogan(models.Model):
-    """
-    The slogans that randomly appear at the top of the blog when the logo is hovered over.
-    """
-
-    title = models.CharField(max_length=250, help_text=_("Maximum 250 characters."))
-
-    class Meta:
-        ordering = ["title"]
-
-    def __str__(self):
-        return self.title
-
-
 class Category(models.Model):
     """
     Topic labels for grouping blog entries.

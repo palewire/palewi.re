@@ -1,5 +1,5 @@
 """
-YAML content loaders for bio-page data.
+YAML content loaders for bio-page data, slogans, and bots.
 
 Each loader reads a YAML file, validates the structure and field types, and
 returns a list of typed dataclass instances ready for use in views.
@@ -31,12 +31,24 @@ Edit the appropriate file under ``coltrane/content/``:
   Optional fields: ``description`` (str).
   Ordering: ``type``, then ``title`` (alphabetical).
 
+* ``slogans.yaml`` – Short phrases that appear in the site header.
+  Required fields: ``title`` (str, non-empty).
+  Ordering: alphabetical by title.
+
+* ``bots.yaml``    – Automated accounts listed on /bots/.
+  Required fields: ``title`` (str), ``mastodon_url`` (str).
+  Optional fields: ``twitter_url`` (str, default ``""``).
+  Constraints: ``mastodon_url`` must be unique; non-empty ``twitter_url``
+  values must be unique across the list.
+  Ordering: preserved from file (explicit list order).
+
 After editing, run ``make check`` to validate.
 """
 
 from __future__ import annotations
 
 import datetime
+import random
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -84,6 +96,18 @@ class Doc:
     type: str
     url: str
     description: str = ""
+
+
+@dataclass(frozen=True)
+class Slogan:
+    title: str
+
+
+@dataclass(frozen=True)
+class Bot:
+    title: str
+    mastodon_url: str
+    twitter_url: str = ""
 
 
 # ---------------------------------------------------------------------------
@@ -256,3 +280,65 @@ def load_docs(path: Path | None = None) -> list[Doc]:
         docs.append(Doc(title=title, type=doc_type, url=url, description=description))
     docs.sort(key=lambda d: (d.type, d.title))
     return docs
+
+
+def load_slogans(path: Path | None = None) -> list[Slogan]:
+    """Load and validate slogans from YAML, return alphabetically sorted list."""
+    if path is None:
+        path = CONTENT_PATH / "slogans.yaml"
+    label = str(path)
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(raw, dict):
+        raise ContentError(f"{label}: top-level structure must be a mapping")
+    items = raw.get("slogans", [])
+    if not isinstance(items, list):
+        raise ContentError(f"{label}: 'slogans' must be a list")
+    slogans: list[Slogan] = []
+    for record in items:
+        if not isinstance(record, dict):
+            raise ContentError(f"{label}: each slogan must be a mapping, got {record!r}")
+        title = _require_str(record, "title", label)
+        slogans.append(Slogan(title=title))
+    slogans.sort(key=lambda s: s.title)
+    return slogans
+
+
+def random_slogan(path: Path | None = None) -> Slogan | None:
+    """Return a single randomly selected slogan, or None if the list is empty."""
+    slogans = load_slogans(path)
+    return random.choice(slogans) if slogans else None
+
+
+def load_bots(path: Path | None = None) -> list[Bot]:
+    """Load and validate bots from YAML, preserving file order."""
+    if path is None:
+        path = CONTENT_PATH / "bots.yaml"
+    label = str(path)
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(raw, dict):
+        raise ContentError(f"{label}: top-level structure must be a mapping")
+    items = raw.get("bots", [])
+    if not isinstance(items, list):
+        raise ContentError(f"{label}: 'bots' must be a list")
+    seen_mastodon: set[str] = set()
+    seen_twitter: set[str] = set()
+    bots: list[Bot] = []
+    for record in items:
+        if not isinstance(record, dict):
+            raise ContentError(f"{label}: each bot must be a mapping, got {record!r}")
+        title = _require_str(record, "title", label)
+        mastodon_url = _require_str(record, "mastodon_url", label)
+        if not mastodon_url.startswith("http"):
+            raise ContentError(f"{label}: bot '{title}' mastodon_url must be a URL, got {mastodon_url!r}")
+        if mastodon_url in seen_mastodon:
+            raise ContentError(f"{label}: duplicate bot mastodon_url '{mastodon_url}'")
+        seen_mastodon.add(mastodon_url)
+        twitter_url = _optional_str(record, "twitter_url", label)
+        if twitter_url:
+            if not twitter_url.startswith("http"):
+                raise ContentError(f"{label}: bot '{title}' twitter_url must be a URL, got {twitter_url!r}")
+            if twitter_url in seen_twitter:
+                raise ContentError(f"{label}: duplicate bot twitter_url '{twitter_url}'")
+            seen_twitter.add(twitter_url)
+        bots.append(Bot(title=title, mastodon_url=mastodon_url, twitter_url=twitter_url))
+    return bots
