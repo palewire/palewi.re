@@ -75,6 +75,29 @@ def test_not_found_page_uses_simplified_message(client):
     assert "This page could not be found." in content
 
 
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    "path",
+    [
+        "/books/",
+        "/books/page/2/",
+        "/commits/",
+        "/links/",
+        "/locations/",
+        "/movies/",
+        "/photos/",
+        "/shouts/",
+        "/tracks/",
+        "/ticker/",
+        "/ticker/page/2/",
+        "/categories/list/",
+    ],
+)
+def test_retired_legacy_pages_return_not_found(client, path):
+    response = client.get(path)
+    assert response.status_code == 404
+
+
 @override_settings(DEBUG=False)
 def test_server_error_page_uses_simplified_message(rf):
     response = server_error(rf.get("/"))
