@@ -1,6 +1,9 @@
 """Tests for public-facing pages and redirects."""
 
+from unittest.mock import patch
+
 import pytest
+from django.db import DatabaseError
 from django.test import Client
 
 
@@ -59,6 +62,14 @@ def test_health_check_ok(client):
     data = response.json()
     assert data["status"] == "ok"
     assert data["db"] is True
+
+
+def test_health_check_reports_database_failure(client):
+    with patch("toolbox.views.connection.ensure_connection", side_effect=DatabaseError):
+        response = client.get("/health/")
+
+    assert response.status_code == 503
+    assert response.json() == {"status": "error", "db": False}
 
 
 @pytest.mark.django_db

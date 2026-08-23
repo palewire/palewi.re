@@ -1,6 +1,10 @@
-from django.db import connection
+import logging
+
+from django.db import DatabaseError, connection
 from django.http import JsonResponse
 from django.views.generic import TemplateView
+
+logger = logging.getLogger(__name__)
 
 
 class DirectTemplateView(TemplateView):
@@ -22,7 +26,8 @@ def health_check(request):
     try:
         connection.ensure_connection()
         db_ok = True
-    except Exception:
+    except DatabaseError:
+        logger.exception("Database health check failed")
         db_ok = False
 
     status = 200 if db_ok else 503

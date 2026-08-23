@@ -29,7 +29,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "collected_static")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": (
+            "whitenoise.storage.CompressedManifestStaticFilesStorage"
+            if PRODUCTION
+            else "django.contrib.staticfiles.storage.StaticFilesStorage"
+        ),
+    },
+}
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_FINDERS = [
@@ -49,8 +60,11 @@ ALLOWED_HOSTS = (
     if PRODUCTION
     else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 )
-SESSION_COOKIE_DOMAIN = "palewi.re" if PRODUCTION else None
-CSRF_TRUSTED_ORIGINS = ["https://palewi.re", "https://*.palewi.re", "https://*.herokuapp.com"]
+SESSION_COOKIE_DOMAIN = os.environ.get("SESSION_COOKIE_DOMAIN") or None
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    "CSRF_TRUSTED_ORIGINS",
+    "https://palewi.re,https://*.palewi.re",
+).split(",")
 
 DATABASES = {
     "default": dj_database_url.config(

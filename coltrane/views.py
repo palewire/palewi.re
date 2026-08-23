@@ -11,7 +11,7 @@ import yaml
 from django.conf import settings
 from django.http import Http404, HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render
-from django.template import Context, loader
+from django.template import loader
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.views.generic import ListView, TemplateView
@@ -93,12 +93,10 @@ def server_error(request, template_name="500.html"):
     t = loader.get_template(template_name)
     return HttpResponseServerError(
         t.render(
-            Context(
-                {
-                    "MEDIA_URL": settings.MEDIA_URL,
-                    "STATIC_URL": settings.STATIC_URL,
-                }
-            )
+            {
+                "MEDIA_URL": settings.MEDIA_URL,
+                "STATIC_URL": settings.STATIC_URL,
+            }
         )
     )
 
