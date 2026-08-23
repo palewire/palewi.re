@@ -4,6 +4,10 @@ instructions: |
   Never edit files in another worktree or the project's main checkout.
 
 scripts:
+  - name: Disable commit signing
+    command: git config --local commit.gpgsign false
+    triggers:
+      - session.create
   - name: Setup
     command: make bootstrap
     triggers:
