@@ -128,7 +128,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Blog
     "coltrane",
-    "bona_fides",
     "django_comments",
     # Site extras and helpers
     "greeking",

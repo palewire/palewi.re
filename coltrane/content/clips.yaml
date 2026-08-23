@@ -1,0 +1,1869 @@
+clips:
+- title: geodataframe-to-pmtiles
+  type: software
+  date: '2026-08-21'
+  url: https://palewi.re/docs/geodataframe-to-pmtiles/
+- title: isobands
+  type: software
+  date: '2026-08-19'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7495788020411953155/
+- title: Reuters Climate Monitor
+  type: app
+  date: '2026-06-11'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7470478927887646720/
+- title: fivethirtyeightindex.com
+  type: app
+  date: '2026-05-16'
+  url: https://fivethirtyeightindex.com/
+- title: Wheel of Feedback
+  type: software
+  date: '2026-05-11'
+  url: https://palewire.github.io/cuny-jour-critique-wheel/
+- title: kip.computer
+  type: software
+  date: '2026-05-06'
+  url: https://kip.computer
+- title: ire-archive-backend
+  type: software
+  date: '2026-03-16'
+  url: https://github.com/ireapps/ire-archive-backend
+- title: ire-archive-frontend
+  type: software
+  date: '2026-03-11'
+  url: https://github.com/ireapps/ire-archive-frontend
+- title: First PMTiles Map
+  type: lesson-plan
+  date: '2026-03-07'
+  url: https://palewi.re/docs/first-pmtiles-map/
+- title: Introducing archive.ire.org
+  type: story
+  date: '2026-03-05'
+  url: https://palewi.re/docs/ire-archive-slide-deck/
+- title: archive.ire.org
+  type: app
+  date: '2026-03-05'
+  url: https://archive.ire.org/
+- title: palewire/cuny-jour-73361-coding-the-news
+  type: software
+  date: '2026-02-02'
+  url: https://github.com/palewire/cuny-jour-73361-coding-the-news
+- title: palewire/cuny-jour-static-site-template
+  type: software
+  date: '2026-02-02'
+  url: https://github.com/palewire/cuny-jour-static-site-template
+- title: Coding the News
+  type: lesson-plan
+  date: '2026-02-02'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7424050856469299200/
+- title: Journalism lost its culture of sharing. Here's how to rebuild it.
+  type: story
+  date: '2026-01-27'
+  url: https://source.opennews.org/articles/journalism-lost-sharing-culture/
+- title: First Basemap
+  type: lesson-plan
+  date: '2026-01-05'
+  url: https://palewi.re/docs/first-basemap/
+- title: datawrapper-mcp
+  type: software
+  date: '2025-11-03'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7391131110631620608/
+- title: open-source-news-analysis
+  type: software
+  date: '2025-10-24'
+  url: https://github.com/palewire/open-source-news-analysis/tree/main
+- title: Datawrapper 2.0 for Python
+  type: software
+  date: '2025-10-20'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7386019768384008192/
+- title: New cyclone maps and trackers for reuters.com
+  type: software
+  date: '2025-09-29'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7378398717877383168/
+- title: 100 interactive embeds on the reuters.com homepage
+  type: app
+  date: '2025-09-08'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7369731190469070863/
+- title: wnyc-radio-archive-transcriber
+  type: software
+  date: '2025-07-14'
+  url: https://github.com/palewire/wnyc-radio-archive-transcriber
+- title: First LLM Classifier at Hugging Face
+  type: lesson-plan
+  date: '2025-03-28'
+  url: https://huggingface.co/posts/fdaudens/253707357021654
+- title: Datawrapper JSON bookmarklet
+  type: software
+  date: '2025-03-17'
+  url: https://palewi.re/docs/datawrapper-json-bookmarklet/
+- title: First LLM Classifier
+  type: lesson-plan
+  date: '2025-03-08'
+  url: https://palewi.re/docs/first-llm-classifier/
+- title: First Athena Query
+  type: lesson-plan
+  date: '2025-03-07'
+  url: https://palewi.re/docs/first-athena-query/
+- title: Go big with GitHub Actions
+  type: lesson-plan
+  date: '2025-03-06'
+  url: https://palewi.re/docs/go-big-with-github-actions/
+- title: nrol-logos
+  type: software
+  date: '2025-02-13'
+  url: https://github.com/palewire/nrol-logos
+- title: Tracking Trump's economy
+  type: app
+  date: '2025-01-27'
+  url: https://www.reuters.com/data/tracking-trumps-economy-2025-01-27/
+- title: Trump’s approval rating
+  type: app
+  date: '2025-01-21'
+  url: https://www.reuters.com/data/trumps-approval-rating-2025-01-21/
+- title: The decline of open-source news
+  type: story
+  date: '2024-12-17'
+  url: https://www.linkedin.com/feed/update/urn:li:activity:7274806425342599168/
+- title: Federal Reserve Monitor
+  type: app
+  date: '2024-12-16'
+  url: https://www.reuters.com/data/federal-reserve-monitor-2024-12-16/
+- title: The man behind 'The Magnificent Seven'
+  type: story
+  date: '2024-10-30'
+  url: https://www.reuters.com/data/man-behind-magnificent-seven-2024-10-30/
+- title: The Magnificent Seven Monitor
+  type: app
+  date: '2024-10-30'
+  url: https://www.reuters.com/data/magnificent-seven-monitor-2024-10-30/
+- title: Min-Max Rescaling Calculator
+  type: app
+  date: '2024-10-03'
+  url: https://observablehq.com/@palewire/min-max-rescaling-calculator
+- title: Integrating Datawrapper charts into Observable Framework
+  type: software
+  date: '2024-08-26'
+  url: https://x.com/palewire/status/1828109995269111994
+- title: Observable Framework CPI Example
+  type: software
+  date: '2024-08-14'
+  url: https://x.com/palewire/status/1823817980607914145
+- title: Data loader to generate PNG from canvas
+  type: story
+  date: '2024-07-11'
+  url: https://observablehq.observablehq.cloud/framework-example-loader-canvas-to-png/
+- title: Tracking the Newsworthiness of Public Documents
+  type: story
+  date: '2024-05-20'
+  url: https://arxiv.org/pdf/2311.09734
+- title: Enhance your data journalism skills with new advanced Python course
+  type: lesson-plan
+  date: '2024-05-17'
+  url: https://knightcenter.utexas.edu/enhance-your-data-journalism-skills-with-new-advanced-python-course/
+- title: 'First Python Notebook: Data Analysis on Deadline'
+  type: lesson-plan
+  date: '2024-05-11'
+  url: https://journalismcourses.org/product/first-python-notebook-data-analysis-on-deadline/
+- title: 'Plot: Weighted Moving Average'
+  type: software
+  date: '2024-04-23'
+  url: https://observablehq.com/@palewire/plot-weighted-moving-average
+- title: 'D3: Weighted Moving Average'
+  type: software
+  date: '2024-04-23'
+  url: https://observablehq.com/@palewire/weighted-average
+- title: How Reuters uses Datawrapper to create, automate and disseminate hundreds
+    of charts each week
+  type: app
+  date: '2024-03-15'
+  url: https://www.youtube.com/watch?v=LmfhEPdBBUU
+- title: ipsos-credibility-interval
+  type: software
+  date: '2023-12-11'
+  url: https://palewi.re/docs/ipsos-credibility-interval/
+- title: Ipsos credibility interval calculator
+  type: app
+  date: '2023-12-11'
+  url: https://observablehq.com/@palewire/credibility-interval-calculator?collection=@palewire/numbers-in-the-newsroom
+- title: sphinx-palewire-theme
+  type: software
+  date: '2023-11-26'
+  url: https://github.com/palewire/sphinx-palewire-theme/tree/main
+- title: '@RandomPigeonGPT'
+  type: app
+  date: '2023-11-18'
+  url: https://mastodon.palewi.re/@RandomPigeonGPT
+- title: '@NYCDataBot'
+  type: app
+  date: '2023-11-17'
+  url: https://mastodon.palewi.re/@nycdatabot
+- title: atcf-data-parser
+  type: software
+  date: '2023-11-15'
+  url: https://palewi.re/docs/atcf-data-parser/
+- title: reuters-style
+  type: software
+  date: '2023-10-30'
+  url: https://palewi.re/docs/reuters-style/
+- title: noaa-hurricane-gis-scraper
+  type: software
+  date: '2023-10-25'
+  url: https://github.com/palewire/noaa-hurricane-gis-scraper
+- title: Who blocks OpenAI?
+  type: app
+  date: '2023-09-11'
+  url: https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html
+- title: fed-dot-plot-scraper
+  type: software
+  date: '2023-08-10'
+  url: https://github.com/palewire/fed-dot-plot-scraper
+- title: Python datawrapper client
+  type: software
+  date: '2023-06-07'
+  url: https://twitter.com/palewire/status/1666418078316474368
+- title: Search our database of questionable climate funding
+  type: app
+  date: '2023-06-04'
+  url: https://www.reuters.com/graphics/CLIMATE-CHANGE/FINANCE/gdvzqlyjqpw/
+- title: '"Morning Bid" newsletter data dashboard'
+  type: app
+  date: '2023-05-15'
+  url: https://twitter.com/palewire/status/1658069533763026944
+- title: SvelteKit Table component
+  type: software
+  date: '2023-04-14'
+  url: https://twitter.com/palewire/status/1646895316749422592
+- title: moneyinpolitics.wtf
+  type: app
+  date: '2023-03-04'
+  url: https://twitter.com/palewire/status/1632132828363374592
+- title: New Big Local News dataset tracks animal-care inspections
+  type: software
+  date: '2023-02-21'
+  url: https://biglocalnews.org/content/news/2023/02/21/usda-animal-inspection-database.html
+- title: '@reutersjobs'
+  type: app
+  date: '2023-02-16'
+  url: https://twitter.com/ReutersJobs
+- title: Instantly explore Big Local News projects with Datasette
+  type: software
+  date: '2023-01-30'
+  url: https://biglocalnews.org/content/news/2023/01/30/datasette-integration.html
+- title: How Big Local News helped data journalists cover the midterms
+  type: story
+  date: '2022-12-08'
+  url: https://biglocalnews.org/content/news/2022/12/08/midterm-takeaways.html
+- title: usc-crime-reports-scraper
+  type: software
+  date: '2022-12-06'
+  url: https://github.com/biglocalnews/usc-crime-reports-scraper
+- title: internet-archive-upload
+  type: software
+  date: '2022-12-02'
+  url: https://github.com/marketplace/actions/upload-files-to-an-archive-org-item
+- title: Static-site framework deployment at The Baltimore Banner
+  type: software
+  date: '2022-11-21'
+  url: https://twitter.com/palewire/status/1594697923295875073
+- title: '"is 5" digital scan for archive.org and cummings.ee'
+  type: app
+  date: '2022-11-20'
+  url: https://twitter.com/palewire/status/1594679207535296514
+- title: Static-site framework deployment at THE CITY
+  type: software
+  date: '2022-11-09'
+  url: https://twitter.com/palewire/status/1590221963628544000
+- title: biglocalnews/local-election-results-etl
+  type: software
+  date: '2022-11-08'
+  url: https://github.com/biglocalnews/local-election-results-etl
+- title: Los Angeles Election Results
+  type: app
+  date: '2022-11-08'
+  url: https://laist.com/news/politics/2022-election-california-general-live-results-los-angeles-city-county
+- title: The Drudge Dashboard
+  type: app
+  date: '2022-11-07'
+  url: https://twitter.com/palewire/status/1589605453075714050?t=h56GokOgE9354eQ2qmSPSA&s=19
+- title: The AMSAT amateur satellite database
+  type: app
+  date: '2022-10-24'
+  url: https://twitter.com/palewire/status/1584520198274445312
+- title: 'The Studs Terkel Archive Podcast: Season 2'
+  type: app
+  date: '2022-10-14'
+  url: https://twitter.com/palewire/status/1580904403942273027
+- title: Meet Audit Watch, the latest bot for Big Local News affiliates
+  type: app
+  date: '2022-09-28'
+  url: https://biglocalnews.org/content/news/2022/09/28/introducing-audit-watch.html
+- title: Cedar Rapids, Linn-Mar, Clear Creek Amana face first book challenges in years
+  type: story
+  date: '2022-09-23'
+  url: https://www.thegazette.com/education/cedar-rapids-linn-mar-clear-creek-amana-face-first-book-challenges-in-years/
+- title: Meet CAL-ACCESS Watch, a new notifications bot for our members
+  type: app
+  date: '2022-09-15'
+  url: https://biglocalnews.org/content/news/2022/09/15/meet-calaccess-watch.html
+- title: New Big Local News dataset tracks the millions pouring into California campaigns
+  type: software
+  date: '2022-09-13'
+  url: https://biglocalnews.org/content/news/2022/09/13/new-calaccess-data.html
+- title: '@DivineAnnDvorak'
+  type: app
+  date: '2022-09-05'
+  url: https://twitter.com/palewire/status/1566834557915054080
+- title: Your Big Local News account has linked up with MuckRock and DocumentCloud
+  type: software
+  date: '2022-08-24'
+  url: https://biglocalnews.org/content/news/2022/08/24/login-upgrade.html
+- title: '@LAXWeatherBot'
+  type: app
+  date: '2022-08-21'
+  url: https://twitter.com/palewire/status/1561465422536273920
+- title: '@newshomepages performance and accessibility rankings'
+  type: app
+  date: '2022-08-16'
+  url: https://twitter.com/palewire/status/1559647099683102721
+- title: Truth Social and Parler video extractors
+  type: software
+  date: '2022-08-07'
+  url: https://twitter.com/palewire/status/1556297395582996487
+- title: storysniffer
+  type: software
+  date: '2022-08-01'
+  url: https://twitter.com/palewire/status/1554115271073452032
+- title: Meet Layoff Watch, a news-breaking bot for our members
+  type: story
+  date: '2022-07-27'
+  url: https://biglocalnews.org/content/news/2022/07/27/hello-layoff-watch.html
+- title: Meet the Big Local News summer intern class of 2022
+  type: story
+  date: '2022-07-15'
+  url: https://biglocalnews.org/content/news/2022/07/15/summer-interns.html
+- title: Three easy ways to automatically upload data to Big Local News
+  type: story
+  date: '2022-06-29'
+  url: https://biglocalnews.org/content/news/2022/06/29/three-ways-to-upload.html
+- title: There’s a huge hole in FBI crime data. Here’s how to check if local police
+    are part of the problem.
+  type: story
+  date: '2022-06-15'
+  url: https://biglocalnews.org/content/news/2022/06/15/missing-fbi-crime-data.html
+- title: A beginner’s guide to FBI crime statistics
+  type: story
+  date: '2022-04-11'
+  url: https://biglocalnews.org/content/news/2022/04/11/guide-to-fbi-crime-statistics.html
+- title: prefect-flow-template
+  type: software
+  date: '2022-03-29'
+  url: https://github.com/biglocalnews/prefect-flow-template
+- title: '@newshomepages'
+  type: app
+  date: '2022-03-12'
+  url: https://twitter.com/palewire/status/1502679775973834752
+- title: First Visual Story
+  type: lesson-plan
+  date: '2022-03-05'
+  url: https://palewi.re/docs/first-visual-story/
+- title: First GitHub Scraper
+  type: lesson-plan
+  date: '2022-03-04'
+  url: https://palewi.re/docs/first-github-scraper/
+- title: warn-transformer
+  type: software
+  date: '2022-02-18'
+  url: https://github.com/biglocalnews/warn-transformer
+- title: warn-github-flow
+  type: software
+  date: '2022-02-18'
+  url: https://github.com/biglocalnews/warn-github-flow
+- title: Where we love to eat near SoFi Stadium
+  type: story
+  date: '2022-02-06'
+  url: https://www.latimes.com/food/list/best-places-to-eat-near-sofi-stadium
+- title: biglocalnews/upload-files
+  type: software
+  date: '2022-02-01'
+  url: https://github.com/biglocalnews/upload-files
+- title: How to deploy a Prefect agent to Google Kubernetes Engine
+  type: lesson-plan
+  date: '2022-01-31'
+  url: https://biglocalnews.org/content/news/2022/01/29/kubernetes-prefect-agent.html
+- title: How to push tagged Docker releases to Google Artifact Registry with a GitHub
+    Action
+  type: lesson-plan
+  date: '2022-01-22'
+  url: https://biglocalnews.org/content/news/2022/01/27/docker-google-artifact-action.html
+- title: Streamlining jupyter.org
+  type: software
+  date: '2022-01-19'
+  url: https://twitter.com/palewire/status/1483868218011774976
+- title: Ben Welsh to lead new data journalism partnership with Stanford
+  type: story
+  date: '2021-12-06'
+  url: https://www.latimes.com/about/pressreleases/story/2021-12-16/ben-welsh-to-lead-new-data-journalism-partnership-with-stanford
+- title: chicago-trees-analysis
+  type: software
+  date: '2021-11-16'
+  url: https://github.com/palewire/chicago-trees-analysis
+- title: Three of 10 student athletes could get kicked off team for missing LAUSD
+    vaccine deadline
+  type: story
+  date: '2021-10-26'
+  url: https://www.latimes.com/california/story/2021-10-26/student-athletes-could-get-kicked-off-team-for-missing-lausd-vaccine-deadline
+- title: '@sanbornmaps'
+  type: app
+  date: '2021-10-17'
+  url: https://twitter.com/palewire/status/1449778296476999684
+- title: install-python-pipenv-pipfile
+  type: software
+  date: '2021-08-26'
+  url: https://github.com/marketplace/actions/install-python-pipenv-and-pipfile-packages
+- title: django-internetarchive-storage
+  type: software
+  date: '2021-06-29'
+  url: https://californiacivicdata.org/2021/06/29/hello-archive-org-storage/
+- title: Many L.A. cops and firefighters aren’t vaccinated against COVID-19. Is this
+    a public safety threat?
+  type: story
+  date: '2021-06-19'
+  url: https://www.latimes.com/california/story/2021-06-19/vaccination-rates-lag-among-california-public-safety-workers-drawing-concern
+- title: the e.e. cummings free poetry archive
+  type: app
+  date: '2021-05-03'
+  url: https://palewi.re/posts/2021/05/02/ee-cummings-archive/
+- title: With 20 wins, Times sets new mark at Best of Digital Design awards
+  type: story
+  date: '2021-03-02'
+  url: https://www.latimes.com/about/pressreleases/story/2021-03-02/with-20-wins-times-sets-new-mark-at-best-of-digital-design-awards
+- title: Los Angeles Times Launches Spanish-Language Edition of Coronavirus in California
+    Tracker
+  type: app
+  date: '2021-02-22'
+  url: https://www.latimes.com/about/pressreleases/story/2021-02-22/los-angeles-times-launches-spanish-language-edition-of-coronavirus-in-california-tracker
+- title: california-coronavirus-scrapers
+  type: software
+  date: '2021-02-19'
+  url: https://github.com/datadesk/california-coronavirus-scrapers
+- title: Nearly half of L.A. firefighters unvaccinated against COVID-19, revised city
+    data show
+  type: story
+  date: '2021-02-01'
+  url: https://www.latimes.com/california/story/2021-02-01/nearly-half-of-la-firefighters-unvaccinated-against-covid-19
+- title: ‘Sharp decline’ in COVID cases among L.A. firefighters after vaccinations
+  type: story
+  date: '2021-01-27'
+  url: https://www.latimes.com/california/story/2021-01-27/la-fire-department-sees-covid-after-vaccinations
+- title: Tracking coronavirus vaccinations in California
+  type: app
+  date: '2021-01-22'
+  url: https://www.latimes.com/projects/california-coronavirus-cases-tracking-outbreak/covid-19-vaccines-distribution/
+- title: Drive to get COVID-19 vaccine to L.A. firefighters loses steam as 40% fail
+    to show up
+  type: story
+  date: '2021-01-16'
+  url: https://www.latimes.com/california/story/2021-01-16/more-than-40-of-l-a-firefighters-still-unvaccinated
+- title: Tracking the coronavirus in California hospitals
+  type: app
+  date: '2021-01-07'
+  url: https://www.latimes.com/projects/california-coronavirus-cases-tracking-outbreak/hospitals/
+- title: '2020: The year in data and graphics'
+  type: story
+  date: '2021-01-05'
+  url: https://www.latimes.com/projects/data-and-graphics-2020/
+- title: Free Airbnb with your COVID-19 vaccine? Firefighters offered prizes along
+    with priority access
+  type: story
+  date: '2021-01-05'
+  url: https://www.latimes.com/california/story/2021-01-05/covid-19-vaccine-skepticism-lafd-firefighter-gifts
+- title: studs-terkel-podcast
+  type: software
+  date: '2020-12-26'
+  url: https://github.com/pastpages/studs-terkel-podcast/
+- title: 'L.A. police killings: Tracking D.A. decisions since 2004'
+  type: app
+  date: '2020-12-09'
+  url: https://www.latimes.com/projects/los-angeles-police-killings-database/tracking-da-decisions/
+- title: End-of-life care has boomed in California. So has fraud targeting older Americans
+  type: story
+  date: '2020-12-09'
+  url: https://www.latimes.com/california/story/2020-12-09/hospice-industry-growth-marked-fraud-deficient-care
+- title: Tracking the coronavirus in California nursing homes
+  type: app
+  date: '2020-09-22'
+  url: https://www.latimes.com/projects/california-coronavirus-cases-tracking-outbreak/nursing-homes/
+- title: The Times is teaming up with other California newsrooms to track COVID-19
+  type: story
+  date: '2020-09-10'
+  url: https://www.latimes.com/california/story/2020-09-10/los-angeles-times-california-newsrooms-track-covid-19
+- title: Reading Ruben Salazar
+  type: story
+  date: '2020-08-23'
+  url: https://www.latimes.com/projects/chicano-moratorium/ruben-salazar-reporting-legacy-la-impact/
+- title: cedar-rapids-buildings-unsafe-after-derecho-2020
+  type: software
+  date: '2020-08-20'
+  url: cedar-rapids-buildings-unsafe-after-derecho-2020
+- title: Tracking how the coronavirus crushed California’s workforce
+  type: app
+  date: '2020-06-22'
+  url: https://www.latimes.com/projects/california-coronavirus-cases-tracking-outbreak/unemployment/
+- title: 'L.A. police killings: Tracking homicides in Los Angeles County since 2000'
+  type: app
+  date: '2020-06-09'
+  url: https://www.latimes.com/projects/los-angeles-police-killings-database/
+- title: los-angeles-police-killings-data
+  type: software
+  date: '2020-06-09'
+  url: https://github.com/datadesk/los-angeles-police-killings-data
+- title: Arrests during George Floyd protests swell to near 3,000 in L.A. County;
+    many are locals
+  type: story
+  date: '2020-06-02'
+  url: https://www.latimes.com/california/story/2020-06-02/george-floyd-protests-los-angeles-arrests-locals
+- title: 11 firefighters hurt in downtown L.A. explosion that caused fires at several
+    buildings
+  type: story
+  date: '2020-05-16'
+  url: https://www.latimes.com/california/story/2020-05-16/explosion-in-downtown-l-a-leaves-multiple-buildings-on-fire
+- title: Senior care homes source of nearly half of all California coronavirus-related
+    deaths, data show
+  type: story
+  date: '2020-05-08'
+  url: https://www.latimes.com/california/story/2020-05-08/california-coronavirus-deaths-nearly-half-linked-to-elder-care-facilities
+- title: Track L.A.'s effort to house thousands of homeless people during coronavirus
+  type: app
+  date: '2020-05-03'
+  url: https://www.latimes.com/projects/california-coronavirus-cases-tracking-outbreak/homeless/
+- title: A guide to the Internet
+  type: story
+  date: '2020-05-01'
+  url: https://www.latimes.com/projects/guide-to-the-internet/
+- title: Coronavirus could halt L.A. concerts, sporting events until 2021, Garcetti
+    says
+  type: story
+  date: '2020-04-15'
+  url: https://www.latimes.com/california/story/2020-04-15/coronavirus-concerts-sporting-events-2021-garcetti
+- title: california-coronavirus-data
+  type: software
+  date: '2020-04-06'
+  url: https://github.com/datadesk/california-coronavirus-data
+- title: To aid coronavirus fight, The Times releases database of California cases
+  type: story
+  date: '2020-04-06'
+  url: https://www.latimes.com/california/story/2020-04-06/coronavirus-fight-la-times-releases-its-california-cases-database
+- title: Tracking the coronavirus in California
+  type: app
+  date: '2020-03-13'
+  url: https://www.latimes.com/projects/california-coronavirus-cases-tracking-outbreak/
+- title: deadspin-scraper
+  type: software
+  date: '2019-11-01'
+  url: https://github.com/datadesk/deadspin-scraper
+- title: I checked the math of the media bosses who told Deadspin to ‘stick to sports.’
+    It doesn’t add up
+  type: story
+  date: '2019-11-01'
+  url: https://www.latimes.com/entertainment-arts/business/story/2019-11-01/deadspin-stick-to-sports-bad-math
+- title: https://github.com/palewire/nrol-39-logo
+  type: software
+  date: '2019-10-08'
+  url: nrol-39-logo
+- title: noaa-hurricane-hunters-logo/
+  type: software
+  date: '2019-10-01'
+  url: https://github.com/palewire/noaa-hurricane-hunters-logo/
+- title: Mapping the Conception’s final voyage
+  type: story
+  date: '2019-09-02'
+  url: https://www.latimes.com/projects/california-boat-fire-conception-map/
+- title: Is your home at high risk of a wildfire? Use this map to find out
+  type: story
+  date: '2019-08-25'
+  url: https://www.latimes.com/projects/wildfire-hazard-zone-lookup-map/
+- title: nyc-parks-logo
+  type: software
+  date: '2019-08-15'
+  url: https://github.com/palewire/nyc-parks-logo
+- title: the-other-americans
+  type: software
+  date: '2019-07-27'
+  url: https://github.com/palewire/the-other-americans
+- title: We used a 3-D printer to map the power of the Ridgecrest earthquake
+  type: story
+  date: '2019-07-26'
+  url: https://www.latimes.com/california/story/2019-07-26/we-used-a-3-d-printer-to-show-the-power-of-ridgecrest-earthquake-here-is-it
+- title: django-heroku-template
+  type: software
+  date: '2019-07-09'
+  url: https://github.com/datadesk/django-heroku-template
+- title: census-data-aggregator
+  type: software
+  date: '2019-07-01'
+  url: https://github.com/datadesk/census-data-aggregator
+- title: geomac-wildfires
+  type: software
+  date: '2019-06-30'
+  url: https://github.com/datadesk/geomac-wildfires
+- title: calfire-wildfires
+  type: software
+  date: '2019-06-30'
+  url: https://github.com/datadesk/calfire-wildfires
+- title: nasa-wildfires
+  type: software
+  date: '2019-06-30'
+  url: https://github.com/datadesk/nasa-wildfires
+- title: noaa-wildfires
+  type: software
+  date: '2019-06-30'
+  url: https://github.com/datadesk/noaa-wildfires
+- title: python-open-source-template
+  type: software
+  date: '2019-06-24'
+  url: https://github.com/datadesk/python-open-source-template
+- title: census-error-analyzer
+  type: software
+  date: '2019-06-24'
+  url: https://github.com/datadesk/census-error-analyzer
+- title: native-american-census-analysis
+  type: software
+  date: '2019-06-13'
+  url: https://github.com/datadesk/native-american-census-analysis
+- title: The 2020 census is coming. Will Native Americans be counted?
+  type: story
+  date: '2019-06-13'
+  url: https://www.latimes.com/projects/la-na-census-native-americans-navajo-nation/
+- title: Black market cannabis shops thrive in L.A. even as city cracks down
+  type: story
+  date: '2019-05-29'
+  url: https://www.latimes.com/local/lanow/la-me-weed-pot-dispensaries-illegal-marijuana-weedmaps-black-market-los-angeles-20190529-story.html
+- title: la-weedmaps-analysis
+  type: software
+  date: '2019-05-29'
+  url: https://github.com/datadesk/la-weedmaps-analysis
+- title: latimes.com/tips/
+  type: app
+  date: '2019-05-10'
+  url: https://www.latimes.com/tips/
+- title: census-hard-to-map-analysis
+  type: software
+  date: '2019-04-29'
+  url: https://github.com/datadesk/census-hard-to-map-analysis
+- title: OldLAPhotos
+  type: software
+  date: '2019-04-28'
+  url: https://twitter.com/OldLAPhotos/status/1122645046732308480
+- title: hsr-documents-analysis
+  type: software
+  date: '2019-04-26'
+  url: https://github.com/datadesk/hsr-document-analysis
+- title: How California’s faltering high-speed rail project was ‘captured’ by costly
+    consultants.
+  type: story
+  date: '2019-04-26'
+  url: https://www.latimes.com/local/california/la-me-california-high-speed-rail-consultants-20190426-story.html
+- title: usa-style-guides
+  type: software
+  date: '2019-04-05'
+  url: https://github.com/palewire/usa-style-guides
+- title: census-data-downloader
+  type: software
+  date: '2019-04-01'
+  url: https://twitter.com/palewire/status/1112727454492196865
+- title: Are Arabs and Iranians white? Census says yes, but many disagree
+  type: story
+  date: '2019-03-28'
+  url: https://www.latimes.com/projects/la-me-census-middle-east-north-africa-race/
+- title: swana-census-analysis
+  type: software
+  date: '2019-03-28'
+  url: https://github.com/datadesk/swana-census-analysis
+- title: census-map-consolidator
+  type: software
+  date: '2019-03-27'
+  url: https://github.com/datadesk/census-map-consolidator
+- title: mlbcolors
+  type: software
+  date: '2019-03-17'
+  url: https://github.com/datadesk/mlbcolors
+- title: First Observable Notebook
+  type: lesson-plan
+  date: '2019-03-07'
+  url: https://observablehq.com/@palewire/first-observable-notebook
+- title: deleon-district-election-results-analysis
+  type: software
+  date: '2019-02-28'
+  url: https://github.com/datadesk/deleon-district-election-results-analysis
+- title: python-muckrock
+  type: software
+  date: '2019-01-18'
+  url: https://github.com/datadesk/python-muckrock
+- title: tijuana-districts-map
+  type: software
+  date: '2019-01-16'
+  url: https://github.com/datadesk/tijuana-districts-map
+- title: muckrockbot
+  type: software
+  date: '2019-01-05'
+  url: https://twitter.com/muckrockbot/status/1081741030301388800
+- title: Fifty times we did the math
+  type: story
+  date: '2018-12-28'
+  url: https://www.latimes.com/projects/la-me-data-analysis-2018/
+- title: 'Cover to cover: The colors of NYRB Classics'
+  type: story
+  date: '2018-12-27'
+  url: https://www.latimes.com/projects/la-et-jc-nyrb-covers/
+- title: nyrb-covers-analysis
+  type: software
+  date: '2018-12-27'
+  url: https://github.com/datadesk/nyrb-covers-analysis
+- title: A million California buildings face wildfire risk. ‘Extraordinary steps’
+    are needed to protect them
+  type: story
+  date: '2018-12-18'
+  url: https://www.latimes.com/projects/la-me-california-buildings-in-fire-zones/
+- title: california-fire-zone-analysis
+  type: software
+  date: '2018-12-18'
+  url: https://github.com/datadesk/california-fire-zone-analysis
+- title: Altair
+  type: software
+  date: '2018-12-08'
+  url: http://joss.theoj.org/papers/10.21105/joss.01057
+- title: 101 Restaurants We Love
+  type: app
+  date: '2018-12-04'
+  url: https://www.latimes.com/projects/la-fo-101-restaurants-we-love/
+- title: Danger spins from the sky
+  type: story
+  date: '2018-11-18'
+  url: https://www.latimes.com/projects/la-me-robinson-helicopters/
+- title: helicopter-accident-analysis
+  type: software
+  date: '2018-11-18'
+  url: https://www.github.com/datadesk/helicopter-accident-analysis
+- title: U.S. Consumer Price Index tracker
+  type: software
+  date: '2018-11-17'
+  url: https://beta.observablehq.com/@palewire/u-s-consumer-price-index-tracker
+- title: 'Election results challenge: Precincts reporting'
+  type: software
+  date: '2018-11-14'
+  url: https://beta.observablehq.com/@palewire/election-results-challenge-precincts-reporting
+- title: Live results from the 2018 midterm elections
+  type: app
+  date: '2018-11-06'
+  url: https://www.latimes.com/projects/la-pol-na-us-general-election-results-2018/
+- title: How many women won?
+  type: app
+  date: '2018-11-06'
+  url: https://www.latimes.com/projects/la-pol-women-elected/
+- title: W.E.B.Du Bois in d3
+  type: software
+  date: '2018-10-28'
+  url: https://beta.observablehq.com/collection/@palewire/w-e-b-du-bois
+- title: hollister-ranch-analysis
+  type: software
+  date: '2018-10-20'
+  url: https://nbviewer.jupyter.org/github/datadesk/hollister-ranch-analysis/blob/master/notebook.ipynb
+- title: At Hollister Ranch, homeowners enjoy private beaches — and hefty tax breaks,
+    too
+  type: story
+  date: '2018-10-20'
+  url: http://www.latimes.com/local/california/la-me-lopez-hollister-taxes-20181020-story.html
+- title: everytractcount
+  type: software
+  date: '2018-08-31'
+  url: https://twitter.com/palewire/status/1035283603561705474
+- title: The Inglewood Inventory
+  type: software
+  date: '2018-08-08'
+  url: https://beta.observablehq.com/@palewire/the-inglewood-lunch-inventory
+- title: scrapy-calaccess-crawler
+  type: software
+  date: '2018-08-03'
+  url: https://github.com/california-civic-data-coalition/scrapy-calaccess-crawler
+- title: L.A. is slammed with record costs for legal payouts
+  type: story
+  date: '2018-06-27'
+  url: http://www.latimes.com/local/lanow/la-me-ln-city-payouts-20180627-story.html
+- title: cpi
+  type: software
+  date: '2018-06-16'
+  url: https://github.com/datadesk/cpi
+- title: Live results from the California primary
+  type: app
+  date: '2018-06-05'
+  url: http://www.latimes.com/projects/la-pol-ca-california-primary-election-results-2018/
+- title: django-autoarchive
+  type: software
+  date: '2018-05-14'
+  url: https://github.com/pastpages/django-autoarchive
+- title: street-racing-analysis
+  type: software
+  date: '2018-03-16'
+  url: https://github.com/datadesk/street-racing-analysis/blob/master/notebook.ipynb
+- title: 'Out of control: The deadly toll of street racing in Los Angeles'
+  type: story
+  date: '2018-03-16'
+  url: http://www.latimes.com/projects/la-me-street-racing/
+- title: Garcetti still struggling to expand the number of female firefighters
+  type: story
+  date: '2018-03-12'
+  url: http://www.latimes.com/local/lanow/la-me-ln-los-angeles-firefighters-20180310-story.html
+- title: First Graphics App
+  type: lesson-plan
+  date: '2018-03-10'
+  url: http://www.firstgraphicsapp.org/
+- title: ferc-enforcement-analysis
+  type: software
+  date: '2017-12-14'
+  url: https://github.com/datadesk/ferc-enforcement-analysis/blob/master/02_analyze.ipynb
+- title: Why Wall Street gets a cut of your power bill
+  type: story
+  date: '2017-12-14'
+  url: http://www.latimes.com/projects/la-fi-electricity-capacity-investments/
+- title: One corner. Four killings.
+  type: story
+  date: '2017-11-19'
+  url: http://www.latimes.com/projects/la-me-harvard-park-homicides/
+- title: How Houston’s newest homes survived Hurricane Harvey
+  type: story
+  date: '2017-11-08'
+  url: http://www.latimes.com/projects/la-na-houston-harvey-home-survivors/
+- title: Save My News
+  type: app
+  date: '2017-11-04'
+  url: http://www.savemy.news
+- title: django-calaccess-processed data
+  type: app
+  date: '2017-10-31'
+  url: https://www.californiacivicdata.org/2017/10/31/processed-files/
+- title: 'Las Vegas shooting victims: Portraits of the fallen'
+  type: app
+  date: '2017-10-06'
+  url: http://www.latimes.com/projects/la-na-las-vegas-shootings-victims-list-20171002/
+- title: California must find and fix its worst public schools. Here’s one way to
+    start
+  type: app
+  date: '2017-09-28'
+  url: http://www.latimes.com/projects/la-me-edu-test-scores-2017-bottom-five/
+- title: california-kindergarten-vaccination-analysis
+  type: software
+  date: '2017-08-13'
+  url: https://github.com/datadesk/california-kindergarten-vaccination-analysis
+- title: The cannabis industry has a clear favorite in the race to be California's
+    next governor
+  type: story
+  date: '2017-07-27'
+  url: http://www.latimes.com/politics/la-pol-ca-newsom-cannabis-20170727-story.html
+- title: django-calaccess-scraped-data
+  type: software
+  date: '2017-07-14'
+  url: https://github.com/california-civic-data-coalition/django-calaccess-scraped-data
+- title: python-censusbatchgeocoder
+  type: software
+  date: '2017-07-13'
+  url: https://github.com/datadesk/python-censusbatchgeocoder
+- title: California invested heavily in solar power. Now there's so much that other
+    states are paid to take it
+  type: story
+  date: '2017-06-22'
+  url: http://www.latimes.com/projects/la-fi-electricity-solar/#nt=outfit
+- title: Results from L.A.’s congressional runoff election
+  type: app
+  date: '2017-06-13'
+  url: http://www.latimes.com/projects/la-na-pol-cd34-general-election-results/
+- title: A Central Valley power plant may close as the state pushes new building at
+    customers' expense
+  type: story
+  date: '2017-06-10'
+  url: http://www.latimes.com/business/la-fi-la-paloma-capacity-20170609-story.html
+- title: 2016 California primary results
+  type: app
+  date: '2017-06-07'
+  url: http://graphics.latimes.com/election-2016-california-results/
+- title: California regulators weigh whether the state needs more power plants
+  type: story
+  date: '2017-06-06'
+  url: http://www.latimes.com/business/la-fi-natural-gas-plants-20170606-story.html
+- title: Tributes to California's war dead, including the five we lost since last
+    Memorial Day
+  type: app
+  date: '2017-05-26'
+  url: http://projects.latimes.com/wardead/memorial-day-2017/?rev=123
+- title: Trump promised a ‘big beautiful door’ in his border wall. California farmers
+    are ready and waiting
+  type: story
+  date: '2017-05-25'
+  url: http://www.latimes.com/projects/la-fi-farm-labor-guestworkers/
+- title: california-h2a-visas-analysis
+  type: software
+  date: '2017-05-24'
+  url: https://github.com/datadesk/california-h2a-visas-analysis
+- title: The Los Angeles Times front pages during the 1992 L.A. riots
+  type: app
+  date: '2017-04-28'
+  url: http://www.latimes.com/projects/la-me-riot-front-pages/
+- title: Immigrants flooded California construction. Worker pay sank. Here’s why
+  type: story
+  date: '2017-04-20'
+  url: http://www.latimes.com/projects/la-fi-construction-trump/
+- title: construction-jobs-analysis
+  type: software
+  date: '2017-04-20'
+  url: https://github.com/datadesk/construction-jobs-analysis
+- title: Results from L.A.’s congressional primary
+  type: story
+  date: '2017-04-13'
+  url: http://www.latimes.com/projects/la-me-april-4-election-results/
+- title: A 20% turnout in L.A.'s mayoral election wasn't a record low after all, final
+    results show
+  type: story
+  date: '2017-03-21'
+  url: http://www.latimes.com/local/california/la-me-ln-los-angeles-mayor-election-turnout-20170321-story.html#nt=outfit
+- title: california-crop-production-wages-analysis
+  type: software
+  date: '2017-03-17'
+  url: https://github.com/datadesk/california-crop-production-wages-analysis
+- title: Wages rise on California farms. Americans still don’t want the job
+  type: story
+  date: '2017-03-17'
+  url: http://www.latimes.com/projects/la-fi-farms-immigration/
+- title: California's new education ratings tool paints a far rosier picture than
+    in the past
+  type: story
+  date: '2017-03-16'
+  url: http://www.latimes.com/local/education/la-me-california-dashboard-ratings-20170316-story.html
+- title: Tuesday’s L.A. voter turnout was likely the lowest ever, muddying Garcetti's
+    historic reelection win
+  type: story
+  date: '2017-03-08'
+  url: http://www.latimes.com/local/california/la-me-ln-low-turnout-20170308-story.html#nt=outfit
+- title: Election? What election? Apathy abounds as L.A. votes
+  type: story
+  date: '2017-03-06'
+  url: http://www.latimes.com/local/california/la-me-ln-los-angeles-voter-apathy-20170301-story.html
+- title: A runaway energy industry is costing California billions
+  type: app
+  date: '2017-02-05'
+  url: http://www.latimes.com/projects/la-fi-electricity-capacity-graphic/
+- title: http://www.latimes.com/projects/la-fi-electricity-capacity/#nt=outfit
+  type: story
+  date: '2017-02-05'
+  url: http://www.latimes.com/projects/la-fi-electricity-capacity/#nt=outfit
+- title: california-electricity-capacity-analysis
+  type: software
+  date: '2017-02-05'
+  url: https://github.com/datadesk/california-electricity-capacity-analysis
+- title: After 24 years, arrests made in horrific L.A. fire that killed 10, including
+    7 children
+  type: story
+  date: '2017-02-04'
+  url: http://www.latimes.com/local/lanow/la-me-worst-arson-los-angeles-arrest-20170204-story.html
+- title: How Iowa voted
+  type: app
+  date: '2016-11-17'
+  url: https://github.com/palewire/how-iowa-voted
+- title: 2016 California election results
+  type: app
+  date: '2016-11-08'
+  url: http://graphics.latimes.com/la-na-pol-2016-election-results-california/
+- title: 2016 election results
+  type: app
+  date: '2016-11-08'
+  url: http://graphics.latimes.com/la-na-pol-2016-election-results-national/
+- title: The drought eased up, and these Californians turned on the spigo
+  type: story
+  date: '2016-10-31'
+  url: http://www.latimes.com/local/lanow/la-me-ln-water-conservation-backslide-20161018-snap-htmlstory.html
+- title: First Python Notebook
+  type: lesson-plan
+  date: '2016-10-08'
+  url: http://www.firstpythonnotebook.org/
+- title: Ousted L.A. fire marshal claims corruption among city fire inspectors
+  type: story
+  date: '2016-09-27'
+  url: http://www.latimes.com/local/california/la-me-lafd-marshall-claims-corruption-20160927-snap-story.html#nt=outfit
+- title: django-calaccess-downloads-website
+  type: software
+  date: '2016-09-15'
+  url: https://github.com/california-civic-data-coalition/django-calaccess-downloads-website
+- title: These magnets have become some of L.A.'s highest-scoring public schools
+  type: app
+  date: '2016-09-08'
+  url: http://www.latimes.com/projects/la-me-edu-magnet-test-scores-2016/
+- title: la-magnets-2016-test-scores
+  type: software
+  date: '2016-09-08'
+  url: https://github.com/datadesk/la-magnets-2016-test-scores
+- title: LAFD fire marshal steps down after criticism that he cut corners on safety
+  type: story
+  date: '2016-08-24'
+  url: http://www.latimes.com/local/lanow/la-me-lafd-fire-marshal-out-20160823-snap-story.html#nt=outfit
+- title: 'California''s new test scores: What they are, why they matter and how your
+    school scored'
+  type: app
+  date: '2016-08-24'
+  url: http://www.latimes.com/projects/la-me-edu-test-scores-2016/
+- title: django-bigbuild
+  type: software
+  date: '2016-07-18'
+  url: https://github.com/datadesk/django-bigbuild
+- title: la-vacant-building-complaints-analysis
+  type: software
+  date: '2016-06-15'
+  url: https://github.com/datadesk/la-vacant-building-complaints-analysis
+- title: Fire officials were concerned about Westlake building where 5 died in a blaze
+  type: story
+  date: '2016-06-15'
+  url: http://www.latimes.com/local/lanow/la-me-ln-westlake-fatal-fire-arrest-20160615-snap-story.html
+- title: la-county-2016-primary-precinct-maps
+  type: software
+  date: '2016-06-11'
+  url: https://github.com/datadesk/la-county-2016-primary-precinct-maps
+- title: 'Clinton or Sanders: Who did your L.A. neighborhood choose?'
+  type: app
+  date: '2016-06-09'
+  url: http://www.latimes.com/projects/la-pol-ca-primary-2016-la-precincts/
+- title: L.A. County supervisor races yield surprises and uncertainty
+  type: story
+  date: '2016-06-08'
+  url: http://www.latimes.com/local/lanow/la-me-ln-county-supervisors-20160608-snap-story.html
+- title: California regulators weigh whether the state needs more power plants
+  type: story
+  date: '2016-06-06'
+  url: http://www.latimes.com/sdhoy-california-regulators-weigh-whether-the-state-needs-more-power-plants-20170606-story.html
+- title: LAFD inspectors accuse supervisors of cutting corners, ignoring fire hazards
+  type: story
+  date: '2016-05-27'
+  url: http://www.latimes.com/local/la-me-lafd-inspectors-20160527-snap-story.html#nt=outfit
+- title: python-desknet
+  type: software
+  date: '2016-04-25'
+  url: https://github.com/datadesk/python-desknet
+- title: Are you an independent voter? You aren't if you checked this box
+  type: story
+  date: '2016-04-17'
+  url: http://static.latimes.com/american-independent-party-california-voters/
+- title: '''We need an outsider like Trump,'' says this two-time Obama voter'
+  type: story
+  date: '2016-04-10'
+  url: http://static.latimes.com/trump-nation-nevada/
+- title: 91% white. 76% male.  Changing who votes on the Oscars won't be easy.
+  type: story
+  date: '2016-02-26'
+  url: http://graphics.latimes.com/oscars-2016-voters/
+- title: django-calaccess-processed-data
+  type: software
+  date: '2016-02-14'
+  url: https://pypi.python.org/pypi?%3Aaction=pkg_edit&name=django-calaccess-processed-data
+- title: django-postgres-copy
+  type: software
+  date: '2016-02-12'
+  url: https://github.com/california-civic-data-coalition/django-postgres-copy
+- title: 2016 presidential primary results
+  type: story
+  date: '2016-02-01'
+  url: http://graphics.latimes.com/election-2016-iowa-results/
+- title: Los Angeles outsources firefighters exam, which will now come with a price
+    tag
+  type: story
+  date: '2015-12-17'
+  url: http://www.latimes.com/local/lanow/la-me-lafd-hiring-change-20151217-story.html#nt=outfit
+- title: San Bernardino medic had 5 seconds to check if each massacre victim was alive
+    or dead
+  type: story
+  date: '2015-12-09'
+  url: http://www.latimes.com/local/crime/la-me-1209-sb-paramedic-20151209-story.html
+- title: 'San Bernardino shooting victims: Who they were'
+  type: app
+  date: '2015-12-03'
+  url: http://www.latimes.com/local/lanow/la-me-ln-san-bernardino-shooting-victims-htmlstory.html
+- title: Why the LAFD is still largely white and male despite diversity efforts
+  type: story
+  date: '2015-11-17'
+  url: http://www.latimes.com/local/cityhall/la-me-lafd-hiring-update-20151117-story.html#nt=outfit
+- title: 'LAFD''s new recruitment chief on diversity: ''We have work to do'''
+  type: story
+  date: '2015-11-17'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-hiring-follow-20151117-story.html#nt=outfit
+- title: StoryTracker
+  type: software
+  date: '2015-11-14'
+  url: http://blog.pastpages.org/post/102373248288/introducing-storytracker-10
+- title: How many millionaires does California send to Congress? Find out here.
+  type: app
+  date: '2015-11-03'
+  url: http://static.latimes.com/how-much-are-they-worth/
+- title: The richest man and the poorest man in Congress are both from California
+  type: story
+  date: '2015-11-03'
+  url: http://www.latimes.com/politics/la-pol-ca-richest-congress-millionaires-htmlstory.html#nt=outfit
+- title: Grading the arts in LAUSD
+  type: app
+  date: '2015-11-02'
+  url: http://schools.latimes.com/en/grading-the-arts/
+- title: How much pollution did VW's emissions cheating create?
+  type: story
+  date: '2015-10-09'
+  url: http://www.latimes.com/business/la-fi-vw-pollution-footprint-20151007-htmlstory.html#nt=outfit
+- title: Who are the millionaires bankrolling the 2016 presidential race?
+  type: app
+  date: '2015-09-30'
+  url: http://graphics.latimes.com/2016-election-big-donors/
+- title: Five facts about the California cash fueling the 2016 race
+  type: app
+  date: '2015-09-15'
+  url: http://graphics.latimes.com/2016-election-california-money/
+- title: County regulator calls for sweeping overhaul at Compton Fire Department
+  type: story
+  date: '2015-07-24'
+  url: http://www.latimes.com/local/lanow/la-me-ln-compton-fire-20150724-story.html
+- title: Confidential L.A. County audit another blow to Compton Fire Department
+  type: story
+  date: '2015-07-14'
+  url: http://www.latimes.com/local/lanow/la-me-ln-compton-fire-audit-20150714-story.html
+- title: Compton fire chief put on administrative leave following Times reports
+  type: story
+  date: '2015-07-07'
+  url: http://www.latimes.com/local/lanow/la-me-compton-fire-chief-20150707-story.html
+- title: Compton Fire Department ordered to remove defibrillators from trucks, ambulances
+  type: story
+  date: '2015-07-06'
+  url: http://www.latimes.com/local/california/la-me-0607-compton-aed-20150707-story.html
+- title: City leaders want LAFD to tackle overdue fire-safety inspections
+  type: story
+  date: '2015-06-16'
+  url: http://www.latimes.com/local/lanow/la-city-leaders-call-for-lafd-to-step-up-fire-inspections-20150616-story.html#nt=outfit
+- title: Is your L.A. building overdue for a fire inspection? Search our database
+    to find out.
+  type: app
+  date: '2015-06-15'
+  url: http://graphics.latimes.com/lafd-overdue-inspections/
+- title: Thousands of large L.A. buildings are long overdue for fire inspections
+  type: story
+  date: '2015-06-15'
+  url: http://www.latimes.com/local/california/la-me-lafd-inspections-20150616-story.html#nt=outfit
+- title: django-project-template
+  type: software
+  date: '2015-06-11'
+  url: https://github.com/datadesk/django-project-template
+- title: Fire destroys Long Beach duplex featured in Times report on housing code
+    violations
+  type: story
+  date: '2015-06-03'
+  url: http://www.latimes.com/local/lanow/la-me-long-beach-rental-fire-20150603-story.html#nt=outfit
+- title: With 'deplorable' conditions for some renters, Long Beach debates inspections
+  type: story
+  date: '2015-06-02'
+  url: http://www.latimes.com/local/california/la-me-long-beach-rentals-20150602-story.html#nt=outfit
+- title: Long Beach moves to boost landlord penalties; tenants say more is needed
+  type: story
+  date: '2015-06-02'
+  url: http://www.latimes.com/local/lanow/la-me-long-beach-renter-vote-20150602-story.html#nt=outfit
+- title: USGS retracts three 'ghost' earthquakes, blames Northern California sensors
+  type: story
+  date: '2015-05-30'
+  url: http://www.latimes.com/local/lanow/la-usgs-retracts-phantom-quakes-20150530-story.html#nt=outfit
+- title: Will Ryu stir the pot or play ball with Wesson?
+  type: story
+  date: '2015-05-25'
+  url: http://www.latimes.com/local/la-me-wesson-ryu-20150525-story.html
+- title: 'How L.A. voted: City Council results, mapped block by block'
+  type: app
+  date: '2015-05-20'
+  url: http://graphics.latimes.com/la-cd4-results-map/
+- title: Voter turnout highest in Westside and West Valley, analysis finds
+  type: story
+  date: '2015-05-16'
+  url: http://articles.latimes.com/print/2013/may/16/local/la-me-ln-voter-turnout-highest-in-westside-west-valley-analysis-finds-20130516
+- title: Second straight LAFD recruit class is all male after women exit
+  type: story
+  date: '2015-04-29'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-women-20150429-story.html#nt=outfit
+- title: City should collect more revenue from LAFD 911 callers, audit says
+  type: story
+  date: '2015-04-21'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-ems-audit-20150421-story.html#nt=outfit
+- title: LAFD's latest recruits are primarily white and overwhelmingly male
+  type: story
+  date: '2015-04-02'
+  url: http://www.latimes.com/local/cityhall/la-me-lafd-hiring-20150402-story.html#nt=outfit
+- title: California lawmaker calls for stricter firefighter EMT requirements
+  type: story
+  date: '2015-03-27'
+  url: http://www.latimes.com/local/lanow/la-me-ln-emt-law-20150327-story.html
+- title: Nearly 1 in 4 Compton firefighters working without EMT permit
+  type: story
+  date: '2015-03-26'
+  url: http://www.latimes.com/local/lanow/la-me-ln-compton-firefighters-without-emt-permit-20150326-story.html
+- title: First Django Admin
+  type: lesson-plan
+  date: '2015-03-08'
+  url: http://first-django-admin.readthedocs.io/en/latest/
+- title: LAFD failed to inspect hundreds of hazardous sites, state says
+  type: story
+  date: '2015-02-27'
+  url: http://www.latimes.com/local/cityhall/la-me-0228-lafd-hazardous-inspections-20150228-story.html#nt=outfit
+- title: Report calls for another overhaul in hiring of LAFD firefighters
+  type: story
+  date: '2015-02-22'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-hiring-report-20150122-story.html#nt=outfit
+- title: New LAFD class is nearly all male; 20% have relatives in the ranks
+  type: story
+  date: '2014-12-30'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-hiring-20141230-story.html
+- title: First Web Scraper
+  type: lesson-plan
+  date: '2014-12-10'
+  url: http://first-web-scraper.readthedocs.io/en/latest/
+- title: Federal investigators probing elite LAFD fireboat unit
+  type: story
+  date: '2014-12-02'
+  url: http://www.latimes.com/local/lanow/la-me-coast-guard-investigation-lafd-20141202-story.html#nt=outfit
+- title: Crucial L.A. County supervisor race results map
+  type: app
+  date: '2014-11-05'
+  url: http://graphics.latimes.com/2014-election-supe-3-precincts-map/
+- title: Kuehl's victory no guarantee of pro-labor bloc on Board of Supervisors
+  type: story
+  date: '2014-11-05'
+  url: http://www.latimes.com/local/politics/la-me-supervisor-analysis-20141106-story.html
+- title: Sheila Kuehl claims victory in L.A. County supervisor race
+  type: story
+  date: '2014-11-05'
+  url: http://www.latimes.com/local/lanow/la-me-ln-kuehl-victory-20141105-story.html
+- title: 2014 California election results
+  type: app
+  date: '2014-11-04'
+  url: http://graphics.latimes.com/2014-election-results-california-statehouse/
+- title: 2014 election results
+  type: app
+  date: '2014-11-04'
+  url: http://graphics.latimes.com/2014-election-results-california-statewide/
+- title: 2014 election results
+  type: app
+  date: '2014-11-04'
+  url: http://graphics.latimes.com/2014-election-results-nationwide/
+- title: Once a crusader against big money, Gov. Brown is collecting millions
+  type: story
+  date: '2014-10-31'
+  url: http://www.latimes.com/local/politics/la-me-pol-brown-money-20141031-story.html#nt=outfit
+- title: L.A. Fire Department response times slow, data show
+  type: story
+  date: '2014-10-23'
+  url: http://www.latimes.com/local/cityhall/la-me-lafd-garcetti-20141024-story.html#nt=outfit
+- title: Find Obamacare doctors in California
+  type: app
+  date: '2014-09-28'
+  url: http://graphics.latimes.com/dr-network/
+- title: State investigating LAFD hiring after white applicant alleges bias
+  type: story
+  date: '2014-09-23'
+  url: http://www.latimes.com/local/lanow/la-lafd-lotto-complaint-20140923-story.html#nt=outfit
+- title: LAFD gets new anti-nepotism rules in wake of hiring controversy
+  type: story
+  date: '2014-09-16'
+  url: http://www.latimes.com/local/lanow/la-lafd-nepotism-firefighter-hiring-rules-20140805-story.html#nt=outfit
+- title: LAFD opens investigation into alleged mistreatment of new recruit
+  type: story
+  date: '2014-09-15'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-allegations-20140915-story.html#nt=outfit
+- title: django-calaccess-raw-data
+  type: software
+  date: '2014-08-16'
+  url: https://github.com/california-civic-data-coalition/django-calaccess-raw-data
+- title: django-urlarchivefield
+  type: software
+  date: '2014-08-14'
+  url: http://www.github.com/pastpages/django-urlarchivefield/
+- title: storysniffer
+  type: software
+  date: '2014-08-14'
+  url: http://www.github.com/pastpages/storysniffer/
+- title: City probe calls for anti-nepotism reforms at LAFD
+  type: story
+  date: '2014-07-31'
+  url: http://www.latimes.com/local/lanow/la-city-probe-calls-for-anti-nepotism-reforms-at-lafd-20140730-story.html#nt=outfit
+- title: More than 10,000 rush to apply in rebooted LAFD hiring drive
+  type: story
+  date: '2014-07-28'
+  url: http://www.latimes.com/local/lanow/la-me-10000-apply-in-rebooted-lafd-hiring-20140728-story.html#nt=outfit
+- title: Mayor names L.A.'s first Latino fire chief
+  type: story
+  date: '2014-07-15'
+  url: http://www.latimes.com/local/la-me-fire-chief-20140716-story.html#nt=outfit
+- title: New process for hiring L.A. firefighters wins OK; recruiting to resume
+  type: story
+  date: '2014-07-10'
+  url: http://www.latimes.com/local/lanow/la-me-ln-city-board-approves-overhauled-lafd-hiring-rules-20140710-story.html#nt=outfit
+- title: Garcetti moves to restart suspended LAFD hiring drive
+  type: story
+  date: '2014-07-08'
+  url: http://www.latimes.com/local/lanow/la-me-lafd-hiring-overhauled-20140708-story.html#nt=outfit
+- title: Acting LAFD chief now in running for full mayoral appointment
+  type: story
+  date: '2014-07-01'
+  url: http://www.latimes.com/local/lanow/la-lafd-chief-interviews-20140701-story.html#nt=outfit
+- title: LAFD captains trained to enter shooting scenes after LAX incident
+  type: story
+  date: '2014-06-30'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-lax-shooting-report-20140630-story.html#nt=outfit
+- title: Lieu and Carr did best in South Bay, Times vote analysis shows
+  type: story
+  date: '2014-06-05'
+  url: http://www.latimes.com/local/political/la-me-pc-waxman-vote-analysis-20140605-story.html#nt=outfit
+- title: The results of the race to replace Waxman
+  type: app
+  date: '2014-06-05'
+  url: http://graphics.latimes.com/2014-westside-house-primary-map/
+- title: 2014 California primary results
+  type: app
+  date: '2014-06-03'
+  url: http://graphics.latimes.com/calif-primary-election-results-2014-maps/
+- title: Mayor Eric Garcetti set to upload a new trove of online city data
+  type: story
+  date: '2014-05-29'
+  url: http://www.latimes.com/local/lanow/la-me-ln-garcetti-open-data-20140529-story.html#nt=outfit
+- title: LAFD chief to reassign many firefighters to rescue ambulances
+  type: story
+  date: '2014-04-16'
+  url: http://www.latimes.com/local/la-me-911-response-20130417-story.html
+- title: Garcetti's budget adds more firefighters, overhauls 911 dispatch
+  type: story
+  date: '2014-04-14'
+  url: http://www.latimes.com/local/la-me-lafd-budget-20140415-story.html#nt=outfit
+- title: Fire Department class loses its only female recruit
+  type: story
+  date: '2014-04-02'
+  url: http://www.latimes.com/local/la-me-0403-lafd-female-recruit-20140403-story.html#nt=outfit
+- title: Aspiring L.A. firefighters feel cheated by aborted hiring program
+  type: story
+  date: '2014-03-25'
+  url: http://www.latimes.com/local/la-me-0426-lafd-hiring-controversy-20140326-story.html#nt=outfit
+- title: LAFD union leader says suspending hiring program 'patently unfair'
+  type: story
+  date: '2014-03-24'
+  url: LAFD union leader says suspending hiring program 'patently unfair'
+- title: LAFD recruit program is suspended
+  type: story
+  date: '2014-03-20'
+  url: http://www.latimes.com/local/la-me-lafd-20140321,0,6241555.story
+- title: LAFD contractor threatens to cut computerized 911 scripts
+  type: story
+  date: '2014-03-04'
+  url: http://www.latimes.com/local/la-me-lafd-dispatch-fight-20140305-story.html#nt=outfit
+- title: Consultant's report recommends major overhaul of L.A. Fire Department
+  type: story
+  date: '2014-03-03'
+  url: http://www.latimes.com/local/la-me-0304-lafd-overhaul-20140304-story.html#nt=outfit
+- title: Two L.A. fire commanders reassigned
+  type: story
+  date: '2014-02-28'
+  url: http://www.latimes.com/local/la-me-0301-lafd-hiring-20140301-story.html
+- title: First News App
+  type: lesson-plan
+  date: '2014-02-28'
+  url: http://first-news-app.readthedocs.io/en/latest/
+- title: One of five LAFD recruits in training class are related to department firefighters
+  type: story
+  date: '2014-02-27'
+  url: http://www.latimes.com/local/la-me-0228-lafd-recruit-20140228,0,1584181.story
+- title: In a matter of seconds, qualified applicants lose out on LAFD jobs
+  type: story
+  date: '2014-02-26'
+  url: http://www.latimes.com/local/la-me-lafd-hiring-20140227,0,5250682.story
+- title: 'L.A.''s Eastside: Where do you draw the line?'
+  type: app
+  date: '2014-02-16'
+  url: http://maps.latimes.com/debates/eastside/
+- title: Resultados de las Oct. 2013 Buenos Aires elecciones
+  type: app
+  date: '2014-02-14'
+  url: https://github.com/palermo-hollywood/election-2013
+- title: Older concrete buildings in Los Angeles
+  type: app
+  date: '2014-01-25'
+  url: http://graphics.latimes.com/la-concrete-buildings/
+- title: Eric Garcetti appointees select new L.A. Fire Department watchdog
+  type: story
+  date: '2014-01-21'
+  url: http://www.latimes.com/local/lanow/la-lafd-names-new-watchdog-20140121-story.html#nt=outfit
+- title: LAFD's highest-ranking woman is leaving the force
+  type: story
+  date: '2014-01-07'
+  url: http://www.latimes.com/local/la-me-lafd-woman-chief-20140108-story.html#nt=outfit
+- title: New LAFD recruit class is nearly all male, overwhelmingly white
+  type: story
+  date: '2014-01-06'
+  url: http://www.latimes.com/local/lanow/la-me-ln-new-lafd-recruit-class-nearly-all-male-overwhelmingly-white-20140106-story.html#nt=outfit
+- title: L.A. Fire Department dramatically overhauls response to shootings
+  type: story
+  date: '2013-12-22'
+  url: http://www.latimes.com/local/la-me-ems-response-20131223-story.html#nt=outfit
+- title: Garcetti orders release of city data, but scope uncertain
+  type: story
+  date: '2013-12-18'
+  url: http://www.latimes.com/local/lanow/la-me-ln-garcetti-open-data20131218-story.html#nt=outfit
+- title: LAFD halts popular Twitter feed, blocks access to 911 call records
+  type: story
+  date: '2013-12-12'
+  url: http://www.latimes.com/local/lafddata/la-me-lafd-data-twitter-20131012-story.html#nt=outfit
+- title: L.A. Fire Department to resume sharing details on emergency responses
+  type: story
+  date: '2013-12-12'
+  url: http://www.latimes.com/local/la-me-lafd-data-20131213-story.html
+- title: LAFD proposes boosting ranks with budget increase
+  type: story
+  date: '2013-12-03'
+  url: http://www.latimes.com/local/lanow/la-lafd-proposes-boosting-ranks-with-big-budget-increase-20131203-story.html#nt=outfit
+- title: 'Next L.A. fire chief''s other challenge: race and sex discrimination'
+  type: story
+  date: '2013-12-01'
+  url: http://www.latimes.com/local/la-me-fire-discrimination-20131202-story.html#nt=outfit
+- title: checkbook-la-watchdog
+  type: software
+  date: '2013-11-11'
+  url: https://github.com/datadesk/checkbook-la-watchdog
+- title: Since 1905, aqueduct makes headlines
+  type: app
+  date: '2013-10-25'
+  url: http://graphics.latimes.com/aqueduct-pages/
+- title: New L.A. website is opening the books on spending at City Hall
+  type: story
+  date: '2013-10-23'
+  url: http://www.latimes.com/local/lanow/la-me-ln-la-controller-website-open-data-20131023-story.html#nt=outfit
+- title: L.A. Fire Department's top internal watchdog is removed
+  type: story
+  date: '2013-10-18'
+  url: http://www.latimes.com/local/la-me-1019-lafd-watchdog-out-20131019-story.html
+- title: Mayor names an acting LAFD chief to succeed Brian Cummings
+  type: story
+  date: '2013-10-10'
+  url: http://articles.latimes.com/print/2013/oct/10/local/la-me-james-featherstone-lafd
+- title: Garcetti replaces LAFD Chief Cummings after 911 disclosures
+  type: story
+  date: '2013-10-10'
+  url: http://articles.latimes.com/print/2013/oct/10/local/la-me-1011-lafd-chief-20131011
+- title: Garcetti supporters score city appointments
+  type: app
+  date: '2013-10-08'
+  url: http://spreadsheets.latimes.com/city-appointees-tied-garcetti/
+- title: Mayor adds departments' performance data to his website
+  type: story
+  date: '2013-10-08'
+  url: http://www.latimes.com/local/la-me-garcetti-website-20131009-story.html#nt=outfit
+- title: City Council approves Garcetti's overhaul of board overseeing LAFD
+  type: story
+  date: '2013-09-13'
+  url: http://www.latimes.com/local/lafddata/la-me-city-council-approves-overhaul-of-board-overseeing-lafd-20130913-story.html#nt=outfit
+- title: Mayor Eric Garcetti revamps L.A. Fire Commission
+  type: story
+  date: '2013-08-15'
+  url: http://www.latimes.com/local/la-me-garcetti-lafd-commish-20130816-story.html#nt=outfit
+- title: Many 911 cellphone calls lack location information, study finds
+  type: story
+  date: '2013-08-13'
+  url: http://www.latimes.com/local/lanow/la-me-ln-911-caller-location-20130812-story.html#nt=outfit
+- title: L.A. Fire Department's 911 computer system has more breakdowns
+  type: story
+  date: '2013-08-06'
+  url: http://www.latimes.com/local/la-me-lafd-911-breakdowns-20130807-story.html#nt=outfit
+- title: uptime-grove
+  type: software
+  date: '2013-07-30'
+  url: https://github.com/datadesk/uptime-grove
+- title: LAFD chief first manager to interview with Mayor Eric Garcetti
+  type: story
+  date: '2013-07-23'
+  url: http://www.latimes.com/local/lafddata/la-me-ln-lafd-chief-garcetti-interview-20130723-story.html#nt=outfit
+- title: boundaries.latimes.com
+  type: app
+  date: '2013-07-22'
+  url: http://boundaries.latimes.com/
+- title: LAFD chief tweets apology for Mexican costumes photo
+  type: story
+  date: '2013-07-19'
+  url: http://www.latimes.com/local/lanow/la-lafd-chief-apologizes-for-mexican-costumes-photo-20130619-story.html#nt=outfit
+- title: After controversy, Dodgers end ambulance deal with LAFD
+  type: story
+  date: '2013-07-15'
+  url: http://www.latimes.com/local/lanow/la-me-ln-dodgers-end-lafd-deal-20130715-story.html#nt=outfit
+- title: LAFD union chief calls for ending ambulance deal with Dodgers
+  type: story
+  date: '2013-07-12'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-dodgers-20130712-story.html#nt=outfit
+- title: LAFD Chief Brian Cummings says he wants to keep his job
+  type: story
+  date: '2013-07-09'
+  url: http://www.latimes.com/local/lafddata/la-lafd-fire-chief-brian-cummings-job-garcetti-20130709-story.html#nt=outfit
+- title: Fire commissioners criticize LAFD's ambulance deal with Dodgers
+  type: story
+  date: '2013-07-09'
+  url: http://www.latimes.com/local/lanow/la-me-ln-commissioners-criticize-lafd-dodgers-20130709-story.html#nt=outfit
+- title: L.A. Fire Department is asked to broaden its tech reach
+  type: story
+  date: '2013-07-05'
+  url: http://www.latimes.com/local/la-me-lafd-ipad-20130705-story.html#nt=outfit
+- title: L.A. councilman asks LAFD to report back on proposed reforms
+  type: story
+  date: '2013-07-03'
+  url: http://www.latimes.com/local/lanow/la-me-ln-councilman-lafd-reforms-20130703-story.html#nt=outfit
+- title: Grand jury wants LAFD to reverse cuts, overhaul 911 call center
+  type: story
+  date: '2013-06-28'
+  url: http://www.latimes.com/local/lanow/la-me-ln-grand-jury-lafd-20130628-story.html#nt=outfit
+- title: L.A. Council extends LAFD plan to staff extra ambulances
+  type: story
+  date: '2013-06-28'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-ambulance-plan-20130628-story.html#nt=outfit
+- title: L.A. measure to cap marijuana shops passed with citywide support
+  type: story
+  date: '2013-06-14'
+  url: http://www.latimes.com/local/lanow/la-pot-measure-passed-with-citywide-support-20130614-story.html#nt=outfit
+- title: PastPages API
+  type: software
+  date: '2013-06-13'
+  url: http://blog.pastpages.org/post/53734104165/say-hello-to-the-pastpages-api
+- title: LAFD expresses 'sincere regret' regarding Mexican costumes at fundraiser
+  type: story
+  date: '2013-06-13'
+  url: http://www.latimes.com/local/lanow/la-lafd-chief-mexican-costumes-20130613-story.html#nt=outfit
+- title: pastpages2gif
+  type: software
+  date: '2013-06-13'
+  url: https://github.com/pastpages/pastpages2gif
+- title: 'L.A. mayoral runoff another low mark in voter turnout: 23.3%'
+  type: story
+  date: '2013-06-11'
+  url: http://www.latimes.com/local/la-me-final-la-vote-20130611-story.html#nt=outfit
+- title: L.A. mayoral election results
+  type: app
+  date: '2013-06-07'
+  url: http://graphics.latimes.com/la-mayoral-maps/
+- title: Audit faults LAFD's investigation of top officials
+  type: story
+  date: '2013-06-04'
+  url: http://www.latimes.com/local/la-me-0605-lafd-audit-20130605-story.html
+- title: The road to Eric Garcetti's election romp
+  type: story
+  date: '2013-05-22'
+  url: http://www.latimes.com/local/la-me-winning-coalition-20130523-story.html
+- title: L.A. firefighters vote against more dues for political campaigns
+  type: story
+  date: '2013-05-21'
+  url: http://www.latimes.com/local/lanow/la-me-ln-lafd-firefighter-union-political-campaign-20130521-story.html#nt=outfit
+- title: LAFD chief's report slammed by city Fire Commission
+  type: story
+  date: '2013-05-21'
+  url: http://www.latimes.com/local/lanow/la-lafd-chief-report-fire-commission-20130521-story.html#nt=outfit
+- title: 'Forecast for L.A.''s mayor race: paltry turnout'
+  type: story
+  date: '2013-05-15'
+  url: http://www.latimes.com/projects/la-me-mayor-turnout-20130515/
+- title: Union blocks access to video calling for more money for campaigns
+  type: story
+  date: '2013-05-08'
+  url: http://www.latimes.com/local/lanow/la-me-ln-firefighter-union-video-20130508-story.html#nt=outfit
+- title: L.A. council finds funds to reverse Fire Dept. staffing shift
+  type: story
+  date: '2013-05-07'
+  url: http://www.latimes.com/local/la-me-911-response-20130508-story.html#nt=outfit
+- title: L.A. street quality grades
+  type: app
+  date: '2013-05-04'
+  url: http://graphics.latimes.com/la-streets-map/
+- title: DWP salaries database
+  type: app
+  date: '2013-05-01'
+  url: http://salaries.latimes.com/dwp/
+- title: LAFD chief to shift firefighters from trucks to ambulances
+  type: story
+  date: '2013-04-26'
+  url: http://www.latimes.com/local/la-me-lafd-911-rescue-20130426-story.html#nt=outfit
+- title: L.A. Fire Department overhaul measures delayed
+  type: story
+  date: '2013-03-19'
+  url: http://www.latimes.com/local/la-me-0320-lafd-911-response-20130320-story.html#nt=outfit
+- title: L.A. Fire Department takes step toward linking 911 system to nearby systems
+  type: story
+  date: '2013-03-13'
+  url: http://www.latimes.com/local/la-me-lafd-dispatch-20130314-story.html#nt=outfit
+- title: lat-soundsystem
+  type: software
+  date: '2013-03-11'
+  url: https://github.com/datadesk/lat-soundsystem
+- title: L.A. tax-hike vote patterns tell a tale of two realities
+  type: story
+  date: '2013-03-08'
+  url: http://www.latimes.com/local/la-me-tax-two-cities-20130309-story.html
+- title: Silent LA
+  type: software
+  date: '2013-02-04'
+  url: http://datadesk.latimes.com/posts/2013/02/introducing-silent-la/
+- title: Flawed data stall California's 911 upgrades
+  type: story
+  date: '2012-12-21'
+  url: http://www.latimes.com/news/local/lafddata/la-me-ems-data-problems-20121222,0,6217938.story
+- title: L.A. county, LAFD fire chiefs discuss regional dispatch network
+  type: story
+  date: '2012-12-20'
+  url: http://www.latimes.com/local/lafddata/la-me1221-lafd-dispatch-20121221-story.html#nt=outfit
+- title: Address concerns before staff changes at 911 center, L.A. mayor says
+  type: story
+  date: '2012-12-11'
+  url: http://www.latimes.com/local/lafddata/la-me-mayor-911-dispatch-20121212-story.html#nt=outfit
+- title: L.A. seeks controversial overhaul at LAFD's troubled 911 call center
+  type: story
+  date: '2012-12-10'
+  url: http://www.latimes.com/local/lafddata/la-me-lafd-dispatch-center-20121211-story.html#nt=outfit
+- title: L.A. fire chief blames slower response times on budget cuts
+  type: story
+  date: '2012-12-04'
+  url: http://www.latimes.com/local/la-me-1205-lafd-chief-20121205-story.html#nt=outfit
+- title: LAFD looks at ways to speed up emergency response times
+  type: story
+  date: '2012-11-20'
+  url: http://www.latimes.com/local/lafddata/la-me-1121-lafd-response-20121121-story.html#nt=outfit
+- title: Investigation of LAFD response times finds deeper flaws
+  type: story
+  date: '2012-11-15'
+  url: http://www.latimes.com/local/lafddata/la-me-lafd-fire-response-20121116-story.html
+- title: Medical response time lags in many pricey L.A. neighborhoods
+  type: story
+  date: '2012-11-15'
+  url: http://www.latimes.com/news/local/lafddata/la-me-lafd-response-disparities-20121115,0,7435489.story
+- title: How fast is LAFD where you live?
+  type: app
+  date: '2012-11-15'
+  url: http://graphics.latimes.com/how-fast-is-lafd/
+- title: Quiet L.A.
+  type: software
+  date: '2012-11-14'
+  url: http://datadesk.latimes.com/posts/2012/11/introducing-quiet-la/
+- title: How Los Angeles County voted
+  type: app
+  date: '2012-11-13'
+  url: http://graphics.latimes.com/how-la-voted-2012/
+- title: 2012 election results
+  type: app
+  date: '2012-11-06'
+  url: http://graphics.latimes.com/2012-election-results-national-map/
+- title: The line that help didn't cross
+  type: app
+  date: '2012-10-20'
+  url: http://graphics.latimes.com/lafd-borders/
+- title: Delayed 911 response a matter of geography and jurisdictions
+  type: story
+  date: '2012-10-20'
+  url: http://www.latimes.com/news/local/lafddata/la-me-lafd-aid-20121021,0,7787277.story
+- title: Inside our 911 response time analysis
+  type: story
+  date: '2012-10-20'
+  url: http://datadesk.latimes.com/posts/2012/10/lafd-border-analysis/
+- title: Years after ill-fated call, L.A. Fire Department's 911 flaws remain
+  type: story
+  date: '2012-10-05'
+  url: http://www.latimes.com/local/lafddata/la-me-1006-lafd-dispatch-problems-20121006-story.html#nt=outfit
+- title: copyboy
+  type: software
+  date: '2012-09-29'
+  url: https://github.com/datadesk/copyboy
+- title: LAFD dispatchers waste time getting 911 callers to start CPR
+  type: story
+  date: '2012-09-13'
+  url: http://www.latimes.com/local/lafddata/la-me-fire-report-20120914-story.html
+- title: Expert says L.A. Fire Dept. didn't give help to fix response data
+  type: story
+  date: '2012-06-19'
+  url: http://www.latimes.com/local/lafddata/la-me-fire-response-20120620-story.html#nt=outfit
+- title: L.A. Fire Department's data expert steps down after less than 3 months
+  type: story
+  date: '2012-06-18'
+  url: http://www.latimes.com/local/lafddata/la-me-response-times-20120619-story.html#nt=outfit
+- title: 2012 California primary results
+  type: app
+  date: '2012-06-05'
+  url: http://graphics.latimes.com/california-primary-june-5-2012/
+- title: Audit finds LAFD takes longer on medical calls since budget cuts
+  type: story
+  date: '2012-05-19'
+  url: http://www.latimes.com/local/lafddata/la-me-0519-fire-response-20120519-story.html#nt=outfit
+- title: Dispatch lag slows LAFD call response
+  type: story
+  date: '2012-05-18'
+  url: http://www.latimes.com/news/local/lafddata/la-me-fire-response-20120518,0,5314236.story
+- title: Software made L.A. fire response times untrustworthy, report says
+  type: story
+  date: '2012-05-15'
+  url: http://www.latimes.com/local/la-me-fire-response-20120515-story.html
+- title: django-bakery
+  type: software
+  date: '2012-03-13'
+  url: http://datadesk.latimes.com/posts/2012/03/introducing-django-bakery/
+- title: L.A. City Council redistricting
+  type: app
+  date: '2012-03-01'
+  url: http://graphics.latimes.com/la-council-redistricting-v3/
+- title: 2012 California election results
+  type: app
+  date: '2012-01-06'
+  url: http://graphics.latimes.com/2012-election-results-california/
+- title: 2012 presidential primary results
+  type: app
+  date: '2012-01-03'
+  url: http://graphics.latimes.com/2012-election-gop-results-map-iowa/
+- title: python-elections
+  type: software
+  date: '2012-01-01'
+  url: http://python-elections.readthedocs.io/en/latest/
+- title: django-softhyphen
+  type: software
+  date: '2011-12-15'
+  url: https://github.com/datadesk/django-softhyphen
+- title: 'Occupy L.A.: A portrait of the arrested protesters'
+  type: story
+  date: '2011-12-02'
+  url: http://latimesblogs.latimes.com/lanow/2011/12/occupy-la-a-portrait-of-the-arrested-protesters.html
+- title: django-yamlfield
+  type: software
+  date: '2011-09-15'
+  url: https://github.com/datadesk/django-yamlfield
+- title: python-googlegeocoder
+  type: software
+  date: '2011-08-17'
+  url: https://github.com/datadesk/python-googlegeocoder
+- title: jquery-geocodify
+  type: software
+  date: '2011-08-07'
+  url: http://datadesk.github.io/jquery-geocodify/
+- title: latimes-statestyle
+  type: software
+  date: '2011-07-22'
+  url: https://github.com/datadesk/latimes-statestyle
+- title: PastPages
+  type: app
+  date: '2011-07-01'
+  url: http://www.pastpages.org
+- title: python-lametro-api
+  type: software
+  date: '2011-05-31'
+  url: http://datadesk.github.io/python-lametro-api/
+- title: timelines.latimes.com
+  type: app
+  date: '2011-05-10'
+  url: http://timelines.latimes.com/
+- title: U.S. is increasing nuclear power through uprating
+  type: story
+  date: '2011-04-17'
+  url: http://articles.latimes.com/print/2011/apr/17/local/la-me-uprates-20110418
+- title: python-documentcloud
+  type: software
+  date: '2011-04-14'
+  url: http://datadesk.github.io/python-documentcloud/
+- title: spreadsheets.latimes.com
+  type: app
+  date: '2011-03-05'
+  url: http://spreadsheets.latimes.com/
+- title: Billions to spend
+  type: app
+  date: '2011-02-27'
+  url: http://laccd.latimes.com/
+- title: table-stacker
+  type: software
+  date: '2010-12-31'
+  url: http://datadesk.github.io/latimes-table-stacker/
+- title: latimes-calculate
+  type: software
+  date: '2010-12-14'
+  url: http://datadesk.github.io/latimes-calculate/
+- title: documents.latimes.com/
+  type: app
+  date: '2010-11-25'
+  url: http://documents.latimes.com/
+- title: appengine-template
+  type: software
+  date: '2010-11-07'
+  url: https://github.com/datadesk/latimes-appengine-template
+- title: 'Mapping L.A.: Crime'
+  type: app
+  date: '2010-09-30'
+  url: http://maps.latimes.com/crime/
+- title: Hollywood Star Walk
+  type: app
+  date: '2010-08-24'
+  url: http://projects.latimes.com/hollywood/star-walk/
+- title: django-greeking
+  type: software
+  date: '2010-08-05'
+  url: http://github.com/palewire/django-greeking
+- title: Where does the Westside start?
+  type: app
+  date: '2010-07-24'
+  url: http://maps.latimes.com/debates/westside/
+- title: 'Proposition 8: Who gave in the gay marriage battle?'
+  type: app
+  date: '2010-07-03'
+  url: http://projects.latimes.com/prop8/
+- title: How to turn $1,800 in part-time pay into nearly $100,000 a year
+  type: app
+  date: '2010-06-29'
+  url: http://www.latimes.com/local/la-me-bell-council-interactive-htmlstory.html
+- title: LAPD's public database omits nearly 40% of this year's crimes
+  type: story
+  date: '2009-07-09'
+  url: http://www.latimes.com/la-mew-crime-map-errors-story.html
+- title: Highest crime rate in L.A.? No, just an LAPD map glitch
+  type: story
+  date: '2009-04-05'
+  url: http://www.latimes.com/local/la-me-geocoding-errors5-2009apr05-story.html#nt=outfit
+- title: 'Mapping L.A.: Neighborhoods'
+  type: app
+  date: '2009-02-19'
+  url: http://maps.latimes.com/neighborhoods/
+- title: django-correx
+  type: software
+  date: '2009-02-14'
+  url: https://github.com/palewire/django-correx
+- title: California Schools Guide
+  type: app
+  date: '2008-09-08'
+  url: http://schools.latimes.com/
+- title: Half of high schools met U.S. goals
+  type: story
+  date: '2008-09-05'
+  url: http://articles.latimes.com/print/2008/sep/05/local/me-scores5
+- title: L.A.’s Top Dogs
+  type: app
+  date: '2008-08-01'
+  url: http://projects.latimes.com/dogs/
+- title: L.A. is going to the Chihuahuas
+  type: story
+  date: '2008-08-01'
+  url: http://articles.latimes.com/print/2008/aug/01/local/me-dogs1
+- title: Hear No Evil, Smell No Evil
+  type: story
+  date: '2008-06-11'
+  url: http://archive.fwweekly.com/content.asp?article=6967
+- title: California's War Dead
+  type: app
+  date: '2008-05-26'
+  url: http://projects.latimes.com/wardead/
+- title: Citing Ronald Reagan not so helpful this time around
+  type: story
+  date: '2008-01-30'
+  url: http://latimesblogs.latimes.com/washington/2008/01/reagan.html
+- title: Collateral damage
+  type: story
+  date: '2007-05-22'
+  url: http://www.publicintegrity.org/2007/05/22/5737/collateral-damage
+- title: Clear Channel gives Tate Talking Points Against XM-Sirius merger
+  type: story
+  date: '2007-04-14'
+  url: https://web.archive.org/web/20080618232937/https://www.publicintegrity.org/telecom/telecomwatch.aspx?eid=2816
+- title: Federal loans go for risky business
+  type: story
+  date: '2005-12-27'
+  url: http://www.columbiamissourian.com/news/local/federal-loans-go-for-risky-business/article_79811f87-33df-5fd6-acfb-c528dd57accb.html

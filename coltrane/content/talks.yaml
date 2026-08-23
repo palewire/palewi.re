@@ -1,0 +1,524 @@
+talks:
+- title: Introducing the Reuters Climate Monitor
+  venue: Responsible Business USA 2026
+  location: Boston
+  date: '2026-05-05'
+  slides_url: https://docs.google.com/presentation/d/130fB6OvKdduUCwEAkIEJAzlQym-b73HQTV2VETO9IHM/edit?usp=sharing
+- title: Introducing the New IRE Resource Center
+  venue: Investigative Reporters and Editors
+  location: Zoom
+  date: '2026-04-29'
+  video_url: https://vimeo.com/1187819115/4fcb0378ca?share=copy&fl=sv&fe=ci
+  slides_url: https://palewi.re/docs/ire-archive-slide-deck/
+- title: Today’s News For Tomorrow
+  venue: Poynter
+  location: Zoom
+  date: '2026-03-10'
+  slides_url: https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/
+- title: First PMTiles Map
+  venue: NICAR
+  location: Indianapolis
+  date: '2026-03-07'
+  slides_url: https://palewi.re/docs/first-pmtiles-map/
+- title: Introducing the new IRE Resource Center
+  venue: NICAR
+  location: Indianapolis
+  date: '2026-03-06'
+  slides_url: https://palewi.re/docs/ire-archive-slide-deck/
+- title: First LLM Classifier
+  venue: NICAR
+  location: Indianapolis
+  date: '2026-03-05'
+  slides_url: https://palewi.re/docs/first-llm-classifier/
+- title: Go big with Github Actions
+  venue: IRE Watchdog Workshop
+  location: New York
+  date: '2026-01-24'
+  slides_url: https://palewi.re/docs/go-big-with-github-actions/
+- title: 'Storytelling with graphics: From raw data to reader impact'
+  venue: Observable webinar
+  location: Zoom
+  date: '2025-12-04'
+  video_url: https://www.youtube.com/live/_dh4gRkQiRw?t=98s
+- title: 'DV&C Presents: Signal in the Noise'
+  venue: SVA Theatre
+  location: Manhattan
+  date: '2025-11-22'
+  video_url: https://www.youtube.com/watch?v=NK6vZaY0TZk&list=WL&index=2
+- title: What AI means for covering money
+  venue: SABEW Personal Finance Summit
+  location: New York
+  date: '2025-10-10'
+  slides_url: https://pfsummit25.sched.com/event/28LGe/what-ai-means-for-covering-money
+- title: 'Harnessing AI: How journalists can reap the benefits – and avoid the pitfalls
+    – of emerging AI tools'
+  venue: SABEW online panel
+  location: Zoom
+  date: '2025-06-25'
+  video_url: https://www.youtube.com/watch?v=pvarfN4F19g
+  slides_url: https://sabew.org/event/harnessing-ai-how-journalists-can-reap-the-benefits-and-avoid-the-pitfalls-of-emerging-ai-tools/
+- title: Journalism in the visual age
+  venue: Canva meetup
+  location: New York City
+  date: '2025-05-20'
+- title: 'Good Trouble: Let''s use AI to do journalism'
+  venue: Columbia Scholastic Press Association
+  location: New York City
+  date: '2025-03-20'
+  video_url: https://www.youtube.com/watch?feature=shared&v=8FPAu6MccqU
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vSlYWM0QKPW-81ofDOIIrfJM4tTtMWdHlnAdarGDYepdkiKTp2UDzcmx_NNBYXiH4tsLcy68LVWer2x/pub?start=false&loop=false&delayms=3000
+- title: First LLM Classifier
+  venue: NICAR
+  location: Minneapolis
+  date: '2025-03-08'
+  slides_url: https://palewi.re/docs/first-llm-classifier/
+- title: First Athena Query
+  venue: NICAR
+  location: Minneapolis
+  date: '2025-03-07'
+  slides_url: https://palewi.re/docs/first-athena-query/
+- title: Go big with GitHub Actions
+  venue: NICAR
+  location: Minneapolis
+  date: '2025-03-06'
+  slides_url: https://palewi.re/docs/go-big-with-github-actions/
+- title: FOIA Fellowship
+  venue: DePaul University Center for Journalism Integrity & Excellence
+  location: Zoom
+  date: '2025-02-28'
+- title: 'First Python Notebook: Data Analysis on Deadline'
+  venue: Knight Center at UT-Austin
+  location: an online class
+  date: '2024-05-11'
+  video_url: https://journalismcourses.org/product/first-python-notebook-data-analysis-on-deadline/
+- title: 'Bare Facts First: How Reuters uses Datawrapper to create, automate and disseminate
+    hundreds of charts each week'
+  venue: Data Visualization Society
+  location: New York City
+  date: '2024-04-30'
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTFf1nR6Bs5Y41kUzv3n-ZkBWJmSeF0W7inISfvG7pfPR1BrP8VdO6bwxxVJtToKacTcxhyXcgDzyQM/pub?start=false&loop=false&delayms=3000&slide=id.g2c1d60c8208_3_0
+- title: 'Bare Facts First: How Reuters uses Datawrapper to create, automate and disseminate
+    hundreds of charts each week'
+  venue: Datawrapper
+  location: Streamyard
+  date: '2024-03-15'
+  video_url: https://www.youtube.com/watch?v=LmfhEPdBBUU
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vRVFd-3cIBo0QpwIO_yuyWf5UcUwC1FB5afiQQpC6IdWItvqUx-szFARetMhmCFAAkaFZDsyWG9cUk8/pub?start=false&loop=false&delayms=3000
+- title: What is a Data Journalist?
+  venue: CSPA Spring Convention
+  location: New York City
+  date: '2024-03-15'
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTpymERcu2Mrl2-u51l6TeCuRTQpCvQCqkSQKsPcBuXDO_8s5cTm2mhp6RU4AViwZVcIu0vz3zK6oeF/pub?start=false&loop=false&delayms=3000
+- title: First Python Notebook
+  venue: NICAR
+  location: Baltimore
+  date: '2024-03-09'
+  video_url: https://palewi.re/docs/first-python-notebook/
+- title: First Automated Chart
+  venue: NICAR
+  location: Baltimore
+  date: '2024-03-08'
+  slides_url: https://palewi.re/docs/first-automated-chart/
+- title: First Visual Story
+  venue: NICAR
+  location: Baltimore
+  date: '2024-03-07'
+  slides_url: https://palewi.re/docs/first-visual-story/
+- title: Have a little fun with FOIA
+  venue: National FOIA Summit 23
+  location: Zoom
+  date: '2023-10-04'
+- title: First Visual Story
+  venue: NICAR
+  location: New Orleans
+  date: '2023-03-07'
+  slides_url: https://palewi.re/docs/first-visual-story/
+- title: First Visual Story
+  venue: NICAR
+  location: Nashville
+  date: '2023-03-04'
+  slides_url: https://palewi.re/docs/first-visual-story/
+- title: Introducing moneyinpolitics.wtf
+  venue: NICAR
+  location: Nashville
+  date: '2023-03-04'
+  slides_url: https://moneyinpolitics.wtf/
+- title: First Python Notebook
+  venue: NICAR
+  location: Nashville
+  date: '2023-03-03'
+  slides_url: https://palewi.re/docs/first-python-notebook/
+- title: First Pull Request
+  venue: the e.e. cummings free poetry archive
+  location: Zoom
+  date: '2022-12-10'
+  video_url: https://www.youtube.com/watch?v=E5cVRseyEOA
+  slides_url: https://palewi.re/docs/first-pull-request/
+- title: How do we make FOI fun?
+  venue: National FOIA Summit 22
+  location: Zoom
+  date: '2022-10-20'
+- title: Fast First Python Notebook
+  venue: ONA22
+  location: Zoom
+  date: '2022-09-24'
+  video_url: https://www.youtube.com/watch?v=2RgPoy05AnA
+  slides_url: https://palewi.re/docs/first-python-notebook/_extra/fast-python-notebook/lab/
+- title: What is Big Local News?
+  venue: 17º Congresso Internacional de Journalismo da Abraji
+  location: São Paulo
+  date: '2022-08-06'
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vSafvmUAXIPgtCmwjgDXx5g1JIRd1li_Uueuu7rzFxV1npB91ylw8evdTyyRenxf7uMARPpC9GM6bAx/pub?start=false&loop=false&delayms=60000&slide=id.g142fc79cdb2_0_0
+- title: First Python Notebook
+  venue: JSK Connect Master Class
+  location: Zoom
+  date: '2022-07-22'
+- title: Data Journalism Workshop
+  venue: 14East Magazine
+  location: Zoom
+  date: '2022-04-21'
+  video_url: https://www.youtube.com/watch?v=p21X-0vJZsA&feature=youtu.be
+  slides_url: https://www.eventbrite.com/e/14-east-and-spjona-data-workshop-tickets-318943838607?aff=ebdssbdestsearch
+- title: A beginner’s guide to FBI crime statistics
+  venue: The California Newsroom
+  location: Zoom
+  date: '2022-04-20'
+  slides_url: https://biglocalnews.org/posts/2022/04/11/guide-to-fbi-crime-statistics.html
+- title: Scaling up scrapers with Prefect and Google Cloud
+  venue: Prefect Live
+  location: Twitch
+  date: '2022-04-13'
+  video_url: https://www.youtube.com/watch?v=Goi8Ezqs-dM
+  slides_url: https://biglocalnews.org/posts/2022/04/14/prefect-live-scaling-scraping-with-gcp.html
+- title: First Visual Story
+  venue: NICAR
+  location: Atlanta
+  date: '2022-03-05'
+  slides_url: https://palewi.re/docs/first-visual-story/
+- title: First GitHub Scraper
+  venue: NICAR
+  location: Atlanta
+  date: '2022-03-04'
+  slides_url: https://palewi.re/docs/first-github-scraper/
+- title: First Python Notebook
+  venue: NICAR
+  location: Atlanta
+  date: '2022-03-03'
+  slides_url: https://palewi.re/docs/first-python-notebook/
+- title: The state of local data journalism
+  venue: The Data Journalism Podcast
+  location: Zoom
+  date: '2022-02-09'
+  video_url: https://anchor.fm/ddjpodcast/episodes/Data-journalism-for-the-people--Ben-Welsh-and-MaryJo-Webster-on-the-state-of-local-data-journalism-e1e4ejq
+- title: How the Low Angeles Times overhauled its graphics workflow
+  venue: OpenNews Community Call
+  location: SoundCloud
+  date: '2021-11-04'
+  video_url: https://soundcloud.app.goo.gl/K4Qmy
+- title: 'Beyond JMS: The power of Python'
+  venue: San Diego State University
+  location: Zoom
+  date: '2021-09-24'
+  video_url: https://www.youtube.com/watch?v=QYCTVZLbbCU
+  slides_url: https://docs.google.com/presentation/d/1_sC3bFYbg4CD7TmlS9g1hPDD3_oIhcHsqECtzSx34XE/edit?usp=sharing
+- title: Hosting data on the Internet Archive with Django
+  venue: OpenNews Community Call
+  location: SoundCloud
+  date: '2021-07-01'
+  video_url: https://soundcloud.app.goo.gl/7hPSU
+- title: Hello datawrapper
+  venue: Arizona State University
+  location: Zoom
+  date: '2021-05-23'
+  video_url: https://asu.zoom.us/rec/play/ShKHBZ4M8nipdXFKuZHUaU0FDM8nywZotv5ryyeIvDH4WjGEmDQzvzpVMX10k3XUZ8D-OvEiKhMcilaA.-JekNP08WWLe764M?autoplay=true
+  slides_url: https://twitter.com/palewire/status/1396537050292056064
+- title: First Python Notebook
+  venue: NICAR21 After Party
+  location: Zoom
+  date: '2021-03-06'
+  video_url: https://www.youtube.com/watch?v=paVSRMTitLQ
+- title: 'Learning to code: What''s holding you back?'
+  venue: NICAR
+  location: Zoom
+  date: '2021-03-05'
+- title: COVID-19 and a corresponding shift in collaborative data journalism
+  venue: C+J 2021
+  location: OhYay
+  date: '2021-02-19'
+- title: 'DATA AND GRAPHICS: An introduction'
+  venue: Humanitarian Mapathon
+  location: UCLA
+  date: '2020-10-30'
+  video_url: https://www.youtube.com/watch?v=sSEiBF_RAMc&feature=emb_title
+  slides_url: https://docs.google.com/presentation/d/1zyVSGRCmVohHc18JD-A7tozprMj4tOmcVxaK2_d0A5o/edit?usp=sharing
+- title: First Python Notebook
+  venue: Flash MOOC
+  location: Zoom
+  date: '2020-03-28'
+  slides_url: https://palewi.re/posts/2020/03/21/flash-mooc-first-python-notebook/
+- title: First Python Notebook
+  venue: NICAR
+  location: New Orleans
+  date: '2020-03-06'
+  slides_url: https://palewi.re/docs/first-python-notebook/
+- title: First Observable notebook
+  venue: NICAR
+  location: New Orleans
+  date: '2020-03-05'
+- title: Data journalism on deadline
+  venue: Science Communication Program
+  location: UC Santa Cruz
+  date: '2019-05-20'
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTkAHd4dlfGYE-Jh8C2R2ERG7KiDAogRfLWxLt8U2ABJUUR0WeNHgYrYLIbV-56gwoztYf31Z-vQ3hQ/pub?start=false&loop=false&delayms=3000&slide=id.p
+- title: Nerds in the Newsroom
+  venue: The National High School Journalism Convention
+  location: Anaheim
+  date: '2019-04-26'
+  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit
+- title: Statistics, Shoeleather and Storytelling
+  venue: Festival of Books
+  location: Los Angeles
+  date: '2019-04-14'
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vQGo3iffr24Coj6BN_Myu4WaOX4Mkni9AdjbCiI9KXe1BGVVB2B8bLkUb7jDvePitviCaEC6NEN0KDA/pub?start=false&loop=false&delayms=3000
+- title: 'Census 2020: Don''t panic! Do data!'
+  venue: USC
+  location: Los Angeles
+  date: '2019-03-22'
+  video_url: https://www.facebook.com/ReportingonHealth/videos/818708295141862/
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vS4JR3gwFQDxSd5EtBgfjOFBUW8ArqW4vJ3zIsh22r5WjVFLEnH8gg8d-VVQ3Dc9SMmu4KEtSBXhIe5/pub?start=false&loop=false&delayms=3000&slide=id.p
+- title: First Graphics App
+  venue: NICAR
+  location: Newport Beach
+  date: '2019-03-09'
+- title: First Python Notebook
+  venue: NICAR
+  location: Newport Beach
+  date: '2019-03-08'
+- title: Archiving digital journalism
+  venue: NICAR
+  location: Newport Beach
+  date: '2019-03-07'
+- title: First Observable Notebook
+  venue: NICAR
+  location: Newport Beach
+  date: '2019-03-07'
+- title: What is a Data Desk?
+  venue: PyDataLA
+  location: USC
+  date: '2018-10-23'
+  video_url: https://www.youtube.com/watch?v=_73obGWno1c
+  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit
+- title: What is a Data Desk?
+  venue: BitCurator Users Forum
+  location: Los Angeles
+  date: '2018-09-14'
+  video_url: https://twitter.com/bitconsortium/status/1040662449853149184
+  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit#slide=id.g17e30fc242_1_90
+- title: Data, data, gimme the news
+  venue: USC
+  location: Los Angeles
+  date: '2018-07-25'
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vRXf2aCCKmtOWaHQsI9RL2c5K8qzMIoUh6PaCpGaTAAV2aN-afqEhP_7Yt4kuhKVWnpm78EqgJVNZkh/pub?start=false&loop=false&delayms=3000
+- title: Archiving data journalism
+  venue: NICAR18
+  location: Chicago
+  date: '2018-03-11'
+  slides_url: https://twitter.com/palewire/status/972891703681183744
+- title: First Graphics App
+  venue: NICAR
+  location: Chicago
+  date: '2018-03-10'
+- title: First Python Notebook
+  venue: NICAR
+  location: Chicago
+  date: '2018-03-09'
+- title: What is a Data Desk?
+  venue: CSUN's DataJam
+  location: Northridge
+  date: '2017-09-29'
+  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit#slide=id.g17e30fc242_1_90
+- title: What is a Data Desk?
+  venue: Big Data Day
+  location: Los Angeles
+  date: '2017-08-05'
+  video_url: https://www.youtube.com/watch?v=1PGHPAc5vSo&feature=youtu.be&t=1155
+  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
+- title: What is a Data Desk?
+  venue: Hollywood Data Science
+  location: Los Angeles
+  date: '2017-06-08'
+  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
+- title: Distinguished Journalism Awards
+  venue: Union Club
+  location: Chicago
+  date: '2017-04-20'
+  video_url: https://vimeo.com/214875675#t=407s
+- title: 'Just enough Django: Distributed data entry in the newsroom'
+  venue: NICAR
+  location: Jacksonville
+  date: '2017-03-05'
+- title: First News App
+  venue: NICAR
+  location: Jacksonville
+  date: '2017-03-04'
+- title: First Python Notebook
+  venue: NICAR
+  location: Jacksonville
+  date: '2017-03-03'
+- title: The Framework Fix
+  venue: Dodging the Memory Hole III
+  location: Los Angeles
+  date: '2016-10-15'
+  video_url: https://www.facebook.com/reynoldsjournalisminstitute/videos/10154119388683165/
+- title: First Python Notebook
+  venue: IRE Watchdog Workshop
+  location: San Diego
+  date: '2016-10-01'
+- title: How to tell a story with charts in five charts
+  venue: IRE Watchdog Workshop
+  location: San Diego
+  date: '2016-10-01'
+  slides_url: https://docs.google.com/presentation/d/1swHnI6r7wsjuQRuSbbYQF8oNnOYPCGNDJmj7DHn8IVs/pub?start=false&loop=false&delayms=3000&slide=id.g1802839634_0_424
+- title: 'Data journalists and data teams: Where we are and where we want to go'
+  venue: NICAR
+  location: Denver
+  date: '2016-03-11'
+- title: First News App
+  venue: NICAR
+  location: Denver
+  date: '2016-03-11'
+- title: Show and Tell with the L.A. Times Data Desk
+  venue: Hacks/Hackers
+  location: Los Angeles
+  date: '2015-11-19'
+  slides_url: https://docs.google.com/presentation/d/1ybqJBreNfV29zzJyePB9GqHPHqZ9oxezG8adl91rK7k/embed?start=false&loop=false&delayms=3000&slide=id.p
+- title: The Open Data Opportunity
+  venue: The Milken Institute
+  location: Santa Monica
+  date: '2015-11-04'
+  video_url: https://www.youtube.com/watch?v=JBeYpuDuHeo
+- title: Package data like software and the stories will flow like wine
+  venue: Media Party
+  location: Buenos Aires
+  date: '2015-08-27'
+  video_url: https://www.youtube.com/watch?v=yGGLT43sdIY
+  slides_url: https://docs.google.com/presentation/d/1BWIyHq3bPAEBhckYRQ_2I5e2AzChFuMN8z9KMOejpQ4/embed?start=false&loop=false&delayms=3000
+- title: California Civic Data Coalition
+  venue: Knight News Challenge announcement
+  location: Austin
+  date: '2015-07-22'
+  video_url: https://www.youtube.com/watch?v=5TC2RXYgPBE
+  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vSD4nosmoc5EoNvfjOKjcyZZHErrGh6MMIvVuDuqaSSU32dVO31naFJR_XmKrztAYjrupK29EV9weFA/pub?start=false&loop=false&delayms=3000
+- title: Django + Memento
+  venue: Dodging the Memory Hole II
+  location: Charlotte
+  date: '2015-05-11'
+  slides_url: https://docs.google.com/presentation/d/1fu4IWbnu3QnYk45eQWtSoB0d4xlYCjQIcZ0S56AfOes/embed?start=false&loop=false&delayms=3000
+- title: 'Just enough Django: Distributed data entry in the newsroom'
+  venue: NICAR
+  location: Atlanta
+  date: '2015-03-08'
+- title: First News App
+  venue: NICAR
+  location: Atlanta
+  date: '2015-03-06'
+- title: What is a Data Desk?
+  venue: CCCB Lab
+  location: Barcelona
+  date: '2014-12-10'
+  video_url: http://player.vimeo.com/video/114955572?title=0&amp;byline=0&amp;portrait=0
+  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
+- title: First Web Scraper
+  venue: CCCB Lab
+  location: Barcelona
+  date: '2014-12-10'
+  video_url: http://player.vimeo.com/video/114955600?title=0&amp;byline=0&amp;portrait=0
+  slides_url: http://first-web-scraper.readthedocs.io/en/latest/
+- title: Introducing Storytracker
+  venue: Dodging the Memory Hole
+  location: Columbia, Missouri
+  date: '2014-11-10'
+  video_url: https://www.youtube.com/watch?v=U9TVHr3j0ws
+  slides_url: https://docs.google.com/presentation/d/1Yf3YcuCL7Hj6GW_YSWhyIIfvKWaaS4oGFQmQNWqd1fE/embed?start=false&loop=false&delayms=3000
+- title: First News App
+  venue: NICAR
+  location: Baltimore
+  date: '2014-03-01'
+- title: You Must Learn
+  venue: NICAR
+  location: Baltimore
+  date: '2014-02-28'
+  video_url: https://www.youtube.com/watch?v=kMWXhYFlEPY
+  slides_url: https://docs.google.com/presentation/d/1f9RJO8-6pxJn1LWvVmWaLPuVzklxiTSJL5PScl3NcPI/embed?start=false&loop=false&delayms=3000
+- title: Proper workflows for data projects
+  venue: NICAR
+  location: Baltimore
+  date: '2014-02-28'
+- title: What is a Data Desk?
+  venue: DataVis LA
+  location: Santa Monica
+  date: '2014-02-25'
+  video_url: https://vimeo.com/88182731
+- title: El Cartografo en su Laberinto
+  venue: Data Fest
+  location: Buenos Aires
+  date: '2013-11-02'
+  video_url: https://www.youtube.com/watch?v=1vpYv0KBOTc
+  slides_url: https://docs.google.com/presentation/d/1r7xANBupherX9z_FdKTnhkeg1L5pu2oe94eHgGka_-k/embed?start=false&loop=false&delayms=3000
+- title: L.A.'s Political Calculus
+  venue: Festival of Books
+  location: Los Angeles
+  date: '2013-04-21'
+  slides_url: https://docs.google.com/presentation/d/1k1-5i0vQQLIwiid_Ov2d_beiLkbyMXoSviFHtBZC4Kw/embed?start=false&loop=false&delayms=3000
+- title: Is 911 a joke in your town?
+  venue: NICAR
+  location: Louisville
+  date: '2013-03-01'
+  slides_url: https://docs.google.com/presentation/d/1_1BCtJVJuDQKy99X9tSHc4veSVrX3UX040Gmrn6kL8M/embed?start=false&loop=false&delayms=3000
+- title: Django Retrained
+  venue: NICAR
+  location: Louisville
+  date: '2013-03-01'
+  video_url: http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0
+  slides_url: https://docs.google.com/presentation/d/1mwzJ4494rdSEhex2aPjBH2se3F-UBZjrgoLzfD1tYGc/embed?start=false&loop=false&delayms=3000
+- title: How we use DocumentCloud at the Los Angeles Times
+  venue: NICAR
+  location: Louisville
+  date: '2013-02-28'
+  slides_url: https://docs.google.com/presentation/d/1ym7axgHp8KddfYsxond9r2t9w9Tzv48z02N1ySPcXOc/embed?start=false&loop=false&delayms=3000
+- title: What is a Data Desk?
+  venue: ONA LA
+  location: Los Angeles
+  date: '2012-05-16'
+  video_url: https://www.youtube.com/watch?v=S62J6SssxNE
+- title: Human-assisted reporting
+  venue: ISOJ
+  location: Austin
+  date: '2012-04-21'
+  video_url: https://www.youtube.com/watch?v=iP-On8PzEy8
+  slides_url: https://docs.google.com/presentation/d/1sW3iLUDXs7NTdo7EUUxD7X3vnIWYo7G8orMf5FT05Zk/embed?start=false&loop=false&delayms=3000
+- title: How I learned to stop worrying and love flat files
+  venue: NICAR
+  location: St. Louis
+  date: '2012-02-24'
+  slides_url: https://docs.google.com/presentation/d/1IybYcc0eVL-Rchm7lEQNwrM-AHRfr_M8ewfGYYNjeu8/embed?start=false&loop=false&delayms=3000
+- title: Locating the story
+  venue: NICAR
+  location: St. Louis
+  date: '2012-02-23'
+  slides_url: https://docs.google.com/presentation/d/11_6sSd31mEy7VkQdG-YY_mQtlktKPt0ZuuaFwFy6H3w/embed?start=false&loop=false&delayms=3000
+- title: PostGIS is your new bicycle
+  venue: NICAR
+  location: Raleigh
+  date: '2011-02-24'
+  slides_url: https://docs.google.com/presentation/d/1uhVAiEKlJWCfOOEldPQUl0_tErm-E-2Xvlv0IURh0CE/embed?start=false&loop=false&delayms=3000
+- title: Pluggable Maps
+  venue: Hacks/Hackers
+  location: Los Angeles
+  date: '2010-12-15'
+  slides_url: https://docs.google.com/presentation/d/19_cEPdkLJS3Z5POylyEqPH6R9TTEzXcox4KZkclSXUc/embed?start=false&loop=false&delayms=3000
+- title: Django in Journalism
+  venue: Djangocon
+  location: Mountain View
+  date: '2008-09-16'
+  video_url: https://www.youtube.com/watch?v=eLQ9xc_Dm3g
