@@ -52,16 +52,32 @@ jobs:
             exit 1
           fi
 
-      - name: Bio page
+      - name: Bio page (with retries)
         run: |
           echo "Testing bio page: $BASE_URL/who-is-ben-welsh/"
-          code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/who-is-ben-welsh/")
-          echo "HTTP $code"
-          [ "$code" = "200" ] && echo "✅ Bio page OK" || { echo "❌ Bio page returned HTTP $code"; exit 1; }
+          bio_ok=false
+          for i in 1 2 3; do
+            code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/who-is-ben-welsh/" || true)
+            echo "Attempt $i — HTTP $code"
+            if [ "$code" = "200" ]; then
+              bio_ok=true
+              break
+            fi
+            if [ "$i" -lt 3 ]; then sleep 10; fi
+          done
+          [ "$bio_ok" = "true" ] && echo "✅ Bio page OK" || { echo "❌ Bio page failed after retries (last HTTP $code)"; exit 1; }
 
-      - name: Root redirect
+      - name: Root redirect (with retries)
         run: |
           echo "Testing root redirect: $BASE_URL/"
-          code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/")
-          echo "HTTP $code"
-          { [ "$code" = "301" ] || [ "$code" = "302" ]; } && echo "✅ Root redirect OK" || { echo "❌ Root did not redirect (HTTP $code)"; exit 1; }
+          redirect_ok=false
+          for i in 1 2 3; do
+            code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/" || true)
+            echo "Attempt $i — HTTP $code"
+            if [ "$code" = "301" ] || [ "$code" = "302" ]; then
+              redirect_ok=true
+              break
+            fi
+            if [ "$i" -lt 3 ]; then sleep 10; fi
+          done
+          [ "$redirect_ok" = "true" ] && echo "✅ Root redirect OK" || { echo "❌ Root redirect failed after retries (last HTTP $code)"; exit 1; }
