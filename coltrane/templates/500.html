@@ -1,11 +1,13 @@
 {% extends "coltrane/base.html" %}
 
-{% block title %}500 Error (Server Error) . {{ block.super }}{% endblock %}
+{% block title %}Server error · {{ block.super }}{% endblock %}
+{% block robots %}noindex{% endblock %}
 
 {% block content %}
-
-    <div class="twelvecol last">
-        <h1 style="text-align:center;">Sorry, something is wrong. Please try back later.</h1>
-    </div>
-
+<section class="twelvecol last error-page" aria-labelledby="error-heading">
+    <h1 id="error-heading">500</h1>
+    <p class="error-page__message">
+        Something went wrong. Please try again later.
+    </p>
+</section>
 {% endblock %}
