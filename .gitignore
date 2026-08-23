@@ -31,3 +31,6 @@ collected_static/
 # Build / packaging
 dist/
 *.egg-info/
+
+# Goal-skill artifacts
+.goals/
