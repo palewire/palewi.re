@@ -8,6 +8,16 @@
 
 - [ ] `make check` passes locally
 
+## Changelog
+
+<!-- Apply exactly one of these labels before merging. -->
+
+- [ ] `feature`
+- [ ] `improvement`
+- [ ] `fix`
+- [ ] `maintenance`
+- [ ] `skip-changelog`
+
 ## Deployment notes
 
 <!-- Any database migrations? Config changes? Manual steps needed after deploy? -->

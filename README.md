@@ -67,6 +67,9 @@ automatically named isolated database in a linked worktree.
 
 The app deploys to Heroku automatically when a pull request merges to `main` **after CI passes**.
 
+GitHub releases summarize meaningful batches of deployed changes. See
+[RELEASING.md](RELEASING.md) for the changelog and release process.
+
 **Rollback** a bad deploy:
 
 ```bash
