@@ -5,22 +5,9 @@
 
 {% block content %}
 <section class="twelvecol last error-page" aria-labelledby="error-heading">
-    <h1 id="error-heading">Page not found.</h1>
+    <h1 id="error-heading">404</h1>
     <p class="error-page__message">
-        The page may have moved, or the address might be wrong.
+        This page could not be found.
     </p>
-    <p class="error-page__home">
-        <a href="/">Go to the homepage <span aria-hidden="true">→</span></a>
-    </p>
-    <nav class="error-page__nav" aria-label="More places to visit">
-        <p>Or keep looking:</p>
-        <ul>
-            <li><a href="{% url 'coltrane_post_list' %}">Posts</a></li>
-            <li><a href="{% url 'coltrane_work_list' %}">Work</a></li>
-            <li><a href="{% url 'coltrane_talk_list' %}">Talks</a></li>
-            <li><a href="{% url 'coltrane_doc_list' %}">Docs</a></li>
-            <li><a href="{% url 'coltrane_bio' %}">About</a></li>
-        </ul>
-    </nav>
 </section>
 {% endblock %}
