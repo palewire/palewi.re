@@ -5,6 +5,7 @@ from unittest.mock import patch
 import pytest
 from django.db import DatabaseError
 from django.test import Client
+from django.test.utils import override_settings
 
 
 @pytest.fixture
@@ -53,6 +54,19 @@ def test_docs_list_ok(client):
 def test_bots_list_ok(client):
     response = client.get("/bots/")
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+@override_settings(DEBUG=False)
+def test_not_found_page_offers_navigation(client):
+    response = client.get("/this-page-does-not-exist/")
+
+    assert response.status_code == 404
+    content = response.content.decode()
+    assert "<title>Page not found · palewire</title>" in content
+    assert '<meta name="robots" content="noindex" />' in content
+    assert 'href="/">Go to the homepage' in content
+    assert 'href="/posts/">Posts</a>' in content
 
 
 @pytest.mark.django_db

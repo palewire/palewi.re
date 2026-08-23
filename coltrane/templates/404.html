@@ -1,11 +1,13 @@
 {% extends "coltrane/base.html" %}
 
-{% block title %}404 Error (Page Not Found) . {{ block.super }}{% endblock %}
+{% block title %}Page not found · {{ block.super }}{% endblock %}
+{% block robots %}noindex{% endblock %}
 
 {% block content %}
-
-    <div class="twelvecol last">
-        <h1 style="text-align:center;">Sorry, the page you're looking for could not be found.</h1>
-    </div>
-
+<section class="twelvecol last error-page" aria-labelledby="error-heading">
+    <h1 id="error-heading">404</h1>
+    <p class="error-page__message">
+        This page could not be found.
+    </p>
+</section>
 {% endblock %}
