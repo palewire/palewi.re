@@ -1,0 +1,103 @@
+name: Site quality
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/site-quality.yaml"
+      - ".pa11yci.json"
+      - "bona_fides/**"
+      - "coltrane/**"
+      - "project/**"
+      - "toolbox/**"
+      - "pyproject.toml"
+      - "uv.lock"
+  schedule:
+    - cron: "0 13 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  accessibility:
+    name: Accessibility
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: palewire
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/palewire
+      DEBUG: "true"
+      SECRET_KEY: site-quality-test-secret
+      UV_NO_ENV_FILE: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+
+      - name: Prepare site
+        run: |
+          make ci-bootstrap
+          uv run python manage.py compilescss --verbosity 0
+          uv run python manage.py collectstatic --noinput --clear
+
+      - name: Start site
+        run: |
+          uv run python manage.py runserver 127.0.0.1:8000 --noreload > "$RUNNER_TEMP/site.log" 2>&1 &
+          for i in 1 2 3 4 5; do
+            if curl --fail --silent --show-error http://127.0.0.1:8000/health/ > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat "$RUNNER_TEMP/site.log"
+          exit 1
+
+      - name: Check accessibility
+        run: npx --yes pa11y-ci@4.1.1 --config .pa11yci.json
+
+  lighthouse:
+    name: Lighthouse report
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Audit production pages
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12
+        with:
+          urls: |
+            https://palewi.re/who-is-ben-welsh/
+            https://palewi.re/posts/
+            https://palewi.re/work/
+            https://palewi.re/talks/
+            https://palewi.re/docs/
+          uploadArtifacts: true
