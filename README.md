@@ -73,6 +73,14 @@ make test
 
 Tests and local serving do not require PostgreSQL or `DATABASE_URL`.
 
+## Content catalogs
+
+`coltrane/content/docs.yaml` lists the documentation catalog. Each record
+requires `title`, `type`, and a unique `url`; `description` is optional.
+`repository_url` is optional machine-readable metadata for a verified canonical
+source repository. When set, it must be a unique HTTP(S) URL. It is not
+displayed on the docs page.
+
 ## Blog post Markdown
 
 Public posts in `coltrane/content/posts/` are one `.md` file each. Their YAML

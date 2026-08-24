@@ -173,6 +173,7 @@ def test_talk_missing_required_field_raises(tmp_path):
 def test_docs_yaml_loads():
     docs = load_docs()
     assert len(docs) > 0
+    assert all(doc.repository_url for doc in docs)
 
 
 def test_docs_sorted_by_type_then_title():
@@ -204,6 +205,67 @@ def test_doc_description_optional(tmp_path):
     p.write_text("docs:\n  - title: D\n    type: software\n    url: http://x.com\n")
     docs = load_docs(p)
     assert docs[0].description == ""
+    assert docs[0].repository_url == ""
+
+
+def test_doc_repository_url_null_is_optional(tmp_path):
+    p = tmp_path / "docs.yaml"
+    p.write_text("docs:\n  - title: D\n    type: software\n    url: http://x.com\n    repository_url: null\n")
+
+    assert load_docs(p)[0].repository_url == ""
+
+
+def test_doc_repository_url_valid_and_does_not_change_order(tmp_path):
+    p = tmp_path / "docs.yaml"
+    p.write_text(
+        "docs:\n"
+        "  - title: Z\n    type: software\n    url: http://z.example.com\n"
+        "    repository_url: https://code.example.com/z\n"
+        "  - title: A\n    type: software\n    url: http://a.example.com\n"
+        "    repository_url: http://code.example.com/a\n"
+    )
+
+    docs = load_docs(p)
+
+    assert [doc.title for doc in docs] == ["A", "Z"]
+    assert docs[0].repository_url == "http://code.example.com/a"
+    assert docs[1].repository_url == "https://code.example.com/z"
+
+
+@pytest.mark.parametrize(
+    "repository_url",
+    ["code.example.com/project", "ftp://code.example.com/project", "https://"],
+)
+def test_doc_invalid_repository_url_raises(tmp_path, repository_url):
+    p = tmp_path / "docs.yaml"
+    p.write_text(
+        f"docs:\n  - title: D\n    type: software\n    url: http://x.com\n    repository_url: {repository_url}\n"
+    )
+
+    with pytest.raises(ContentError, match="doc 'D'.*repository_url.*HTTP\\(S\\) URL"):
+        load_docs(p)
+
+
+def test_doc_repository_url_must_be_a_string(tmp_path):
+    p = tmp_path / "docs.yaml"
+    p.write_text("docs:\n  - title: D\n    type: software\n    url: http://x.com\n    repository_url: 123\n")
+
+    with pytest.raises(ContentError, match="doc 'D'.*repository_url.*must be a string"):
+        load_docs(p)
+
+
+def test_doc_duplicate_repository_url_raises_with_title(tmp_path):
+    p = tmp_path / "docs.yaml"
+    p.write_text(
+        "docs:\n"
+        "  - title: A\n    type: software\n    url: http://a.example.com\n"
+        "    repository_url: https://code.example.com/shared\n"
+        "  - title: B\n    type: software\n    url: http://b.example.com\n"
+        "    repository_url: https://code.example.com/shared\n"
+    )
+
+    with pytest.raises(ContentError, match="duplicate doc repository_url.*doc 'B'"):
+        load_docs(p)
 
 
 def test_docs_empty_list_ok(tmp_path):
