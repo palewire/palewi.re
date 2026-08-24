@@ -189,8 +189,8 @@ domain, and proxies only to `https://mastodon.palewi.re` at the same approved
 path. It does not follow upstream redirects. It uses a five-second upstream
 timeout and a 1 MiB response limit, preserving safe caching and representation
 headers. Responses include `X-Palewire-Discovery-Proxy: cloudflare-worker-v1`.
-The Django routes and `django-proxy` dependency remain in place as the stage 1
-fallback until the separate retirement PR.
+Django does not serve these routes. Cloudflare must keep the Worker attached to
+all three routes for federation discovery to work.
 
 Cloudflare route matching includes query strings, so the explicit attach command
 uses a terminal `*` for each route to serve WebFinger requests with
@@ -215,11 +215,10 @@ host-meta, and nodeinfo each returned `200` when contacted directly.
 The Worker module exported the numeric `MAX_RESPONSE_BYTES` constant. Workerd
 interprets module exports as Worker entries and only accepts functions or an
 exported handler, so the module failed during startup before it made an
-upstream request. The routes were removed by deleting that Worker, and Django
-continues to serve all three endpoints. This has been reproduced with Wrangler
-4.125.0 and local Miniflare. The regression test starts the bundled Worker in
-workerd, which catches invalid module exports that direct TypeScript unit tests
-miss.
+upstream request. At that time, deleting the Worker restored the Django
+endpoints. This has been reproduced with Wrangler 4.125.0 and local Miniflare.
+The regression test starts the bundled Worker in workerd, which catches invalid
+module exports that direct TypeScript unit tests miss.
 
 After the startup fix, the route-free workers.dev canary passed, but attaching
 the Worker to the three `palewi.re` routes returned Worker-marked `502`
@@ -271,7 +270,7 @@ BASE_URL="https://the-url-printed-by-wrangler" make worker-verify-canary
 CONFIRM_WORKER_DELETE_CANARY=1 make worker-delete-canary
 
 # 3. Deploy a separate same-zone canary with no route, then attach only its
-# non-production path. These commands do not change the three Django routes.
+# non-production path.
 CONFIRM_WORKER_SAME_ZONE_CANARY_DEPLOY=1 make worker-same-zone-canary-deploy
 CONFIRM_WORKER_ATTACH_SAME_ZONE_CANARY=1 make worker-attach-same-zone-canary
 
@@ -298,14 +297,16 @@ all three discovery endpoints:
 Each must return `200` and the exact
 `X-Palewire-Discovery-Proxy: cloudflare-worker-v1` marker. The verifier is a
 POSIX `/bin/sh` script and accepts `BASE_URL` for controlled local tests or a
-canary. It prints a short endpoint-specific error and exits non-zero for a
-timeout, unexpected status, content type, or marker.
+canary. It uses bounded curl retries and, after route attachment, waits 15
+seconds between up to four marker checks to allow Cloudflare propagation. It
+fails immediately for a bad status or content type, and exits non-zero when the
+marker never appears.
 
 `worker-verify-same-zone-canary` is also a POSIX `/bin/sh` script. It checks
 the canary's `200`, Worker marker, NodeInfo content type, and NodeInfo `links`
-response. If any canary or production verification fails, do not retry route
-attachment. Delete the affected canary or immediately return production traffic
-to Django:
+response. If a canary fails, do not attach the production routes. If production
+verification fails with a bad status or content type, follow the emergency
+recovery procedure below:
 
 ```bash
 CONFIRM_WORKER_DETACH_ROUTES=1 make worker-detach-routes
@@ -324,13 +325,43 @@ All deployment, attachment, and deletion commands are intentionally guarded.
 They work with either `wrangler login` OAuth or `CLOUDFLARE_API_TOKEN`; no
 token value appears in a command. Deleting either canary removes only that
 separate Worker and its route. Deleting the production Worker removes its
-attached routes, leaving the Django fallback in place.
+attached routes. Django has no fallback for these routes.
 
-For a normal production code rollback without route changes, use Cloudflare's
-version controls after a verified canary. For a Stage 1 failure, detaching the
-routes is safer because the retained Django fallback takes effect immediately.
+Before deploying the Stage 2 Django removal, record the latest fallback-capable
+Heroku release number:
 
-The Stage 1 Worker does not change the Django fallback or begin Stage 2.
+```bash
+heroku releases --app palewire
+```
+
+Keep that release number with the deployment record. The verified production
+Worker version before this removal is
+`6af1656a-8465-4407-bfb0-56147a6c1aa1`. Verify that version and the exact
+three-route plan before a change:
+
+```bash
+(cd workers/mastodon-well-known-proxy && npm exec -- wrangler versions view 6af1656a-8465-4407-bfb0-56147a6c1aa1)
+make worker-route-plan
+make worker-verify-production
+```
+
+After Stage 2 deploys, detaching or deleting the Worker alone makes the public
+discovery URLs return `404`. For emergency recovery, first roll Heroku back to
+the recorded fallback-capable release, verify its Django endpoints directly,
+then detach the Worker routes:
+
+```bash
+heroku rollback vN --app palewire
+FALLBACK_ORIGIN="https://palewire.herokuapp.com"
+curl --fail --show-error --max-time 20 "$FALLBACK_ORIGIN/.well-known/webfinger?resource=acct%3Apalewire%40palewi.re"
+curl --fail --show-error --max-time 20 "$FALLBACK_ORIGIN/.well-known/host-meta"
+curl --fail --show-error --max-time 20 "$FALLBACK_ORIGIN/.well-known/nodeinfo"
+CONFIRM_WORKER_DETACH_ROUTES=1 make worker-detach-routes
+```
+
+After detachment, verify the public Django endpoints with the same three paths.
+For a normal Worker code rollback without route changes, use Cloudflare's
+version controls after a verified canary.
 
 For the database retirement deployment, take a fresh Heroku backup first. Deploy
 the exact merged SHA, then verify `/health/`, the main pages, all post
