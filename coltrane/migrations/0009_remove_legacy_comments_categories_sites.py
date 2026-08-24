@@ -8,40 +8,20 @@ LEGACY_CONTENT_TYPES = [
 
 
 def delete_legacy_content_types_and_permissions(apps, schema_editor):
-    try:
-        ContentType = apps.get_model("contenttypes", "ContentType")
-    except Exception:
-        return
-
-    permission_model = None
-    try:
-        permission_model = apps.get_model("auth", "Permission")
-    except Exception:
-        pass
-
+    ContentType = apps.get_model("contenttypes", "ContentType")
+    Permission = apps.get_model("auth", "Permission")
     content_type_ids = set()
     for app_label, model_name in LEGACY_CONTENT_TYPES:
-        try:
-            queryset = ContentType.objects.filter(app_label=app_label)
-            if model_name is not None:
-                queryset = queryset.filter(model=model_name)
-            content_type_ids.update(queryset.values_list("id", flat=True))
-        except Exception:
-            continue
+        queryset = ContentType.objects.filter(app_label=app_label)
+        if model_name is not None:
+            queryset = queryset.filter(model=model_name)
+        content_type_ids.update(queryset.values_list("id", flat=True))
 
     if not content_type_ids:
         return
 
-    if permission_model is not None:
-        try:
-            permission_model.objects.filter(content_type_id__in=content_type_ids).delete()
-        except Exception:
-            pass
-
-    try:
-        ContentType.objects.filter(id__in=content_type_ids).delete()
-    except Exception:
-        pass
+    Permission.objects.filter(content_type_id__in=content_type_ids).delete()
+    ContentType.objects.filter(id__in=content_type_ids).delete()
 
 
 class Migration(migrations.Migration):
@@ -50,6 +30,13 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunSQL(
+            sql=[
+                'DROP TABLE IF EXISTS "tagging_taggeditem";',
+                'DROP TABLE IF EXISTS "tagging_tag";',
+            ],
+            reverse_sql=migrations.RunSQL.noop,
+        ),
         migrations.RemoveField(
             model_name="post",
             name="enable_comments",
