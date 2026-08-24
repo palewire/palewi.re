@@ -16,8 +16,8 @@ make bootstrap
 ```
 
 Read `AGENTS.md` for the shared development workflow. Linked worktrees receive
-an isolated PostgreSQL database and local server port automatically. Use
-`make serve`; do not hard-code port 8000 or share another worktree's database.
+an available local server port automatically. Use `make serve`; do not hard-code
+port 8000.
 
 ## Quality gate
 
@@ -35,12 +35,10 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 - **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; CI uses `make ci-bootstrap`.
 - **Linting**: Ruff with `select = ["E", "F", "W", "I", "UP"]` (UP031 ignored).
 - **Type checking**: `ty check .` — Django dynamic attributes are downgraded to warnings; new code should pass clean.
-- **Tests**: pytest-django in `tests/`. Requires PostgreSQL.
+- **Tests**: pytest-django in `tests/`. No database service is required.
 - **Settings**: `PRODUCTION=true` enables full security hardening. `SECRET_KEY` must be set in production.
 - **Static files**: Served by WhiteNoise from `collected_static/`. Run `python manage.py collectstatic` before Heroku deploys.
-- **Database**: dj-database-url parses `DATABASE_URL`. A normal clone defaults to
-  `postgres://postgres@localhost/palewire`; linked worktrees use isolated database names.
-- **django-heroku is removed**: Database, WhiteNoise, and security are configured explicitly in `project/settings.py`.
+- **Database**: The public site is file-backed and has no runtime database configuration.
 
 ## Deployment
 
@@ -48,8 +46,7 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 - The pipeline is connected to `palewire/palewi.re` on GitHub.
 - To enable **auto-deploy from `main` after CI passes**, open the pipeline in the Heroku Dashboard
   → Production → "Enable Automatic Deploys" → branch `main` → tick "Wait for CI to pass before deploy".
-- `Procfile` runs `python manage.py migrate --noinput` as the release step.
-- `/health/` endpoint verifies DB connectivity.
+- `/health/` confirms that Django can serve requests.
 - Rollback: `heroku releases --app palewire` then `heroku rollback vN --app palewire`.
 - Stack: heroku-24 (Cedar). Buildpack: `heroku/python`.
 - Production sets `SECURE_SSL_REDIRECT=false` because Cloudflare terminates TLS
@@ -75,7 +72,7 @@ and **Test** CI jobs to pass before merge. Repository admins can bypass in emerg
 
 ## Adding tests
 
-Place test files under `tests/`. Use `@pytest.mark.django_db` for database tests. Coverage floor is 40%.
+Place test files under `tests/`. Coverage floor is 40%.
 
 ## Content
 

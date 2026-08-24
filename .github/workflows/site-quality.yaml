@@ -29,22 +29,7 @@ jobs:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_DB: palewire
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
     env:
-      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/palewire
       DEBUG: "true"
       SECRET_KEY: site-quality-test-secret
       UV_NO_ENV_FILE: "1"
