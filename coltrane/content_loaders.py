@@ -1,5 +1,5 @@
 """
-YAML content loaders for bio-page data, slogans, and bots.
+YAML and Markdown content loaders for the site's published content.
 
 Each loader reads a YAML file, validates the structure and field types, and
 returns a list of typed dataclass instances ready for use in views.
@@ -49,8 +49,10 @@ from __future__ import annotations
 
 import datetime
 import random
+import re
 from dataclasses import dataclass
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import yaml
 
@@ -58,6 +60,8 @@ CONTENT_PATH = Path(__file__).resolve().parent / "content"
 
 CLIP_TYPES = frozenset({"app", "lesson-plan", "story", "software"})
 DOC_TYPES = frozenset({"lesson-plan", "software"})
+LOS_ANGELES = ZoneInfo("America/Los_Angeles")
+POST_FRONT_MATTER_FIELDS = frozenset({"title", "slug", "published_at", "repr_image", "wordpress_id"})
 
 
 # ---------------------------------------------------------------------------
@@ -110,6 +114,24 @@ class Bot:
     twitter_url: str = ""
 
 
+@dataclass(frozen=True)
+class MarkdownPost:
+    """A public blog post loaded from validated Markdown content."""
+
+    title: str
+    slug: str
+    published_at: datetime.datetime
+    body_markup: str
+    repr_image: str = ""
+    wordpress_id: int | None = None
+
+    def get_absolute_url(self) -> str:
+        """Return the legacy publication-date permalink."""
+        return f"/posts/{self.published_at:%Y}/{self.published_at:%m}/{self.published_at:%d}/{self.slug}/"
+
+    url = property(get_absolute_url)
+
+
 # ---------------------------------------------------------------------------
 # Validation helpers
 # ---------------------------------------------------------------------------
@@ -150,6 +172,52 @@ def _optional_str(record: dict, field_name: str, path: str) -> str:
             f"{path}: record {record!r} field '{field_name}' must be a string, got {type(value).__name__}"
         )
     return value
+
+
+def _require_los_angeles_datetime(record: dict, field_name: str, path: str) -> datetime.datetime:
+    """Return an ISO datetime expressed in the Los Angeles timezone."""
+    value = _require_str(record, field_name, path)
+    try:
+        parsed = datetime.datetime.fromisoformat(value)
+    except ValueError as error:
+        raise ContentError(f"{path}: field '{field_name}' must be an ISO 8601 datetime") from error
+    if parsed.tzinfo is None:
+        raise ContentError(f"{path}: field '{field_name}' must include a timezone offset")
+    los_angeles_time = parsed.astimezone(LOS_ANGELES)
+    if (
+        parsed.replace(tzinfo=None) != los_angeles_time.replace(tzinfo=None)
+        or parsed.utcoffset() != los_angeles_time.utcoffset()
+    ):
+        raise ContentError(f"{path}: field '{field_name}' must be expressed in America/Los_Angeles time")
+    return los_angeles_time
+
+
+def _require_slug(record: dict, path: str) -> str:
+    """Return a slug accepted by the existing URL pattern."""
+    slug = _require_str(record, "slug", path)
+    if re.fullmatch(r"[-\w]+", slug) is None:
+        raise ContentError(f"{path}: field 'slug' must contain only letters, numbers, underscores, and hyphens")
+    return slug
+
+
+def _optional_wordpress_id(record: dict, path: str) -> int | None:
+    """Return an optional positive legacy WordPress ID."""
+    value = record.get("wordpress_id")
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, int) or value < 1:
+        raise ContentError(f"{path}: field 'wordpress_id' must be a positive integer")
+    return value
+
+
+def _split_front_matter(content: str, path: str) -> tuple[str, str]:
+    """Split YAML front matter from a Markdown body without changing its HTML."""
+    if not content.startswith("---\n"):
+        raise ContentError(f"{path}: Markdown posts must begin with YAML front matter")
+    end_marker = content.find("\n---\n", len("---\n"))
+    if end_marker == -1:
+        raise ContentError(f"{path}: Markdown post front matter is not closed")
+    return content[len("---\n") : end_marker], content[end_marker + len("\n---\n") :]
 
 
 # ---------------------------------------------------------------------------
@@ -342,3 +410,54 @@ def load_bots(path: Path | None = None) -> list[Bot]:
             seen_twitter.add(twitter_url)
         bots.append(Bot(title=title, mastodon_url=mastodon_url, twitter_url=twitter_url))
     return bots
+
+
+def load_posts(path: Path | None = None) -> list[MarkdownPost]:
+    """Load validated public Markdown posts, newest publication first."""
+    if path is None:
+        path = CONTENT_PATH / "posts"
+    if not path.is_dir():
+        raise ContentError(f"{path}: post content directory does not exist")
+
+    posts: list[MarkdownPost] = []
+    seen_slugs: set[str] = set()
+    seen_url_keys: set[tuple[datetime.date, str]] = set()
+    for post_path in sorted(path.glob("*.md")):
+        label = str(post_path)
+        with post_path.open(encoding="utf-8", newline="") as post_file:
+            front_matter, body_markup = _split_front_matter(post_file.read(), label)
+        try:
+            record = yaml.safe_load(front_matter)
+        except yaml.YAMLError as error:
+            raise ContentError(f"{label}: invalid YAML front matter") from error
+        if not isinstance(record, dict):
+            raise ContentError(f"{label}: front matter must be a mapping")
+        unexpected_fields = set(record) - POST_FRONT_MATTER_FIELDS
+        if unexpected_fields:
+            raise ContentError(f"{label}: unsupported front matter fields {sorted(unexpected_fields)}")
+
+        title = _require_str(record, "title", label)
+        slug = _require_slug(record, label)
+        published_at = _require_los_angeles_datetime(record, "published_at", label)
+        repr_image = _optional_str(record, "repr_image", label)
+        wordpress_id = _optional_wordpress_id(record, label)
+
+        if slug in seen_slugs:
+            raise ContentError(f"{label}: duplicate post slug '{slug}'")
+        seen_slugs.add(slug)
+        url_key = (published_at.date(), slug)
+        if url_key in seen_url_keys:
+            raise ContentError(f"{label}: duplicate post publication-date/slug key '{url_key}'")
+        seen_url_keys.add(url_key)
+        posts.append(
+            MarkdownPost(
+                title=title,
+                slug=slug,
+                published_at=published_at,
+                body_markup=body_markup,
+                repr_image=repr_image,
+                wordpress_id=wordpress_id,
+            )
+        )
+    posts.sort(key=lambda post: post.published_at, reverse=True)
+    return posts

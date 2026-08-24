@@ -1,0 +1,518 @@
+{
+  "legacy_pre_lang_post_count": 25,
+  "post_count": 72,
+  "posts": [
+    {
+      "body_sha256": "7061b29a316090dd15bd99c72c176be91dc3436f634419295c0ff5e65c8e0ce0",
+      "path": "posts/2007-02-08--how-much-does-george-bush-read.md",
+      "permalink": "/posts/2007/02/08/how-much-does-george-bush-read/",
+      "published_at": "2007-02-08T16:54:10-08:00",
+      "sha256": "0becddbd19d8ee5a066ef8d0ac9508cb7a2226f6e29696f4160fb22cee2e9a7d"
+    },
+    {
+      "body_sha256": "b4d24d249b4a664bfcff8efc71018ed9d069e8d989397ef3fb4825201a5ae3c3",
+      "path": "posts/2007-02-14--sql-recipe-the-number-of-federal-government-working-days-between-two-dates.md",
+      "permalink": "/posts/2007/02/14/sql-recipe-the-number-of-federal-government-working-days-between-two-dates/",
+      "published_at": "2007-02-14T07:52:24-08:00",
+      "sha256": "ef64fce6ca61d73780e3ecff0ec81f7031e7704464422006df78c9f0c9010f1a"
+    },
+    {
+      "body_sha256": "e78f2c6012c77f847d619a66a37d55d7ad7780f27fb6496c7a1d013283558161",
+      "path": "posts/2008-03-24--go-snoop-yourself.md",
+      "permalink": "/posts/2008/03/24/go-snoop-yourself/",
+      "published_at": "2008-03-24T06:46:31-07:00",
+      "sha256": "c228ea20f419b7423e35acd91f1e89c7c80d0dd08855ad67794e6531d9bdf5d1"
+    },
+    {
+      "body_sha256": "412c50671a731e3d1092954275e553b78b38eb4ba45a04e3f68636ba1117b8df",
+      "path": "posts/2008-04-05--python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term.md",
+      "permalink": "/posts/2008/04/05/python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term/",
+      "published_at": "2008-04-05T08:49:58-07:00",
+      "sha256": "82200c19beda37afdb25dad608b0d92b0ba470a443bb1b4831b75e5c322f764b"
+    },
+    {
+      "body_sha256": "d6d66f3d1992c1419bbdc47cc5256a2eb640bdfdf6a35d04b7d75d3b55bc6c4a",
+      "path": "posts/2008-04-07--python-recipe-open-multiple-files-search-for-matches-count-your-hits-on-the-fly.md",
+      "permalink": "/posts/2008/04/07/python-recipe-open-multiple-files-search-for-matches-count-your-hits-on-the-fly/",
+      "published_at": "2008-04-07T01:06:45-07:00",
+      "sha256": "d9874713dddbc871b98426354c2a372198a8427d4b4ffdd65939c4c2396b12f9"
+    },
+    {
+      "body_sha256": "d36a0826f4f277d9db58eceaed4600843a8face8cafc6f3c21db243165e01c51",
+      "path": "posts/2008-04-14--python-recipe-read-a-file-search-for-a-pattern-print-your-matches.md",
+      "permalink": "/posts/2008/04/14/python-recipe-read-a-file-search-for-a-pattern-print-your-matches/",
+      "published_at": "2008-04-14T22:52:41-07:00",
+      "sha256": "beddf380b9a2c42bd7b51732eca3b676920aa2f2be31225c38a4040cc980b6cc"
+    },
+    {
+      "body_sha256": "ce9d2239b40d8d5f0c8b88d971a83821939760124de265e00ebdb28740984464",
+      "path": "posts/2008-04-20--python-recipe-grab-a-page-scrape-a-table-download-a-file.md",
+      "permalink": "/posts/2008/04/20/python-recipe-grab-a-page-scrape-a-table-download-a-file/",
+      "published_at": "2008-04-20T13:43:13-07:00",
+      "sha256": "04aec49c7377d4e1aee421efb9963869595f54f386ae10ff09d9a29fe25b9a33"
+    },
+    {
+      "body_sha256": "208d4f338bda7b4842b6a2949051161e3c29589738763b01f4cbeddda414872a",
+      "path": "posts/2008-04-21--python-recipe-print-a-future-date-in-the-format-you-want.md",
+      "permalink": "/posts/2008/04/21/python-recipe-print-a-future-date-in-the-format-you-want/",
+      "published_at": "2008-04-21T10:31:59-07:00",
+      "sha256": "12a5fb9c47228d6d3d031601cf2a83531bb90499c9134435325a2fa73b25d1e4"
+    },
+    {
+      "body_sha256": "67c3ecac1a15c713273b226d390694edd4ee5aec2ab027c97c9ec473d0cdc9ab",
+      "path": "posts/2008-04-26--python-recipe-connect-to-mysql-database-execute-a-query-print-the-results.md",
+      "permalink": "/posts/2008/04/26/python-recipe-connect-to-mysql-database-execute-a-query-print-the-results/",
+      "published_at": "2008-04-26T10:28:57-07:00",
+      "sha256": "2a28e868c2c9264bbb87caedb31b541fdfefe074e76c5593d86e7f39c6dd06c4"
+    },
+    {
+      "body_sha256": "c84e2761472dfc5063951b62f9399f9e8476eaf65b794000e133f318f4dd81f2",
+      "path": "posts/2008-04-27--ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter.md",
+      "permalink": "/posts/2008/04/27/ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter/",
+      "published_at": "2008-04-27T12:12:13-07:00",
+      "sha256": "86909acc11034e3e0ea1025b3a1f88e04191d1a700022bcb083551cb55aec42d"
+    },
+    {
+      "body_sha256": "81385d2540431b5bc6d0d8bc1826289eeaf5ba050b82fc0e75a0e736eb27d7d3",
+      "path": "posts/2008-05-18--bill-oreilly-flips-out-the-ringtone.md",
+      "permalink": "/posts/2008/05/18/bill-oreilly-flips-out-the-ringtone/",
+      "published_at": "2008-05-18T22:04:00-07:00",
+      "sha256": "a89e622fb50d76fcaf8f9dfd87eb19487ab65395686a42d312ba03e203b043f2"
+    },
+    {
+      "body_sha256": "e7a564d43685c5829610e4c587b49c93e51487dedd0afbcc66be2aee2f4abf91",
+      "path": "posts/2008-05-19--la-red-light-cameras-on-your-tomtom-or-garmin.md",
+      "permalink": "/posts/2008/05/19/la-red-light-cameras-on-your-tomtom-or-garmin/",
+      "published_at": "2008-05-19T07:53:02-07:00",
+      "sha256": "6cf345c91dd6140e4131aab545044f2e48a81f945a20f0e2a71816868059f25e"
+    },
+    {
+      "body_sha256": "02ca441e51ea93c1b3d315c0f689b34ee64dd703f96144f31826b077ec7fc502",
+      "path": "posts/2008-05-26--californias-war-dead.md",
+      "permalink": "/posts/2008/05/26/californias-war-dead/",
+      "published_at": "2008-05-26T15:08:59-07:00",
+      "sha256": "2643f706a49abcf371bb2aa9e5de0e29b21aa4effd7144c59eceebd27c490950"
+    },
+    {
+      "body_sha256": "4bea38930d737b61934baa71b2c004258246f6b87bf8618da9bede71724ce758",
+      "path": "posts/2008-06-01--bens-hip-hop-twitter-bot.md",
+      "permalink": "/posts/2008/06/01/bens-hip-hop-twitter-bot/",
+      "published_at": "2008-06-01T03:56:05-07:00",
+      "sha256": "d71d15012dba77383d01614e8704c7c9bdfa4bae24ab1e32bc87a48e8cf69cf1"
+    },
+    {
+      "body_sha256": "cf7a8b58ec6e075e1409bf91a45363f5009f75bc412cb1e02e0abe3c0ab3fd89",
+      "path": "posts/2008-06-15--terminal-recipe-how-to-download-an-entire-web-site-with-wget.md",
+      "permalink": "/posts/2008/06/15/terminal-recipe-how-to-download-an-entire-web-site-with-wget/",
+      "published_at": "2008-06-15T09:05:15-07:00",
+      "sha256": "1c4df5e52dc1a79a7c19c8dd391cb3bae722e80eaed639e1f8ae331b5ff34458"
+    },
+    {
+      "body_sha256": "39c69d244e3713cc1db953f2aa24b7c7c209248c555e9f182964eca2f2baa254",
+      "path": "posts/2008-06-23--tickertube-bens-first-stab-at-amazon-web-services.md",
+      "permalink": "/posts/2008/06/23/tickertube-bens-first-stab-at-amazon-web-services/",
+      "published_at": "2008-06-23T08:36:39-07:00",
+      "sha256": "1f959d8e2a81a96a1be50dd07c4f40b693da3fc9cd5b34e8e4d6d21fafe5feae"
+    },
+    {
+      "body_sha256": "d51591b306ada05ac979f289b586172bc06bfc5a11241c0ad57ca4f903bbebe1",
+      "path": "posts/2008-07-06--permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks.md",
+      "permalink": "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/",
+      "published_at": "2008-07-06T20:20:33-07:00",
+      "sha256": "2cb9c959adbe8ea502320992c81dcc840f98677b2c49fcd893dc9c05bd6be334"
+    },
+    {
+      "body_sha256": "4f4ca05a12364ffd666951b3e6188dba798ed1b8ecfa0fddebcf6ee3a6bfd5b2",
+      "path": "posts/2008-07-20--how-we-got-here-or-which-past-are-we-prolouging-again.md",
+      "permalink": "/posts/2008/07/20/how-we-got-here-or-which-past-are-we-prolouging-again/",
+      "published_at": "2008-07-20T10:36:17-07:00",
+      "sha256": "632fbf5a8a8416dc72e43e756eb1afdffa811a814b897d679d8cf256b69fedbc"
+    },
+    {
+      "body_sha256": "25e523465ce3e964dd1fcfdd81c6bec6a74a89aca3499c82ec5f61b27e93520b",
+      "path": "posts/2008-09-18--five-ways-your-data-app-can-catch-the-big-news-hook.md",
+      "permalink": "/posts/2008/09/18/five-ways-your-data-app-can-catch-the-big-news-hook/",
+      "published_at": "2008-09-18T08:15:53-07:00",
+      "sha256": "a7038853897f56f3e94e5864be7cd8f808034511a7c7320372f086cdff826d29"
+    },
+    {
+      "body_sha256": "4f8e623e7f1d92078b4b572e191c368e6e5e14458483422d175cbe2738ef0768",
+      "path": "posts/2009-02-15--django-recipe-add-an-auto-count-field-to-your-foreignkey-model.md",
+      "permalink": "/posts/2009/02/15/django-recipe-add-an-auto-count-field-to-your-foreignkey-model/",
+      "published_at": "2009-02-15T22:30:00-08:00",
+      "sha256": "e426a68364805f48b6a033ec332aa9fc7f75ce1d48e9e482bbd75405a90efd77"
+    },
+    {
+      "body_sha256": "bd36a4821b412bc1604c5876e5241ac550add4cbc3d1809f77f59df120f2e753",
+      "path": "posts/2009-03-03--django-recipe-dump-your-queryset-out-as-a-csv-file.md",
+      "permalink": "/posts/2009/03/03/django-recipe-dump-your-queryset-out-as-a-csv-file/",
+      "published_at": "2009-03-03T13:53:00-08:00",
+      "sha256": "8ea75f9da288d898ebf5230fc740b59d014e70fc61459d9e78dd49df6e415820"
+    },
+    {
+      "body_sha256": "853b6ebe2bce023c24dedf3e18b85c10bf6db97358958d75412c67df1e52efc5",
+      "path": "posts/2009-03-04--openlayers-recipe-how-to-map-proportional-symbols.md",
+      "permalink": "/posts/2009/03/04/openlayers-recipe-how-to-map-proportional-symbols/",
+      "published_at": "2009-03-04T11:04:00-08:00",
+      "sha256": "8d448ed1cf515f9033083549f0c5a4faed791f01056eff94ac1726251c69e853"
+    },
+    {
+      "body_sha256": "28108187d4bf5ba2ce4902b2189454a819e8b41b418d98a502a54e7190433f70",
+      "path": "posts/2009-03-16--dc-police-cite-privacy-to-rollback-public-access-to-crime-data.md",
+      "permalink": "/posts/2009/03/16/dc-police-cite-privacy-to-rollback-public-access-to-crime-data/",
+      "published_at": "2009-03-16T07:23:00-07:00",
+      "sha256": "38e8025f1155a37aff6c803456023806fa3971efe2ab1e23b85eb5cf0194b075"
+    },
+    {
+      "body_sha256": "3dfe0c09e2c8ec615a7630e6d19cca2cf165438dcd8427b497bb8c34d29dc570",
+      "path": "posts/2009-07-25--palewire.md",
+      "permalink": "/posts/2009/07/25/palewire/",
+      "published_at": "2009-07-25T17:21:58-07:00",
+      "sha256": "cd8bd9fcba2d9a1faf63322c7ac28a6101c20d514aa9a3ecdf58eea656aceb36"
+    },
+    {
+      "body_sha256": "231cf8e23142e5904394744840b5d6116c0d93c0ee7b622846c4e34aa4825a3c",
+      "path": "posts/2009-07-29--new-improved-even-more-conspicuous-consumption.md",
+      "permalink": "/posts/2009/07/29/new-improved-even-more-conspicuous-consumption/",
+      "published_at": "2009-07-29T09:42:08-07:00",
+      "sha256": "94c99358ba507944b13b94d1dd30ddee1881daa0549f3805de23c3e83707420b"
+    },
+    {
+      "body_sha256": "cc0651b560934b10786ced792891959b1220b261bd471a40be4977f7eaefb63f",
+      "path": "posts/2009-08-01--django-recipe-make-django-tagging-cloud-all-models.md",
+      "permalink": "/posts/2009/08/01/django-recipe-make-django-tagging-cloud-all-models/",
+      "published_at": "2009-08-01T10:45:25-07:00",
+      "sha256": "5c539c31d62a9adeaa28c6eeefb1ab8718db66b934511e168a7aa3b04d56ba77"
+    },
+    {
+      "body_sha256": "68a38efb14c803e58d41593b1fe867547a2237e2b6dfd1c236f1dfa5b6dcfbcd",
+      "path": "posts/2009-08-05--google-voice-fails-obama-test.md",
+      "permalink": "/posts/2009/08/05/google-voice-fails-obama-test/",
+      "published_at": "2009-08-05T23:28:54-07:00",
+      "sha256": "63ad148ce364c806bf39e35dde6d180323c4045879e7b25692e86111f7ff77b9"
+    },
+    {
+      "body_sha256": "3630c1f377502c6cc172f3a42a8db0ff4b826c4b5e544cb850455872fccfa7eb",
+      "path": "posts/2009-08-07--python-recipe-calculate-adjusted-monthly-values.md",
+      "permalink": "/posts/2009/08/07/python-recipe-calculate-adjusted-monthly-values/",
+      "published_at": "2009-08-07T20:40:28-07:00",
+      "sha256": "8483259d5675858d6814e1fa36bffe1c535c463f7ceeff023bf33ae95991fe16"
+    },
+    {
+      "body_sha256": "6248110261742c61c96e5f1ef8b57711b77728100f02aa996d42fd05b44cb834",
+      "path": "posts/2009-08-13--django-recipe-use-extent-your-querset-set-map-zoom.md",
+      "permalink": "/posts/2009/08/13/django-recipe-use-extent-your-querset-set-map-zoom/",
+      "published_at": "2009-08-13T19:09:27-07:00",
+      "sha256": "e0c1f77360440ceba23c4b05ca52a7d6741b5256c04c31ad66da034305aa8dbd"
+    },
+    {
+      "body_sha256": "a1d8daa1e41d398fbcd3bbb3d35d7f271b7986f5d164578ddf58dfb3071142fa",
+      "path": "posts/2009-08-23--django-recipe-rss-feed-every-tag.md",
+      "permalink": "/posts/2009/08/23/django-recipe-rss-feed-every-tag/",
+      "published_at": "2009-08-23T17:09:49-07:00",
+      "sha256": "9555cf06b886c5a82ea40e38ee3b245172e7f49f2dfa28287a2066453eab61bc"
+    },
+    {
+      "body_sha256": "f70f24f8d64f9abd9e2c477bbfb19eae4c6109cd741a3b9613ae78091f11a191",
+      "path": "posts/2009-09-01--python-recipe-fetch-all-days-between-two-dates.md",
+      "permalink": "/posts/2009/09/01/python-recipe-fetch-all-days-between-two-dates/",
+      "published_at": "2009-09-01T10:32:05-07:00",
+      "sha256": "28e1dd8d55dbf1d6328a177cae3f5493a4782787d7dab2c079040f93c51d0287"
+    },
+    {
+      "body_sha256": "6521c33df064c00b05826f229d242967db3841e74a518d28ac558171ca716b4d",
+      "path": "posts/2009-09-01--django-recipe-remove-newlines-text-block.md",
+      "permalink": "/posts/2009/09/01/django-recipe-remove-newlines-text-block/",
+      "published_at": "2009-09-01T18:01:17-07:00",
+      "sha256": "ad8196e3149ce5fc3890e697714512e4c815c73b393facc2e145cfa5a3e81d6a"
+    },
+    {
+      "body_sha256": "480e9c44836e4c2e2faf2b0a2f959cf6e0934e922c594b758b12fb1d583f2aab",
+      "path": "posts/2009-09-04--django-recipe-pretty-print-objects-and-querysets.md",
+      "permalink": "/posts/2009/09/04/django-recipe-pretty-print-objects-and-querysets/",
+      "published_at": "2009-09-04T13:41:03-07:00",
+      "sha256": "305e2add2797fee30b122254892fd795f2042426843723db457a4e8c0a770d67"
+    },
+    {
+      "body_sha256": "2e8b7fb4f2fe99f75c6a23bfae0eff927489d7d8096be5d46589256eb4e29eac",
+      "path": "posts/2009-10-24--la-county-public-health-should-just-say-no-pdfs.md",
+      "permalink": "/posts/2009/10/24/la-county-public-health-should-just-say-no-pdfs/",
+      "published_at": "2009-10-24T10:05:31-07:00",
+      "sha256": "7537b306305d83ba3c462d762ebabd5ba7baa5191b76431737786dec4d0c08fd"
+    },
+    {
+      "body_sha256": "7ad43f84576fe33291a7b2352d2714205129efaadcf4dce714dbab141ba4f678",
+      "path": "posts/2009-10-29--django-recipe-dynamically-load-your-google-maps-api-key.md",
+      "permalink": "/posts/2009/10/29/django-recipe-dynamically-load-your-google-maps-api-key/",
+      "published_at": "2009-10-29T18:06:46-07:00",
+      "sha256": "d735f2674ebde1737eabdc62d5b5cf70719d5c5bdc7a576deea286e1b3b9a1f3"
+    },
+    {
+      "body_sha256": "04d91936944f4a3fcca004c07687653353f3eb072bfe2572a3166ec3db69b1a9",
+      "path": "posts/2010-03-10--google-charts-takes-tufte-challenge.md",
+      "permalink": "/posts/2010/03/10/google-charts-takes-tufte-challenge/",
+      "published_at": "2010-03-10T13:13:57-08:00",
+      "sha256": "64a85ebb2b369dbcea409adf9339f28f1a32cc08c0b272d6e1689dad1fb44b63"
+    },
+    {
+      "body_sha256": "a98b5c29b9bb02049a1e3cda5e5cfb286ec94e9ccd69ac08a88c20ce8b98e7d6",
+      "path": "posts/2010-03-24--fabric-recipe-delete-pyc-files-runserver-starts.md",
+      "permalink": "/posts/2010/03/24/fabric-recipe-delete-pyc-files-runserver-starts/",
+      "published_at": "2010-03-24T13:19:09-07:00",
+      "sha256": "e34cdfe20adbf1bc2aa3852d1cef0879916c4d68488adf2b5a8a324e6c408f44"
+    },
+    {
+      "body_sha256": "88a95f1119613c68a0cd5b0f974cbe85c0ac9062a7c666b2c72273cadd054c40",
+      "path": "posts/2010-11-07--django-recipe-twitter-style-infinite-scroll.md",
+      "permalink": "/posts/2010/11/07/django-recipe-twitter-style-infinite-scroll/",
+      "published_at": "2010-11-07T12:36:59-08:00",
+      "sha256": "02e683fe48664768b7c6a696816ecb2654bebde4b1c801936c5ac6e7ea54ef6d"
+    },
+    {
+      "body_sha256": "760d01831d6424c008c34ed75ebe44e3e6d3e23ed86300f7bd31143738aeff60",
+      "path": "posts/2010-11-10--zain-memon-tells-how-tendermaps-works.md",
+      "permalink": "/posts/2010/11/10/zain-memon-tells-how-tendermaps-works/",
+      "published_at": "2010-11-10T07:53:40-08:00",
+      "sha256": "be9d4fdda3ac1ff5fa1c0aef4c50e4ca7d8cf6d4cfe4dee87b63d2007d4bf7a4"
+    },
+    {
+      "body_sha256": "e8195f2fa54d365fa29c2d432cfcc6de6ece75d61546bd7b0a672d1a329dad29",
+      "path": "posts/2010-12-16--introducing-pluggable-maps-geodjango.md",
+      "permalink": "/posts/2010/12/16/introducing-pluggable-maps-geodjango/",
+      "published_at": "2010-12-16T15:59:50-08:00",
+      "sha256": "d127ffb889bdd7921fa2de2c00385cc20c5f8228578906e5f7a3f32bf72620ed"
+    },
+    {
+      "body_sha256": "c25a302cd0662cec994c77771e28f2e635212a01b5cb1474a91400663c857f55",
+      "path": "posts/2011-02-24--postgis-is-your-new-bicycle.md",
+      "permalink": "/posts/2011/02/24/postgis-is-your-new-bicycle/",
+      "published_at": "2011-02-24T14:36:19-08:00",
+      "sha256": "c38f53a82e318b406e96f319a2bc5e2bde8f991ff502b8cef2ef1bd7fd0e1f9b"
+    },
+    {
+      "body_sha256": "3353c67641062b421ceb5b10dd5b0b8204db611b8f3afdcfe1346fff6cf37e67",
+      "path": "posts/2011-02-26--break-news-on-google-app-engine.md",
+      "permalink": "/posts/2011/02/26/break-news-on-google-app-engine/",
+      "published_at": "2011-02-26T05:08:47-08:00",
+      "sha256": "b6469597fa1910a71bef8cf39246308f93abcb999c8715e0a613984df9d88b9d"
+    },
+    {
+      "body_sha256": "28d5c0e759804d9131879340ac0fb67e06520f0c9c47c986bd9a3c9faa59a5d1",
+      "path": "posts/2011-08-14--brian-boyer-on-panda.md",
+      "permalink": "/posts/2011/08/14/brian-boyer-on-panda/",
+      "published_at": "2011-08-14T22:51:05-07:00",
+      "sha256": "774364d0340b8108454d9402b35f9a7e80f20dce7d413a15781a8405c28bcd8f"
+    },
+    {
+      "body_sha256": "3895a9b3289d3172f6d697085eb571279b37cd4af4539876c268889365823c11",
+      "path": "posts/2011-09-26--miranda-mulligan-responsive-design.md",
+      "permalink": "/posts/2011/09/26/miranda-mulligan-responsive-design/",
+      "published_at": "2011-09-26T18:37:55-07:00",
+      "sha256": "b82ba35dd4582efab0bf16ce496f81cd280b3b764e721220387f6993a6657fb8"
+    },
+    {
+      "body_sha256": "ce33d1a5e35b33261b66b5875cd69e57b6325e958d87936a0d082bd9039cbe29",
+      "path": "posts/2011-12-05--q-matt-waite-founding-drone-journalism-lab.md",
+      "permalink": "/posts/2011/12/05/q-matt-waite-founding-drone-journalism-lab/",
+      "published_at": "2011-12-05T08:35:49-08:00",
+      "sha256": "f03173d05c0b20438e6c449adbd48b814f228c279da6785d0addfb0dd0e09d83"
+    },
+    {
+      "body_sha256": "60191af3adad58af13d2d7ef571aaf9fde1af33bf2d94dba43ba169ce3e50764",
+      "path": "posts/2012-02-25--nicar-2012-things-i-said.md",
+      "permalink": "/posts/2012/02/25/nicar-2012-things-i-said/",
+      "published_at": "2012-02-25T00:01:17-08:00",
+      "sha256": "431479aff5e2cfe1be89a730d2db600ca3f3d3c1812a25fcb379d5d78a3bd1b3"
+    },
+    {
+      "body_sha256": "90d1522bbc6f257435153577c9dc3bfc9779bc9c1e94385d6414624398fc6e99",
+      "path": "posts/2012-03-26--leaflet-recipe-hover-events-features-and-polygons.md",
+      "permalink": "/posts/2012/03/26/leaflet-recipe-hover-events-features-and-polygons/",
+      "published_at": "2012-03-26T13:47:10-07:00",
+      "sha256": "000b865aa1ec67ebee075a1ef07588ea357d91d8230afafe9319cdf62b69df39"
+    },
+    {
+      "body_sha256": "05ee69dc86f29d47279e98f31d8fd363ea49f564f0fa96c668d262017776bae7",
+      "path": "posts/2013-07-08--where-will-downtown-la-regional-connector-run.md",
+      "permalink": "/posts/2013/07/08/where-will-downtown-la-regional-connector-run/",
+      "published_at": "2013-07-08T22:08:43-07:00",
+      "sha256": "eeac62c782589800b1e6f5cad6eecdff6765c23c111e2c11cc7d2a0d381f92ba"
+    },
+    {
+      "body_sha256": "608e74b5aa766fa18502dcf9622f0f28b439245c3f07abfd84ec4fbb98bd850f",
+      "path": "posts/2013-07-18--why-develop-in-the-newsroom.md",
+      "permalink": "/posts/2013/07/18/why-develop-in-the-newsroom/",
+      "published_at": "2013-07-18T23:53:54-07:00",
+      "sha256": "33d792cfbbd5eb9d8d4d2ced1a9bab129093fc0c2cb842eb0e4c5f195620fa90"
+    },
+    {
+      "body_sha256": "1b817110a93809fc2b291079c78218ee2ba3def51aedd4fcdc1322a1463c66e3",
+      "path": "posts/2014-07-25--django-recipe-base-management-command-running-custom-sql.md",
+      "permalink": "/posts/2014/07/25/django-recipe-base-management-command-running-custom-sql/",
+      "published_at": "2014-07-25T12:02:15-07:00",
+      "sha256": "62e1ac18f189647eed7209d227ff9e1124cfc886eed2734fa17e16f600c87fe9"
+    },
+    {
+      "body_sha256": "3fd914b5385f2e0a2dec7f268d7edf27da0b6846bb69fafb12156274b6b475bd",
+      "path": "posts/2015-02-11--first-news-app-second-time-around.md",
+      "permalink": "/posts/2015/02/11/first-news-app-second-time-around/",
+      "published_at": "2015-02-11T12:00:00-08:00",
+      "sha256": "33b2e7db9747db68b1f75c32cba6973771af2efd545863578e7d4d8eb8a43706"
+    },
+    {
+      "body_sha256": "969e7b2a483431b691c655354a36a64cb7847eb7bbb7980b840c8e7e2a407d0c",
+      "path": "posts/2015-04-14--california-civic-data-coalition-advances-knight-news-challenge.md",
+      "permalink": "/posts/2015/04/14/california-civic-data-coalition-advances-knight-news-challenge/",
+      "published_at": "2015-04-14T12:00:00-07:00",
+      "sha256": "db8c821fb950f0821fa05474f0d4d3a4d5a47f6d58367c8fea46d07c4fa8c959"
+    },
+    {
+      "body_sha256": "fb7a5ea1eaa440de47816a393a4552e447c45504bd45baf0c9d913f29b88de88",
+      "path": "posts/2015-04-16--join-2015-cal-access-challenge.md",
+      "permalink": "/posts/2015/04/16/join-2015-cal-access-challenge/",
+      "published_at": "2015-04-16T12:00:00-07:00",
+      "sha256": "98070ceab6940b47cedbe471581198f9c20bd72ea3b9e23e2c94e3e7a7f2b6ab"
+    },
+    {
+      "body_sha256": "83c68ddf6c2f333e3d3977b4826477bf7f06aedf9c57fbe88672bda66635c803",
+      "path": "posts/2015-05-12--introducing-django-memento-framework.md",
+      "permalink": "/posts/2015/05/12/introducing-django-memento-framework/",
+      "published_at": "2015-05-12T12:00:00-07:00",
+      "sha256": "989af228d960af09c381a94655278ad3487762838e8dd9644379778ea1019299"
+    },
+    {
+      "body_sha256": "da28d680d635a4a62d042cc3634a848576a14f66418563f4b0426a50ba3f0467",
+      "path": "posts/2015-07-22--california-civic-data-coalition-named-winner-knight-news-challenge.md",
+      "permalink": "/posts/2015/07/22/california-civic-data-coalition-named-winner-knight-news-challenge/",
+      "published_at": "2015-07-22T12:00:00-07:00",
+      "sha256": "633c579d7813dd46691dcebb8ebc08f14cd01047f9b2fccd3e79c57d2e8ab04f"
+    },
+    {
+      "body_sha256": "77886064a14ccd1b3c9c04dd89a475855073d1ec496519f026b143e771d28553",
+      "path": "posts/2015-09-28--introducing-memento-wordpress.md",
+      "permalink": "/posts/2015/09/28/introducing-memento-wordpress/",
+      "published_at": "2015-09-28T12:00:00-07:00",
+      "sha256": "517eb9cf41d86e09aca68df2e92d7901c1106590e8ba27056aec505c641062a2"
+    },
+    {
+      "body_sha256": "6f7cd16ff13c519456eed7787bf21179e00c1d7aeea2ac798ed684083c02d991",
+      "path": "posts/2015-09-29--l-times-liveblog-now-nationwide.md",
+      "permalink": "/posts/2015/09/29/l-times-liveblog-now-nationwide/",
+      "published_at": "2015-09-29T12:00:00-07:00",
+      "sha256": "93c0efead366def03e9a586205be81e360b202ab33227a67624d2d0ccf9c1fd1"
+    },
+    {
+      "body_sha256": "9043d8aae09e1b5200fd2d88c60aa294a629dea402bd63655803ba07964c2252",
+      "path": "posts/2015-10-15--unexpected-award.md",
+      "permalink": "/posts/2015/10/15/unexpected-award/",
+      "published_at": "2015-10-15T12:00:00-07:00",
+      "sha256": "31ad301df125d934fb198e66c900c2adb7620bcad76443634e490a21b23fa126"
+    },
+    {
+      "body_sha256": "ee739bda07fcd06c257cfeed4473d6c178ab934752aa9acdc3f608bd8783052f",
+      "path": "posts/2015-11-12--estado-de-las-artes.md",
+      "permalink": "/posts/2015/11/12/estado-de-las-artes/",
+      "published_at": "2015-11-12T12:00:00-08:00",
+      "sha256": "2effddf4e004f7a9c43bc2a505c46887d77f09fca810a64b5d3cf0974280437f"
+    },
+    {
+      "body_sha256": "4c8a09ac0bee3ca350a4c9c50be51ac6b598ebf7480099856b148a811b649e80",
+      "path": "posts/2015-12-03--who-they-were.md",
+      "permalink": "/posts/2015/12/03/who-they-were/",
+      "published_at": "2015-12-03T12:00:00-08:00",
+      "sha256": "08b42dd4b0923536c04ee192aef5e44dad84ffae440071bf137d3c8ab6b40b8a"
+    },
+    {
+      "body_sha256": "13b971c45a9c3947a254fb64d2f30ecfcd2c667dbf7a20493198ad47536d3aa9",
+      "path": "posts/2016-03-06--first-news-app-ride-again-nicar-2016.md",
+      "permalink": "/posts/2016/03/06/first-news-app-ride-again-nicar-2016/",
+      "published_at": "2016-03-06T12:00:00-08:00",
+      "sha256": "25669e39ed8cf480c6930ea337475fdd97f7a5928ea977fa0e17d615e5c2c4d1"
+    },
+    {
+      "body_sha256": "5873a20fe1c88bfea80ed8aeff52d899ba1f3bed4ba417043de19f93b1c02839",
+      "path": "posts/2016-04-18--pulitzer-pride.md",
+      "permalink": "/posts/2016/04/18/pulitzer-pride/",
+      "published_at": "2016-04-18T12:00:00-07:00",
+      "sha256": "1490706fa9ee71652a4ffd9bd386c1087401af83c86dcdb514665c1f82f2ccf8"
+    },
+    {
+      "body_sha256": "c2ece326da49860bf80a1c175f0f9ff65b216fca507722faca042f7828bcf1ec",
+      "path": "posts/2017-09-09--what-i-learned.md",
+      "permalink": "/posts/2017/09/09/what-i-learned/",
+      "published_at": "2017-09-09T20:00:00-07:00",
+      "sha256": "9791af73b8675c3a1291265955f31cb57b0e4ddabd541b829e306bb5c192c4f5"
+    },
+    {
+      "body_sha256": "efdb0c9cffbcf3c23ae9a9eb1a7c5e58ee581f45e94b9c9cc88d1c0df57879f8",
+      "path": "posts/2018-04-14--my-times.md",
+      "permalink": "/posts/2018/04/14/my-times/",
+      "published_at": "2018-04-14T10:00:00-07:00",
+      "sha256": "cbc98fd1aa7a71ab186a841b9792558884679915dfbdf36874dde78d45470db0"
+    },
+    {
+      "body_sha256": "0f1fb56cb208e21b634ee2ac7b57ffc02b13c1884640002f1b810e9229fcf872",
+      "path": "posts/2020-03-21--flash-mooc-first-python-notebook.md",
+      "permalink": "/posts/2020/03/21/flash-mooc-first-python-notebook/",
+      "published_at": "2020-03-21T18:09:31-07:00",
+      "sha256": "bbfcb1b6ba2eecb6ebe4371df56e50845c5a1b689bba146e1e8c88136cf859a2"
+    },
+    {
+      "body_sha256": "87d630f515304fc1fd310a6ba2d79d11c06584ba5088a2f4de24723479341d1d",
+      "path": "posts/2021-02-23--nicar21-after-party-first-python-notebook.md",
+      "permalink": "/posts/2021/02/23/nicar21-after-party-first-python-notebook/",
+      "published_at": "2021-02-23T19:20:22-08:00",
+      "sha256": "a86998f57bb584af92712623cf519e7c0f97fc08280faaca059db0f6ed40b692"
+    },
+    {
+      "body_sha256": "f64014ab1f24011e7239d8a29eb6046d87c82c6da02ea34bdf0a40b797e231c9",
+      "path": "posts/2021-05-02--ee-cummings-archive.md",
+      "permalink": "/posts/2021/05/02/ee-cummings-archive/",
+      "published_at": "2021-05-02T18:46:06-07:00",
+      "sha256": "336e06c05e5954a8369f09475f009d6615ed14e7e634f3045200a400e20c802c"
+    },
+    {
+      "body_sha256": "9c0215dbd98dc7e720c17bedb7751bfc38aa0253b59bc5a989b4b3c8347668e7",
+      "path": "posts/2021-05-09--public-art-on-la-light-rail-line.md",
+      "permalink": "/posts/2021/05/09/public-art-on-la-light-rail-line/",
+      "published_at": "2021-05-09T16:52:30-07:00",
+      "sha256": "773816d7f1b47ba19f8c994cdfe93361facbf226b6dac8ffaedf5578511fc685"
+    },
+    {
+      "body_sha256": "1050cb8925fec52a8bfa7b4c96868becbdd5f264b4efed9e0ea92d1542e96ce0",
+      "path": "posts/2024-10-30--data-journalism-delivery.md",
+      "permalink": "/posts/2024/10/30/data-journalism-delivery/",
+      "published_at": "2024-10-30T12:00:00-07:00",
+      "sha256": "a1f236aa4c8abdc94b9d87709fc51b3a1cc532a4d54d5e7040d751d73706e98c"
+    },
+    {
+      "body_sha256": "b52217f827a47b58b301d743fc7266f54b22b9a80a4070a19b5233aa4d2d26d8",
+      "path": "posts/2024-11-19--reuters-cuny-internship-2025.md",
+      "permalink": "/posts/2024/11/19/reuters-cuny-internship-2025/",
+      "published_at": "2024-11-19T06:00:00-08:00",
+      "sha256": "520f9b8a08c3330ad3988b3ea7105ca827c0a0195b9a8f1a5c9487a10e665d01"
+    },
+    {
+      "body_sha256": "9fc7c1b00b50601be75c6a7ccdda688d18fd5a43f13eb87ac62364bdd9bc483b",
+      "path": "posts/2025-03-11--new-at-nicar25.md",
+      "permalink": "/posts/2025/03/11/new-at-nicar25/",
+      "published_at": "2025-03-11T00:00:00-07:00",
+      "sha256": "cdd2209a8795fea56b6b1779e04c6130f7d14cbbe86faa92399a1bd862f379e7"
+    },
+    {
+      "body_sha256": "9c77ef984150e1a781e297265caa7a39cbde82d49400176db3c1c5e837e63420",
+      "path": "posts/2025-05-21--ire-podcast-transcript.md",
+      "permalink": "/posts/2025/05/21/ire-podcast-transcript/",
+      "published_at": "2025-05-21T09:30:00-07:00",
+      "sha256": "7280f0a460e1ab8d754172177f8c50aee3cbaf88cc0a22e1dc58ef8f03f0b586"
+    }
+  ],
+  "posts_fingerprint_sha256": "f76e4f53b42f15418862885da32516b822045953d80192a3eae4d0e88fafdcb5",
+  "production_inventory": {
+    "draft": 94,
+    "hidden": 0,
+    "live": 72,
+    "total": 166
+  },
+  "schema_version": 1
+}
