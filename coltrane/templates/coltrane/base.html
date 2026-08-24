@@ -113,9 +113,10 @@
                 <div class="twelvecol last">
                     <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{% now "Y" %}</span> palewire</span>
                     {% if repository_commit %}
-                    Revision <a class="footer-commit"
-                       href="{{ repository_url }}/commit/{{ repository_commit }}"
-                       aria-label="View commit {{ repository_commit_short }} on GitHub">{{ repository_commit_short }}</a>
+                    <span class="footer-revision">
+                        Revision <a href="{{ repository_url }}/commit/{{ repository_commit }}"
+                                    aria-label="View commit {{ repository_commit_short }} on GitHub">{{ repository_commit_short }}</a>
+                    </span>
                     {% endif %}
                 </div>
             </div>
