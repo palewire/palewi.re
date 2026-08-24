@@ -1,6 +1,6 @@
 const UPSTREAM_ORIGIN = "https://mastodon.palewi.re";
 const UPSTREAM_TIMEOUT_MS = 5_000;
-export const MAX_RESPONSE_BYTES = 1_048_576;
+const MAX_RESPONSE_BYTES = 1_048_576;
 const RESPONSE_MARKER = "cloudflare-worker-v1";
 
 const ALLOWED_PATHS = new Set([

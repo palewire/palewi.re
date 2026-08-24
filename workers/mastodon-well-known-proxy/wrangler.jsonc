@@ -3,24 +3,10 @@
   "name": "palewire-mastodon-well-known-proxy",
   "main": "src/index.ts",
   "compatibility_date": "2026-08-24",
-  "workers_dev": false,
-  "preview_urls": false,
+  "workers_dev": true,
+  "preview_urls": true,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
-  },
-  "routes": [
-    {
-      "pattern": "palewi.re/.well-known/webfinger*",
-      "zone_name": "palewi.re"
-    },
-    {
-      "pattern": "palewi.re/.well-known/host-meta*",
-      "zone_name": "palewi.re"
-    },
-    {
-      "pattern": "palewi.re/.well-known/nodeinfo*",
-      "zone_name": "palewi.re"
-    }
-  ]
+  }
 }
