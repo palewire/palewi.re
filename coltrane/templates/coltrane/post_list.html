@@ -2,18 +2,18 @@
 
 {% block title %}posts . {{ block.super }}{% endblock %}
 
-{% block canonicalurl %}https://{{ current_site }}/posts/{% endblock %}
+{% block canonicalurl %}https://palewi.re/posts/{% endblock %}
 
 {% block ogtitle %}posts{% endblock %}
 {% block ogtype %}website{% endblock %}
-{% block ogurl %}https://{{ current_site }}/posts/{% endblock %}
+{% block ogurl %}https://palewi.re/posts/{% endblock %}
 {% block ogdescription %}A complete list of articles written for this site.{% endblock %}
 
 {% block twittertitle %}posts{% endblock %}
 {% block twitterdescription %}A complete list of articles written for this site.{% endblock %}
-{% block twitterurl %}https://{{ current_site }}/posts/{% endblock %}
+{% block twitterurl %}https://palewi.re/posts/{% endblock %}
 
-{% block googleurl %}https://{{ current_site }}/posts/{% endblock %}
+{% block googleurl %}https://palewi.re/posts/{% endblock %}
 {% block googleheadline %}posts{% endblock %}
 {% block googledescription %}A complete list of articles written for this site.{% endblock %}
 {% block googletype %}CollectionPage{% endblock %}
@@ -24,7 +24,7 @@
         {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "url": "https://{{ current_site }}/posts/",
+            "url": "https://palewi.re/posts/",
             "itemListOrder": "Descending",
             "numberOfItems": {{ object_list|length }},
             "itemListElement": [
@@ -32,7 +32,7 @@
                 {
                     "@type": "ListItem",
                     "position": {{ forloop.counter }},
-                    "url": "https://{{ current_site }}{{ object.get_absolute_url }}"
+                    "url": "https://palewi.re{{ object.get_absolute_url }}"
                 }{% if not forloop.last %},{% endif %}
                 {% endfor %}
             ]

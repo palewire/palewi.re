@@ -3,11 +3,19 @@
 from unittest.mock import patch
 
 import pytest
+from django.templatetags.static import static
 from django.test import Client
 from django.test.utils import override_settings
+from django.urls import include, path
 
-from coltrane.views import server_error
 from project.redirects import STATIC_REDIRECTS
+
+
+def failing_view(_request):
+    raise RuntimeError("Expected test error")
+
+
+urlpatterns = [path("", include("project.urls")), path("failing/", failing_view)]
 
 
 @pytest.fixture
@@ -30,10 +38,13 @@ def test_bio_page_ok(client):
     assert 'fetchpriority="high"' in content
 
 
-def test_bio_page_context_includes_fixed_current_site(client):
+def test_bio_page_uses_canonical_domain(client):
     response = client.get("/who-is-ben-welsh/")
+
     assert response.status_code == 200
-    assert any(context.get("current_site") == "palewi.re" for context in response.context)
+    content = response.content.decode()
+    assert '<link rel="canonical" href="https://palewi.re/who-is-ben-welsh/" />' in content
+    assert '"url": "https://palewi.re/who-is-ben-welsh/"' in content
 
 
 def test_bio_page_footer_links_to_main_commit(client):
@@ -87,7 +98,7 @@ def test_favicon_route_exists(client):
     response = client.get("/favicon.ico")
     assert response.status_code in (200, 301, 302)
     if response.status_code in (301, 302):
-        assert response["Location"].endswith("/static/favicon.ico")
+        assert response["Location"] == static("favicon.ico")
 
 
 @override_settings(DEBUG=False)
@@ -123,9 +134,9 @@ def test_retired_legacy_pages_return_not_found(client, path):
     assert client.get(path).status_code == 404
 
 
-@override_settings(DEBUG=False)
-def test_server_error_page_uses_simplified_message(rf):
-    response = server_error(rf.get("/"))
+@override_settings(DEBUG=False, ROOT_URLCONF=__name__)
+def test_server_error_page_uses_default_handler():
+    response = Client(raise_request_exception=False).get("/failing/")
 
     assert response.status_code == 500
     content = response.content.decode()
@@ -133,6 +144,7 @@ def test_server_error_page_uses_simplified_message(rf):
     assert '<meta name="robots" content="noindex" />' in content
     assert '<h1 id="error-heading">500</h1>' in content
     assert "Something went wrong. Please try again later." in content
+    assert '<link rel="icon" href="/static/favicon.ico" />' in content
 
 
 def test_health_check_ok(client):

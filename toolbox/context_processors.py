@@ -5,23 +5,10 @@ import subprocess
 from functools import lru_cache
 from pathlib import Path
 
-from django.utils import timezone
-
 logger = logging.getLogger(__name__)
 REPOSITORY_URL = "https://github.com/palewire/palewi.re"
 COMMIT_PATTERN = re.compile(r"^[0-9a-f]{7,40}$")
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
-
-
-def current_site(_request):
-    """
-    Add the current site to the template context.
-    """
-    return {"current_site": "palewi.re"}
-
-
-def now(request):
-    return {"now": timezone.now()}
 
 
 @lru_cache(maxsize=1)
