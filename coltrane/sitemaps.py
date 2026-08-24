@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib import sitemaps as django_sitemaps
 
 from coltrane.content_loaders import MarkdownPost, load_posts
@@ -33,8 +35,8 @@ class PostsSitemap(django_sitemaps.Sitemap):
     def items(self) -> list[MarkdownPost]:
         return load_posts()
 
-    def lastmod(self, item: MarkdownPost):
-        return item.published_at
+    def lastmod(self, item: MarkdownPost) -> datetime.date:
+        return item.published_at.date()
 
     def location(self, item: MarkdownPost) -> str:
         return item.get_absolute_url()
