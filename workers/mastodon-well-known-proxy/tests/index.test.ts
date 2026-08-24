@@ -2,9 +2,10 @@ import { readFileSync } from "node:fs";
 
 import { describe, expect, it, vi } from "vitest";
 
-import { MAX_RESPONSE_BYTES, handleRequest, type FetchImplementation } from "../src/index";
+import { handleRequest, type FetchImplementation } from "../src/index";
 
 const BASE_URL = "https://palewi.re";
+const MAX_RESPONSE_BYTES = 1_048_576;
 
 function request(path: string, init?: RequestInit): Request {
   return new Request(`${BASE_URL}${path}`, init);
@@ -15,14 +16,17 @@ function fetchResponse(response: Response): FetchImplementation {
 }
 
 describe("Mastodon discovery Worker", () => {
-  it("uses terminal wildcards only to include query strings on the three approved routes", () => {
+  it("keeps production routes out of the canary configuration", () => {
     const config = JSON.parse(readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8"));
+    const makefile = readFileSync(new URL("../../../Makefile", import.meta.url), "utf8");
 
-    expect(config.routes.map((route: { pattern: string }) => route.pattern)).toEqual([
-      "palewi.re/.well-known/webfinger*",
-      "palewi.re/.well-known/host-meta*",
-      "palewi.re/.well-known/nodeinfo*",
-    ]);
+    expect(config.workers_dev).toBe(true);
+    expect(config.preview_urls).toBe(true);
+    expect(config.routes).toBeUndefined();
+    expect(makefile).toContain("WORKER_CANARY_NAME := palewire-mastodon-well-known-proxy-canary");
+    expect(makefile).toContain(
+      "WORKER_ROUTES := --route palewi.re/.well-known/webfinger* --route palewi.re/.well-known/host-meta* --route palewi.re/.well-known/nodeinfo*",
+    );
   });
 
   it("proxies WebFinger to the fixed upstream and preserves its safe response headers", async () => {

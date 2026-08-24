@@ -162,7 +162,7 @@ explicitly runs a deployment target.
 ### Mastodon discovery Worker
 
 `workers/mastodon-well-known-proxy/` is an isolated, locked Node project for a
-Cloudflare Worker. Its only routes are:
+Cloudflare Worker. It supports only these production routes:
 
 - `palewi.re/.well-known/webfinger`
 - `palewi.re/.well-known/host-meta`
@@ -177,11 +177,11 @@ headers. Responses include `X-Palewire-Discovery-Proxy: cloudflare-worker-v1`.
 The Django routes and `django-proxy` dependency remain in place as the stage 1
 fallback until the separate retirement PR.
 
-Cloudflare route matching includes query strings, so each configured pattern
-ends in `*` to serve WebFinger requests with `?resource=...`. The Worker still
-accepts only the three exact paths and returns `404` for a suffix such as
-`webfinger-extra`; the wildcard cannot reach the upstream unless that path
-check succeeds.
+Cloudflare route matching includes query strings, so the explicit attach command
+uses a terminal `*` for each route to serve WebFinger requests with
+`?resource=...`. The Worker still accepts only the three exact paths and returns
+`404` for a suffix such as `webfinger-extra`; the wildcard cannot reach the
+upstream unless that path check succeeds.
 
 Run the isolated checks without contacting or changing Cloudflare:
 
@@ -190,35 +190,97 @@ make worker-test
 make worker-validate
 ```
 
-To deploy, first create an API token limited to the Cloudflare account and
-`palewi.re` zone that own these routes. It needs **Account > Workers Scripts >
-Edit** for that account, plus **Zone > Workers Routes > Edit** and **Zone >
-Zone > Read** for only the `palewi.re` zone. Save it as the
-`CLOUDFLARE_API_TOKEN` Copilot Agents secret and save the owning account ID as
-the `CLOUDFLARE_ACCOUNT_ID` secret. This deploy token is separate from the
-read-only `whoami` token above; never reuse a broader token. The account must
-already own the proxied `palewi.re` zone.
+#### Stage 1 incident and safe retry
+
+The first Stage 1 deploy on August 24, 2026 attached the routes before the
+Worker was tested on Cloudflare. The Worker then returned `502` for every
+matched route. The fixed Mastodon endpoints were healthy: WebFinger,
+host-meta, and nodeinfo each returned `200` when contacted directly.
+
+The Worker module exported the numeric `MAX_RESPONSE_BYTES` constant. Workerd
+interprets module exports as Worker entries and only accepts functions or an
+exported handler, so the module failed during startup before it made an
+upstream request. The routes were removed by deleting that Worker, and Django
+continues to serve all three endpoints. This has been reproduced with Wrangler
+4.125.0 and local Miniflare. The regression test starts the bundled Worker in
+workerd, which catches invalid module exports that direct TypeScript unit tests
+miss.
+
+The default Worker configuration intentionally has no production routes and
+enables workers.dev and preview URLs. The canary deploy uses the separate
+`palewire-mastodon-well-known-proxy-canary` Worker name, so it cannot update a
+version currently serving production routes. A deployment must therefore follow
+this canary-first sequence. Do not attach routes until the canary verification
+has passed.
+
+To deploy, authenticate with either local `wrangler login` OAuth or an API
+token limited to the Cloudflare account and `palewi.re` zone that own these
+routes. Automation needs **Account > Workers Scripts > Edit**, **Zone > Workers
+Routes > Edit**, and **Zone > Zone > Read** for only the `palewi.re` zone. Save
+it as the `CLOUDFLARE_API_TOKEN` Copilot Agents secret and save the owning
+account ID as the `CLOUDFLARE_ACCOUNT_ID` secret. This deploy token is separate
+from the read-only `whoami` token above; never reuse a broader token. The
+account must already own the proxied `palewi.re` zone.
 
 ```bash
+# 1. Build and test locally. This does not contact Cloudflare.
+make worker-test
 make worker-validate
-CONFIRM_WORKER_DEPLOY=1 make worker-deploy
+
+# 2. Deploy a route-free canary. Wrangler prints a workers.dev or preview URL.
+CONFIRM_WORKER_CANARY_DEPLOY=1 make worker-canary-deploy
+
+# 3. Verify that exact canary URL before it can receive production traffic.
+BASE_URL="https://the-url-printed-by-wrangler" make worker-verify-canary
+
+# 4. Only after the canary passes, attach the three production routes.
+CONFIRM_WORKER_ATTACH_ROUTES=1 make worker-attach-routes
+
+# 5. Verify every live endpoint, expected content type, and Worker marker.
 make worker-verify-production
+
+# 6. Remove the separate canary Worker after the production check passes.
+CONFIRM_WORKER_DELETE_CANARY=1 make worker-delete-canary
 ```
 
-`make worker-verify-production` checks the marker on a production WebFinger
-request, proving Cloudflare served the Worker rather than Django. To return
-these requests to Django, use:
+Both verification targets check valid requests for all three endpoints:
+
+- WebFinger with `resource=acct:palewire@palewi.re` returns
+  `application/jrd+json; charset=utf-8`.
+- Host-meta returns `application/xrd+xml; charset=utf-8`.
+- Nodeinfo returns `application/json; charset=utf-8`.
+
+Each must return `200` and the exact
+`X-Palewire-Discovery-Proxy: cloudflare-worker-v1` marker. The verifier is a
+POSIX `/bin/sh` script and accepts `BASE_URL` for controlled local tests or a
+canary. It prints a short endpoint-specific error and exits non-zero for a
+timeout, unexpected status, content type, or marker.
+
+If canary or production verification fails, do not retry route attachment.
+Immediately return traffic to Django:
 
 ```bash
-CONFIRM_WORKER_ROLLBACK=1 make worker-rollback
+CONFIRM_WORKER_DETACH_ROUTES=1 make worker-detach-routes
 ```
 
-This rollback proceeds only when all routes attached to this Worker are the
-three configured routes. It removes them, then confirms the Worker has no
-remaining route in the zone, so traffic immediately returns to the retained
-Django fallback. It leaves the Worker script and every unrelated route
-untouched. Wrangler version rollback is not used here because it changes Worker
-code but does not detach routes.
+This uses `wrangler delete --force`, which removes the Worker and its routes and
+works with either Wrangler OAuth or `CLOUDFLARE_API_TOKEN`; it does not depend
+on a separate API-only helper. Run the same operation explicitly for final
+cleanup when needed:
+
+```bash
+CONFIRM_WORKER_DELETE=1 make worker-delete
+```
+
+Both commands are intentionally guarded. They are equivalent when routes are
+still attached: Cloudflare cannot leave routes pointing at a deleted Worker.
+They leave unrelated Workers and routes untouched.
+
+For a normal production code rollback without route changes, use Cloudflare's
+version controls after a verified canary. For a Stage 1 failure, detaching the
+routes is safer because the retained Django fallback takes effect immediately.
+
+The Stage 1 Worker does not change the Django fallback or begin Stage 2.
 
 For the database retirement deployment, take a fresh Heroku backup first. Deploy
 the exact merged SHA, then verify `/health/`, the main pages, all post

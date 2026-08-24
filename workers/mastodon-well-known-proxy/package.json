@@ -7,8 +7,6 @@
     "node": ">=22 <25"
   },
   "scripts": {
-    "deploy": "wrangler deploy --strict",
-    "disable-routes": "node scripts/disable-routes.mjs",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "types:check": "wrangler types --check",

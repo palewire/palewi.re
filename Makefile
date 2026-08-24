@@ -7,8 +7,10 @@ WRANGLER_VERSION := 4.125.0
 export PATH := $(HOME)/.local/bin:$(HOME)/.local/share/heroku/client/bin:$(HOME)/.npm-global/bin:$(HOME)/.volta/bin:$(HOME)/.asdf/shims:$(HOME)/.fnm/current/bin:$(HOMEBREW_BIN):$(PATH)
 
 WORKER_DIR := workers/mastodon-well-known-proxy
+WORKER_CANARY_NAME := palewire-mastodon-well-known-proxy-canary
+WORKER_ROUTES := --route palewi.re/.well-known/webfinger* --route palewi.re/.well-known/host-meta* --route palewi.re/.well-known/nodeinfo*
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt worker-test worker-validate worker-deploy worker-verify-production worker-rollback
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-attach-routes worker-verify-production worker-detach-routes worker-delete
 
 help:
 	@echo "Available targets:"
@@ -29,9 +31,13 @@ help:
 	@echo "  fmt        Auto-format with Ruff"
 	@echo "  worker-test  Install locked Worker dependencies and run Worker tests"
 	@echo "  worker-validate  Type-check and dry-run the Worker without deploying"
-	@echo "  worker-deploy  Deploy the Worker after explicit confirmation"
-	@echo "  worker-verify-production  Confirm production served the Worker marker"
-	@echo "  worker-rollback  Roll back the Worker after explicit confirmation"
+	@echo "  worker-canary-deploy  Deploy a route-free Worker canary after explicit confirmation"
+	@echo "  worker-verify-canary  Confirm a canary URL served all Worker endpoints"
+	@echo "  worker-delete-canary  Delete the canary Worker after explicit confirmation"
+	@echo "  worker-attach-routes  Attach production routes after explicit confirmation"
+	@echo "  worker-verify-production  Confirm production served all Worker endpoints"
+	@echo "  worker-detach-routes  Delete the Worker to detach its routes after explicit confirmation"
+	@echo "  worker-delete  Delete the Worker and any attached routes after explicit confirmation"
 
 install:
 	@"$$(command -v uv)" sync --locked --group dev
@@ -96,21 +102,33 @@ worker-validate:
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
 	npm --prefix "$(WORKER_DIR)" run validate
 
-worker-deploy:
-	@test "$$CONFIRM_WORKER_DEPLOY" = "1" || { echo "Set CONFIRM_WORKER_DEPLOY=1 after running make worker-validate." >&2; exit 1; }
+worker-canary-deploy:
+	@test "$$CONFIRM_WORKER_CANARY_DEPLOY" = "1" || { echo "Set CONFIRM_WORKER_CANARY_DEPLOY=1 after running make worker-validate." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	npm --prefix "$(WORKER_DIR)" run deploy
+	cd "$(WORKER_DIR)" && npm exec -- wrangler deploy --strict --name "$(WORKER_CANARY_NAME)"
+
+worker-verify-canary:
+	@BASE_URL="$${BASE_URL:?Set BASE_URL to the workers.dev or preview URL printed by worker-canary-deploy.}" scripts/verify-worker-endpoints.sh
+
+worker-delete-canary:
+	@test "$$CONFIRM_WORKER_DELETE_CANARY" = "1" || { echo "Set CONFIRM_WORKER_DELETE_CANARY=1 to delete the route-free canary Worker." >&2; exit 1; }
+	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	cd "$(WORKER_DIR)" && npm exec -- wrangler delete "$(WORKER_CANARY_NAME)" --force
+
+worker-attach-routes:
+	@test "$$CONFIRM_WORKER_ATTACH_ROUTES" = "1" || { echo "Set CONFIRM_WORKER_ATTACH_ROUTES=1 only after make worker-verify-canary passes." >&2; exit 1; }
+	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	cd "$(WORKER_DIR)" && npm exec -- wrangler deploy --strict $(WORKER_ROUTES)
 
 worker-verify-production:
-	@url="$${BASE_URL:-https://palewi.re}/.well-known/webfinger?resource=acct%3Apalewire%40palewi.re"; \
-	response="$$(curl --silent --show-error --max-time 20 --dump-header - --output /dev/null --write-out '\n%{http_code}' "$$url)" || { echo "Production verification request failed." >&2; exit 1; }; \
-	status="$$(printf '%s\n' "$$response" | tail -1)"; \
-	headers="$$(printf '%s\n' "$$response" | sed '$$d')"; \
-	test "$$status" = "200" || { printf '%s\n' "$$headers"; echo "Expected HTTP 200, received $$status." >&2; exit 1; }; \
-	printf '%s\n' "$$headers"; \
-	printf '%s\n' "$$headers" | tr -d '\r' | grep -qi '^x-palewire-discovery-proxy: cloudflare-worker-v1$$' || { echo "Worker response marker was not found." >&2; exit 1; }
+	@scripts/verify-worker-endpoints.sh
 
-worker-rollback:
-	@test "$$CONFIRM_WORKER_ROLLBACK" = "1" || { echo "Set CONFIRM_WORKER_ROLLBACK=1 to remove the three Worker routes." >&2; exit 1; }
+worker-detach-routes:
+	@test "$$CONFIRM_WORKER_DETACH_ROUTES" = "1" || { echo "Set CONFIRM_WORKER_DETACH_ROUTES=1 to delete the Worker and detach its routes." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	CONFIRM_WORKER_ROLLBACK="$$CONFIRM_WORKER_ROLLBACK" npm --prefix "$(WORKER_DIR)" run disable-routes
+	cd "$(WORKER_DIR)" && npm exec -- wrangler delete --force
+
+worker-delete:
+	@test "$$CONFIRM_WORKER_DELETE" = "1" || { echo "Set CONFIRM_WORKER_DELETE=1 to delete the Worker and any attached routes." >&2; exit 1; }
+	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	cd "$(WORKER_DIR)" && npm exec -- wrangler delete --force
