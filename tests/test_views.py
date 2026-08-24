@@ -33,6 +33,13 @@ def test_bio_page_ok(client):
 
 
 @pytest.mark.django_db
+def test_bio_page_context_includes_fixed_current_site(client):
+    response = client.get("/who-is-ben-welsh/")
+    assert response.status_code == 200
+    assert any(context.get("current_site") == "palewi.re" for context in response.context)
+
+
+@pytest.mark.django_db
 def test_work_list_ok(client):
     response = client.get("/work/")
     assert response.status_code == 200
@@ -60,6 +67,47 @@ def test_docs_list_ok(client):
 def test_bots_list_ok(client):
     response = client.get("/bots/")
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_scrape_album_2006_returns_not_found(client):
+    response = client.get("/scrape/albums/2006.html")
+    assert response.status_code == 404
+
+
+@pytest.mark.django_db
+def test_openlayers_tutorial_returns_not_found(client):
+    response = client.get("/openlayers-proportional-symbols/")
+    assert response.status_code == 404
+
+
+@pytest.mark.django_db
+def test_mack_redirect_still_exists(client):
+    response = client.get("/mack/")
+    assert response.status_code in (301, 302)
+    assert response["Location"] == "https://web.archive.org/web/20121109101143/http://palewi.re/mack/"
+
+
+@pytest.mark.django_db
+def test_candysays_redirect_points_to_wayback(client):
+    response = client.get("/candysays/")
+    assert response.status_code in (301, 302)
+    assert response["Location"] == "https://web.archive.org/web/20160413123742/http://palewi.re/candysays/"
+
+
+@pytest.mark.django_db
+def test_legacy_images_redirect_directly_to_s3(client):
+    response = client.get("/images/test.jpg")
+    assert response.status_code in (301, 302)
+    assert response["Location"] == "http://palewire.s3.amazonaws.com/img/test.jpg"
+
+
+@pytest.mark.django_db
+def test_favicon_route_exists(client):
+    response = client.get("/favicon.ico")
+    assert response.status_code in (200, 301, 302)
+    if response.status_code in (301, 302):
+        assert response["Location"].endswith("/static/favicon.ico")
 
 
 @pytest.mark.django_db

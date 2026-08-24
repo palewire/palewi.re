@@ -1,16 +1,11 @@
 from datetime import datetime
 
-from django.contrib.sites.models import Site
 
-
-def current_site(request):
+def current_site(_request):
     """
-    Add the "current site" to the template context.
+    Add the current site to the template context.
     """
-    try:
-        return {"current_site": Site.objects.get_current()}
-    except Site.DoesNotExist:
-        return {"current_site": ""}
+    return {"current_site": "palewi.re"}
 
 
 def now(request):

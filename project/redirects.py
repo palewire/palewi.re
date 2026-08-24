@@ -1,8 +1,6 @@
 from django.urls import re_path
 from django.views.generic import RedirectView
 
-from toolbox.views import DirectTemplateView
-
 patterns = [
     # Redirect links to old blog to new posts
     re_path(
@@ -22,20 +20,6 @@ patterns = [
     # Redirects from old clips pages
     re_path(r"^apps/$", RedirectView.as_view(url="/work/"), name="coltrane_app_list"),
     re_path(r"^clips/$", RedirectView.as_view(url="/work/"), name="coltrane_clip_list"),
-    # Scrape pages from tutorial on old site.
-    re_path(
-        r"^scrape/albums/2006.html$",
-        DirectTemplateView.as_view(template_name="tutorials/scrape/2006.html"),
-    ),
-    re_path(
-        r"^scrape/albums/2007.html$",
-        DirectTemplateView.as_view(template_name="tutorials/scrape/2007.html"),
-    ),
-    # OpenLayers tutorial on old site.
-    re_path(
-        "^openlayers-proportional-symbols/$",
-        DirectTemplateView.as_view(template_name="tutorials/openlayers-proportional-symbols/index.html"),
-    ),
     # 2011 free flu shots app
     re_path(
         r"^free-flu-shots/$",
@@ -70,7 +54,7 @@ patterns = [
         RedirectView.as_view(url="https://web.archive.org/web/20121109101143/http://palewi.re/mack/"),
     ),
     re_path(
-        r"^mack/$",
+        r"^candysays/$",
         RedirectView.as_view(url="https://web.archive.org/web/20160413123742/http://palewi.re/candysays/"),
     ),
     re_path(
@@ -95,7 +79,7 @@ patterns = [
     # Redirect old images from legacy site
     re_path(
         r"^images/(?P<file_name>[^/]+)$",
-        RedirectView.as_view(url="/media/img/%(file_name)s"),
+        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/img/%(file_name)s"),
     ),
     # Longer apps urls
     re_path(r"^applications/$", RedirectView.as_view(url="/apps/")),

@@ -1,55 +1,14 @@
 # Helpers
 import datetime
 
-# Settings
-from django.conf import settings
-
 # Models
 from django.contrib.auth.models import User
 from django.db import models
-
-# Signals
-from django.db.models import signals
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
 # Managers
-from coltrane.managers import LiveCategoryManager, LivePostManager
-from coltrane.signals import category_count
-
-
-class Category(models.Model):
-    """
-    Topic labels for grouping blog entries.
-    """
-
-    title = models.CharField(max_length=250, help_text=_("Maximum 250 characters."))
-    slug = models.SlugField(
-        unique=True,
-        help_text=_("Suggested value automatically generated from title. Must be unique."),
-    )
-    description = models.TextField(null=True, blank=True)
-    post_count = models.IntegerField(default=0, editable=False)
-    objects = models.Manager()
-    live = LiveCategoryManager()
-
-    class Meta:
-        ordering = ["title"]
-        verbose_name_plural = _("Categories")
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return ("coltrane_category_detail", [self.slug])
-
-    def get_absolute_icon(self):
-        return "%sicons/categories.gif" % (settings.STATIC_URL)
-
-    def get_live_post_count(self):
-        from coltrane.models import Post
-
-        return Post.live.filter(categories=self).count()
+from coltrane.managers import LivePostManager
 
 
 class Post(models.Model):
@@ -90,14 +49,12 @@ class Post(models.Model):
     )
     pub_date = models.DateTimeField(_("publication date"), default=datetime.datetime.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    enable_comments = models.BooleanField(default=False)
     status = models.IntegerField(
         choices=STATUS_CHOICES,
         default=LIVE_STATUS,
         help_text=_("Only 'Live' entries will be publicly displayed."),
     )
     repr_image = models.CharField(max_length=1000, blank=True, default="")
-    categories = models.ManyToManyField(Category)
     objects = models.Manager()
     live = LivePostManager()
 
@@ -127,27 +84,3 @@ class Post(models.Model):
         )
 
     url = property(get_absolute_url)
-
-    def get_archive_url(self):
-        """
-        Overriding the URL to send to Internet Archive so that it has a cachebuster.
-        """
-        domain = "http://palewi.re"
-        cache_buster = "?timestamp={}".format(datetime.datetime.now().strftime("%s"))
-        return domain + self.get_absolute_url() + cache_buster
-
-    def get_publication_status(self):
-        """
-        Overriding the autoarchiver's indicator of whether or not this post is live.
-
-        My posts are live when the `status` field equals 1. I know. It's dumb.
-        """
-        return self.status == 1
-
-    def get_absolute_icon(self):
-        return "%sicons/posts.gif" % (settings.STATIC_URL)
-
-
-# Signals
-signals.post_save.connect(category_count, sender=Post)
-signals.post_delete.connect(category_count, sender=Post)

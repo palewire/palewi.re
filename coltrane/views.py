@@ -91,14 +91,7 @@ def server_error(request, template_name="500.html"):
     500 error handler. Necessary to make sure STATIC_URL is available.
     """
     t = loader.get_template(template_name)
-    return HttpResponseServerError(
-        t.render(
-            {
-                "MEDIA_URL": settings.MEDIA_URL,
-                "STATIC_URL": settings.STATIC_URL,
-            }
-        )
-    )
+    return HttpResponseServerError(t.render({"STATIC_URL": settings.STATIC_URL}))
 
 
 class ClipListView(TemplateView):
