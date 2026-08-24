@@ -10,7 +10,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "types:check": "wrangler types --check",
-    "config:check": "wrangler deploy --dry-run --env=\"\" && wrangler deploy --dry-run --env same-zone-canary",
+    "config:check": "wrangler deploy --dry-run --env=\"\" && wrangler deploy --dry-run --env startup-canary && wrangler deploy --dry-run --env same-zone-canary",
     "validate": "npm run types:check && npm run typecheck && npm run config:check"
   },
   "devDependencies": {

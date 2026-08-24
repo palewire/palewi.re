@@ -3,8 +3,8 @@
   "name": "palewire-legacy-redirects",
   "main": "src/index.ts",
   "compatibility_date": "2026-08-24",
-  "workers_dev": true,
-  "preview_urls": true,
+  "workers_dev": false,
+  "preview_urls": false,
   "rules": [
     {
       "type": "Text",
@@ -17,8 +17,15 @@
     "head_sampling_rate": 1
   },
   "env": {
+    "startup-canary": {
+      "name": "palewire-legacy-redirects-startup-canary",
+      "workers_dev": true,
+      "preview_urls": true
+    },
     "same-zone-canary": {
       "name": "palewire-legacy-redirects-same-zone-canary",
+      "workers_dev": true,
+      "preview_urls": true,
       "vars": {
         "CANARY_PATH": "/legacy-redirects-canary"
       }

@@ -24,6 +24,12 @@ media referenced by `coltrane/content/talks.yaml` or blog posts, load the
 Run `make check`. This is the same set of lint, type, Django, and test checks
 used by CI.
 
+Worker changes also require `make worker-test`, `make worker-validate`,
+`make legacy-worker-test`, and `make legacy-worker-validate`. Production
+Wrangler configs keep `workers_dev` and `preview_urls` disabled; the named
+`startup-canary` and `same-zone-canary` environments explicitly enable preview
+URLs for guarded, route-free checks.
+
 Keep changes focused. Add or update tests when behavior changes. Do not commit
 secrets, generated files, or `.goals/` agent state.
 

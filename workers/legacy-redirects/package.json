@@ -10,7 +10,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "routes:check": "set -eu; routes=$(cd ../.. && UV_NO_ENV_FILE=1 uv run python -c 'from project.redirect_manifest import RULES, cloudflare_route_plan; print(\" \".join(f\"--route {route}\" for route in cloudflare_route_plan(RULES)))'); test -n \"$routes\"; wrangler deploy --dry-run --env=\"\" $routes",
-    "config:check": "wrangler deploy --dry-run --env=\"\" && wrangler deploy --dry-run --env same-zone-canary && npm run routes:check",
+    "config:check": "wrangler deploy --dry-run --env=\"\" && wrangler deploy --dry-run --env startup-canary && wrangler deploy --dry-run --env same-zone-canary && npm run routes:check",
     "startup:check": "wrangler check startup",
     "validate": "npm run typecheck && npm run config:check && npm run startup:check"
   },

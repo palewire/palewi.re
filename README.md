@@ -65,7 +65,8 @@ make check
 This runs Ruff linting and formatting checks, ty static analysis, Django's
 system check, and the full pytest suite. Coverage measures application and
 maintenance source code (not tests) and must be at least 90%, raised from 40%.
-CI uses the same Make targets.
+The required CI Test job also runs both locked Worker test targets and both
+Worker validation targets.
 
 To auto-format code:
 
@@ -264,10 +265,11 @@ limited to the exact `palewi.re` host, while the upstream is
 `mastodon.palewi.re`; regression tests prove the three production patterns
 cannot match that host. Do not add a `mastodon.palewi.re` route to this Worker.
 
-The default Worker configuration intentionally has no production routes and
-enables workers.dev and preview URLs. The optional startup canary and the
-same-zone canary have separate Worker names, so neither can update a Worker
-serving production routes. The same-zone canary only accepts
+The production Worker configuration intentionally has no production routes and
+disables both workers.dev and preview URLs. The optional startup canary and the
+same-zone canary use separate named environments and Worker names, with
+workers.dev and preview URLs explicitly enabled for their route-free checks, so
+neither can update a Worker serving production routes. The same-zone canary only accepts
 `/.well-known/cloudflare-worker-canary` when its named environment provides the
 `CANARY_PATH` binding. It fetches the same fixed upstream's NodeInfo endpoint.
 The production Worker has no such binding and returns `404` for this path.
@@ -292,6 +294,7 @@ make worker-test
 make worker-validate
 
 # 2. Optional: deploy and verify a route-free workers.dev startup canary.
+# The startup-canary environment explicitly re-enables public preview access.
 # It confirms startup only; it cannot approve same-zone traffic.
 CONFIRM_WORKER_CANARY_DEPLOY=1 make worker-canary-deploy
 BASE_URL="https://the-url-printed-by-wrangler" make worker-verify-canary
