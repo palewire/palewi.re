@@ -15,6 +15,10 @@ When adding or changing a URL in `coltrane/content/clips.yaml`, load the
 `archive-clips` skill and run `make archive-clips`. Every clip must retain the
 resulting `archive_url` or a specific `archive_exemption`.
 
+When running, auditing, or troubleshooting a local audio/video backup of the
+media referenced by `coltrane/content/talks.yaml` or blog posts, load the
+`archive-media` skill (`.github/skills/archive-media/SKILL.md`) first.
+
 ## Before finishing
 
 Run `make check`. This is the same set of lint, type, Django, and test checks
@@ -30,6 +34,7 @@ secrets, generated files, or `.goals/` agent state.
   - `coltrane/content_loaders.py`: validated loaders for all YAML content types
 - `toolbox/`: shared utilities
 - `project/`: Django settings and URL routing
+- `scripts/media_archive/`: preservation-only audio/video backup tooling (see below)
 - `tests/`: pytest suite
 
 Use `uv` and `pyproject.toml` for Python dependencies, the locked Dart Sass npm
@@ -163,3 +168,34 @@ bots:
 Order is preserved as written (no automatic sorting). Both `mastodon_url` and
 non-empty `twitter_url` values must be unique across the list. URLs must start
 with `http`.
+
+## Media archive (audio/video backup)
+
+`scripts/media_archive/` is a preservation-only backup tool for the
+audio/video referenced by `coltrane/content/talks.yaml` and blog posts under
+`coltrane/content/posts/`, tracked in issue #176 ("Back up video embeds
+locally"). Load `.github/skills/archive-media/SKILL.md` before running it.
+
+Key rules for agents:
+
+- Binaries and the manifest live **only** under a user-chosen
+  `--archive-root` / `MEDIA_ARCHIVE_PATH` directory **outside** this
+  repository. The CLI refuses any path inside the repo. Never write media
+  under a repo static path, and never commit media or a manifest.
+- It uses `yt-dlp` (a `dev` dependency group package) as the extractor and
+  downloader, plus `ffmpeg` only when a source needs stream muxing (YouTube,
+  Vimeo, unrecognized hosts). `ffmpeg` is intentionally excluded from
+  `make bootstrap`; install it only when actually backing up those kinds.
+- It never bypasses DRM, private access, login requirements, or other
+  controls — a source that requires that is expected to fail, and the
+  failure is recorded, not retried automatically forever.
+- `make media-archive-inventory` is network-free and safe to run any time.
+  `make media-archive-backup` (with `ARCHIVE_ROOT=...` or `MEDIA_ARCHIVE_PATH`
+  set) downloads pending/failed candidates and is idempotent/resumable.
+  `uv run python -m scripts.media_archive verify --archive-root ...` is an
+  offline checksum audit.
+- Do not add GitHub Actions schedules, R2/S3 configuration, or Django
+  static-file storage for this tool — it is a manual/local maintenance
+  script by design.
+- Do not close issue #176 just because this tooling exists; close it only
+  after a real, durable backup run has actually completed.
