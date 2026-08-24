@@ -14,7 +14,7 @@ LEGACY_WORKER_DIR := workers/legacy-redirects
 LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
 LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt archive-clips check-clip-archives worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 help:
 	@echo "Available targets:"
@@ -35,6 +35,9 @@ help:
 	@echo "  fmt        Auto-format with Ruff"
 	@echo "  archive-clips  Archive clip URLs missing Wayback metadata"
 	@echo "  check-clip-archives  Confirm every clip has Wayback metadata"
+	@echo "  media-archive-inventory  List discovered talk/post media without downloading anything"
+	@echo "  media-archive-backup  Back up pending media to ARCHIVE_ROOT (or MEDIA_ARCHIVE_PATH)"
+	@echo "  media-archive-verify  Recompute checksums of already-archived media, offline"
 	@echo "  worker-test  Install locked Worker dependencies and run Worker tests"
 	@echo "  worker-validate  Type-check and dry-run the Worker without deploying"
 	@echo "  worker-canary-deploy  Deploy a route-free Worker canary after explicit confirmation"
@@ -119,6 +122,17 @@ archive-clips:
 
 check-clip-archives:
 	@"$$(command -v uv)" run python -m scripts.archive_clips check
+
+media-archive-inventory:
+	@"$$(command -v uv)" run python -m scripts.media_archive inventory
+
+media-archive-backup:
+	@test -n "$$ARCHIVE_ROOT$$MEDIA_ARCHIVE_PATH" || { echo "Set ARCHIVE_ROOT=/path/outside/repo (or export MEDIA_ARCHIVE_PATH) to a directory outside this repository." >&2; exit 1; }
+	@"$$(command -v uv)" run python -m scripts.media_archive backup $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
+
+media-archive-verify:
+	@test -n "$$ARCHIVE_ROOT$$MEDIA_ARCHIVE_PATH" || { echo "Set ARCHIVE_ROOT=/path/outside/repo (or export MEDIA_ARCHIVE_PATH) to a directory outside this repository." >&2; exit 1; }
+	@"$$(command -v uv)" run python -m scripts.media_archive verify $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
 
 worker-test:
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund

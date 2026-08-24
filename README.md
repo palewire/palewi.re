@@ -52,6 +52,7 @@ available local ports, so multiple agents can run the site at the same time.
 | `DEBUG` | No | Set `false` to disable debug output |
 | `SAVEPAGENOW_ACCESS_KEY` | No | Internet Archive access key used by `make archive-clips` |
 | `SAVEPAGENOW_SECRET_KEY` | No | Internet Archive secret key used by `make archive-clips` |
+| `MEDIA_ARCHIVE_PATH` | No | Directory outside the repo where `make media-archive-backup`/`verify` store media and the manifest |
 
 ## Quality gate
 
@@ -100,6 +101,33 @@ The first command reuses an existing snapshot or creates one with the
 `SAVEPAGENOW_ACCESS_KEY` and `SAVEPAGENOW_SECRET_KEY` environment variables.
 It writes progress after every clip and supports resumable batches with
 `uv run python -m scripts.archive_clips archive --limit 10`.
+
+## Media archive (audio/video backup)
+
+`scripts/media_archive/` finds every playable audio/video source referenced
+by `coltrane/content/talks.yaml` and blog posts, then uses `yt-dlp` to save a
+durable copy to a directory of your choosing, entirely **outside** this
+repository (see issue #176). Read
+[`.github/skills/archive-media/SKILL.md`](.github/skills/archive-media/SKILL.md)
+for the full workflow. In short:
+
+```bash
+# 1. See what would be backed up. Network-free, no archive root needed.
+make media-archive-inventory
+
+# 2. Download pending media to your chosen external directory.
+ARCHIVE_ROOT=/absolute/path/outside/the/repo make media-archive-backup
+
+# 3. Offline checksum audit of what's already archived.
+uv run python -m scripts.media_archive verify --archive-root /absolute/path/outside/the/repo
+```
+
+`--archive-root` (or the `MEDIA_ARCHIVE_PATH` environment variable) must
+point outside this repository; the command refuses paths inside it. Runs are
+idempotent and resumable, and a JSON manifest inside the archive root tracks
+every source URL, checksum, size, and any failure so nothing is silently
+dropped. `ffmpeg` is only needed for sources that require it (YouTube, Vimeo)
+and is never installed automatically by `make bootstrap`.
 
 ## Blog post Markdown
 
