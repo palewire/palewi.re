@@ -8,6 +8,7 @@ from django.test import Client
 from django.test.utils import override_settings
 from django.urls import include, path
 
+from project.redirect_manifest import RULES
 from project.redirects import STATIC_REDIRECTS
 
 
@@ -84,7 +85,7 @@ def test_django_no_longer_serves_mastodon_discovery_endpoints(client, page):
 @pytest.mark.parametrize(("source", "destination"), STATIC_REDIRECTS.items())
 def test_static_legacy_redirects_remain_stable(client, source, destination):
     response = client.get(f"/{source}?source=test")
-    assert response.status_code in (301, 302)
+    assert response.status_code == 302
     assert response["Location"] == destination
 
 
@@ -103,8 +104,24 @@ def test_static_legacy_redirects_remain_stable(client, source, destination):
 )
 def test_dynamic_legacy_redirects_remain_stable(client, source, destination):
     response = client.get(source)
-    assert response.status_code in (301, 302)
+    assert response.status_code == 302
     assert response["Location"] == destination
+
+
+@pytest.mark.parametrize(
+    ("source", "destination"),
+    [(example, rule.destination_for(example)) for rule in RULES if rule.is_dynamic for example in rule.examples],
+)
+def test_dynamic_manifest_examples_match_django_redirects(client, source, destination):
+    response = client.get(f"{source}?source=test")
+
+    assert response.status_code == 302
+    assert response["Location"] == destination
+
+
+@pytest.mark.parametrize("source", ["/1/02/03/post/", "/2024/2/03/post/", "/2024/02/3/post/"])
+def test_date_redirect_rejects_malformed_capture_widths(client, source):
+    assert client.get(source).status_code == 404
 
 
 def test_favicon_route_exists(client):
