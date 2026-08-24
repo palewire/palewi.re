@@ -5,7 +5,6 @@ description = "palewi.re — Ben Welsh's personal site"
 requires-python = ">=3.12"
 dependencies = [
     "Django~=5.2",
-    "django-proxy>=1.2",
     "gunicorn>=23.0",
     "whitenoise[brotli]>=6.9",
     "beautifulsoup4>=4.13",

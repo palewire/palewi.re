@@ -46,10 +46,6 @@ urlpatterns = [
         name="robots",
     ),
     path("favicon.ico", RedirectView.as_view(url=f"{settings.STATIC_URL}favicon.ico"), name="favicon"),
-    # Mastodon
-    path(".well-known/webfinger", views.wellknown_webfinger),
-    path(".well-known/host-meta", views.wellknown_hostmeta),
-    path(".well-known/nodeinfo", views.wellknown_nodeinfo),
     path("@palewire", views.username_redirect),
 ]
 

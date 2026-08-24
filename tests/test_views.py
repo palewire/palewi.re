@@ -69,6 +69,18 @@ def test_removed_pages_return_not_found(client, page):
     assert client.get(page).status_code == 404
 
 
+@pytest.mark.parametrize(
+    "page",
+    [
+        "/.well-known/webfinger?resource=acct%3Apalewire%40palewi.re",
+        "/.well-known/host-meta",
+        "/.well-known/nodeinfo",
+    ],
+)
+def test_django_no_longer_serves_mastodon_discovery_endpoints(client, page):
+    assert client.get(page).status_code == 404
+
+
 @pytest.mark.parametrize(("source", "destination"), STATIC_REDIRECTS.items())
 def test_static_legacy_redirects_remain_stable(client, source, destination):
     response = client.get(f"/{source}?source=test")
