@@ -53,7 +53,6 @@ class Migration(migrations.Migration):
             sql="""
 DROP TABLE IF EXISTS django_comment_flags;
 DROP TABLE IF EXISTS django_comments;
-DROP TABLE IF EXISTS django_site;
 """,
             reverse_sql=migrations.RunSQL.noop,
         ),

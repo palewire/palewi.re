@@ -86,6 +86,64 @@ def _create_legacy_tagging_tables(content_types):
         )
 
 
+def _create_legacy_sites_tables():
+    with connection.cursor() as cursor:
+        cursor.execute(
+            """
+            CREATE TABLE django_site (
+                id integer PRIMARY KEY,
+                domain varchar(100) NOT NULL,
+                name varchar(50) NOT NULL
+            )
+            """
+        )
+        cursor.execute("INSERT INTO django_site (id, domain, name) VALUES (1, 'example.com', 'Example')")
+
+        for table_name in ("django_content_changelog", "django_flatpage_sites", "robots_rule_sites"):
+            cursor.execute(
+                f"""
+                CREATE TABLE {table_name} (
+                    id integer PRIMARY KEY,
+                    site_id integer NOT NULL REFERENCES django_site(id)
+                )
+                """
+            )
+            cursor.execute(f"INSERT INTO {table_name} (id, site_id) VALUES (1, 1)")
+
+
+def _assert_legacy_sites_preserved():
+    with connection.cursor() as cursor:
+        for table_name in (
+            "django_site",
+            "django_content_changelog",
+            "django_flatpage_sites",
+            "robots_rule_sites",
+        ):
+            cursor.execute(f"SELECT count(*) FROM {table_name}")
+            assert cursor.fetchone() == (1,)
+
+        cursor.execute(
+            """
+            SELECT count(*)
+            FROM pg_constraint
+            WHERE contype = 'f'
+              AND confrelid = 'django_site'::regclass
+              AND conrelid IN (
+                  'django_content_changelog'::regclass,
+                  'django_flatpage_sites'::regclass,
+                  'robots_rule_sites'::regclass
+              )
+            """
+        )
+        assert cursor.fetchone() == (3,)
+
+
+def _drop_legacy_sites_tables():
+    with connection.cursor() as cursor:
+        for table_name in ("django_content_changelog", "django_flatpage_sites", "robots_rule_sites", "django_site"):
+            cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+
+
 def _assert_cleanup(apps):
     ContentType = apps.get_model("contenttypes", "ContentType")
     Permission = apps.get_model("auth", "Permission")
@@ -128,9 +186,12 @@ def test_migration_0009_cleans_tagging_tables_left_after_0008():
     try:
         content_types = _seed_content_types(apps, include_track=False)
         _create_legacy_tagging_tables(content_types)
+        _create_legacy_sites_tables()
 
         apps = _migrate_to(MIGRATION_0009)
 
         _assert_cleanup(apps)
+        _assert_legacy_sites_preserved()
     finally:
+        _drop_legacy_sites_tables()
         _migrate_to(MIGRATION_0009)
