@@ -2,9 +2,10 @@ import logging
 import os
 import re
 import subprocess
-from datetime import datetime
 from functools import lru_cache
 from pathlib import Path
+
+from django.utils import timezone
 
 logger = logging.getLogger(__name__)
 REPOSITORY_URL = "https://github.com/palewire/palewi.re"
@@ -20,7 +21,7 @@ def current_site(_request):
 
 
 def now(request):
-    return {"now": datetime.now()}
+    return {"now": timezone.now()}
 
 
 @lru_cache(maxsize=1)

@@ -69,7 +69,7 @@ def test_post_detail_keeps_representative_image_metadata(client, public_posts):
 
 
 def test_feed_uses_latest_ten_file_backed_posts(client, public_posts):
-    """The feed has the same newest-first ten-post selection as the old queryset."""
+    """The feed retains the published newest-first ten-post selection."""
     response = client.get("/feeds/posts/")
     root = xml.fromstring(response.content)
     items = root.findall("./channel/item")
@@ -79,6 +79,7 @@ def test_feed_uses_latest_ten_file_backed_posts(client, public_posts):
     assert [item.findtext("link") for item in items] == [
         f"http://testserver{post.get_absolute_url()}" for post in public_posts[:10]
     ]
+    assert [item.findtext("pubDate") for item in items] == [None] * 10
 
 
 def test_sitemap_lists_every_file_backed_post_with_publication_date(client, public_posts):
@@ -100,5 +101,11 @@ def test_sitemap_lists_every_file_backed_post_with_publication_date(client, publ
 def test_unknown_post_permalink_returns_not_found(client):
     """A URL absent from the public files retains the legacy 404 behavior."""
     response = client.get("/posts/2026/01/01/not-a-public-post/")
+
+    assert response.status_code == 404
+
+
+def test_invalid_calendar_date_returns_not_found(client):
+    response = client.get("/posts/2025/02/30/example/")
 
     assert response.status_code == 404
