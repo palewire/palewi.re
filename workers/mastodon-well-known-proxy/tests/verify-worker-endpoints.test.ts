@@ -9,7 +9,8 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 let server: Server;
 let baseUrl = "";
-let omitMarkerForNodeinfo = false;
+let nodeinfoMode: "normal" | "delayed-marker" | "missing-marker" | "server-error" = "normal";
+let nodeinfoRequests = 0;
 
 beforeAll(async () => {
   server = createServer((request, response) => {
@@ -26,8 +27,19 @@ beforeAll(async () => {
       response.end();
       return;
     }
+    if (path === "/.well-known/nodeinfo") {
+      nodeinfoRequests += 1;
+      if (nodeinfoMode === "server-error") {
+        response.writeHead(502, { "content-type": contentType });
+        response.end();
+        return;
+      }
+    }
     response.setHeader("content-type", contentType);
-    if (!(omitMarkerForNodeinfo && path === "/.well-known/nodeinfo")) {
+    const omitNodeinfoMarker =
+      path === "/.well-known/nodeinfo" &&
+      (nodeinfoMode === "missing-marker" || (nodeinfoMode === "delayed-marker" && nodeinfoRequests === 1));
+    if (!omitNodeinfoMarker) {
       response.setHeader("x-palewire-discovery-proxy", "cloudflare-worker-v1");
     }
     response.end(path === "/.well-known/cloudflare-worker-canary" ? '{"links":[]}' : "{}");
@@ -46,9 +58,12 @@ afterAll(async () => {
   await once(server, "close");
 });
 
-async function verify(): Promise<{ status: number | null; stdout: string; stderr: string }> {
+async function verify(
+  environment: Record<string, string> = {},
+): Promise<{ status: number | null; stdout: string; stderr: string }> {
   const child = spawn("make", ["worker-verify-production", `BASE_URL=${baseUrl}`], {
     cwd: repositoryRoot,
+    env: { ...process.env, ...environment },
   });
   let stdout = "";
   let stderr = "";
@@ -82,19 +97,45 @@ describe("worker verification target", () => {
   it("accepts all three valid Worker endpoint responses", async () => {
     const result = await verify();
 
-    expect(result.status).toBe(0);
+    expect(result.status, result.stderr).toBe(0);
     expect(result.stdout).toContain("webfinger: HTTP 200 application/jrd+json; charset=utf-8");
     expect(result.stdout).toContain("host-meta: HTTP 200 application/xrd+xml; charset=utf-8");
     expect(result.stdout).toContain("nodeinfo: HTTP 200 application/json; charset=utf-8");
   });
 
-  it("fails with an endpoint-specific diagnostic when the marker is missing", async () => {
-    omitMarkerForNodeinfo = true;
-    const result = await verify();
-    omitMarkerForNodeinfo = false;
+  it("retries a delayed Worker marker and succeeds", async () => {
+    nodeinfoMode = "delayed-marker";
+    nodeinfoRequests = 0;
+    const result = await verify({ WORKER_MARKER_ATTEMPTS: "2", WORKER_MARKER_WAIT_SECONDS: "0" });
+    nodeinfoMode = "normal";
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(nodeinfoRequests).toBe(2);
+    expect(result.stderr).toContain("Worker marker not yet visible; waiting 0 seconds before retry 2 of 2.");
+  });
+
+  it("fails after the configured marker propagation attempts are exhausted", async () => {
+    nodeinfoMode = "missing-marker";
+    nodeinfoRequests = 0;
+    const result = await verify({ WORKER_MARKER_ATTEMPTS: "3", WORKER_MARKER_WAIT_SECONDS: "0" });
+    nodeinfoMode = "normal";
 
     expect(result.status).not.toBe(0);
+    expect(nodeinfoRequests).toBe(3);
     expect(result.stderr).toContain("nodeinfo: Worker marker was not found");
+    expect(result.stderr).toContain("Worker marker was not visible after 3 attempts.");
+  });
+
+  it("fails immediately for a true upstream server error", async () => {
+    nodeinfoMode = "server-error";
+    nodeinfoRequests = 0;
+    const result = await verify({ WORKER_MARKER_ATTEMPTS: "3", WORKER_MARKER_WAIT_SECONDS: "0" });
+    nodeinfoMode = "normal";
+
+    expect(result.status).not.toBe(0);
+    expect(nodeinfoRequests).toBe(1);
+    expect(result.stderr).toContain("nodeinfo: expected HTTP 200, received 502");
+    expect(result.stderr).not.toContain("Worker marker not yet visible");
   });
 
   it("accepts the guarded same-zone canary response", async () => {

@@ -29,6 +29,8 @@ jobs:
       BASE_URL: ${{ github.event.inputs.base_url || 'https://palewi.re' }}
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Health check (with retries)
         run: |
           echo "Testing health endpoint: $BASE_URL/health/"
@@ -51,6 +53,14 @@ jobs:
             echo "❌ Health check failed after retries (last HTTP $http_code)"
             exit 1
           fi
+
+      - name: Mastodon discovery Worker (with propagation retries)
+        run: |
+          BASE_URL="$BASE_URL" \
+          CURL_MAX_TIME=20 \
+          WORKER_MARKER_ATTEMPTS=4 \
+          WORKER_MARKER_WAIT_SECONDS=15 \
+          scripts/verify-worker-endpoints.sh
 
       - name: Bio page (with retries)
         run: |

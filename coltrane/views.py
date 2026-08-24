@@ -11,9 +11,6 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.views.generic import ListView, TemplateView
 
-# Helpers
-from proxy.views import proxy_view
-
 from coltrane.content_loaders import load_awards, load_bots, load_clips, load_docs, load_posts, load_talks
 
 CONTENT_PATH = Path(__file__).resolve().parent / "content"
@@ -124,26 +121,6 @@ class BotListView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["object_list"] = load_bots()
         return context
-
-
-#
-# Mastodon
-#
-
-
-def wellknown_webfinger(request):
-    remote_url = f"https://mastodon.palewi.re/.well-known/webfinger?{request.META['QUERY_STRING']}"
-    return proxy_view(request, remote_url)
-
-
-def wellknown_hostmeta(request):
-    remote_url = f"https://mastodon.palewi.re/.well-known/host-meta?{request.META['QUERY_STRING']}"
-    return proxy_view(request, remote_url)
-
-
-def wellknown_nodeinfo(request):
-    remote_url = "https://mastodon.palewi.re/.well-known/nodeinfo"
-    return proxy_view(request, remote_url)
 
 
 def username_redirect(request):
