@@ -41,6 +41,7 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 - **Settings**: `PRODUCTION=true` enables full security hardening. `SECRET_KEY` must be set in production.
 - **Static files**: Served by WhiteNoise from `collected_static/`. Run `python manage.py collectstatic` before Heroku deploys.
 - **Database**: The public site is file-backed and has no runtime database configuration.
+- **Clip archiving**: When adding or changing a URL in `coltrane/content/clips.yaml`, load the `archive-clips` skill, run `make archive-clips`, and retain the resulting `archive_url` or specific `archive_exemption`.
 
 ## Deployment
 

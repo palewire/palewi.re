@@ -17,6 +17,8 @@ Edit the appropriate file under ``coltrane/content/``:
   Required fields: ``title`` (str), ``type`` (one of ``app``,
   ``lesson-plan``, ``story``, ``software``), ``date`` (YYYY-MM-DD),
   ``url`` (str, unique).
+  Optional fields: ``archive_url`` (Wayback snapshot URL),
+  ``archive_exemption`` (reason a snapshot cannot be created).
   Ordering: ``-date``.
 
 * ``talks.yaml``   – Talks listed on the /talks/ page.
@@ -86,6 +88,8 @@ class Clip:
     type: str
     date: datetime.date
     url: str
+    archive_url: str = ""
+    archive_exemption: str = ""
 
 
 @dataclass(frozen=True)
@@ -316,7 +320,30 @@ def load_clips(path: Path | None = None) -> list[Clip]:
         if url in seen_urls:
             raise ContentError(f"{label}: duplicate clip URL '{url}'")
         seen_urls.add(url)
-        clips.append(Clip(title=title, type=clip_type, date=date, url=url))
+        archive_url = _optional_str(record, "archive_url", label)
+        archive_exemption = _optional_str(record, "archive_exemption", label)
+        if archive_url:
+            parsed_archive_url = urlparse(archive_url)
+            if (
+                parsed_archive_url.scheme not in {"http", "https"}
+                or parsed_archive_url.netloc != "web.archive.org"
+                or any(char.isspace() for char in archive_url)
+            ):
+                raise ContentError(
+                    f"{label}: clip '{title}' archive_url must be a web.archive.org HTTP(S) URL, got {archive_url!r}"
+                )
+        if archive_url and archive_exemption:
+            raise ContentError(f"{label}: clip '{title}' cannot have both archive_url and archive_exemption")
+        clips.append(
+            Clip(
+                title=title,
+                type=clip_type,
+                date=date,
+                url=url,
+                archive_url=archive_url,
+                archive_exemption=archive_exemption,
+            )
+        )
     clips.sort(key=lambda c: c.date, reverse=True)
     return clips
 

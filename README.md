@@ -50,6 +50,8 @@ available local ports, so multiple agents can run the site at the same time.
 | `SECRET_KEY` | Yes | Django secret key |
 | `PRODUCTION` | No | Set `true` to enable production security |
 | `DEBUG` | No | Set `false` to disable debug output |
+| `SAVEPAGENOW_ACCESS_KEY` | No | Internet Archive access key used by `make archive-clips` |
+| `SAVEPAGENOW_SECRET_KEY` | No | Internet Archive secret key used by `make archive-clips` |
 
 ## Quality gate
 
@@ -85,6 +87,19 @@ requires `title`, `type`, and a unique `url`; `description` is optional.
 `repository_url` is optional machine-readable metadata for a verified canonical
 source repository. When set, it must be a unique HTTP(S) URL. It is not
 displayed on the docs page.
+
+`coltrane/content/clips.yaml` stores a Wayback snapshot alongside each clip
+URL. After adding or changing a clip, run:
+
+```bash
+make archive-clips
+make check-clip-archives
+```
+
+The first command reuses an existing snapshot or creates one with the
+`SAVEPAGENOW_ACCESS_KEY` and `SAVEPAGENOW_SECRET_KEY` environment variables.
+It writes progress after every clip and supports resumable batches with
+`uv run python -m scripts.archive_clips archive --limit 10`.
 
 ## Blog post Markdown
 
