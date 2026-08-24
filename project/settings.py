@@ -103,6 +103,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "toolbox.context_processors.current_site",
                 "toolbox.context_processors.now",
+                "toolbox.context_processors.repository",
             ],
             "debug": DEBUG,
         },

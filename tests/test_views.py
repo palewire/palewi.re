@@ -40,6 +40,18 @@ def test_bio_page_context_includes_fixed_current_site(client):
 
 
 @pytest.mark.django_db
+def test_bio_page_footer_links_to_main_commit(client):
+    commit = "0123456789abcdef0123456789abcdef01234567"
+
+    with patch("toolbox.context_processors._main_commit", return_value=commit):
+        response = client.get("/who-is-ben-welsh/")
+
+    content = response.content.decode()
+    assert f'href="https://github.com/palewire/palewi.re/commit/{commit}"' in content
+    assert ">0123456</a>" in content
+
+
+@pytest.mark.django_db
 def test_work_list_ok(client):
     response = client.get("/work/")
     assert response.status_code == 200
