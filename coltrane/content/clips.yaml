@@ -106,6 +106,7 @@ clips:
   type: software
   date: '2025-07-14'
   url: https://github.com/palewire/wnyc-radio-archive-transcriber
+  archive_url: https://web.archive.org/web/20260511172906/https://github.com/palewire/wnyc-radio-archive-transcriber
 - title: First LLM Classifier at Hugging Face
   type: lesson-plan
   date: '2025-03-28'
@@ -120,6 +121,7 @@ clips:
   type: lesson-plan
   date: '2025-03-08'
   url: https://palewi.re/docs/first-llm-classifier/
+  archive_url: https://web.archive.org/web/20260722153339/https://palewi.re/docs/first-llm-classifier/
 - title: First Athena Query
   type: lesson-plan
   date: '2025-03-07'
@@ -260,6 +262,7 @@ clips:
   type: software
   date: '2023-08-10'
   url: https://github.com/palewire/fed-dot-plot-scraper
+  archive_url: https://web.archive.org/web/20260511172913/https://github.com/palewire/fed-dot-plot-scraper
 - title: Python datawrapper client
   type: software
   date: '2023-06-07'
@@ -444,6 +447,7 @@ clips:
   type: lesson-plan
   date: '2022-03-04'
   url: https://palewi.re/docs/first-github-scraper/
+  archive_url: https://web.archive.org/web/20260722153339/https://palewi.re/docs/first-github-scraper/
 - title: warn-transformer
   type: software
   date: '2022-02-18'
@@ -624,6 +628,7 @@ clips:
   type: software
   date: '2020-06-09'
   url: https://github.com/datadesk/los-angeles-police-killings-data
+  archive_url: https://web.archive.org/web/20260511172918/https://github.com/datadesk/los-angeles-police-killings-data
 - title: Arrests during George Floyd protests swell to near 3,000 in L.A. County;
     many are locals
   type: story
@@ -683,6 +688,7 @@ clips:
   type: story
   date: '2019-11-01'
   url: https://www.latimes.com/entertainment-arts/business/story/2019-11-01/deadspin-stick-to-sports-bad-math
+  archive_url: https://web.archive.org/web/20260722153451/https://www.latimes.com/entertainment-arts/business/story/2019-11-01/deadspin-stick-to-sports-bad-math
 - title: https://github.com/palewire/nrol-39-logo
   type: software
   date: '2019-10-08'
@@ -867,6 +873,7 @@ clips:
   type: story
   date: '2018-12-27'
   url: https://www.latimes.com/projects/la-et-jc-nyrb-covers/
+  archive_url: https://web.archive.org/web/20260617175135/https://www.latimes.com/projects/la-et-jc-nyrb-covers/
 - title: nyrb-covers-analysis
   type: software
   date: '2018-12-27'
@@ -927,6 +934,7 @@ clips:
   type: software
   date: '2018-10-28'
   url: https://beta.observablehq.com/collection/@palewire/w-e-b-du-bois
+  archive_url: https://web.archive.org/web/20181229170138/https://beta.observablehq.com/collection/@palewire/w-e-b-du-bois
 - title: hollister-ranch-analysis
   type: software
   date: '2018-10-20'
@@ -967,6 +975,7 @@ clips:
   type: app
   date: '2018-06-05'
   url: http://www.latimes.com/projects/la-pol-ca-california-primary-election-results-2018/
+  archive_url: https://web.archive.org/web/20260722153521/https://www.latimes.com/projects/la-pol-ca-california-primary-election-results-2018/
 - title: django-autoarchive
   type: software
   date: '2018-05-14'
