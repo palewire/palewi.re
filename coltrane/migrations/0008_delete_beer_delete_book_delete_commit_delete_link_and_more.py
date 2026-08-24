@@ -27,6 +27,13 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunSQL(
+            sql=[
+                'DROP TABLE IF EXISTS "tagging_taggeditem";',
+                'DROP TABLE IF EXISTS "tagging_tag";',
+            ],
+            reverse_sql=migrations.RunSQL.noop,
+        ),
         migrations.DeleteModel(
             name="Beer",
         ),
