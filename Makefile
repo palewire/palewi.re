@@ -61,7 +61,7 @@ lint:
 	@"$$(command -v uv)" run ruff format --check .
 
 typecheck:
-	@"$$(command -v uv)" run ty check --exit-zero-on-warning .
+	@"$$(command -v uv)" run ty check .
 
 django-check:
 	@"$$(command -v uv)" run python manage.py check

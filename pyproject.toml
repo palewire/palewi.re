@@ -46,9 +46,10 @@ quote-style = "double"
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "project.settings"
 python_files = ["tests.py", "test_*.py"]
-addopts = "--cov=. --cov-report=term-missing --cov-fail-under=40"
+addopts = "--cov --cov-report=term-missing --cov-fail-under=90"
 
 [tool.coverage.run]
+source = ["coltrane", "project", "scripts", "toolbox"]
 omit = [
     "*/migrations/*",
     "*/staticfiles/*",
@@ -60,13 +61,13 @@ omit = [
 show_missing = true
 
 [tool.ty]
-# Django uses many dynamic attributes (get_FOO_display, .objects, etc.) that
-# ty cannot statically resolve. We treat those categories as warnings rather
-# than errors so ty still catches real new mistakes in our own code.
+# Django uses dynamic attributes (such as ``.objects``) that ty cannot resolve
+# in every case. Treat the known framework gaps as errors too, so the check
+# cannot pass with diagnostics.
 [tool.ty.rules]
-unresolved-attribute = "warn"
-invalid-argument-type = "warn"
-invalid-assignment = "warn"
-invalid-method-override = "warn"
-no-matching-overload = "warn"
-unresolved-import = "warn"
+unresolved-attribute = "error"
+invalid-argument-type = "error"
+invalid-assignment = "error"
+invalid-method-override = "error"
+no-matching-overload = "error"
+unresolved-import = "error"
