@@ -1,12 +1,6 @@
-from django.contrib import sitemaps
-from django.contrib.sitemaps import GenericSitemap
+from django.contrib import sitemaps as django_sitemaps
 
-from coltrane.models import Post
-
-post_dict = {
-    "queryset": Post.live.all(),
-    "date_field": "pub_date",
-}
+from coltrane.content_loaders import MarkdownPost, load_posts
 
 
 class AbstractSitemapClass:
@@ -16,7 +10,7 @@ class AbstractSitemapClass:
         return self.url
 
 
-class StaticSitemap(sitemaps.Sitemap):
+class StaticSitemap(django_sitemaps.Sitemap):
     pages = {
         "bio": "/who-is-ben-welsh/",
         "clips": "/clips/",
@@ -33,7 +27,20 @@ class StaticSitemap(sitemaps.Sitemap):
         return self.main_sitemaps
 
 
+class PostsSitemap(django_sitemaps.Sitemap):
+    priority = 0.9
+
+    def items(self) -> list[MarkdownPost]:
+        return load_posts()
+
+    def lastmod(self, item: MarkdownPost):
+        return item.published_at
+
+    def location(self, item: MarkdownPost) -> str:
+        return item.get_absolute_url()
+
+
 sitemaps = {
     "static": StaticSitemap,
-    "posts": GenericSitemap(post_dict, priority=0.9),
+    "posts": PostsSitemap,
 }

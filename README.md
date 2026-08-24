@@ -73,6 +73,24 @@ not add drafts or a status field. The filename format is
 `YYYY-MM-DD--slug.md`, and `posts-manifest.json` is the checked-in public
 fingerprint generated during the production export.
 
+To author a post, create a file with this shape:
+
+```markdown
+---
+title: Example post
+slug: example-post
+published_at: "2026-08-24T09:00:00-07:00"
+repr_image: "https://example.com/image.jpg" # optional
+wordpress_id: 123 # optional legacy ID
+---
+<p>Write the published body as raw HTML.</p>
+```
+
+Only files in this directory are public. Drafts belong in a private workspace,
+not this repository. Run `make serve`, open the printed local URL, and visit
+`/posts/` or the post's date-based URL to preview it. Run `make check` before
+committing to validate the front matter, public URL inventory, and rendering.
+
 ## Deployment
 
 The app deploys to Heroku automatically when a pull request merges to `main` **after CI passes**.
