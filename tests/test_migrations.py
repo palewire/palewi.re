@@ -195,3 +195,236 @@ def test_migration_0009_cleans_tagging_tables_left_after_0008():
     finally:
         _drop_legacy_sites_tables()
         _migrate_to(MIGRATION_0009)
+
+
+# ---------------------------------------------------------------------------
+# Tests for migration 0010 – retire Sites, flatpages, robots, content tables
+# ---------------------------------------------------------------------------
+
+MIGRATION_0010 = ("coltrane", "0010_retire_sites_flatpages_robots_tables")
+
+# Content types that belong only to the apps being retired in 0010
+RETIRED_0010_CONTENT_TYPES = {
+    ("correx", "change"),
+    ("correx", "changetype"),
+    ("flatpages", "flatpage"),
+    ("robots", "rule"),
+    ("robots", "url"),
+}
+
+# Content types that must still exist after 0010
+PRESERVED_0010_CONTENT_TYPES = {
+    ("coltrane", "post"),
+    ("auth", "user"),
+}
+
+# Complete FK topology for the 10 tables (mirrors production schema).
+_CREATE_SITES_TOPOLOGY = """
+CREATE TABLE django_site (
+    id   integer PRIMARY KEY,
+    domain varchar(100) NOT NULL,
+    name   varchar(50)  NOT NULL
+);
+
+CREATE TABLE django_content_changetype (
+    name         varchar(50) PRIMARY KEY,
+    slug         varchar(50) NOT NULL,
+    description  text        NOT NULL DEFAULT '',
+    change_count integer     NOT NULL DEFAULT 0
+);
+
+CREATE TABLE django_content_changelog (
+    id              serial  PRIMARY KEY,
+    description     text    NOT NULL DEFAULT '',
+    change_type_id  varchar(50) REFERENCES django_content_changetype(name),
+    pub_date        timestamp,
+    is_public       boolean NOT NULL DEFAULT true,
+    user_id         integer REFERENCES auth_user(id),
+    site_id         integer NOT NULL REFERENCES django_site(id),
+    content_app     varchar(100) NOT NULL DEFAULT '',
+    content_type_id integer REFERENCES django_content_type(id),
+    object_id       integer
+);
+
+CREATE TABLE django_flatpage (
+    id                    serial  PRIMARY KEY,
+    url                   varchar(100) NOT NULL,
+    title                 varchar(200) NOT NULL,
+    content               text    NOT NULL DEFAULT '',
+    enable_comments       boolean NOT NULL DEFAULT false,
+    template_name         varchar(70) NOT NULL DEFAULT '',
+    registration_required boolean NOT NULL DEFAULT false
+);
+
+CREATE TABLE django_flatpage_sites (
+    id          serial  PRIMARY KEY,
+    flatpage_id integer NOT NULL REFERENCES django_flatpage(id),
+    site_id     integer NOT NULL REFERENCES django_site(id)
+);
+
+CREATE TABLE robots_url (
+    id      serial  PRIMARY KEY,
+    pattern varchar(255) NOT NULL
+);
+
+CREATE TABLE robots_rule (
+    id          serial  PRIMARY KEY,
+    robot       varchar(255) NOT NULL,
+    crawl_delay numeric
+);
+
+CREATE TABLE robots_rule_allowed (
+    id      serial  PRIMARY KEY,
+    rule_id integer NOT NULL REFERENCES robots_rule(id),
+    url_id  integer NOT NULL REFERENCES robots_url(id)
+);
+
+CREATE TABLE robots_rule_disallowed (
+    id      serial  PRIMARY KEY,
+    rule_id integer NOT NULL REFERENCES robots_rule(id),
+    url_id  integer NOT NULL REFERENCES robots_url(id)
+);
+
+CREATE TABLE robots_rule_sites (
+    id      serial  PRIMARY KEY,
+    rule_id integer NOT NULL REFERENCES robots_rule(id),
+    site_id integer NOT NULL REFERENCES django_site(id)
+);
+"""
+
+_DROP_SITES_TOPOLOGY = """
+DROP TABLE IF EXISTS django_content_changelog;
+DROP TABLE IF EXISTS django_flatpage_sites;
+DROP TABLE IF EXISTS robots_rule_allowed;
+DROP TABLE IF EXISTS robots_rule_disallowed;
+DROP TABLE IF EXISTS robots_rule_sites;
+DROP TABLE IF EXISTS django_content_changetype;
+DROP TABLE IF EXISTS django_flatpage;
+DROP TABLE IF EXISTS robots_rule;
+DROP TABLE IF EXISTS robots_url;
+DROP TABLE IF EXISTS django_site;
+"""
+
+_RETIRED_TABLES = [
+    "django_site",
+    "django_content_changelog",
+    "django_content_changetype",
+    "django_flatpage",
+    "django_flatpage_sites",
+    "robots_rule",
+    "robots_rule_allowed",
+    "robots_rule_disallowed",
+    "robots_rule_sites",
+    "robots_url",
+]
+
+
+def _seed_retired_content_types(apps):
+    """Insert content type + permission rows for the apps being retired."""
+    ContentType = apps.get_model("contenttypes", "ContentType")
+    Permission = apps.get_model("auth", "Permission")
+    ids: set[int] = set()
+    for app_label, model in RETIRED_0010_CONTENT_TYPES | PRESERVED_0010_CONTENT_TYPES:
+        ct, _ = ContentType.objects.get_or_create(app_label=app_label, model=model)
+        Permission.objects.get_or_create(
+            content_type_id=ct.id,
+            codename=f"view_{app_label}_{model}",
+            defaults={"name": f"Can view {app_label}.{model}"},
+        )
+        ids.add(ct.id)
+    return ids
+
+
+def _create_sites_topology():
+    """Reconstruct the production FK topology for the 10 legacy tables."""
+    with connection.cursor() as cursor:
+        cursor.execute(_CREATE_SITES_TOPOLOGY)
+        # Insert one representative row per leaf-table group
+        cursor.execute("INSERT INTO django_site VALUES (1, 'example.com', 'Example')")
+        cursor.execute("INSERT INTO django_content_changetype VALUES ('edit', 'edit', 'An edit', 0)")
+        cursor.execute("INSERT INTO django_flatpage VALUES (1, '/about/', 'About', '', false, '', false)")
+        cursor.execute("INSERT INTO robots_url VALUES (1, '/private/')")
+        cursor.execute("INSERT INTO robots_rule VALUES (1, '*', NULL)")
+        # FK leaf rows
+        cursor.execute("INSERT INTO django_flatpage_sites VALUES (1, 1, 1)")
+        cursor.execute("INSERT INTO robots_rule_sites VALUES (1, 1, 1)")
+        cursor.execute("INSERT INTO robots_rule_allowed VALUES (1, 1, 1)")
+        cursor.execute("INSERT INTO robots_rule_disallowed VALUES (1, 1, 1)")
+
+
+def _drop_sites_topology():
+    with connection.cursor() as cursor:
+        cursor.execute(_DROP_SITES_TOPOLOGY)
+
+
+def _assert_tables_removed():
+    tables = set(connection.introspection.table_names())
+    for table in _RETIRED_TABLES:
+        assert table not in tables, f"Table {table!r} should have been removed by 0010"
+
+
+def _assert_unrelated_tables_preserved():
+    tables = set(connection.introspection.table_names())
+    for table in ("coltrane_post", "coltrane_slogan", "auth_user", "django_content_type"):
+        assert table in tables, f"Table {table!r} should have been preserved by 0010"
+
+
+def _assert_content_types_removed_and_preserved(apps):
+    ContentType = apps.get_model("contenttypes", "ContentType")
+    Permission = apps.get_model("auth", "Permission")
+    existing = set(ContentType.objects.values_list("app_label", "model"))
+
+    assert RETIRED_0010_CONTENT_TYPES.isdisjoint(existing), "Retired content types should have been removed"
+    assert PRESERVED_0010_CONTENT_TYPES <= existing, "Current-app content types should be preserved"
+
+    removed_perms = Permission.objects.filter(codename__in={f"view_{a}_{m}" for a, m in RETIRED_0010_CONTENT_TYPES})
+    assert not removed_perms.exists(), "Permissions for retired apps should be removed"
+
+    preserved_perms = Permission.objects.filter(codename__in={f"view_{a}_{m}" for a, m in PRESERVED_0010_CONTENT_TYPES})
+    assert preserved_perms.count() == len(PRESERVED_0010_CONTENT_TYPES), (
+        "Permissions for current apps should be preserved"
+    )
+
+
+@pytest.mark.django_db(transaction=True)
+def test_migration_0010_removes_all_legacy_tables_with_full_topology():
+    """Migration 0010 drops all 10 legacy tables when they exist with FK data."""
+    apps = _migrate_to(MIGRATION_0009)
+    try:
+        _create_sites_topology()
+        _seed_retired_content_types(apps)
+
+        apps = _migrate_to(MIGRATION_0010)
+
+        _assert_tables_removed()
+        _assert_unrelated_tables_preserved()
+        _assert_content_types_removed_and_preserved(apps)
+    finally:
+        _drop_sites_topology()
+        _migrate_to(MIGRATION_0010)
+
+
+@pytest.mark.django_db(transaction=True)
+def test_migration_0010_is_idempotent_on_fresh_database():
+    """Migration 0010 succeeds even when legacy tables do not exist (fresh DB)."""
+    apps = _migrate_to(MIGRATION_0009)
+    # Do NOT create the legacy tables — simulate a fresh database.
+
+    # Seed only the preserved content types (no retired ones).
+    ContentType = apps.get_model("contenttypes", "ContentType")
+    Permission = apps.get_model("auth", "Permission")
+    for app_label, model in PRESERVED_0010_CONTENT_TYPES:
+        ct, _ = ContentType.objects.get_or_create(app_label=app_label, model=model)
+        Permission.objects.get_or_create(
+            content_type_id=ct.id,
+            codename=f"view_{app_label}_{model}",
+            defaults={"name": f"Can view {app_label}.{model}"},
+        )
+
+    apps = _migrate_to(MIGRATION_0010)
+
+    _assert_tables_removed()
+    _assert_unrelated_tables_preserved()
+    # Only preserved types were seeded; none of them should be gone.
+    existing = set(ContentType.objects.values_list("app_label", "model"))
+    assert PRESERVED_0010_CONTENT_TYPES <= existing
