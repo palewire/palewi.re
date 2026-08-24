@@ -7,6 +7,7 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for local setup and Heroku commands
+- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks
 
 ## Setup
 
@@ -22,10 +23,17 @@ make bootstrap
 make serve
 ```
 
-`make bootstrap` checks both commands before it installs anything. For its
+`make bootstrap` checks these commands before it installs anything. For its
 commands, it also adds common user installation paths including
-`$HOME/.local/bin`, Heroku's user client directory, and a detected Homebrew
-bin directory. It does not install either command or authenticate with Heroku.
+`$HOME/.local/bin`, Heroku's user client directory, npm's user directory,
+Volta, asdf, fnm, and a detected Homebrew bin directory. It does not install
+or authenticate any command.
+
+Install Wrangler once with:
+
+```bash
+npm install --global wrangler@4.125.0
+```
 
 Open the URL printed by the server. Linked Git worktrees automatically use
 available local ports, so multiple agents can run the site at the same time.
@@ -100,6 +108,28 @@ official installer in `.github/workflows/copilot-setup-steps.yml`. Authenticatio
 is not part of repository setup. For a cloud agent that must run authenticated
 Heroku commands, add `HEROKU_API_KEY` as a GitHub Copilot Agents secret; never
 store it in this repository.
+
+## Cloudflare access
+
+Cloudflare access is limited to the non-destructive identity check:
+
+```bash
+make cloudflare-check
+```
+
+For local use, authenticate interactively with `wrangler login`, then run the
+check. In non-interactive environments, set `CLOUDFLARE_API_TOKEN` in the
+environment instead. Do not commit tokens or add them to `.env` files.
+
+For a Copilot cloud-agent session, create a **user API token** with only
+**User > User Details > Read** and **User > Memberships > Read**, then save it
+as the `CLOUDFLARE_API_TOKEN` GitHub Copilot Agents secret. Restrict and expire
+the token as your Cloudflare account allows. `wrangler whoami` does not need
+`CLOUDFLARE_ACCOUNT_ID`, so do not add that secret or variable yet.
+
+The cloud-agent setup installs the pinned Wrangler version on each fresh
+runner. Local setup only finds an existing CLI. This repository does not
+configure or deploy Cloudflare DNS, zones, Pages, or Workers.
 
 For the database retirement deployment, take a fresh Heroku backup first. Deploy
 the exact merged SHA, then verify `/health/`, the main pages, all post

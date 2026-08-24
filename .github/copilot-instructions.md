@@ -32,8 +32,9 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.
-- **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; it requires `uv` and the Heroku CLI. CI uses `make ci-bootstrap`.
+- **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; it requires `uv`, the Heroku CLI, and Wrangler. CI uses `make ci-bootstrap`.
 - **Cloud Heroku access**: setup installs the CLI but does not authenticate. If an agent needs Heroku access, use a `HEROKU_API_KEY` GitHub Copilot Agents secret; never commit credentials or auth files.
+- **Cloudflare access**: cloud-agent setup installs Wrangler 4.125.0 on fresh runners. Local bootstrap only checks for an existing CLI. Use `make cloudflare-check` for the non-destructive `wrangler whoami --json` check. Authenticate locally with `wrangler login` or a `CLOUDFLARE_API_TOKEN`; cloud agents require that token as a Copilot Agents secret with only User Details and Memberships read permissions. The vendored Wrangler skill's `@latest` installation advice does not apply here: agents must run `make check-wrangler` and use the existing pinned CLI. Do not configure or deploy DNS, zones, Pages, or Workers until a target is chosen.
 - **Linting**: Ruff with `select = ["E", "F", "W", "I", "UP"]` (UP031 ignored).
 - **Type checking**: `ty check .` — Django dynamic attributes are downgraded to warnings; new code should pass clean.
 - **Tests**: pytest-django in `tests/`. No database service is required.
