@@ -4,7 +4,7 @@ from pathlib import Path
 
 import dj_database_url
 
-from project.worktree import default_database_url
+from project.worktree import default_database_url, django_test_database_name
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_DIR = os.path.join(BASE_DIR, "project")
@@ -69,6 +69,7 @@ DATABASES = {
         ssl_require=PRODUCTION,
     )
 }
+DATABASES["default"]["TEST"] = {"NAME": django_test_database_name(DATABASES["default"]["NAME"])}
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
