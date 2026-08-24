@@ -198,8 +198,7 @@ export function loadManifest(text: string): RedirectRule[] {
         throw new RedirectManifestError(`redirect ${index}: route coverage gap for ${JSON.stringify(example)}`);
       }
     }
-    const selfMatch = rule.matcher.exec(`/${rule.source.replace(TEMPLATE, "example")}`);
-    if (selfMatch !== null && replaceDestination(rule, selfMatch) === `/${rule.source}`) {
+    if (rule.destination.startsWith("/") && rule.destination.slice(1) === rule.source) {
       throw new RedirectManifestError(`redirect ${index}: redirect loops to itself`);
     }
     return rule;

@@ -112,6 +112,7 @@ describe("legacy redirect Worker", () => {
     expect(() => loadManifest("redirects:\n  - source: ../feed/\n    destination: /\n")).toThrow("unsafe");
     expect(() => loadManifest("redirects:\n  - source: feed/*\n    destination: /\n")).toThrow("relative path");
     expect(() => loadManifest("redirects:\n  - source: loop/\n    destination: /loop/\n")).toThrow("loops");
+    expect(() => loadManifest("redirects:\n  - source: apps/page/{page}/\n    destination: /apps/page/{page}/\n    captures: {page: digits}\n    routes: [apps/page/]\n    examples: [/apps/page/1/]\n")).toThrow("loops");
   });
 
   it("serves the canary only when that named environment enables it", () => {

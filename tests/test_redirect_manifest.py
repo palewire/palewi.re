@@ -68,6 +68,10 @@ def test_manifest_dynamic_examples_preserve_encoded_captures(path, destination):
             "redirects:\n  - source: loop/\n    destination: /loop/\n",
             "loops",
         ),
+        (
+            "redirects:\n  - source: apps/page/{page}/\n    destination: /apps/page/{page}/\n    captures:\n      page: digits\n    routes: [apps/page/]\n    examples: [/apps/page/1/]\n",
+            "loops",
+        ),
     ],
 )
 def test_manifest_rejects_unsafe_or_ambiguous_rules(tmp_path, contents, match):

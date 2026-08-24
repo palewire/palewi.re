@@ -370,7 +370,10 @@ redirects. It currently has 22 exact paths and 8 dynamic patterns; this is the
 full current Django inventory (the issue's earlier 21/7 count was stale).
 `project/redirect_manifest.py` validates the file before Django loads its
 fallback URL patterns. `workers/legacy-redirects/` reads that same file as a
-bundled text module and has no `fetch()` call. A matching request receives a
+bundled text module and has no `fetch()` call. Its small explicit
+`WorkerEnvironment` interface covers the only optional canary binding, avoiding
+a second generated 15,000-line Workerd declaration while preserving strict
+TypeScript and Wrangler dry-run validation. A matching request receives a
 302, its manifest destination, and
 `X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped just
 as Django's `RedirectView` drops them.

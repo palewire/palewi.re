@@ -64,8 +64,9 @@ attempt=1
 while :; do
   if verify_all; then
     break
+  else
+    result=$?
   fi
-  result=$?
   if [ "$result" -ne 2 ] || [ "$attempt" -ge "$marker_attempts" ]; then
     echo "legacy redirect verification failed." >&2
     exit 1

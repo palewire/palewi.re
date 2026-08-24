@@ -170,7 +170,7 @@ def _validate_rule(record: Any, index: int) -> RedirectRule:
             raise RedirectManifestError(f"redirect {index}: example {example!r} is not covered by its source")
         if not any(_route_matches(example, prefix) for prefix in rule.routes):
             raise RedirectManifestError(f"redirect {index}: route coverage gap for {example!r}")
-    if rule.destination_for(f"/{source}") == f"/{source}":
+    if destination.startswith("/") and destination.removeprefix("/") == source:
         raise RedirectManifestError(f"redirect {index}: redirect loops to itself")
     return rule
 
