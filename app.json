@@ -12,10 +12,6 @@
       "description": "Set to 'true' to enable production security settings.",
       "value": "true"
     },
-    "DISABLE_COLLECTSTATIC": {
-      "description": "Static collection runs after Sass compilation in bin/post_compile.",
-      "value": "1"
-    },
     "SECURE_SSL_REDIRECT": {
       "description": "Cloudflare terminates TLS before the Heroku origin.",
       "value": "false"
@@ -26,6 +22,9 @@
     }
   },
   "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
     {
       "url": "heroku/python"
     }

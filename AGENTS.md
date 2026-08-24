@@ -7,8 +7,9 @@ dependencies and installs the pre-commit hooks. It first confirms that `uv`,
 the Heroku CLI, and Wrangler are available; it does not install or authenticate
 any tool.
 
-Run the development server with `make serve`. Linked worktrees automatically
-receive an available local port.
+Run the development server with `make serve`. It first builds the expanded
+stylesheet and its source map. Linked worktrees automatically receive an
+available local port.
 
 ## Before finishing
 
@@ -27,8 +28,8 @@ secrets, generated files, or `.goals/` agent state.
 - `project/`: Django settings and URL routing
 - `tests/`: pytest suite
 
-Use `uv` and `pyproject.toml` for Python dependencies, Ruff for formatting and
-linting, and ty for static analysis.
+Use `uv` and `pyproject.toml` for Python dependencies, the locked Dart Sass npm
+dependency for CSS, Ruff for formatting and linting, and ty for static analysis.
 
 Copilot cloud agents receive `uv` and the Heroku CLI from
 `.github/workflows/copilot-setup-steps.yml`. Authentication remains

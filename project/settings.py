@@ -32,13 +32,6 @@ STORAGES = {
     },
 }
 
-SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "sass_processor.finders.CssFinder",
-]
-
 TIME_ZONE = "America/Los_Angeles"
 USE_TZ = True
 LANGUAGE_CODE = "en-us"
@@ -88,7 +81,6 @@ INSTALLED_APPS = [
     "coltrane",
     # Site extras and helpers
     "whitenoise.runserver_nostatic",
-    "sass_processor",
 ]
 
 LOGGING = {
