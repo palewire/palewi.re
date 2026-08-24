@@ -55,7 +55,9 @@ make check
 ```
 
 This runs Ruff linting and formatting checks, ty static analysis, Django's
-system check, and the full pytest suite. CI uses the same Make targets.
+system check, and the full pytest suite. Coverage measures application and
+maintenance source code (not tests) and must be at least 90%, raised from 40%.
+CI uses the same Make targets.
 
 To auto-format code:
 

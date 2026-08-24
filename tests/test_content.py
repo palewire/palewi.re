@@ -1,5 +1,6 @@
 """Tests for YAML content loading."""
 
+import datetime
 from pathlib import Path
 
 import pytest
@@ -11,6 +12,7 @@ from coltrane.content_loaders import (
     load_bots,
     load_clips,
     load_docs,
+    load_posts,
     load_slogans,
     load_talks,
     random_slogan,
@@ -117,6 +119,13 @@ def test_clip_bad_date_raises(tmp_path):
     p.write_text("clips:\n  - title: T\n    type: story\n    date: 'not-a-date'\n    url: http://x.com\n")
     with pytest.raises(ContentError, match="date"):
         load_clips(p)
+
+
+def test_clip_accepts_yaml_date_values(tmp_path):
+    p = tmp_path / "clips.yaml"
+    p.write_text("clips:\n  - title: T\n    type: story\n    date: 2024-01-01\n    url: http://x.com\n")
+
+    assert load_clips(p)[0].date == datetime.date(2024, 1, 1)
 
 
 def test_clips_empty_list_ok(tmp_path):
@@ -317,7 +326,110 @@ def test_bots_invalid_mastodon_url_raises(tmp_path):
         load_bots(p)
 
 
+def test_bots_invalid_twitter_url_raises(tmp_path):
+    p = tmp_path / "bots.yaml"
+    p.write_text("bots:\n  - title: '@X'\n    mastodon_url: 'https://example.com/@x'\n    twitter_url: 'not-a-url'\n")
+    with pytest.raises(ContentError, match="URL"):
+        load_bots(p)
+
+
 def test_bots_empty_list_ok(tmp_path):
     p = tmp_path / "bots.yaml"
     p.write_text("bots: []\n")
     assert load_bots(p) == []
+
+
+@pytest.mark.parametrize(
+    ("loader", "key"),
+    [
+        (load_awards, "awards"),
+        (load_clips, "clips"),
+        (load_talks, "talks"),
+        (load_docs, "docs"),
+        (load_slogans, "slogans"),
+        (load_bots, "bots"),
+    ],
+)
+def test_yaml_loaders_reject_invalid_top_level_and_records(tmp_path, loader, key):
+    path = tmp_path / f"{key}.yaml"
+    path.write_text("- not-a-mapping\n")
+    with pytest.raises(ContentError, match="top-level structure"):
+        loader(path)
+
+    path.write_text(f"{key}: not-a-list\n")
+    with pytest.raises(ContentError, match="must be a list"):
+        loader(path)
+
+    path.write_text(f"{key}:\n  - not-a-mapping\n")
+    with pytest.raises(ContentError, match="must be a mapping"):
+        loader(path)
+
+
+def test_optional_content_fields_validate_their_types(tmp_path):
+    path = tmp_path / "awards.yaml"
+    path.write_text("awards:\n  - title: A\n    url: 123\n")
+    with pytest.raises(ContentError, match="must be a string"):
+        load_awards(path)
+
+    path.write_text("awards:\n  - title: A\n    url: null\n")
+    assert load_awards(path)[0].url == ""
+
+
+def test_markdown_post_loader_validates_all_front_matter_edges(tmp_path):
+    missing_directory = tmp_path / "missing"
+    with pytest.raises(ContentError, match="does not exist"):
+        load_posts(missing_directory)
+
+    post = tmp_path / "post.md"
+    post.write_text("<p>Missing front matter</p>", encoding="utf-8")
+    with pytest.raises(ContentError, match="must begin"):
+        load_posts(tmp_path)
+
+    post.write_text("---\ntitle: Example\n", encoding="utf-8")
+    with pytest.raises(ContentError, match="not closed"):
+        load_posts(tmp_path)
+
+    post.write_text("---\ninvalid: [\n---\n<p>Body</p>", encoding="utf-8")
+    with pytest.raises(ContentError, match="invalid YAML"):
+        load_posts(tmp_path)
+
+    post.write_text("---\n- not-a-mapping\n---\n<p>Body</p>", encoding="utf-8")
+    with pytest.raises(ContentError, match="must be a mapping"):
+        load_posts(tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("front_matter", "message"),
+    [
+        ("title: Example\nslug: bad slug\npublished_at: '2025-01-01T12:00:00-08:00'", "slug"),
+        ("title: Example\nslug: example\npublished_at: '2025-01-01T12:00:00'", "timezone"),
+        ("title: Example\nslug: example\npublished_at: not-a-datetime", "ISO 8601"),
+        ("title: Example\nslug: example\npublished_at: '2025-01-01T12:00:00-08:00'\nwordpress_id: 0", "positive"),
+    ],
+)
+def test_markdown_post_loader_rejects_invalid_fields(tmp_path, front_matter, message):
+    post = tmp_path / "post.md"
+    post.write_text(f"---\n{front_matter}\n---\n<p>Body</p>", encoding="utf-8")
+
+    with pytest.raises(ContentError, match=message):
+        load_posts(tmp_path)
+
+
+def test_markdown_post_loader_accepts_yaml_dates_and_optional_values(tmp_path):
+    post = tmp_path / "post.md"
+    post.write_text(
+        "---\n"
+        "title: Example\n"
+        "slug: example\n"
+        "published_at: '2025-01-01T12:00:00-08:00'\n"
+        "repr_image: null\n"
+        "---\n"
+        "<p>Body</p>",
+        encoding="utf-8",
+    )
+
+    loaded_post = load_posts(tmp_path)[0]
+    assert loaded_post.published_at == datetime.datetime(
+        2025, 1, 1, 12, tzinfo=datetime.timezone(datetime.timedelta(hours=-8))
+    )
+    assert loaded_post.repr_image == ""
