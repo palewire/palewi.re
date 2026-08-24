@@ -205,7 +205,7 @@ make worker-test
 make worker-validate
 ```
 
-#### Stage 1 incident and safe retry
+#### Stage 1 incidents and safe retry
 
 The first Stage 1 deploy on August 24, 2026 attached the routes before the
 Worker was tested on Cloudflare. The Worker then returned `502` for every
@@ -221,12 +221,34 @@ continues to serve all three endpoints. This has been reproduced with Wrangler
 workerd, which catches invalid module exports that direct TypeScript unit tests
 miss.
 
+After the startup fix, the route-free workers.dev canary passed, but attaching
+the Worker to the three `palewi.re` routes returned Worker-marked `502`
+responses. `mastodon.palewi.re` is a proxied hostname in the same zone, so its
+public fetch is a Worker-to-Worker subrequest. Cloudflare documents this as
+[error 1042](https://developers.cloudflare.com/workers/observability/errors/)
+and requires the
+[`global_fetch_strictly_public`](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public)
+compatibility flag. The flag is now declared in `wrangler.jsonc`.
+
+The flag lets a public fetch enter the zone's routing. It must not allow the
+upstream request to re-enter this Worker: Cloudflare's loop limit returns 1019
+after 16 Worker invocations. The compiled production route plan is deliberately
+limited to the exact `palewi.re` host, while the upstream is
+`mastodon.palewi.re`; regression tests prove the three production patterns
+cannot match that host. Do not add a `mastodon.palewi.re` route to this Worker.
+
 The default Worker configuration intentionally has no production routes and
-enables workers.dev and preview URLs. The canary deploy uses the separate
-`palewire-mastodon-well-known-proxy-canary` Worker name, so it cannot update a
-version currently serving production routes. A deployment must therefore follow
-this canary-first sequence. Do not attach routes until the canary verification
-has passed.
+enables workers.dev and preview URLs. The optional startup canary and the
+same-zone canary have separate Worker names, so neither can update a Worker
+serving production routes. The same-zone canary only accepts
+`/.well-known/cloudflare-worker-canary` when its named environment provides the
+`CANARY_PATH` binding. It fetches the same fixed upstream's NodeInfo endpoint.
+The production Worker has no such binding and returns `404` for this path.
+
+Miniflare starts the bundled Worker and catches module/runtime regressions, but
+it cannot reproduce Cloudflare zone routing or error 1042. Passing the
+same-zone canary below is therefore required before any production route is
+attached.
 
 To deploy, authenticate with either local `wrangler login` OAuth or an API
 token limited to the Cloudflare account and `palewi.re` zone that own these
@@ -242,23 +264,31 @@ account must already own the proxied `palewi.re` zone.
 make worker-test
 make worker-validate
 
-# 2. Deploy a route-free canary. Wrangler prints a workers.dev or preview URL.
+# 2. Optional: deploy and verify a route-free workers.dev startup canary.
+# It confirms startup only; it cannot approve same-zone traffic.
 CONFIRM_WORKER_CANARY_DEPLOY=1 make worker-canary-deploy
-
-# 3. Verify that exact canary URL before it can receive production traffic.
 BASE_URL="https://the-url-printed-by-wrangler" make worker-verify-canary
-
-# 4. Only after the canary passes, attach the three production routes.
-CONFIRM_WORKER_ATTACH_ROUTES=1 make worker-attach-routes
-
-# 5. Verify every live endpoint, expected content type, and Worker marker.
-make worker-verify-production
-
-# 6. Remove the separate canary Worker after the production check passes.
 CONFIRM_WORKER_DELETE_CANARY=1 make worker-delete-canary
+
+# 3. Deploy a separate same-zone canary with no route, then attach only its
+# non-production path. These commands do not change the three Django routes.
+CONFIRM_WORKER_SAME_ZONE_CANARY_DEPLOY=1 make worker-same-zone-canary-deploy
+CONFIRM_WORKER_ATTACH_SAME_ZONE_CANARY=1 make worker-attach-same-zone-canary
+
+# 4. Confirm the public same-zone fetch returns the Worker marker and NodeInfo.
+BASE_URL="https://palewi.re" make worker-verify-same-zone-canary
+
+# 5. Delete the same-zone canary, which also detaches its only route. Do not
+# attach production routes unless this verification and cleanup both succeeded.
+CONFIRM_WORKER_DELETE_SAME_ZONE_CANARY=1 make worker-delete-same-zone-canary
+
+# 6. Attach and verify only the three production discovery routes.
+CONFIRM_WORKER_ATTACH_ROUTES=1 make worker-attach-routes
+make worker-verify-production
 ```
 
-Both verification targets check valid requests for all three endpoints:
+`worker-verify-canary` and `worker-verify-production` check valid requests for
+all three discovery endpoints:
 
 - WebFinger with `resource=acct:palewire@palewi.re` returns
   `application/jrd+json; charset=utf-8`.
@@ -271,8 +301,11 @@ POSIX `/bin/sh` script and accepts `BASE_URL` for controlled local tests or a
 canary. It prints a short endpoint-specific error and exits non-zero for a
 timeout, unexpected status, content type, or marker.
 
-If canary or production verification fails, do not retry route attachment.
-Immediately return traffic to Django:
+`worker-verify-same-zone-canary` is also a POSIX `/bin/sh` script. It checks
+the canary's `200`, Worker marker, NodeInfo content type, and NodeInfo `links`
+response. If any canary or production verification fails, do not retry route
+attachment. Delete the affected canary or immediately return production traffic
+to Django:
 
 ```bash
 CONFIRM_WORKER_DETACH_ROUTES=1 make worker-detach-routes
@@ -287,9 +320,11 @@ cleanup when needed:
 CONFIRM_WORKER_DELETE=1 make worker-delete
 ```
 
-Both commands are intentionally guarded. They are equivalent when routes are
-still attached: Cloudflare cannot leave routes pointing at a deleted Worker.
-They leave unrelated Workers and routes untouched.
+All deployment, attachment, and deletion commands are intentionally guarded.
+They work with either `wrangler login` OAuth or `CLOUDFLARE_API_TOKEN`; no
+token value appears in a command. Deleting either canary removes only that
+separate Worker and its route. Deleting the production Worker removes its
+attached routes, leaving the Django fallback in place.
 
 For a normal production code rollback without route changes, use Cloudflare's
 version controls after a verified canary. For a Stage 1 failure, detaching the
