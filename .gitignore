@@ -1,5 +1,7 @@
 staticfiles/
 coltrane/static/styles.css
+coltrane/static/styles.css.map
+node_modules/
 .staticfiles/
 db.sqlite3
 *~

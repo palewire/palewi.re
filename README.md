@@ -6,6 +6,7 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
+- Node.js 24 for the pinned Dart Sass compiler
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for local setup and Heroku commands
 - [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks
 
@@ -28,6 +29,10 @@ commands, it also adds common user installation paths including
 `$HOME/.local/bin`, Heroku's user client directory, npm's user directory,
 Volta, asdf, fnm, and a detected Homebrew bin directory. It does not install
 or authenticate any command.
+
+The Sass compiler is an exact, locked npm dependency. `make serve` builds
+expanded CSS with a source map. `make css` builds the compressed production
+stylesheet used by CI and Heroku.
 
 Install Wrangler once with:
 
@@ -112,6 +117,18 @@ committing to validate the front matter, public URL inventory, and rendering.
 ## Deployment
 
 The app deploys to Heroku automatically when a pull request merges to `main` **after CI passes**.
+
+Heroku must use the Node.js buildpack before the Python buildpack. The Node
+build runs `npm run build:css`; the Python buildpack then runs `collectstatic`
+and WhiteNoise creates the hashed stylesheet manifest.
+
+The existing `palewire` app needs this one-time configuration before its first
+deploy with this build:
+
+```bash
+heroku buildpacks:add --index 1 heroku/nodejs --app palewire
+heroku config:unset DISABLE_COLLECTSTATIC --app palewire
+```
 
 The Heroku CLI is available in Copilot cloud-agent sessions through the
 official installer in `.github/workflows/copilot-setup-steps.yml`. Authentication
