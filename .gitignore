@@ -24,6 +24,7 @@ htmlcov/
 
 # Env
 .env
+.dev.vars
 
 # Local agent state
 .goals/

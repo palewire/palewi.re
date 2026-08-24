@@ -3,8 +3,9 @@
 ## Start here
 
 Run `make bootstrap` once after creating a clone or worktree. It installs locked
-dependencies and installs the pre-commit hooks. It first confirms that `uv` and
-the Heroku CLI are available; it does not install or authenticate either tool.
+dependencies and installs the pre-commit hooks. It first confirms that `uv`,
+the Heroku CLI, and Wrangler are available; it does not install or authenticate
+any tool.
 
 Run the development server with `make serve`. Linked worktrees automatically
 receive an available local port.
@@ -33,6 +34,19 @@ Copilot cloud agents receive `uv` and the Heroku CLI from
 `.github/workflows/copilot-setup-steps.yml`. Authentication remains
 user-provided. If a cloud agent needs authenticated Heroku access, use a
 `HEROKU_API_KEY` GitHub Copilot Agents secret, never repository data.
+
+Copilot cloud agents also receive Wrangler 4.125.0 from that setup workflow.
+For authenticated Cloudflare identity checks, add a least-privilege
+`CLOUDFLARE_API_TOKEN` Copilot Agents secret with **User Details: Read** and
+**Memberships: Read** permissions. Locally, run `wrangler login` or set that
+environment variable, then use `make cloudflare-check`. This check uses
+`wrangler whoami --json`; it does not need `CLOUDFLARE_ACCOUNT_ID` and must
+not be expanded into a deployment command until a target is chosen.
+
+The vendored Wrangler skill includes general installation advice. For this
+repository, do not install Wrangler from an agent or use `@latest`; run
+`make check-wrangler` and use the existing pinned 4.125.0 CLI instead. Local
+developers install it once outside the repository as documented in `README.md`.
 
 ## YAML content types
 

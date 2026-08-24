@@ -34,6 +34,16 @@ jobs:
           curl --proto '=https' --tlsv1.2 --fail --silent --show-error --location https://cli-assets.heroku.com/install.sh | bash
           heroku version
 
+      - name: Install Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+
+      - name: Install Wrangler
+        run: |
+          npm install --global --no-audit --no-fund wrangler@4.125.0
+          wrangler --version
+
       - name: Configure development environment
         run: |
           echo "SECRET_KEY=copilot-setup-key" >> "$GITHUB_ENV"
