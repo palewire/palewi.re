@@ -9,7 +9,6 @@ from django.test.utils import override_settings
 from django.urls import include, path
 
 from project.redirect_manifest import RULES
-from project.redirects import STATIC_REDIRECTS
 
 
 def failing_view(_request):
@@ -27,7 +26,7 @@ def client():
 def test_root_redirects_to_bio(client):
     response = client.get("/")
     assert response.status_code in (301, 302)
-    assert "/who-is-ben-welsh/" in response["Location"]
+    assert response["Location"] == "/who-is-ben-welsh/"
 
 
 def test_bio_page_ok(client):
@@ -82,45 +81,19 @@ def test_django_no_longer_serves_mastodon_discovery_endpoints(client, page):
     assert client.get(page).status_code == 404
 
 
-@pytest.mark.parametrize(("source", "destination"), STATIC_REDIRECTS.items())
-def test_static_legacy_redirects_remain_stable(client, source, destination):
-    response = client.get(f"/{source}?source=test")
-    assert response.status_code == 302
-    assert response["Location"] == destination
-
-
 @pytest.mark.parametrize(
-    ("source", "destination"),
+    "path",
     [
-        ("/tag/django/", "/who-is-ben-welsh/"),
-        ("/tags/django/", "/who-is-ben-welsh/"),
-        ("/happyhours/old/", "/"),
-        ("/images/test.jpg", "https://palewire.s3.amazonaws.com/img/test.jpg"),
-        ("/applications/legacy/page/", "/apps/legacy/page/"),
-        ("/apps/page/2/", "/apps/"),
-        ("/posts/page/2/", "/posts/"),
-        ("/2009/09/01/test-post/", "/posts/2009/09/01/test-post/"),
+        *(f"/{rule.source}" for rule in RULES if not rule.is_dynamic),
+        *(example for rule in RULES if rule.is_dynamic for example in rule.examples),
     ],
 )
-def test_dynamic_legacy_redirects_remain_stable(client, source, destination):
-    response = client.get(source)
-    assert response.status_code == 302
-    assert response["Location"] == destination
-
-
-@pytest.mark.parametrize(
-    ("source", "destination"),
-    [(example, rule.destination_for(example)) for rule in RULES if rule.is_dynamic for example in rule.examples],
-)
-def test_dynamic_manifest_examples_match_django_redirects(client, source, destination):
-    response = client.get(f"{source}?source=test")
-
-    assert response.status_code == 302
-    assert response["Location"] == destination
+def test_legacy_manifest_paths_return_not_found_at_django_origin(client, path):
+    assert client.get(f"{path}?source=test").status_code == 404
 
 
 @pytest.mark.parametrize("source", ["/1/02/03/post/", "/2024/2/03/post/", "/2024/02/3/post/"])
-def test_date_redirect_rejects_malformed_capture_widths(client, source):
+def test_malformed_legacy_date_paths_return_not_found(client, source):
     assert client.get(source).status_code == 404
 
 
@@ -129,6 +102,13 @@ def test_favicon_route_exists(client):
     assert response.status_code in (200, 301, 302)
     if response.status_code in (301, 302):
         assert response["Location"] == static("favicon.ico")
+
+
+def test_username_redirect_remains_unchanged(client):
+    response = client.get("/@palewire")
+
+    assert response.status_code == 302
+    assert response["Location"] == "https://mastodon.palewi.re/@palewire"
 
 
 @override_settings(DEBUG=False)

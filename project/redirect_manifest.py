@@ -10,8 +10,6 @@ from typing import Any
 from urllib.parse import urlparse
 
 import yaml
-from django.urls import path, re_path
-from django.views.generic import RedirectView
 
 MANIFEST_PATH = Path(__file__).with_name("redirects.yaml")
 ROUTE_HOST = "palewi.re"
@@ -44,7 +42,7 @@ class RedirectRule:
         return bool(self.captures)
 
     @property
-    def django_pattern(self) -> str:
+    def match_pattern(self) -> str:
         parts: list[str] = []
         position = 0
         for match in _CAPTURE.finditer(self.source):
@@ -55,12 +53,8 @@ class RedirectRule:
         parts.append(re.escape(self.source[position:]))
         return f"^{''.join(parts)}$"
 
-    @property
-    def django_destination(self) -> str:
-        return _CAPTURE.sub(lambda match: f"%({match.group(1)})s", self.destination)
-
     def destination_for(self, path_value: str) -> str | None:
-        match = re.fullmatch(self.django_pattern, path_value.lstrip("/"))
+        match = re.fullmatch(self.match_pattern, path_value.lstrip("/"))
         if match is None:
             return None
         return self.destination.format(**match.groupdict())
@@ -176,7 +170,7 @@ def _validate_rule(record: Any, index: int) -> RedirectRule:
 
 
 def load_redirect_manifest(path_value: Path = MANIFEST_PATH) -> tuple[RedirectRule, ...]:
-    """Load and validate the YAML manifest before Django or Workers consume it."""
+    """Load and validate the YAML manifest before deployment tooling consumes it."""
     try:
         raw = yaml.safe_load(path_value.read_text())
     except yaml.YAMLError as error:
@@ -206,17 +200,6 @@ def cloudflare_route_plan(rules: tuple[RedirectRule, ...]) -> tuple[str, ...]:
 
 
 RULES = load_redirect_manifest()
-STATIC_REDIRECTS = {rule.source: rule.destination for rule in RULES if not rule.is_dynamic}
-
-
-patterns = [
-    *(
-        path(rule.source, RedirectView.as_view(url=rule.destination))
-        if not rule.is_dynamic
-        else re_path(rule.django_pattern, RedirectView.as_view(url=rule.django_destination))
-        for rule in RULES
-    ),
-]
 
 
 def main() -> None:

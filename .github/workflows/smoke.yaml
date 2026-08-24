@@ -31,6 +31,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          python-version: "3.12"
+
+      - name: Install legacy redirect verifier dependencies
+        run: uv sync --locked --no-dev
+
       - name: Health check (with retries)
         run: |
           echo "Testing health endpoint: $BASE_URL/health/"
@@ -61,6 +69,14 @@ jobs:
           WORKER_MARKER_ATTEMPTS=4 \
           WORKER_MARKER_WAIT_SECONDS=15 \
           scripts/verify-worker-endpoints.sh
+
+      - name: Legacy redirect Worker (with propagation retries)
+        run: |
+          BASE_URL="$BASE_URL" \
+          CURL_MAX_TIME=20 \
+          WORKER_MARKER_ATTEMPTS=4 \
+          WORKER_MARKER_WAIT_SECONDS=15 \
+          scripts/verify-legacy-redirects.sh
 
       - name: Bio page (with retries)
         run: |

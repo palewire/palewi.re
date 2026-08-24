@@ -9,8 +9,6 @@ from coltrane.feeds import LatestPostsFeed
 from coltrane.sitemaps import sitemaps
 from toolbox.views import health_check
 
-from .redirects import patterns as redirectpatterns
-
 urlpatterns = [
     # Health check
     path("health/", health_check, name="health_check"),
@@ -48,5 +46,3 @@ urlpatterns = [
     path("favicon.ico", RedirectView.as_view(url=f"{settings.STATIC_URL}favicon.ico"), name="favicon"),
     path("@palewire", views.username_redirect),
 ]
-
-urlpatterns = [*redirectpatterns, *urlpatterns]
