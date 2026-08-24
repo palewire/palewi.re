@@ -3,18 +3,18 @@
 
 {% block title %}who is ben welsh? . {{ block.super }}{% endblock %}
 
-{% block canonicalurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
+{% block canonicalurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
 
 {% block ogtitle %}Who is Ben Welsh?{% endblock %}
 {% block ogtype %}profile{% endblock %}
-{% block ogurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
+{% block ogurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
 {% block ogdescription %}hello.{% endblock %}
 
 {% block twittertitle %}Who is Ben Welsh?{% endblock %}
 {% block twitterdescription %}hello.{% endblock %}
-{% block twitterurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
+{% block twitterurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
 
-{% block googleurl %}https://{{ current_site }}/who-is-ben-welsh/{% endblock %}
+{% block googleurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
 {% block googleheadline %}who is ben welsh?{% endblock %}
 {% block googledescription %}hello.{% endblock %}
 {% block googlecreated %}2019-11-10T00:00:00{% endblock %}
@@ -28,8 +28,8 @@
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Ben Welsh",
-            "url": "https://{{ current_site }}/who-is-ben-welsh/",
-            "image": "https://{{ current_site }}{% static 'img/ben-blue-800.jpg' %}",
+            "url": "https://palewi.re/who-is-ben-welsh/",
+            "image": "https://palewi.re{% static 'img/ben-blue-800.jpg' %}",
             "sameAs": [
                 {% for obj in socialmedia_list %}"{{ obj.url }}"{% if not forloop.last %}, {% endif %}{% endfor %}
             ]

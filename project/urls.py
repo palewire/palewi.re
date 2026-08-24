@@ -1,12 +1,13 @@
+from django.conf import settings
 from django.contrib.sitemaps import views as sitemap_views
 from django.urls import path, re_path
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 
 # Views
 from coltrane import views
 from coltrane.feeds import LatestPostsFeed
 from coltrane.sitemaps import sitemaps
-from toolbox.views import DirectTemplateView, health_check
+from toolbox.views import health_check
 
 from .redirects import patterns as redirectpatterns
 
@@ -41,10 +42,10 @@ urlpatterns = [
     path("feeds/posts/", LatestPostsFeed()),
     path(
         "robots.txt",
-        DirectTemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+        TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
         name="robots",
     ),
-    path("favicon.ico", RedirectView.as_view(url="/static/favicon.ico"), name="favicon"),
+    path("favicon.ico", RedirectView.as_view(url=f"{settings.STATIC_URL}favicon.ico"), name="favicon"),
     # Mastodon
     path(".well-known/webfinger", views.wellknown_webfinger),
     path(".well-known/host-meta", views.wellknown_hostmeta),
@@ -53,6 +54,3 @@ urlpatterns = [
 ]
 
 urlpatterns = [*redirectpatterns, *urlpatterns]
-
-# 500 page fix
-handler500 = "coltrane.views.server_error"

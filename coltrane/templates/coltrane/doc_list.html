@@ -2,18 +2,18 @@
 
 {% block title %}docs . {{ block.super }}{% endblock %}
 
-{% block canonicalurl %}https://{{ current_site }}/docs/{% endblock %}
+{% block canonicalurl %}https://palewi.re/docs/{% endblock %}
 
 {% block ogtitle %}docs{% endblock %}
 {% block ogtype %}website{% endblock %}
-{% block ogurl %}https://{{ current_site }}/docs/{% endblock %}
+{% block ogurl %}https://palewi.re/docs/{% endblock %}
 {% block ogdescription %}Documentation for my lesson plans and open-source software.{% endblock %}
 
 {% block twittertitle %}docs{% endblock %}
 {% block twitterdescription %}Documentation for my lesson plans and open-source software.{% endblock %}
-{% block twitterurl %}https://{{ current_site }}/docs/{% endblock %}
+{% block twitterurl %}https://palewi.re/docs/{% endblock %}
 
-{% block googleurl %}https://{{ current_site }}/docs/{% endblock %}
+{% block googleurl %}https://palewi.re/docs/{% endblock %}
 {% block googleheadline %}docs{% endblock %}
 {% block googledescription %}Documentation for my lesson plans and open-source software.{% endblock %}
 {% block googletype %}CollectionPage{% endblock %}
@@ -24,7 +24,7 @@
         {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "url": "https://{{ current_site }}/docs/",
+            "url": "https://palewi.re/docs/",
             "itemListOrder": "Unordered",
             "numberOfItems": {{ lesson_list|length }},
             "name": "Lesson plans",
@@ -44,7 +44,7 @@
         {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "url": "https://{{ current_site }}/docs/",
+            "url": "https://palewi.re/docs/",
             "itemListOrder": "Unordered",
             "numberOfItems": {{ software_list|length }},
             "name": "Open-source software",

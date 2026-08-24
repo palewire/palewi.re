@@ -1,4 +1,4 @@
-{% load sass_tags %}<!doctype html>
+{% load sass_tags static %}<!doctype html>
 <html lang="en"
       xmlns:rnews="http://iptc.org/std/rNews/2011-05-17#"
       xmlns:og="http://ogp.me/ns#" {% block extrahtmlattrs %}{% endblock %}>
@@ -13,7 +13,7 @@
         <meta name="theme-color" content="#ffffff" />
         <meta name="color-scheme" content="light" />
 
-        <link rel="icon" href="{{ STATIC_URL }}favicon.ico" />
+        <link rel="icon" href="{% static 'favicon.ico' %}" />
 
         <meta name="author" content="Ben Welsh" />
         <meta name="description" content="{% block description %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
@@ -35,7 +35,7 @@
         <meta property="og:description" content="{% block ogdescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}"/>
         <meta property="og:url" content="{% block ogurl %}https://palewi.re/{% endblock %}"/>
         <meta property="og:locale" content="{% block oglocale %}en_US{% endblock %}"/>
-        <meta property="og:image" content="{% block ogimage %}https://palewi.re/static/img/facebook-icon.png{% endblock %}"/>
+        <meta property="og:image" content="{% block ogimage %}https://palewi.re{% static 'img/facebook-icon.png' %}{% endblock %}"/>
         {% endblock %}
 
         {% block twittermeta %}
@@ -43,7 +43,7 @@
         <meta name="twitter:title" content="{% block twittertitle %}palewire{% endblock %}" />
         <meta name="twitter:description" content="{% block twitterdescription %}Blog. Editor and Proprietor Ben Welsh.{% endblock %}" />
         <meta name="twitter:url" content="{% block twitterurl %}https://palewi.re/{% endblock %}" />
-        <meta name="twitter:image" content="{% block twitterimage %}https://palewi.re/static/img/facebook-icon.png{% endblock %}" />
+        <meta name="twitter:image" content="{% block twitterimage %}https://palewi.re{% static 'img/facebook-icon.png' %}{% endblock %}" />
         <meta name="twitter:site" content="@palewire" />
         <meta name="twitter:creator" content="@palewire" />
         {% endblock %}
@@ -62,7 +62,7 @@
             "name": "{% block googleheadline %}palewire{% endblock %}",
             "description": "{% block googledescription %}Blog. Editor and Publisher Ben Welsh.{% endblock %}",
             "inLanguage": "en-US",
-            "image": "https://palewi.re/static/img/facebook-icon.png"
+            "image": "https://palewi.re{% static 'img/facebook-icon.png' %}"
         }
         </script>
         <script type="application/ld+json">
@@ -71,7 +71,7 @@
             "@type": "Organization",
             "name": "palewire",
             "url": "https://palewi.re/",
-            "logo": "https://palewi.re/static/img/facebook-icon.png",
+            "logo": "https://palewi.re{% static 'img/facebook-icon.png' %}",
             "sameAs": [
                 "https://mastodon.palewi.re/@palewire"
             ]
@@ -111,7 +111,7 @@
         <footer>
             <div id="ft" class="row">
                 <div class="twelvecol last">
-                    <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{{ now|date:"Y" }}</span> palewire</span>
+                    <span property="rnews:copyrightNotice">© <span property="rnews:copyrightYear">{% now "Y" %}</span> palewire</span>
                     {% if repository_commit %}
                     <a class="footer-commit"
                        href="{{ repository_url }}/commit/{{ repository_commit }}"

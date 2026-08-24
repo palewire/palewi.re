@@ -5,10 +5,8 @@ from pathlib import Path
 # Third-party
 import markdown
 import yaml
-from django.conf import settings
-from django.http import Http404, HttpResponseRedirect, HttpResponseServerError
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
-from django.template import loader
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.views.generic import ListView, TemplateView
@@ -81,14 +79,6 @@ def post_detail(request, year, month, day, slug):
         "object": post,
     }
     return render(request, "coltrane/post_detail.html", context)
-
-
-def server_error(request, template_name="500.html"):
-    """
-    500 error handler. Necessary to make sure STATIC_URL is available.
-    """
-    t = loader.get_template(template_name)
-    return HttpResponseServerError(t.render({"STATIC_URL": settings.STATIC_URL}))
 
 
 class ClipListView(TemplateView):

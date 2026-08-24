@@ -2,18 +2,18 @@
 
 {% block title %}talks . {{ block.super }}{% endblock %}
 
-{% block canonicalurl %}https://{{ current_site }}/talks/{% endblock %}
+{% block canonicalurl %}https://palewi.re/talks/{% endblock %}
 
 {% block ogtitle %}talks{% endblock %}
 {% block ogtype %}website{% endblock %}
-{% block ogurl %}https://{{ current_site }}/talks/{% endblock %}
+{% block ogurl %}https://palewi.re/talks/{% endblock %}
 {% block ogdescription %}A selection of recordings, slides and other materials from my public-speaking appearances.{% endblock %}
 
 {% block twittertitle %}talks{% endblock %}
 {% block twitterdescription %}A selection of recordings, slides and other materials from my public-speaking appearances.{% endblock %}
-{% block twitterurl %}https://{{ current_site }}/talks/{% endblock %}
+{% block twitterurl %}https://palewi.re/talks/{% endblock %}
 
-{% block googleurl %}https://{{ current_site }}/talks/{% endblock %}
+{% block googleurl %}https://palewi.re/talks/{% endblock %}
 {% block googleheadline %}talks{% endblock %}
 {% block googledescription %}A selection of slides and videos from my public-speaking appearances.{% endblock %}
 {% block googlecreated %}2019-11-10T00:00:00{% endblock %}
@@ -26,7 +26,7 @@
         {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "url": "https://{{ current_site }}/talks/",
+            "url": "https://palewi.re/talks/",
             "itemListOrder": "Descending",
             "numberOfItems": {{ object_list|length }},
             "itemListElement": [
@@ -35,7 +35,7 @@
                     "@type": "ListItem",
                     "position": {{ forloop.counter }},
                     "name": "{{ object.title|escapejs }}",
-                    "url": "https://{{ current_site }}/talks/"
+                    "url": "https://palewi.re/talks/"
                 }{% if not forloop.last %},{% endif %}
                 {% endfor %}
             ]

@@ -1,19 +1,9 @@
 """Tests for shared template context."""
 
 import subprocess
-from datetime import UTC
 from unittest.mock import patch
 
-from django.utils import timezone
-
-from toolbox.context_processors import REPOSITORY_URL, _main_commit, now, repository
-
-
-def test_now_is_timezone_aware():
-    context_now = now(None)["now"]
-
-    assert timezone.is_aware(context_now)
-    assert context_now.tzinfo == UTC
+from toolbox.context_processors import REPOSITORY_URL, _main_commit, repository
 
 
 def test_repository_uses_heroku_commit():

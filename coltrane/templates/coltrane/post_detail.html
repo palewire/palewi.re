@@ -4,27 +4,27 @@
 
 {% block title %}{{ object.title|lower }} . {{ block.super }}{% endblock %}
 
-{% block canonicalurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+{% block canonicalurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
 
 {% block ogtitle %}{{ object.title }}{% endblock %}
 {% block ogtype %}article{% endblock %}
-{% block ogurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+{% block ogurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
 {% block ogdescription %}{{ object.body_html|striptags|truncatechars:180 }}{% endblock %}
 
 {% block twittertitle %}{{ object.title }}{% endblock %}
 {% block twitterdescription %}{{ object.body_html|striptags|truncatechars:180 }}{% endblock %}
-{% block twitterurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+{% block twitterurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
 
 {% block extrameta %}
     {{ block.super }}
     <meta itemprop="headline" content="{{ object.title }}">
-    <meta itemprop="url" content="https://{{ current_site }}{{ object.get_absolute_url }}">
+    <meta itemprop="url" content="https://palewi.re{{ object.get_absolute_url }}">
     <meta itemprop="author" content="Ben Welsh">
     <meta itemprop="datePublished" content="{{ object.pub_date|date:"c" }}">
     <meta itemprop="inLanguage" content="en">
 {% endblock %}
 
-{% block googleurl %}https://{{ current_site }}{{ object.get_absolute_url }}{% endblock %}
+{% block googleurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
 {% block googleheadline %}{{ object.title|lower }}{% endblock %}
 {% block googledescription %}{{ object.body_html|striptags|truncatechars:180 }}{% endblock %}
 
@@ -36,13 +36,13 @@
             "headline": "{{ object.title|escapejs }}",
             "description": "{{ object.body_html|striptags|truncatechars:180|escapejs }}",
             "inLanguage": "en-US",
-            "url": "https://{{ current_site }}{{ object.get_absolute_url }}",
+            "url": "https://palewi.re{{ object.get_absolute_url }}",
             "datePublished": "{{ object.pub_date|date:"c" }}",
             "dateModified": "{{ object.pub_date|date:"c" }}",
             "author": {
                 "@type": "Person",
                 "name": "Ben Welsh",
-                "url": "https://{{ current_site }}/who-is-ben-welsh/"
+                "url": "https://palewi.re/who-is-ben-welsh/"
             },
             "publisher": {
                 "@type": "Organization",
