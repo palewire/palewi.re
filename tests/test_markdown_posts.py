@@ -3,11 +3,13 @@
 import hashlib
 import json
 import re
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pytest
+from django.conf import settings
+from django.utils import timezone
 
 from coltrane.content_loaders import ContentError, load_posts
 from coltrane.utils.pygmenter import pygmenter
@@ -67,9 +69,14 @@ def test_markdown_posts_keep_los_angeles_publication_datetimes():
     manifest_by_permalink = {entry["permalink"]: entry for entry in load_manifest()["posts"]}
     for post in load_posts():
         expected = datetime.fromisoformat(manifest_by_permalink[post.get_absolute_url()]["published_at"])
+        assert timezone.is_aware(post.published_at)
         assert post.published_at.tzinfo == LOS_ANGELES
         assert post.published_at == expected
         assert post.get_absolute_url().startswith(f"/posts/{post.published_at:%Y/%m/%d}/")
+
+
+def test_django_uses_timezone_aware_datetimes():
+    assert settings.USE_TZ is True
 
 
 def test_markdown_posts_preserve_legacy_pre_lang_markup():
@@ -87,6 +94,48 @@ def test_markdown_post_requires_los_angeles_datetime(tmp_path):
     post_path = tmp_path / "post.md"
     post_path.write_text(
         "---\ntitle: Example\nslug: example\npublished_at: '2025-01-01T20:00:00+00:00'\n---\n<p>Body</p>",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ContentError, match="America/Los_Angeles"):
+        load_posts(tmp_path)
+
+
+def test_markdown_post_requires_an_aware_datetime(tmp_path):
+    post_path = tmp_path / "post.md"
+    post_path.write_text(
+        "---\ntitle: Example\nslug: example\npublished_at: '2025-01-01T12:00:00'\n---\n<p>Body</p>",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ContentError, match="timezone offset"):
+        load_posts(tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("published_at", "fold", "utc_time"),
+    [
+        ("2025-11-02T01:30:00-07:00", 0, "2025-11-02T08:30:00+00:00"),
+        ("2025-11-02T01:30:00-08:00", 1, "2025-11-02T09:30:00+00:00"),
+    ],
+)
+def test_markdown_post_preserves_each_ambiguous_los_angeles_time(tmp_path, published_at, fold, utc_time):
+    post_path = tmp_path / "post.md"
+    post_path.write_text(
+        f"---\ntitle: Example\nslug: example\npublished_at: '{published_at}'\n---\n<p>Body</p>",
+        encoding="utf-8",
+    )
+
+    post = load_posts(tmp_path)[0]
+
+    assert post.published_at.fold == fold
+    assert post.published_at.astimezone(UTC).isoformat() == utc_time
+
+
+def test_markdown_post_rejects_nonexistent_los_angeles_time(tmp_path):
+    post_path = tmp_path / "post.md"
+    post_path.write_text(
+        "---\ntitle: Example\nslug: example\npublished_at: '2025-03-09T02:30:00-08:00'\n---\n<p>Body</p>",
         encoding="utf-8",
     )
 

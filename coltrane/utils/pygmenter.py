@@ -6,7 +6,7 @@ import functools
 
 from bs4 import BeautifulSoup
 from pygments import highlight
-from pygments.formatters import HtmlFormatter
+from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import LEXERS, get_lexer_by_name
 
 # a tuple of known lexer names
@@ -31,13 +31,15 @@ def pygmenter(raw_html):
     markdown.pl from John Gruber - have shown that the inner HTML of the
     ``<code>`` tag is not immune to translation.
     """
-    soup = BeautifulSoup(raw_html)
-    for tag in soup.findAll("pre"):
-        lexer_name = tag.get("lang").lower()
-        linenos = tag.get("linenos", False) or False
-        _formatter = HtmlFormatter(cssclass="source", linenos=linenos)
+    soup = BeautifulSoup(raw_html, "html.parser")
+    for tag in soup.find_all("pre"):
+        lexer_name = tag.get("lang")
+        if not isinstance(lexer_name, str):
+            continue
+        _formatter = HtmlFormatter(cssclass="source", linenos=bool(tag.get("linenos")))
+        lexer_name = lexer_name.lower()
         if lexer_name and lexer_name in _lexer_names:
             lexer = get_lexer_by_name(lexer_name, stripnl=True, encoding="UTF-8")
-            tag.replaceWith(highlight(tag.renderContents(), lexer, _formatter))
+            tag.replace_with(highlight(tag.encode_contents(), lexer, _formatter))
 
     return str(soup)

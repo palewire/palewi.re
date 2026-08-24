@@ -56,6 +56,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import yaml
+from django.utils import timezone
 
 CONTENT_PATH = Path(__file__).resolve().parent / "content"
 
@@ -198,9 +199,11 @@ def _require_los_angeles_datetime(record: dict, field_name: str, path: str) -> d
         parsed = datetime.datetime.fromisoformat(value)
     except ValueError as error:
         raise ContentError(f"{path}: field '{field_name}' must be an ISO 8601 datetime") from error
-    if parsed.tzinfo is None:
+    if not timezone.is_aware(parsed):
         raise ContentError(f"{path}: field '{field_name}' must include a timezone offset")
     los_angeles_time = parsed.astimezone(LOS_ANGELES)
+    # This round trip rejects invalid spring-forward wall times while retaining
+    # the supplied offset that distinguishes either fall-back occurrence.
     if (
         parsed.replace(tzinfo=None) != los_angeles_time.replace(tzinfo=None)
         or parsed.utcoffset() != los_angeles_time.utcoffset()

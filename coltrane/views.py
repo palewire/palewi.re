@@ -1,7 +1,4 @@
-import datetime
-
-# Time
-import time
+from datetime import date
 from functools import lru_cache
 from pathlib import Path
 
@@ -66,8 +63,10 @@ def post_detail(request, year, month, day, slug):
     """
     A detail page that shows an entire post.
     """
-    date_stamp = time.strptime(year + month + day, "%Y%m%d")
-    pub_date = datetime.date(*date_stamp[:3])
+    try:
+        pub_date = date.fromisoformat(f"{year}-{month}-{day}")
+    except ValueError as error:
+        raise Http404 from error
     post = next(
         (
             candidate
