@@ -19,14 +19,6 @@ if PRODUCTION and not SECRET_KEY:
     raise RuntimeError("SECRET_KEY must be set in production.")
 
 #
-# Media files
-#
-
-MEDIA_URL = "http://palewire.s3.amazonaws.com/"
-ADMIN_MEDIA_PREFIX = "http://palewire.s3.amazonaws.com/admin/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
-#
 # Static files
 #
 
@@ -55,11 +47,12 @@ STATICFILES_FINDERS = [
 TIME_ZONE = "America/Los_Angeles"
 USE_TZ = False
 LANGUAGE_CODE = "en-us"
-SITE_ID = 1
 USE_I18N = True
 
 ALLOWED_HOSTS = (
-    ["palewi.re", "www.palewi.re", ".palewi.re", ".herokuapp.com"]
+    # Include palewire.com and www.palewire.com so that DomainRedirectMiddleware
+    # can handle those requests before returning 400 DisallowedHost.
+    ["palewi.re", "www.palewi.re", ".palewi.re", ".herokuapp.com", "palewire.com", "www.palewire.com"]
     if PRODUCTION
     else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 )
@@ -84,6 +77,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "toolbox.middleware.domains.DomainRedirectMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -103,7 +97,6 @@ TEMPLATES = [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.template.context_processors.i18n",
-                "django.template.context_processors.media",
                 "django.template.context_processors.static",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
@@ -121,16 +114,12 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
-    "django.contrib.sites",
     "django.contrib.admin",
     "django.contrib.sitemaps",
-    "django.contrib.humanize",
     "django.contrib.staticfiles",
     # Blog
     "coltrane",
-    "django_comments",
     # Site extras and helpers
-    "greeking",
     "whitenoise.runserver_nostatic",
     "sass_processor",
 ]

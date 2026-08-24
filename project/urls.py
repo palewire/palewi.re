@@ -1,7 +1,7 @@
 # Admin
 from django.contrib import admin
 from django.contrib.sitemaps import views as sitemap_views
-from django.urls import include, path, re_path
+from django.urls import path, re_path
 from django.views.generic import RedirectView
 
 # Views
@@ -49,21 +49,7 @@ blogpatterns = [
         DirectTemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
         name="robots",
     ),
-    re_path(
-        r"^favicon.ico$",
-        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/favicon.ico"),
-    ),
-    # Corrections
-    re_path(r"^comments/", include("django_comments.urls")),
-    # Static and media
-    re_path(
-        r"^media/(?P<path>.*)$",
-        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/%(path)s"),
-    ),
-    re_path(
-        r"^static/(?P<path>.*)$",
-        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/%(path)s"),
-    ),
+    re_path(r"^favicon\.ico$", RedirectView.as_view(url="/static/favicon.ico"), name="favicon"),
     # Mastodon
     path(".well-known/webfinger", views.wellknown_webfinger),
     path(".well-known/host-meta", views.wellknown_hostmeta),
