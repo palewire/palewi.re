@@ -3,7 +3,7 @@ clips:
   type: software
   date: '2026-08-21'
   url: https://palewi.re/docs/geodataframe-to-pmtiles/
-  archive_exemption: Recent internal documentation not yet available in Wayback Machine
+  archive_url: https://web.archive.org/web/20260824154827/https://palewi.re/docs/geodataframe-to-pmtiles/
 - title: isobands
   type: software
   date: '2026-08-19'
