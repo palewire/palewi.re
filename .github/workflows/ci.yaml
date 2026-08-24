@@ -28,6 +28,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+
       - name: Install dev dependencies
         run: make install
 
@@ -53,6 +58,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+
       - name: Install dependencies
         run: make ci-bootstrap
 
@@ -65,7 +75,7 @@ jobs:
           SECURE_SSL_REDIRECT: "false"
           SECRET_KEY: ci-static-build-secret-with-more-than-fifty-characters
         run: |
-          uv run python manage.py compilescss --verbosity 0
+          make css
           uv run python manage.py collectstatic --noinput --clear
           grep -q '"styles.css"' collected_static/staticfiles.json
 

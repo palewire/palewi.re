@@ -8,7 +8,7 @@ export PATH := $(HOME)/.local/bin:$(HOME)/.local/share/heroku/client/bin:$(HOME)
 
 WORKER_DIR := workers/mastodon-well-known-proxy
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks serve check test lint typecheck django-check fmt worker-test worker-validate worker-deploy worker-verify-production worker-rollback
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt worker-test worker-validate worker-deploy worker-verify-production worker-rollback
 
 help:
 	@echo "Available targets:"
@@ -19,6 +19,8 @@ help:
 	@echo "  cloudflare-check  Show the authenticated Cloudflare account"
 	@echo "  install    Install all dependencies without changing Git hooks"
 	@echo "  hooks      Install pre-commit hooks"
+	@echo "  css        Build compressed production CSS"
+	@echo "  css-dev    Build expanded CSS with a source map"
 	@echo "  serve      Start the development server"
 	@echo "  check      Run the same lint, type, Django, and test checks as CI"
 	@echo "  test       Run tests only"
@@ -33,12 +35,15 @@ help:
 
 install:
 	@"$$(command -v uv)" sync --locked --group dev
+	@"$$(command -v npm)" ci
 
 hooks:
 	@"$$(command -v uv)" run pre-commit install
 
 check-tools:
 	@command -v uv > /dev/null || { echo "uv is required. Install it from https://docs.astral.sh/uv/getting-started/installation/" >&2; exit 1; }
+	@command -v node > /dev/null || { echo "Node.js 24 is required. Install it from https://nodejs.org/" >&2; exit 1; }
+	@command -v npm > /dev/null || { echo "npm is required. Install Node.js 24 from https://nodejs.org/" >&2; exit 1; }
 	@command -v heroku > /dev/null || { echo "The Heroku CLI is required. Install it from https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli" >&2; exit 1; }
 	@$(MAKE) --no-print-directory check-wrangler
 
@@ -55,12 +60,18 @@ bootstrap: check-tools install hooks
 
 ci-bootstrap: install
 
-serve:
+css:
+	@"$$(command -v npm)" run build:css
+
+css-dev:
+	@"$$(command -v npm)" run build:css:dev
+
+serve: css-dev
 	@"$$(command -v uv)" run python -m scripts.worktree serve
 
 check: lint typecheck django-check test
 
-test:
+test: css
 	@"$$(command -v uv)" run pytest tests/
 
 lint:

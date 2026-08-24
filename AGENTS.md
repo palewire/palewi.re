@@ -7,8 +7,9 @@ dependencies and installs the pre-commit hooks. It first confirms that `uv`,
 the Heroku CLI, and Wrangler are available; it does not install or authenticate
 any tool.
 
-Run the development server with `make serve`. Linked worktrees automatically
-receive an available local port.
+Run the development server with `make serve`. It first builds the expanded
+stylesheet and its source map. Linked worktrees automatically receive an
+available local port.
 
 ## Before finishing
 
@@ -27,8 +28,8 @@ secrets, generated files, or `.goals/` agent state.
 - `project/`: Django settings and URL routing
 - `tests/`: pytest suite
 
-Use `uv` and `pyproject.toml` for Python dependencies, Ruff for formatting and
-linting, and ty for static analysis.
+Use `uv` and `pyproject.toml` for Python dependencies, the locked Dart Sass npm
+dependency for CSS, Ruff for formatting and linting, and ty for static analysis.
 
 Copilot cloud agents receive `uv` and the Heroku CLI from
 `.github/workflows/copilot-setup-steps.yml`. Authentication remains
@@ -106,9 +107,12 @@ docs:
     type: software           # lesson-plan | software
     url: "https://..."       # must be unique across all docs
     description: "..."       # optional
+    repository_url: "https://..." # optional canonical source repository; unique if set
 ```
 
-Ordered by type, then alphabetically by title.
+`repository_url` must be an HTTP(S) URL. Omit it or use an empty value when a
+canonical repository cannot be verified. It is catalog metadata and is not
+rendered on `/docs/`. Docs are ordered by type, then alphabetically by title.
 
 ### bio_skills.yaml
 

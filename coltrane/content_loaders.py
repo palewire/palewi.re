@@ -28,7 +28,8 @@ Edit the appropriate file under ``coltrane/content/``:
 * ``docs.yaml``    – Documentation listed on the /docs/ page.
   Required fields: ``title`` (str), ``type`` (one of
   ``lesson-plan``, ``software``), ``url`` (str, unique).
-  Optional fields: ``description`` (str).
+  Optional fields: ``description`` (str), ``repository_url`` (HTTP(S) URL,
+  unique when non-empty).
   Ordering: ``type``, then ``title`` (alphabetical).
 
 * ``slogans.yaml`` – Short phrases that appear in the site header.
@@ -53,6 +54,7 @@ import re
 from dataclasses import dataclass
 from functools import cached_property
 from pathlib import Path
+from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -102,6 +104,7 @@ class Doc:
     type: str
     url: str
     description: str = ""
+    repository_url: str = ""
 
 
 @dataclass(frozen=True)
@@ -189,6 +192,19 @@ def _optional_str(record: dict, field_name: str, path: str) -> str:
         raise ContentError(
             f"{path}: record {record!r} field '{field_name}' must be a string, got {type(value).__name__}"
         )
+    return value
+
+
+def _optional_http_url(record: dict, field_name: str, path: str, title: str) -> str:
+    """Return an optional HTTP(S) URL with doc-specific error context."""
+    value = record.get(field_name, "")
+    if value is None:
+        return ""
+    if not isinstance(value, str):
+        raise ContentError(f"{path}: doc '{title}' field '{field_name}' must be a string, got {type(value).__name__}")
+    parsed = urlparse(value)
+    if value and (parsed.scheme not in {"http", "https"} or not parsed.netloc or any(char.isspace() for char in value)):
+        raise ContentError(f"{path}: doc '{title}' {field_name} must be an HTTP(S) URL, got {value!r}")
     return value
 
 
@@ -352,6 +368,7 @@ def load_docs(path: Path | None = None) -> list[Doc]:
     if not isinstance(items, list):
         raise ContentError(f"{label}: 'docs' must be a list")
     seen_urls: set[str] = set()
+    seen_repository_urls: set[str] = set()
     docs: list[Doc] = []
     for record in items:
         if not isinstance(record, dict):
@@ -365,7 +382,20 @@ def load_docs(path: Path | None = None) -> list[Doc]:
             raise ContentError(f"{label}: duplicate doc URL '{url}'")
         seen_urls.add(url)
         description = _optional_str(record, "description", label)
-        docs.append(Doc(title=title, type=doc_type, url=url, description=description))
+        repository_url = _optional_http_url(record, "repository_url", label, title)
+        if repository_url:
+            if repository_url in seen_repository_urls:
+                raise ContentError(f"{label}: duplicate doc repository_url '{repository_url}' for doc '{title}'")
+            seen_repository_urls.add(repository_url)
+        docs.append(
+            Doc(
+                title=title,
+                type=doc_type,
+                url=url,
+                description=description,
+                repository_url=repository_url,
+            )
+        )
     docs.sort(key=lambda d: (d.type, d.title))
     return docs
 

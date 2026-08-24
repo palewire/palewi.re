@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build:css": "rm -f coltrane/static/styles.css.map && sass --silence-deprecation=import --style=compressed --no-source-map coltrane/static/styles.scss:coltrane/static/styles.css",
+    "build:css:dev": "sass --silence-deprecation=import --style=expanded --source-map coltrane/static/styles.scss:coltrane/static/styles.css",
+    "heroku-postbuild": "npm run build:css"
+  },
+  "dependencies": {
+    "sass": "1.103.1"
+  }
+}

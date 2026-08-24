@@ -2,221 +2,271 @@ docs:
 - title: Coding the News
   type: lesson-plan
   url: https://palewi.re/docs/coding-the-news/
+  repository_url: https://github.com/palewire/cuny-jour-73361-coding-the-news
   description: Learn how America's top news organizations escape rigid publishing
     systems to design beautiful data-driven stories on deadline
 - title: First Athena Query
   type: lesson-plan
   url: https://palewi.re/docs/first-athena-query/
+  repository_url: https://github.com/palewire/first-athena-query
   description: Analyze millions of records in seconds with Amazon Web Services and
     SQL
 - title: First Automated Chart
   type: lesson-plan
   url: https://palewi.re/docs/first-automated-chart/
+  repository_url: https://github.com/palewire/first-automated-chart
   description: Learn how you can use Python and the Datawrapper API to create a limitless
     number of charts and maps.
 - title: First Basemap
   type: lesson-plan
   url: https://palewi.re/docs/first-basemap/
+  repository_url: https://github.com/palewire/first-basemap
   description: Create a shockingly fast and virtually free interactive map of the
     world using OpenStreetMap and PMTiles
 - title: First Django Admin
   type: lesson-plan
   url: https://palewi.re/docs/first-django-admin/
+  repository_url: https://github.com/palewire/first-django-admin
   description: A guide to creating a web application for enlisting reporters in data
     entry and refinement
 - title: First GitHub Scraper
   type: lesson-plan
   url: https://palewi.re/docs/first-github-scraper/
+  repository_url: https://github.com/palewire/first-github-scraper
   description: An introduction to free, automated web scraping with GitHub Actions
 - title: First LLM Classifier
   type: lesson-plan
   url: https://palewi.re/docs/first-llm-classifier/
+  repository_url: https://github.com/palewire/first-llm-classifier
   description: Learn how journalists use large-language models to organize and analyze
     massive datasets
 - title: First PMTiles Map
   type: lesson-plan
   url: https://palewi.re/docs/first-pmtiles-map/
+  repository_url: https://github.com/palewire/first-pmtiles-map
   description: Learn how to display a massive dataset on an interactive map using
     PMTiles and MapLibre
 - title: First Pull Request
   type: lesson-plan
   url: https://palewi.re/docs/first-pull-request/
+  repository_url: https://github.com/palewire/first-pull-request
   description: How to propose changes to open-source software using GitHub pull requests
 - title: First Python Notebook
   type: lesson-plan
   url: https://palewi.re/docs/first-python-notebook/
+  repository_url: https://github.com/palewire/first-python-notebook
   description: A guide to analyzing data with Python and the Jupyter notebook
 - title: First Visual Story
   type: lesson-plan
   url: https://palewi.re/docs/first-visual-story/
+  repository_url: https://github.com/palewire/first-visual-story
   description: A guide to publishing a standalone story from a dataset
 - title: First Web Scraper
   type: lesson-plan
   url: https://palewi.re/docs/first-web-scraper/
+  repository_url: https://github.com/palewire/first-web-scraper
   description: A guide to writing a web scraper with Python
 - title: Go big with GitHub Actions
   type: lesson-plan
   url: https://palewi.re/docs/go-big-with-github-actions/
+  repository_url: https://github.com/palewire/go-big-with-github-actions
   description: Scale up your data pipelines using GitHub’s powerful Actions framework
 - title: air-quality-index
   type: software
   url: https://palewi.re/docs/air-quality-index/
+  repository_url: https://github.com/datadesk/air-quality-index
   description: Download air quality index data from AirNow
 - title: atcf-data-parser
   type: software
   url: https://palewi.re/docs/atcf-data-parser/
+  repository_url: https://github.com/palewire/atcf-data-parser
   description: A Python parser and command-line utility for the “a-deck” data posted
     online by the Automated Tropical Cyclone Forecasting System
 - title: bln-python-client
   type: software
   url: https://bln-python-client.readthedocs.io/
+  repository_url: https://github.com/biglocalnews/bln-python-client
   description: Python client for the biglocalnews.org API
 - title: calfire-wildfires
   type: software
   url: https://palewi.re/docs/calfire-wildfires/
+  repository_url: https://github.com/datadesk/calfire-wildfires
   description: Download wildfires data from CalFire
 - title: censusbatchgeocoder
   type: software
   url: https://palewi.re/docs/censusbatchgeocoder/
+  repository_url: https://github.com/palewire/censusbatchgeocoder
   description: A simple Python wrapper for the U.S. Census Geocoding Services API
     batch service
 - title: census-data-aggregator
   type: software
   url: https://github.com/datadesk/census-data-aggregator
+  repository_url: https://github.com/datadesk/census-data-aggregator
   description: Combine U.S. census data responsibly
 - title: census-error-analyzer
   type: software
   url: https://github.com/datadesk/census-error-analyzer
+  repository_url: https://github.com/datadesk/census-error-analyzer
   description: Analyze the margin of error in U.S. census data
 - title: census-map-consolidator
   type: software
   url: https://github.com/datadesk/census-map-consolidator
+  repository_url: https://github.com/datadesk/census-map-consolidator
   description: Combine Census blocks into new shapes
 - title: census-map-downloader
   type: software
   url: https://github.com/datadesk/census-map-downloader
+  repository_url: https://github.com/datadesk/census-map-downloader
   description: Easily download U.S. census maps
 - title: cpi
   type: software
   url: https://palewi.re/docs/cpi/
+  repository_url: https://github.com/palewire/cpi
   description: A Python library that quickly adjusts U.S. dollars for inflation using
     the Consumer Price Index
 - title: Datawrapper JSON bookmarklet
   type: software
   url: https://palewi.re/docs/datawrapper-json-bookmarklet/
+  repository_url: https://github.com/palewire/datawrapper-json-bookmarklet
   description: Quickly access the JSON configuration of your Datawrapper chart
 - title: django-anss-archive
   type: software
   url: https://palewi.re/docs/django-anss-archive/
+  repository_url: https://github.com/palewire/django-anss-archive
   description: A Django application to archive real-time earthquake notifications
     from the U.S. Geological Survey’s Advanced National Seismic System
 - title: django-bakery
   type: software
   url: https://palewi.re/docs/django-bakery/
+  repository_url: https://github.com/palewire/django-bakery
   description: A set of helpers for baking your Django site out as flat files
 - title: django-greeking
   type: software
   url: https://palewi.re/docs/django-greeking/
+  repository_url: https://github.com/palewire/django-greeking
   description: Django template tools for printing filler, a technique from the days
     of hot type known as greeking
 - title: django-internetarchive-storage
   type: software
   url: https://palewi.re/docs/django-internetarchive-storage/
+  repository_url: https://github.com/palewire/django-internetarchive-storage
   description: A custom Django storage system for Internet Archive collections
 - title: django-postgres-copy
   type: software
   url: https://palewi.re/docs/django-postgres-copy/
+  repository_url: https://github.com/palewire/django-postgres-copy
   description: Quickly import and export delimited data with Django and PostgreSQL
 - title: django-yamlfield
   type: software
   url: https://palewi.re/docs/django-yamlfield/
+  repository_url: https://github.com/palewire/django-yamlfield
   description: A Django database field for storing YAML data
 - title: geodataframe-to-pmtiles
   type: software
   url: https://palewi.re/docs/geodataframe-to-pmtiles/
+  repository_url: https://github.com/palewire/geodataframe-to-pmtiles
   description: Write PMTiles archives from GeoPandas GeoDataFrames with a Python API
 - title: inciweb-wildfires
   type: software
   url: https://palewi.re/docs/inciweb-wildfires/
+  repository_url: https://github.com/datadesk/inciweb-wildfires
   description: Download wildfire incidents data from InciWeb
 - title: ipsos-credibility-interval
   type: software
   url: https://palewi.re/docs/ipsos-credibility-interval/
+  repository_url: https://github.com/palewire/ipsos-credibility-interval
   description: A Python tool that calculates Bayesian credibility intervals for online
     polling using the Ipsos method
 - title: isobands
   type: software
   url: https://palewi.re/docs/isobands/
+  repository_url: https://github.com/palewire/isobands
   description: An easy way to make filled contour maps with Python
 - title: nasa-wildfires
   type: software
   url: https://palewi.re/docs/nasa-wildfires/
+  repository_url: https://github.com/datadesk/nasa-wildfires
   description: Download wildfire hotspots detected by NASA satellites and the Fire
     Information for Resource Management System (FIRMS)
 - title: news-homepages
   type: software
   url: https://palewi.re/docs/news-homepages/index.html
+  repository_url: https://github.com/palewire/news-homepages
   description: A bot that gathers, archives and shares screenshots of news homepages
 - title: noaa-wildfires
   type: software
   url: https://palewi.re/docs/noaa-wildfires/
+  repository_url: https://github.com/datadesk/noaa-wildfires
   description: Download wildfires data from NOAA satellites
 - title: nws-aurora
   type: software
   url: https://palewi.re/docs/nws-aurora/
+  repository_url: https://github.com/palewire/nws-aurora
   description: Download forecast data for Aurora Borealis and Aurora Australis from
     the National Weather Service
 - title: nws-wwa
   type: software
   url: https://palewi.re/docs/nws-wwa/
+  repository_url: https://github.com/datadesk/nws-wwa
   description: Download watch, warning and advisory data from the National Weather
     Service
 - title: prefect-flow-template
   type: software
   url: https://github.com/biglocalnews/prefect-flow-template/wiki
+  repository_url: https://github.com/biglocalnews/prefect-flow-template
   description: A template repository with all the fundamentals needed to develop and
     deploy a Python data-processing routine for Prefect pipelines.
 - title: python-googlegeocoder
   type: software
   url: https://palewi.re/docs/python-googlegeocoder/
+  repository_url: https://github.com/palewire/python-googlegeocoder
   description: A simple Python wrapper for Google’s geocoder API
 - title: python-muckrock
   type: software
   url: https://palewi.re/docs/python-muckrock/
+  repository_url: https://github.com/palewire/python-muckrock
   description: A simple Python wrapper for the MuckRock API
 - title: Refinitiv Data Python Cookbook
   type: software
   url: https://palewi.re/docs/refinitiv-data-python-cookbook/
+  repository_url: https://github.com/palewire/refinitiv-data-python-cookbook
   description: Practical examples for users of the Refinitiv Data Library for Python
 - title: reuters-style
   type: software
   url: https://palewi.re/docs/reuters-style/
+  repository_url: https://github.com/palewire/reuters-style
   description: A Python library that format dates, numbers and text to conform with
     the Reuters Style Guide, the standards that guide the world’s largest independent
     newsroom
 - title: savepagenow
   type: software
   url: https://palewi.re/docs/savepagenow/
+  repository_url: https://github.com/palewire/savepagenow
   description: A Python wrapper and command-line interface for archive.org’s capturing
     service
 - title: storysniffer
   type: software
   url: https://palewi.re/docs/storysniffer/
+  repository_url: https://github.com/palewire/storysniffer
   description: Inspect a URL and estimate if it links to news story
 - title: upload-data-to-biglocalnews-org
   type: software
   url: https://github.com/marketplace/actions/upload-data-to-biglocalnews-org
+  repository_url: https://github.com/biglocalnews/upload-files
   description: Upload comma-delimited files to biglocalnews.org in your GitHub Action
 - title: warn-github-flow
   type: software
   url: https://github.com/biglocalnews/warn-github-flow
+  repository_url: https://github.com/biglocalnews/warn-github-flow
   description: GitHub Action workflow for automating a WARN Act notice ETL pipeline
 - title: warn-scraper
   type: software
   url: https://warn-scraper.readthedocs.io/en/latest/
+  repository_url: https://github.com/biglocalnews/warn-scraper
   description: Command-line interface for downloading WARN Act notices of qualified
     plant closings and mass layoffs from state government websites
 - title: warn-transformer
   type: software
   url: https://warn-transformer.readthedocs.io/
+  repository_url: https://github.com/biglocalnews/warn-transformer
   description: Consolidate, enrich and republish the data gathered by warn-scraper

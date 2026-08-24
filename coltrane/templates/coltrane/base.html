@@ -1,4 +1,4 @@
-{% load sass_tags static %}<!doctype html>
+{% load static %}<!doctype html>
 <html lang="en"
       xmlns:rnews="http://iptc.org/std/rNews/2011-05-17#"
       xmlns:og="http://ogp.me/ns#" {% block extrahtmlattrs %}{% endblock %}>
@@ -84,8 +84,8 @@
     {% endblock %}
 
     {% block css %}
-    <link rel="preload" as="style" href="{% sass_src 'styles.scss' %}" />
-    <link rel="stylesheet" type="text/css" href="{% sass_src 'styles.scss' %}" />
+    <link rel="preload" as="style" href="{% static 'styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
     {% endblock %}
 
     {% block extrahead %}
