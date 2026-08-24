@@ -1,0 +1,23 @@
+{
+  "name": "palewire-mastodon-well-known-proxy",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "deploy": "wrangler deploy --strict",
+    "disable-routes": "node scripts/disable-routes.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "types:check": "wrangler types --check",
+    "validate": "npm run types:check && npm run typecheck && wrangler deploy --dry-run"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "typescript": "5.7.3",
+    "vitest": "3.2.7",
+    "wrangler": "4.125.0"
+  }
+}
