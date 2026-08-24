@@ -6,6 +6,7 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for local setup and Heroku commands
 
 ## Setup
 
@@ -20,6 +21,11 @@ make bootstrap
 # Start server
 make serve
 ```
+
+`make bootstrap` checks both commands before it installs anything. For its
+commands, it also adds common user installation paths including
+`$HOME/.local/bin`, Heroku's user client directory, and a detected Homebrew
+bin directory. It does not install either command or authenticate with Heroku.
 
 Open the URL printed by the server. Linked Git worktrees automatically use
 available local ports, so multiple agents can run the site at the same time.
@@ -88,6 +94,12 @@ committing to validate the front matter, public URL inventory, and rendering.
 ## Deployment
 
 The app deploys to Heroku automatically when a pull request merges to `main` **after CI passes**.
+
+The Heroku CLI is available in Copilot cloud-agent sessions through the
+official installer in `.github/workflows/copilot-setup-steps.yml`. Authentication
+is not part of repository setup. For a cloud agent that must run authenticated
+Heroku commands, add `HEROKU_API_KEY` as a GitHub Copilot Agents secret; never
+store it in this repository.
 
 For the database retirement deployment, take a fresh Heroku backup first. Deploy
 the exact merged SHA, then verify `/health/`, the main pages, all post
