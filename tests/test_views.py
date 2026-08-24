@@ -44,7 +44,7 @@ def test_bio_page_footer_links_to_main_commit(client):
 
     content = response.content.decode()
     assert f'href="https://github.com/palewire/palewi.re/commit/{commit}"' in content
-    assert ">0123456</a>" in content
+    assert ">Revision 0123456</a>" in content
 
 
 @pytest.mark.parametrize("page", ["/work/", "/talks/", "/posts/", "/docs/", "/bots/"])

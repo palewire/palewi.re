@@ -29,7 +29,7 @@ def _main_commit() -> str | None:
     if commit is None:
         try:
             commit = subprocess.run(
-                ["git", "rev-parse", "main"],
+                ["git", "rev-parse", "origin/main"],
                 cwd=REPOSITORY_ROOT,
                 check=True,
                 capture_output=True,

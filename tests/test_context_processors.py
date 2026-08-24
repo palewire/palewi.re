@@ -23,7 +23,7 @@ def test_repository_uses_heroku_commit():
 
 def test_repository_uses_local_main_commit():
     completed = subprocess.CompletedProcess(
-        args=["git", "rev-parse", "main"],
+        args=["git", "rev-parse", "origin/main"],
         returncode=0,
         stdout="abcdef1234567890\n",
     )
