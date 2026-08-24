@@ -51,6 +51,7 @@ import datetime
 import random
 import re
 from dataclasses import dataclass
+from functools import cached_property
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -124,6 +125,22 @@ class MarkdownPost:
     body_markup: str
     repr_image: str = ""
     wordpress_id: int | None = None
+
+    def __str__(self) -> str:
+        """Return the title used by the existing post list template."""
+        return self.title
+
+    @property
+    def pub_date(self) -> datetime.datetime:
+        """Expose the legacy template and sitemap publication field."""
+        return self.published_at
+
+    @cached_property
+    def body_html(self) -> str:
+        """Apply the existing legacy code-block renderer to stored raw HTML."""
+        from coltrane.utils.pygmenter import pygmenter
+
+        return pygmenter(self.body_markup)
 
     def get_absolute_url(self) -> str:
         """Return the legacy publication-date permalink."""

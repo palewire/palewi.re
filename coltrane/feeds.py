@@ -1,6 +1,6 @@
 from django.contrib.syndication.views import Feed
 
-from coltrane.models import Post
+from coltrane.content_loaders import load_posts
 
 
 class LatestPostsFeed(Feed):
@@ -9,7 +9,7 @@ class LatestPostsFeed(Feed):
     description = "the latest"
 
     def items(self):
-        return Post.live.all().order_by("-pub_date")[:10]
+        return load_posts()[:10]
 
     def item_title(self, item):
         return item.title
