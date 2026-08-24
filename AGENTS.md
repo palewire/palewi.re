@@ -11,6 +11,10 @@ Run the development server with `make serve`. It first builds the expanded
 stylesheet and its source map. Linked worktrees automatically receive an
 available local port.
 
+When adding or changing a URL in `coltrane/content/clips.yaml`, load the
+`archive-clips` skill and run `make archive-clips`. Every clip must retain the
+resulting `archive_url` or a specific `archive_exemption`.
+
 ## Before finishing
 
 Run `make check`. This is the same set of lint, type, Django, and test checks
@@ -77,9 +81,15 @@ clips:
     type: story              # app | lesson-plan | story | software
     date: "2024-06-15"       # YYYY-MM-DD
     url: "https://..."       # must be unique across all clips
+    archive_url: "https://web.archive.org/web/..." # Wayback snapshot
 ```
 
 Ordered by descending date.
+
+Run `make archive-clips` after adding or changing a URL. The command reuses an
+existing snapshot when possible and otherwise uses `SAVEPAGENOW_ACCESS_KEY`
+and `SAVEPAGENOW_SECRET_KEY` to create one. Use `archive_exemption` instead of
+`archive_url` only when Wayback cannot capture the page.
 
 ### talks.yaml
 

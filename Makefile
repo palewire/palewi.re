@@ -11,7 +11,7 @@ WORKER_CANARY_NAME := palewire-mastodon-well-known-proxy-canary
 WORKER_ROUTES := --route palewi.re/.well-known/webfinger* --route palewi.re/.well-known/host-meta* --route palewi.re/.well-known/nodeinfo*
 WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/.well-known/cloudflare-worker-canary
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt archive-clips check-clip-archives worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete
 
 help:
 	@echo "Available targets:"
@@ -30,6 +30,8 @@ help:
 	@echo "  lint       Run Ruff linter and format check"
 	@echo "  typecheck  Run ty static type analysis"
 	@echo "  fmt        Auto-format with Ruff"
+	@echo "  archive-clips  Archive clip URLs missing Wayback metadata"
+	@echo "  check-clip-archives  Confirm every clip has Wayback metadata"
 	@echo "  worker-test  Install locked Worker dependencies and run Worker tests"
 	@echo "  worker-validate  Type-check and dry-run the Worker without deploying"
 	@echo "  worker-canary-deploy  Deploy a route-free Worker canary after explicit confirmation"
@@ -98,6 +100,12 @@ django-check:
 fmt:
 	@"$$(command -v uv)" run ruff check --fix .
 	@"$$(command -v uv)" run ruff format .
+
+archive-clips:
+	@"$$(command -v uv)" run python -m scripts.archive_clips archive
+
+check-clip-archives:
+	@"$$(command -v uv)" run python -m scripts.archive_clips check
 
 worker-test:
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund

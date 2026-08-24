@@ -128,6 +128,49 @@ def test_clip_accepts_yaml_date_values(tmp_path):
     assert load_clips(p)[0].date == datetime.date(2024, 1, 1)
 
 
+def test_clip_accepts_wayback_metadata(tmp_path):
+    p = tmp_path / "clips.yaml"
+    p.write_text(
+        "clips:\n"
+        "  - title: T\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/story\n"
+        "    archive_url: https://web.archive.org/web/20240101000000/https://example.com/story\n"
+    )
+
+    clip = load_clips(p)[0]
+
+    assert clip.archive_url.startswith("https://web.archive.org/")
+    assert clip.archive_exemption == ""
+
+
+def test_clip_rejects_invalid_or_conflicting_archive_metadata(tmp_path):
+    p = tmp_path / "clips.yaml"
+    p.write_text(
+        "clips:\n"
+        "  - title: T\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/story\n"
+        "    archive_url: https://example.com/not-wayback\n"
+    )
+    with pytest.raises(ContentError, match="archive_url"):
+        load_clips(p)
+
+    p.write_text(
+        "clips:\n"
+        "  - title: T\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/story\n"
+        "    archive_url: https://web.archive.org/web/20240101000000/https://example.com/story\n"
+        "    archive_exemption: Publisher blocks archiving\n"
+    )
+    with pytest.raises(ContentError, match="cannot have both"):
+        load_clips(p)
+
+
 def test_clips_empty_list_ok(tmp_path):
     p = tmp_path / "clips.yaml"
     p.write_text("clips: []\n")
