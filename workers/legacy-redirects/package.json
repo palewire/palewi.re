@@ -15,7 +15,7 @@
     "validate": "npm run typecheck && npm run config:check && npm run startup:check"
   },
   "dependencies": {
-    "yaml": "2.8.2"
+    "yaml": "2.9.0"
   },
   "devDependencies": {
     "@types/node": "22.15.3",
