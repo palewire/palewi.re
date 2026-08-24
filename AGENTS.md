@@ -106,9 +106,12 @@ docs:
     type: software           # lesson-plan | software
     url: "https://..."       # must be unique across all docs
     description: "..."       # optional
+    repository_url: "https://..." # optional canonical source repository; unique if set
 ```
 
-Ordered by type, then alphabetically by title.
+`repository_url` must be an HTTP(S) URL. Omit it or use an empty value when a
+canonical repository cannot be verified. It is catalog metadata and is not
+rendered on `/docs/`. Docs are ordered by type, then alphabetically by title.
 
 ### bio_skills.yaml
 
