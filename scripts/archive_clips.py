@@ -124,7 +124,7 @@ def pending_records(document: dict[str, Any]) -> list[dict[str, Any]]:
     ]
 
 
-def archive_record(record: dict[str, Any], *, retry_delay: float) -> str:
+def archive_record(record: dict[str, Any], *, retry_delay: float, skip_missing: bool = False) -> str:
     """Archive one clip and return a short outcome label."""
     url = record["url"]
     if url.startswith(("https://web.archive.org/", "http://web.archive.org/")):
@@ -135,6 +135,9 @@ def archive_record(record: dict[str, Any], *, retry_delay: float) -> str:
     if existing_snapshot:
         record["archive_url"] = normalize_snapshot_url(existing_snapshot)
         return "found existing snapshot"
+
+    if skip_missing:
+        return "skipped (no existing snapshot)"
 
     try:
         record["archive_url"] = capture_with_retries(url, retry_delay=retry_delay)
@@ -154,7 +157,12 @@ def cli() -> None:
 @click.option("--limit", type=click.IntRange(min=1), help="Process at most this many pending clips.")
 @click.option("--delay", type=click.FloatRange(min=0), default=2.0, show_default=True)
 @click.option("--retry-delay", type=click.FloatRange(min=0), default=10.0, show_default=True)
-def archive(path: Path, limit: int | None, delay: float, retry_delay: float) -> None:
+@click.option(
+    "--skip-missing",
+    is_flag=True,
+    help="Skip clips without existing Wayback snapshots instead of creating new captures.",
+)
+def archive(path: Path, limit: int | None, delay: float, retry_delay: float, skip_missing: bool) -> None:
     """Archive clips missing Wayback metadata, saving after every result."""
     try:
         document = load_document(path)
@@ -165,14 +173,23 @@ def archive(path: Path, limit: int | None, delay: float, retry_delay: float) -> 
             click.echo("All clip URLs have archive metadata.")
             return
 
+        skipped_count = 0
         for index, record in enumerate(records, start=1):
             title = record.get("title", record["url"])
             click.echo(f"[{index}/{len(records)}] {title}")
-            outcome = archive_record(record, retry_delay=retry_delay)
+            outcome = archive_record(record, retry_delay=retry_delay, skip_missing=skip_missing)
             write_document(path, document)
             click.echo(f"  {outcome}")
+            if outcome == "skipped (no existing snapshot)":
+                skipped_count += 1
             if index < len(records):
                 time.sleep(delay)
+
+        if skip_missing and skipped_count > 0:
+            click.echo(
+                f"\nSkipped {skipped_count} clips without existing snapshots "
+                "(requires credentials to create new captures)."
+            )
     except (ArchiveError, WaybackRuntimeError, requests.RequestException) as error:
         raise click.ClickException(str(error)) from error
 
