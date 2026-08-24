@@ -367,16 +367,16 @@ version controls after a verified canary.
 
 `project/redirects.yaml` is the readable, validated source of truth for legacy
 redirects. It currently has 22 exact paths and 8 dynamic patterns; this is the
-full current Django inventory (the issue's earlier 21/7 count was stale).
-`project/redirect_manifest.py` validates the file before Django loads its
-fallback URL patterns. `workers/legacy-redirects/` reads that same file as a
-bundled text module and has no `fetch()` call. Its small explicit
+full retired Django inventory (the issue's earlier 21/7 count was stale).
+`project/redirect_manifest.py` is pure Python validation and route-plan tooling
+used by the Worker tests, deployment commands, and production verifier.
+`workers/legacy-redirects/` reads that same file as a bundled text module and
+has no `fetch()` call. Its small explicit
 `WorkerEnvironment` interface covers the only optional canary binding, avoiding
 a second generated 15,000-line Workerd declaration while preserving strict
 TypeScript and Wrangler dry-run validation. A matching request receives a
 302, its manifest destination, and
-`X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped just
-as Django's `RedirectView` drops them.
+`X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped.
 
 The generated plan has 37 explicit `palewi.re` routes for the 30 manifest
 entries. Every pattern has one terminal wildcard, which Cloudflare requires;
@@ -388,11 +388,11 @@ instead of proxying to Heroku. This Worker does not fetch a same-zone origin, so
 `global_fetch_strictly_public` is neither needed nor enabled. Its tests assert
 that redirect matches never create a subrequest.
 
-Smoke coverage for the Worker is deliberately deferred until Stage 2. Before
-the Worker is deployed, the production smoke workflow must continue to pass
-against Django's fallback redirects. Stage 1 uses the explicit verifier below;
-Stage 2 may add the same checks to the smoke workflow only after the routes are
-attached and verified.
+The production smoke workflow runs the same verifier after every successful
+Heroku deployment. It checks every exact rule, two representative cases for
+each dynamic rule, the exact `Location`, the Worker marker, and adjacent
+non-legacy paths. It uses a 20-second curl timeout and waits 15 seconds between
+up to four marker checks for route propagation.
 
 Use a dedicated Cloudflare token for deployment, restricted to the owning
 account and `palewi.re` zone. It needs only **Account > Workers Scripts >
@@ -430,19 +430,32 @@ WORKER_MARKER_ATTEMPTS=4 WORKER_MARKER_WAIT_SECONDS=15 make legacy-worker-verify
 
 Every mutating command requires its named confirmation variable. The verifier
 waits for the marker during route propagation but fails immediately on a bad
-status or Location. Django stays active throughout this PR, so an edge rollback
-is simply:
+status or Location.
+
+Before this Stage 2 deployment, record the latest fallback-capable Heroku
+release with `heroku releases --app palewire`. Once this version is deployed,
+Django deliberately returns `404` for every legacy redirect path. **Never
+detach or delete the Worker first:** that produces public `404`s.
+
+For an emergency rollback, use this order:
 
 ```bash
+# 1. Restore the exact release recorded before Stage 2.
+heroku rollback vN --app palewire
+
+# 2. Confirm its direct-origin Django redirects before changing Cloudflare.
+FALLBACK_ORIGIN="https://palewire.herokuapp.com"
+BASE_URL="$FALLBACK_ORIGIN" REQUIRE_WORKER_MARKER=false \
+  scripts/verify-legacy-redirects.sh
+
+# 3. Only then detach the Worker routes and verify public redirects.
 CONFIRM_LEGACY_WORKER_DETACH_ROUTES=1 make legacy-worker-detach-routes
+REQUIRE_WORKER_MARKER=false make legacy-worker-verify-production
 ```
 
-That deletion removes the Worker and its routes, exposing Django's fallback.
-Do not perform Stage 2 (remove `project/redirects.py` and its URL wiring) until
-the Stage 1 verifier and a normal production smoke cycle pass. Before Stage 2,
-record the fallback-capable Heroku release with `heroku releases --app
-palewire`. If a Stage 2 rollback is needed, restore that Heroku release first,
-then detach the Worker routes and verify the Django redirects.
+Keep the canary-first update process above for any future Worker update. A
+normal Worker code rollback without route changes uses Cloudflare version
+controls only after a verified canary.
 
 For the database retirement deployment, take a fresh Heroku backup first. Deploy
 the exact merged SHA, then verify `/health/`, the main pages, all post
