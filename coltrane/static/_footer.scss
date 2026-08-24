@@ -9,8 +9,9 @@
     display: flex;
     justify-content: space-between;
   }
-  .footer-commit {
+  .footer-revision {
     margin-left: auto;
+    white-space: nowrap;
   }
   @media (max-width: 550px) {
     font-size: 0.65em;
