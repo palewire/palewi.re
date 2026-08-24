@@ -8,6 +8,7 @@ DEFAULT_DATABASE_NAME = "palewire"
 DEFAULT_PORT = 8000
 PORT_RANGE = 1000
 POSTGRES_IDENTIFIER_LIMIT = 63
+TEST_DATABASE_PREFIX = "test_"
 
 
 def is_linked_worktree(root: Path) -> bool:
@@ -23,6 +24,25 @@ def database_name(root: Path) -> str:
     suffix = f"_{digest}"
     available = POSTGRES_IDENTIFIER_LIMIT - len(DEFAULT_DATABASE_NAME) - len(suffix) - 1
     return f"{DEFAULT_DATABASE_NAME}_{slug[:available]}{suffix}"
+
+
+def django_test_database_name(base_name: str | None) -> str:
+    """Return a safe PostgreSQL name for Django's test database.
+
+    The name is ``test_<base name>`` when it fits PostgreSQL's 63-character
+    limit. Longer names are shortened and end with a deterministic hash so
+    similarly named worktrees remain isolated.
+    """
+    raw_name = base_name or ""
+    safe_base_name = re.sub(r"[^a-z0-9]+", "_", raw_name.lower()).strip("_") or "database"
+    candidate = f"{TEST_DATABASE_PREFIX}{safe_base_name}"
+    if len(candidate) <= POSTGRES_IDENTIFIER_LIMIT:
+        return candidate
+
+    digest = hashlib.sha256(raw_name.encode()).hexdigest()[:8]
+    suffix = f"_{digest}"
+    available = POSTGRES_IDENTIFIER_LIMIT - len(TEST_DATABASE_PREFIX) - len(suffix)
+    return f"{TEST_DATABASE_PREFIX}{safe_base_name[:available]}{suffix}"
 
 
 def default_database_url(root: Path) -> str:
