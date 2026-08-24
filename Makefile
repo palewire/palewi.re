@@ -6,7 +6,9 @@ HOMEBREW_BIN := $(shell for path in /opt/homebrew/bin /usr/local/bin; do test -x
 WRANGLER_VERSION := 4.125.0
 export PATH := $(HOME)/.local/bin:$(HOME)/.local/share/heroku/client/bin:$(HOME)/.npm-global/bin:$(HOME)/.volta/bin:$(HOME)/.asdf/shims:$(HOME)/.fnm/current/bin:$(HOMEBREW_BIN):$(PATH)
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt
+WORKER_DIR := workers/mastodon-well-known-proxy
+
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt worker-test worker-validate worker-deploy worker-verify-production worker-rollback
 
 help:
 	@echo "Available targets:"
@@ -25,6 +27,11 @@ help:
 	@echo "  lint       Run Ruff linter and format check"
 	@echo "  typecheck  Run ty static type analysis"
 	@echo "  fmt        Auto-format with Ruff"
+	@echo "  worker-test  Install locked Worker dependencies and run Worker tests"
+	@echo "  worker-validate  Type-check and dry-run the Worker without deploying"
+	@echo "  worker-deploy  Deploy the Worker after explicit confirmation"
+	@echo "  worker-verify-production  Confirm production served the Worker marker"
+	@echo "  worker-rollback  Roll back the Worker after explicit confirmation"
 
 install:
 	@"$$(command -v uv)" sync --locked --group dev
@@ -80,3 +87,30 @@ django-check:
 fmt:
 	@"$$(command -v uv)" run ruff check --fix .
 	@"$$(command -v uv)" run ruff format .
+
+worker-test:
+	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	npm --prefix "$(WORKER_DIR)" run test
+
+worker-validate:
+	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	npm --prefix "$(WORKER_DIR)" run validate
+
+worker-deploy:
+	@test "$$CONFIRM_WORKER_DEPLOY" = "1" || { echo "Set CONFIRM_WORKER_DEPLOY=1 after running make worker-validate." >&2; exit 1; }
+	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	npm --prefix "$(WORKER_DIR)" run deploy
+
+worker-verify-production:
+	@url="$${BASE_URL:-https://palewi.re}/.well-known/webfinger?resource=acct%3Apalewire%40palewi.re"; \
+	response="$$(curl --silent --show-error --max-time 20 --dump-header - --output /dev/null --write-out '\n%{http_code}' "$$url)" || { echo "Production verification request failed." >&2; exit 1; }; \
+	status="$$(printf '%s\n' "$$response" | tail -1)"; \
+	headers="$$(printf '%s\n' "$$response" | sed '$$d')"; \
+	test "$$status" = "200" || { printf '%s\n' "$$headers"; echo "Expected HTTP 200, received $$status." >&2; exit 1; }; \
+	printf '%s\n' "$$headers"; \
+	printf '%s\n' "$$headers" | tr -d '\r' | grep -qi '^x-palewire-discovery-proxy: cloudflare-worker-v1$$' || { echo "Worker response marker was not found." >&2; exit 1; }
+
+worker-rollback:
+	@test "$$CONFIRM_WORKER_ROLLBACK" = "1" || { echo "Set CONFIRM_WORKER_ROLLBACK=1 to remove the three Worker routes." >&2; exit 1; }
+	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	CONFIRM_WORKER_ROLLBACK="$$CONFIRM_WORKER_ROLLBACK" npm --prefix "$(WORKER_DIR)" run disable-routes

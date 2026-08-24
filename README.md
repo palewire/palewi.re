@@ -8,7 +8,7 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 - [uv](https://docs.astral.sh/uv/) for package management
 - Node.js 24 for the pinned Dart Sass compiler
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for local setup and Heroku commands
-- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks
+- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks and the isolated Mastodon discovery Worker
 
 ## Setup
 
@@ -156,7 +156,69 @@ the token as your Cloudflare account allows. `wrangler whoami` does not need
 
 The cloud-agent setup installs the pinned Wrangler version on each fresh
 runner. Local setup only finds an existing CLI. This repository does not
-configure or deploy Cloudflare DNS, zones, Pages, or Workers.
+configure or deploy Cloudflare DNS, zones, Pages, or Workers until a maintainer
+explicitly runs a deployment target.
+
+### Mastodon discovery Worker
+
+`workers/mastodon-well-known-proxy/` is an isolated, locked Node project for a
+Cloudflare Worker. Its only routes are:
+
+- `palewi.re/.well-known/webfinger`
+- `palewi.re/.well-known/host-meta`
+- `palewi.re/.well-known/nodeinfo`
+
+All other traffic continues to the existing Heroku origin. The Worker accepts
+only `GET` and `HEAD`, validates WebFinger resources for the `palewi.re`
+domain, and proxies only to `https://mastodon.palewi.re` at the same approved
+path. It does not follow upstream redirects. It uses a five-second upstream
+timeout and a 1 MiB response limit, preserving safe caching and representation
+headers. Responses include `X-Palewire-Discovery-Proxy: cloudflare-worker-v1`.
+The Django routes and `django-proxy` dependency remain in place as the stage 1
+fallback until the separate retirement PR.
+
+Cloudflare route matching includes query strings, so each configured pattern
+ends in `*` to serve WebFinger requests with `?resource=...`. The Worker still
+accepts only the three exact paths and returns `404` for a suffix such as
+`webfinger-extra`; the wildcard cannot reach the upstream unless that path
+check succeeds.
+
+Run the isolated checks without contacting or changing Cloudflare:
+
+```bash
+make worker-test
+make worker-validate
+```
+
+To deploy, first create an API token limited to the Cloudflare account and
+`palewi.re` zone that own these routes. It needs **Account > Workers Scripts >
+Edit** for that account, plus **Zone > Workers Routes > Edit** and **Zone >
+Zone > Read** for only the `palewi.re` zone. Save it as the
+`CLOUDFLARE_API_TOKEN` Copilot Agents secret and save the owning account ID as
+the `CLOUDFLARE_ACCOUNT_ID` secret. This deploy token is separate from the
+read-only `whoami` token above; never reuse a broader token. The account must
+already own the proxied `palewi.re` zone.
+
+```bash
+make worker-validate
+CONFIRM_WORKER_DEPLOY=1 make worker-deploy
+make worker-verify-production
+```
+
+`make worker-verify-production` checks the marker on a production WebFinger
+request, proving Cloudflare served the Worker rather than Django. To return
+these requests to Django, use:
+
+```bash
+CONFIRM_WORKER_ROLLBACK=1 make worker-rollback
+```
+
+This rollback proceeds only when all routes attached to this Worker are the
+three configured routes. It removes them, then confirms the Worker has no
+remaining route in the zone, so traffic immediately returns to the retained
+Django fallback. It leaves the Worker script and every unrelated route
+untouched. Wrangler version rollback is not used here because it changes Worker
+code but does not detach routes.
 
 For the database retirement deployment, take a fresh Heroku backup first. Deploy
 the exact merged SHA, then verify `/health/`, the main pages, all post

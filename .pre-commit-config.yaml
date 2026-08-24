@@ -5,6 +5,7 @@ repos:
     rev: v5.0.0
     hooks:
       - id: trailing-whitespace
+        exclude: ^workers/mastodon-well-known-proxy/worker-configuration\.d\.ts$
       - id: fix-byte-order-marker
       - id: check-case-conflict
       - id: mixed-line-ending

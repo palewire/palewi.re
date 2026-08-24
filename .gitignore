@@ -27,6 +27,8 @@ htmlcov/
 # Env
 .env
 .dev.vars
+.wrangler/
+node_modules/
 
 # Local agent state
 .goals/
