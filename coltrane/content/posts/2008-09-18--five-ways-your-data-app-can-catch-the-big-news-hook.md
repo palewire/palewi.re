@@ -1,0 +1,71 @@
+---
+title: Five ways your data app can catch the big news hook
+slug: five-ways-your-data-app-can-catch-the-big-news-hook
+published_at: '2008-09-18T08:15:53-07:00'
+wordpress_id: 147
+---
+<h2>01. Practice news-driven development</h2>
+
+
+
+<p>Most data-driven news applications I've encountered follow what I would call The Chicago Crime model, a name lifted from <a href="http://en.wikipedia.org/wiki/Adrian_Holovaty">Adrian Holovaty</a>'s famous site. Steady streams of government-provided data are repurposed into a flexible interface that allows users to compare disparate sources (<a href="http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)">"the mashup"</a>) and easily localize the information so it can provide particulars to a wide body of users (<a href="http://en.wikipedia.org/wiki/The_Long_Tail">"the long tail"</a>).</p>
+
+
+
+<p>It's a brilliant model, the app that launched a 1,000 ships. But it's not the only way to get things done.</p>
+
+
+
+<p>In news terms, where minutes matter, it can still require a relatively long time to do. Especially when it comes to data acquisition. Let's face it, if you're using government data as your starting point, the idea of an <a href="http://en.wikipedia.org/wiki/SOAP">SOAPy API</a> is laughable. So don't get your hopes up. Goofing around with <a href="http://delicious.com/help/api">delicious tags</a> or <a href="http://www.flickr.com/services/api/">Flickr photos</a> is fun, but if you want to do something original from the public sector, they're only going to get you so far. You're going to be <a href="http://en.wikipedia.org/wiki/Freedom_of_Information_Act_(United_States)">FOIA'ing</a>, or, if you're lucky, <a href="http://en.wikipedia.org/wiki/Web_scraping">scraping</a>. And then you're going to be cleaning. Especially if you're invested in serving accurate and consistant information. Because if there's a government database out there that's ready to serve, I've yet to see it.<p>
+
+
+
+<p>And there's usually not much of a news hook. Look, I appreciate Everyblock and Chicago Crime and that whole style. Hell, I've essentially remodeled my career to emulate them. But when you get down to it, they're essentially built around the idea that umpteen little news hooks ("Someone was robbed in my neighborhood," "A liquor store wants to open up on your block.") will add up to something greater than the sum of their parts. That <a href="http://en.wikipedia.org/wiki/Local_news">"hyperlocal"</a> or  "long tail" philosophy, to use the parlance of our time, may ultimately be where a lot of us end up, but blockbuster news is still happening and there's no reason all the same tools that made the Chicago Crime successful can't be used to cover the hell out of a big story when it breaks.</p>
+
+
+
+<p>I had just such an opportunity last Friday at the L.A. Times. Late in the afternoon, news broke that a commuter train had crashed in the Valley, potentially killing many riders on board. We didn't know how many fatalities to expect, nor how long it would take for their identities released. But we knew that our audience was going to want to know, and as soon as possible. The typical newspaper.com way to handle this sort of thing is to publish a simple list, or "blob of text", when it's available. And then follow up later with a scattershot of obituaries, usually released as they appear in the paper. But, when you think about it in terms of the <a href="http://www.holovaty.com/blog/archive/2006/09/06/0307/">Holovaty manifesto</a> and the general concept of the Internet, there's really no reason that information couldn't be better collected and presented as a browsable database application. It's a lesson the LA Times learned earlier this year when <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=1&amp;url=http%3A%2F%2Fprojects.latimes.com%2Fwardead%2F&amp;ei=IWLSSMDgNImIsAPTs5HhBw&amp;usg=AFQjCNFmPX42hJtdAzy-E_MApizlUKuCfQ&amp;sig2=9pSonD-GzR_CrPweqiGY9w">our ripoff</a> of Adrian's <a href="http://projects.washingtonpost.com/fallen/">Faces of the Fallen</a> concept reinvigorated the way the paper covers military casualties.</p>
+
+
+
+<p>It meant staying late at work on a Friday night, busting ass most of my weekend, and putting more faith in <a href="http://en.wikipedia.org/wiki/Memcached">memcached</a> than most IT people are comfortable with, but the result was that when the government finally did cough up the fatality list we were ready to immediately publish it as a linked database that, over time, has been filled in by further reporting to include greater detail, photos, and more than 1,600 user comments, many of them extremely moving. It's a long way from perfect, but it provided some amount of public service, was way ahead of the competition and generated a pretty goodly amount of traffic along the way. The site is called <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=9&amp;url=http%3A%2F%2Fprojects.latimes.com%2Fmetrolink-crash%2F&amp;ei=QWPSSPmUG5KmtQPi8sDfBw&amp;usg=AFQjCNGq8xaTWFwZuvgW0kHDf-teJBKJQg&amp;sig2=MeFRlF1YPn5r94yYRQcEBw">Chatsworth Metrolink Crash</a>.</p>
+
+
+
+<p>That's all my long way of saying that I think big events matter and that database journalists shouldn't be afraid to dive in when they happen. Whether it's posting the location of hurricane shelters, letting people know who the hell all those superdelegates are, or connecting survivors following a disaster, there are plenty of obvious opportunities to do our thing. But it's not going to happen if we don't see taking on big news as an opportunity, anticipate things like the next hot Google search term, or have the capability to deploy very very quickly.</p>
+
+
+
+<p>I'm a long way from an authority on the whole deal, but I'm stumbling my way through it. And here are a couple things I've learned along the way.</p>
+
+
+
+<h2>02. Let last year's data be your guide.</h2>
+
+
+
+<p>Earlier this month, we released <a href="http://projects.latimes.com/schools/">California Schools Guide</a>, a collection of data about public and private schools across the state, at the very moment the government lifted its embargo on this year's scores. I didn't have the newsworthy data in hand until less than 24 hours before it would be publicly released. But by developing the site in advance using the previous year's data as dummy entries, I was able to pre-script the loading of the 2008 data after only a few minor changes to the code. This meant that we were able to get our product out when the news hook dropped, at the same time as the paper was otherwise promoting <a href="http://www.latimes.com/news/local/la-me-scores5-2008sep05,0,2098428,full.story">an investigative story on the topic</a> and the state's propaganda arms were blasting its own message ("Things are getting better! Trust us!").</p>
+
+
+
+<h2>03. Don't Repeat Yourself, unless it saves you time.</h2>
+
+
+
+<p>Let me be clear. The <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a> goal of elegence through efficiency is laudable. And, as a guiding principle for development, you probably can't get any better. It is the single point of truth. It's like <a href="http://en.wikipedia.org/wiki/Natural_selection">natural selection</a>, except for awesomeness. But when you're on a tight deadline, and you've already got a code implementation that works, sometimes you JDFWI, Just Don't Fuck With It. Yeah, so maybe you just copied and pasted and introduced a little redundancy. And maybe your css is just a hodgepodge of div's repurposed from other apps. But it works, right? And what's more important, trimming down your code base, or getting the news out ahead of your competition?</p>
+
+
+
+<h2>04. Use Django's admin to your advantage.</h2>
+
+
+
+<p>For anyone who's already doing this stuff, it probably goes without saying, but <a href="http://docs.djangoproject.com/en/dev/ref/contrib/admin/#ref-contrib-admin">Django's admin</a> is really great. As soon as your database models are written, you've instantly got a set of entry forms that are ready to deploy. This is incredibly useful when trying to turn around simple data apps on deadline. For instance, when it came to the Metrolink crash, I was able to get the models and admin up Friday night so that reporters on Metro desk could begin working on entry as I shifted to work on the views and templates.</p>
+
+
+
+<h2>05. Publish now, or perish.</h2>
+
+
+
+<p>You can have the greatest app in the world, but if you can't push it out the web ASAP, you're nowhere. If you're going the Chicago Crime route, this isn't as big of a deal. But if you're trying to hit the big news hook, it's utterly essential. And treating big news like you would anything else on your "product schedule" or "iteration cycle" just isn't going to be good enough. You can call it a <a href="http://en.wikipedia.org/wiki/Waterfall_model">waterfall</a>, you can call it reckless, you can call it news-driven development.</p>

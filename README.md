@@ -63,6 +63,16 @@ Tests require a running PostgreSQL database. Set `DATABASE_URL` or rely on the
 default: `postgres://postgres@localhost/palewire` in a normal clone, or an
 automatically named isolated database in a linked worktree.
 
+## Blog post Markdown
+
+Public posts in `coltrane/content/posts/` are one `.md` file each. Their YAML
+front matter requires `title`, `slug`, and `published_at`; the datetime must
+use the Los Angeles offset. `repr_image` and `wordpress_id` are optional.
+Keep the body as raw HTML, including any `<pre lang="...">` code blocks. Do
+not add drafts or a status field. The filename format is
+`YYYY-MM-DD--slug.md`, and `posts-manifest.json` is the checked-in public
+fingerprint generated during the production export.
+
 ## Deployment
 
 The app deploys to Heroku automatically when a pull request merges to `main` **after CI passes**.
