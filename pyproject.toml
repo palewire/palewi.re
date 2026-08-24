@@ -17,6 +17,7 @@ dependencies = [
     "tzdata>=2025.1",
     "markdown>=3.7",
     "pyyaml>=6.0",
+    "django-compressor>=4.5",
 ]
 
 [dependency-groups]
