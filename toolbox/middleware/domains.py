@@ -5,7 +5,7 @@ from django.http import HttpResponsePermanentRedirect
 
 class DomainRedirectMiddleware:
     """
-    Redirect traffic to all sibling domains to http://palewi.re
+    Redirect traffic to all sibling domains to palewi.re, preserving scheme.
     """
 
     host = "palewi.re"

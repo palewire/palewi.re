@@ -50,7 +50,9 @@ LANGUAGE_CODE = "en-us"
 USE_I18N = True
 
 ALLOWED_HOSTS = (
-    ["palewi.re", "www.palewi.re", ".palewi.re", ".herokuapp.com"]
+    # Include palewire.com and www.palewire.com so that DomainRedirectMiddleware
+    # can handle those requests before returning 400 DisallowedHost.
+    ["palewi.re", "www.palewi.re", ".palewi.re", ".herokuapp.com", "palewire.com", "www.palewire.com"]
     if PRODUCTION
     else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 )

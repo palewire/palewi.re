@@ -79,7 +79,7 @@ patterns = [
     # Redirect old images from legacy site
     re_path(
         r"^images/(?P<file_name>[^/]+)$",
-        RedirectView.as_view(url="http://palewire.s3.amazonaws.com/img/%(file_name)s"),
+        RedirectView.as_view(url="https://palewire.s3.amazonaws.com/img/%(file_name)s"),
     ),
     # Longer apps urls
     re_path(r"^applications/$", RedirectView.as_view(url="/apps/")),

@@ -99,7 +99,7 @@ def test_candysays_redirect_points_to_wayback(client):
 def test_legacy_images_redirect_directly_to_s3(client):
     response = client.get("/images/test.jpg")
     assert response.status_code in (301, 302)
-    assert response["Location"] == "http://palewire.s3.amazonaws.com/img/test.jpg"
+    assert response["Location"] == "https://palewire.s3.amazonaws.com/img/test.jpg"
 
 
 @pytest.mark.django_db
@@ -184,4 +184,28 @@ def test_robots_txt_ok(client):
 @pytest.mark.django_db
 def test_sitemap_index_ok(client):
     response = client.get("/sitemap.xml")
+    assert response.status_code == 200
+
+
+# ---------------------------------------------------------------------------
+# DomainRedirectMiddleware regression tests
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("host", ["palewire.com", "www.palewire.com", "www.palewi.re"])
+def test_domain_redirect_middleware_redirects_sibling_domains(host, settings):
+    """Requests arriving on sibling domains are permanently redirected to palewi.re."""
+    settings.ALLOWED_HOSTS = [host]
+    client = Client(SERVER_NAME=host)
+    response = client.get("/who-is-ben-welsh/")
+    assert response.status_code == 301
+    location = response["Location"]
+    assert "palewi.re" in location
+    assert host not in location
+
+
+@pytest.mark.django_db
+def test_canonical_host_is_not_redirected(client):
+    """Requests arriving on palewi.re itself are served normally."""
+    response = client.get("/who-is-ben-welsh/")
     assert response.status_code == 200
