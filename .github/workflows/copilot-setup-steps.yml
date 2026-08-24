@@ -29,6 +29,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Heroku CLI
+        run: |
+          curl --proto '=https' --tlsv1.2 --fail --silent --show-error --location https://cli-assets.heroku.com/install.sh | bash
+          heroku version
+
       - name: Configure development environment
         run: |
           echo "SECRET_KEY=copilot-setup-key" >> "$GITHUB_ENV"

@@ -3,7 +3,8 @@
 ## Start here
 
 Run `make bootstrap` once after creating a clone or worktree. It installs locked
-dependencies and installs the pre-commit hooks.
+dependencies and installs the pre-commit hooks. It first confirms that `uv` and
+the Heroku CLI are available; it does not install or authenticate either tool.
 
 Run the development server with `make serve`. Linked worktrees automatically
 receive an available local port.
@@ -27,6 +28,11 @@ secrets, generated files, or `.goals/` agent state.
 
 Use `uv` and `pyproject.toml` for Python dependencies, Ruff for formatting and
 linting, and ty for static analysis.
+
+Copilot cloud agents receive `uv` and the Heroku CLI from
+`.github/workflows/copilot-setup-steps.yml`. Authentication remains
+user-provided. If a cloud agent needs authenticated Heroku access, use a
+`HEROKU_API_KEY` GitHub Copilot Agents secret, never repository data.
 
 ## YAML content types
 

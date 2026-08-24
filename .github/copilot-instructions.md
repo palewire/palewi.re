@@ -32,7 +32,8 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.
-- **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; CI uses `make ci-bootstrap`.
+- **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; it requires `uv` and the Heroku CLI. CI uses `make ci-bootstrap`.
+- **Cloud Heroku access**: setup installs the CLI but does not authenticate. If an agent needs Heroku access, use a `HEROKU_API_KEY` GitHub Copilot Agents secret; never commit credentials or auth files.
 - **Linting**: Ruff with `select = ["E", "F", "W", "I", "UP"]` (UP031 ignored).
 - **Type checking**: `ty check .` — Django dynamic attributes are downgraded to warnings; new code should pass clean.
 - **Tests**: pytest-django in `tests/`. No database service is required.

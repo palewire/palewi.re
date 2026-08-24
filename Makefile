@@ -2,12 +2,16 @@
 
 export UV_NO_ENV_FILE = 1
 
-.PHONY: help bootstrap ci-bootstrap install hooks serve check test lint typecheck django-check fmt
+HOMEBREW_BIN := $(shell for path in /opt/homebrew/bin /usr/local/bin; do test -x "$$path/brew" && { printf '%s' "$$path"; break; }; done)
+export PATH := $(HOME)/.local/bin:$(HOME)/.local/share/heroku/client/bin:$(HOMEBREW_BIN):$(PATH)
+
+.PHONY: help bootstrap ci-bootstrap check-tools install hooks serve check test lint typecheck django-check fmt
 
 help:
 	@echo "Available targets:"
-	@echo "  bootstrap  Prepare dependencies and hooks"
+	@echo "  bootstrap  Check developer tools, then prepare dependencies and hooks"
 	@echo "  ci-bootstrap  Prepare dependencies for CI"
+	@echo "  check-tools  Confirm uv and the Heroku CLI are available"
 	@echo "  install    Install all dependencies without changing Git hooks"
 	@echo "  hooks      Install pre-commit hooks"
 	@echo "  serve      Start the development server"
@@ -23,7 +27,11 @@ install:
 hooks:
 	uv run pre-commit install
 
-bootstrap: install hooks
+check-tools:
+	@command -v uv > /dev/null || { echo "uv is required. Install it from https://docs.astral.sh/uv/getting-started/installation/" >&2; exit 1; }
+	@command -v heroku > /dev/null || { echo "The Heroku CLI is required. Install it from https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli" >&2; exit 1; }
+
+bootstrap: check-tools install hooks
 
 ci-bootstrap: install
 
