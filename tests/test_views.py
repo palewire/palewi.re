@@ -3,11 +3,11 @@
 from unittest.mock import patch
 
 import pytest
-from django.db import DatabaseError
 from django.test import Client
 from django.test.utils import override_settings
 
 from coltrane.views import server_error
+from project.redirects import STATIC_REDIRECTS
 
 
 @pytest.fixture
@@ -15,14 +15,12 @@ def client():
     return Client()
 
 
-@pytest.mark.django_db
 def test_root_redirects_to_bio(client):
     response = client.get("/")
     assert response.status_code in (301, 302)
     assert "/who-is-ben-welsh/" in response["Location"]
 
 
-@pytest.mark.django_db
 def test_bio_page_ok(client):
     response = client.get("/who-is-ben-welsh/")
     assert response.status_code == 200
@@ -32,14 +30,12 @@ def test_bio_page_ok(client):
     assert 'fetchpriority="high"' in content
 
 
-@pytest.mark.django_db
 def test_bio_page_context_includes_fixed_current_site(client):
     response = client.get("/who-is-ben-welsh/")
     assert response.status_code == 200
     assert any(context.get("current_site") == "palewi.re" for context in response.context)
 
 
-@pytest.mark.django_db
 def test_bio_page_footer_links_to_main_commit(client):
     commit = "0123456789abcdef0123456789abcdef01234567"
 
@@ -51,70 +47,42 @@ def test_bio_page_footer_links_to_main_commit(client):
     assert ">0123456</a>" in content
 
 
-@pytest.mark.django_db
-def test_work_list_ok(client):
-    response = client.get("/work/")
-    assert response.status_code == 200
+@pytest.mark.parametrize("page", ["/work/", "/talks/", "/posts/", "/docs/", "/bots/"])
+def test_public_list_pages_are_available_without_database(client, page):
+    assert client.get(page).status_code == 200
 
 
-@pytest.mark.django_db
-def test_talks_list_ok(client):
-    response = client.get("/talks/")
-    assert response.status_code == 200
+@pytest.mark.parametrize("page", ["/scrape/albums/2006.html", "/openlayers-proportional-symbols/"])
+def test_removed_pages_return_not_found(client, page):
+    assert client.get(page).status_code == 404
 
 
-@pytest.mark.django_db
-def test_posts_list_ok(client):
-    response = client.get("/posts/")
-    assert response.status_code == 200
-
-
-@pytest.mark.django_db
-def test_docs_list_ok(client):
-    response = client.get("/docs/")
-    assert response.status_code == 200
-
-
-@pytest.mark.django_db
-def test_bots_list_ok(client):
-    response = client.get("/bots/")
-    assert response.status_code == 200
-
-
-@pytest.mark.django_db
-def test_scrape_album_2006_returns_not_found(client):
-    response = client.get("/scrape/albums/2006.html")
-    assert response.status_code == 404
-
-
-@pytest.mark.django_db
-def test_openlayers_tutorial_returns_not_found(client):
-    response = client.get("/openlayers-proportional-symbols/")
-    assert response.status_code == 404
-
-
-@pytest.mark.django_db
-def test_mack_redirect_still_exists(client):
-    response = client.get("/mack/")
+@pytest.mark.parametrize(("source", "destination"), STATIC_REDIRECTS.items())
+def test_static_legacy_redirects_remain_stable(client, source, destination):
+    response = client.get(f"/{source}?source=test")
     assert response.status_code in (301, 302)
-    assert response["Location"] == "https://web.archive.org/web/20121109101143/http://palewi.re/mack/"
+    assert response["Location"] == destination
 
 
-@pytest.mark.django_db
-def test_candysays_redirect_points_to_wayback(client):
-    response = client.get("/candysays/")
+@pytest.mark.parametrize(
+    ("source", "destination"),
+    [
+        ("/tag/django/", "/who-is-ben-welsh/"),
+        ("/tags/django/", "/who-is-ben-welsh/"),
+        ("/happyhours/old/", "/"),
+        ("/images/test.jpg", "https://palewire.s3.amazonaws.com/img/test.jpg"),
+        ("/applications/legacy/page/", "/apps/legacy/page/"),
+        ("/apps/page/2/", "/apps/"),
+        ("/posts/page/2/", "/posts/"),
+        ("/2009/09/01/test-post/", "/posts/2009/09/01/test-post/"),
+    ],
+)
+def test_dynamic_legacy_redirects_remain_stable(client, source, destination):
+    response = client.get(source)
     assert response.status_code in (301, 302)
-    assert response["Location"] == "https://web.archive.org/web/20160413123742/http://palewi.re/candysays/"
+    assert response["Location"] == destination
 
 
-@pytest.mark.django_db
-def test_legacy_images_redirect_directly_to_s3(client):
-    response = client.get("/images/test.jpg")
-    assert response.status_code in (301, 302)
-    assert response["Location"] == "https://palewire.s3.amazonaws.com/img/test.jpg"
-
-
-@pytest.mark.django_db
 def test_favicon_route_exists(client):
     response = client.get("/favicon.ico")
     assert response.status_code in (200, 301, 302)
@@ -122,7 +90,6 @@ def test_favicon_route_exists(client):
         assert response["Location"].endswith("/static/favicon.ico")
 
 
-@pytest.mark.django_db
 @override_settings(DEBUG=False)
 def test_not_found_page_uses_simplified_message(client):
     response = client.get("/this-page-does-not-exist/")
@@ -135,7 +102,6 @@ def test_not_found_page_uses_simplified_message(client):
     assert "This page could not be found." in content
 
 
-@pytest.mark.django_db
 @pytest.mark.parametrize(
     "path",
     [
@@ -154,8 +120,7 @@ def test_not_found_page_uses_simplified_message(client):
     ],
 )
 def test_retired_legacy_pages_return_not_found(client, path):
-    response = client.get(path)
-    assert response.status_code == 404
+    assert client.get(path).status_code == 404
 
 
 @override_settings(DEBUG=False)
@@ -170,38 +135,20 @@ def test_server_error_page_uses_simplified_message(rf):
     assert "Something went wrong. Please try again later." in content
 
 
-@pytest.mark.django_db
 def test_health_check_ok(client):
     response = client.get("/health/")
     assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "ok"
-    assert data["db"] is True
+    assert response.json() == {"status": "ok"}
 
 
-def test_health_check_reports_database_failure(client):
-    with patch("toolbox.views.connection.ensure_connection", side_effect=DatabaseError):
-        response = client.get("/health/")
-
-    assert response.status_code == 503
-    assert response.json() == {"status": "error", "db": False}
-
-
-@pytest.mark.django_db
 def test_robots_txt_ok(client):
     response = client.get("/robots.txt")
     assert response.status_code == 200
+    assert "admin" not in response.content.decode()
 
 
-@pytest.mark.django_db
 def test_sitemap_index_ok(client):
-    response = client.get("/sitemap.xml")
-    assert response.status_code == 200
-
-
-# ---------------------------------------------------------------------------
-# DomainRedirectMiddleware regression tests
-# ---------------------------------------------------------------------------
+    assert client.get("/sitemap.xml").status_code == 200
 
 
 @pytest.mark.parametrize("host", ["palewire.com", "www.palewire.com", "www.palewi.re"])
@@ -216,8 +163,6 @@ def test_domain_redirect_middleware_redirects_sibling_domains(host, settings):
     assert host not in location
 
 
-@pytest.mark.django_db
 def test_canonical_host_is_not_redirected(client):
     """Requests arriving on palewi.re itself are served normally."""
-    response = client.get("/who-is-ben-welsh/")
-    assert response.status_code == 200
+    assert client.get("/who-is-ben-welsh/").status_code == 200

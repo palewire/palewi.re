@@ -35,7 +35,6 @@ def test_styles_css_in_manifest() -> None:
     )
 
 
-@pytest.mark.django_db
 @pytest.mark.skipif(not _MANIFEST_BUILT, reason="collected_static not yet built")
 def test_bio_page_renders_with_manifest_storage() -> None:
     """Bio page must not raise a ManifestStaticFilesStorage lookup error.

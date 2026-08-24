@@ -21,20 +21,6 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: read
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_DB: palewire
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
@@ -45,7 +31,6 @@ jobs:
 
       - name: Configure development environment
         run: |
-          echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/palewire" >> "$GITHUB_ENV"
           echo "SECRET_KEY=copilot-setup-key" >> "$GITHUB_ENV"
           echo "UV_NO_ENV_FILE=1" >> "$GITHUB_ENV"
 

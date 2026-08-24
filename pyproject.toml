@@ -5,13 +5,11 @@ description = "palewi.re — Ben Welsh's personal site"
 requires-python = ">=3.12"
 dependencies = [
     "Django~=5.2",
-    "dj-database-url>=2.3",
     "django-sass-processor>=1.4",
     "django-proxy>=1.2",
     "libsass>=0.23",
     "gunicorn>=23.0",
     "whitenoise[brotli]>=6.9",
-    "psycopg[binary]>=3.2",
     "beautifulsoup4>=4.13",
     "Pygments>=2.19",
     "tzdata>=2025.1",

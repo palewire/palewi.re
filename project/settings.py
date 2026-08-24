@@ -1,10 +1,5 @@
 # Django settings for palewi.re
 import os
-from pathlib import Path
-
-import dj_database_url
-
-from project.worktree import default_database_url, django_test_database_name
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_DIR = os.path.join(BASE_DIR, "project")
@@ -56,20 +51,6 @@ ALLOWED_HOSTS = (
     if PRODUCTION
     else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 )
-SESSION_COOKIE_DOMAIN = os.environ.get("SESSION_COOKIE_DOMAIN") or None
-CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "CSRF_TRUSTED_ORIGINS",
-    "https://palewi.re,https://*.palewi.re",
-).split(",")
-
-DATABASES = {
-    "default": dj_database_url.config(
-        default=default_database_url(Path(BASE_DIR)),
-        conn_max_age=500,
-        ssl_require=PRODUCTION,
-    )
-}
-DATABASES["default"]["TEST"] = {"NAME": django_test_database_name(DATABASES["default"]["NAME"])}
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -79,10 +60,6 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "toolbox.middleware.domains.DomainRedirectMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -95,12 +72,7 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.template.context_processors.i18n",
                 "django.template.context_processors.static",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
                 "toolbox.context_processors.current_site",
                 "toolbox.context_processors.now",
                 "toolbox.context_processors.repository",
@@ -112,11 +84,6 @@ TEMPLATES = [
 
 
 INSTALLED_APPS = [
-    "django.contrib.messages",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.admin",
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     # Blog
@@ -187,8 +154,6 @@ if PRODUCTION:
     # Cloudflare may connect to the Heroku origin over HTTP after terminating
     # TLS. Allow that deployment to disable Django's redirect and avoid a loop.
     SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "true").lower() == "true"
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
