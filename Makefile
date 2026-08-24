@@ -95,7 +95,7 @@ css-dev:
 serve: css-dev
 	@"$$(command -v uv)" run python -m scripts.worktree serve
 
-check: lint typecheck django-check test
+check: lint typecheck django-check check-clip-archives test
 
 test: css
 	@"$$(command -v uv)" run pytest tests/
