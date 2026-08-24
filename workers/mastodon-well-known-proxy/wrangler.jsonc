@@ -3,10 +3,21 @@
   "name": "palewire-mastodon-well-known-proxy",
   "main": "src/index.ts",
   "compatibility_date": "2026-08-24",
+  "compatibility_flags": [
+    "global_fetch_strictly_public"
+  ],
   "workers_dev": true,
   "preview_urls": true,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
+  },
+  "env": {
+    "same-zone-canary": {
+      "name": "palewire-mastodon-well-known-proxy-same-zone-canary",
+      "vars": {
+        "CANARY_PATH": "/.well-known/cloudflare-worker-canary"
+      }
+    }
   }
 }

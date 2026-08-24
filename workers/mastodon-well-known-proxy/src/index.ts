@@ -2,6 +2,8 @@ const UPSTREAM_ORIGIN = "https://mastodon.palewi.re";
 const UPSTREAM_TIMEOUT_MS = 5_000;
 const MAX_RESPONSE_BYTES = 1_048_576;
 const RESPONSE_MARKER = "cloudflare-worker-v1";
+const CANARY_PATH = "/.well-known/cloudflare-worker-canary";
+const CANARY_UPSTREAM_PATH = "/.well-known/nodeinfo";
 
 const ALLOWED_PATHS = new Set([
   "/.well-known/webfinger",
@@ -12,6 +14,10 @@ const FORWARDED_REQUEST_HEADERS = ["accept", "if-none-match", "if-modified-since
 const FORWARDED_RESPONSE_HEADERS = ["cache-control", "content-language", "content-type", "etag", "last-modified", "vary"];
 
 export type FetchImplementation = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
+
+export interface WorkerEnvironment {
+  CANARY_PATH?: string;
+}
 
 function errorResponse(status: number, message: string): Response {
   return new Response(JSON.stringify({ error: message }), {
@@ -27,6 +33,10 @@ function errorResponse(status: number, message: string): Response {
 function isValidWebFingerRequest(url: URL): boolean {
   const resources = url.searchParams.getAll("resource");
   return resources.length === 1 && /^acct:[A-Za-z0-9._-]{1,64}@palewi\.re$/i.test(resources[0]);
+}
+
+function isCanaryRequest(url: URL, environment: WorkerEnvironment): boolean {
+  return environment.CANARY_PATH === CANARY_PATH && url.pathname === CANARY_PATH;
 }
 
 function upstreamHeaders(request: Request): Headers {
@@ -112,9 +122,11 @@ export async function handleRequest(
   request: Request,
   fetchImplementation: FetchImplementation = fetch,
   timeoutMs = UPSTREAM_TIMEOUT_MS,
+  environment: WorkerEnvironment = {},
 ): Promise<Response> {
   const requestUrl = new URL(request.url);
-  if (!ALLOWED_PATHS.has(requestUrl.pathname)) {
+  const canaryRequest = isCanaryRequest(requestUrl, environment);
+  if (!ALLOWED_PATHS.has(requestUrl.pathname) && !canaryRequest) {
     const response = errorResponse(404, "not found");
     log("invalid_path", request, response.status);
     return response;
@@ -131,7 +143,7 @@ export async function handleRequest(
     return response;
   }
 
-  const upstreamUrl = new URL(requestUrl.pathname, UPSTREAM_ORIGIN);
+  const upstreamUrl = new URL(canaryRequest ? CANARY_UPSTREAM_PATH : requestUrl.pathname, UPSTREAM_ORIGIN);
   upstreamUrl.search = requestUrl.search;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
@@ -195,7 +207,7 @@ export async function handleRequest(
 }
 
 export default {
-  fetch(request: Request): Promise<Response> {
-    return handleRequest(request);
+  fetch(request: Request, environment: WorkerEnvironment): Promise<Response> {
+    return handleRequest(request, fetch, UPSTREAM_TIMEOUT_MS, environment);
   },
 };

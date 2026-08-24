@@ -16,16 +16,42 @@ function fetchResponse(response: Response): FetchImplementation {
 }
 
 describe("Mastodon discovery Worker", () => {
-  it("keeps production routes out of the canary configuration", () => {
+  it("enables public same-zone fetches and configures a guarded canary", () => {
     const config = JSON.parse(readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8"));
-    const makefile = readFileSync(new URL("../../../Makefile", import.meta.url), "utf8");
 
     expect(config.workers_dev).toBe(true);
     expect(config.preview_urls).toBe(true);
     expect(config.routes).toBeUndefined();
-    expect(makefile).toContain("WORKER_CANARY_NAME := palewire-mastodon-well-known-proxy-canary");
-    expect(makefile).toContain(
-      "WORKER_ROUTES := --route palewi.re/.well-known/webfinger* --route palewi.re/.well-known/host-meta* --route palewi.re/.well-known/nodeinfo*",
+    expect(config.compatibility_flags).toContain("global_fetch_strictly_public");
+    expect(config.env["same-zone-canary"].name).toBe("palewire-mastodon-well-known-proxy-same-zone-canary");
+    expect(config.env["same-zone-canary"].vars).toEqual({
+      CANARY_PATH: "/.well-known/cloudflare-worker-canary",
+    });
+  });
+
+  it("only enables the canary path for the canary binding", async () => {
+    const fetchMock = fetchResponse(new Response('{"links":[]}', {
+      headers: { "content-type": "application/json; charset=utf-8" },
+    }));
+
+    const productionResponse = await handleRequest(
+      request("/.well-known/cloudflare-worker-canary"),
+      fetchMock,
+    );
+    expect(productionResponse.status).toBe(404);
+    expect(fetchMock).not.toHaveBeenCalled();
+
+    const canaryResponse = await handleRequest(
+      request("/.well-known/cloudflare-worker-canary"),
+      fetchMock,
+      undefined,
+      { CANARY_PATH: "/.well-known/cloudflare-worker-canary" },
+    );
+    expect(canaryResponse.status).toBe(200);
+    expect(await canaryResponse.text()).toBe('{"links":[]}');
+    expect(fetchMock).toHaveBeenCalledWith(
+      new URL("https://mastodon.palewi.re/.well-known/nodeinfo"),
+      expect.anything(),
     );
   });
 
