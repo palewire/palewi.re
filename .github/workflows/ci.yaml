@@ -81,3 +81,10 @@ jobs:
 
       - name: Run tests
         run: make test
+
+      - name: Run Worker tests and validation
+        run: |
+          make worker-test
+          make legacy-worker-test
+          make worker-validate
+          make legacy-worker-validate

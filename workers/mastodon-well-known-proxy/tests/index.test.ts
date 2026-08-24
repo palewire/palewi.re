@@ -16,14 +16,21 @@ function fetchResponse(response: Response): FetchImplementation {
 }
 
 describe("Mastodon discovery Worker", () => {
-  it("enables public same-zone fetches and configures a guarded canary", () => {
+  it("disables public production exposure and configures explicit canaries", () => {
     const config = JSON.parse(readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8"));
 
-    expect(config.workers_dev).toBe(true);
-    expect(config.preview_urls).toBe(true);
+    expect(config.workers_dev).toBe(false);
+    expect(config.preview_urls).toBe(false);
     expect(config.routes).toBeUndefined();
     expect(config.compatibility_flags).toContain("global_fetch_strictly_public");
+    expect(config.env["startup-canary"]).toEqual({
+      name: "palewire-mastodon-well-known-proxy-startup-canary",
+      workers_dev: true,
+      preview_urls: true,
+    });
     expect(config.env["same-zone-canary"].name).toBe("palewire-mastodon-well-known-proxy-same-zone-canary");
+    expect(config.env["same-zone-canary"].workers_dev).toBe(true);
+    expect(config.env["same-zone-canary"].preview_urls).toBe(true);
     expect(config.env["same-zone-canary"].vars).toEqual({
       CANARY_PATH: "/.well-known/cloudflare-worker-canary",
     });

@@ -35,12 +35,21 @@ describe("legacy redirect Worker", () => {
     redirects: ManifestRecord[];
   };
 
-  it("is route-free by default and uses a canary-only path without same-zone fetch support", () => {
+  it("disables public production exposure and keeps explicit canaries available", () => {
     const config = JSON.parse(readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8"));
 
+    expect(config.workers_dev).toBe(false);
+    expect(config.preview_urls).toBe(false);
     expect(config.routes).toBeUndefined();
     expect(config.route).toBeUndefined();
     expect(config.compatibility_flags ?? []).not.toContain("global_fetch_strictly_public");
+    expect(config.env["startup-canary"]).toEqual({
+      name: "palewire-legacy-redirects-startup-canary",
+      workers_dev: true,
+      preview_urls: true,
+    });
+    expect(config.env["same-zone-canary"].workers_dev).toBe(true);
+    expect(config.env["same-zone-canary"].preview_urls).toBe(true);
     expect(config.env["same-zone-canary"].vars).toEqual({ CANARY_PATH: "/legacy-redirects-canary" });
   });
 

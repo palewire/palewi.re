@@ -145,7 +145,7 @@ worker-validate:
 worker-canary-deploy:
 	@test "$$CONFIRM_WORKER_CANARY_DEPLOY" = "1" || { echo "Set CONFIRM_WORKER_CANARY_DEPLOY=1 after running make worker-validate." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && npm exec -- wrangler deploy --env="" --strict --name "$(WORKER_CANARY_NAME)"
+	cd "$(WORKER_DIR)" && npm exec -- wrangler deploy --env startup-canary --strict --name "$(WORKER_CANARY_NAME)"
 
 worker-verify-canary:
 	@BASE_URL="$${BASE_URL:?Set BASE_URL to the workers.dev or preview URL printed by worker-canary-deploy.}" scripts/verify-worker-endpoints.sh
@@ -205,7 +205,7 @@ legacy-worker-validate:
 legacy-worker-canary-deploy:
 	@test "$$CONFIRM_LEGACY_WORKER_CANARY_DEPLOY" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_CANARY_DEPLOY=1 after make legacy-worker-validate." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && npm exec -- wrangler deploy --env="" --strict --name "$(LEGACY_WORKER_CANARY_NAME)"
+	cd "$(LEGACY_WORKER_DIR)" && npm exec -- wrangler deploy --env startup-canary --strict --name "$(LEGACY_WORKER_CANARY_NAME)"
 
 legacy-worker-delete-canary:
 	@test "$$CONFIRM_LEGACY_WORKER_DELETE_CANARY" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_DELETE_CANARY=1 to delete the route-free canary Worker." >&2; exit 1; }
