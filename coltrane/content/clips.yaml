@@ -3,10 +3,12 @@ clips:
   type: software
   date: '2026-08-21'
   url: https://palewi.re/docs/geodataframe-to-pmtiles/
+  archive_exemption: Recent internal documentation not yet available in Wayback Machine
 - title: isobands
   type: software
   date: '2026-08-19'
   url: https://www.linkedin.com/feed/update/urn:li:activity:7495788020411953155/
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: Reuters Climate Monitor
   type: app
   date: '2026-06-11'
@@ -141,6 +143,7 @@ clips:
   type: app
   date: '2025-01-27'
   url: https://www.reuters.com/data/tracking-trumps-economy-2025-01-27/
+  archive_exemption: Data visualization access restricted
 - title: Trump’s approval rating
   type: app
   date: '2025-01-21'
@@ -160,10 +163,12 @@ clips:
   type: story
   date: '2024-10-30'
   url: https://www.reuters.com/data/man-behind-magnificent-seven-2024-10-30/
+  archive_exemption: Data visualization access restricted
 - title: The Magnificent Seven Monitor
   type: app
   date: '2024-10-30'
   url: https://www.reuters.com/data/magnificent-seven-monitor-2024-10-30/
+  archive_exemption: Data visualization access restricted
 - title: Min-Max Rescaling Calculator
   type: app
   date: '2024-10-03'
@@ -173,10 +178,12 @@ clips:
   type: software
   date: '2024-08-26'
   url: https://x.com/palewire/status/1828109995269111994
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: Observable Framework CPI Example
   type: software
   date: '2024-08-14'
   url: https://x.com/palewire/status/1823817980607914145
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: Data loader to generate PNG from canvas
   type: story
   date: '2024-07-11'
@@ -267,6 +274,7 @@ clips:
   type: software
   date: '2023-06-07'
   url: https://twitter.com/palewire/status/1666418078316474368
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: Search our database of questionable climate funding
   type: app
   date: '2023-06-04'
@@ -281,6 +289,7 @@ clips:
   type: software
   date: '2023-04-14'
   url: https://twitter.com/palewire/status/1646895316749422592
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: moneyinpolitics.wtf
   type: app
   date: '2023-03-04'
@@ -330,6 +339,7 @@ clips:
   type: software
   date: '2022-11-09'
   url: https://twitter.com/palewire/status/1590221963628544000
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: biglocalnews/local-election-results-etl
   type: software
   date: '2022-11-08'
@@ -349,6 +359,7 @@ clips:
   type: app
   date: '2022-10-24'
   url: https://twitter.com/palewire/status/1584520198274445312
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: 'The Studs Terkel Archive Podcast: Season 2'
   type: app
   date: '2022-10-14'
@@ -388,6 +399,7 @@ clips:
   type: app
   date: '2022-08-21'
   url: https://twitter.com/palewire/status/1561465422536273920
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: '@newshomepages performance and accessibility rankings'
   type: app
   date: '2022-08-16'
@@ -397,6 +409,7 @@ clips:
   type: software
   date: '2022-08-07'
   url: https://twitter.com/palewire/status/1556297395582996487
+  archive_exemption: Social media content no longer available in Wayback Machine
 - title: storysniffer
   type: software
   date: '2022-08-01'
@@ -614,6 +627,7 @@ clips:
   type: software
   date: '2020-08-20'
   url: cedar-rapids-buildings-unsafe-after-derecho-2020
+  archive_exemption: Original URL data lost
 - title: Tracking how the coronavirus crushed California’s workforce
   type: app
   date: '2020-06-22'
@@ -692,7 +706,8 @@ clips:
 - title: https://github.com/palewire/nrol-39-logo
   type: software
   date: '2019-10-08'
-  url: nrol-39-logo
+  url: https://github.com/palewire/nrol-39-logo
+  archive_url: http://web.archive.org/web/20260511172919/https://github.com/palewire/nrol-39-logo
 - title: noaa-hurricane-hunters-logo/
   type: software
   date: '2019-10-01'
@@ -1271,6 +1286,7 @@ clips:
   type: story
   date: '2016-06-06'
   url: http://www.latimes.com/sdhoy-california-regulators-weigh-whether-the-state-needs-more-power-plants-20170606-story.html
+  archive_exemption: Legacy article no longer accessible or archived
 - title: LAFD inspectors accuse supervisors of cutting corners, ignoring fire hazards
   type: story
   date: '2016-05-27'
@@ -1300,6 +1316,7 @@ clips:
   type: software
   date: '2016-02-14'
   url: https://pypi.python.org/pypi?%3Aaction=pkg_edit&name=django-calaccess-processed-data
+  archive_exemption: PyPI legacy URL no longer accessible
 - title: django-postgres-copy
   type: software
   date: '2016-02-12'
@@ -1448,6 +1465,7 @@ clips:
   type: story
   date: '2015-05-16'
   url: http://articles.latimes.com/print/2013/may/16/local/la-me-ln-voter-turnout-highest-in-westside-west-valley-analysis-finds-20130516
+  archive_exemption: Legacy article no longer accessible or archived
 - title: Second straight LAFD recruit class is all male after women exit
   type: story
   date: '2015-04-29'
@@ -1657,6 +1675,7 @@ clips:
   type: story
   date: '2014-03-24'
   url: LAFD union leader says suspending hiring program 'patently unfair'
+  archive_exemption: Original URL data lost
 - title: LAFD recruit program is suspended
   type: story
   date: '2014-03-20'
@@ -1776,10 +1795,12 @@ clips:
   type: story
   date: '2013-10-10'
   url: http://articles.latimes.com/print/2013/oct/10/local/la-me-james-featherstone-lafd
+  archive_exemption: Legacy article no longer accessible or archived
 - title: Garcetti replaces LAFD Chief Cummings after 911 disclosures
   type: story
   date: '2013-10-10'
   url: http://articles.latimes.com/print/2013/oct/10/local/la-me-1011-lafd-chief-20131011
+  archive_exemption: Legacy article no longer accessible or archived
 - title: Garcetti supporters score city appointments
   type: app
   date: '2013-10-08'
@@ -2169,6 +2190,7 @@ clips:
   type: story
   date: '2011-04-17'
   url: http://articles.latimes.com/print/2011/apr/17/local/la-me-uprates-20110418
+  archive_exemption: Legacy article no longer accessible or archived
 - title: python-documentcloud
   type: software
   date: '2011-04-14'
@@ -2263,6 +2285,7 @@ clips:
   type: story
   date: '2008-09-05'
   url: http://articles.latimes.com/print/2008/sep/05/local/me-scores5
+  archive_exemption: Legacy article no longer accessible or archived
 - title: L.A.’s Top Dogs
   type: app
   date: '2008-08-01'
@@ -2272,6 +2295,7 @@ clips:
   type: story
   date: '2008-08-01'
   url: http://articles.latimes.com/print/2008/aug/01/local/me-dogs1
+  archive_exemption: Legacy article no longer accessible or archived
 - title: Hear No Evil, Smell No Evil
   type: story
   date: '2008-06-11'
