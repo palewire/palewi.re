@@ -20,4 +20,4 @@
 
 ## Deployment notes
 
-<!-- Any database migrations? Config changes? Manual steps needed after deploy? -->
+<!-- Any configuration changes or manual steps needed after deploy? -->

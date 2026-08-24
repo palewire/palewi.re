@@ -6,7 +6,6 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
-- PostgreSQL 14+
 
 ## Setup
 
@@ -15,7 +14,7 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 git clone https://github.com/palewire/palewi.re.git
 cd palewi.re
 
-# Install dependencies, create the database, and apply migrations
+# Install dependencies and hooks
 make bootstrap
 
 # Start server
@@ -23,15 +22,13 @@ make serve
 ```
 
 Open the URL printed by the server. Linked Git worktrees automatically use
-separate PostgreSQL databases and available local ports, so multiple agents can
-run the site at the same time.
+available local ports, so multiple agents can run the site at the same time.
 
 ## Environment variables
 
 | Variable | Required in prod | Description |
 |----------|-----------------|-------------|
 | `SECRET_KEY` | Yes | Django secret key |
-| `DATABASE_URL` | No (defaults to local) | PostgreSQL connection string |
 | `PRODUCTION` | No | Set `true` to enable production security |
 | `DEBUG` | No | Set `false` to disable debug output |
 
@@ -44,8 +41,7 @@ make check
 ```
 
 This runs Ruff linting and formatting checks, ty static analysis, Django's
-system and migration checks, and the full pytest suite. CI uses the same Make
-targets.
+system check, and the full pytest suite. CI uses the same Make targets.
 
 To auto-format code:
 
@@ -59,9 +55,7 @@ make fmt
 make test
 ```
 
-Tests require a running PostgreSQL database. Set `DATABASE_URL` or rely on the
-default: `postgres://postgres@localhost/palewire` in a normal clone, or an
-automatically named isolated database in a linked worktree.
+Tests and local serving do not require PostgreSQL or `DATABASE_URL`.
 
 ## Blog post Markdown
 
@@ -95,6 +89,12 @@ committing to validate the front matter, public URL inventory, and rendering.
 
 The app deploys to Heroku automatically when a pull request merges to `main` **after CI passes**.
 
+For the database retirement deployment, take a fresh Heroku backup first. Deploy
+the exact merged SHA, then verify `/health/`, the main pages, all post
+permalinks, feeds, sitemaps, and the smoke workflow. Only after that separate
+review should the Heroku PostgreSQL add-on be considered for removal. Do not
+remove it as part of the deploy.
+
 GitHub releases summarize meaningful batches of deployed changes. See
 [RELEASING.md](RELEASING.md) for the changelog and release process.
 
@@ -105,12 +105,7 @@ heroku releases
 heroku rollback vN   # where N is the last good release number
 ```
 
-**Manual migration** (if needed):
-
-```bash
-heroku run python manage.py migrate
-```
-
 ## Health check
 
-A lightweight health endpoint is available at `/health/`. It returns HTTP 200 and `{"status": "ok", "db": true}` when the database is reachable.
+A lightweight health endpoint is available at `/health/`. It returns HTTP 200
+and `{"status": "ok"}` when Django can serve requests.

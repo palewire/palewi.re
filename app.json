@@ -25,11 +25,6 @@
       "value": ""
     }
   },
-  "addons": [
-    {
-      "plan": "heroku-postgresql:essential-0"
-    }
-  ],
   "buildpacks": [
     {
       "url": "heroku/python"
@@ -41,9 +36,6 @@
       "size": "eco"
     }
   },
-  "scripts": {
-    "postdeploy": "python manage.py migrate --noinput"
-  },
   "environments": {
     "review": {
       "formation": {
@@ -51,16 +43,12 @@
           "quantity": 1,
           "size": "eco"
         }
-      },
-      "scripts": {
-        "postdeploy": "python manage.py migrate --noinput"
       }
     },
     "test": {
       "scripts": {
         "test": "uv run pytest tests/"
-      },
-      "addons": ["heroku-postgresql:essential-0"]
+      }
     }
   }
 }

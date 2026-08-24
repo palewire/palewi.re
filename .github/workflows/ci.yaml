@@ -41,27 +41,10 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_DB: palewire
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
-
     env:
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/palewire
       SECRET_KEY: ci-test-secret-key
       DEBUG: "true"
       UV_NO_ENV_FILE: "1"
-
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
@@ -72,9 +55,6 @@ jobs:
 
       - name: Install dependencies
         run: make ci-bootstrap
-
-      - name: Check migration drift
-        run: make migrations-check
 
       - name: Django system check
         run: make django-check
