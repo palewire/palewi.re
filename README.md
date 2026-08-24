@@ -8,7 +8,7 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 - [uv](https://docs.astral.sh/uv/) for package management
 - Node.js 24 for the pinned Dart Sass compiler
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for local setup and Heroku commands
-- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks and the isolated Mastodon discovery Worker
+- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks and the isolated Workers
 
 ## Setup
 
@@ -362,6 +362,84 @@ CONFIRM_WORKER_DETACH_ROUTES=1 make worker-detach-routes
 After detachment, verify the public Django endpoints with the same three paths.
 For a normal Worker code rollback without route changes, use Cloudflare's
 version controls after a verified canary.
+
+### Legacy redirect Worker
+
+`project/redirects.yaml` is the readable, validated source of truth for legacy
+redirects. It currently has 22 exact paths and 8 dynamic patterns; this is the
+full current Django inventory (the issue's earlier 21/7 count was stale).
+`project/redirect_manifest.py` validates the file before Django loads its
+fallback URL patterns. `workers/legacy-redirects/` reads that same file as a
+bundled text module and has no `fetch()` call. A matching request receives a
+302, its manifest destination, and
+`X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped just
+as Django's `RedirectView` drops them.
+
+The generated plan has 37 explicit `palewi.re` routes for the 30 manifest
+entries. Every pattern has one terminal wildcard, which Cloudflare requires;
+there are no infix wildcards and no `palewi.re/*` route. The root-level date
+pattern uses ten digit-prefixed routes (`0*` through `9*`) because Cloudflare
+cannot express four constrained path segments in one route. Those routes do
+not match any current page, and the Worker returns 404 for a malformed suffix
+instead of proxying to Heroku. This Worker does not fetch a same-zone origin, so
+`global_fetch_strictly_public` is neither needed nor enabled. Its tests assert
+that redirect matches never create a subrequest.
+
+Smoke coverage for the Worker is deliberately deferred until Stage 2. Before
+the Worker is deployed, the production smoke workflow must continue to pass
+against Django's fallback redirects. Stage 1 uses the explicit verifier below;
+Stage 2 may add the same checks to the smoke workflow only after the routes are
+attached and verified.
+
+Use a dedicated Cloudflare token for deployment, restricted to the owning
+account and `palewi.re` zone. It needs only **Account > Workers Scripts >
+Edit**, **Zone > Workers Routes > Edit**, and **Zone > Zone > Read**. The
+read-only `make cloudflare-check` token remains limited to **User > User
+Details > Read** and **User > Memberships > Read**. Store either token only as
+`CLOUDFLARE_API_TOKEN`; keep the required account ID as
+`CLOUDFLARE_ACCOUNT_ID`; never commit either value.
+
+```bash
+# Stage 1: local manifest, runtime, and configuration checks.
+make legacy-worker-test
+make legacy-worker-validate
+make legacy-worker-route-plan
+
+# Optional route-free startup canary. It cannot validate zone routing.
+CONFIRM_LEGACY_WORKER_CANARY_DEPLOY=1 make legacy-worker-canary-deploy
+# Verify the workers.dev URL printed by Wrangler with a representative redirect.
+BASE_URL="https://the-url-printed-by-wrangler" scripts/verify-legacy-redirects.sh
+CONFIRM_LEGACY_WORKER_DELETE_CANARY=1 make legacy-worker-delete-canary
+
+# Required production-zone canary: deploy it without routes, then attach only
+# /legacy-redirects-canary. It does not redirect and is disabled in production.
+CONFIRM_LEGACY_WORKER_SAME_ZONE_CANARY_DEPLOY=1 make legacy-worker-same-zone-canary-deploy
+CONFIRM_LEGACY_WORKER_ATTACH_SAME_ZONE_CANARY=1 make legacy-worker-attach-same-zone-canary
+BASE_URL="https://palewi.re" make legacy-worker-verify-same-zone-canary
+CONFIRM_LEGACY_WORKER_DELETE_SAME_ZONE_CANARY=1 make legacy-worker-delete-same-zone-canary
+
+# Attach all generated production routes only after the canary is deleted.
+CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 make legacy-worker-attach-routes
+# Bounded propagation-aware checks cover every exact path, two cases per
+# dynamic pattern, Location, marker, and adjacent current paths.
+WORKER_MARKER_ATTEMPTS=4 WORKER_MARKER_WAIT_SECONDS=15 make legacy-worker-verify-production
+```
+
+Every mutating command requires its named confirmation variable. The verifier
+waits for the marker during route propagation but fails immediately on a bad
+status or Location. Django stays active throughout this PR, so an edge rollback
+is simply:
+
+```bash
+CONFIRM_LEGACY_WORKER_DETACH_ROUTES=1 make legacy-worker-detach-routes
+```
+
+That deletion removes the Worker and its routes, exposing Django's fallback.
+Do not perform Stage 2 (remove `project/redirects.py` and its URL wiring) until
+the Stage 1 verifier and a normal production smoke cycle pass. Before Stage 2,
+record the fallback-capable Heroku release with `heroku releases --app
+palewire`. If a Stage 2 rollback is needed, restore that Heroku release first,
+then detach the Worker routes and verify the Django redirects.
 
 For the database retirement deployment, take a fresh Heroku backup first. Deploy
 the exact merged SHA, then verify `/health/`, the main pages, all post

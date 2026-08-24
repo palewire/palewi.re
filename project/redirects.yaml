@@ -1,0 +1,116 @@
+redirects:
+  # Exact legacy paths. Query strings are deliberately dropped, matching Django.
+  - source: comments/feed/
+    destination: /
+  - source: feed/
+    destination: /
+  - source: feed/atom/
+    destination: /
+  - source: feed/rss/
+    destination: /
+  - source: bio/
+    destination: /who-is-ben-welsh/
+  - source: apps/
+    destination: /work/
+  - source: clips/
+    destination: /work/
+  - source: free-flu-shots/
+    destination: https://web.archive.org/web/20130718063144/palewi.re/free-flu-shots/
+  - source: random-oscars-ballot/
+    destination: https://web.archive.org/web/20191110225501/https://palewi.re/random-oscars-ballot/
+  - source: kennedy/
+    destination: https://web.archive.org/web/20160413124128/http://palewi.re/kennedy/
+  - source: colophon/
+    destination: https://web.archive.org/web/20191110230741/https://palewi.re/colophon/
+  - source: apps/twitter-style-infinite-scroll-with-django-demo/
+    destination: https://web.archive.org/web/20161227151249/http://palewi.re/apps/twitter-style-infinite-scroll-with-django-demo/
+  - source: apps/bring-the-news-back/
+    destination: https://web.archive.org/web/20191110231324/http://palewi.re/apps/bring-the-news-back/
+  - source: mack/
+    destination: https://web.archive.org/web/20121109101143/http://palewi.re/mack/
+  - source: candysays/
+    destination: https://web.archive.org/web/20160413123742/http://palewi.re/candysays/
+  - source: regional-connector/
+    destination: https://web.archive.org/web/20161229055224/http://palewi.re/regional-connector/
+  - source: nicar/polls/
+    destination: https://web.archive.org/web/20191110232017/https://palewi.re/nicar/polls/
+  - source: nicar/flu-map/
+    destination: https://web.archive.org/web/20191110232108/https://palewi.re/nicar/flu-map/
+  - source: music/
+    destination: /
+  - source: hypecloud/
+    destination: /
+  - source: happyhours/
+    destination: /
+  - source: applications/
+    destination: /apps/
+
+  # Dynamic paths use named captures. The capture type is intentionally small
+  # and mirrored by the Worker validator.
+  - source: "{year}/{month}/{day}/{slug}/"
+    destination: /posts/{year}/{month}/{day}/{slug}/
+    captures:
+      year: digits4
+      month: digits2
+      day: digits2
+      slug: slug
+    routes: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    examples:
+      - /0000/00/00/a/
+      - /9999/99/99/slug-with-dash/
+  - source: tag/{tag}/
+    destination: /who-is-ben-welsh/
+    captures:
+      tag: segment
+    routes: [tag/]
+    examples:
+      - /tag/django/
+      - /tag/caf%C3%A9/
+  - source: tags/{tag}/
+    destination: /who-is-ben-welsh/
+    captures:
+      tag: segment
+    routes: [tags/]
+    examples:
+      - /tags/django/
+      - /tags/caf%C3%A9/
+  - source: happyhours/{whatever}
+    destination: /
+    captures:
+      whatever: path
+    routes: [happyhours/]
+    examples:
+      - /happyhours/old/
+      - /happyhours/nested/path/
+  - source: images/{file_name}
+    destination: https://palewire.s3.amazonaws.com/img/{file_name}
+    captures:
+      file_name: segment
+    routes: [images/]
+    examples:
+      - /images/test.jpg
+      - /images/space%20name.jpg
+  - source: applications/{anything}/
+    destination: /apps/{anything}/
+    captures:
+      anything: path
+    routes: [applications/]
+    examples:
+      - /applications/legacy/
+      - /applications/legacy/page/
+  - source: apps/page/{page}/
+    destination: /apps/
+    captures:
+      page: digits
+    routes: [apps/page/]
+    examples:
+      - /apps/page/0/
+      - /apps/page/2147483647/
+  - source: posts/page/{page}/
+    destination: /posts/
+    captures:
+      page: digits
+    routes: [posts/page/]
+    examples:
+      - /posts/page/0/
+      - /posts/page/2147483647/
