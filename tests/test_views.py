@@ -1,5 +1,7 @@
 """Tests for public-facing pages and redirects."""
 
+from unittest.mock import patch
+
 import pytest
 from django.test import Client
 from django.test.utils import override_settings
@@ -32,6 +34,17 @@ def test_bio_page_context_includes_fixed_current_site(client):
     response = client.get("/who-is-ben-welsh/")
     assert response.status_code == 200
     assert any(context.get("current_site") == "palewi.re" for context in response.context)
+
+
+def test_bio_page_footer_links_to_main_commit(client):
+    commit = "0123456789abcdef0123456789abcdef01234567"
+
+    with patch("toolbox.context_processors._main_commit", return_value=commit):
+        response = client.get("/who-is-ben-welsh/")
+
+    content = response.content.decode()
+    assert f'href="https://github.com/palewire/palewi.re/commit/{commit}"' in content
+    assert ">Revision 0123456</a>" in content
 
 
 @pytest.mark.parametrize("page", ["/work/", "/talks/", "/posts/", "/docs/", "/bots/"])

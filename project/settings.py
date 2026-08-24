@@ -75,6 +75,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "toolbox.context_processors.current_site",
                 "toolbox.context_processors.now",
+                "toolbox.context_processors.repository",
             ],
             "debug": DEBUG,
         },

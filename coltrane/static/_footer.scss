@@ -4,8 +4,14 @@
   border-top: solid 2px #e5e5e5;
   padding-top: 0.4em;
   margin-bottom: 1em;
-  text-align: left;
   padding-top: 0.5em;
+  .twelvecol {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer-commit {
+    margin-left: auto;
+  }
   @media (max-width: 550px) {
     font-size: 0.65em;
   }
