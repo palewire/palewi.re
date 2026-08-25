@@ -58,9 +58,9 @@ function declaredLength(response: Response): number | undefined {
   return Number(value);
 }
 
-async function readBoundedBody(body: ReadableStream<Uint8Array> | null): Promise<Uint8Array> {
+async function readBoundedBody(body: ReadableStream<Uint8Array> | null): Promise<ArrayBuffer> {
   if (body === null) {
-    return new Uint8Array();
+    return new ArrayBuffer(0);
   }
 
   const reader = body.getReader();
@@ -89,7 +89,7 @@ async function readBoundedBody(body: ReadableStream<Uint8Array> | null): Promise
     result.set(chunk, offset);
     offset += chunk.byteLength;
   }
-  return result;
+  return result.buffer;
 }
 
 function responseHeaders(upstream: Headers): Headers {
