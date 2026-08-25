@@ -80,6 +80,13 @@ def test_load_manifest_invalid_json_raises(tmp_path):
         assert "not valid JSON" in str(error)
 
 
+def test_load_manifest_non_utf8_bytes_raise_manifest_error(tmp_path):
+    manifest_path(tmp_path).write_bytes(b"\xff")
+
+    with pytest.raises(ManifestError, match="not valid JSON"):
+        load_manifest(tmp_path)
+
+
 def test_load_manifest_non_object_raises(tmp_path):
     manifest_path(tmp_path).write_text("[1, 2, 3]", encoding="utf-8")
     try:

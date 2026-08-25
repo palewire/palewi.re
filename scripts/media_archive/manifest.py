@@ -200,7 +200,7 @@ def load_manifest(archive_root: Path) -> Manifest:
         return Manifest()
     try:
         raw = json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as error:
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
         raise ManifestError(f"{path}: manifest is not valid JSON") from error
     if not isinstance(raw, dict):
         raise ManifestError(f"{path}: manifest must be a JSON object")
