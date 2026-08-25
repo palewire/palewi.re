@@ -1,11 +1,14 @@
-name: Smoke test
+name: Production smoke test
 
-# Automatic: fires after Heroku reports a successful production deployment.
-# Manual: run via Actions UI with an optional URL override.
+# Automatic: runs after the CI workflow has deployed the static Worker.
+# Scheduled and manual runs provide ongoing coverage between deployments.
 on:
-  deployment_status:
-  repository_dispatch:
-    types: [heroku_deploy]
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: "0 13 * * *"
   workflow_dispatch:
     inputs:
       base_url:
@@ -20,13 +23,16 @@ jobs:
   smoke:
     name: Smoke test production
     if: >
-      github.event_name != 'deployment_status' ||
-      (github.event.deployment_status.state == 'success' &&
-      github.event.deployment.environment == 'palewire')
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     env:
       BASE_URL: ${{ github.event.inputs.base_url || 'https://palewi.re' }}
+      CURL_MAX_TIME: "20"
+      WORKER_MARKER_ATTEMPTS: "2"
+      WORKER_MARKER_WAIT_SECONDS: "5"
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -39,71 +45,9 @@ jobs:
       - name: Install legacy redirect verifier dependencies
         run: uv sync --locked --no-dev
 
-      - name: Health check (with retries)
+      - name: Verify production endpoints
         run: |
-          echo "Testing health endpoint: $BASE_URL/health/"
-          health_ok=false
-          for i in 1 2 3; do
-            response=$(curl --silent --max-time 20 --write-out "\n%{http_code}" "$BASE_URL/health/" || true)
-            http_code=$(printf '%s\n' "$response" | tail -1)
-            body=$(printf '%s\n' "$response" | sed '$d')
-            echo "Attempt $i — HTTP $http_code — $body"
-            if [ "$http_code" = "200" ]; then
-              if printf '%s' "$body" | python3 -c "import sys,json; assert json.load(sys.stdin) == {'status': 'ok'}" 2>/dev/null; then
-                echo "✅ Health check passed"
-                health_ok=true
-                break
-              fi
-            fi
-            if [ "$i" -lt 3 ]; then sleep 30; fi
-          done
-          if [ "$health_ok" != "true" ]; then
-            echo "❌ Health check failed after retries (last HTTP $http_code)"
-            exit 1
-          fi
-
-      - name: Mastodon discovery Worker (with propagation retries)
-        run: |
-          BASE_URL="$BASE_URL" \
-          CURL_MAX_TIME=20 \
-          WORKER_MARKER_ATTEMPTS=4 \
-          WORKER_MARKER_WAIT_SECONDS=15 \
+          scripts/verify-static-site.sh
           scripts/verify-worker-endpoints.sh
-
-      - name: Legacy redirect Worker (with propagation retries)
-        run: |
-          BASE_URL="$BASE_URL" \
-          CURL_MAX_TIME=20 \
-          WORKER_MARKER_ATTEMPTS=4 \
-          WORKER_MARKER_WAIT_SECONDS=15 \
           scripts/verify-legacy-redirects.sh
-
-      - name: Bio page (with retries)
-        run: |
-          echo "Testing bio page: $BASE_URL/who-is-ben-welsh/"
-          bio_ok=false
-          for i in 1 2 3; do
-            code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/who-is-ben-welsh/" || true)
-            echo "Attempt $i — HTTP $code"
-            if [ "$code" = "200" ]; then
-              bio_ok=true
-              break
-            fi
-            if [ "$i" -lt 3 ]; then sleep 10; fi
-          done
-          [ "$bio_ok" = "true" ] && echo "✅ Bio page OK" || { echo "❌ Bio page failed after retries (last HTTP $code)"; exit 1; }
-
-      - name: Root redirect (with retries)
-        run: |
-          echo "Testing root redirect: $BASE_URL/"
-          redirect_ok=false
-          for i in 1 2 3; do
-            code=$(curl --silent --max-time 20 -o /dev/null -w "%{http_code}" "$BASE_URL/" || true)
-            echo "Attempt $i — HTTP $code"
-            if [ "$code" = "301" ] || [ "$code" = "302" ]; then
-              redirect_ok=true
-              break
-            fi
-            if [ "$i" -lt 3 ]; then sleep 10; fi
-          done
-          [ "$redirect_ok" = "true" ] && echo "✅ Root redirect OK" || { echo "❌ Root redirect failed after retries (last HTTP $code)"; exit 1; }
+          scripts/verify-legacy-domains.sh

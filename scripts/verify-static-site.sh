@@ -36,6 +36,9 @@ grep -Fq '{"status":"ok"}' "$body_file"
 request "/who-is-ben-welsh/" 200
 grep -Fq '<link rel="canonical" href="https://palewi.re/who-is-ben-welsh/"' "$body_file"
 request "/posts/" 200
+request "/work/" 200
+request "/talks/" 200
+request "/docs/" 200
 request "/sitemap.xml" 200
 grep -Fq '<sitemapindex' "$body_file"
 request "/robots.txt" 200
@@ -43,6 +46,10 @@ request "/this-page-does-not-exist/" 404
 grep -Fq 'id="error-heading">404<' "$body_file"
 request "/feeds/posts/" 200
 grep -Fiq 'content-type: application/rss+xml; charset=utf-8' "$headers_file"
+request "/static/styles.css" 200
+test -s "$body_file"
+request "/static/favicon.ico" 200
+test -s "$body_file"
 request "/" 302
 grep -Fiq 'location: /who-is-ben-welsh/' "$headers_file"
 request "/favicon.ico" 302
