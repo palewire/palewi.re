@@ -13,6 +13,14 @@
     {
       "pattern": "www.palewi.re/*",
       "zone_name": "palewi.re"
+    },
+    {
+      "pattern": "palewire.com/*",
+      "zone_name": "palewire.com"
+    },
+    {
+      "pattern": "www.palewire.com/*",
+      "zone_name": "palewire.com"
     }
   ],
   "assets": {
