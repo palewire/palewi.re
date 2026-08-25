@@ -118,6 +118,30 @@ The first command reuses an existing snapshot or creates one with the
 It writes progress after every clip and supports resumable batches with
 `uv run python -m scripts.archive_clips archive --limit 10`.
 
+## Preservation inventory and policy
+
+Use the combined, network-free report to review the public Wayback snapshots
+and optional external media archive together:
+
+```bash
+# Without an archive root, media is clearly reported as untracked.
+make preservation-inventory
+
+# Join current sources with an external manifest.
+ARCHIVE_ROOT=/absolute/path/outside/the/repo make preservation-inventory
+
+# Save stable JSON for another local tool.
+uv run python -m scripts.preservation_inventory \
+  --archive-root /absolute/path/outside/the/repo \
+  --json-output /tmp/preservation-inventory.json
+```
+
+The JSON has one sorted record per source URL, its content locations,
+applicable methods, statuses, metadata, and action-specific gaps. It is
+intended for local review and future maintenance tooling, not deployment or
+CI. See [the preservation policy](docs/preservation.md) for status meanings,
+safe maintenance, and recovery limits.
+
 ## Media archive (audio/video backup)
 
 `scripts/media_archive/` finds every playable audio/video source referenced

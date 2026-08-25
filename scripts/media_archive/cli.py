@@ -264,6 +264,7 @@ def verify(archive_root: Path | None) -> None:
     missing = 0
     mismatched = 0
     verified = 0
+    manifest_changed = False
     for entry in successful_entries:
         if not entry.output_filename:
             continue
@@ -279,8 +280,12 @@ def verify(archive_root: Path | None) -> None:
             mismatched += 1
             continue
         verified += 1
+        entry.last_verified_at = manifest_mod.current_timestamp()
+        manifest_changed = True
 
     click.echo(f"\nVerified {verified} file(s); {missing} missing; {mismatched} mismatched.")
+    if manifest_changed:
+        manifest_mod.write_manifest(resolved_root, manifest)
     if missing or mismatched:
         raise click.ClickException(f"{missing + mismatched} file(s) failed verification.")
 

@@ -55,6 +55,7 @@ class ManifestEntry:
     info_json_path: str | None = None
     attempts: int = 0
     error: str | None = None
+    last_verified_at: str | None = None
     created_at: str = field(default_factory=current_timestamp)
     updated_at: str = field(default_factory=current_timestamp)
 

@@ -18,6 +18,9 @@ STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 
 .PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
+
+.PHONY: preservation-inventory
+
 help:
 	@echo "Available targets:"
 	@echo "  bootstrap  Check developer tools, then prepare dependencies and hooks"
@@ -40,6 +43,7 @@ help:
 	@echo "  fmt        Auto-format with Ruff"
 	@echo "  archive-clips  Archive clip URLs missing Wayback metadata"
 	@echo "  check-clip-archives  Confirm every clip has Wayback metadata"
+	@echo "  preservation-inventory  Report page and media preservation state without network access"
 	@echo "  media-archive-inventory  List discovered talk/post media without downloading anything"
 	@echo "  media-archive-backup  Back up pending media to ARCHIVE_ROOT (or MEDIA_ARCHIVE_PATH)"
 	@echo "  media-archive-verify  Recompute checksums of already-archived media, offline"
@@ -148,6 +152,9 @@ archive-clips:
 
 check-clip-archives:
 	@"$$(command -v uv)" run python -m scripts.archive_clips check
+
+preservation-inventory:
+	@"$$(command -v uv)" run python -m scripts.preservation_inventory $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
 
 media-archive-inventory:
 	@"$$(command -v uv)" run python -m scripts.media_archive inventory
