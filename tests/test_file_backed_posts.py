@@ -39,8 +39,8 @@ def test_post_list_uses_file_order(client, public_posts):
     assert content.index(public_posts[0].get_absolute_url()) < content.index(public_posts[-1].get_absolute_url())
 
 
-def test_post_detail_progressively_enhances_soundcloud_and_legacy_code_highlighting(client, public_posts):
-    """Stored HTML keeps a no-JavaScript SoundCloud fallback and legacy code highlighting."""
+def test_post_detail_loads_soundcloud_iframe_and_highlights_legacy_code(client, public_posts):
+    """Stored SoundCloud markup remains a normal iframe that loads without JavaScript."""
     raw_html_post = next(post for post in public_posts if "<iframe" in post.body_markup)
     code_post = next(post for post in public_posts if '<pre lang="python">' in post.body_markup)
 
@@ -48,11 +48,10 @@ def test_post_detail_progressively_enhances_soundcloud_and_legacy_code_highlight
     code_response = client.get(code_post.get_absolute_url())
 
     raw_content = raw_response.content.decode()
-    assert 'class="soundcloud-embed"' in raw_content
-    assert "Load SoundCloud player" in raw_content
-    assert "<template><iframe" in raw_content
-    assert "<noscript>" in raw_content
-    assert "JavaScript is disabled. The SoundCloud player is available below." in raw_content
+    assert "<iframe" in raw_content
+    assert 'src="https://w.soundcloud.com/player/' in raw_content
+    assert "Load SoundCloud player" not in raw_content
+    assert "<template>" not in raw_content
     assert 'class="source"' in code_response.content.decode()
 
 
@@ -63,8 +62,9 @@ def test_podcast_embed_has_accessible_name_and_contrast(client):
     assert response.status_code == 200
     assert 'title="IRE Radio podcast player"' in content
     assert "color: #767676" in content
-    assert "SoundCloud may set cookies." in content
-    assert 'aria-live="polite"' in content
+    assert "<iframe" in content
+    assert 'src="https://w.soundcloud.com/player/' in content
+    assert "Load SoundCloud player" not in content
 
 
 def test_post_html_is_highlighted_once_per_loaded_post(public_posts):

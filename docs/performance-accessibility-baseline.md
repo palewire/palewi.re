@@ -106,22 +106,13 @@ CI runs the pa11y configuration on pull requests and scheduled production
 Lighthouse reports on Sundays. The Lighthouse job uploads reports as workflow
 artifacts and remains non-blocking.
 
-## Follow-up
+## Current behavior
 
-Issue #408 should first evaluate a deferred or click-to-load SoundCloud player
-for the representative post, preserving an accessible link or transcript and
-measuring the result. The next shared opportunity is a measured font-loading
-experiment that removes the Google Fonts stylesheet from the render-blocking
-path without changing typography or causing layout shift.
-
-## Implemented follow-up
-
-The SoundCloud player now loads only after the visitor activates an accessible
-button. Its original iframe stays available in a no-JavaScript fallback, the
-published attribution remains in place, and the activation control explains
-that SoundCloud may set cookies. While loading, the control announces status;
-after ten seconds it restores the control and directs the visitor to
-SoundCloud if the player cannot load.
+SoundCloud players use their published iframes and load automatically, without
+requiring JavaScript or an activation button. This intentionally restores the
+normal player experience at the cost of the third-party requests and cookies
+described above. The representative iframe retains its descriptive title and
+published attribution.
 
 Libre Franklin is now served from the site's own static assets. The normal and
 italic Latin variable WOFF2 files are the same Google Fonts faces previously
@@ -130,20 +121,3 @@ requested by the stylesheet and are licensed under the SIL Open Font License
 `font-display: swap`, and fallback stack while eliminating requests to Google
 Fonts and making the implementation compatible with a self-only future font
 content policy.
-
-The table compares clean local Lighthouse 12.8.2 runs against the development
-server with 150 ms RTT, 1.6 Mbps throughput, and a 4x CPU slowdown. Desktop
-and mobile each use their Lighthouse device preset; values are lab signals,
-not production budgets.
-
-| Page and device | Performance | LCP | Transfer / requests | Third-party font or player requests |
-| --- | ---: | ---: | ---: | ---: |
-| Bio desktop | 82 -> 90 | 1.91 s -> 1.68 s | 137 KiB / 6 -> 133 KiB / 6 | 2 -> 0 |
-| Bio mobile | 84 -> 100 | 2.95 s -> 1.67 s | 137 KiB / 6 -> 133 KiB / 6 | 2 -> 0 |
-| Podcast desktop | 78 -> 86 | 1.94 s -> 1.24 s | 1,669 KiB / 30 -> 71 KiB / 5 | 13 -> 0 |
-| Podcast mobile | 92 -> 100 | 2.70 s -> 1.52 s | 1,669 KiB / 29 -> 71 KiB / 5 | 13 -> 0 |
-
-Lighthouse accessibility remained 100 for all four runs. The only intentional
-visual difference is the reserved 300 px activation panel before the player is
-loaded; after activation, it displays the unchanged published SoundCloud
-player.

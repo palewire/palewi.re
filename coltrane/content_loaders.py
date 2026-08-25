@@ -147,9 +147,8 @@ class MarkdownPost:
     def body_html(self) -> str:
         """Apply the existing legacy code-block renderer to stored raw HTML."""
         from coltrane.utils.pygmenter import pygmenter
-        from coltrane.utils.soundcloud import defer_soundcloud_embeds
 
-        return defer_soundcloud_embeds(pygmenter(self.body_markup))
+        return pygmenter(self.body_markup)
 
     def get_absolute_url(self) -> str:
         """Return the legacy publication-date permalink."""
