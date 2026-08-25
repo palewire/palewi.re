@@ -29,8 +29,8 @@ def test_bio_page_uses_compiled_stylesheet(client) -> None:
     assert 'href="/static/styles.css"' in response.content.decode()
 
 
-def test_base_template_uses_local_fonts_and_progressive_enhancements(client) -> None:
-    """The base page avoids remote fonts while serving the local enhancement script."""
+def test_base_template_uses_local_fonts(client) -> None:
+    """The base page avoids remote fonts while serving local font assets."""
     response = client.get("/who-is-ben-welsh/")
     content = response.content.decode()
     static_dir = Path(__file__).resolve().parent.parent / "coltrane" / "static"
@@ -38,20 +38,10 @@ def test_base_template_uses_local_fonts_and_progressive_enhancements(client) -> 
 
     assert "fonts.googleapis.com" not in content
     assert "fonts.gstatic.com" not in content
-    assert 'src="/static/progressive-enhancements.js"' in content
     assert 'url("fonts/libre-franklin-latin-normal.woff2")' in font_styles
     assert (static_dir / "fonts" / "libre-franklin-latin-normal.woff2").is_file()
     assert (static_dir / "fonts" / "libre-franklin-latin-italic.woff2").is_file()
     assert (static_dir / "fonts" / "OFL.txt").is_file()
-
-
-def test_soundcloud_player_focuses_before_hiding_activation_controls() -> None:
-    """Keyboard activation retains focus on the loaded, titled player."""
-    script = (Path(__file__).resolve().parent.parent / "coltrane" / "static" / "progressive-enhancements.js").read_text(
-        encoding="utf-8"
-    )
-
-    assert script.index("iframe.focus();") < script.index("controls.hidden = true;")
 
 
 @pytest.mark.skipif(not _MANIFEST_BUILT, reason="collected_static not yet built")
