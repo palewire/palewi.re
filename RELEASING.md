@@ -75,4 +75,4 @@ the local Python project, not the deployed website.
    publish the draft.
 
 The tag must point to the deployed commit. If the release reveals a production
-problem, roll back Heroku first; do not move or replace a published tag.
+problem, do not move or replace a published tag.

@@ -50,18 +50,15 @@ def test_bio_page_renders_with_manifest_storage() -> None:
 
     The template uses ``{% static 'styles.css' %}``, which resolves through
     the staticfiles storage. Under production's
-    CompressedManifestStaticFilesStorage this raises ``ValueError`` when
+    ManifestStaticFilesStorage this raises ``ValueError`` when
     styles.css is missing from the manifest.
     """
     with override_settings(
-        PRODUCTION=True,
         DEBUG=False,
-        SECRET_KEY="ci-static-test-secret-key-long-enough-for-django",
-        SECURE_SSL_REDIRECT=False,
         ALLOWED_HOSTS=["testserver", "localhost"],
         STORAGES={
             "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
-            "staticfiles": {"BACKEND": ("whitenoise.storage.CompressedManifestStaticFilesStorage")},
+            "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"},
         },
     ):
         response = Client().get("/who-is-ben-welsh/")

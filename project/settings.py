@@ -5,13 +5,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_DIR = os.path.join(BASE_DIR, "project")
 ROOT_DIR = BASE_DIR
 
-PRODUCTION = os.environ.get("PRODUCTION") == "true"
-DEBUG = not PRODUCTION and os.environ.get("DEBUG", "true").lower() != "false"
-
-_default_secret = "" if PRODUCTION else "dev-only-insecure-secret-key-not-for-production"
-SECRET_KEY = os.environ.get("SECRET_KEY", _default_secret)
-if PRODUCTION and not SECRET_KEY:
-    raise RuntimeError("SECRET_KEY must be set in production.")
+DEBUG = os.environ.get("DEBUG", "true").lower() != "false"
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-only-insecure-secret-key-not-for-production")
+STATIC_MANIFEST = os.environ.get("STATIC_MANIFEST") == "true"
 
 #
 # Static files
@@ -25,8 +21,8 @@ STORAGES = {
     },
     "staticfiles": {
         "BACKEND": (
-            "whitenoise.storage.CompressedManifestStaticFilesStorage"
-            if PRODUCTION
+            "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+            if STATIC_MANIFEST
             else "django.contrib.staticfiles.storage.StaticFilesStorage"
         ),
     },
@@ -37,22 +33,11 @@ USE_TZ = True
 LANGUAGE_CODE = "en-us"
 USE_I18N = True
 
-ALLOWED_HOSTS = (
-    # Include palewire.com and www.palewire.com so that DomainRedirectMiddleware
-    # can handle those requests before returning 400 DisallowedHost.
-    ["palewi.re", "www.palewi.re", ".palewi.re", ".herokuapp.com", "palewire.com", "www.palewire.com"]
-    if PRODUCTION
-    else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1,palewi.re").split(",")
-)
-
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1,palewi.re").split(",")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "toolbox.middleware.domains.DomainRedirectMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -80,8 +65,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Blog
     "coltrane",
-    # Site extras and helpers
-    "whitenoise.runserver_nostatic",
 ]
 
 BUILD_DIR = os.path.join(BASE_DIR, "dist")
@@ -155,16 +138,3 @@ LOGGING = {
         },
     },
 }
-
-#
-# Production security
-#
-
-if PRODUCTION:
-    # Cloudflare may connect to the Heroku origin over HTTP after terminating
-    # TLS. Allow that deployment to disable Django's redirect and avoid a loop.
-    SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "true").lower() == "true"
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True

@@ -71,9 +71,7 @@ jobs:
 
       - name: Build production static files
         env:
-          PRODUCTION: "true"
-          SECURE_SSL_REDIRECT: "false"
-          SECRET_KEY: ci-static-build-secret-with-more-than-fifty-characters
+          STATIC_MANIFEST: "true"
         run: |
           make css
           uv run python manage.py collectstatic --noinput --clear
