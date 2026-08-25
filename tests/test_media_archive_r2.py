@@ -141,10 +141,14 @@ def test_recover_media_restores_and_verifies_selected_file(tmp_path):
     r2.sync_archive(client, archive_root, "bucket")
     media_path.unlink()
     destination = tmp_path / "restored" / "clip.bin"
+    unrelated_download = destination.with_name(f"{destination.name}.download")
+    destination.parent.mkdir()
+    unrelated_download.write_bytes(b"unrelated temporary data")
 
     r2.recover_media(client, archive_root, "bucket", entry.output_filename or "", destination)
 
     assert destination.read_bytes() == b"preserved media"
+    assert unrelated_download.read_bytes() == b"unrelated temporary data"
 
 
 def test_recover_media_rejects_existing_destination_and_bad_checksum(tmp_path):
@@ -162,7 +166,7 @@ def test_recover_media_rejects_existing_destination_and_bad_checksum(tmp_path):
     with pytest.raises(r2.R2ReplicaError, match="failed checksum"):
         r2.recover_media(client, archive_root, "bucket", entry.output_filename or "", destination, force=True)
     assert destination.read_bytes() == b"keep this"
-    assert not (tmp_path / "restored.bin.download").exists()
+    assert not list(tmp_path.glob(".restored.bin.*.download"))
 
 
 def test_collect_archive_objects_rejects_missing_or_unsafe_media_paths(tmp_path):

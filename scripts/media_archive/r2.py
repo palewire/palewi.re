@@ -7,6 +7,7 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import Any, Protocol
 
 from botocore.exceptions import ClientError
@@ -254,11 +255,20 @@ def recover_media(
         raise R2ReplicaError(f"Destination already exists: {destination}. Pass --force to replace it.")
 
     destination.parent.mkdir(parents=True, exist_ok=True)
-    temporary_path = destination.with_name(f"{destination.name}.download")
-    if temporary_path.exists():
-        temporary_path.unlink()
-    client.download_file(bucket, requested_path.as_posix(), str(temporary_path))
-    if temporary_path.stat().st_size != entry.size_bytes or sha256_file(temporary_path) != entry.sha256:
-        temporary_path.unlink(missing_ok=True)
-        raise R2ReplicaError(f"Recovered file failed checksum verification: {requested_path.as_posix()}")
-    temporary_path.replace(destination)
+    with NamedTemporaryFile(
+        dir=destination.parent,
+        prefix=f".{destination.name}.",
+        suffix=".download",
+        delete=False,
+    ) as temporary_file:
+        temporary_path = Path(temporary_file.name)
+    recovered = False
+    try:
+        client.download_file(bucket, requested_path.as_posix(), str(temporary_path))
+        if temporary_path.stat().st_size != entry.size_bytes or sha256_file(temporary_path) != entry.sha256:
+            raise R2ReplicaError(f"Recovered file failed checksum verification: {requested_path.as_posix()}")
+        temporary_path.replace(destination)
+        recovered = True
+    finally:
+        if not recovered:
+            temporary_path.unlink(missing_ok=True)
