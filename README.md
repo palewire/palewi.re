@@ -64,6 +64,7 @@ available local ports, so multiple agents can run the site at the same time.
 | `SAVEPAGENOW_ACCESS_KEY` | No | Internet Archive access key used by `make archive-clips` |
 | `SAVEPAGENOW_SECRET_KEY` | No | Internet Archive secret key used by `make archive-clips` |
 | `MEDIA_ARCHIVE_PATH` | No | Directory outside the repo where `make media-archive-backup`/`verify` store media and the manifest |
+| `SSL_CERT_FILE` | No | Readable PEM CA bundle used by the media archive's verified yt-dlp connections |
 | `R2_ACCOUNT_ID` | No | Cloudflare account ID used only by the manual private R2 media replica |
 | `R2_ACCESS_KEY_ID` | No | Bucket-scoped R2 S3 access key, supplied outside Git |
 | `R2_SECRET_ACCESS_KEY` | No | Bucket-scoped R2 S3 secret, supplied outside Git |
@@ -184,6 +185,21 @@ idempotent and resumable, and a JSON manifest inside the archive root tracks
 every source URL, checksum, size, and any failure so nothing is silently
 dropped. `ffmpeg` is only needed for sources that require it (YouTube, Vimeo)
 and is never installed automatically by `make bootstrap`.
+
+### TLS trust bundles
+
+When a network requires an enterprise root certificate, create a readable PEM
+bundle that includes both the public roots and that enterprise root, then set
+it before running the archive command:
+
+```bash
+export SSL_CERT_FILE=/path/to/combined-ca-bundle.pem
+ARCHIVE_ROOT=/absolute/path/outside/the/repo make media-archive-backup
+```
+
+The archive tool honors a valid `SSL_CERT_FILE` while keeping TLS certificate
+validation enabled. Never use a yt-dlp or other option that disables
+certificate validation.
 
 ### Private R2 replica
 
