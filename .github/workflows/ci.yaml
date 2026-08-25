@@ -127,3 +127,4 @@ jobs:
           scripts/verify-static-site.sh
           scripts/verify-worker-endpoints.sh
           scripts/verify-legacy-redirects.sh
+          scripts/verify-legacy-domains.sh
