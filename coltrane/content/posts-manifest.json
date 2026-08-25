@@ -500,14 +500,14 @@
       "sha256": "cdd2209a8795fea56b6b1779e04c6130f7d14cbbe86faa92399a1bd862f379e7"
     },
     {
-      "body_sha256": "9c77ef984150e1a781e297265caa7a39cbde82d49400176db3c1c5e837e63420",
+      "body_sha256": "baaafc1f7bb0388667d109785306576070e67d196ec04c47409d985b14d111f2",
       "path": "posts/2025-05-21--ire-podcast-transcript.md",
       "permalink": "/posts/2025/05/21/ire-podcast-transcript/",
       "published_at": "2025-05-21T09:30:00-07:00",
-      "sha256": "7280f0a460e1ab8d754172177f8c50aee3cbaf88cc0a22e1dc58ef8f03f0b586"
+      "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "f76e4f53b42f15418862885da32516b822045953d80192a3eae4d0e88fafdcb5",
+  "posts_fingerprint_sha256": "2da5efd279b8581afc4991db9dc243e8df9ed2085b4d5db850e218e3214655ff",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

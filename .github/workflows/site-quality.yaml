@@ -87,4 +87,5 @@ jobs:
             https://palewi.re/work/
             https://palewi.re/talks/
             https://palewi.re/docs/
+            https://palewi.re/posts/2025/05/21/ire-podcast-transcript/
           uploadArtifacts: true

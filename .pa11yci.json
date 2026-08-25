@@ -15,6 +15,7 @@
     "http://127.0.0.1:8000/posts/",
     "http://127.0.0.1:8000/work/",
     "http://127.0.0.1:8000/talks/",
-    "http://127.0.0.1:8000/docs/"
+    "http://127.0.0.1:8000/docs/",
+    "http://127.0.0.1:8000/posts/2025/05/21/ire-podcast-transcript/"
   ]
 }
