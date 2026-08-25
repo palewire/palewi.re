@@ -9,6 +9,7 @@ export interface WorkerEnvironment {
 const CANONICAL_HOST = "palewi.re";
 const SIBLING_HOSTS = new Set(["www.palewi.re", "palewire.com", "www.palewire.com"]);
 const USERNAME_DESTINATION = "https://mastodon.palewi.re/@palewire";
+const SECURITY_TXT_PATH = "/.well-known/security.txt";
 const CONTENT_SECURITY_POLICY = [
   "base-uri 'self'",
   "default-src 'self'",
@@ -80,6 +81,17 @@ async function serveFeed(request: Request, assets: StaticAssets): Promise<Respon
   });
 }
 
+async function serveSecurityTxt(request: Request, assets: StaticAssets): Promise<Response> {
+  const response = await assets.fetch(request);
+  const headers = new Headers(response.headers);
+  headers.set("content-type", "text/plain; charset=utf-8");
+  return new Response(response.body, {
+    headers,
+    status: response.status,
+    statusText: response.statusText,
+  });
+}
+
 export async function handleRequest(request: Request, environment: WorkerEnvironment): Promise<Response> {
   const url = new URL(request.url);
   if (SIBLING_HOSTS.has(url.hostname)) {
@@ -101,6 +113,9 @@ export async function handleRequest(request: Request, environment: WorkerEnviron
   }
   if (url.pathname === "/feeds/posts/") {
     return withSecurityHeaders(await serveFeed(request, environment.ASSETS), request);
+  }
+  if (url.pathname === SECURITY_TXT_PATH) {
+    return withSecurityHeaders(await serveSecurityTxt(request, environment.ASSETS), request);
   }
   return withSecurityHeaders(await environment.ASSETS.fetch(request), request);
 }

@@ -2,6 +2,14 @@ import { describe, expect, it } from "vitest";
 
 import { handleRequest, type StaticAssets } from "../src/index";
 
+const SECURITY_TXT_CONTENT = [
+  "Contact: mailto:b@palewi.re",
+  "Expires: 2027-08-01T00:00:00.000Z",
+  "Preferred-Languages: en",
+  "Canonical: https://palewi.re/.well-known/security.txt",
+  "",
+].join("\n");
+
 const assets: StaticAssets = {
   async fetch(request) {
     return new Response(request.url, {
@@ -52,6 +60,24 @@ describe("static site Worker", () => {
 
     expect(response.headers.get("content-type")).toBe("application/rss+xml; charset=utf-8");
     await expect(response.text()).resolves.toContain("/feeds/posts/index.xml");
+  });
+
+  it("serves security.txt directly as plain text", async () => {
+    const response = await handleRequest(request("/.well-known/security.txt"), {
+      ASSETS: {
+        async fetch(assetRequest) {
+          expect(new URL(assetRequest.url).pathname).toBe("/.well-known/security.txt");
+          return new Response(SECURITY_TXT_CONTENT, {
+            headers: { "content-type": "text/html; charset=utf-8" },
+          });
+        },
+      },
+    });
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("text/plain; charset=utf-8");
+    expect(response.headers.get("location")).toBeNull();
+    await expect(response.text()).resolves.toBe(SECURITY_TXT_CONTENT);
   });
 
   it("passes static assets through with security headers", async () => {

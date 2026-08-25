@@ -128,6 +128,12 @@ class RobotsBuildView(CanonicalBuildMixin, BuildableTemplateView):
     template_name = "robots.txt"
 
 
+class SecurityTxtBuildView(CanonicalBuildMixin, BuildableTemplateView):
+    build_path = ".well-known/security.txt"
+    content_type = "text/plain; charset=utf-8"
+    template_name = "security.txt"
+
+
 class Static404BuildView(CanonicalBuildMixin, Buildable404View):
     pass
 
