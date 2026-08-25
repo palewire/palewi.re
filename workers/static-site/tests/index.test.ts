@@ -58,7 +58,25 @@ describe("static site Worker", () => {
     const response = await handleRequest(request("/who-is-ben-welsh/"), { ASSETS: assets });
 
     expect(await response.text()).toBe("https://palewi.re/who-is-ben-welsh/");
+    expect(response.headers.get("content-security-policy")).toBe(
+      "base-uri 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'none'; frame-src 'self' https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com; img-src 'self' https://palewi.re http://chart.apis.google.com http://www.palewire.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; media-src 'self'; object-src 'none'",
+    );
+    expect(response.headers.get("permissions-policy")).toBe(
+      "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
+    );
     expect(response.headers.get("referrer-policy")).toBe("strict-origin-when-cross-origin");
     expect(response.headers.get("strict-transport-security")).toContain("max-age=31536000");
+  });
+
+  it("applies the security policy to redirects and health responses", async () => {
+    const redirectResponse = await handleRequest(request("/"), { ASSETS: assets });
+    const healthResponse = await handleRequest(request("/health/"), { ASSETS: assets });
+
+    for (const response of [redirectResponse, healthResponse]) {
+      expect(response.headers.get("content-security-policy")).toContain("frame-ancestors 'none'");
+      expect(response.headers.get("permissions-policy")).toBe(
+        "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
+      );
+    }
   });
 });
