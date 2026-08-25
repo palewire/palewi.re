@@ -50,10 +50,6 @@ image-alt	posts/2018/04/14/my-times/index.html	image is missing an alt attribute
 image-alt	posts/2018/04/14/my-times/index.html	image is missing an alt attribute
 image-alt	posts/2018/04/14/my-times/index.html	image is missing an alt attribute
 image-alt	posts/2018/04/14/my-times/index.html	image is missing an alt attribute
-invalid-external-url	posts/2008/06/23/tickertube-bens-first-stab-at-amazon-web-services/index.html	a[href="developer.yahoo.com/yui/"] is missing an HTTP(S) scheme
-invalid-external-url	posts/2008/06/23/tickertube-bens-first-stab-at-amazon-web-services/index.html	a[href="www.djangoproject.com/"] is missing an HTTP(S) scheme
-invalid-external-url	posts/2008/06/23/tickertube-bens-first-stab-at-amazon-web-services/index.html	a[href="www.feedjack.org/"] is missing an HTTP(S) scheme
-invalid-external-url	posts/2008/06/23/tickertube-bens-first-stab-at-amazon-web-services/index.html	a[href="www.feedjack.org/"] is missing an HTTP(S) scheme
 missing-generated-page	404.html	a[href="/"] targets absent generated page /
 missing-generated-page	404.html	link[href="https://palewi.re/"] targets absent generated page /
 missing-generated-page	500.html	a[href="/"] targets absent generated page /

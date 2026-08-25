@@ -108,11 +108,11 @@
       "sha256": "1c4df5e52dc1a79a7c19c8dd391cb3bae722e80eaed639e1f8ae331b5ff34458"
     },
     {
-      "body_sha256": "39c69d244e3713cc1db953f2aa24b7c7c209248c555e9f182964eca2f2baa254",
+      "body_sha256": "708f69b1b97d8c36d2eb98fe6adf03deef28512fde0478542f3125a34c8661e6",
       "path": "posts/2008-06-23--tickertube-bens-first-stab-at-amazon-web-services.md",
       "permalink": "/posts/2008/06/23/tickertube-bens-first-stab-at-amazon-web-services/",
       "published_at": "2008-06-23T08:36:39-07:00",
-      "sha256": "1f959d8e2a81a96a1be50dd07c4f40b693da3fc9cd5b34e8e4d6d21fafe5feae"
+      "sha256": "7e1fd470d0f4730ff492cf1ab30e2ec2a4404fe3f7425c78ac9fc68fbc8b9cd3"
     },
     {
       "body_sha256": "ad671cb98afa3ff26ae6e0d9e10af554480ef7de37c788899e99301ad9e9cd08",
@@ -507,7 +507,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "e8a2e756637515e52e55cdd313ca79643c5e2f90eae50e50ef8090ce78ce6082",
+  "posts_fingerprint_sha256": "258f6200ebd3e9dd364f5d78ed40d4cf3ec8ba801e37a0a86cc2c5139b424444",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

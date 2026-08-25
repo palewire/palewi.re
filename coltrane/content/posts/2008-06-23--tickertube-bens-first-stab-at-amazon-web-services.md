@@ -8,7 +8,7 @@ wordpress_id: 129
 
 
 
-<p>But my objective isn't to build a hit site. I just want to figure out Amazon's toys. What I learned is that while they aren't all that well documented, they can be a lot of fun once you figure out the basics. You'll have to do more hands-on server configuration than you would with <a href="www.feedjack.org/">Google App Engine</a>, but greater control does come with benefits.</p>
+<p>But my objective isn't to build a hit site. I just want to figure out Amazon's toys. What I learned is that while they aren't all that well documented, they can be a lot of fun once you figure out the basics. You'll have to do more hands-on server configuration than you would with <a href="https://www.feedjack.org/">Google App Engine</a>, but greater control does come with benefits.</p>
 
 
 
@@ -16,4 +16,4 @@ wordpress_id: 129
 
 
 
-<p>Thanks to all the great tools that made this project easy. Besides Amazon, much love to <a href="www.djangoproject.com/">Django</a>, <a href="developer.yahoo.com/yui/">YUI</a> and <a href="www.feedjack.org/">Feedjack</a>.</p>
+<p>Thanks to all the great tools that made this project easy. Besides Amazon, much love to <a href="https://www.djangoproject.com/">Django</a>, <a href="https://developer.yahoo.com/yui/">YUI</a> and <a href="https://www.feedjack.org/">Feedjack</a>.</p>
