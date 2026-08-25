@@ -1,7 +1,7 @@
 #ft {
   margin-top: 1em;
   font-size: .8em;
-  border-top: solid 2px #e5e5e5;
+  border-top: var(--border-rule);
   padding-top: 0.4em;
   margin-bottom: 1em;
   padding-top: 0.5em;
@@ -13,7 +13,7 @@
     margin-left: auto;
     white-space: nowrap;
   }
-  @media (max-width: 550px) {
+  @media (max-width: $breakpoint-compact) {
     font-size: 0.65em;
   }
 }

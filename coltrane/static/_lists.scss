@@ -2,7 +2,7 @@ ul.bullets {
   padding-left: 0;
   li {
     min-height: 1.5em;
-    padding: 0.4em 0 0.4em 0;
+    padding: var(--space-list-item-block) 0 var(--space-list-item-block) 0;
     line-height: 1.5em;
     font-size: 1em;
     list-style-type: square;
@@ -16,24 +16,24 @@ ul.bullets {
     margin: 0 0 0.5em 0;
   }
   .section-hed {
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     font-size: 1.1em;
     margin: 0.4em 0 0.2em;
     padding: 0.05em 0 0.25em;
-    border-bottom: thin dotted #ccc;
+    border-bottom: var(--border-section);
   }
   .listitem {
     min-height: 1.5em;
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
+    padding-top: var(--space-list-item-block);
+    padding-bottom: var(--space-list-item-block);
     line-height: 1.5em;
     list-style-type: none;
     font-size: 1em;
-    @media (max-width: 480px) {
+    @media (max-width: $breakpoint-narrow) {
       padding-left: 0;
     }
     h2 {
-      font-weight: 700;
+      font-weight: var(--font-weight-bold);
     }
   }
 }

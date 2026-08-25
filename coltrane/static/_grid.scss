@@ -4,14 +4,14 @@
 /* ==================================================================================================================== */
 
 .container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: var(--space-container-inline);
+  padding-right: var(--space-container-inline);
 }
 
 .row {
   width: 100%;
-  max-width: 755px;
-  min-width: 755px;
+  max-width: var(--layout-content-width);
+  min-width: var(--layout-content-width);
   margin: 0 auto;
   overflow: hidden;
 }
@@ -27,7 +27,7 @@
 .ninecol,
 .tencol,
 .elevencol {
-  margin-right: 3.8%;
+  margin-right: var(--space-column-gap);
   float: left;
   min-height: 1px;
 }
@@ -87,7 +87,7 @@
 
 
 
-@media handheld, only screen and (max-width: 550px) {
+@media handheld, only screen and (max-width: $breakpoint-compact) {
   body {
     -webkit-text-size-adjust: none;
   }
@@ -119,7 +119,7 @@
     float: none;
     margin-left: 0px;
     margin-right: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--space-container-inline);
+    padding-right: var(--space-container-inline);
   }
 }

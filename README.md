@@ -32,6 +32,20 @@ The Sass compiler is an exact, locked npm dependency. `make serve` builds
 expanded CSS with a source map. `make css` builds the compressed production
 stylesheet used by CI and the static-site Worker build.
 
+### CSS design tokens
+
+`coltrane/static/_tokens.scss` holds the small, semantic layer for shared
+colors, typography, spacing, borders, and layout values. It also defines the
+Sass breakpoint variables, since CSS custom properties cannot be used in media
+queries. Use `make css` to rebuild the stylesheet, or `make serve` while
+working locally. The current design has no shared shadow values.
+
+To reproduce a visual comparison, capture `/who-is-ben-welsh/`, `/posts/`, a
+post detail page, `/work/`, `/talks/`, and `/docs/` at 1440x1000 and 390x844
+with device scale factor 1 after `document.fonts.ready`, then compare decoded
+pixels. Exclude dynamic third-party embeds, such as SoundCloud, from both
+captures.
+
 Install Wrangler once with:
 
 ```bash

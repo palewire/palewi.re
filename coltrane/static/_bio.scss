@@ -1,9 +1,9 @@
 .biotext {
   p {
-    margin-bottom: 1.25em;
-    font-weight: 300;
+    margin-bottom: var(--space-body-copy);
+    font-weight: var(--font-weight-light);
   }
   h2 {
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
   }
 }
