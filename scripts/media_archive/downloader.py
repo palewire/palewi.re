@@ -9,6 +9,7 @@ path regardless of host.
 
 from __future__ import annotations
 
+import os
 import re
 import shutil
 from dataclasses import dataclass
@@ -52,6 +53,18 @@ def require_ffmpeg(kind: str) -> None:
             "ffmpeg is required to merge the separate audio and video streams "
             f"yt-dlp downloads for '{kind}' sources. Install ffmpeg and retry."
         )
+
+
+def _configured_ssl_cert_file() -> Path | None:
+    """Return an explicitly configured, readable CA bundle, if one is available."""
+    value = os.environ.get("SSL_CERT_FILE")
+    if not value:
+        return None
+
+    path = Path(value)
+    if path.is_file() and os.access(path, os.R_OK):
+        return path
+    return None
 
 
 def _safe_dirname(kind: str) -> str:
@@ -130,6 +143,9 @@ def download_candidate(
         # Never let the generic extractor treat a direct file link as a
         # webpage to crawl for other links.
         options["force_generic_extractor"] = True
+    if _configured_ssl_cert_file() is not None:
+        # yt-dlp otherwise prefers certifi over the caller's configured bundle.
+        options["compat_opts"] = ["no-certifi"]
 
     try:
         with ydl_factory(options) as ydl:

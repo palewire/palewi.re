@@ -89,6 +89,53 @@ def test_download_candidate_success_direct(tmp_path, monkeypatch):
     assert (tmp_path / "direct" / "abc123.mp4").exists()
 
 
+def test_download_candidate_uses_default_tls_configuration_without_ssl_cert_file(tmp_path, monkeypatch):
+    monkeypatch.delenv("SSL_CERT_FILE", raising=False)
+    captured_options = {}
+
+    def factory(options):
+        captured_options.update(options)
+        return FakeYoutubeDL(options, info={"id": "abc123", "ext": "mp4"})
+
+    downloader.download_candidate("https://example.com/clip.mp4", "direct", tmp_path, ydl_factory=factory)
+
+    assert "compat_opts" not in captured_options
+    assert "nocheckcertificate" not in captured_options
+
+
+def test_download_candidate_honors_readable_ssl_cert_file(tmp_path, monkeypatch):
+    certificate_bundle = tmp_path / "combined-ca.pem"
+    certificate_bundle.write_text("public and enterprise roots", encoding="utf-8")
+    monkeypatch.setenv("SSL_CERT_FILE", str(certificate_bundle))
+    captured_options = {}
+
+    def factory(options):
+        captured_options.update(options)
+        return FakeYoutubeDL(options, info={"id": "abc123", "ext": "mp4"})
+
+    downloader.download_candidate("https://example.com/clip.mp4", "direct", tmp_path, ydl_factory=factory)
+
+    assert captured_options["compat_opts"] == ["no-certifi"]
+    assert "nocheckcertificate" not in captured_options
+
+
+def test_download_candidate_ignores_unreadable_ssl_cert_file(tmp_path, monkeypatch):
+    certificate_bundle = tmp_path / "unreadable-ca.pem"
+    certificate_bundle.write_text("public and enterprise roots", encoding="utf-8")
+    monkeypatch.setenv("SSL_CERT_FILE", str(certificate_bundle))
+    monkeypatch.setattr(downloader.os, "access", lambda path, mode: False)
+    captured_options = {}
+
+    def factory(options):
+        captured_options.update(options)
+        return FakeYoutubeDL(options, info={"id": "abc123", "ext": "mp4"})
+
+    downloader.download_candidate("https://example.com/clip.mp4", "direct", tmp_path, ydl_factory=factory)
+
+    assert "compat_opts" not in captured_options
+    assert "nocheckcertificate" not in captured_options
+
+
 def test_download_candidate_success_youtube_requires_ffmpeg(tmp_path, monkeypatch):
     monkeypatch.setattr(downloader, "ffmpeg_available", lambda: False)
     factory = make_factory(info={"id": "abc123", "ext": "mp4"})
