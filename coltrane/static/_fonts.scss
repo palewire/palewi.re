@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,700;0,800;1,400;1,800&display=swap');
+@font-face {
+  font-family: "Libre Franklin";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("fonts/libre-franklin-latin-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Libre Franklin";
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("fonts/libre-franklin-latin-italic.woff2") format("woff2");
+}
 
 body {
   font-family: var(--font-family-body);
