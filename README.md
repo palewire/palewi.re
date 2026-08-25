@@ -50,6 +50,10 @@ available local ports, so multiple agents can run the site at the same time.
 | `SAVEPAGENOW_ACCESS_KEY` | No | Internet Archive access key used by `make archive-clips` |
 | `SAVEPAGENOW_SECRET_KEY` | No | Internet Archive secret key used by `make archive-clips` |
 | `MEDIA_ARCHIVE_PATH` | No | Directory outside the repo where `make media-archive-backup`/`verify` store media and the manifest |
+| `R2_ACCOUNT_ID` | No | Cloudflare account ID used only by the manual private R2 media replica |
+| `R2_ACCESS_KEY_ID` | No | Bucket-scoped R2 S3 access key, supplied outside Git |
+| `R2_SECRET_ACCESS_KEY` | No | Bucket-scoped R2 S3 secret, supplied outside Git |
+| `MEDIA_ARCHIVE_R2_BUCKET` | No | Private R2 bucket name; defaults to `palewire-media-archive` |
 
 ## Quality gate
 
@@ -126,6 +130,14 @@ idempotent and resumable, and a JSON manifest inside the archive root tracks
 every source URL, checksum, size, and any failure so nothing is silently
 dropped. `ffmpeg` is only needed for sources that require it (YouTube, Vimeo)
 and is never installed automatically by `make bootstrap`.
+
+### Private R2 replica
+
+The local archive remains the source of truth. A private R2 bucket is a manual,
+offsite replica only: it has no public domain, Worker binding, CORS policy, or
+scheduled sync. See [the R2 archive runbook](docs/media-archive-r2.md) for
+bucket-scoped credentials, sync, remote verification, selected-file recovery,
+and cost-aware maintenance.
 
 ## Blog post authoring
 
