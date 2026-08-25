@@ -7,6 +7,7 @@ step runs *before* pytest so the manifest is always present there.
 
 import json
 import os
+from pathlib import Path
 
 import pytest
 from django.test import Client, override_settings
@@ -26,6 +27,22 @@ def test_bio_page_uses_compiled_stylesheet(client) -> None:
 
     assert response.status_code == 200
     assert 'href="/static/styles.css"' in response.content.decode()
+
+
+def test_base_template_uses_local_fonts_and_progressive_enhancements(client) -> None:
+    """The base page avoids remote fonts while serving the local enhancement script."""
+    response = client.get("/who-is-ben-welsh/")
+    content = response.content.decode()
+    static_dir = Path(__file__).resolve().parent.parent / "coltrane" / "static"
+    font_styles = (static_dir / "_fonts.scss").read_text(encoding="utf-8")
+
+    assert "fonts.googleapis.com" not in content
+    assert "fonts.gstatic.com" not in content
+    assert 'src="/static/progressive-enhancements.js"' in content
+    assert 'url("fonts/libre-franklin-latin-normal.woff2")' in font_styles
+    assert (static_dir / "fonts" / "libre-franklin-latin-normal.woff2").is_file()
+    assert (static_dir / "fonts" / "libre-franklin-latin-italic.woff2").is_file()
+    assert (static_dir / "fonts" / "OFL.txt").is_file()
 
 
 @pytest.mark.skipif(not _MANIFEST_BUILT, reason="collected_static not yet built")

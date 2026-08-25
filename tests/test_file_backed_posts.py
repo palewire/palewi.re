@@ -39,15 +39,20 @@ def test_post_list_uses_file_order(client, public_posts):
     assert content.index(public_posts[0].get_absolute_url()) < content.index(public_posts[-1].get_absolute_url())
 
 
-def test_post_detail_keeps_raw_html_and_legacy_code_highlighting(client, public_posts):
-    """Stored HTML remains safe output and legacy <pre lang> blocks are highlighted."""
+def test_post_detail_progressively_enhances_soundcloud_and_legacy_code_highlighting(client, public_posts):
+    """Stored HTML keeps a no-JavaScript SoundCloud fallback and legacy code highlighting."""
     raw_html_post = next(post for post in public_posts if "<iframe" in post.body_markup)
     code_post = next(post for post in public_posts if '<pre lang="python">' in post.body_markup)
 
     raw_response = client.get(raw_html_post.get_absolute_url())
     code_response = client.get(code_post.get_absolute_url())
 
-    assert "<iframe" in raw_response.content.decode()
+    raw_content = raw_response.content.decode()
+    assert 'class="soundcloud-embed"' in raw_content
+    assert "Load SoundCloud player" in raw_content
+    assert "<template><iframe" in raw_content
+    assert "<noscript>" in raw_content
+    assert "JavaScript is disabled. The SoundCloud player is available below." in raw_content
     assert 'class="source"' in code_response.content.decode()
 
 
@@ -58,6 +63,8 @@ def test_podcast_embed_has_accessible_name_and_contrast(client):
     assert response.status_code == 200
     assert 'title="IRE Radio podcast player"' in content
     assert "color: #767676" in content
+    assert "SoundCloud may set cookies." in content
+    assert 'aria-live="polite"' in content
 
 
 def test_post_html_is_highlighted_once_per_loaded_post(public_posts):

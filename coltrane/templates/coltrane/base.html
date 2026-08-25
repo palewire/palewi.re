@@ -48,11 +48,6 @@
         <meta name="twitter:creator" content="@palewire" />
         {% endblock %}
 
-        {% block preconnect %}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        {% endblock %}
-
         {% block googlemeta %}
         <script type="application/ld+json">
         {
@@ -86,6 +81,7 @@
     {% block css %}
     <link rel="preload" as="style" href="{% static 'styles.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+    <script defer src="{% static 'progressive-enhancements.js' %}"></script>
     {% endblock %}
 
     {% block extrahead %}
