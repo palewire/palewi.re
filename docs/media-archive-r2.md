@@ -11,8 +11,8 @@ Use the Cloudflare dashboard: **R2 Object Storage** > **Manage** > **API
 Tokens**. Create an R2 S3-compatible API token with **Object Read and Write**,
 scoped only to `palewire-media-archive`. Store its Access Key ID and Secret
 Access Key in a shell environment or private configuration outside Git. In a
-Bash or Zsh session, enter the values interactively so they are never saved in
-shell history:
+Bash session, enter the values interactively so they are never saved in shell
+history:
 
 ```sh
 read -r -p "R2 account ID: " R2_ACCOUNT_ID
