@@ -55,6 +55,25 @@ def test_cli_accepts_only_exact_baseline_fingerprints(build_dir: Path, tmp_path:
     assert "another-missing" in result.output
 
 
+def test_cli_rejects_findings_that_exceed_baseline_count(build_dir: Path, tmp_path: Path) -> None:
+    write_page(
+        build_dir,
+        "docs/index.html",
+        '<a href="/missing/">First missing page</a><a href="/missing/">Second missing page</a>',
+    )
+    baseline = tmp_path / "baseline.txt"
+    baseline.write_text(
+        check_built_site(build_dir)[0].fingerprint() + "\n",
+        encoding="utf-8",
+    )
+
+    result = CliRunner().invoke(cli, ["--build-dir", str(build_dir), "--baseline", str(baseline)])
+
+    assert result.exit_code == 1
+    assert "1 new built-site quality issue" in result.output
+    assert "missing/" in result.output
+
+
 @pytest.mark.parametrize(
     ("relative_path", "content", "code"),
     [

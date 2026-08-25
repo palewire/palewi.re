@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 import xml.etree.ElementTree as ElementTree
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
@@ -280,13 +280,13 @@ def check_built_site(build_dir: Path) -> list[Finding]:
     return sorted(findings, key=lambda finding: (finding.code, finding.source, finding.message))
 
 
-def load_baseline(path: Path) -> set[str]:
+def load_baseline(path: Path) -> Counter[str]:
     """Load exact finding fingerprints acknowledged as existing quality debt."""
     if not path.exists():
-        return set()
-    return {
+        return Counter()
+    return Counter(
         line.rstrip("\n") for line in path.read_text(encoding="utf-8").splitlines() if line and not line.startswith("#")
-    }
+    )
 
 
 @click.command()
@@ -308,9 +308,16 @@ def load_baseline(path: Path) -> set[str]:
 def cli(build_dir: Path, baseline: Path, report_known: bool) -> None:
     """Validate generated static-site content without network access."""
     findings = check_built_site(build_dir)
-    known_fingerprints = load_baseline(baseline)
-    known = [finding for finding in findings if finding.fingerprint() in known_fingerprints]
-    new = [finding for finding in findings if finding.fingerprint() not in known_fingerprints]
+    remaining_baseline = load_baseline(baseline)
+    known: list[Finding] = []
+    new: list[Finding] = []
+    for finding in findings:
+        fingerprint = finding.fingerprint()
+        if remaining_baseline[fingerprint]:
+            known.append(finding)
+            remaining_baseline[fingerprint] -= 1
+        else:
+            new.append(finding)
     if report_known:
         click.echo("\n".join(finding.format() for finding in findings))
     if new:
