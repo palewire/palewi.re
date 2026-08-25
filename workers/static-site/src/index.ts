@@ -9,7 +9,22 @@ export interface WorkerEnvironment {
 const CANONICAL_HOST = "palewi.re";
 const SIBLING_HOSTS = new Set(["www.palewi.re", "palewire.com", "www.palewire.com"]);
 const USERNAME_DESTINATION = "https://mastodon.palewi.re/@palewire";
+const CONTENT_SECURITY_POLICY = [
+  "base-uri 'self'",
+  "default-src 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "frame-src 'self' https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com",
+  "img-src 'self' https://palewi.re http://chart.apis.google.com http://www.palewire.com https://palewire.s3.amazonaws.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "script-src 'self'",
+  "media-src 'self' https://palewire.s3.amazonaws.com",
+  "object-src 'none'",
+].join("; ");
 const SECURITY_HEADERS = {
+  "content-security-policy": CONTENT_SECURITY_POLICY,
+  "permissions-policy": "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
   "referrer-policy": "strict-origin-when-cross-origin",
   "x-content-type-options": "nosniff",
   "x-frame-options": "DENY",

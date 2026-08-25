@@ -31,14 +31,37 @@ request() {
   }
 }
 
+expect_security_headers() {
+  grep -Fiq "content-security-policy: " "$headers_file"
+  grep -Fiq "frame-src 'self' https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com" "$headers_file"
+  grep -Fiq "permissions-policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()" "$headers_file"
+}
+
 request "/health/" 200
 grep -Fq '{"status":"ok"}' "$body_file"
+expect_security_headers
 request "/who-is-ben-welsh/" 200
 grep -Fq '<link rel="canonical" href="https://palewi.re/who-is-ben-welsh/"' "$body_file"
+expect_security_headers
 request "/posts/" 200
 request "/work/" 200
 request "/talks/" 200
 request "/docs/" 200
+request "/posts/2012/02/25/nicar-2012-things-i-said/" 200
+grep -Fq 'src="https://docs.google.com/' "$body_file"
+request "/posts/2012/03/26/leaflet-recipe-hover-events-features-and-polygons/" 200
+grep -Fq 'src="http://s3-us-west-1.amazonaws.com/' "$body_file"
+request "/posts/2017/09/09/what-i-learned/" 200
+grep -Fq 'src="https://player.vimeo.com/' "$body_file"
+request "/posts/2025/05/21/ire-podcast-transcript/" 200
+grep -Fq 'src="https://w.soundcloud.com/' "$body_file"
+request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 200
+grep -Fq 'src="http://chart.apis.google.com/' "$body_file"
+request "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/" 200
+grep -Fq 'src="http://www.palewire.com/' "$body_file"
+request "/posts/2018/04/14/my-times/" 200
+grep -Fq 'src="//palewire.s3.amazonaws.com/latimes-tour/1.jpg"' "$body_file"
+grep -Fq 'src="//palewire.s3.amazonaws.com/latimes-tour/9track.mp4"' "$body_file"
 request "/sitemap.xml" 200
 grep -Fq '<sitemapindex' "$body_file"
 request "/robots.txt" 200
