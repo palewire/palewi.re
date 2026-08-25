@@ -30,10 +30,14 @@ describe("static site Worker", () => {
   });
 
   it("redirects sibling domains to the canonical host", async () => {
-    const response = await handleRequest(request("/posts/?source=test", "www.palewi.re"), { ASSETS: assets });
+    const hosts = ["www.palewi.re", "palewire.com", "www.palewire.com"];
 
-    expect(response.status).toBe(301);
-    expect(response.headers.get("location")).toBe("https://palewi.re/posts/?source=test");
+    for (const host of hosts) {
+      const response = await handleRequest(request("/posts/?source=test", host), { ASSETS: assets });
+
+      expect(response.status).toBe(301);
+      expect(response.headers.get("location")).toBe("https://palewi.re/posts/?source=test");
+    }
   });
 
   it("keeps the health check available without fetching an asset", async () => {
