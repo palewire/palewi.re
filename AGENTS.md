@@ -15,6 +15,12 @@ When adding or changing a URL in `coltrane/content/clips.yaml`, load the
 `archive-clips` skill and run `make archive-clips`. Every clip must retain the
 resulting `archive_url` or a specific `archive_exemption`.
 
+Run `make preservation-review` after adding or changing a clip, talk video, or
+playable media in a post. It is offline and points to the exact source and
+next preservation action. New private, DRM-protected, login-required, or
+otherwise inaccessible media requires a specific recorded reason in
+`preservation-review-baseline.json`; do not bypass access controls.
+
 When running, auditing, or troubleshooting a local audio/video backup of the
 media referenced by `coltrane/content/talks.yaml` or blog posts, load the
 `archive-media` skill (`.github/skills/archive-media/SKILL.md`) first.

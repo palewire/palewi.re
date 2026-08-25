@@ -69,6 +69,9 @@ jobs:
       - name: Django system check
         run: make django-check
 
+      - name: Review preservation for new external content
+        run: make preservation-review
+
       - name: Build production static files
         env:
           STATIC_MANIFEST: "true"
