@@ -13,8 +13,10 @@ WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/.well-known/cloudflare-worker-canary
 LEGACY_WORKER_DIR := workers/legacy-redirects
 LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
 LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
+STATIC_WORKER_DIR := workers/static-site
+STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev serve check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 help:
 	@echo "Available targets:"
@@ -27,6 +29,7 @@ help:
 	@echo "  hooks      Install pre-commit hooks"
 	@echo "  css        Build compressed production CSS"
 	@echo "  css-dev    Build expanded CSS with a source map"
+	@echo "  bake       Build static site files in dist/"
 	@echo "  serve      Start the development server"
 	@echo "  check      Run the same lint, type, Django, and test checks as CI"
 	@echo "  test       Run tests only"
@@ -38,6 +41,11 @@ help:
 	@echo "  media-archive-inventory  List discovered talk/post media without downloading anything"
 	@echo "  media-archive-backup  Back up pending media to ARCHIVE_ROOT (or MEDIA_ARCHIVE_PATH)"
 	@echo "  media-archive-verify  Recompute checksums of already-archived media, offline"
+	@echo "  static-worker-test  Run the static site Worker tests"
+	@echo "  static-worker-validate  Validate the static site Worker without deploying"
+	@echo "  static-worker-preview-deploy  Deploy a route-free static-site preview after confirmation"
+	@echo "  static-worker-deploy  Deploy the static site Worker and its production routes after confirmation"
+	@echo "  static-worker-verify  Verify the static site Worker deployment"
 	@echo "  worker-test  Install locked Worker dependencies and run Worker tests"
 	@echo "  worker-validate  Type-check and dry-run the Worker without deploying"
 	@echo "  worker-canary-deploy  Deploy a route-free Worker canary after explicit confirmation"
@@ -95,6 +103,9 @@ css:
 css-dev:
 	@"$$(command -v npm)" run build:css:dev
 
+bake: css
+	@"$$(command -v uv)" run python manage.py build
+
 serve: css-dev
 	@"$$(command -v uv)" run python -m scripts.worktree serve
 
@@ -133,6 +144,27 @@ media-archive-backup:
 media-archive-verify:
 	@test -n "$$ARCHIVE_ROOT$$MEDIA_ARCHIVE_PATH" || { echo "Set ARCHIVE_ROOT=/path/outside/repo (or export MEDIA_ARCHIVE_PATH) to a directory outside this repository." >&2; exit 1; }
 	@"$$(command -v uv)" run python -m scripts.media_archive verify $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
+
+static-worker-test:
+	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	npm --prefix "$(STATIC_WORKER_DIR)" run test
+
+static-worker-validate: bake
+	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	npm --prefix "$(STATIC_WORKER_DIR)" run validate
+
+static-worker-preview-deploy: bake
+	@test "$$CONFIRM_STATIC_WORKER_PREVIEW_DEPLOY" = "1" || { echo "Set CONFIRM_STATIC_WORKER_PREVIEW_DEPLOY=1 after make static-worker-validate passes." >&2; exit 1; }
+	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	cd "$(STATIC_WORKER_DIR)" && npm exec -- wrangler deploy --env preview --strict --name "$(STATIC_WORKER_PREVIEW_NAME)"
+
+static-worker-deploy: bake
+	@test "$$CONFIRM_STATIC_WORKER_DEPLOY" = "1" || { echo "Set CONFIRM_STATIC_WORKER_DEPLOY=1 after preview verification passes." >&2; exit 1; }
+	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
+	cd "$(STATIC_WORKER_DIR)" && npm exec -- wrangler deploy --env="" --strict
+
+static-worker-verify:
+	@BASE_URL="$${BASE_URL:?Set BASE_URL to the static site URL.}" scripts/verify-static-site.sh
 
 worker-test:
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund

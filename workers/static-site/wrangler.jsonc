@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "palewire-static-site",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-25",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "palewi.re/*",
+      "zone_name": "palewi.re"
+    },
+    {
+      "pattern": "www.palewi.re/*",
+      "zone_name": "palewi.re"
+    }
+  ],
+  "assets": {
+    "directory": "../../dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "env": {
+    "preview": {
+      "name": "palewire-static-site-preview",
+      "workers_dev": true,
+      "preview_urls": true,
+      "routes": []
+    }
+  }
+}

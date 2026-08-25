@@ -1,0 +1,22 @@
+{
+  "name": "palewire-static-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "config:check": "wrangler deploy --dry-run --env=\"\" && wrangler deploy --dry-run --env preview",
+    "startup:check": "wrangler check startup",
+    "validate": "npm run typecheck && npm run config:check && npm run startup:check"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "typescript": "5.7.3",
+    "vitest": "3.2.7",
+    "wrangler": "4.125.0"
+  }
+}

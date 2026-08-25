@@ -84,7 +84,46 @@ jobs:
 
       - name: Run Worker tests and validation
         run: |
+          make static-worker-test
+          make static-worker-validate
           make worker-test
           make legacy-worker-test
           make worker-validate
           make legacy-worker-validate
+
+  deploy-static-site:
+    name: Deploy static site
+    if: github.ref == 'refs/heads/main'
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      UV_NO_ENV_FILE: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+
+      - name: Build and deploy static site
+        run: |
+          make ci-bootstrap
+          make bake
+          npm --prefix workers/static-site ci --ignore-scripts --no-audit --no-fund
+          cd workers/static-site
+          npm exec -- wrangler deploy --env="" --strict
+
+      - name: Verify static site and existing Workers
+        run: |
+          scripts/verify-static-site.sh
+          scripts/verify-worker-endpoints.sh
+          scripts/verify-legacy-redirects.sh
