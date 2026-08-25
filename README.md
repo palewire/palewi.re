@@ -127,33 +127,50 @@ every source URL, checksum, size, and any failure so nothing is silently
 dropped. `ffmpeg` is only needed for sources that require it (YouTube, Vimeo)
 and is never installed automatically by `make bootstrap`.
 
-## Blog post Markdown
+## Blog post authoring
 
-Public posts in `coltrane/content/posts/` are one `.md` file each. Their YAML
-front matter requires `title`, `slug`, and `published_at`; the datetime must
-use the Los Angeles offset. `repr_image` and `wordpress_id` are optional.
-Keep the body as raw HTML, including any `<pre lang="...">` code blocks. Do
-not add drafts or a status field. The filename format is
-`YYYY-MM-DD--slug.md`, and `posts-manifest.json` is the checked-in public
-fingerprint generated during the production export.
+Public posts in `coltrane/content/posts/` are one `.md` file each. Git and a
+merged pull request are the publishing workflow; do not add drafts or a status
+field to this repository.
 
-To author a post, create a file with this shape:
+1. Create the post from its title and Los Angeles publication time. The command
+   prompts directly for both values, so punctuation and dollar signs in titles
+   are preserved. Supply the offset that applies at that local time (`-08:00`
+   in standard time, `-07:00` in daylight time).
 
-```markdown
----
-title: Example post
-slug: example-post
-published_at: "2026-08-24T09:00:00-07:00"
-repr_image: "https://example.com/image.jpg" # optional
-wordpress_id: 123 # optional legacy ID
----
-<p>Write the published body as raw HTML.</p>
-```
+   ```bash
+   make new-post
+   ```
+
+   The command creates `YYYY-MM-DD--slug.md`, generates the required front
+   matter, checks for existing files, duplicate slugs, and duplicate public
+   URLs, then prints the new path. It never overwrites a post. It rejects an
+   invalid date, missing offset, or a time that is not valid in Los Angeles.
+   For a scripted command, pass the values directly with shell-safe quoting:
+
+   ```bash
+   uv run python -m scripts.new_post --title 'Example post: $5' --published-at '2026-08-24T09:00:00-07:00'
+   ```
+
+2. Edit the new file. Keep the body as raw HTML, including any
+   `<pre lang="...">` code blocks. The command's placeholder is deliberately
+   raw HTML. `repr_image` and `wordpress_id` are optional legacy fields.
+
+3. Validate and preview the post locally.
+
+   ```bash
+   make check
+   make serve
+   # Open the printed URL, then visit /posts/ or the new post URL.
+   make bake
+   ```
+
+4. Commit the new Markdown file, push the branch, and open a pull request.
+   Merging that pull request to `main` publishes the post.
 
 Only files in this directory are public. Drafts belong in a private workspace,
-not this repository. Run `make serve`, open the printed local URL, and visit
-`/posts/` or the post's date-based URL to preview it. Run `make check` before
-committing to validate the front matter, public URL inventory, and rendering.
+not this repository. `posts-manifest.json` is the checked-in public fingerprint
+from the historical export; do not edit it for new posts.
 
 ## Deployment
 
