@@ -13,12 +13,12 @@ nav {
       a {
         text-decoration: none;
         font-weight: bold;
-        color: $black;
+        color: var(--color-text);
       }
       a:hover {
-        color: $dark-gray;
+        color: var(--color-link);
       }
-      @media (max-width: 550px) {
+      @media (max-width: $breakpoint-compact) {
         float: left;
         margin-bottom: 5px;
         padding-left: 0;
@@ -35,14 +35,14 @@ nav {
       list-style-position: inside;
       margin-left: 0.5em;
       font-size: .9em;
-      font-weight: 300;
+      font-weight: var(--font-weight-light);
       a {
         text-decoration: none;
       }
       a:hover {
         text-decoration: underline;
       }
-      @media (max-width: 550px) {
+      @media (max-width: $breakpoint-compact) {
         font-size: .825em;
       }
     }
@@ -50,6 +50,6 @@ nav {
 }
 
 .topbar {
-  border-bottom: solid 10px #e5e5e5;
+  border-bottom: var(--border-topbar);
   margin-bottom: 20px;
 }

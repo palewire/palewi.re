@@ -1,0 +1,31 @@
+:root {
+  /* Color */
+  --color-text: #000000;
+  --color-link: #686868;
+  --color-rule: #e5e5e5;
+  --color-rule-subtle: #ccc;
+  --color-code-background: #f8f8f8;
+
+  /* Typography */
+  --font-family-body: "Libre Franklin", "Helvetica", "Liberation Sans", Arial, sans-serif;
+  --font-size-body: 20px;
+  --line-height-body: 1.55;
+  --font-weight-light: 300;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
+
+  /* Layout and spacing */
+  --layout-content-width: 755px;
+  --space-container-inline: 20px;
+  --space-column-gap: 3.8%;
+  --space-body-copy: 1.25em;
+  --space-list-item-block: 0.4em;
+
+  /* Borders */
+  --border-rule: solid 2px var(--color-rule);
+  --border-topbar: solid 10px var(--color-rule);
+  --border-section: thin dotted var(--color-rule-subtle);
+}
+
+$breakpoint-compact: 550px;
+$breakpoint-narrow: 480px;

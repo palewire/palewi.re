@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,700;0,800;1,400;1,800&display=swap');
-$font-family-sans-serif: 'Libre Franklin', "Helvetica", "Liberation Sans", Arial, sans-serif;
 
 body {
-  font-family: $font-family-sans-serif;
-  font-size: 20px;
-  line-height: 1.55;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   text-align: left;
-  @media (max-width: 550px) {
+  @media (max-width: $breakpoint-compact) {
     font-size: 0.85em;
   }
 }

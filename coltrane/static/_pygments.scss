@@ -4,7 +4,7 @@
   background-color: #ffffcc;
 }
 .source {
-  background: #f8f8f8;
+  background: var(--color-code-background);
   overflow: auto;
   padding: 1em 1em 1em 0;
   margin: 1em 0;

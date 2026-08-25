@@ -1,15 +1,15 @@
 a:link {
   text-decoration: none;
-  color: $dark-gray;
+  color: var(--color-link);
 }
 a:visited {
   text-decoration: none;
-  color: $dark-gray;
+  color: var(--color-link);
 }
 a:hover {
   text-decoration: underline;
 }
 a:active {
   text-decoration: underline;
-  color: $black;
+  color: var(--color-text);
 }
