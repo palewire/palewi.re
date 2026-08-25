@@ -1,5 +1,9 @@
 """Tests for the safe public-post authoring command."""
 
+import multiprocessing
+import time
+from multiprocessing.queues import Queue
+from multiprocessing.synchronize import Event
 from pathlib import Path
 
 import pytest
@@ -8,8 +12,24 @@ from django.core.management import call_command
 from django.test import override_settings
 
 from coltrane import bakery_views, feeds, sitemaps
-from coltrane.content_loaders import load_posts
+from coltrane.content_loaders import ContentError, load_posts
 from scripts import new_post
+
+
+def create_post_in_process(
+    start_event: Event,
+    results: Queue,
+    posts_path: str,
+    published_at: str,
+) -> None:
+    """Create a same-title post after both subprocesses are ready."""
+    start_event.wait()
+    try:
+        path = new_post.create_post("Shared title", published_at, Path(posts_path))
+    except (new_post.PostAuthoringError, ContentError) as error:
+        results.put(("error", str(error)))
+    else:
+        results.put(("created", str(path)))
 
 
 def run_new_post(posts_path: Path, title: str = "A new post", published_at: str = "2026-08-24T09:00:00-07:00"):
@@ -47,6 +67,20 @@ def test_new_post_creates_loader_compatible_raw_html_file(tmp_path):
     )
     post = load_posts(posts_path)[0]
     assert post.get_absolute_url() == "/posts/2026/08/24/cafe-new-post/"
+
+
+def test_new_post_prompt_preserves_shell_sensitive_title(tmp_path):
+    posts_path = tmp_path / "posts"
+    posts_path.mkdir()
+
+    result = CliRunner().invoke(
+        new_post.cli,
+        ["--posts-path", str(posts_path)],
+        input="Costs $5 & tax\n2026-08-24T09:00:00-07:00\n",
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "title: Costs $5 & tax" in (posts_path / "2026-08-24--costs-5-tax.md").read_text(encoding="utf-8")
 
 
 @pytest.mark.parametrize(
@@ -122,6 +156,40 @@ def test_write_new_file_refuses_a_destination_created_during_write(tmp_path):
 
     assert destination.read_text(encoding="utf-8") == "keep this file unchanged"
     assert list(tmp_path.iterdir()) == [destination]
+
+
+def test_new_post_locks_duplicate_slug_validation_through_creation(tmp_path, monkeypatch):
+    posts_path = tmp_path / "posts"
+    posts_path.mkdir()
+    original_load_posts = new_post.load_posts
+
+    def delayed_load_posts(path):
+        posts = original_load_posts(path)
+        time.sleep(0.2)
+        return posts
+
+    monkeypatch.setattr(new_post, "load_posts", delayed_load_posts)
+    context = multiprocessing.get_context("fork")
+    start_event = context.Event()
+    results = context.Queue()
+    processes = [
+        context.Process(
+            target=create_post_in_process,
+            args=(start_event, results, str(posts_path), published_at),
+        )
+        for published_at in ("2026-08-24T09:00:00-07:00", "2026-08-25T09:00:00-07:00")
+    ]
+    for process in processes:
+        process.start()
+    start_event.set()
+    for process in processes:
+        process.join(timeout=5)
+
+    assert all(process.exitcode == 0 for process in processes)
+    outcomes = sorted(results.get(timeout=1) for _ in processes)
+    assert outcomes[0][0] == "created"
+    assert outcomes[1] == ("error", "duplicate post slug 'shared-title'")
+    assert len(load_posts(posts_path)) == 1
 
 
 def test_new_post_builds_at_its_public_url(tmp_path, monkeypatch):

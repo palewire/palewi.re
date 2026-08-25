@@ -133,18 +133,24 @@ Public posts in `coltrane/content/posts/` are one `.md` file each. Git and a
 merged pull request are the publishing workflow; do not add drafts or a status
 field to this repository.
 
-1. Create the post from its title and Los Angeles publication time. Supply the
-   offset that applies at that local time (`-08:00` in standard time, `-07:00`
-   in daylight time).
+1. Create the post from its title and Los Angeles publication time. The command
+   prompts directly for both values, so punctuation and dollar signs in titles
+   are preserved. Supply the offset that applies at that local time (`-08:00`
+   in standard time, `-07:00` in daylight time).
 
    ```bash
-   make new-post TITLE="Example post" PUBLISHED_AT="2026-08-24T09:00:00-07:00"
+   make new-post
    ```
 
    The command creates `YYYY-MM-DD--slug.md`, generates the required front
    matter, checks for existing files, duplicate slugs, and duplicate public
    URLs, then prints the new path. It never overwrites a post. It rejects an
    invalid date, missing offset, or a time that is not valid in Los Angeles.
+   For a scripted command, pass the values directly with shell-safe quoting:
+
+   ```bash
+   uv run python -m scripts.new_post --title 'Example post: $5' --published-at '2026-08-24T09:00:00-07:00'
+   ```
 
 2. Edit the new file. Keep the body as raw HTML, including any
    `<pre lang="...">` code blocks. The command's placeholder is deliberately

@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
+import fcntl
 import os
 import re
 import tempfile
 import unicodedata
+from collections.abc import Iterator
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 
@@ -70,6 +73,21 @@ def write_new_file(destination: Path, content: str) -> None:
             temporary_path.unlink(missing_ok=True)
 
 
+@contextmanager
+def lock_posts_directory(posts_path: Path) -> Iterator[None]:
+    """Hold an interprocess lock on the posts directory."""
+    descriptor = os.open(posts_path, os.O_RDONLY)
+    locked = False
+    try:
+        fcntl.flock(descriptor, fcntl.LOCK_EX)
+        locked = True
+        yield
+    finally:
+        if locked:
+            fcntl.flock(descriptor, fcntl.LOCK_UN)
+        os.close(descriptor)
+
+
 def create_post(title: str, published_at_value: str, posts_path: Path = DEFAULT_POSTS_PATH) -> Path:
     """Validate and create a new public Markdown post."""
     title = title.strip()
@@ -81,26 +99,29 @@ def create_post(title: str, published_at_value: str, posts_path: Path = DEFAULT_
         raise PostAuthoringError("title must contain letters or numbers that can form a URL-safe slug")
 
     published_at = parse_los_angeles_datetime(published_at_value, "published_at", "post authoring")
-    destination = posts_path / f"{published_at:%Y-%m-%d}--{slug}.md"
-    if destination.exists():
-        raise PostAuthoringError(f"{destination}: destination already exists")
-
-    posts = load_posts(posts_path)
     url = post_url(published_at, slug)
-    if any(post.get_absolute_url() == url for post in posts):
-        raise PostAuthoringError(f"duplicate public URL '{url}'")
-    if any(post.slug == slug for post in posts):
-        raise PostAuthoringError(f"duplicate post slug '{slug}'")
+    content = post_content(title, slug, published_at.isoformat())
+    with lock_posts_directory(posts_path):
+        destination = posts_path / f"{published_at:%Y-%m-%d}--{slug}.md"
+        if destination.exists():
+            raise PostAuthoringError(f"{destination}: destination already exists")
 
-    write_new_file(destination, post_content(title, slug, published_at.isoformat()))
+        posts = load_posts(posts_path)
+        if any(post.get_absolute_url() == url for post in posts):
+            raise PostAuthoringError(f"duplicate public URL '{url}'")
+        if any(post.slug == slug for post in posts):
+            raise PostAuthoringError(f"duplicate post slug '{slug}'")
+
+        write_new_file(destination, content)
     return destination
 
 
 @click.command()
-@click.option("--title", required=True, help="Published post title.")
+@click.option("--title", required=True, prompt="Title", help="Published post title.")
 @click.option(
     "--published-at",
     required=True,
+    prompt="Published at",
     help="Los Angeles publication time as ISO 8601 with its correct UTC offset.",
 )
 @click.option(

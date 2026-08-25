@@ -31,7 +31,7 @@ help:
 	@echo "  css-dev    Build expanded CSS with a source map"
 	@echo "  bake       Build static site files in dist/"
 	@echo "  serve      Start the development server"
-	@echo "  new-post  Create a public post (requires TITLE and PUBLISHED_AT)"
+	@echo "  new-post  Create a public post interactively"
 	@echo "  check      Run the same lint, type, Django, and test checks as CI"
 	@echo "  test       Run tests only"
 	@echo "  lint       Run Ruff linter and format check"
@@ -110,9 +110,7 @@ serve: css-dev
 	@"$$(command -v uv)" run python -m scripts.worktree serve
 
 new-post:
-	@test -n "$(TITLE)" || { echo "Set TITLE to the published post title." >&2; exit 1; }
-	@test -n "$(PUBLISHED_AT)" || { echo "Set PUBLISHED_AT to an ISO 8601 Los Angeles datetime with its correct UTC offset." >&2; exit 1; }
-	@"$$(command -v uv)" run python -m scripts.new_post --title "$(TITLE)" --published-at "$(PUBLISHED_AT)"
+	@"$$(command -v uv)" run python -m scripts.new_post
 
 check: lint typecheck django-check check-clip-archives test
 
