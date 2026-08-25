@@ -142,6 +142,13 @@ intended for local review and future maintenance tooling, not deployment or
 CI. See [the preservation policy](docs/preservation.md) for status meanings,
 safe maintenance, and recovery limits.
 
+`make preservation-review` is the CI-safe gate for newly referenced external
+content. It writes the inventory to a temporary file, compares it with the
+reviewed `preservation-review-baseline.json`, and fails only for new gaps. It
+does not need an archive root, credentials, a network connection, or a media
+download. Its output names the exact clip, talk, or post location and the next
+Wayback, local-backup, checksum, and private-R2 action.
+
 ## Media archive (audio/video backup)
 
 `scripts/media_archive/` finds every playable audio/video source referenced
@@ -207,12 +214,12 @@ field to this repository.
    raw HTML. `repr_image` and `wordpress_id` are optional legacy fields.
 
    Creating a post does not create external media or require preservation
-   maintenance. If the post adds a playable audio or video URL, review
-   `make preservation-inventory`, then follow the local backup and checksum
-   steps in [the preservation policy](docs/preservation.md). If a change adds
-   or updates a clip URL, run `make archive-clips` and
-   `make check-clip-archives`. These are manual maintenance steps; `make check`
-   does not fail on existing historical preservation gaps.
+   maintenance. If the post adds a playable audio or video URL, run
+   `make preservation-review`, then follow the local backup, checksum, and
+   private-R2 steps in [the preservation policy](docs/preservation.md). If a
+   change adds or updates a clip URL, run `make archive-clips` and
+   `make check-clip-archives`. `make check` runs the same review without
+   failing on the documented historical recovery work.
 
 3. Validate and preview the post locally.
 

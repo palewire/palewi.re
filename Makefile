@@ -16,7 +16,7 @@ LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
 STATIC_WORKER_DIR := workers/static-site
 STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 
 .PHONY: preservation-inventory
@@ -46,6 +46,7 @@ help:
 	@echo "  archive-clips  Archive clip URLs missing Wayback metadata"
 	@echo "  check-clip-archives  Confirm every clip has Wayback metadata"
 	@echo "  preservation-inventory  Report page and media preservation state without network access"
+	@echo "  preservation-review  Reject new unreviewed external preservation gaps"
 	@echo "  media-archive-inventory  List discovered talk/post media without downloading anything"
 	@echo "  media-archive-backup  Back up pending media to ARCHIVE_ROOT (or MEDIA_ARCHIVE_PATH)"
 	@echo "  media-archive-verify  Recompute checksums of already-archived media, offline"
@@ -130,7 +131,7 @@ a11y:
 	sed "s/127.0.0.1:8000/127.0.0.1:$(PORT)/g" .pa11yci.json > "$$config"; \
 	npx --yes pa11y-ci@4.1.1 --config "$$config"
 
-check: lint typecheck django-check check-clip-archives test
+check: lint typecheck django-check check-clip-archives preservation-review test
 
 test: css
 	@"$$(command -v uv)" run pytest tests/
@@ -157,6 +158,13 @@ check-clip-archives:
 
 preservation-inventory:
 	@"$$(command -v uv)" run python -m scripts.preservation_inventory $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
+
+preservation-review:
+	@set -e; \
+	inventory="$$(mktemp)"; \
+	trap 'rm -f "$$inventory"' EXIT; \
+	"$$(command -v uv)" run python -m scripts.preservation_inventory --json-output "$$inventory" --max-gaps 0; \
+	"$$(command -v uv)" run python -m scripts.preservation_review --inventory "$$inventory"
 
 media-archive-inventory:
 	@"$$(command -v uv)" run python -m scripts.media_archive inventory
