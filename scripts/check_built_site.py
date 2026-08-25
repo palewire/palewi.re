@@ -12,12 +12,62 @@ from urllib.parse import SplitResult, unquote, urljoin, urlsplit
 
 import click
 
+from project.redirect_manifest import RULES
+
 PUBLIC_HOSTS = frozenset({"palewi.re", "www.palewi.re"})
 ERROR_PAGES = frozenset({"404.html", "500.html"})
 FEED_POST_LIMIT = 10
 POST_PATH_PATTERN = re.compile(r"^/posts/(\d{4}/\d{2}/\d{2}/[^/]+)/$")
 HOSTNAME_WITHOUT_SCHEME = re.compile(r"^(?:www\.)?[\w-]+(?:\.[\w-]+)+/")
 DEFAULT_BASELINE_PATH = Path(__file__).with_name("built_site_quality_baseline.txt")
+# These documentation pages are served by the deployed static-site Worker's asset binding,
+# but are intentionally not part of this Django Bakery build. Keep this list exact.
+WORKER_ASSET_PATHS = frozenset(
+    {
+        "/",
+        "/docs/air-quality-index/",
+        "/docs/atcf-data-parser/",
+        "/docs/calfire-wildfires/",
+        "/docs/censusbatchgeocoder/",
+        "/docs/coding-the-news/",
+        "/docs/cpi/",
+        "/docs/datawrapper-json-bookmarklet/",
+        "/docs/django-anss-archive/",
+        "/docs/django-bakery/",
+        "/docs/django-greeking/",
+        "/docs/django-internetarchive-storage/",
+        "/docs/django-postgres-copy/",
+        "/docs/django-yamlfield/",
+        "/docs/first-athena-query/",
+        "/docs/first-automated-chart/",
+        "/docs/first-basemap/",
+        "/docs/first-django-admin/",
+        "/docs/first-github-scraper/",
+        "/docs/first-llm-classifier/",
+        "/docs/first-pmtiles-map/",
+        "/docs/first-pull-request/",
+        "/docs/first-python-notebook/",
+        "/docs/first-python-notebook/_extra/fast-python-notebook/lab/",
+        "/docs/first-visual-story/",
+        "/docs/first-web-scraper/",
+        "/docs/geodataframe-to-pmtiles/",
+        "/docs/go-big-with-github-actions/",
+        "/docs/inciweb-wildfires/",
+        "/docs/ipsos-credibility-interval/",
+        "/docs/ire-archive-slide-deck/",
+        "/docs/isobands/",
+        "/docs/nasa-wildfires/",
+        "/docs/noaa-wildfires/",
+        "/docs/nws-aurora/",
+        "/docs/nws-wwa/",
+        "/docs/python-googlegeocoder/",
+        "/docs/python-muckrock/",
+        "/docs/refinitiv-data-python-cookbook/",
+        "/docs/reuters-style/",
+        "/docs/savepagenow/",
+        "/docs/storysniffer/",
+    }
+)
 
 
 @dataclass(frozen=True)
@@ -123,6 +173,13 @@ def resolve_internal_url(url: str, source_url: str) -> str:
     """Resolve a relative or same-site URL to an absolute path in the build."""
     resolved = urljoin(f"https://palewi.re{source_url}", url)
     return unquote(urlsplit(resolved).path)
+
+
+def is_runtime_path(path: str) -> bool:
+    """Return whether a path is served by a Worker rather than this build."""
+    return not path.startswith("//") and (
+        path in WORKER_ASSET_PATHS or any(rule.destination_for(path) is not None for rule in RULES)
+    )
 
 
 def validate_external_url(url: str) -> str | None:
@@ -254,7 +311,7 @@ def check_built_site(build_dir: Path) -> list[Finding]:
                 continue
 
             target_path = resolve_internal_url(url, source_url)
-            if target_path in urls:
+            if target_path in urls or is_runtime_path(target_path):
                 continue
             code = "missing-local-asset" if is_asset_url(link, target_path) else "missing-generated-page"
             kind = "local asset" if code == "missing-local-asset" else "generated page"
