@@ -171,20 +171,3 @@ def test_robots_txt_ok(client):
 
 def test_sitemap_index_ok(client):
     assert client.get("/sitemap.xml").status_code == 200
-
-
-@pytest.mark.parametrize("host", ["palewire.com", "www.palewire.com", "www.palewi.re"])
-def test_domain_redirect_middleware_redirects_sibling_domains(host, settings):
-    """Requests arriving on sibling domains are permanently redirected to palewi.re."""
-    settings.ALLOWED_HOSTS = [host]
-    client = Client(SERVER_NAME=host)
-    response = client.get("/who-is-ben-welsh/")
-    assert response.status_code == 301
-    location = response["Location"]
-    assert "palewi.re" in location
-    assert host not in location
-
-
-def test_canonical_host_is_not_redirected(client):
-    """Requests arriving on palewi.re itself are served normally."""
-    assert client.get("/who-is-ben-welsh/").status_code == 200

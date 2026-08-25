@@ -13,7 +13,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 
 @lru_cache(maxsize=1)
 def _main_commit() -> str | None:
-    commit = os.environ.get("HEROKU_SLUG_COMMIT") or os.environ.get("SOURCE_VERSION")
+    commit = os.environ.get("SOURCE_VERSION")
     if commit is None:
         try:
             commit = subprocess.run(

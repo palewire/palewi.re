@@ -7,7 +7,6 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
 - Node.js 24 for the pinned Dart Sass compiler
-- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for local setup and Heroku commands
 - [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks and the isolated Workers
 
 ## Setup
@@ -26,13 +25,12 @@ make serve
 
 `make bootstrap` checks these commands before it installs anything. For its
 commands, it also adds common user installation paths including
-`$HOME/.local/bin`, Heroku's user client directory, npm's user directory,
-Volta, asdf, fnm, and a detected Homebrew bin directory. It does not install
-or authenticate any command.
+`$HOME/.local/bin`, npm's user directory, Volta, asdf, fnm, and a detected
+Homebrew bin directory. It does not install or authenticate any command.
 
 The Sass compiler is an exact, locked npm dependency. `make serve` builds
 expanded CSS with a source map. `make css` builds the compressed production
-stylesheet used by CI and Heroku.
+stylesheet used by CI and the static-site Worker build.
 
 Install Wrangler once with:
 
@@ -45,10 +43,9 @@ available local ports, so multiple agents can run the site at the same time.
 
 ## Environment variables
 
-| Variable | Required in prod | Description |
-|----------|-----------------|-------------|
-| `SECRET_KEY` | Yes | Django secret key |
-| `PRODUCTION` | No | Set `true` to enable production security |
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `SECRET_KEY` | No | Django secret key for local development and checks |
 | `DEBUG` | No | Set `false` to disable debug output |
 | `SAVEPAGENOW_ACCESS_KEY` | No | Internet Archive access key used by `make archive-clips` |
 | `SAVEPAGENOW_SECRET_KEY` | No | Internet Archive secret key used by `make archive-clips` |
@@ -160,25 +157,10 @@ committing to validate the front matter, public URL inventory, and rendering.
 
 ## Deployment
 
-The app deploys to Heroku automatically when a pull request merges to `main` **after CI passes**.
-
-Heroku must use the Node.js buildpack before the Python buildpack. The Node
-build runs `npm run build:css`; the Python buildpack then runs `collectstatic`
-and WhiteNoise creates the hashed stylesheet manifest.
-
-The existing `palewire` app needs this one-time configuration before its first
-deploy with this build:
-
-```bash
-heroku buildpacks:add --index 1 heroku/nodejs --app palewire
-heroku config:unset DISABLE_COLLECTSTATIC --app palewire
-```
-
-The Heroku CLI is available in Copilot cloud-agent sessions through the
-official installer in `.github/workflows/copilot-setup-steps.yml`. Authentication
-is not part of repository setup. For a cloud agent that must run authenticated
-Heroku commands, add `HEROKU_API_KEY` as a GitHub Copilot Agents secret; never
-store it in this repository.
+Merges to `main` run the `deploy-static-site` CI job after Lint and Test pass.
+It builds Django's static output in `dist/` and deploys
+`workers/static-site`, which serves `palewi.re` and `www.palewi.re`.
+Django is a build-time publishing system; it does not serve the public site.
 
 ## Cloudflare access
 
@@ -212,14 +194,14 @@ Cloudflare Worker. It supports only these production routes:
 - `palewi.re/.well-known/host-meta`
 - `palewi.re/.well-known/nodeinfo`
 
-All other traffic continues to the existing Heroku origin. The Worker accepts
+The static-site Worker serves all other public paths. The Worker accepts
 only `GET` and `HEAD`, validates WebFinger resources for the `palewi.re`
 domain, and proxies only to `https://mastodon.palewi.re` at the same approved
 path. It does not follow upstream redirects. It uses a five-second upstream
 timeout and a 1 MiB response limit, preserving safe caching and representation
 headers. Responses include `X-Palewire-Discovery-Proxy: cloudflare-worker-v1`.
-Django does not serve these routes. Cloudflare must keep the Worker attached to
-all three routes for federation discovery to work.
+Django's static build does not produce these routes. Cloudflare must keep the
+Worker attached to all three routes for federation discovery to work.
 
 Cloudflare route matching includes query strings, so the explicit attach command
 uses a terminal `*` for each route to serve WebFinger requests with
@@ -358,42 +340,6 @@ token value appears in a command. Deleting either canary removes only that
 separate Worker and its route. Deleting the production Worker removes its
 attached routes. Django has no fallback for these routes.
 
-Before deploying the Stage 2 Django removal, record the latest fallback-capable
-Heroku release number:
-
-```bash
-heroku releases --app palewire
-```
-
-Keep that release number with the deployment record. The verified production
-Worker version before this removal is
-`6af1656a-8465-4407-bfb0-56147a6c1aa1`. Verify that version and the exact
-three-route plan before a change:
-
-```bash
-(cd workers/mastodon-well-known-proxy && npm exec -- wrangler versions view 6af1656a-8465-4407-bfb0-56147a6c1aa1)
-make worker-route-plan
-make worker-verify-production
-```
-
-After Stage 2 deploys, detaching or deleting the Worker alone makes the public
-discovery URLs return `404`. For emergency recovery, first roll Heroku back to
-the recorded fallback-capable release, verify its Django endpoints directly,
-then detach the Worker routes:
-
-```bash
-heroku rollback vN --app palewire
-FALLBACK_ORIGIN="https://palewire.herokuapp.com"
-curl --fail --show-error --max-time 20 "$FALLBACK_ORIGIN/.well-known/webfinger?resource=acct%3Apalewire%40palewi.re"
-curl --fail --show-error --max-time 20 "$FALLBACK_ORIGIN/.well-known/host-meta"
-curl --fail --show-error --max-time 20 "$FALLBACK_ORIGIN/.well-known/nodeinfo"
-CONFIRM_WORKER_DETACH_ROUTES=1 make worker-detach-routes
-```
-
-After detachment, verify the public Django endpoints with the same three paths.
-For a normal Worker code rollback without route changes, use Cloudflare's
-version controls after a verified canary.
-
 ### Legacy redirect Worker
 
 `project/redirects.yaml` is the readable, validated source of truth for legacy
@@ -415,12 +361,12 @@ there are no infix wildcards and no `palewi.re/*` route. The root-level date
 pattern uses ten digit-prefixed routes (`0*` through `9*`) because Cloudflare
 cannot express four constrained path segments in one route. Those routes do
 not match any current page, and the Worker returns 404 for a malformed suffix
-instead of proxying to Heroku. This Worker does not fetch a same-zone origin, so
+instead of proxying to an origin. This Worker does not fetch a same-zone origin, so
 `global_fetch_strictly_public` is neither needed nor enabled. Its tests assert
 that redirect matches never create a subrequest.
 
-The production smoke workflow runs the same verifier after every successful
-Heroku deployment. It checks every exact rule, two representative cases for
+The production smoke workflow runs the same verifier after deployment. It
+checks every exact rule, two representative cases for
 each dynamic rule, the exact `Location`, the Worker marker, and adjacent
 non-legacy paths. It uses a 20-second curl timeout and waits 15 seconds between
 up to four marker checks for route propagation.
@@ -463,48 +409,5 @@ Every mutating command requires its named confirmation variable. The verifier
 waits for the marker during route propagation but fails immediately on a bad
 status or Location.
 
-Before this Stage 2 deployment, record the latest fallback-capable Heroku
-release with `heroku releases --app palewire`. Once this version is deployed,
-Django deliberately returns `404` for every legacy redirect path. **Never
-detach or delete the Worker first:** that produces public `404`s.
-
-For an emergency rollback, use this order:
-
-```bash
-# 1. Restore the exact release recorded before Stage 2.
-heroku rollback vN --app palewire
-
-# 2. Confirm its direct-origin Django redirects before changing Cloudflare.
-FALLBACK_ORIGIN="https://palewire.herokuapp.com"
-BASE_URL="$FALLBACK_ORIGIN" REQUIRE_WORKER_MARKER=false \
-  scripts/verify-legacy-redirects.sh
-
-# 3. Only then detach the Worker routes and verify public redirects.
-CONFIRM_LEGACY_WORKER_DETACH_ROUTES=1 make legacy-worker-detach-routes
-REQUIRE_WORKER_MARKER=false make legacy-worker-verify-production
-```
-
-Keep the canary-first update process above for any future Worker update. A
-normal Worker code rollback without route changes uses Cloudflare version
-controls only after a verified canary.
-
-For the database retirement deployment, take a fresh Heroku backup first. Deploy
-the exact merged SHA, then verify `/health/`, the main pages, all post
-permalinks, feeds, sitemaps, and the smoke workflow. Only after that separate
-review should the Heroku PostgreSQL add-on be considered for removal. Do not
-remove it as part of the deploy.
-
 GitHub releases summarize meaningful batches of deployed changes. See
 [RELEASING.md](RELEASING.md) for the changelog and release process.
-
-**Rollback** a bad deploy:
-
-```bash
-heroku releases
-heroku rollback vN   # where N is the last good release number
-```
-
-## Health check
-
-A lightweight health endpoint is available at `/health/`. It returns HTTP 200
-and `{"status": "ok"}` when Django can serve requests.

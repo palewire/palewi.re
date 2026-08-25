@@ -6,10 +6,10 @@ from unittest.mock import patch
 from toolbox.context_processors import REPOSITORY_URL, _main_commit, repository
 
 
-def test_repository_uses_heroku_commit():
+def test_repository_uses_source_version():
     commit = "0123456789abcdef0123456789abcdef01234567"
 
-    with patch.dict("os.environ", {"HEROKU_SLUG_COMMIT": commit}, clear=True):
+    with patch.dict("os.environ", {"SOURCE_VERSION": commit}, clear=True):
         _main_commit.cache_clear()
         context = repository(None)
 

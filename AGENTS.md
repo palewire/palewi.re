@@ -4,7 +4,7 @@
 
 Run `make bootstrap` once after creating a clone or worktree. It installs locked
 dependencies and installs the pre-commit hooks. It first confirms that `uv`,
-the Heroku CLI, and Wrangler are available; it does not install or authenticate
+Node.js, npm, and Wrangler are available; it does not install or authenticate
 any tool.
 
 Run the development server with `make serve`. It first builds the expanded
@@ -45,11 +45,6 @@ secrets, generated files, or `.goals/` agent state.
 
 Use `uv` and `pyproject.toml` for Python dependencies, the locked Dart Sass npm
 dependency for CSS, Ruff for formatting and linting, and ty for static analysis.
-
-Copilot cloud agents receive `uv` and the Heroku CLI from
-`.github/workflows/copilot-setup-steps.yml`. Authentication remains
-user-provided. If a cloud agent needs authenticated Heroku access, use a
-`HEROKU_API_KEY` GitHub Copilot Agents secret, never repository data.
 
 Copilot cloud agents also receive Wrangler 4.125.0 from that setup workflow.
 For authenticated Cloudflare identity checks, add a least-privilege
