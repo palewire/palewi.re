@@ -3,6 +3,8 @@
 import hashlib
 import json
 
+import pytest
+
 from scripts.media_archive.discovery import MediaCandidate, MediaOccurrence
 from scripts.media_archive.manifest import (
     STATUS_PENDING,
@@ -85,6 +87,20 @@ def test_load_manifest_non_object_raises(tmp_path):
         raise AssertionError("expected ManifestError")
     except ManifestError as error:
         assert "must be a JSON object" in str(error)
+
+
+@pytest.mark.parametrize(
+    ("contents", "message"),
+    [
+        ('{"entries": null}', "manifest 'entries' must be a JSON object"),
+        ('{"entries": {"https://example.com/a.mp4": []}}', "manifest entry for 'https://example.com/a.mp4'"),
+    ],
+)
+def test_load_manifest_invalid_entry_shapes_raise_manifest_error(tmp_path, contents, message):
+    manifest_path(tmp_path).write_text(contents, encoding="utf-8")
+
+    with pytest.raises(ManifestError, match=message):
+        load_manifest(tmp_path)
 
 
 def test_write_manifest_is_atomic_and_readable(tmp_path):

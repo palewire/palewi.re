@@ -206,6 +206,14 @@ field to this repository.
    `<pre lang="...">` code blocks. The command's placeholder is deliberately
    raw HTML. `repr_image` and `wordpress_id` are optional legacy fields.
 
+   Creating a post does not create external media or require preservation
+   maintenance. If the post adds a playable audio or video URL, review
+   `make preservation-inventory`, then follow the local backup and checksum
+   steps in [the preservation policy](docs/preservation.md). If a change adds
+   or updates a clip URL, run `make archive-clips` and
+   `make check-clip-archives`. These are manual maintenance steps; `make check`
+   does not fail on existing historical preservation gaps.
+
 3. Validate and preview the post locally.
 
    ```bash

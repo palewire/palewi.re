@@ -39,6 +39,10 @@ def current_timestamp() -> str:
     return datetime.now(UTC).isoformat()
 
 
+class ManifestError(RuntimeError):
+    """Raised when a manifest file on disk is invalid."""
+
+
 @dataclass
 class ManifestEntry:
     """One tracked media source and the outcome of the last attempt to back it up."""
@@ -89,16 +93,22 @@ class Manifest:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> Manifest:
         """Rebuild a manifest from its JSON-serializable representation."""
-        entries = {url: ManifestEntry.from_dict(entry) for url, entry in data.get("entries", {}).items()}
+        raw_entries = data.get("entries", {})
+        if not isinstance(raw_entries, dict):
+            raise ManifestError("manifest 'entries' must be a JSON object")
+        entries: dict[str, ManifestEntry] = {}
+        for url, raw_entry in raw_entries.items():
+            if not isinstance(raw_entry, dict):
+                raise ManifestError(f"manifest entry for {url!r} must be a JSON object")
+            try:
+                entries[url] = ManifestEntry.from_dict(raw_entry)
+            except TypeError as error:
+                raise ManifestError(f"manifest entry for {url!r} has invalid fields") from error
         return cls(
             entries=entries,
             version=data.get("version", MANIFEST_VERSION),
             updated_at=data.get("updated_at", current_timestamp()),
         )
-
-
-class ManifestError(RuntimeError):
-    """Raised when a manifest file on disk is invalid."""
 
 
 def manifest_path(archive_root: Path) -> Path:

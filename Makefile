@@ -21,6 +21,8 @@ STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 
 .PHONY: preservation-inventory
 
+
+
 help:
 	@echo "Available targets:"
 	@echo "  bootstrap  Check developer tools, then prepare dependencies and hooks"
