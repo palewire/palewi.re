@@ -124,15 +124,17 @@ def test_checker_allows_exact_worker_routes_without_allowing_unknown_paths(build
         <a href="/applications/twitter-style-infinite-scroll-with-django-demo/">Demo</a>
         <a href="/docs/not-a-real-doc/">Missing documentation</a>
         <a href="/not-a-real-legacy-route/">Missing legacy route</a>
+        <a href="https://palewi.re//colophon/">Malformed legacy route</a>
         """,
     )
 
     findings = check_built_site(build_dir)
 
-    assert [finding.code for finding in findings] == ["missing-generated-page", "missing-generated-page"]
+    assert [finding.code for finding in findings] == ["missing-generated-page"] * 3
     assert [finding.message.rsplit(" ", maxsplit=1)[-1] for finding in findings] == [
         "/docs/not-a-real-doc/",
         "/not-a-real-legacy-route/",
+        "//colophon/",
     ]
 
 

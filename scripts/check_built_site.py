@@ -177,7 +177,9 @@ def resolve_internal_url(url: str, source_url: str) -> str:
 
 def is_runtime_path(path: str) -> bool:
     """Return whether a path is served by a Worker rather than this build."""
-    return path in WORKER_ASSET_PATHS or any(rule.destination_for(path) is not None for rule in RULES)
+    return not path.startswith("//") and (
+        path in WORKER_ASSET_PATHS or any(rule.destination_for(path) is not None for rule in RULES)
+    )
 
 
 def validate_external_url(url: str) -> str | None:
