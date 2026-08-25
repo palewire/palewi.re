@@ -94,11 +94,11 @@
       "sha256": "2643f706a49abcf371bb2aa9e5de0e29b21aa4effd7144c59eceebd27c490950"
     },
     {
-      "body_sha256": "4bea38930d737b61934baa71b2c004258246f6b87bf8618da9bede71724ce758",
+      "body_sha256": "52fd0ad2c3b5ac12cd56ab93c6e0d09a0de6f951a32c29e79905189d5f2dfe08",
       "path": "posts/2008-06-01--bens-hip-hop-twitter-bot.md",
       "permalink": "/posts/2008/06/01/bens-hip-hop-twitter-bot/",
       "published_at": "2008-06-01T03:56:05-07:00",
-      "sha256": "d71d15012dba77383d01614e8704c7c9bdfa4bae24ab1e32bc87a48e8cf69cf1"
+      "sha256": "fb72d619d933223685f62c6b31efe2725f54d841fa98be6820ded4600f5c5886"
     },
     {
       "body_sha256": "cf7a8b58ec6e075e1409bf91a45363f5009f75bc412cb1e02e0abe3c0ab3fd89",
@@ -115,11 +115,11 @@
       "sha256": "1f959d8e2a81a96a1be50dd07c4f40b693da3fc9cd5b34e8e4d6d21fafe5feae"
     },
     {
-      "body_sha256": "d51591b306ada05ac979f289b586172bc06bfc5a11241c0ad57ca4f903bbebe1",
+      "body_sha256": "ad671cb98afa3ff26ae6e0d9e10af554480ef7de37c788899e99301ad9e9cd08",
       "path": "posts/2008-07-06--permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks.md",
       "permalink": "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/",
       "published_at": "2008-07-06T20:20:33-07:00",
-      "sha256": "2cb9c959adbe8ea502320992c81dcc840f98677b2c49fcd893dc9c05bd6be334"
+      "sha256": "1caf7939b7f364cdfb5e544a27fbec51dc12a25951c8b64b55d6af84579b5997"
     },
     {
       "body_sha256": "4f4ca05a12364ffd666951b3e6188dba798ed1b8ecfa0fddebcf6ee3a6bfd5b2",
@@ -248,11 +248,11 @@
       "sha256": "d735f2674ebde1737eabdc62d5b5cf70719d5c5bdc7a576deea286e1b3b9a1f3"
     },
     {
-      "body_sha256": "04d91936944f4a3fcca004c07687653353f3eb072bfe2572a3166ec3db69b1a9",
+      "body_sha256": "10d6d932f68eb81a2eeccb08448e0bffa38f004127e17e42f12a4084993f3c91",
       "path": "posts/2010-03-10--google-charts-takes-tufte-challenge.md",
       "permalink": "/posts/2010/03/10/google-charts-takes-tufte-challenge/",
       "published_at": "2010-03-10T13:13:57-08:00",
-      "sha256": "64a85ebb2b369dbcea409adf9339f28f1a32cc08c0b272d6e1689dad1fb44b63"
+      "sha256": "10d6fed0c01bd1e981c979e01cdae23f610d1528f0a27a5fabd41542c2a2d1fe"
     },
     {
       "body_sha256": "a98b5c29b9bb02049a1e3cda5e5cfb286ec94e9ccd69ac08a88c20ce8b98e7d6",
@@ -269,11 +269,11 @@
       "sha256": "02e683fe48664768b7c6a696816ecb2654bebde4b1c801936c5ac6e7ea54ef6d"
     },
     {
-      "body_sha256": "760d01831d6424c008c34ed75ebe44e3e6d3e23ed86300f7bd31143738aeff60",
+      "body_sha256": "804421d6eb4caf2da52a8288a2d0f77faca2625c92e8a214172260562dc4de28",
       "path": "posts/2010-11-10--zain-memon-tells-how-tendermaps-works.md",
       "permalink": "/posts/2010/11/10/zain-memon-tells-how-tendermaps-works/",
       "published_at": "2010-11-10T07:53:40-08:00",
-      "sha256": "be9d4fdda3ac1ff5fa1c0aef4c50e4ca7d8cf6d4cfe4dee87b63d2007d4bf7a4"
+      "sha256": "5bfe03a19210427e122dc00aa5bc06a71a25d09c7d261157632ab3599d18aff8"
     },
     {
       "body_sha256": "e8195f2fa54d365fa29c2d432cfcc6de6ece75d61546bd7b0a672d1a329dad29",
@@ -444,11 +444,11 @@
       "sha256": "9791af73b8675c3a1291265955f31cb57b0e4ddabd541b829e306bb5c192c4f5"
     },
     {
-      "body_sha256": "efdb0c9cffbcf3c23ae9a9eb1a7c5e58ee581f45e94b9c9cc88d1c0df57879f8",
+      "body_sha256": "b92cf526967556f8d7142ceabb2d6d374361e9463aea8d8d1c91446dd2d014ee",
       "path": "posts/2018-04-14--my-times.md",
       "permalink": "/posts/2018/04/14/my-times/",
       "published_at": "2018-04-14T10:00:00-07:00",
-      "sha256": "cbc98fd1aa7a71ab186a841b9792558884679915dfbdf36874dde78d45470db0"
+      "sha256": "a81a66d72798b9cc9cdbe9ea9a93902be11bf14a7edddf4d6594c2e37a54297d"
     },
     {
       "body_sha256": "0f1fb56cb208e21b634ee2ac7b57ffc02b13c1884640002f1b810e9229fcf872",
@@ -507,7 +507,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "2da5efd279b8581afc4991db9dc243e8df9ed2085b4d5db850e218e3214655ff",
+  "posts_fingerprint_sha256": "7168e54d3675c710cc478a3572dd23fda577c1a64476d90cfb0344164e5925a8",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

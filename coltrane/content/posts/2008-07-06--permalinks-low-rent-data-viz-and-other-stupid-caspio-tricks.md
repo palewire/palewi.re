@@ -60,7 +60,7 @@ wordpress_id: 134
 
 
 
-<img src="http://www.palewire.com/images/form-step1.png" alt="" />
+<img src="http://www.palewire.com/images/form-step1.png" alt="Caspio advanced options with URL parameters enabled" />
 
 
 
@@ -68,7 +68,7 @@ wordpress_id: 134
 
 
 
-<img src="http://www.palewire.com/images/form-step2.png" alt="" />
+<img src="http://www.palewire.com/images/form-step2.png" alt="Caspio setting to use an external URL parameter instead of its search form" />
 
 
 
@@ -76,7 +76,7 @@ wordpress_id: 134
 
 
 
-<img src="http://www.palewire.com/images/form-step3.png" alt="" />
+<img src="http://www.palewire.com/images/form-step3.png" alt="Caspio setting that selects the name field for a search" />
 
 
 
@@ -84,7 +84,7 @@ wordpress_id: 134
 
 
 
-<img src="http://www.palewire.com/images/form-step4a.png" alt="" />
+<img src="http://www.palewire.com/images/form-step4a.png" alt="Caspio settings for a name URL parameter and contains matching" />
 
 
 
@@ -92,7 +92,7 @@ wordpress_id: 134
 
 
 
-<img src="http://www.palewire.com/images/form-step4b.png" alt="" />
+<img src="http://www.palewire.com/images/form-step4b.png" alt="Caspio settings for blank variables and unmatched searches" />
 
 
 
@@ -140,7 +140,7 @@ wordpress_id: 134
 
 
 
-<img src="http://www.palewire.com/images/mini-grid.png" alt="" />
+<img src="http://www.palewire.com/images/mini-grid.png" alt="Los Angeles Times charity fundraising efficiency grid" />
 
 
 
