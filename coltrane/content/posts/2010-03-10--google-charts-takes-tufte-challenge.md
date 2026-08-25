@@ -12,7 +12,7 @@ published_at: '2010-03-10T13:13:57-08:00'
 <p>They aren't interactive. They won't impress trendy developers. And they can look pretty hideous. They are <a href="http://code.google.com/apis/charttools/docs/choosing.html">Google Charts</a>. And, despite all that, they're kind of awesome.</p>
 
 <div style="width:300px; float:left; margin-right:15px;">
-<img src="http://chart.apis.google.com/chart?cht=p3&amp;chd=t:106,169,73,14&amp;chds=0,169&amp;chs=300x150&amp;chtt=Ocean+Area&amp;chdl=Atlantic|Pacific|Indian|Arctic&amp;chma=0,0,0,0|70&amp;chco=3366CC|DC3912|FF9900|109618&amp;chp=4.7" />
+<img src="http://chart.apis.google.com/chart?cht=p3&amp;chd=t:106,169,73,14&amp;chds=0,169&amp;chs=300x150&amp;chtt=Ocean+Area&amp;chdl=Atlantic|Pacific|Indian|Arctic&amp;chma=0,0,0,0|70&amp;chco=3366CC|DC3912|FF9900|109618&amp;chp=4.7" alt="Three-dimensional pie chart comparing the areas of the Atlantic, Pacific, Indian, and Arctic oceans" />
 </div>
 <p>I wouldn't blame you if you looked at this Google Chart, taken from the official documentation, and considered writing them off. The colors are garish. The data values are difficult to judge. The 3D shape muddles your view. The headline looks lame.</p>
 <p>But behind that ugly chart is a powerful application. And if it's used wisely, it can live up to the highest standards.</p>
@@ -25,10 +25,10 @@ published_at: '2010-03-10T13:13:57-08:00'
 <div class="imgduobumper"></div>
 <div class="imgduowrapper">
 <div class="imgduoright">
-<img src="http://chart.apis.google.com/chart?chs=365x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:8,12,6,7,3,18,13,9,6,12,5,10&amp;chds=0,20&amp;chco=C8C8C8&amp;chxt=x,y,r,t&amp;chxs=0,C8C8C8,0,0,l,C8C8C8%7C1,C8C8C8,0,0,lt,C8C8C8%7C2,C8C8C8,0,0,lt,C8C8C8%7C3,C8C8C8,0,0,l,C8C8C8&amp;chxp=1,25,50,75%7C2,25,50,75&amp;chxtc=1,-5%7C2,-5" />
+<img src="http://chart.apis.google.com/chart?chs=365x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:8,12,6,7,3,18,13,9,6,12,5,10&amp;chds=0,20&amp;chco=C8C8C8&amp;chxt=x,y,r,t&amp;chxs=0,C8C8C8,0,0,l,C8C8C8%7C1,C8C8C8,0,0,lt,C8C8C8%7C2,C8C8C8,0,0,lt,C8C8C8%7C3,C8C8C8,0,0,l,C8C8C8&amp;chxp=1,25,50,75%7C2,25,50,75&amp;chxtc=1,-5%7C2,-5" alt="Google recreation of Tufte's conventional bar chart" />
 </div>
 <div class="imgduoleft">
-<img src="/media/img/tufte1.JPG" />
+<img src="/media/img/tufte1.JPG" alt="Tufte's conventional bar chart" />
 </div>
 </div>
 <div class="imgduobumper"></div>
@@ -38,10 +38,10 @@ published_at: '2010-03-10T13:13:57-08:00'
 <div class="imgduobumper"></div>
 <div class="imgduowrapper">
 <div class="imgduoright">
-<img src="http://chart.apis.google.com/chart?chs=365x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:8,12,6,7,3,18,13,9,6,12,5,10&amp;chds=0,20&amp;chco=C8C8C8&amp;chxt=x,y&amp;chxs=0,C8C8C8,0,0,l,C8C8C8%7C1,C8C8C8,0,0,lt,C8C8C8&amp;chxp=1,25,50,75&amp;chxtc=1,-5" />
+<img src="http://chart.apis.google.com/chart?chs=365x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:8,12,6,7,3,18,13,9,6,12,5,10&amp;chds=0,20&amp;chco=C8C8C8&amp;chxt=x,y&amp;chxs=0,C8C8C8,0,0,l,C8C8C8%7C1,C8C8C8,0,0,lt,C8C8C8&amp;chxp=1,25,50,75&amp;chxtc=1,-5" alt="Google recreation of Tufte's bar chart with the border removed" />
 </div>
 <div class="imgduoleft">
-<img src="/media/img/tufte2.JPG" />
+<img src="/media/img/tufte2.JPG" alt="Tufte's bar chart with the border removed" />
 </div>
 </div>
 <div class="imgduobumper"></div>
@@ -50,10 +50,10 @@ published_at: '2010-03-10T13:13:57-08:00'
 <div class="imgduowrapper">
 <div class="imgduoright">
 
-<img src="http://chart.apis.google.com/chart?chs=365x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:8,12,6,7,3,18,13,9,6,12,5,10&amp;chds=0,20&amp;chco=C8C8C8&amp;chxt=x,y&amp;chxs=0,C8C8C8,0,0,l,C8C8C8%7C1,ffffff,0,0,t,000000&amp;chxp=1,25,50,75&amp;chxtc=1,-5" />
+<img src="http://chart.apis.google.com/chart?chs=365x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:8,12,6,7,3,18,13,9,6,12,5,10&amp;chds=0,20&amp;chco=C8C8C8&amp;chxt=x,y&amp;chxs=0,C8C8C8,0,0,l,C8C8C8%7C1,ffffff,0,0,t,000000&amp;chxp=1,25,50,75&amp;chxtc=1,-5" alt="Google recreation of Tufte's bar chart with the y-axis removed" />
 </div>
 <div class="imgduoleft">
-<img src="http://www.palewire.com/media/img/tufte3.JPG" />
+<img src="http://www.palewire.com/media/img/tufte3.JPG" alt="Tufte's bar chart with the y-axis removed and tick marks retained" />
 </div>
 </div>
 <div class="imgduobumper"></div>
@@ -61,10 +61,10 @@ published_at: '2010-03-10T13:13:57-08:00'
 <div class="imgduobumper"></div>
 <div class="imgduowrapper">
 <div class="imgduoright">
-<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0|5,5,5,5,5,5,5,5,5,5,5,5,5,5|10,10,10,10,10,10,10,10,10,10,10,10,10,10|15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|ffffff&amp;chxt=x,y&amp;chxs=1,000000,13,0,t|0,ffffff,13,1,lt,ffffff&amp;chxtc=1,0&amp;chm=D,FFFFFF,1,0,1,1|D,FFFFFF,2,0,1,1|D,FFFFFF,3,0,1,15&amp;chxp=1,25,50,75&amp;chxl=1:|5%|10%|15%|0:|" />
+<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0|5,5,5,5,5,5,5,5,5,5,5,5,5,5|10,10,10,10,10,10,10,10,10,10,10,10,10,10|15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|ffffff&amp;chxt=x,y&amp;chxs=1,000000,13,0,t|0,ffffff,13,1,lt,ffffff&amp;chxtc=1,0&amp;chm=D,FFFFFF,1,0,1,1|D,FFFFFF,2,0,1,1|D,FFFFFF,3,0,1,15&amp;chxp=1,25,50,75&amp;chxl=1:|5%|10%|15%|0:|" alt="Google recreation of Tufte's bar chart with coordinate lines and y-axis labels" />
 </div>
 <div class="imgduoleft">
-<img src="http://www.palewire.com/media/img/tufte4.JPG" />
+<img src="http://www.palewire.com/media/img/tufte4.JPG" alt="Tufte's bar chart with coordinate lines and y-axis labels" />
 </div>
 
 </div>
@@ -74,10 +74,10 @@ published_at: '2010-03-10T13:13:57-08:00'
 <div class="imgduobumper"></div>
 <div class="imgduowrapper">
 <div class="imgduoright">
-<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0%7C5,5,5,5,5,5,5,5,5,5,5,5,5,5%7C10,10,10,10,10,10,10,10,10,10,10,10,10,10%7C15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7Cffffff&amp;chxt=x,y&amp;chxs=0,ffffff,0,0,t,ffffff%7C1,ffffff,13,1,t,ffffff&amp;chxtc=1,0&amp;chm=D,FFFFFF,1,0,1,1%7CD,FFFFFF,2,0,1,1%7CD,FFFFFF,3,0,1,15&amp;chxs=0,C8C8C8,0,0,l,C8C8C8|1,ffffff,0,0,t,000000&amp;chxp=1,25,50,75" />
+<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0%7C5,5,5,5,5,5,5,5,5,5,5,5,5,5%7C10,10,10,10,10,10,10,10,10,10,10,10,10,10%7C15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7CC8C8C8%7Cffffff&amp;chxt=x,y&amp;chxs=0,ffffff,0,0,t,ffffff%7C1,ffffff,13,1,t,ffffff&amp;chxtc=1,0&amp;chm=D,FFFFFF,1,0,1,1%7CD,FFFFFF,2,0,1,1%7CD,FFFFFF,3,0,1,15&amp;chxs=0,C8C8C8,0,0,l,C8C8C8|1,ffffff,0,0,t,000000&amp;chxp=1,0&amp;chxl=|0:||J|F|M|A|M|J|J|A|S|O|N|D" alt="Google recreation of Tufte's bar chart with y-axis labels removed" />
 </div>
 <div class="imgduoleft">
-<img src="http://www.palewire.com/media/img/tufte5.JPG" />
+<img src="http://www.palewire.com/media/img/tufte5.JPG" alt="Tufte's bar chart with y-axis labels removed" />
 </div>
 </div>
 <div class="imgduobumper"></div>
@@ -87,7 +87,7 @@ published_at: '2010-03-10T13:13:57-08:00'
 <div class="imgduobumper"></div>
 <div class="imgduowrapper">
 <div style="margin-left:7em; width:365px; display:inline;">
-<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0|5,5,5,5,5,5,5,5,5,5,5,5,5,5|10,10,10,10,10,10,10,10,10,10,10,10,10,10|15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|ffffff&amp;chxt=x,y&amp;chxs=1,ffffff,13,0,t|0,000000,13,0,l,000000&amp;chxtc=1,0ffffff&amp;chm=D,FFFFFF,1,0,1,1|D,FFFFFF,2,0,1,1|D,FFFFFF,3,0,1,15&amp;chxp=1,0&amp;chxl=|0:||J|F|M|A|M|J|J|A|S|O|N|D" />
+<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0|5,5,5,5,5,5,5,5,5,5,5,5,5,5|10,10,10,10,10,10,10,10,10,10,10,10,10,10|15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|ffffff&amp;chxt=x,y&amp;chxs=1,ffffff,13,0,t|0,000000,13,0,l,000000&amp;chxtc=1,0ffffff&amp;chm=D,FFFFFF,1,0,1,1|D,FFFFFF,2,0,1,1|D,FFFFFF,3,0,1,15&amp;chxp=1,0&amp;chxl=|0:||J|F|M|A|M|J|J|A|S|O|N|D" alt="Google bar chart with monthly labels" />
 </div>
 </div>
 <div class="imgduobumper"></div>
@@ -95,7 +95,7 @@ published_at: '2010-03-10T13:13:57-08:00'
 <div class="imgduobumper"></div>
 <div class="imgduowrapper">
 <div style="margin-left:7em; width:365px; display:inline;">
-<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0|5,5,5,5,5,5,5,5,5,5,5,5,5,5|10,10,10,10,10,10,10,10,10,10,10,10,10,10|15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|ffffff&amp;chxt=x,y&amp;chxs=1,ffffff,13,0,t|0,000000,13,0,l,000000&amp;chxtc=1,0ffffff&amp;chm=D,FFFFFF,1,0,1,1|D,FFFFFF,2,0,1,1|D,FFFFFF,3,0,1,15|N,000000,0,1,12|N,000000,0,2,12|N,000000,0,3,11|N,000000,0,4,11|N,000000,0,5,11|N,000000,0,6,11|N,000000,0,7,11|N,000000,0,8,11|N,000000,0,9,11|N,000000,0,10,11|N,000000,0,11,11|N,000000,0,12,11&amp;chxp=1,0&amp;chxl=|0:||J|F|M|A|M|J|J|A|S|O|N|D" />
+<img src="http://chart.apis.google.com/chart?chs=450x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:0,8,12,6,7,3,18,13,9,6,12,5,10,0|5,5,5,5,5,5,5,5,5,5,5,5,5,5|10,10,10,10,10,10,10,10,10,10,10,10,10,10|15,15,15,15,15,15,15,15,15,15,15,15,15,15&amp;chds=0,20&amp;chco=ffffff|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|C8C8C8|ffffff&amp;chxt=x,y&amp;chxs=1,ffffff,13,0,t|0,000000,13,0,l,000000&amp;chxtc=1,0ffffff&amp;chm=D,FFFFFF,1,0,1,1|D,FFFFFF,2,0,1,1|D,FFFFFF,3,0,1,15|N,000000,0,1,12|N,000000,0,2,12|N,000000,0,3,11|N,000000,0,4,11|N,000000,0,5,11|N,000000,0,6,11|N,000000,0,7,11|N,000000,0,8,11|N,000000,0,9,11|N,000000,0,10,11|N,000000,0,11,11|N,000000,0,12,11&amp;chxp=1,0&amp;chxl=|0:||J|F|M|A|M|J|J|A|S|O|N|D" alt="Google bar chart with monthly labels and exact values" />
 </div>
 </div>
 <div class="imgduobumper"></div>
