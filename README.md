@@ -78,10 +78,19 @@ make check
 ```
 
 This runs Ruff linting and formatting checks, ty static analysis, Django's
-system check, and the full pytest suite. Coverage measures application and
-maintenance source code (not tests) and must be at least 90%, raised from 40%.
-The required CI Test job also runs both locked Worker test targets and both
-Worker validation targets.
+system check, the full pytest suite, and a fresh static-site build. The build
+checks generated pages without network access: same-site links and local
+assets must exist, canonical URLs must be unique, every post must be in the
+sitemap and the ten newest posts must be in the feed, and external HTTP(S)
+URLs must be syntactically valid. Meaningful images need non-empty alt text;
+the only decorative exemption is `alt=""` with `role="presentation"` or
+`role="none"`. Run `make check-built-site` to repeat only the check against an
+existing `dist/` build. The gate acknowledges exact, documented findings from
+published legacy pages so it can block new regressions without rewriting old
+content; `make report-built-site-quality` lists both those findings and any
+new issue. Coverage measures application and maintenance source code (not
+tests) and must be at least 90%, raised from 40%. The required CI Test job
+also runs both locked Worker test targets and both Worker validation targets.
 
 To auto-format code:
 

@@ -83,7 +83,7 @@ jobs:
       - name: Run tests
         run: make test
 
-      - name: Run Worker tests and validation
+      - name: Validate built-site content and Workers
         run: |
           make static-worker-test
           make static-worker-validate
