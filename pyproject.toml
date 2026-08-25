@@ -12,6 +12,7 @@ dependencies = [
     "tzdata>=2025.1",
     "markdown>=3.7",
     "pyyaml>=6.0",
+    "django-bakery==0.14.0",
 ]
 
 [dependency-groups]

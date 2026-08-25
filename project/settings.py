@@ -42,7 +42,7 @@ ALLOWED_HOSTS = (
     # can handle those requests before returning 400 DisallowedHost.
     ["palewi.re", "www.palewi.re", ".palewi.re", ".herokuapp.com", "palewire.com", "www.palewire.com"]
     if PRODUCTION
-    else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+    else os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1,palewi.re").split(",")
 )
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -75,12 +75,32 @@ TEMPLATES = [
 
 
 INSTALLED_APPS = [
+    "bakery",
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     # Blog
     "coltrane",
     # Site extras and helpers
     "whitenoise.runserver_nostatic",
+]
+
+BUILD_DIR = os.path.join(BASE_DIR, "dist")
+BAKERY_BUILD_HOST = "palewi.re"
+BAKERY_VIEWS = [
+    "coltrane.bakery_views.BioBuildView",
+    "coltrane.bakery_views.ClipListBuildView",
+    "coltrane.bakery_views.TalkListBuildView",
+    "coltrane.bakery_views.PostListBuildView",
+    "coltrane.bakery_views.DocListBuildView",
+    "coltrane.bakery_views.BotListBuildView",
+    "coltrane.bakery_views.PostDetailBuildView",
+    "coltrane.bakery_views.LatestPostsBuildFeed",
+    "coltrane.bakery_views.RobotsBuildView",
+    "coltrane.bakery_views.Static404BuildView",
+    "coltrane.bakery_views.Static500BuildView",
+    "coltrane.bakery_views.SitemapIndexBuildView",
+    "coltrane.bakery_views.StaticSitemapBuildView",
+    "coltrane.bakery_views.PostsSitemapBuildView",
 ]
 
 LOGGING = {
