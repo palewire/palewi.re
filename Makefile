@@ -16,10 +16,10 @@ LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
 STATIC_WORKER_DIR := workers/static-site
 STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 
-.PHONY: preservation-inventory
+.PHONY: preservation-inventory report-built-site-quality
 
 
 
@@ -34,7 +34,9 @@ help:
 	@echo "  hooks      Install pre-commit hooks"
 	@echo "  css        Build compressed production CSS"
 	@echo "  css-dev    Build expanded CSS with a source map"
-	@echo "  bake       Build static site files in dist/"
+	@echo "  bake       Build and quality-check static site files in dist/"
+	@echo "  check-built-site  Check an existing dist/ build without network access"
+	@echo "  report-built-site-quality  List documented and new issues in an existing dist/ build"
 	@echo "  serve      Start the development server"
 	@echo "  new-post  Create a public post interactively"
 	@echo "  a11y       Run pa11y against a running local server (PORT=...)"
@@ -116,6 +118,13 @@ css-dev:
 
 bake: css
 	@"$$(command -v uv)" run python manage.py build
+	@$(MAKE) --no-print-directory check-built-site
+
+check-built-site:
+	@"$$(command -v uv)" run python -m scripts.check_built_site
+
+report-built-site-quality:
+	@"$$(command -v uv)" run python -m scripts.check_built_site --report-known
 
 serve: css-dev
 	@"$$(command -v uv)" run python -m scripts.worktree serve
@@ -131,7 +140,7 @@ a11y:
 	sed "s/127.0.0.1:8000/127.0.0.1:$(PORT)/g" .pa11yci.json > "$$config"; \
 	npx --yes pa11y-ci@4.1.1 --config "$$config"
 
-check: lint typecheck django-check check-clip-archives preservation-review test
+check: lint typecheck django-check check-clip-archives preservation-review test bake
 
 test: css
 	@"$$(command -v uv)" run pytest tests/
