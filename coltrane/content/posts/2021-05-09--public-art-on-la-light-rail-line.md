@@ -64,88 +64,88 @@ published_at: '2021-05-09T16:52:30-07:00'
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-1.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-1.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-1.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-1-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-1-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-2.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-2.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-2.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-2-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-2-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-3.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-3.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-3.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-3-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-3-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-4.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-4.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-4.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-4-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-4-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-5.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-5.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-5.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-5-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-5-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-6.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-6.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-6.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-6-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-6-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-7.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-7.png">
-  <img style="margin-bottom: 15px;"  src="/static/img/regional-connector/little-tokyo-chan-min-7.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-7-min.png">
+  <img style="margin-bottom: 15px;"  src="/static/img/regional-connector/little-tokyo-chan-7-min.png" alt="Little Tokyo">
 </picture>
 
 <p>Chan also includes portraits of <a href="https://en.wikipedia.org/wiki/Biddy_Mason">Biddy Mason</a>, an African-American nurse and early entrepreneur of downtown L.A., the <a href="https://en.wikipedia.org/wiki/Tongva">Tongva</a> natives who first settled the region, the Skid Row community of homeless people,  as well as more recent cultural and activist movements in the area.</p>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-8.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-8.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-8.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-8-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-8-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-9.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-9.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-9.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-9-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-9-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-10.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-10.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-10.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-10-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-10-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-11.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-11.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-11.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-11-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-11-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-12.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-12.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-12.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-12-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-12-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-13.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-13.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-13.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-13-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-13-min.png" alt="Little Tokyo">
 </picture>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/little-tokyo-chan-14.webp">
-  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-min-14.png">
-  <img src="/static/img/regional-connector/little-tokyo-chan-min-14.png" alt="Little Tokyo">
+  <source type="image/png" srcset="/static/img/regional-connector/little-tokyo-chan-14-min.png">
+  <img src="/static/img/regional-connector/little-tokyo-chan-14-min.png" alt="Little Tokyo">
 </picture>
 
 <h2>Historic Broadway</h2>

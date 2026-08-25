@@ -190,7 +190,7 @@ docs:
     Information for Resource Management System (FIRMS)
 - title: news-homepages
   type: software
-  url: https://palewi.re/docs/news-homepages/index.html
+  url: https://homepages.news/
   repository_url: https://github.com/palewire/news-homepages
   description: A bot that gathers, archives and shares screenshots of news homepages
 - title: noaa-wildfires

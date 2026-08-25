@@ -3,7 +3,7 @@ title: 'Q&A: Zain Memon tells how Tendermaps works'
 slug: zain-memon-tells-how-tendermaps-works
 published_at: '2010-11-10T07:53:40-08:00'
 ---
-<img style="width:600px; border:3px solid #E5E5E5" src="/media/img/tendermaps-hand-600x448.png" alt="Hand-drawn annotations on a printed Tenderloin neighborhood map">
+<img style="width:600px; border:3px solid #E5E5E5" src="/static/img/tendermaps-hand-600x448.png" alt="Hand-drawn annotations on a printed Tenderloin neighborhood map">
 
 <p>Last weekend, San Francisco developers converged at <a href="http://www.gaffta.org/2010/11/09/the-great-urban-hack-re-cap/">The Great Urban Hack</a> to crank out some civically-minded sites. The focus was on the city's famous <a href="http://en.wikipedia.org/wiki/Tenderloin,_San_Francisco">Tenderloin neighborhood</a>. (Don't know it? Think <a href="http://en.wikipedia.org/wiki/Stonewall_riots">Stonewall</a> or <a href="http://en.wikipedia.org/wiki/The_Maltese_Falcon_(novel)">The Maltese Falcon</a>.)
 
