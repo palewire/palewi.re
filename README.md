@@ -118,6 +118,30 @@ The first command reuses an existing snapshot or creates one with the
 It writes progress after every clip and supports resumable batches with
 `uv run python -m scripts.archive_clips archive --limit 10`.
 
+## Preservation inventory and policy
+
+Use the combined, network-free report to review the public Wayback snapshots
+and optional external media archive together:
+
+```bash
+# Without an archive root, media is clearly reported as untracked.
+make preservation-inventory
+
+# Join current sources with an external manifest.
+ARCHIVE_ROOT=/absolute/path/outside/the/repo make preservation-inventory
+
+# Save stable JSON for another local tool.
+uv run python -m scripts.preservation_inventory \
+  --archive-root /absolute/path/outside/the/repo \
+  --json-output /tmp/preservation-inventory.json
+```
+
+The JSON has one sorted record per source URL, its content locations,
+applicable methods, statuses, metadata, and action-specific gaps. It is
+intended for local review and future maintenance tooling, not deployment or
+CI. See [the preservation policy](docs/preservation.md) for status meanings,
+safe maintenance, and recovery limits.
+
 ## Media archive (audio/video backup)
 
 `scripts/media_archive/` finds every playable audio/video source referenced
@@ -181,6 +205,14 @@ field to this repository.
 2. Edit the new file. Keep the body as raw HTML, including any
    `<pre lang="...">` code blocks. The command's placeholder is deliberately
    raw HTML. `repr_image` and `wordpress_id` are optional legacy fields.
+
+   Creating a post does not create external media or require preservation
+   maintenance. If the post adds a playable audio or video URL, review
+   `make preservation-inventory`, then follow the local backup and checksum
+   steps in [the preservation policy](docs/preservation.md). If a change adds
+   or updates a clip URL, run `make archive-clips` and
+   `make check-clip-archives`. These are manual maintenance steps; `make check`
+   does not fail on existing historical preservation gaps.
 
 3. Validate and preview the post locally.
 

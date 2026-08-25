@@ -3,6 +3,8 @@
 import hashlib
 import json
 
+import pytest
+
 from scripts.media_archive.discovery import MediaCandidate, MediaOccurrence
 from scripts.media_archive.manifest import (
     STATUS_PENDING,
@@ -78,6 +80,13 @@ def test_load_manifest_invalid_json_raises(tmp_path):
         assert "not valid JSON" in str(error)
 
 
+def test_load_manifest_non_utf8_bytes_raise_manifest_error(tmp_path):
+    manifest_path(tmp_path).write_bytes(b"\xff")
+
+    with pytest.raises(ManifestError, match="not valid JSON"):
+        load_manifest(tmp_path)
+
+
 def test_load_manifest_non_object_raises(tmp_path):
     manifest_path(tmp_path).write_text("[1, 2, 3]", encoding="utf-8")
     try:
@@ -85,6 +94,62 @@ def test_load_manifest_non_object_raises(tmp_path):
         raise AssertionError("expected ManifestError")
     except ManifestError as error:
         assert "must be a JSON object" in str(error)
+
+
+@pytest.mark.parametrize(
+    ("contents", "message"),
+    [
+        ('{"entries": null}', "manifest 'entries' must be a JSON object"),
+        ('{"entries": {"https://example.com/a.mp4": []}}', "manifest entry for 'https://example.com/a.mp4'"),
+    ],
+)
+def test_load_manifest_invalid_entry_shapes_raise_manifest_error(tmp_path, contents, message):
+    manifest_path(tmp_path).write_text(contents, encoding="utf-8")
+
+    with pytest.raises(ManifestError, match=message):
+        load_manifest(tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("entry", "message"),
+    [
+        ({"kind": "direct", "occurrences": []}, "source_url"),
+        ({"source_url": "https://example.com/a.mp4", "kind": "direct", "occurrences": None}, "occurrences"),
+        (
+            {
+                "source_url": "https://example.com/a.mp4",
+                "kind": "direct",
+                "occurrences": [{"origin_type": "post", "origin_id": "example", "location": "video", "raw_url": None}],
+            },
+            "raw_url",
+        ),
+        (
+            {
+                "source_url": "https://example.com/a.mp4",
+                "kind": "direct",
+                "occurrences": [],
+                "attempts": "one",
+            },
+            "attempts",
+        ),
+        (
+            {
+                "source_url": "https://example.com/a.mp4",
+                "kind": "direct",
+                "occurrences": [],
+                "error": [],
+            },
+            "error",
+        ),
+    ],
+)
+def test_load_manifest_invalid_entry_fields_raise_manifest_error(tmp_path, entry, message):
+    manifest_path(tmp_path).write_text(
+        json.dumps({"entries": {entry.get("source_url", "missing"): entry}}), encoding="utf-8"
+    )
+
+    with pytest.raises(ManifestError, match=message):
+        load_manifest(tmp_path)
 
 
 def test_write_manifest_is_atomic_and_readable(tmp_path):

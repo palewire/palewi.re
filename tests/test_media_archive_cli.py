@@ -402,6 +402,7 @@ def test_verify_passes_for_intact_file(tmp_path):
 
     assert result.exit_code == 0
     assert "Verified 1 file(s); 0 missing; 0 mismatched." in result.output
+    assert manifest_mod.load_manifest(archive_root).entries[entry.source_url].last_verified_at is not None
 
 
 def test_verify_reports_missing_file(tmp_path):
