@@ -248,11 +248,11 @@
       "sha256": "d735f2674ebde1737eabdc62d5b5cf70719d5c5bdc7a576deea286e1b3b9a1f3"
     },
     {
-      "body_sha256": "10d6d932f68eb81a2eeccb08448e0bffa38f004127e17e42f12a4084993f3c91",
+      "body_sha256": "793d66522b9cb0a24a2cd84b4a3cb0320d1d45514aa83eb88c03a2b3ff03ae3f",
       "path": "posts/2010-03-10--google-charts-takes-tufte-challenge.md",
       "permalink": "/posts/2010/03/10/google-charts-takes-tufte-challenge/",
       "published_at": "2010-03-10T13:13:57-08:00",
-      "sha256": "10d6fed0c01bd1e981c979e01cdae23f610d1528f0a27a5fabd41542c2a2d1fe"
+      "sha256": "a2e82435bc3dced11c97acb7d047e9aeb6720d701a9daf63d779895d685c5cb1"
     },
     {
       "body_sha256": "a98b5c29b9bb02049a1e3cda5e5cfb286ec94e9ccd69ac08a88c20ce8b98e7d6",
@@ -269,11 +269,11 @@
       "sha256": "02e683fe48664768b7c6a696816ecb2654bebde4b1c801936c5ac6e7ea54ef6d"
     },
     {
-      "body_sha256": "804421d6eb4caf2da52a8288a2d0f77faca2625c92e8a214172260562dc4de28",
+      "body_sha256": "f2886d440bfe1c0cb673ff1c20811063aa885c15ea152557ff14d22471e46808",
       "path": "posts/2010-11-10--zain-memon-tells-how-tendermaps-works.md",
       "permalink": "/posts/2010/11/10/zain-memon-tells-how-tendermaps-works/",
       "published_at": "2010-11-10T07:53:40-08:00",
-      "sha256": "5bfe03a19210427e122dc00aa5bc06a71a25d09c7d261157632ab3599d18aff8"
+      "sha256": "1e7a9c45ad40704b4dfa4928822f7d1fdafd7b2c41fb3f1c838dac396dbb3bdf"
     },
     {
       "body_sha256": "e8195f2fa54d365fa29c2d432cfcc6de6ece75d61546bd7b0a672d1a329dad29",
@@ -332,11 +332,11 @@
       "sha256": "000b865aa1ec67ebee075a1ef07588ea357d91d8230afafe9319cdf62b69df39"
     },
     {
-      "body_sha256": "05ee69dc86f29d47279e98f31d8fd363ea49f564f0fa96c668d262017776bae7",
+      "body_sha256": "52508620f5b3e90abbe71fc152fad1771da269a3c2801813c296c330b50bdf61",
       "path": "posts/2013-07-08--where-will-downtown-la-regional-connector-run.md",
       "permalink": "/posts/2013/07/08/where-will-downtown-la-regional-connector-run/",
       "published_at": "2013-07-08T22:08:43-07:00",
-      "sha256": "eeac62c782589800b1e6f5cad6eecdff6765c23c111e2c11cc7d2a0d381f92ba"
+      "sha256": "a72ed7539af8b0c7a4bbf1416a6e2059c607846d0289f73a1728abc57ea0d006"
     },
     {
       "body_sha256": "608e74b5aa766fa18502dcf9622f0f28b439245c3f07abfd84ec4fbb98bd850f",
@@ -472,11 +472,11 @@
       "sha256": "336e06c05e5954a8369f09475f009d6615ed14e7e634f3045200a400e20c802c"
     },
     {
-      "body_sha256": "9c0215dbd98dc7e720c17bedb7751bfc38aa0253b59bc5a989b4b3c8347668e7",
+      "body_sha256": "455297fd075fe38df22ad3fb93e649d11ec116fcef5062df75b0b77dd5bb0bda",
       "path": "posts/2021-05-09--public-art-on-la-light-rail-line.md",
       "permalink": "/posts/2021/05/09/public-art-on-la-light-rail-line/",
       "published_at": "2021-05-09T16:52:30-07:00",
-      "sha256": "773816d7f1b47ba19f8c994cdfe93361facbf226b6dac8ffaedf5578511fc685"
+      "sha256": "8ddae0648ada71f10f7297ae29b31146c5e4b007aacaaaf113e20dfe40ddd421"
     },
     {
       "body_sha256": "1050cb8925fec52a8bfa7b4c96868becbdd5f264b4efed9e0ea92d1542e96ce0",
@@ -493,11 +493,11 @@
       "sha256": "520f9b8a08c3330ad3988b3ea7105ca827c0a0195b9a8f1a5c9487a10e665d01"
     },
     {
-      "body_sha256": "9fc7c1b00b50601be75c6a7ccdda688d18fd5a43f13eb87ac62364bdd9bc483b",
+      "body_sha256": "7bf69e710d8f768bad87970b19eadb1866e0f406059ddb865342942c9c0acd01",
       "path": "posts/2025-03-11--new-at-nicar25.md",
       "permalink": "/posts/2025/03/11/new-at-nicar25/",
       "published_at": "2025-03-11T00:00:00-07:00",
-      "sha256": "cdd2209a8795fea56b6b1779e04c6130f7d14cbbe86faa92399a1bd862f379e7"
+      "sha256": "b115bfb94f41b53acb17fdee0bc0736e903cbf3e0c8ba5e2c299156bd70a9ddc"
     },
     {
       "body_sha256": "baaafc1f7bb0388667d109785306576070e67d196ec04c47409d985b14d111f2",
@@ -507,7 +507,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "7168e54d3675c710cc478a3572dd23fda577c1a64476d90cfb0344164e5925a8",
+  "posts_fingerprint_sha256": "e8a2e756637515e52e55cdd313ca79643c5e2f90eae50e50ef8090ce78ce6082",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

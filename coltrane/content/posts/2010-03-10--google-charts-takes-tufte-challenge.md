@@ -28,7 +28,7 @@ published_at: '2010-03-10T13:13:57-08:00'
 <img src="http://chart.apis.google.com/chart?chs=365x250&amp;cht=bvg&amp;chbh=15,5,15&amp;chd=t1:8,12,6,7,3,18,13,9,6,12,5,10&amp;chds=0,20&amp;chco=C8C8C8&amp;chxt=x,y,r,t&amp;chxs=0,C8C8C8,0,0,l,C8C8C8%7C1,C8C8C8,0,0,lt,C8C8C8%7C2,C8C8C8,0,0,lt,C8C8C8%7C3,C8C8C8,0,0,l,C8C8C8&amp;chxp=1,25,50,75%7C2,25,50,75&amp;chxtc=1,-5%7C2,-5" alt="Google recreation of Tufte's conventional bar chart" />
 </div>
 <div class="imgduoleft">
-<img src="/media/img/tufte1.JPG" alt="Tufte's conventional bar chart" />
+<img src="/static/img/tufte1.JPG" alt="Tufte's conventional bar chart" />
 </div>
 </div>
 <div class="imgduobumper"></div>
