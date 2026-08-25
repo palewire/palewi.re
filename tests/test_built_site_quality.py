@@ -113,6 +113,29 @@ def test_checker_reports_invalid_html_references(build_dir: Path, relative_path:
     assert findings[0].source == relative_path
 
 
+def test_checker_allows_exact_worker_routes_without_allowing_unknown_paths(build_dir: Path) -> None:
+    write_page(
+        build_dir,
+        "docs/index.html",
+        """
+        <a href="/">Home</a>
+        <a href="/docs/first-python-notebook/">Notebook</a>
+        <a href="/colophon/">Colophon</a>
+        <a href="/applications/twitter-style-infinite-scroll-with-django-demo/">Demo</a>
+        <a href="/docs/not-a-real-doc/">Missing documentation</a>
+        <a href="/not-a-real-legacy-route/">Missing legacy route</a>
+        """,
+    )
+
+    findings = check_built_site(build_dir)
+
+    assert [finding.code for finding in findings] == ["missing-generated-page", "missing-generated-page"]
+    assert [finding.message.rsplit(" ", maxsplit=1)[-1] for finding in findings] == [
+        "/docs/not-a-real-doc/",
+        "/not-a-real-legacy-route/",
+    ]
+
+
 def test_checker_allows_explicitly_decorative_image(build_dir: Path) -> None:
     write_page(build_dir, "docs/index.html", '<img src="/static/logo.png" alt="" role="presentation">')
 

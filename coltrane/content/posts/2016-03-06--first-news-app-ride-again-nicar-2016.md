@@ -9,7 +9,7 @@ published_at: '2016-03-06T12:00:00-08:00'
 
 <p>They will start with a spreadsheet. By the end they will have published an interactive database on the World Wide Web.</p>
 
-<p>In the open spirit of the NICAR conference, the entire script for the class is available online at <a href="<a href="http://first-news-app.readthedocs.org/en/latest/">">this link</a>.</p>
+<p>In the open spirit of the NICAR conference, the entire script for the class is available online at <a href="https://first-news-app.readthedocs.io/en/latest/">this link</a>.</p>
 
 <p>I've expanded it this year to include an extra section that improves the appearance of the application and introduces concepts of responsive design.</p>
 

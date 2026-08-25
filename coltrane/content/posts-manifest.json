@@ -423,11 +423,11 @@
       "sha256": "08b42dd4b0923536c04ee192aef5e44dad84ffae440071bf137d3c8ab6b40b8a"
     },
     {
-      "body_sha256": "13b971c45a9c3947a254fb64d2f30ecfcd2c667dbf7a20493198ad47536d3aa9",
+      "body_sha256": "1d3a583fe3711074885f3c4493c29466784fb7ccc1d94bf1200c96a153e51a99",
       "path": "posts/2016-03-06--first-news-app-ride-again-nicar-2016.md",
       "permalink": "/posts/2016/03/06/first-news-app-ride-again-nicar-2016/",
       "published_at": "2016-03-06T12:00:00-08:00",
-      "sha256": "25669e39ed8cf480c6930ea337475fdd97f7a5928ea977fa0e17d615e5c2c4d1"
+      "sha256": "7a237a640003baaf147c30863a40945e61e15460e10abd3fd0d4523a1c359c83"
     },
     {
       "body_sha256": "5873a20fe1c88bfea80ed8aeff52d899ba1f3bed4ba417043de19f93b1c02839",
@@ -507,7 +507,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "258f6200ebd3e9dd364f5d78ed40d4cf3ec8ba801e37a0a86cc2c5139b424444",
+  "posts_fingerprint_sha256": "ac12923e2f7752e59443f9b11660d166e1ff142eea461cb0cb0c169a46e27181",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,
