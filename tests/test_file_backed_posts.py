@@ -51,6 +51,15 @@ def test_post_detail_keeps_raw_html_and_legacy_code_highlighting(client, public_
     assert 'class="source"' in code_response.content.decode()
 
 
+def test_podcast_embed_has_accessible_name_and_contrast(client):
+    response = client.get("/posts/2025/05/21/ire-podcast-transcript/")
+    content = response.content.decode()
+
+    assert response.status_code == 200
+    assert 'title="IRE Radio podcast player"' in content
+    assert "color: #767676" in content
+
+
 def test_post_html_is_highlighted_once_per_loaded_post(public_posts):
     """Templates can reuse rendered HTML without repeating legacy highlighting."""
     post = next(post for post in public_posts if '<pre lang="python">' in post.body_markup)
