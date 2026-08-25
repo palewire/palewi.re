@@ -26,6 +26,7 @@ function loadSoundCloudEmbeds() {
         }
         loaded = true;
         window.clearTimeout(timeout);
+        iframe.focus();
         controls.hidden = true;
       });
       const timeout = window.setTimeout(() => {

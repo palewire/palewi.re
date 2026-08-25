@@ -45,6 +45,15 @@ def test_base_template_uses_local_fonts_and_progressive_enhancements(client) -> 
     assert (static_dir / "fonts" / "OFL.txt").is_file()
 
 
+def test_soundcloud_player_focuses_before_hiding_activation_controls() -> None:
+    """Keyboard activation retains focus on the loaded, titled player."""
+    script = (Path(__file__).resolve().parent.parent / "coltrane" / "static" / "progressive-enhancements.js").read_text(
+        encoding="utf-8"
+    )
+
+    assert script.index("iframe.focus();") < script.index("controls.hidden = true;")
+
+
 @pytest.mark.skipif(not _MANIFEST_BUILT, reason="collected_static not yet built")
 def test_styles_css_in_manifest() -> None:
     """styles.css must appear as a key in the production staticfiles manifest.
