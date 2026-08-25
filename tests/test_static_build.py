@@ -7,6 +7,13 @@ from django.test import Client, override_settings
 
 from coltrane.content_loaders import load_posts
 
+SECURITY_TXT_CONTENT = (
+    "Contact: mailto:b@palewi.re\n"
+    "Expires: 2027-08-01T00:00:00.000Z\n"
+    "Preferred-Languages: en\n"
+    "Canonical: https://palewi.re/.well-known/security.txt\n"
+)
+
 
 def test_static_build_matches_public_django_pages(tmp_path: Path) -> None:
     """The baked files must retain the public content served by Django."""
@@ -47,3 +54,18 @@ def test_static_build_matches_public_django_pages(tmp_path: Path) -> None:
     assert (build_dir / "favicon.ico").is_file()
     assert (build_dir / "static/styles.css").is_file()
     assert len(list(build_dir.glob("posts/*/*/*/*/index.html"))) == len(load_posts())
+
+
+def test_security_txt_is_baked_as_canonical_plain_text(tmp_path: Path) -> None:
+    """The security contact document remains a direct plain-text static asset."""
+    build_dir = tmp_path / "dist"
+    with override_settings(BUILD_DIR=str(build_dir)):
+        call_command("build")
+
+    response = Client(HTTP_HOST="palewi.re").get("/.well-known/security.txt", secure=True)
+
+    assert response.status_code == 200
+    assert response["Content-Type"] == "text/plain; charset=utf-8"
+    assert not response.has_header("Location")
+    assert response.content.decode() == SECURITY_TXT_CONTENT
+    assert build_dir.joinpath(".well-known/security.txt").read_text(encoding="utf-8") == SECURITY_TXT_CONTENT

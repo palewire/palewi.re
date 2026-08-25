@@ -36,12 +36,17 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    # Robots and favicon
+    # Plain-text site metadata
     path("feeds/posts/", LatestPostsFeed()),
     path(
         "robots.txt",
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
         name="robots",
+    ),
+    path(
+        ".well-known/security.txt",
+        TemplateView.as_view(template_name="security.txt", content_type="text/plain; charset=utf-8"),
+        name="security_txt",
     ),
     path("favicon.ico", RedirectView.as_view(url=f"{settings.STATIC_URL}favicon.ico"), name="favicon"),
     path("@palewire", views.username_redirect),

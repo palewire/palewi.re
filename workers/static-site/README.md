@@ -16,5 +16,6 @@ autoplay or fullscreen capabilities used by existing embeds.
 
 Cross-origin isolation headers are intentionally deferred: COEP and related
 headers would require every existing third-party embed and asset to opt in.
-`/.well-known/security.txt` is also deferred until the site has a maintained,
-public security contact and policy URL.
+
+`/.well-known/security.txt` is a baked plain-text asset. Renew its `Expires`
+date in `coltrane/templates/security.txt` before 2027-08-01.

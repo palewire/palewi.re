@@ -79,6 +79,7 @@ BAKERY_VIEWS = [
     "coltrane.bakery_views.PostDetailBuildView",
     "coltrane.bakery_views.LatestPostsBuildFeed",
     "coltrane.bakery_views.RobotsBuildView",
+    "coltrane.bakery_views.SecurityTxtBuildView",
     "coltrane.bakery_views.Static404BuildView",
     "coltrane.bakery_views.Static500BuildView",
     "coltrane.bakery_views.SitemapIndexBuildView",
