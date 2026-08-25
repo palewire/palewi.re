@@ -43,6 +43,18 @@ class ManifestError(RuntimeError):
     """Raised when a manifest file on disk is invalid."""
 
 
+_OPTIONAL_STRING_FIELDS = (
+    "extractor",
+    "media_id",
+    "output_filename",
+    "sha256",
+    "info_json_path",
+    "error",
+    "last_verified_at",
+)
+_OCCURRENCE_FIELDS = ("origin_type", "origin_id", "location", "raw_url")
+
+
 @dataclass
 class ManifestEntry:
     """One tracked media source and the outcome of the last attempt to back it up."""
@@ -70,8 +82,41 @@ class ManifestEntry:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> ManifestEntry:
         """Rebuild an entry from its JSON-serializable representation."""
-        known_fields = {f for f in cls.__dataclass_fields__}
-        return cls(**{key: value for key, value in data.items() if key in known_fields})
+        if not isinstance(data, dict):
+            raise ManifestError("manifest entry must be a JSON object")
+
+        source_url = _required_string(data, "source_url", "manifest entry")
+        kind = _required_string(data, "kind", "manifest entry")
+        occurrences = _occurrences_from_dict(data)
+        values: dict[str, Any] = {
+            "source_url": source_url,
+            "kind": kind,
+            "occurrences": occurrences,
+        }
+
+        for field_name in ("status", "created_at", "updated_at"):
+            if field_name in data:
+                values[field_name] = _required_string(data, field_name, "manifest entry")
+        for field_name in _OPTIONAL_STRING_FIELDS:
+            if field_name in data:
+                value = data[field_name]
+                if value is not None and not isinstance(value, str):
+                    raise ManifestError(f"manifest entry field {field_name!r} must be a string or null")
+                values[field_name] = value
+        if "size_bytes" in data:
+            size_bytes = data["size_bytes"]
+            if size_bytes is not None and (
+                isinstance(size_bytes, bool) or not isinstance(size_bytes, int) or size_bytes < 0
+            ):
+                raise ManifestError("manifest entry field 'size_bytes' must be a non-negative integer or null")
+            values["size_bytes"] = size_bytes
+        if "attempts" in data:
+            attempts = data["attempts"]
+            if isinstance(attempts, bool) or not isinstance(attempts, int) or attempts < 0:
+                raise ManifestError("manifest entry field 'attempts' must be a non-negative integer")
+            values["attempts"] = attempts
+
+        return cls(**values)
 
 
 @dataclass
@@ -93,6 +138,8 @@ class Manifest:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> Manifest:
         """Rebuild a manifest from its JSON-serializable representation."""
+        if not isinstance(data, dict):
+            raise ManifestError("manifest must be a JSON object")
         raw_entries = data.get("entries", {})
         if not isinstance(raw_entries, dict):
             raise ManifestError("manifest 'entries' must be a JSON object")
@@ -100,20 +147,50 @@ class Manifest:
         for url, raw_entry in raw_entries.items():
             if not isinstance(raw_entry, dict):
                 raise ManifestError(f"manifest entry for {url!r} must be a JSON object")
-            try:
-                entries[url] = ManifestEntry.from_dict(raw_entry)
-            except TypeError as error:
-                raise ManifestError(f"manifest entry for {url!r} has invalid fields") from error
+            entries[url] = ManifestEntry.from_dict(raw_entry)
+        version = data.get("version", MANIFEST_VERSION)
+        if isinstance(version, bool) or not isinstance(version, int):
+            raise ManifestError("manifest 'version' must be an integer")
+        updated_at = data.get("updated_at", current_timestamp())
+        if not isinstance(updated_at, str):
+            raise ManifestError("manifest 'updated_at' must be a string")
         return cls(
             entries=entries,
-            version=data.get("version", MANIFEST_VERSION),
-            updated_at=data.get("updated_at", current_timestamp()),
+            version=version,
+            updated_at=updated_at,
         )
 
 
 def manifest_path(archive_root: Path) -> Path:
     """Return the manifest path inside an archive root."""
     return archive_root / MANIFEST_FILENAME
+
+
+def _required_string(data: dict[str, Any], field_name: str, label: str) -> str:
+    """Return a required, non-empty string from a manifest object."""
+    value = data.get(field_name)
+    if not isinstance(value, str) or not value:
+        raise ManifestError(f"{label} field {field_name!r} must be a non-empty string")
+    return value
+
+
+def _occurrences_from_dict(data: dict[str, Any]) -> list[dict[str, str]]:
+    """Validate and return the occurrence records used by the inventory."""
+    raw_occurrences = data.get("occurrences")
+    if not isinstance(raw_occurrences, list):
+        raise ManifestError("manifest entry field 'occurrences' must be a JSON array")
+
+    occurrences: list[dict[str, str]] = []
+    for index, raw_occurrence in enumerate(raw_occurrences):
+        if not isinstance(raw_occurrence, dict):
+            raise ManifestError(f"manifest occurrence {index} must be a JSON object")
+        occurrences.append(
+            {
+                field_name: _required_string(raw_occurrence, field_name, f"manifest occurrence {index}")
+                for field_name in _OCCURRENCE_FIELDS
+            }
+        )
+    return occurrences
 
 
 def load_manifest(archive_root: Path) -> Manifest:

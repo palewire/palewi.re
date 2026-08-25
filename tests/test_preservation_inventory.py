@@ -173,3 +173,27 @@ def test_report_keeps_unknown_manifest_status_visible_as_a_gap(tmp_path):
 
     assert result.exit_code == 0, result.output
     assert "LOCAL-MEDIA-INVALID-STATUS" in result.output
+
+
+def test_report_surfaces_invalid_manifest_as_a_click_error(tmp_path):
+    archive_root = tmp_path / "archive"
+    archive_root.mkdir()
+    manifest_mod.manifest_path(archive_root).write_text(
+        json.dumps(
+            {
+                "entries": {
+                    "https://vimeo.com/123456": {
+                        "source_url": "https://vimeo.com/123456",
+                        "kind": "vimeo",
+                        "occurrences": None,
+                    }
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = CliRunner().invoke(cli, report_args(tmp_path, "--archive-root", str(archive_root)))
+
+    assert result.exit_code == 1
+    assert "occurrences" in result.output

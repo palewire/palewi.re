@@ -103,6 +103,48 @@ def test_load_manifest_invalid_entry_shapes_raise_manifest_error(tmp_path, conte
         load_manifest(tmp_path)
 
 
+@pytest.mark.parametrize(
+    ("entry", "message"),
+    [
+        ({"kind": "direct", "occurrences": []}, "source_url"),
+        ({"source_url": "https://example.com/a.mp4", "kind": "direct", "occurrences": None}, "occurrences"),
+        (
+            {
+                "source_url": "https://example.com/a.mp4",
+                "kind": "direct",
+                "occurrences": [{"origin_type": "post", "origin_id": "example", "location": "video", "raw_url": None}],
+            },
+            "raw_url",
+        ),
+        (
+            {
+                "source_url": "https://example.com/a.mp4",
+                "kind": "direct",
+                "occurrences": [],
+                "attempts": "one",
+            },
+            "attempts",
+        ),
+        (
+            {
+                "source_url": "https://example.com/a.mp4",
+                "kind": "direct",
+                "occurrences": [],
+                "error": [],
+            },
+            "error",
+        ),
+    ],
+)
+def test_load_manifest_invalid_entry_fields_raise_manifest_error(tmp_path, entry, message):
+    manifest_path(tmp_path).write_text(
+        json.dumps({"entries": {entry.get("source_url", "missing"): entry}}), encoding="utf-8"
+    )
+
+    with pytest.raises(ManifestError, match=message):
+        load_manifest(tmp_path)
+
+
 def test_write_manifest_is_atomic_and_readable(tmp_path):
     manifest = Manifest()
     manifest.entries["https://example.com/a.mp4"] = ManifestEntry(
