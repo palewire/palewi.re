@@ -5,6 +5,9 @@ Commands:
 * ``inventory`` - discover candidates without downloading anything (dry run).
 * ``backup`` - download pending/failed candidates into ``--archive-root``.
 * ``verify`` - recompute checksums of already-downloaded files, offline.
+* ``r2-sync`` - replicate verified local media to a private R2 bucket.
+* ``r2-verify`` - compare local archive checksums against private R2 metadata.
+* ``r2-recover`` - restore one selected media file from private R2.
 """
 
 from __future__ import annotations
@@ -18,6 +21,7 @@ import click
 
 from coltrane.content_loaders import ContentError, load_posts, load_talks
 from scripts.media_archive import manifest as manifest_mod
+from scripts.media_archive import r2
 from scripts.media_archive.discovery import MediaCandidate, discover_candidates
 from scripts.media_archive.downloader import DownloadError, download_candidate, ffmpeg_available
 
@@ -76,6 +80,17 @@ def _archive_root_option() -> Any:
         default=None,
         help="Directory outside the repository where media and the manifest are stored. "
         "Can also be set with the MEDIA_ARCHIVE_PATH environment variable.",
+    )
+
+
+def _r2_bucket_option() -> Any:
+    return click.option(
+        "--bucket",
+        type=str,
+        default=r2.DEFAULT_BUCKET,
+        show_default=True,
+        envvar="MEDIA_ARCHIVE_R2_BUCKET",
+        help="Private R2 bucket containing this archive replica.",
     )
 
 
@@ -268,6 +283,75 @@ def verify(archive_root: Path | None) -> None:
     click.echo(f"\nVerified {verified} file(s); {missing} missing; {mismatched} mismatched.")
     if missing or mismatched:
         raise click.ClickException(f"{missing + mismatched} file(s) failed verification.")
+
+
+@cli.command("r2-sync")
+@_archive_root_option()
+@_r2_bucket_option()
+def r2_sync(archive_root: Path | None, bucket: str) -> None:
+    """Replicate verified media, manifests, checksums, and extractor metadata to private R2."""
+    resolved_root = _resolve_archive_root(archive_root)
+    try:
+        result = r2.sync_archive(r2.create_client_from_environment(), resolved_root, bucket)
+    except r2.R2ReplicaError as error:
+        raise click.ClickException(str(error)) from error
+    click.echo(f"R2 sync complete: {result.uploaded} uploaded; {result.skipped} already verified.")
+
+
+@cli.command("r2-verify")
+@_archive_root_option()
+@_r2_bucket_option()
+def r2_verify(archive_root: Path | None, bucket: str) -> None:
+    """Verify that private R2 has every local object with its expected checksum metadata."""
+    resolved_root = _resolve_archive_root(archive_root)
+    try:
+        result = r2.verify_remote_archive(r2.create_client_from_environment(), resolved_root, bucket)
+    except r2.R2ReplicaError as error:
+        raise click.ClickException(str(error)) from error
+    click.echo(f"R2 verified {result.verified} object(s); {result.missing} missing; {result.mismatched} mismatched.")
+    if result.missing or result.mismatched:
+        raise click.ClickException(f"{result.missing + result.mismatched} R2 object(s) failed verification.")
+
+
+@cli.command("r2-recover")
+@_archive_root_option()
+@_r2_bucket_option()
+@click.option(
+    "--output-filename",
+    required=True,
+    help="Relative media filename recorded in the local archive manifest.",
+)
+@click.option(
+    "--destination",
+    type=click.Path(path_type=Path, dir_okay=False),
+    required=True,
+    help="External path where the recovered media file will be written.",
+)
+@click.option("--force/--no-force", default=False, help="Replace an existing destination file.")
+def r2_recover(
+    archive_root: Path | None,
+    bucket: str,
+    output_filename: str,
+    destination: Path,
+    force: bool,
+) -> None:
+    """Restore one media file from private R2 and validate its manifest checksum."""
+    resolved_root = _resolve_archive_root(archive_root)
+    resolved_destination = destination.expanduser().resolve()
+    if resolved_destination == REPO_ROOT or REPO_ROOT in resolved_destination.parents:
+        raise click.ClickException(f"Refusing to write recovered media under the repository at {REPO_ROOT}.")
+    try:
+        r2.recover_media(
+            r2.create_client_from_environment(),
+            resolved_root,
+            bucket,
+            output_filename,
+            resolved_destination,
+            force=force,
+        )
+    except r2.R2ReplicaError as error:
+        raise click.ClickException(str(error)) from error
+    click.echo(f"Recovered and verified {output_filename} to {resolved_destination}")
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
 STATIC_WORKER_DIR := workers/static-site
 STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 help:
 	@echo "Available targets:"
@@ -43,6 +43,9 @@ help:
 	@echo "  media-archive-inventory  List discovered talk/post media without downloading anything"
 	@echo "  media-archive-backup  Back up pending media to ARCHIVE_ROOT (or MEDIA_ARCHIVE_PATH)"
 	@echo "  media-archive-verify  Recompute checksums of already-archived media, offline"
+	@echo "  media-archive-r2-sync  Replicate an external archive to private R2"
+	@echo "  media-archive-r2-verify  Compare local archive checksums to private R2"
+	@echo "  media-archive-r2-recover  Restore one selected media file from private R2"
 	@echo "  static-worker-test  Run the static site Worker tests"
 	@echo "  static-worker-validate  Validate the static site Worker without deploying"
 	@echo "  static-worker-preview-deploy  Deploy a route-free static-site preview after confirmation"
@@ -156,6 +159,20 @@ media-archive-backup:
 media-archive-verify:
 	@test -n "$$ARCHIVE_ROOT$$MEDIA_ARCHIVE_PATH" || { echo "Set ARCHIVE_ROOT=/path/outside/repo (or export MEDIA_ARCHIVE_PATH) to a directory outside this repository." >&2; exit 1; }
 	@"$$(command -v uv)" run python -m scripts.media_archive verify $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
+
+media-archive-r2-sync:
+	@test -n "$$ARCHIVE_ROOT$$MEDIA_ARCHIVE_PATH" || { echo "Set ARCHIVE_ROOT=/path/outside/repo (or export MEDIA_ARCHIVE_PATH) to a directory outside this repository." >&2; exit 1; }
+	@"$$(command -v uv)" run python -m scripts.media_archive r2-sync $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
+
+media-archive-r2-verify:
+	@test -n "$$ARCHIVE_ROOT$$MEDIA_ARCHIVE_PATH" || { echo "Set ARCHIVE_ROOT=/path/outside/repo (or export MEDIA_ARCHIVE_PATH) to a directory outside this repository." >&2; exit 1; }
+	@"$$(command -v uv)" run python -m scripts.media_archive r2-verify $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
+
+media-archive-r2-recover:
+	@test -n "$$ARCHIVE_ROOT$$MEDIA_ARCHIVE_PATH" || { echo "Set ARCHIVE_ROOT=/path/outside/repo (or export MEDIA_ARCHIVE_PATH) to a directory outside this repository." >&2; exit 1; }
+	@test -n "$$OUTPUT_FILENAME" || { echo "Set OUTPUT_FILENAME to the relative media filename from manifest.json." >&2; exit 1; }
+	@test -n "$$DESTINATION" || { echo "Set DESTINATION to an external file path for the recovered media." >&2; exit 1; }
+	@"$$(command -v uv)" run python -m scripts.media_archive r2-recover $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",) --output-filename "$$OUTPUT_FILENAME" --destination "$$DESTINATION"
 
 static-worker-test:
 	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
