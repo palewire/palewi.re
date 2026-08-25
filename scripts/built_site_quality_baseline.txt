@@ -228,3 +228,4 @@ missing-generated-page	work/index.html	a[href="https://palewi.re/docs/ire-archiv
 missing-generated-page	work/index.html	a[href="https://palewi.re/docs/reuters-style/"] targets absent generated page /docs/reuters-style/
 missing-local-asset	posts/2008/05/18/bill-oreilly-flips-out-the-ringtone/index.html	a[href="/media/mp3/bill_oreilly_do_it_live_remix.mp3"] targets absent local asset /media/mp3/bill_oreilly_do_it_live_remix.mp3
 missing-local-asset	posts/2010/03/10/google-charts-takes-tufte-challenge/index.html	img[src="/media/img/tufte2.JPG"] targets absent local asset /media/img/tufte2.JPG
+missing-local-asset	work/index.html	a[href="https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html"] targets absent local asset /docs/news-homepages/openai-gptbot-robotstxt.html

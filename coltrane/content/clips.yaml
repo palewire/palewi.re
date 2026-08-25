@@ -263,7 +263,7 @@ clips:
 - title: Who blocks OpenAI?
   type: app
   date: '2023-09-11'
-  url: https://homepages.news/openai-gptbot-robotstxt.html
+  url: https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html
   archive_url: https://web.archive.org/web/20260820121709/https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html
 - title: fed-dot-plot-scraper
   type: software
