@@ -215,6 +215,11 @@ def _optional_http_url(record: dict, field_name: str, path: str, title: str) -> 
 def _require_los_angeles_datetime(record: dict, field_name: str, path: str) -> datetime.datetime:
     """Return an ISO datetime expressed in the Los Angeles timezone."""
     value = _require_str(record, field_name, path)
+    return parse_los_angeles_datetime(value, field_name, path)
+
+
+def parse_los_angeles_datetime(value: str, field_name: str, path: str) -> datetime.datetime:
+    """Validate an ISO datetime expressed in the Los Angeles timezone."""
     try:
         parsed = datetime.datetime.fromisoformat(value)
     except ValueError as error:

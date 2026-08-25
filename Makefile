@@ -16,7 +16,7 @@ LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
 STATIC_WORKER_DIR := workers/static-site
 STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks css css-dev bake serve new-post check test lint typecheck django-check fmt archive-clips check-clip-archives media-archive-inventory media-archive-backup media-archive-verify static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-verify-same-zone-canary worker-delete-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete-canary legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 help:
 	@echo "Available targets:"
@@ -31,6 +31,7 @@ help:
 	@echo "  css-dev    Build expanded CSS with a source map"
 	@echo "  bake       Build static site files in dist/"
 	@echo "  serve      Start the development server"
+	@echo "  new-post  Create a public post (requires TITLE and PUBLISHED_AT)"
 	@echo "  check      Run the same lint, type, Django, and test checks as CI"
 	@echo "  test       Run tests only"
 	@echo "  lint       Run Ruff linter and format check"
@@ -107,6 +108,11 @@ bake: css
 
 serve: css-dev
 	@"$$(command -v uv)" run python -m scripts.worktree serve
+
+new-post:
+	@test -n "$(TITLE)" || { echo "Set TITLE to the published post title." >&2; exit 1; }
+	@test -n "$(PUBLISHED_AT)" || { echo "Set PUBLISHED_AT to an ISO 8601 Los Angeles datetime with its correct UTC offset." >&2; exit 1; }
+	@"$$(command -v uv)" run python -m scripts.new_post --title "$(TITLE)" --published-at "$(PUBLISHED_AT)"
 
 check: lint typecheck django-check check-clip-archives test
 
