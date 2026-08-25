@@ -6,8 +6,8 @@ origins explicit:
 - Google Fonts for styles and fonts.
 - Google Slides, Vimeo, SoundCloud, and the archived S3 Leaflet examples for
   historical iframes.
-- The canonical `palewi.re`, Google Charts, and the legacy `www.palewire.com`
-  hosts for historical images.
+- The canonical `palewi.re`, Google Charts, legacy `www.palewire.com`, and
+  `palewire.s3.amazonaws.com` hosts for historical images and videos.
 
 Inline styles remain enabled because published post HTML uses them. Executable
 scripts are limited to the site itself. The Permissions Policy disables only

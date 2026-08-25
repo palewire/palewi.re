@@ -59,6 +59,9 @@ request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 200
 grep -Fq 'src="http://chart.apis.google.com/' "$body_file"
 request "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/" 200
 grep -Fq 'src="http://www.palewire.com/' "$body_file"
+request "/posts/2018/04/14/my-times/" 200
+grep -Fq 'src="//palewire.s3.amazonaws.com/latimes-tour/1.jpg"' "$body_file"
+grep -Fq 'src="//palewire.s3.amazonaws.com/latimes-tour/9track.mp4"' "$body_file"
 request "/sitemap.xml" 200
 grep -Fq '<sitemapindex' "$body_file"
 request "/robots.txt" 200

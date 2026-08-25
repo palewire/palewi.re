@@ -15,11 +15,11 @@ const CONTENT_SECURITY_POLICY = [
   "form-action 'self'",
   "frame-ancestors 'none'",
   "frame-src 'self' https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com",
-  "img-src 'self' https://palewi.re http://chart.apis.google.com http://www.palewire.com",
+  "img-src 'self' https://palewi.re http://chart.apis.google.com http://www.palewire.com https://palewire.s3.amazonaws.com",
   "font-src 'self' https://fonts.gstatic.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "script-src 'self'",
-  "media-src 'self'",
+  "media-src 'self' https://palewire.s3.amazonaws.com",
   "object-src 'none'",
 ].join("; ");
 const SECURITY_HEADERS = {
