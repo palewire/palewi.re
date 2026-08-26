@@ -30,6 +30,8 @@ WORKER_ASSET_PATHS = frozenset(
         "/docs/calfire-wildfires/",
         "/docs/censusbatchgeocoder/",
         "/docs/coding-the-news/",
+        "/docs/coding-the-news/scripts/week-1/",
+        "/docs/coding-the-news/scripts/week-2/",
         "/docs/cpi/",
         "/docs/datawrapper-json-bookmarklet/",
         "/docs/django-anss-archive/",
