@@ -33,7 +33,7 @@ request() {
 
 expect_security_headers() {
   grep -Fiq "content-security-policy: " "$headers_file"
-  grep -Fiq "frame-src 'self' https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com" "$headers_file"
+  grep -Fiq "frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com" "$headers_file"
   grep -Fiq "permissions-policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()" "$headers_file"
 }
 
@@ -55,6 +55,8 @@ request "/posts/2017/09/09/what-i-learned/" 200
 grep -Fq 'src="https://player.vimeo.com/' "$body_file"
 request "/posts/2025/05/21/ire-podcast-transcript/" 200
 grep -Fq 'src="https://w.soundcloud.com/' "$body_file"
+request "/posts/2026/01/27/how-journalism-lost-its-culture-of-sharing/" 200
+grep -Fq 'src="https://datawrapper.dwcdn.net/6T1Lq/4/"' "$body_file"
 request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 200
 grep -Fq 'src="http://chart.apis.google.com/' "$body_file"
 request "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/" 200
