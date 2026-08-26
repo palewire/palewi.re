@@ -715,6 +715,9 @@ figure {
   display: block;
   margin-bottom: var(--space-body-copy) !important;
 }
+#detailbody .chart-embed {
+  margin-bottom: var(--space-body-copy);
+}
 #detailbody strong, #detailbody b {
   font-weight: var(--font-weight-bold);
 }
