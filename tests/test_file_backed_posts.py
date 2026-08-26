@@ -41,10 +41,10 @@ def test_post_list_uses_file_order(client, public_posts):
 
 def test_post_detail_loads_soundcloud_iframe_and_highlights_legacy_code(client, public_posts):
     """Stored SoundCloud markup remains a normal iframe that loads without JavaScript."""
-    raw_html_post = next(post for post in public_posts if "<iframe" in post.body_markup)
+    soundcloud_post = next(post for post in public_posts if "w.soundcloud.com/player/" in post.body_markup)
     code_post = next(post for post in public_posts if '<pre lang="python">' in post.body_markup)
 
-    raw_response = client.get(raw_html_post.get_absolute_url())
+    raw_response = client.get(soundcloud_post.get_absolute_url())
     code_response = client.get(code_post.get_absolute_url())
 
     raw_content = raw_response.content.decode()
@@ -53,6 +53,17 @@ def test_post_detail_loads_soundcloud_iframe_and_highlights_legacy_code(client, 
     assert "Load SoundCloud player" not in raw_content
     assert "<template>" not in raw_content
     assert 'class="source"' in code_response.content.decode()
+
+
+def test_datawrapper_embed_is_responsive_and_spaced(client):
+    response = client.get("/posts/2026/01/27/how-journalism-lost-its-culture-of-sharing/")
+    content = response.content.decode()
+
+    assert response.status_code == 200
+    assert '<div class="chart-embed">' in content
+    assert 'id="datawrapper-chart-6T1Lq"' in content
+    assert 'data["datawrapper-height"]' in content
+    assert content.count('href="https://source.opennews.org/articles/journalism-lost-sharing-culture/"') == 2
 
 
 def test_podcast_embed_has_accessible_name_and_contrast(client):

@@ -50,6 +50,8 @@ page or direct readers back to a social platform.
 10. If a lead GIF needs visual touch-ups, use a manually or AI-retouched GIF
     supplied by the user from an approved image editor. Do not apply automatic
     background edits that could damage the original artwork.
+11. Wrap responsive chart embeds in `<div class="chart-embed">` so they receive
+    the same bottom spacing as lead images.
 
 ## Approval and publication
 
@@ -62,10 +64,12 @@ page or direct readers back to a social platform.
 3. Do not add draft, status, source URL, or unsupported metadata fields.
    Private drafts and nomination records stay in the chat.
 4. Run `make check`.
-5. Before opening a pull request, reuse a healthy local server or run
+5. Before asking for publication approval, reuse a healthy local server or run
    `make serve`, then open the new post on localhost for the user to review.
-   Wait for the user's response unless they explicitly waive this preview.
-6. Prepare a focused pull request for the approved batch.
+   This test-site review is required unless the user explicitly waives it.
+6. Wait for the user to approve the test-site version. Do not commit, open a
+   pull request, or publish the post before that approval.
+7. Prepare a focused pull request for the approved batch.
 
 ## Batch status
 
