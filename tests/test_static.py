@@ -22,7 +22,7 @@ _MANIFEST_BUILT = os.path.isfile(_MANIFEST)
 
 
 def test_bio_page_uses_compiled_stylesheet(client) -> None:
-    """The base template must link the CSS created by the Sass build command."""
+    """The base template must link the site's stylesheet."""
     response = client.get("/who-is-ben-welsh/")
 
     assert response.status_code == 200
@@ -34,7 +34,7 @@ def test_base_template_uses_local_fonts(client) -> None:
     response = client.get("/who-is-ben-welsh/")
     content = response.content.decode()
     static_dir = Path(__file__).resolve().parent.parent / "coltrane" / "static"
-    font_styles = (static_dir / "_fonts.scss").read_text(encoding="utf-8")
+    font_styles = (static_dir / "styles.css").read_text(encoding="utf-8")
 
     assert "fonts.googleapis.com" not in content
     assert "fonts.gstatic.com" not in content
@@ -48,15 +48,12 @@ def test_base_template_uses_local_fonts(client) -> None:
 def test_styles_css_in_manifest() -> None:
     """styles.css must appear as a key in the production staticfiles manifest.
 
-    If this fails it means ``make css`` did not run before ``collectstatic``,
-    so the Sass-generated CSS was never collected and
+    If this fails, the committed stylesheet was not collected and
     ManifestStaticFilesStorage cannot resolve the hashed URL.
     """
     with open(_MANIFEST) as fh:
         manifest = json.load(fh)
-    assert "styles.css" in manifest["paths"], (
-        "styles.css is absent from collected_static/staticfiles.json; ensure `make css` runs before `collectstatic`."
-    )
+    assert "styles.css" in manifest["paths"], "styles.css is absent from collected_static/staticfiles.json."
     assert "styles.css.map" not in manifest["paths"]
 
 

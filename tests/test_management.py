@@ -10,7 +10,7 @@ def test_legacy_sync_commands_are_removed():
     assert "synctwitter" not in commands
 
 
-def test_legacy_sass_command_is_removed():
-    """Sass compilation belongs to the pinned Dart Sass build step."""
+def test_legacy_stylesheet_command_is_removed():
+    """Stylesheets are not managed by Django."""
     commands = get_commands()
     assert "compilescss" not in commands

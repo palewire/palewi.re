@@ -12,8 +12,6 @@ on:
       - "toolbox/**"
       - "pyproject.toml"
       - "uv.lock"
-      - "package.json"
-      - "package-lock.json"
   schedule:
     - cron: "0 13 * * 0"
   workflow_dispatch:
@@ -51,7 +49,6 @@ jobs:
       - name: Prepare site
         run: |
           make ci-bootstrap
-          make css
           uv run python manage.py collectstatic --noinput --clear
 
       - name: Start site

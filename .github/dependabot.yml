@@ -11,14 +11,6 @@ updates:
         patterns: ["pytest*", "coverage*"]
 
   - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    groups:
-      sass:
-        patterns: ["sass"]
-
-  - package-ecosystem: "npm"
     directory: "/workers/mastodon-well-known-proxy"
     schedule:
       interval: "weekly"
