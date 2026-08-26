@@ -5,6 +5,12 @@
     margin-bottom: var(--space-body-copy);
     font-weight: var(--font-weight-light);
   }
+  .twelvecol > img:first-child,
+  .twelvecol > picture:first-child,
+  .twelvecol > figure:first-child {
+    display: block;
+    margin-bottom: var(--space-body-copy) !important;
+  }
   strong, b {
     font-weight: var(--font-weight-bold);
   }
