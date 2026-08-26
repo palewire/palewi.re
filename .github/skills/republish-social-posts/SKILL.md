@@ -24,16 +24,29 @@ page or direct readers back to a social platform.
 
 1. Preserve the user's original language as closely as possible. Begin with a
    faithful local transcription, then format it for the blog.
-2. Propose a concise title, a slug, and a publication timestamp based on the
+2. Remove emojis from titles and body text. Treat their removal as a mechanical
+   formatting change; do not replace them with words unless the user asks.
+3. Propose a concise title, a slug, and a publication timestamp based on the
    original social post. Use the original time when it is available and convert
    it to Los Angeles time. If only a date is available, ask the user to choose
    the time.
-3. Make only necessary edits for readability or context. Identify every
+4. Make only necessary edits for readability or context. Identify every
    substantive addition, omission, or rewrite in the chat review.
-4. Do not add source notes, outbound social links, embeds, social-media assets,
+5. Do not add source notes, outbound social links, embeds, social-media assets,
    or a provenance field. The finished post must stand on its own.
-5. Reuse images only when the user owns them or confirms the right to reuse
+6. Reuse images only when the user owns them or confirms the right to reuse
    them. Never hotlink platform-hosted media.
+7. Resolve shortened URLs found in the nominated post to their canonical
+   destinations by following redirects only. Weave each result into the
+   surrounding original language as a meaningful inline link. Do not retain
+   bare shortened URLs or add a link back to the social post.
+8. When the nominated post has lead art, preserve a local copy and use it as
+   the blog post's `repr_image`. Access only that directly associated image;
+   do not substitute unrelated art.
+9. Convert a lead video no longer than 10 seconds into an optimized animated
+   GIF and use it as the blog post's `repr_image`. For a longer video, ask the
+   user whether to use a still image or omit lead art. Do not hotlink or embed
+   a platform-hosted video.
 
 ## Approval and publication
 
