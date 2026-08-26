@@ -26,7 +26,10 @@ make serve
 `make bootstrap` checks these commands before it installs anything. For its
 commands, it also adds common user installation paths including
 `$HOME/.local/bin`, npm's user directory, Volta, asdf, fnm, and a detected
-Homebrew bin directory. It does not install or authenticate any command.
+Homebrew bin directory. It does not install or authenticate any command. When
+`.env` is missing, it creates an ignored copy from `.env.example`. Uncomment
+and fill only the settings you need. Existing `.env` files, including worktree
+symlinks, are never changed.
 
 ### CSS design tokens
 
@@ -49,20 +52,30 @@ npm install --global wrangler@4.125.0
 Open the URL printed by the server. Linked Git worktrees automatically use
 available local ports, so multiple agents can run the site at the same time.
 
-## Environment variables
+## Local environment
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `SECRET_KEY` | No | Django secret key for local development and checks |
-| `DEBUG` | No | Set `false` to disable debug output |
-| `SAVEPAGENOW_ACCESS_KEY` | No | Internet Archive access key used by `make archive-clips` |
-| `SAVEPAGENOW_SECRET_KEY` | No | Internet Archive secret key used by `make archive-clips` |
-| `MEDIA_ARCHIVE_PATH` | No | Directory outside the repo where `make media-archive-backup`/`verify` store media and the manifest |
-| `SSL_CERT_FILE` | No | Readable PEM CA bundle used by the media archive's verified yt-dlp connections |
-| `R2_ACCOUNT_ID` | No | Cloudflare account ID used only by the manual private R2 media replica |
-| `R2_ACCESS_KEY_ID` | No | Bucket-scoped R2 S3 access key, supplied outside Git |
-| `R2_SECRET_ACCESS_KEY` | No | Bucket-scoped R2 S3 secret, supplied outside Git |
-| `MEDIA_ARCHIVE_R2_BUCKET` | No | Private R2 bucket name; defaults to `palewire-media-archive` |
+`.env.example` lists the optional local settings. `make` passes its ignored
+root `.env` to `uv` commands when it exists. Values already set in your shell
+take precedence. CI sets `UV_NO_ENV_FILE=1`, so it never loads local settings.
+
+| Variable | Description |
+|----------|-------------|
+| `SECRET_KEY` | Django secret key for local development and checks |
+| `DEBUG` | Set `false` to disable debug output |
+| `ALLOWED_HOSTS` | Comma-separated hosts accepted by Django |
+| `STATIC_MANIFEST` | Set `true` to build Django's hashed static manifest |
+| `SOURCE_VERSION` | Commit identifier displayed in the site metadata |
+| `SAVEPAGENOW_ACCESS_KEY` | Internet Archive access key used by `make archive-clips` |
+| `SAVEPAGENOW_SECRET_KEY` | Internet Archive secret key used by `make archive-clips` |
+| `MEDIA_ARCHIVE_PATH` | Directory outside the repo where media and its manifest are stored |
+| `SSL_CERT_FILE` | Readable PEM CA bundle for verified media archive downloads |
+| `R2_ACCOUNT_ID` | Cloudflare account ID used by the manual private R2 media replica |
+| `R2_ACCESS_KEY_ID` | Bucket-scoped R2 S3 access key |
+| `R2_SECRET_ACCESS_KEY` | Bucket-scoped R2 S3 secret |
+| `MEDIA_ARCHIVE_R2_BUCKET` | Private R2 bucket name; defaults to `palewire-media-archive` |
+| `R2_ENDPOINT_URL` | Optional R2 endpoint for jurisdiction-specific storage |
+| `CLOUDFLARE_API_TOKEN` | Wrangler API token for non-interactive local Cloudflare commands |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID for explicitly authorized Worker deployments |
 
 ## Quality gate
 
@@ -272,8 +285,9 @@ make cloudflare-check
 ```
 
 For local use, authenticate interactively with `wrangler login`, then run the
-check. In non-interactive environments, set `CLOUDFLARE_API_TOKEN` in the
-environment instead. Do not commit tokens or add them to `.env` files.
+check. In non-interactive local use, set `CLOUDFLARE_API_TOKEN` in the ignored
+`.env` file or your shell. Do not commit tokens. Cloud-agent and CI tokens
+belong in their configured secrets, not a checked-out `.env`.
 
 For a Copilot cloud-agent session, create a **user API token** with only
 **User > User Details > Read** and **User > Memberships > Read**, then save it
