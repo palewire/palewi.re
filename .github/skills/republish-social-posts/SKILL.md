@@ -35,7 +35,9 @@ page or direct readers back to a social platform.
 5. Do not add source notes, outbound social links, embeds, social-media assets,
    or a provenance field. The finished post must stand on its own.
 6. Reuse images only when the user owns them or confirms the right to reuse
-   them. Never hotlink platform-hosted media.
+   them. A user's nomination of one of their own social-media posts confirms
+   permission to reuse its directly associated images. Never hotlink
+   platform-hosted media.
 7. Resolve shortened URLs found in the nominated post to their canonical
    destinations by following redirects only. Weave each result into the
    surrounding original language as a meaningful inline link. Do not retain
