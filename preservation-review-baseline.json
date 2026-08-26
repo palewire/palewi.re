@@ -44,6 +44,7 @@
     {"source_url": "https://www.youtube.com/watch?v=Goi8Ezqs-dM", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://www.youtube.com/watch?v=JBeYpuDuHeo", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://www.youtube.com/watch?v=LmfhEPdBBUU", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
+    {"source_url": "https://www.youtube.com/watch?v=me0DlYHkJKE&t=28s", "code": "local-media-untracked", "reason": "Current media source awaiting durable backup in issue #176."},
     {"source_url": "https://www.youtube.com/watch?v=NK6vZaY0TZk&list=WL&index=2", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://www.youtube.com/watch?v=QYCTVZLbbCU", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://www.youtube.com/watch?v=S62J6SssxNE", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
