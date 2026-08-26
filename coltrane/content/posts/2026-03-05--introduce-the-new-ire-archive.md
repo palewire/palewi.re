@@ -2,9 +2,9 @@
 title: The New IRE Archive
 slug: introduce-the-new-ire-archive
 published_at: '2026-03-05T03:00:08-08:00'
-repr_image: https://palewi.re/static/img/introduce-the-new-ire-archive.jpg
+repr_image: https://palewi.re/static/img/introduce-the-new-ire-archive.png
 ---
-<img src="/static/img/introduce-the-new-ire-archive.jpg" alt="Screenshot of the IRE archive search page.">
+<img src="/static/img/introduce-the-new-ire-archive.png" alt="Screenshot of the IRE archive search page.">
 
 <p>I'm pleased to announce the launch of <a href="https://archive.ire.org/">archive.ire.org</a>, a new AI-powered search engine unlocking the collective knowledge of Investigative Reporters and Editors members.</p>
 
