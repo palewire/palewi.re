@@ -200,11 +200,11 @@ def main(url: str, output: str | None) -> None:
         browser.prepare_source(page_id)
 
         name = output_name(output, browser.page_title(page_id), source_url)
-        raw_path = WORK_DIR / f"{name}-raw.png"
+        raw_path = WORK_DIR / "source.png"
         final_path = IMAGE_DIR / f"{name}.png"
         browser.screenshot(page_id, raw_path)
 
-        frame_url = f"{FRAME_PATH.as_uri()}?{urlencode({'image': raw_path.as_uri(), 'url': source_url})}"
+        frame_url = f"{FRAME_PATH.as_uri()}?{urlencode({'url': source_url})}"
         browser.navigate(page_id, frame_url)
         browser.emulate(page_id, OUTPUT_VIEWPORT)
         browser.wait_for_frame(page_id)

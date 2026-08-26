@@ -134,7 +134,6 @@
     <p class="status" id="status" role="status">Loading</p>
     <script>
       const params = new URLSearchParams(window.location.search);
-      const image = params.get("image");
       const sourceUrl = params.get("url");
       const address = document.querySelector("#address");
       const viewport = document.querySelector("#viewport");
@@ -147,23 +146,18 @@
         address.textContent = sourceUrl || "";
       }
 
-      if (image) {
-        const capture = document.createElement("img");
-        capture.alt = "";
-        capture.addEventListener("load", () => {
-          status.textContent = "Ready";
-          document.title = "Ready";
-        });
-        capture.addEventListener("error", () => {
-          status.textContent = "Image failed to load";
-          document.title = "Image failed to load";
-        });
-        capture.src = image;
-        viewport.appendChild(capture);
-      } else {
-        status.textContent = "Missing image";
-        document.title = "Missing image";
-      }
+      const capture = document.createElement("img");
+      capture.alt = "";
+      capture.addEventListener("load", () => {
+        status.textContent = "Ready";
+        document.title = "Ready";
+      });
+      capture.addEventListener("error", () => {
+        status.textContent = "Image failed to load";
+        document.title = "Image failed to load";
+      });
+      capture.src = "../../../.lead-art/source.png";
+      viewport.appendChild(capture);
     </script>
   </body>
 </html>
