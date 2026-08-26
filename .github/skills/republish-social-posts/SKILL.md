@@ -47,6 +47,9 @@ page or direct readers back to a social platform.
    GIF and use it as the blog post's `repr_image`. For a longer video, ask the
    user whether to use a still image or omit lead art. Do not hotlink or embed
    a platform-hosted video.
+10. If a lead GIF needs visual touch-ups, use a manually or AI-retouched GIF
+    supplied by the user from an approved image editor. Do not apply automatic
+    background edits that could damage the original artwork.
 
 ## Approval and publication
 
@@ -59,7 +62,10 @@ page or direct readers back to a social platform.
 3. Do not add draft, status, source URL, or unsupported metadata fields.
    Private drafts and nomination records stay in the chat.
 4. Run `make check`.
-5. Prepare a focused pull request for the approved batch.
+5. Before opening a pull request, reuse a healthy local server or run
+   `make serve`, then open the new post on localhost for the user to review.
+   Wait for the user's response unless they explicitly waive this preview.
+6. Prepare a focused pull request for the approved batch.
 
 ## Batch status
 
