@@ -6,7 +6,7 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
-- Node.js 24 for the pinned Dart Sass compiler
+- Node.js 24 for Wrangler and accessibility checks
 - [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks and the isolated Workers
 
 ## Setup
@@ -28,17 +28,11 @@ commands, it also adds common user installation paths including
 `$HOME/.local/bin`, npm's user directory, Volta, asdf, fnm, and a detected
 Homebrew bin directory. It does not install or authenticate any command.
 
-The Sass compiler is an exact, locked npm dependency. `make serve` builds
-expanded CSS with a source map. `make css` builds the compressed production
-stylesheet used by CI and the static-site Worker build.
-
 ### CSS design tokens
 
-`coltrane/static/_tokens.scss` holds the small, semantic layer for shared
-colors, typography, spacing, borders, and layout values. It also defines the
-Sass breakpoint variables, since CSS custom properties cannot be used in media
-queries. Use `make css` to rebuild the stylesheet, or `make serve` while
-working locally. The current design has no shared shadow values.
+`coltrane/static/styles.css` holds the small, semantic layer for shared
+colors, typography, spacing, borders, and layout values. The current design
+has no shared shadow values.
 
 To reproduce a visual comparison, capture `/who-is-ben-welsh/`, `/posts/`, a
 post detail page, `/work/`, `/talks/`, and `/docs/` at 1440x1000 and 390x844

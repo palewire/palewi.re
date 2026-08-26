@@ -49,8 +49,8 @@ secrets, generated files, or `.goals/` agent state.
 - `scripts/media_archive/`: preservation-only audio/video backup tooling (see below)
 - `tests/`: pytest suite
 
-Use `uv` and `pyproject.toml` for Python dependencies, the locked Dart Sass npm
-dependency for CSS, Ruff for formatting and linting, and ty for static analysis.
+Use `uv` and `pyproject.toml` for Python dependencies, plain CSS for styles,
+Ruff for formatting and linting, and ty for static analysis.
 
 Copilot cloud agents also receive Wrangler 4.125.0 from that setup workflow.
 For authenticated Cloudflare identity checks, add a least-privilege

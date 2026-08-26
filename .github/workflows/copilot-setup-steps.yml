@@ -8,16 +8,12 @@ on:
       - Makefile
       - pyproject.toml
       - uv.lock
-      - package.json
-      - package-lock.json
   pull_request:
     paths:
       - .github/workflows/copilot-setup-steps.yml
       - Makefile
       - pyproject.toml
       - uv.lock
-      - package.json
-      - package-lock.json
 
 jobs:
   copilot-setup-steps:
