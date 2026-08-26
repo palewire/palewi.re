@@ -76,7 +76,6 @@ jobs:
         env:
           STATIC_MANIFEST: "true"
         run: |
-          make css
           uv run python manage.py collectstatic --noinput --clear
           grep -q '"styles.css"' collected_static/staticfiles.json
 
