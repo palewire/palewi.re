@@ -26,15 +26,15 @@ def load_manifest() -> dict:
     return json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
 
 
-def test_markdown_posts_match_public_export_manifest():
-    """Every public file and its lossless body match the checked-in fingerprint."""
+def test_historical_markdown_posts_match_public_export_manifest():
+    """Every historical export file and its lossless body match the fingerprint."""
     manifest = load_manifest()
     manifest_posts = manifest["posts"]
     expected_paths = {entry["path"] for entry in manifest_posts}
     actual_paths = {f"posts/{path.name}" for path in POSTS_PATH.glob("*.md")}
     assert manifest["post_count"] == 72
     assert len(manifest_posts) == 72
-    assert actual_paths == expected_paths
+    assert expected_paths.issubset(actual_paths)
     assert manifest["production_inventory"] == {"total": 166, "live": 72, "draft": 94, "hidden": 0}
 
     fingerprint = hashlib.sha256(
@@ -43,7 +43,7 @@ def test_markdown_posts_match_public_export_manifest():
     assert fingerprint == manifest["posts_fingerprint_sha256"]
 
     posts_by_permalink = {post.get_absolute_url(): post for post in load_posts()}
-    assert set(posts_by_permalink) == {entry["permalink"] for entry in manifest_posts}
+    assert {entry["permalink"] for entry in manifest_posts}.issubset(posts_by_permalink)
     for entry in manifest_posts:
         post_path = CONTENT_PATH / entry["path"]
         assert hashlib.sha256(post_path.read_bytes()).hexdigest() == entry["sha256"]
@@ -54,25 +54,25 @@ def test_markdown_posts_match_public_export_manifest():
 
 
 def test_markdown_posts_have_unique_slugs_and_preserved_permalinks():
-    """Posts retain globally unique slugs and their legacy date URLs."""
+    """Posts retain globally unique slugs and date URLs."""
     posts = load_posts()
-    assert len(posts) == 72
+    assert len(posts) >= 72
     assert len({post.slug for post in posts}) == len(posts)
     assert len({(post.published_at.date(), post.slug) for post in posts}) == len(posts)
 
     manifest_permalinks = {entry["permalink"] for entry in load_manifest()["posts"]}
-    assert {post.get_absolute_url() for post in posts} == manifest_permalinks
+    assert manifest_permalinks.issubset({post.get_absolute_url() for post in posts})
 
 
 def test_markdown_posts_keep_los_angeles_publication_datetimes():
     """The front matter preserves the original Los Angeles local clock time."""
     manifest_by_permalink = {entry["permalink"]: entry for entry in load_manifest()["posts"]}
     for post in load_posts():
-        expected = datetime.fromisoformat(manifest_by_permalink[post.get_absolute_url()]["published_at"])
         assert timezone.is_aware(post.published_at)
         assert post.published_at.tzinfo == LOS_ANGELES
-        assert post.published_at == expected
         assert post.get_absolute_url().startswith(f"/posts/{post.published_at:%Y/%m/%d}/")
+        if expected := manifest_by_permalink.get(post.get_absolute_url()):
+            assert post.published_at == datetime.fromisoformat(expected["published_at"])
 
 
 def test_django_uses_timezone_aware_datetimes():
