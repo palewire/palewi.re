@@ -31,6 +31,8 @@ node_modules/
 
 # Local agent state
 .goals/
+.lead-art/
+.impeccable/
 *.cpuprofile
 
 # Collected static

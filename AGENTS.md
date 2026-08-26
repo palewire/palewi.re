@@ -25,6 +25,9 @@ When running, auditing, or troubleshooting a local audio/video backup of the
 media referenced by `coltrane/content/talks.yaml` or blog posts, load the
 `archive-media` skill (`.github/skills/archive-media/SKILL.md`) first.
 
+When creating browser-framed lead art for a post from a public URL, load the
+`lead-art-screenshot` skill (`.github/skills/lead-art-screenshot/SKILL.md`).
+
 ## Before finishing
 
 Run `make check`. This is the same set of lint, type, Django, and test checks
