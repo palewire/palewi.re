@@ -194,7 +194,7 @@ preservation-review:
 	@set -e; \
 	inventory="$$(mktemp)"; \
 	trap 'rm -f "$$inventory"' EXIT; \
-	"$$(command -v uv)" run python -m scripts.preservation_inventory --json-output "$$inventory" --max-gaps 0; \
+	env -u MEDIA_ARCHIVE_PATH UV_NO_ENV_FILE=1 "$$(command -v uv)" run python -m scripts.preservation_inventory --json-output "$$inventory" --max-gaps 0; \
 	"$$(command -v uv)" run python -m scripts.preservation_review --inventory "$$inventory"
 
 media-archive-inventory:

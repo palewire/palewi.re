@@ -88,6 +88,7 @@ def test_backup_requires_archive_root(tmp_path):
     result = runner.invoke(
         cli_module.cli,
         ["backup", "--talks-path", str(talks_path), "--posts-path", str(posts_path)],
+        env={"MEDIA_ARCHIVE_PATH": ""},
     )
 
     assert result.exit_code == 1
@@ -460,7 +461,7 @@ def test_verify_reports_mismatched_checksum(tmp_path):
 
 def test_verify_requires_archive_root():
     runner = CliRunner()
-    result = runner.invoke(cli_module.cli, ["verify"])
+    result = runner.invoke(cli_module.cli, ["verify"], env={"MEDIA_ARCHIVE_PATH": ""})
     assert result.exit_code == 1
     assert "An archive root is required" in result.output
 
