@@ -1,5 +1,5 @@
 ---
-title: 'Leaflet recipe: Hover events on features and polygons'
+title: 'Leaflet recipe: hover events on features and polygons'
 slug: leaflet-recipe-hover-events-features-and-polygons
 published_at: '2012-03-26T13:47:10-07:00'
 ---

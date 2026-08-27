@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: Base management command for running custom SQL'
+title: 'Django recipe: base management command for running custom SQL'
 slug: django-recipe-base-management-command-running-custom-sql
 published_at: '2014-07-25T12:02:15-07:00'
 ---

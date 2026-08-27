@@ -1,5 +1,5 @@
 ---
-title: 'Python Recipe: Print a future date in the format you want'
+title: 'Python recipe: print a future date in the format you want'
 slug: python-recipe-print-a-future-date-in-the-format-you-want
 published_at: '2008-04-21T10:31:59-07:00'
 wordpress_id: 109

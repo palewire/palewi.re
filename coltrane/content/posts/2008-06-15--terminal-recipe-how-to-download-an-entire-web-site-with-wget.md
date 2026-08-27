@@ -1,5 +1,5 @@
 ---
-title: 'Terminal Recipe: Download an entire Web site with wget'
+title: 'Terminal recipe: download an entire web site with wget'
 slug: terminal-recipe-how-to-download-an-entire-web-site-with-wget
 published_at: '2008-06-15T09:05:15-07:00'
 wordpress_id: 128

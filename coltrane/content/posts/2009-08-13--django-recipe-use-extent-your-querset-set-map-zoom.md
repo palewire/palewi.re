@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: Use extent of a queryset to set the zoom'
+title: 'Django recipe: use extent of a queryset to set the zoom'
 slug: django-recipe-use-extent-your-querset-set-map-zoom
 published_at: '2009-08-13T19:09:27-07:00'
 ---

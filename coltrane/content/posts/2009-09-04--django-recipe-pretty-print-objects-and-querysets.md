@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: Pretty print objects and querysets'
+title: 'Django recipe: pretty print objects and querysets'
 slug: django-recipe-pretty-print-objects-and-querysets
 published_at: '2009-09-04T13:41:03-07:00'
 ---

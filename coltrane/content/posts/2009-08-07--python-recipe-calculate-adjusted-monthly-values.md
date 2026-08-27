@@ -1,5 +1,5 @@
 ---
-title: 'Python Recipe: Calculate adjusted monthly values'
+title: 'Python recipe: calculate adjusted monthly values'
 slug: python-recipe-calculate-adjusted-monthly-values
 published_at: '2009-08-07T20:40:28-07:00'
 ---

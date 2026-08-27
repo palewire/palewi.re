@@ -1,5 +1,5 @@
 ---
-title: Bill O'Reilly Flips Out, The Ringtone
+title: Bill O'Reilly flips out, the ringtone
 slug: bill-oreilly-flips-out-the-ringtone
 published_at: '2008-05-18T22:04:00-07:00'
 wordpress_id: 119

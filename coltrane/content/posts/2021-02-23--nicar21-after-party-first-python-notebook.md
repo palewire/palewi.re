@@ -1,5 +1,5 @@
 ---
-title: '#NICAR21 After Party'
+title: '#NICAR21 after party'
 slug: nicar21-after-party-first-python-notebook
 published_at: '2021-02-23T19:20:22-08:00'
 ---

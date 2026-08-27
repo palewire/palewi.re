@@ -1,5 +1,5 @@
 ---
-title: 'NICAR 2012: Things I said'
+title: 'NICAR 2012: things I said'
 slug: nicar-2012-things-i-said
 published_at: '2012-02-25T00:01:17-08:00'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: Dynamically load a Google Maps API key'
+title: 'Django recipe: dynamically load a Google Maps API key'
 slug: django-recipe-dynamically-load-your-google-maps-api-key
 published_at: '2009-10-29T18:06:46-07:00'
 ---

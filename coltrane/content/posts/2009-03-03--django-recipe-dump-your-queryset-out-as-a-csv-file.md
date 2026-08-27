@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: Dump your QuerySet out as a CSV file'
+title: 'Django recipe: dump your QuerySet out as a CSV file'
 slug: django-recipe-dump-your-queryset-out-as-a-csv-file
 published_at: '2009-03-03T13:53:00-08:00'
 ---
