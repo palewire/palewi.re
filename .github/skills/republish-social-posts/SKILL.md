@@ -26,6 +26,8 @@ page or direct readers back to a social platform.
    faithful local transcription, then format it for the blog.
 2. Remove emojis from titles and body text. Treat their removal as a mechanical
    formatting change; do not replace them with words unless the user asks.
+   Remove any standalone hashtag used as a social-media header at the start of
+   the body.
 3. Propose a concise title, a slug, and a publication timestamp based on the
    original social post. Use the original time when it is available and convert
    it to Los Angeles time. If only a date is available, ask the user to choose

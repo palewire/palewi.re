@@ -711,7 +711,7 @@ figure {
   margin-bottom: var(--space-body-copy);
   font-weight: var(--font-weight-light);
 }
-#detailbody .twelvecol > img:first-child,
+#detailbody .twelvecol > img,
 #detailbody .twelvecol > video:first-child,
 #detailbody .twelvecol > picture:first-child,
 #detailbody .twelvecol > figure:first-child {
