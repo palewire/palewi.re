@@ -1,0 +1,108 @@
+{% extends "coltrane/base.html" %}
+
+{% block title %}{{ page_title|lower }} . {{ block.super }}{% endblock %}
+
+{% block canonicalurl %}https://palewi.re/{{ page_slug }}/{% endblock %}
+
+{% block ogtitle %}{{ page_title|lower }}{% endblock %}
+{% block ogtype %}website{% endblock %}
+{% block ogurl %}https://palewi.re/{{ page_slug }}/{% endblock %}
+{% block ogdescription %}{{ page_description }}.{% endblock %}
+
+{% block twittertitle %}{{ page_title|lower }}{% endblock %}
+{% block twitterdescription %}{{ page_description }}.{% endblock %}
+{% block twitterurl %}https://palewi.re/{{ page_slug }}/{% endblock %}
+
+{% block googleurl %}https://palewi.re/{{ page_slug }}/{% endblock %}
+{% block googleheadline %}{{ page_title|lower }}{% endblock %}
+{% block googledescription %}{{ page_description }}.{% endblock %}
+{% block googletype %}CollectionPage{% endblock %}
+
+{% block googlemeta %}
+        {{ block.super }}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "url": "https://palewi.re/{{ page_slug }}/",
+            "itemListOrder": "Unordered",
+            "numberOfItems": {{ object_list|length }},
+            "itemListElement": [
+                {% for object in object_list %}
+                {
+                    "@type": "ListItem",
+                    "position": {{ forloop.counter }},
+                    "url": "{{ object.url }}",
+                    "name": "{{ object.title|escapejs }}"
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }
+        </script>
+{% endblock %}
+
+{% block content %}
+    <div class="interiorlist twelvecol last">
+        <h1>{{ page_title }}</h1>
+        <p class="description">{{ page_description }}</p>
+        {% if category_list %}
+        {% for category in category_list %}
+        <div class="row">
+            <div class="section-hed twelvecol last">
+                {{ category.title }}
+            </div>
+        </div>
+        {% for object in category.object_list %}
+        <div class="row">
+            <article class="listitem twelvecol last">
+                <a href="{{ object.url }}">{{ object.title }}</a>
+                {% if object.description %} • {{ object.description }}{% endif %}
+            </article>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% else %}
+        {% if catalog_heading %}
+        <div class="row">
+            <div class="section-hed twelvecol last">
+                {{ catalog_heading }}
+            </div>
+        </div>
+        {% endif %}
+        {% for object in object_list %}
+        <div class="row">
+            <article class="listitem twelvecol last">
+                <a href="{{ object.url }}">{{ object.title }}</a>
+                {% if object.description %} • {{ object.description }}{% endif %}
+            </article>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% if update_list %}
+        <div class="row">
+            <div class="section-hed twelvecol last">
+                {{ updates_heading }}
+            </div>
+        </div>
+        {% for object in update_list %}
+            {% ifchanged object.date.year %}
+            <div class="row">
+                <div class="section-hed twelvecol last">
+                    {{ object.date|date:"Y" }}
+                </div>
+            </div>
+            {% endifchanged %}
+            <div class="row">
+                <article class="listitem twelvecol last">
+                    {{ object.date|date:"N d" }} •
+                    {% if object.is_linkable %}
+                        <a href="{{ object.url }}">{{ object.title }}</a>
+                    {% else %}
+                        {{ object.title }}
+                    {% endif %}
+                </article>
+            </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

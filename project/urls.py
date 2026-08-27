@@ -17,11 +17,16 @@ urlpatterns = [
     # My bio
     path("who-is-ben-welsh/", views.bio, name="coltrane_bio"),
     # Main list pages
-    path("work/", views.ClipListView.as_view(), name="coltrane_work_list"),
-    path("talks/", views.TalkListView.as_view(), name="coltrane_talk_list"),
     path("posts/", views.PostListView.as_view(), name="coltrane_post_list"),
-    path("docs/", views.DocListView.as_view(), name="coltrane_doc_list"),
+    path("clips/", views.ClipListView.as_view(), name="coltrane_clip_list"),
+    path("apps/", views.AppListView.as_view(), name="coltrane_app_list"),
+    path("code/", views.CodeListView.as_view(), name="coltrane_code_list"),
+    path("guides/", views.GuideListView.as_view(), name="coltrane_guide_list"),
+    path("talks/", views.TalkListView.as_view(), name="coltrane_talk_list"),
     path("bots/", views.BotListView.as_view(), name="coltrane_bot_list"),
+    # Replaced list pages
+    path("work/", RedirectView.as_view(pattern_name="coltrane_clip_list", permanent=True)),
+    path("docs/", TemplateView.as_view(template_name="coltrane/docs_landing.html"), name="coltrane_docs_landing"),
     # Detail pages
     re_path(
         r"^posts/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$",

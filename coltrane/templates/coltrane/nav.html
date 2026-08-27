@@ -1,6 +1,6 @@
 <nav>
     <div class="row">
-        <div class="sevencol">
+        <div class="fivecol">
             <div class="shingle">
                 <a href="/">
                     <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
@@ -12,34 +12,37 @@
                 </a>
             </div>
         </div>
-        <div class="fivecol last links">
-            <ul>
-                <li>
-                    <a href="{% url 'coltrane_post_list' %}" title="Posts">
-                        Posts
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'coltrane_work_list' %}" title="Work">
-                        Work
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'coltrane_talk_list' %}" title="Talks">
-                        Talks
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'coltrane_doc_list' %}" title="Docs">
-                        Docs
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'coltrane_bio' %}" title="Who is Ben Welsh?">
-                        About
-                    </a>
-                </li>
+        <div class="sevencol last links">
+            <ul class="desktop-nav">
+                {% include "coltrane/nav_links.html" %}
             </ul>
+            <div class="nav-menu">
+                <button type="button"
+                        class="nav-menu-toggle"
+                        popovertarget="mobile-nav-links"
+                        aria-label="Menu">
+                    <span class="hamburger" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+                <div id="mobile-nav-links" class="nav-drawer" popover>
+                    <div class="nav-drawer-header">
+                        <span>Menu</span>
+                        <button type="button"
+                                class="nav-menu-close"
+                                popovertarget="mobile-nav-links"
+                                popovertargetaction="hide"
+                                aria-label="Close menu">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <ul>
+                        {% include "coltrane/nav_links.html" %}
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

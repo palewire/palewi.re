@@ -1,0 +1,36 @@
+{% extends "coltrane/base.html" %}
+
+{% block title %}docs . {{ block.super }}{% endblock %}
+
+{% block canonicalurl %}https://palewi.re/docs/{% endblock %}
+
+{% block ogtitle %}docs{% endblock %}
+{% block ogtype %}website{% endblock %}
+{% block ogurl %}https://palewi.re/docs/{% endblock %}
+{% block ogdescription %}Documentation for my open-source software and teaching guides.{% endblock %}
+
+{% block twittertitle %}docs{% endblock %}
+{% block twitterdescription %}Documentation for my open-source software and teaching guides.{% endblock %}
+{% block twitterurl %}https://palewi.re/docs/{% endblock %}
+
+{% block googleurl %}https://palewi.re/docs/{% endblock %}
+{% block googleheadline %}docs{% endblock %}
+{% block googledescription %}Documentation for my open-source software and teaching guides.{% endblock %}
+{% block googletype %}CollectionPage{% endblock %}
+
+{% block content %}
+    <div class="interiorlist twelvecol last">
+        <h1>Docs</h1>
+        <p class="description">Documentation now has two homes</p>
+        <div class="row">
+            <article class="listitem twelvecol last">
+                <a href="{% url 'coltrane_code_list' %}">Code</a> • Open-source software packages I've created and maintain
+            </article>
+        </div>
+        <div class="row">
+            <article class="listitem twelvecol last">
+                <a href="{% url 'coltrane_guide_list' %}">Guides</a> • Practical guides for learning data journalism and programming
+            </article>
+        </div>
+    </div>
+{% endblock %}

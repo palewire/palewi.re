@@ -13,13 +13,26 @@ Edit the appropriate file under ``coltrane/content/``:
   Optional fields: ``url`` (str), ``year`` (int).
   Ordering: ``-year``, then ``title`` (alphabetical).
 
-* ``clips.yaml``   – Work items listed on the /work/ page.
+* ``apps.yaml``    – Standalone apps and services listed on the /apps/ page.
+  Required fields: ``title`` (str), ``type`` (one of ``archiving``, ``bot``,
+  ``database``, ``personal``), ``url`` (HTTP(S) URL, unique).
+  Optional fields: ``description`` (str).
+  Ordering: preserved from file (explicit list order).
+
+* ``clips.yaml``   – Published work records routed by type.
   Required fields: ``title`` (str), ``type`` (one of ``app``,
-  ``lesson-plan``, ``story``, ``software``), ``date`` (YYYY-MM-DD),
+  ``lesson-plan``, ``service``, ``story``, ``software``), ``date`` (YYYY-MM-DD),
   ``url`` (str, unique).
   Optional fields: ``archive_url`` (Wayback snapshot URL),
-  ``archive_exemption`` (reason a snapshot cannot be created).
+  ``archive_exemption`` (reason a snapshot cannot be created), ``link_url``
+  (alternate HTTP(S) destination when the original is no longer served),
+  ``catalog_title`` (matching catalog entry when titles differ).
   Ordering: ``-date``.
+
+* ``code.yaml``    – Open-source projects grouped and alphabetized on /code/.
+  Required fields: ``title`` (str), ``type`` (one of ``data``, ``python``,
+  ``javascript``, ``other``, ``inactive``), ``url`` (HTTP(S) URL, unique).
+  Optional fields: ``description`` (str).
 
 * ``talks.yaml``   – Talks listed on the /talks/ page.
   Required fields: ``title`` (str), ``venue`` (str), ``location`` (str),
@@ -27,7 +40,7 @@ Edit the appropriate file under ``coltrane/content/``:
   Optional fields: ``video_url`` (str), ``slides_url`` (str).
   Ordering: ``-date``.
 
-* ``docs.yaml``    – Documentation listed on the /docs/ page.
+* ``docs.yaml``    – Software listed on /code/ and lessons listed on /guides/.
   Required fields: ``title`` (str), ``type`` (one of
   ``lesson-plan``, ``software``), ``url`` (str, unique).
   Optional fields: ``description`` (str), ``repository_url`` (HTTP(S) URL,
@@ -53,6 +66,7 @@ from __future__ import annotations
 import datetime
 import random
 import re
+from collections.abc import Sequence
 from dataclasses import dataclass
 from functools import cached_property
 from pathlib import Path
@@ -64,7 +78,22 @@ from django.utils import timezone
 
 CONTENT_PATH = Path(__file__).resolve().parent / "content"
 
-CLIP_TYPES = frozenset({"app", "lesson-plan", "story", "software"})
+CLIP_TYPES = frozenset({"app", "lesson-plan", "service", "story", "software"})
+APP_TYPES = frozenset({"archiving", "bot", "database", "personal"})
+APP_TYPE_LABELS = {
+    "archiving": "Archiving",
+    "database": "Databases",
+    "bot": "Social media bots",
+    "personal": "Personal websites",
+}
+CODE_TYPES = frozenset({"data", "inactive", "javascript", "other", "python"})
+CODE_TYPE_LABELS = {
+    "python": "Python",
+    "javascript": "JavaScript",
+    "data": "Data",
+    "other": "Other",
+    "inactive": "Inactive",
+}
 DOC_TYPES = frozenset({"lesson-plan", "software"})
 LOS_ANGELES = ZoneInfo("America/Los_Angeles")
 POST_FRONT_MATTER_FIELDS = frozenset({"title", "slug", "published_at", "repr_image", "wordpress_id"})
@@ -83,6 +112,34 @@ class Award:
 
 
 @dataclass(frozen=True)
+class App:
+    title: str
+    type: str
+    url: str
+    description: str = ""
+
+
+@dataclass(frozen=True)
+class AppCategory:
+    title: str
+    object_list: list[App]
+
+
+@dataclass(frozen=True)
+class CodeProject:
+    title: str
+    type: str
+    url: str
+    description: str = ""
+
+
+@dataclass(frozen=True)
+class CodeCategory:
+    title: str
+    object_list: list[CodeProject]
+
+
+@dataclass(frozen=True)
 class Clip:
     title: str
     type: str
@@ -90,6 +147,17 @@ class Clip:
     url: str
     archive_url: str = ""
     archive_exemption: str = ""
+    catalog_title: str = ""
+    link_url: str = ""
+
+    @property
+    def display_url(self) -> str:
+        return self.link_url or self.url
+
+    @property
+    def is_linkable(self) -> bool:
+        parsed = urlparse(self.display_url)
+        return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
 @dataclass(frozen=True)
@@ -212,6 +280,15 @@ def _optional_http_url(record: dict, field_name: str, path: str, title: str) -> 
     return value
 
 
+def _require_http_url(record: dict, field_name: str, path: str) -> str:
+    """Return a required HTTP(S) URL or raise ContentError."""
+    value = _require_str(record, field_name, path)
+    parsed = urlparse(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc or any(char.isspace() for char in value):
+        raise ContentError(f"{path}: record {record!r} field '{field_name}' must be an HTTP(S) URL")
+    return value
+
+
 def _require_los_angeles_datetime(record: dict, field_name: str, path: str) -> datetime.datetime:
     """Return an ISO datetime expressed in the Los Angeles timezone."""
     value = _require_str(record, field_name, path)
@@ -327,6 +404,10 @@ def load_clips(path: Path | None = None) -> list[Clip]:
         seen_urls.add(url)
         archive_url = _optional_str(record, "archive_url", label)
         archive_exemption = _optional_str(record, "archive_exemption", label)
+        catalog_title = _optional_str(record, "catalog_title", label)
+        link_url = _optional_str(record, "link_url", label)
+        if link_url:
+            _require_http_url({"url": link_url}, "url", f"{label}: clip '{title}' link_url")
         if archive_url:
             parsed_archive_url = urlparse(archive_url)
             if (
@@ -347,10 +428,109 @@ def load_clips(path: Path | None = None) -> list[Clip]:
                 url=url,
                 archive_url=archive_url,
                 archive_exemption=archive_exemption,
+                catalog_title=catalog_title,
+                link_url=link_url,
             )
         )
     clips.sort(key=lambda c: c.date, reverse=True)
     return clips
+
+
+def load_apps(path: Path | None = None) -> list[App]:
+    """Load and validate standalone apps from YAML."""
+    if path is None:
+        path = CONTENT_PATH / "apps.yaml"
+    label = str(path)
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(raw, dict):
+        raise ContentError(f"{label}: top-level structure must be a mapping")
+    items = raw.get("apps", [])
+    if not isinstance(items, list):
+        raise ContentError(f"{label}: 'apps' must be a list")
+    seen_urls: set[str] = set()
+    apps: list[App] = []
+    for record in items:
+        if not isinstance(record, dict):
+            raise ContentError(f"{label}: each app must be a mapping, got {record!r}")
+        title = _require_str(record, "title", label)
+        app_type = _require_str(record, "type", label)
+        if app_type not in APP_TYPES:
+            raise ContentError(f"{label}: app '{title}' type '{app_type}' must be one of {sorted(APP_TYPES)}")
+        url = _require_http_url(record, "url", label)
+        if url in seen_urls:
+            raise ContentError(f"{label}: duplicate app URL '{url}'")
+        seen_urls.add(url)
+        description = _optional_str(record, "description", label)
+        apps.append(App(title=title, type=app_type, url=url, description=description))
+    return apps
+
+
+def group_apps(apps: Sequence[App]) -> list[AppCategory]:
+    """Group apps into the display order used on the Apps page."""
+    return [
+        AppCategory(title=label, object_list=matching_apps)
+        for app_type, label in APP_TYPE_LABELS.items()
+        if (matching_apps := [app for app in apps if app.type == app_type])
+    ]
+
+
+def load_clip_updates(clip_type: str, catalog: Sequence[App | CodeProject | Doc]) -> list[Clip]:
+    """Return dated work records not already represented in a catalog."""
+    catalog_titles = {item.title.casefold() for item in catalog}
+    catalog_urls = {item.url for item in catalog}
+    catalog_urls.update(item.repository_url for item in catalog if isinstance(item, Doc) and item.repository_url)
+    return [
+        clip
+        for clip in load_clips()
+        if clip.type == clip_type
+        and (clip.catalog_title or clip.title).casefold() not in catalog_titles
+        and clip.url not in catalog_urls
+    ]
+
+
+def load_code(path: Path | None = None) -> list[CodeProject]:
+    """Load and validate the open-source code catalog."""
+    if path is None:
+        path = CONTENT_PATH / "code.yaml"
+    label = str(path)
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(raw, dict):
+        raise ContentError(f"{label}: top-level structure must be a mapping")
+    items = raw.get("code", [])
+    if not isinstance(items, list):
+        raise ContentError(f"{label}: 'code' must be a list")
+    seen_titles: set[str] = set()
+    seen_urls: set[str] = set()
+    projects: list[CodeProject] = []
+    for record in items:
+        if not isinstance(record, dict):
+            raise ContentError(f"{label}: each code project must be a mapping, got {record!r}")
+        title = _require_str(record, "title", label)
+        title_key = title.casefold()
+        if title_key in seen_titles:
+            raise ContentError(f"{label}: duplicate code project title '{title}'")
+        seen_titles.add(title_key)
+        project_type = _require_str(record, "type", label)
+        if project_type not in CODE_TYPES:
+            raise ContentError(
+                f"{label}: code project '{title}' type '{project_type}' must be one of {sorted(CODE_TYPES)}"
+            )
+        url = _require_http_url(record, "url", label)
+        if url in seen_urls:
+            raise ContentError(f"{label}: duplicate code project URL '{url}'")
+        seen_urls.add(url)
+        description = _optional_str(record, "description", label)
+        projects.append(CodeProject(title=title, type=project_type, url=url, description=description))
+    projects.sort(key=lambda project: project.title.casefold())
+    return projects
+
+
+def group_code(projects: Sequence[CodeProject]) -> list[CodeCategory]:
+    """Group code projects using the sections from the GitHub README."""
+    return [
+        CodeCategory(title=label, object_list=[project for project in projects if project.type == project_type])
+        for project_type, label in CODE_TYPE_LABELS.items()
+    ]
 
 
 def load_talks(path: Path | None = None) -> list[Talk]:

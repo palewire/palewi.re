@@ -16,6 +16,9 @@ class StaticSitemap(django_sitemaps.Sitemap):
     pages = {
         "bio": "/who-is-ben-welsh/",
         "clips": "/clips/",
+        "apps": "/apps/",
+        "code": "/code/",
+        "guides": "/guides/",
         "posts": "/posts/",
         "talks": "/talks/",
     }

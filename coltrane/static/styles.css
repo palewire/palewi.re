@@ -613,15 +613,11 @@ nav .shingle a {
 nav .shingle a:hover {
   color: var(--color-link);
 }
-@media (max-width: 550px) {
-  nav .shingle {
-    float: left;
-    margin-bottom: 5px;
-    padding-left: 0;
-  }
-}
 nav .links {
   text-align: right;
+}
+nav .nav-menu {
+  display: none;
 }
 nav .links ul {
   float: right;
@@ -641,8 +637,127 @@ nav .links li a:hover {
   text-decoration: underline;
 }
 @media (max-width: 550px) {
-  nav .links li {
-    font-size: 0.825em;
+  nav > .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: visible;
+  }
+  nav .row .fivecol,
+  nav .row .sevencol {
+    float: none;
+    width: auto;
+  }
+  nav .shingle {
+    float: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  nav .links {
+    min-width: 0;
+    position: relative;
+  }
+  nav .desktop-nav {
+    display: none;
+  }
+  nav .nav-menu {
+    display: block;
+  }
+  nav .nav-menu-toggle {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  nav .nav-menu-toggle:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 3px;
+  }
+  nav .hamburger {
+    display: flex;
+    width: 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  nav .hamburger span {
+    height: 2px;
+    background: var(--color-link);
+  }
+  nav .nav-drawer {
+    inset: 0 0 0 auto;
+    box-sizing: border-box;
+    width: min(14rem, 80vw);
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 1em 1.25em;
+    border: 0;
+    border-left: 1px solid var(--color-rule-subtle);
+    background: #fff;
+    text-align: left;
+  }
+  nav .nav-drawer::backdrop {
+    background: color-mix(in srgb, var(--color-link) 18%, transparent);
+  }
+  nav .nav-drawer-header {
+    display: flex;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.5em;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--border-rule);
+    color: var(--color-text);
+    font-size: 1.15em;
+    font-weight: bold;
+  }
+  nav .nav-menu-close {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  nav .nav-menu-close span::before,
+  nav .nav-menu-close span::after {
+    position: absolute;
+    top: 15px;
+    right: 6px;
+    width: 20px;
+    height: 2px;
+    background: var(--color-link);
+    content: "";
+  }
+  nav .nav-menu-close span::before {
+    transform: rotate(45deg);
+  }
+  nav .nav-menu-close span::after {
+    transform: rotate(-45deg);
+  }
+  nav .nav-menu-close:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+  }
+  nav .nav-drawer ul {
+    float: none;
+  }
+  nav .nav-drawer li {
+    float: none;
+    margin: 0;
+    border-bottom: var(--border-section);
+    font-size: 1em;
+  }
+  nav .nav-drawer li a {
+    display: block;
+    padding: 0.65em 0;
+    color: var(--color-link);
   }
 }
 

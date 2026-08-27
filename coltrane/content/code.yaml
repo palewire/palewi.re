@@ -1,0 +1,1057 @@
+code:
+- title: '10 PRINT CHR$(205.5+RND(1)); : GOTO 10 RUN'
+  url: https://observablehq.com/@palewire/10-print-chr-205-5-rnd-1-goto-10-run
+  description: A popular one-line script for the Commodore 64
+  type: javascript
+- title: 2018-year-in-review
+  url: https://observablehq.com/@palewire/2018-year-in-review-the-los-angeles-times-master-branch
+  description: A streamgraph of the Los Angeles Times' master branch
+  type: javascript
+- title: 557th-weather-wing-emblems
+  url: https://github.com/palewire/557th-weather-wing-emblems
+  description: The official logos of the U.S. Air Force's 557th Weather Wing units, obtained via a Freedom
+    of Information Act request
+  type: data
+- title: air-quality-index
+  url: https://github.com/datadesk/air-quality-index
+  description: Download air quality index data from AirNow
+  type: python
+- title: altair
+  url: https://github.com/vega/altair
+  description: Declarative statistical visualization library for Python
+  type: python
+- title: altair-column-sort-example
+  url: https://github.com/datadesk/altair-column-sort-example
+  description: An example of how to sort the columns in a bar chart created by the Altair data visualization
+    library
+  type: python
+- title: altair-election-maps-example
+  url: https://github.com/datadesk/altair-election-maps-example
+  description: An experiment in creating precinct-level election results maps using Python's Altair library
+  type: python
+- title: altair-interactive-scatterplot-example
+  url: https://github.com/datadesk/altair-interactive-scatterplot-example
+  description: An example of how to add a tooltip to a scatterplot in Python's Altair charting library
+  type: python
+- title: altair-latimes
+  url: https://github.com/datadesk/altair-latimes
+  description: A Los Angeles Times theme for Python's Altair statistical visualization library
+  type: inactive
+- title: amateur-satellite-database
+  url: https://github.com/palewire/amateur-satellite-database
+  description: The amateur satellites in space. A machine-readable mirror of JE9PEL's website and the
+    SatNOGS database.
+  type: data
+- title: amsat-status-page-survey
+  url: https://github.com/palewire/amsat-status-page-survey
+  description: Analysis of the AMSAT Satellite Status Page user survey
+  type: data
+- title: analyzing-color
+  url: https://observablehq.com/collection/@palewire/color
+  description: Experiments in manipulating color data
+  type: javascript
+- title: appengine-template
+  url: https://github.com/datadesk/latimes-appengine-template
+  description: Bootstrap a Google App Engine project with Django and other goodies
+  type: inactive
+- title: archiveis
+  url: https://github.com/palewire/archiveis
+  description: A simple Python wrapper for the archive.is capturing service
+  type: python
+- title: atcf-data-parser
+  url: https://github.com/palewire/atcf-data-parser
+  description: Parser for the a-deck data posted online by the Automated Tropical Cyclone Forecasting
+    System
+  type: python
+- title: baseball-notebooks
+  url: https://github.com/palewire/baseball-notebooks
+  description: Python notebooks exploring Major League Baseball data
+  type: data
+- title: baseball-visualizations
+  url: https://observablehq.com/collection/@palewire/baseball
+  description: Abstracting America's pastime
+  type: javascript
+- title: biglocalnews/local-election-results-etl
+  url: https://github.com/biglocalnews/local-election-results-etl
+  description: ''
+  type: data
+- title: bln-python-client
+  url: https://github.com/biglocalnews/bln-python-client
+  description: Python client for the biglocalnews.org API
+  type: python
+- title: calculate
+  url: https://github.com/datadesk/latimes-calculate
+  description: Some simple math we use to do journalism
+  type: inactive
+- title: calfire-wildfires
+  url: https://github.com/datadesk/calfire-wildfires
+  description: Download wildfires data from CalFire
+  type: python
+- title: california-business-entities
+  url: https://github.com/datadesk/california-business-entities
+  description: Corporations and limited-liability companies registered with the California Secretary of
+    State
+  type: data
+- title: california-coronavirus-data
+  url: https://github.com/datadesk/california-coronavirus-data
+  description: The Los Angeles Times' open-source archive of California coronavirus data
+  type: data
+- title: california-coronavirus-scrapers
+  url: https://github.com/datadesk/california-coronavirus-scrapers
+  description: The open-source web scrapers that feed the Los Angeles Times California coronavirus tracker
+  type: data
+- title: california-crop-production-wages-analysis
+  url: https://github.com/datadesk/california-crop-production-wages-analysis
+  description: Crop worker pay in California
+  type: data
+- title: california-electricity-capacity-analysis
+  url: https://github.com/datadesk/california-electricity-capacity-analysis
+  description: California's costly power glut
+  type: data
+- title: california-fire-zone-analysis
+  url: https://github.com/datadesk/california-fire-zone-analysis
+  description: California buildings within fire hazard zones
+  type: data
+- title: california-fire-zones
+  url: https://observablehq.com/collection/@palewire/california-fire-zones
+  description: Maps developed as part of a Los Angeles times geospatial analysis of fire risk zones
+  type: javascript
+- title: california-h2a-visas-analysis
+  url: https://github.com/datadesk/california-h2a-visas-analysis
+  description: Temporary visas granted to foreign agricultural workers
+  type: data
+- title: california-house-members
+  url: https://github.com/datadesk/california-house-members
+  description: A simple machine-readable list of the 53 men and women California sends to Congress
+  type: data
+- title: california-in-mercator
+  url: https://observablehq.com/@palewire/california-in-mercator
+  description: A base map of the state
+  type: javascript
+- title: california-k12-notebooks
+  url: https://github.com/datadesk/california-k12-notebooks
+  description: Scripts to download and process California K12 schools data
+  type: inactive
+- title: california-kindergarten-vaccination-analysis
+  url: https://github.com/datadesk/california-kindergarten-vaccination-analysis
+  description: ''
+  type: data
+- title: california-poppy-generator
+  url: https://observablehq.com/@palewire/california-poppy-generator?collection=@palewire/downloaders
+  description: A randomized generator of California poppies
+  type: javascript
+- title: california-topojson-atlas
+  url: https://github.com/datadesk/california-topojson-atlas
+  description: Simple maps of California's 58 counties
+  type: data
+- title: cedar-rapids-buildings-unsafe-after-derecho-2020
+  url: https://github.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020
+  description: Buildings marked as unsafe to occupy by the Cedar Rapids city government following the
+    2020 derecho storms
+  type: data
+- title: census-data-aggregator
+  url: https://github.com/datadesk/census-data-aggregator
+  description: Combine U.S. census data responsibly
+  type: python
+- title: census-data-downloader
+  url: https://github.com/datadesk/census-data-downloader
+  description: Download U.S. census data and reformat it for humans
+  type: python
+- title: census-error-analyzer
+  url: https://github.com/datadesk/census-error-analyzer
+  description: Analyze the margin of error in U.S. census data
+  type: python
+- title: census-hard-to-map-analysis
+  url: https://github.com/datadesk/census-hard-to-map-analysis
+  description: A census undercount could cost California billions — and L.A. is famously hard to track
+  type: data
+- title: census-map-consolidator
+  url: https://github.com/datadesk/census-map-consolidator
+  description: Combine Census blocks into new shapes
+  type: python
+- title: census-map-downloader
+  url: https://github.com/datadesk/census-map-downloader
+  description: Easily download U.S. census maps
+  type: python
+- title: censusbatchgeocoder
+  url: https://github.com/palewire/censusbatchgeocoder
+  description: A simple Python wrapper for U.S. Census Geocoding Services API batch service
+  type: python
+- title: cfb-gap-analysis
+  url: https://github.com/palewire/cfb-gap-analysis
+  description: College football's most imbalanced teams
+  type: data
+- title: checkbook-la-watchdog
+  url: https://github.com/datadesk/checkbook-la-watchdog
+  description: ''
+  type: data
+- title: chicago-regions-map
+  url: https://github.com/palewire/chicago-regions-map
+  description: Creates a regional map of Chicago based on the city's official designations
+  type: data
+- title: chicago-trees-analysis
+  url: https://github.com/palewire/chicago-trees-analysis
+  description: How many trees has Chicago planted? And where?
+  type: data
+- title: chirp-ham-radio-channels
+  url: https://github.com/palewire/chirp-ham-radio-channels
+  description: Channels formatted for the CHIRP amateur radio programming system
+  type: inactive
+- title: climate-data-example
+  url: https://github.com/palewire/climate-data-example/tree/main
+  description: An example of how to use the European weather agency's gridded climate data
+  type: python
+- title: construction-jobs-analysis
+  url: https://github.com/datadesk/construction-jobs-analysis
+  description: Demographics and pay of construction workers
+  type: data
+- title: copyboy
+  url: https://github.com/datadesk/copyboy
+  description: ''
+  type: python
+- title: covid-19-prototypes
+  url: https://observablehq.com/collection/@palewire/covid-19
+  description: Experiments developed as part of the Los Angeles Times’ coronavirus tracking effort
+  type: javascript
+- title: cpi
+  url: https://github.com/palewire/cpi
+  description: Quickly adjust U.S. dollars for inflation using the Consumer Price Index (CPI)
+  type: python
+- title: cubs-opening-day-analysis
+  url: https://github.com/palewire/cubs-opening-day-analysis
+  description: Analysis of the Opening Day starters for the Chicago Cubs baseball team
+  type: data
+- title: cuny-jour-static-site-template
+  url: https://github.com/palewire/cuny-jour-static-site-template
+  description: 'A simple SvelteKit starter template for "JOUR 73361: Coding the News," a course taught
+    at the City University of New York''s Craig Newmark Graduate School of Journalism'
+  type: javascript
+- title: Data loader to generate PNG from canvas
+  url: https://observablehq.observablehq.cloud/framework-example-loader-canvas-to-png/
+  description: Generate a PNG image from an HTML canvas with an Observable Framework data loader
+  type: javascript
+- title: datawrapper
+  url: https://github.com/chekos/Datawrapper/
+  description: A light-weight wrapper for the Datawrapper API
+  type: python
+- title: datawrapper-json-bookmarklet
+  url: https://github.com/palewire/datawrapper-json-bookmarklet/
+  description: Quickly access the JSON configuration of your Datawrapper chart
+  type: other
+- title: datawrapper-mcp
+  url: https://github.com/palewire/datawrapper-mcp
+  description: A Model Context Protocol server for creating Datawrapper charts with AI assistants
+  type: javascript
+- title: deadspin-scraper
+  url: https://github.com/datadesk/deadspin-scraper
+  description: Scrape posts from Deadspin
+  type: data
+- title: delaunay-headline-hero
+  url: https://observablehq.com/@palewire/delaunay-headline-hero
+  description: This modification of Mike Bostock's Delaunay Dual diagram was drafted for consideration
+    as lead art on a gallery of data analysis pieces
+  type: javascript
+- title: deleon-district-election-results-analysis
+  url: https://github.com/datadesk/deleon-district-election-results-analysis
+  description: How former state Sen. Kevin de León fared in his own district
+  type: data
+- title: django-a-matter
+  url: https://github.com/palewire/django-a-matter
+  description: An app for authoring background biographical matter on newsworthy people
+  type: inactive
+- title: django-anss-archive
+  url: https://github.com/palewire/django-anss-archive
+  description: Archive real-time earthquake notifications from the USGS's Advanced National Seismic System
+  type: python
+- title: django-autoarchive
+  url: https://github.com/palewire/django-autoarchive
+  description: Django helpers for automatically archiving URLs
+  type: inactive
+- title: django-bakery
+  url: https://github.com/palewire/django-bakery
+  description: A set of helpers for baking your Django site out as flat files
+  type: python
+- title: django-bigbuild
+  url: https://github.com/datadesk/django-bigbuild
+  description: ''
+  type: python
+- title: django-calaccess-campaign-browser
+  url: https://github.com/palewire/django-calaccess-campaign-browser
+  description: A Django app to refine, review and republish campaign finance data drawn from the California
+    Secretary of State’s CAL-ACCESS database
+  type: inactive
+- title: django-calaccess-cookbook
+  url: https://github.com/palewire/django-calaccess-cookbook
+  description: A Chef cookbook and Fabfile for deploying the California Civic Data Coalition's applications
+    for analyzing the California Secretary of State’s CAL-ACCESS database on Amazon Web Services
+  type: inactive
+- title: django-calaccess-docker
+  url: https://github.com/palewire/django-calaccess-docker
+  description: A standalone Docker stack serving the California Civic Data Coalition's applications for
+    analyzing the California Secretary of State’s CAL-ACCESS database
+  type: inactive
+- title: django-calaccess-downloads-website
+  url: https://github.com/palewire/django-calaccess-downloads-website
+  description: An open-source archive of campaign finance and lobbying disclosure data from the California
+    Secretary of State’s CAL-ACCESS database
+  type: python
+- title: django-calaccess-lobbying-browser
+  url: https://github.com/palewire/django-calaccess-lobbying-browser
+  description: A simple Django app browse California lobbying activity data from CAL-ACCESS
+  type: inactive
+- title: django-calaccess-processed-data
+  url: https://github.com/palewire/django-calaccess-processed-data
+  description: A Django app to transform and refine campaign-finance data from the California Secretary
+    of State’s CAL-ACCESS database
+  type: python
+- title: django-calaccess-project-template
+  url: https://github.com/palewire/django-calaccess-project-template
+  description: A custom template for initializing a new Django project with the California Civic Data
+    Coalition's applications for analyzing the California Secretary of State’s CAL-ACCESS database
+  type: inactive
+- title: django-calaccess-raw-data
+  url: https://github.com/palewire/django-calaccess-raw-data
+  description: A Django app to download, extract and load campaign finance and lobbying activity data
+    from the California Secretary of State's CAL-ACCESS database
+  type: python
+- title: django-calaccess-scraped-data
+  url: https://github.com/palewire/django-calaccess-scraped-data
+  description: A Django app to scrape campaign-finance data from the California Secretary of State’s CAL-ACCESS
+    website
+  type: python
+- title: django-calaccess-technical-documentation
+  url: https://github.com/palewire/django-calaccess-technical-documentation
+  description: Technical documentation for our pipeline of Django apps that download, extract, load and
+    process the CAL-ACCESS database
+  type: python
+- title: django-correx
+  url: https://github.com/palewire/django-correx
+  description: A set of models and template tags for pulling in lists of content changes across applications
+  type: inactive
+- title: django-greeking
+  url: https://github.com/palewire/django-greeking
+  description: Django template tools for printing filler, a technique from the days of hot type known
+    as greeking
+  type: python
+- title: django-heroku-template
+  url: https://github.com/palewire/django-heroku-template
+  description: A template for Django projects hosted by Heroku
+  type: python
+- title: django-internetarchive-storage
+  url: https://github.com/palewire/django-internetarchive-storage
+  description: A custom Django storage system for Internet Archive collections
+  type: python
+- title: django-memento-framework
+  url: https://github.com/palewire/django-memento-framework
+  description: A set for helpers for Django web sites to enable the Memento framework for time-based access
+  type: inactive
+- title: django-orchestral-motion-db
+  url: https://github.com/orchestral-motion/django-orchestral-motion-db
+  description: A Django channels app for receiving live motion data from an accelerometer
+  type: inactive
+- title: django-postgres-copy
+  url: https://github.com/palewire/django-postgres-copy
+  description: Quickly import and export delimited data with Django support for PostgreSQL's COPY command
+  type: python
+- title: django-project-template
+  url: https://github.com/palewire/django-project-template
+  description: A custom template for initializing a new Django project the Data Desk way
+  type: inactive
+- title: django-rapture
+  url: https://github.com/palewire/django-rapture
+  description: An archive of the Rapture Index at raptureready.com
+  type: inactive
+- title: django-softhyphen
+  url: https://github.com/datadesk/django-softhyphen
+  description: ''
+  type: python
+- title: django-swineflu
+  url: https://github.com/palewire/django-swineflu
+  description: A quick and dirty data dump of the H1N1 flu vaccine locations that LA County public health
+    currently buries in a PDF
+  type: inactive
+- title: django-urlarchivefield
+  url: https://github.com/palewire/django-urlarchivefield
+  description: A custom Django model field that automatically archives a URL
+  type: inactive
+- title: django-yamlfield
+  url: https://github.com/palewire/django-yamlfield
+  description: A Django database field for storing YAML data
+  type: python
+- title: dorling-cartogram-example
+  url: https://github.com/palewire/dorling-cartogram-example
+  description: How to calculate a dorling cartogram with Python
+  type: python
+- title: dotfiles
+  url: https://github.com/palewire/dotfiles
+  description: My configuration files
+  type: other
+- title: drudge-domain-analysis
+  url: https://github.com/palewire/drudge-domain-analysis
+  description: A simple example of using storytracker and the PastPages API to conduct a link analysis
+  type: data
+- title: earthquake-intensity-map
+  url: https://observablehq.com/@palewire/earthquake-intensity-map?collection=@palewire/maps
+  description: A "shakemap" of the 7.1 magnitude earthquake that struck Searles Valley, Calif., on July
+    5, 2019
+  type: javascript
+- title: earthquake-risk-3d-model
+  url: https://github.com/palewire/earthquake-risk-3d-model
+  description: A ready-to-print, three-dimensional model of U.S. seismic risk built from USGS data
+  type: inactive
+- title: ebook-exports
+  url: https://github.com/palewire/ebook-exports
+  description: Export the e.e. cummings free poetry archive to a variety of ebook formats
+  type: other
+- title: election-2013
+  url: https://github.com/palermo-hollywood/election-2013
+  description: Resultados de las Oct. 2013 Buenos Aires elecciones
+  type: javascript
+- title: election-results-by-education-treemap
+  url: https://observablehq.com/@palewire/iowas-2016-presidential-election-results-by-education-tre
+  description: A treemap of Iowa's 2016 presidential election results by education
+  type: javascript
+- title: election-results-challenge
+  url: https://observablehq.com/@palewire/election-results-challenge-precincts-reporting
+  description: Got a better idea? Here's you chance to prove it
+  type: javascript
+- title: elgar-ringtones
+  url: https://github.com/palewire/elgar-ringtones
+  description: Ringtone and notification clips cut from Elgar's Cello Concerto
+  type: other
+- title: faa-drone-license-analysis
+  url: https://github.com/palewire/faa-drone-license-analysis
+  description: Who can fly commercially?
+  type: data
+- title: fed-dot-plot-scraper
+  url: https://github.com/palewire/fed-dot-plot-scraper
+  description: Extracting the "dot plot" economic projections posted online by the Federal Open Market
+    Committee
+  type: data
+- title: ferc-enforcement-analysis
+  url: https://github.com/datadesk/ferc-enforcement-analysis
+  description: Civil penalties issued by FERC
+  type: data
+- title: first-observable-notebook
+  url: https://observablehq.com/collection/@palewire/first-observable-notebook-2020
+  description: A course taught at the 2020 conference of the National Institute for Computer Assisted
+    Reporting
+  type: javascript
+- title: first-python-notebook-binder
+  url: https://github.com/palewire/first-python-notebook-binder
+  description: A template for deploying "First Python Notebook" with Binder
+  type: inactive
+- title: fullpage-app-template
+  url: https://github.com/palewire/fullpage-app-template
+  description: A template for building and deploying fullpage custom news apps for THE CITY
+  type: javascript
+- title: geodataframe-to-pmtiles
+  url: https://github.com/palewire/geodataframe-to-pmtiles
+  description: Write PMTiles archives from GeoPandas GeoDataFrames with a Python API
+  type: python
+- title: geomac-wildfires
+  url: https://github.com/datadesk/geomac-wildfires
+  description: ''
+  type: data
+- title: geopandas-intersection-area-example
+  url: https://github.com/datadesk/geopandas-intersection-area-example
+  description: How to use geopandas' overlay method to find the area of intersections between two datasets
+  type: python
+- title: geopandas-spatial-join-example
+  url: https://github.com/datadesk/geopandas-spatial-join-example
+  description: An example of how to join point to polygon data with geopandas and Python
+  type: python
+- title: git-scraper-example
+  url: https://github.com/palewire/git-scraper-example
+  description: A example of a git scraper that download, lints, commits and archives a data set
+  type: python
+- title: helicopter-accident-analysis
+  url: https://github.com/datadesk/helicopter-accident-analysis
+  description: A Los Angeles Times analysis of helicopter accident rates
+  type: data
+- title: hexbin-headline-hero
+  url: https://observablehq.com/@palewire/hexbin-headline-hero
+  description: The first draft of the diagram that serves as the lead art on a gallery of data analysis
+    pieces
+  type: javascript
+- title: hollister-ranch-analysis
+  url: https://github.com/datadesk/hollister-ranch-analysis
+  description: Agricultural property tax breaks in Hollister Ranch
+  type: data
+- title: houston-flood-zone-analysis
+  url: https://github.com/datadesk/houston-flood-zone-analysis
+  description: Geospatial analysis of Houston homes after Hurricane Harvey
+  type: data
+- title: how-iowa-voted
+  url: https://github.com/palewire/how-iowa-voted
+  description: Mapping election results from the state of Iowa
+  type: javascript
+- title: hsr-document-analysis
+  url: https://github.com/datadesk/hsr-document-analysis
+  description: How California’s faltering high-speed rail project was ‘captured’ by costly consultants
+  type: data
+- title: inciweb-wildfires
+  url: https://github.com/datadesk/inciweb-wildfires
+  description: Download wildfire data from inciweb
+  type: python
+- title: inglewood-inventory
+  url: https://observablehq.com/@palewire/the-inglewood-lunch-inventory?collection=@palewire/maps
+  description: Lunches in the "City of Champions" with the Los Angeles Times Data Desk
+  type: javascript
+- title: install-python-pipenv-pipfile
+  url: https://github.com/palewire/install-python-pipenv-pipfile
+  description: Easily install Python, pipenv and Pipfile packages in your GitHub Action
+  type: python
+- title: internet-archive-upload
+  url: https://github.com/marketplace/actions/upload-files-to-an-archive-org-item
+  description: Upload files to an archive.org item
+  type: other
+- title: iowa-dorling
+  url: https://observablehq.com/@palewire/dorling-cartogram-of-iowa-county-populations?collection=@palewire/maps
+  description: An example of a Dorling cartogram mapping the population of Iowa's 99 counties
+  type: javascript
+- title: Ipsos credibility interval calculator
+  url: https://observablehq.com/@palewire/credibility-interval-calculator
+  description: Calculate a Bayesian credibility interval for an online poll
+  type: javascript
+- title: ipsos-credibility-interval
+  url: https://github.com/palewire/ipsos-credibility-interval
+  description: Calculate Bayesian credibility intervals for online polling using the Ipsos method
+  type: python
+- title: ire-archive-backend
+  url: https://github.com/ireapps/ire-archive-backend
+  description: ''
+  type: python
+- title: ire-archive-frontend
+  url: https://github.com/ireapps/ire-archive-frontend
+  description: ''
+  type: javascript
+- title: ire-archive-slide-deck
+  url: https://github.com/palewire/ire-archive-slide-deck
+  description: A presentation marking the release of archive.ire.org at the NICAR 26 conference in Indianapolis
+  type: other
+- title: ire2010
+  url: https://github.com/palewire/ire2010
+  description: Class materials for the Django bootcamp at the IRE 2010 conference in Las Vegas
+  type: inactive
+- title: is-5
+  url: https://github.com/palewire/is-5
+  description: Page scans of E.E. Cummings’ 1926 book of verse
+  type: other
+- title: isobands
+  url: https://github.com/palewire/isobands
+  description: An easy way to make filled contour maps with Python
+  type: python
+- title: judge-home-run-analysis
+  url: https://github.com/palewire/judge-home-run-analysis
+  description: How the Yankee slugger's 2022 pace compares to the past
+  type: data
+- title: jupyter-notebook-execution-examples
+  url: https://github.com/palewire/jupyter-notebook-execution-examples
+  description: Examples of how to remotely execute Jupyter Notebooks from other contexts
+  type: python
+- title: la-county-2016-primary-precinct-maps
+  url: https://github.com/datadesk/la-county-2016-primary-precinct-maps
+  description: Maps of the consolidated precincts used in Los Angeles County's 2016 primary election
+  type: data
+- title: la-county-election-precincts-2018
+  url: https://github.com/datadesk/la-county-election-precincts-2018
+  description: Final election precincts used by the Los Angeles County Registrar-Recorder/County Clerk
+    in the 2018 elections
+  type: data
+- title: la-county-election-precincts-2020
+  url: https://github.com/datadesk/la-county-election-precincts-2020
+  description: Final election precincts used by the Los Angeles County Registrar-Recorder/County Clerk
+    in the 2020 general elections
+  type: data
+- title: la-county-trail-maps
+  url: https://github.com/datadesk/la-county-trail-maps
+  description: Geospatial data of trails managed or planned by the Los Angeles County Department of Parks
+    and Recreation
+  type: data
+- title: la-magnets-2016-test-scores
+  url: https://github.com/datadesk/la-magnets-2016-test-scores
+  description: A database of test scores for roughly 200 L.A. Unified magnet schools obtained by the Los
+    Angeles Times
+  type: data
+- title: la-metro-maps
+  url: https://github.com/datadesk/lametro-maps
+  description: Geospatial data from L.A. Metro's public transportation system
+  type: data
+- title: la-settlements-analysis
+  url: https://github.com/datadesk/la-settlements-analysis
+  description: Legal  payouts by L.A. city
+  type: data
+- title: la-vacant-building-complaints-analysis
+  url: https://github.com/datadesk/la-vacant-building-complaints-analysis
+  description: Vacant building complaints filed with L.A. city
+  type: data
+- title: la-weedmaps-analysis
+  url: https://github.com/datadesk/la-weedmaps-analysis
+  description: Black market cannabis shops thrive in L.A. even as city cracks down
+  type: data
+- title: lametro-api
+  url: https://github.com/datadesk/python-lametro-api
+  description: A simple Python wrapper for the L.A. Metro’s API for bus stops, routes and vehicles
+  type: inactive
+- title: lat-soundsystem
+  url: https://github.com/datadesk/lat-soundsystem
+  description: ''
+  type: javascript
+- title: lausd-school-campus-polygons
+  url: https://github.com/datadesk/lausd-school-campus-polygons
+  description: The areas of school campuses at the Los Angeles Unified School District
+  type: data
+- title: literary-notebooks
+  url: https://github.com/palewire/literary-notebooks
+  description: Python notebooks exploring Project Gutenberg texts
+  type: data
+- title: load-d3-data-incrementally-using-sorted-value
+  url: https://observablehq.com/@palewire/load-d3-data-incrementally-using-a-sorted-value
+  description: Gradually loads all the cities of California from north to south, and then removes them
+    from south to north.
+  type: javascript
+- title: los-angeles-county-tsunami-hazard-areas
+  url: https://github.com/datadesk/los-angeles-county-tsunami-hazard-areas
+  description: California Geological Survey maps of flooding tsunamis could produce in Los Angeles County
+  type: data
+- title: los-angeles-police-killings-data
+  url: https://github.com/datadesk/los-angeles-police-killings-data
+  description: ''
+  type: data
+- title: mappingla
+  url: https://github.com/datadesk/latimes-mappingla-api
+  description: A Python wrapper for accessing the Mapping L.A. Boundaries API
+  type: inactive
+- title: Min-Max Rescaling Calculator
+  url: https://observablehq.com/@palewire/min-max-rescaling-calculator
+  description: Rescale a value from one numeric range to another
+  type: javascript
+- title: mlbcolors
+  url: https://github.com/palewire/mlbcolors
+  description: Easy access to the official colors of every team in Major League Baseball
+  type: python
+- title: nasa-wildfires
+  url: https://github.com/datadesk/nasa-wildfires
+  description: Download wildfire data from NASA satellites
+  type: python
+- title: native-american-census-analysis
+  url: https://github.com/datadesk/native-american-census-analysis
+  description: The 2020 census is coming. Will Native Americans be counted?
+  type: data
+- title: nicar2010
+  url: https://github.com/palewire/nicar2010
+  description: Materials from the Django bootcamp at NICAR 2010
+  type: inactive
+- title: nicar2011
+  url: https://github.com/palewire/nicar2011
+  description: An example Django app for a class at the NICAR 2011 conference
+  type: inactive
+- title: nifc-wildfires
+  url: https://github.com/datadesk/nifc-wildfires
+  description: Download wildfires data from NIFC
+  type: python
+- title: nl-west-2022-race-analysis
+  url: https://github.com/palewire/nl-west-2022-race-analysis
+  description: The Dodgers and Padres were tied for first on June 22. Here's what happened next.
+  type: data
+- title: noaa-hurricane-gis-scraper
+  url: https://github.com/palewire/noaa-hurricane-gis-scraper
+  description: Automated downloads of geographic information system data posted by the National Oceanic
+    and Atmospheric Administration's National Hurricane Center and Central Pacific Hurricane Center
+  type: data
+- title: noaa-hurricane-hunters-logo
+  url: https://github.com/palewire/noaa-hurricane-hunters-logo
+  description: An official logo of NOAA's Hurricane Hunters released via FOIA
+  type: data
+- title: noaa-wildfires
+  url: https://github.com/datadesk/noaa-wildfires
+  description: Download wildfires data from NOAA satellites
+  type: python
+- title: nrol-39-logo
+  url: https://github.com/palewire/nrol-39-logo
+  description: A vector PDF of the official mission logo of NROL-39 released via FOIA
+  type: data
+- title: nrol-logos
+  url: https://github.com/palewire/nrol-logos
+  description: Official logos for National Reconnaissance Office satellite launches released via the Freedom
+    of Information Act
+  type: data
+- title: numbers-in-the-newsroom
+  url: https://observablehq.com/collection/@palewire/numbers-in-the-newsroom
+  description: 'Calculators for common newsroom needs, including those featured in Sarah Cohen’s book
+    “Numbers in the Newsroom: Using Math and Statistics in News”'
+  type: javascript
+- title: nws-aurora
+  url: https://github.com/palewire/nws-aurora
+  description: Download forecast data for Aurora Borealis and Aurora Australis from the National Weather
+    Service
+  type: python
+- title: nws-wwa
+  url: https://github.com/datadesk/nws-wwa
+  description: Download watch, warning and advisory data from the National Weather Service
+  type: python
+- title: nyc-hpd-bronx-lead-paint-violations
+  url: https://github.com/palewire/nyc-hpd-bronx-lead-paint-violations
+  description: Download and process housing code lead paint violations in the Bronx from NYC Open Data
+  type: other
+- title: nyc-parks-logo
+  url: https://github.com/palewire/nyc-parks-logo
+  description: The official logos of NYC Parks released via FOIL
+  type: data
+- title: nyrb-covers-analysis
+  url: https://github.com/datadesk/nyrb-covers-analysis
+  description: ''
+  type: data
+- title: observable-framework-cpi-example
+  url: https://github.com/palewire/observable-framework-cpi-example/tree/main
+  description: A demonstration of how to deploy an Observable Framework dashboard via GitHub Pages
+  type: javascript
+- title: observable-helpers
+  url: https://observablehq.com/collection/@palewire/downloaders
+  description: Utilities to help do things
+  type: javascript
+- title: open-source-news-analysis
+  url: https://github.com/palewire/open-source-news-analysis
+  description: How active are news nerds on GitHub?
+  type: data
+- title: osm-quiet-la
+  url: https://github.com/datadesk/osm-la-streets
+  description: A street-centric base layer for overlaying point data about Southern California
+  type: inactive
+- title: osm-silent-la
+  url: https://github.com/datadesk/osm-silent-la
+  description: A template for a black base layer about Southern California
+  type: inactive
+- title: pandas-combine-workbooks-example
+  url: https://github.com/palewire/pandas-combine-workbooks-example
+  description: How to use Python's pandas library to combine tabs from multiple Microsoft Excel workbooks
+    into a single CSV
+  type: python
+- title: pandas-squarify-example
+  url: https://github.com/datadesk/pandas-squarify-example
+  description: How to use the squarify extension to matplotlib to visualize a pandas DataFrame as a treemap
+  type: python
+- title: pastpages2gif
+  url: https://github.com/palewire/pastpages2gif
+  description: Create an animated GIF from the PastPages news homepage archive
+  type: inactive
+- title: pluggablemaps
+  url: https://github.com/datadesk/latimes-pluggablemaps-usstates
+  description: A pluggable GeoDjango app with the boundaries of all states in the United States of America.
+    Geography, loosely coupled
+  type: inactive
+- title: pluggablemaps-hackshackers
+  url: https://github.com/palewire/hackshackers-dec2010
+  description: A GeoDjango app that maps unemployment, meant to demonstrate concepts from my talk
+  type: inactive
+- title: pluggablemaps-lametrorail
+  url: https://github.com/datadesk/latimes-pluggablemaps-lametrorail
+  description: A pluggable GeoDjango app mapping the Los Angeles Metro Rail system
+  type: inactive
+- title: pluggablemaps-uscounties
+  url: https://github.com/datadesk/latimes-pluggablemaps-uscounties
+  description: A pluggable GeoDjango app with the boundaries of United States counties
+  type: inactive
+- title: prefect-flow-template
+  url: https://github.com/biglocalnews/prefect-flow-template
+  description: A template repository with all the fundamentals needed to develop and deploy a Python data-processing
+    routine for Prefect pipelines.
+  type: python
+- title: promenade-west-sales-report
+  url: https://github.com/palewire/promenade-west-sales-report
+  description: An analysis of downtown Los Angeles housing prices
+  type: data
+- title: pyplacefinder
+  url: https://github.com/datadesk/pyplacefinder
+  description: A very simple wrapper for Yahoo PlaceFinder
+  type: inactive
+- title: python-calaccess-notebooks
+  url: https://github.com/palewire/python-calaccess-notebooks
+  description: Python notebooks analyzing campaign finance and lobbying activity data from California
+    Secretary of State’s CAL-ACCESS database
+  type: inactive
+- title: python-censusbatchgeocoder
+  url: https://github.com/datadesk/python-censusbatchgeocoder
+  description: ''
+  type: python
+- title: python-desknet
+  url: https://github.com/datadesk/python-desknet
+  description: ''
+  type: python
+- title: python-elections
+  url: https://github.com/datadesk/python-elections
+  description: A Python wrapper for the Associated Press' U.S. election data service
+  type: inactive
+- title: python-googlegeocoder
+  url: https://github.com/palewire/python-googlegeocoder
+  description: A simple Python wrapper for version three of Google's geocoder API
+  type: python
+- title: python-muckrock
+  url: https://github.com/palewire/python-muckrock
+  description: A simple Python wrapper for the MuckRock API
+  type: python
+- title: python-open-source-template
+  url: https://github.com/palewire/python-open-source-template
+  description: A template for open-source Python software repositories
+  type: python
+- title: qiklog
+  url: https://github.com/datadesk/latimes-qiklog
+  description: A simplified wrapper for Python's logging module
+  type: inactive
+- title: random-pigeon-gpt
+  url: https://github.com/palewire/random-pigeon-gpt
+  description: A bot that posts AI-generated images of New York City pigeons
+  type: inactive
+- title: random-tract
+  url: https://github.com/palewire/random-tract
+  description: A Python hack to respond to a Twitter challenge to "select a random geographic point in
+    the US, with the probability weighted by population."
+  type: python
+- title: refinitiv-data-python-cookbook
+  url: https://github.com/palewire/refinitiv-data-python-cookbook
+  description: Practical examples for users of the LSEG Data Library for Python
+  type: python
+- title: regional-connector-art
+  url: https://github.com/palewire/regional-connector-art
+  description: Public art created for light rail stations on the Los Angeles Metro's Regional Connector
+    line
+  type: data
+- title: reuters-jobs
+  url: https://github.com/palewire/reuters-jobs
+  description: A bot that posts the latest open jobs at Reuters
+  type: inactive
+- title: reuters-style
+  url: https://github.com/palewire/reuters-style
+  description: A Python library format dates, numbers and text to conform with the Reuters Style Guide,
+    the standards that guide the world's largest independent newsroom
+  type: python
+- title: san-francisco-campaign-contributions
+  url: https://github.com/datadesk/san-francisco-campaign-contributions
+  description: Itemized monetary campaign contributions compiled by San Francisco's Ethics Commission
+  type: data
+- title: Save My News
+  url: https://github.com/palewire/savemy.news
+  description: A personal, permanent clipping service for journalists
+  type: inactive
+- title: savepagenow
+  url: https://github.com/palewire/savepagenow
+  description: A simple Python wrapper for archive.org's "Save Page Now" capturing service
+  type: python
+- title: scrapy-calaccess-crawler
+  url: https://github.com/palewire/scrapy-calaccess-crawler
+  description: A Scrapy app to scrape campaign-finance data from the California Secretary of State’s CAL-ACCESS
+    website
+  type: inactive
+- title: sopr-activity
+  url: https://github.com/palewire/sopr-activity
+  description: A quick and dirty script for pulling down lobby disclosure docs filed with the Senate Office
+    of Public Records
+  type: inactive
+- title: sopr-contribs
+  url: https://github.com/palewire/sopr-contribs
+  description: Scripts for processing and analyzing federal lobbyist disclosure data reporting contributions
+    to political campaigns
+  type: inactive
+- title: space-force-emblems
+  url: https://github.com/palewire/space-force-emblems
+  description: The official logos of 83 US Space Force units
+  type: data
+- title: sphinx-palewire-theme
+  url: https://github.com/palewire/sphinx-palewire-theme
+  description: A Sphinx theme for sites hosted at palewi.re
+  type: python
+- title: spike-chart
+  url: https://observablehq.com/@palewire/spike-chart
+  description: This variation on a standard bar chart substitutes in a proportionally sized spike for
+    the traditional rectangle
+  type: javascript
+- title: statestyle
+  url: https://github.com/datadesk/latimes-statestyle
+  description: A Python library that standardizes the names of U.S. states
+  type: inactive
+- title: storysniffer
+  url: https://github.com/palewire/storysniffer
+  description: Inspect a URL and estimate if it links to news story
+  type: python
+- title: storytracker
+  url: https://github.com/palewire/storytracker
+  description: Tools for tracking stories on news homepages
+  type: inactive
+- title: street-racing-analysis
+  url: https://github.com/datadesk/street-racing-analysis
+  description: Street racing fatalities in L.A. County
+  type: data
+- title: swana-census-analysis
+  url: https://github.com/datadesk/swana-census-analysis
+  description: Are Arabs and Iranians white? Census says yes, but many disagree
+  type: data
+- title: the-ichiro-bet
+  url: https://observablehq.com/@palewire/the-ichiro-bet
+  description: The Ichiro Bet
+  type: javascript
+- title: the-many-voices-of-the-other-americans
+  url: https://observablehq.com/@datadesk/the-many-voices-of-the-other-americans
+  description: Visualizing the rotating narrators of Laila Lalami's novel "The Other Americans"
+  type: javascript
+- title: the-mondesi-bet
+  url: https://github.com/palewire/the-mondesi-bet
+  description: The Mondesi Bet
+  type: inactive
+- title: the-other-americans
+  url: https://github.com/palewire/the-other-americans
+  description: ''
+  type: data
+- title: tijuana-districts-map
+  url: https://github.com/datadesk/tijuana-districts-map
+  description: ''
+  type: data
+- title: tinting-a-canvas-image
+  url: https://observablehq.com/@palewire/tinting-a-canvas-image
+  description: How to overlay a color filter on top of a canvas image
+  type: javascript
+- title: trump-tweets
+  url: https://observablehq.com/collection/@palewire/trump-tweets
+  description: Techniques for working President Donald Trump's posts on twitter.com
+  type: javascript
+- title: tulips-and-chimneys
+  url: https://github.com/palewire/tulips-and-chimneys
+  description: Page scans of E.E. Cummings’ first published book of verse
+  type: other
+- title: union-station-site-map
+  url: https://github.com/palewire/union-station-site-map
+  description: The glossy map on display in the Los Angeles transit hub
+  type: data
+- title: upload-data-to-biglocalnews-org
+  url: https://github.com/biglocalnews/upload-files
+  description: Upload comma-delimited files to biglocalnews.org in your GitHub Action
+  type: data
+- title: uptime-grove
+  url: https://github.com/datadesk/uptime-grove
+  description: ''
+  type: python
+- title: us-ca-butte_county-addresses_parcels_roads-shp
+  url: https://github.com/datadesk/us-ca-butte_county-addresses_parcels_roads-shp
+  description: SHP files of addresses, parcels and roads received in a public record request from Butte
+    County, California
+  type: data
+- title: us-ca-el_dorado_county-currprcl-shp
+  url: https://github.com/datadesk/us-ca-el_dorado_county-currprcl-shp
+  description: SHP file of parcels with situs address attached provided via public records request by
+    local government in El Dorado County California
+  type: data
+- title: us-ca-lake_county-situs_parcels-shp
+  url: https://github.com/datadesk/us-ca-lake_county-situs_parcels-shp
+  description: SHP file of parcels with situs address attached provided via public records request by
+    local government in Lake County California
+  type: data
+- title: us-ca-lassen_county-situs_parcels-shp
+  url: https://github.com/datadesk/us-ca-lassen_county-situs_parcels-shp
+  description: SHP file of parcels with situs address attached provided via public records request by
+    local government in Lassen County California
+  type: data
+- title: us-ca-madera_county-situs-shp
+  url: https://github.com/datadesk/us-ca-madera_county-situs-shp
+  description: SHP file of address points provided via public records request by local government in Madera
+    County California
+  type: data
+- title: us-ca-orange_county-situs_parcels-shp
+  url: https://github.com/datadesk/us-ca-orange_county-situs_parcels-shp
+  description: A SHP file of parcel polygons downloaded from Orange County California's public website
+  type: data
+- title: us-ca-san_joaquin_county-situs_parcels-shp
+  url: https://github.com/datadesk/us-ca-san_joaquin_county-situs_parcels-shp
+  description: SHP file of parcels with situs address attached provided via public records request by
+    local government in San Joaquin County California
+  type: data
+- title: us-ca-santa_clara_county-gis-shp
+  url: https://github.com/datadesk/us-ca-santa_clara_county-gis-shp
+  description: SHP files downloaded from Santa Clara County California's password-protected GIS repository
+  type: data
+- title: us-ca-santa_cruz_county-PointAddress_SC-shp
+  url: https://github.com/datadesk/us-ca-santa_cruz_county-PointAddress_SC-shp
+  description: SHP file of address points provided via public records request by local government inSanta
+    Cruz County California
+  type: data
+- title: us-ca-shasta_county-ShastaCountySitusPoints-shp
+  url: https://github.com/datadesk/us-ca-shasta_county-ShastaCountySitusPoints-shp
+  description: SHP file of address points provided via public records request by Shasta County government
+  type: data
+- title: us-ca-sonoma-county-sc_base_adr_addresses-shp
+  url: https://github.com/datadesk/us-ca-sonoma-county-sc_base_adr_addresses-shp
+  description: SHP file of parcels with situs address attached provided via public records request by
+    local government in Sonoma County California
+  type: data
+- title: us-ca-yuba_county-AddressPoints-shp
+  url: https://github.com/datadesk/us-ca-yuba_county-AddressPoints-shp
+  description: SHP file of address points provided via public records request by local government in Yuba
+    County California
+  type: data
+- title: us-census-data
+  url: https://observablehq.com/collection/@palewire/u-s-census-data
+  description: A variety of methods for visualizing data from the United States Census Bureau
+  type: javascript
+- title: usa-style-guides
+  url: https://github.com/palewire/usa-style-guides
+  description: U.S. government style guides acquired via the Freedom of Information Act
+  type: data
+- title: usc-crime-reports-scraper
+  url: https://github.com/biglocalnews/usc-crime-reports-scraper
+  description: ''
+  type: data
+- title: usgs-anss-logo
+  url: https://github.com/palewire/usgs-anss-logo
+  description: The logo for the U.S. Geological Survey's Advanced National Seismic System
+  type: data
+- title: usgs-hawaii-volcano-drone-survey-october-2022
+  url: https://github.com/palewire/usgs-hawaii-volcano-drone-survey-october-2022
+  description: Photography and a digital elevation model from an October 2022 USGS drone mission over
+    the Kilauea volcano's Halema‘uma‘u pit crater.
+  type: data
+- title: vega-visualizations
+  url: https://observablehq.com/collection/@palewire/vega-visualizations
+  description: Examples of using the Vega data visualization toolkit
+  type: javascript
+- title: voronoi-husband-and-wife
+  url: https://observablehq.com/@palewire/husband-and-wife
+  description: A photograph of my wife and I stippled using a Voronoi diagram
+  type: javascript
+- title: warn-github-flow
+  url: https://github.com/biglocalnews/warn-github-flow
+  description: GitHub Action workflow for automating a WARN Act notice ETL pipeline
+  type: data
+- title: warn-scraper
+  url: https://github.com/biglocalnews/warn-scraper
+  description: Command-line interface for downloading WARN Act notices of qualified plant closings and
+    mass layoffs from state government websites
+  type: data
+- title: warn-transformer
+  url: https://github.com/biglocalnews/warn-transformer
+  description: Consolidate, enrich and republish the data gathered by warn-scraper
+  type: data
+- title: washingtonpost-newswhip-analysis
+  url: https://github.com/palewire/washingtonpost-newswhip-analysis
+  description: How many pieces does the Washington Post publish?
+  type: data
+- title: web-dubois
+  url: https://observablehq.com/collection/@palewire/w-e-b-du-bois
+  description: Digital recreations of data visualizations made for W.E.B. Du Bois’ presentation at the
+    “Paris Exposition Universelle” in 1900
+  type: javascript
+- title: webcitation
+  url: https://github.com/palewire/webcitation
+  description: A simple Python wrapper for the webcitation.org capturing service
+  type: inactive
+- title: Wheel of Feedback
+  url: https://github.com/palewire/cuny-jour-critique-wheel
+  description: An interactive tool for randomly managing classroom critiques
+  type: javascript
+- title: wnyc-radio-archive-transcriber
+  url: https://github.com/palewire/wnyc-radio-archive-transcriber
+  description: Scrape and transcribe thousands of audio files for free using Python, OpenAI's Whisper,
+    and GitHub Actions
+  type: data
+- title: wordpress-memento-plugin
+  url: https://github.com/palewire/wordpress-memento-plugin
+  description: A plugin for Wordpress web sites to enable the Memento framework for time-based access
+  type: inactive

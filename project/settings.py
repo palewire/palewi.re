@@ -72,9 +72,12 @@ BAKERY_BUILD_HOST = "palewi.re"
 BAKERY_VIEWS = [
     "coltrane.bakery_views.BioBuildView",
     "coltrane.bakery_views.ClipListBuildView",
+    "coltrane.bakery_views.AppListBuildView",
+    "coltrane.bakery_views.CodeListBuildView",
+    "coltrane.bakery_views.GuideListBuildView",
+    "coltrane.bakery_views.DocsLandingBuildView",
     "coltrane.bakery_views.TalkListBuildView",
     "coltrane.bakery_views.PostListBuildView",
-    "coltrane.bakery_views.DocListBuildView",
     "coltrane.bakery_views.BotListBuildView",
     "coltrane.bakery_views.PostDetailBuildView",
     "coltrane.bakery_views.LatestPostsBuildFeed",
