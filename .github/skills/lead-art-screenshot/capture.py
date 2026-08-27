@@ -7,6 +7,7 @@ import shutil
 import struct
 import subprocess
 import unicodedata
+import zlib
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode, urlparse
@@ -21,6 +22,8 @@ CHROME_DEVTOOLS_VERSION = "1.8.0"
 SOURCE_VIEWPORT = "1860x1022x1"
 OUTPUT_VIEWPORT = "2000x1250x1"
 OUTPUT_SIZE = (2000, 1250)
+FRAME_BOUNDS = (70, 70, 1930, 1180)
+FRAME_RADIUS = 24
 
 
 class ChromeDevTools:
@@ -184,6 +187,95 @@ def png_size(path: Path) -> tuple[int, int]:
     return struct.unpack(">II", header[16:24])
 
 
+def add_transparent_margin(path: Path) -> None:
+    data = path.read_bytes()
+    signature = b"\x89PNG\r\n\x1a\n"
+    if not data.startswith(signature):
+        raise click.ClickException(f"Chrome did not create a valid PNG: {path}")
+
+    chunks: list[tuple[bytes, bytes]] = []
+    position = len(signature)
+    while position < len(data):
+        length = struct.unpack(">I", data[position : position + 4])[0]
+        chunk_type = data[position + 4 : position + 8]
+        chunk_data = data[position + 8 : position + 8 + length]
+        chunks.append((chunk_type, chunk_data))
+        position += 12 + length
+
+    ihdr = next((chunk_data for chunk_type, chunk_data in chunks if chunk_type == b"IHDR"), None)
+    if ihdr is None:
+        raise click.ClickException(f"Chrome did not create a valid PNG: {path}")
+    width, height, bit_depth, color_type, compression, filtering, interlace = struct.unpack(">IIBBBBB", ihdr)
+    if (width, height, bit_depth, color_type, compression, filtering, interlace) != (
+        *OUTPUT_SIZE,
+        8,
+        2,
+        0,
+        0,
+        0,
+    ):
+        raise click.ClickException("Chrome created an unsupported PNG for transparent lead art.")
+
+    compressed = b"".join(chunk_data for chunk_type, chunk_data in chunks if chunk_type == b"IDAT")
+    source = zlib.decompress(compressed)
+    row_length = width * 3
+    rows: list[bytearray] = []
+    cursor = 0
+    previous = bytearray(row_length)
+    for _ in range(height):
+        filter_type = source[cursor]
+        cursor += 1
+        row = bytearray(source[cursor : cursor + row_length])
+        cursor += row_length
+        for index, value in enumerate(row):
+            left = row[index - 3] if index >= 3 else 0
+            above = previous[index]
+            upper_left = previous[index - 3] if index >= 3 else 0
+            if filter_type == 1:
+                row[index] = (value + left) & 0xFF
+            elif filter_type == 2:
+                row[index] = (value + above) & 0xFF
+            elif filter_type == 3:
+                row[index] = (value + ((left + above) // 2)) & 0xFF
+            elif filter_type == 4:
+                prediction = left + above - upper_left
+                distances = (abs(prediction - left), abs(prediction - above), abs(prediction - upper_left))
+                row[index] = (value + (left, above, upper_left)[distances.index(min(distances))]) & 0xFF
+            elif filter_type != 0:
+                raise click.ClickException("Chrome created an unsupported PNG filter for transparent lead art.")
+        rows.append(row)
+        previous = row
+
+    left, top, right, bottom = FRAME_BOUNDS
+    output = bytearray()
+    for y, row in enumerate(rows):
+        output.append(0)
+        for x in range(width):
+            in_frame = left <= x < right and top <= y < bottom
+            if in_frame:
+                corner_x = min(x - left, right - 1 - x)
+                corner_y = min(y - top, bottom - 1 - y)
+                if corner_x < FRAME_RADIUS and corner_y < FRAME_RADIUS:
+                    in_frame = (corner_x - FRAME_RADIUS + 1) ** 2 + (
+                        corner_y - FRAME_RADIUS + 1
+                    ) ** 2 <= FRAME_RADIUS**2
+            offset = x * 3
+            output.extend((*row[offset : offset + 3], 255 if in_frame else 0))
+
+    def chunk(chunk_type: bytes, chunk_data: bytes) -> bytes:
+        return (
+            struct.pack(">I", len(chunk_data))
+            + chunk_type
+            + chunk_data
+            + struct.pack(">I", zlib.crc32(chunk_type + chunk_data) & 0xFFFFFFFF)
+        )
+
+    rgba_header = struct.pack(">IIBBBBB", width, height, 8, 6, 0, 0, 0)
+    path.write_bytes(
+        signature + chunk(b"IHDR", rgba_header) + chunk(b"IDAT", zlib.compress(output)) + chunk(b"IEND", b"")
+    )
+
+
 @click.command()
 @click.argument("url")
 @click.option("--output", help="Output filename or post slug. Defaults to the page title.")
@@ -209,6 +301,7 @@ def main(url: str, output: str | None) -> None:
         browser.emulate(page_id, OUTPUT_VIEWPORT)
         browser.wait_for_frame(page_id)
         browser.screenshot(page_id, final_path)
+        add_transparent_margin(final_path)
 
         actual_size = png_size(final_path)
         if actual_size != OUTPUT_SIZE:
