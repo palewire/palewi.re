@@ -1,5 +1,5 @@
 ---
-title: 'Python recipe: fetch all the days between two dates'
+title: 'Python recipe: Fetch all the days between two dates'
 slug: python-recipe-fetch-all-days-between-two-dates
 published_at: '2009-09-01T10:32:05-07:00'
 ---

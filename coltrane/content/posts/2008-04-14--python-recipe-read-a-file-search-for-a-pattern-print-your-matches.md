@@ -1,5 +1,5 @@
 ---
-title: 'Python recipe: read file, find pattern, print matches'
+title: 'Python recipe: Read file, find pattern, print matches'
 slug: python-recipe-read-a-file-search-for-a-pattern-print-your-matches
 published_at: '2008-04-14T22:52:41-07:00'
 wordpress_id: 100

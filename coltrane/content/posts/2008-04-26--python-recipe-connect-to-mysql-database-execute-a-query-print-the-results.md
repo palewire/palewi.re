@@ -1,5 +1,5 @@
 ---
-title: 'Python recipe: connect to MySQL, query, print the results'
+title: 'Python recipe: Connect to MySQL, query, print the results'
 slug: python-recipe-connect-to-mysql-database-execute-a-query-print-the-results
 published_at: '2008-04-26T10:28:57-07:00'
 wordpress_id: 112

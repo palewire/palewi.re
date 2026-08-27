@@ -1,5 +1,5 @@
 ---
-title: 'SQL recipe: federal gov''t working days between two dates'
+title: 'SQL recipe: Federal gov''t working days between two dates'
 slug: sql-recipe-the-number-of-federal-government-working-days-between-two-dates
 published_at: '2007-02-14T07:52:24-08:00'
 wordpress_id: 49

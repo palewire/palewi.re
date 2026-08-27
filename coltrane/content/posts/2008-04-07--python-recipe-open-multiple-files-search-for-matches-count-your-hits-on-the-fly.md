@@ -1,5 +1,5 @@
 ---
-title: 'Python recipe: open files, find matches, count hits'
+title: 'Python recipe: Open files, find matches, count hits'
 slug: python-recipe-open-multiple-files-search-for-matches-count-your-hits-on-the-fly
 published_at: '2008-04-07T01:06:45-07:00'
 wordpress_id: 95

@@ -1,5 +1,5 @@
 ---
-title: 'Fabric recipe: delete pyc files before runserver starts'
+title: 'Fabric recipe: Delete pyc files before runserver starts'
 slug: fabric-recipe-delete-pyc-files-runserver-starts
 published_at: '2010-03-24T13:19:09-07:00'
 ---

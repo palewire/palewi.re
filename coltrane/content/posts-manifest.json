@@ -14,7 +14,7 @@
       "path": "posts/2007-02-14--sql-recipe-the-number-of-federal-government-working-days-between-two-dates.md",
       "permalink": "/posts/2007/02/14/sql-recipe-the-number-of-federal-government-working-days-between-two-dates/",
       "published_at": "2007-02-14T07:52:24-08:00",
-      "sha256": "d9a18aa5cf9ccbc34d7921295b0ac0fee2db9a7e27234fd8891ad6965602987e"
+      "sha256": "c11c43734278854c9466fa9ea15c32be9c2db7ba7a9175b6c1b7d772054a7c93"
     },
     {
       "body_sha256": "e78f2c6012c77f847d619a66a37d55d7ad7780f27fb6496c7a1d013283558161",
@@ -28,49 +28,49 @@
       "path": "posts/2008-04-05--python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term.md",
       "permalink": "/posts/2008/04/05/python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term/",
       "published_at": "2008-04-05T08:49:58-07:00",
-      "sha256": "ea69ff48c2467f550cdf7ccb6017ff7e3a0b29a7776bf7cdd26c46198f1b7d79"
+      "sha256": "6e438f0261b6710761e1f3ab32c0778e27a13d091b7067b8071d19707faf28ef"
     },
     {
       "body_sha256": "d6d66f3d1992c1419bbdc47cc5256a2eb640bdfdf6a35d04b7d75d3b55bc6c4a",
       "path": "posts/2008-04-07--python-recipe-open-multiple-files-search-for-matches-count-your-hits-on-the-fly.md",
       "permalink": "/posts/2008/04/07/python-recipe-open-multiple-files-search-for-matches-count-your-hits-on-the-fly/",
       "published_at": "2008-04-07T01:06:45-07:00",
-      "sha256": "123b29aae2676c566ad369bf082143dc5c0966c72d36bc9d1dd937d07abd41b0"
+      "sha256": "7b8e792eed6876f6583f8efb904068160311dc75e636074065ed009ee358e1c8"
     },
     {
       "body_sha256": "d36a0826f4f277d9db58eceaed4600843a8face8cafc6f3c21db243165e01c51",
       "path": "posts/2008-04-14--python-recipe-read-a-file-search-for-a-pattern-print-your-matches.md",
       "permalink": "/posts/2008/04/14/python-recipe-read-a-file-search-for-a-pattern-print-your-matches/",
       "published_at": "2008-04-14T22:52:41-07:00",
-      "sha256": "6917c83e7eb276c2aa309914fa14bb511e881f747e02bcdaf336ab1ab4bfa588"
+      "sha256": "b04f99be41d447b0122f24b97066e5f6aa6f02ad6e76e0b4cf8b4f2b3c9a0162"
     },
     {
       "body_sha256": "ce9d2239b40d8d5f0c8b88d971a83821939760124de265e00ebdb28740984464",
       "path": "posts/2008-04-20--python-recipe-grab-a-page-scrape-a-table-download-a-file.md",
       "permalink": "/posts/2008/04/20/python-recipe-grab-a-page-scrape-a-table-download-a-file/",
       "published_at": "2008-04-20T13:43:13-07:00",
-      "sha256": "3bfd7af86becf82edabbe7eb16452fad945fe9a8ef1738668574afd41598baa4"
+      "sha256": "94d71d3aa98342125f2d0c1ea0589348ddacb62637cac446509f3faa02add4d6"
     },
     {
       "body_sha256": "208d4f338bda7b4842b6a2949051161e3c29589738763b01f4cbeddda414872a",
       "path": "posts/2008-04-21--python-recipe-print-a-future-date-in-the-format-you-want.md",
       "permalink": "/posts/2008/04/21/python-recipe-print-a-future-date-in-the-format-you-want/",
       "published_at": "2008-04-21T10:31:59-07:00",
-      "sha256": "a7f37cfd124fda251bf2db9e654ecb0f1f44d0460494a503b4a7e1bd36f40406"
+      "sha256": "fbd3dbde1bbef3045c5a99c869c049c534ddeb1628c02072cdf7547672685e4f"
     },
     {
       "body_sha256": "67c3ecac1a15c713273b226d390694edd4ee5aec2ab027c97c9ec473d0cdc9ab",
       "path": "posts/2008-04-26--python-recipe-connect-to-mysql-database-execute-a-query-print-the-results.md",
       "permalink": "/posts/2008/04/26/python-recipe-connect-to-mysql-database-execute-a-query-print-the-results/",
       "published_at": "2008-04-26T10:28:57-07:00",
-      "sha256": "baf047241156bb13aeb024514cdc6dab332ed81f54695b1b78c2ae864cca99c9"
+      "sha256": "73564b616dd8bfd179b4070f7bc12eb42fd509ecabc8847a2ca21df908caff27"
     },
     {
       "body_sha256": "c84e2761472dfc5063951b62f9399f9e8476eaf65b794000e133f318f4dd81f2",
       "path": "posts/2008-04-27--ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter.md",
       "permalink": "/posts/2008/04/27/ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter/",
       "published_at": "2008-04-27T12:12:13-07:00",
-      "sha256": "382ca8bc3aeb4f84dd22af3aa098ced98aae070dc916e3c50b302f0bfa96f57d"
+      "sha256": "299f3ae843e51f463162be8d964e2d10e35c8da43645ed54721f87348a6e5a65"
     },
     {
       "body_sha256": "81385d2540431b5bc6d0d8bc1826289eeaf5ba050b82fc0e75a0e736eb27d7d3",
@@ -105,7 +105,7 @@
       "path": "posts/2008-06-15--terminal-recipe-how-to-download-an-entire-web-site-with-wget.md",
       "permalink": "/posts/2008/06/15/terminal-recipe-how-to-download-an-entire-web-site-with-wget/",
       "published_at": "2008-06-15T09:05:15-07:00",
-      "sha256": "35fef9f8bdb4676ea7ba25f456b6110fdf070b9dc84ff900542e6264854b35d5"
+      "sha256": "58aa57ae6cea13416215bac5ddf5612a0afc0f82a69fc22db2de2ad9ea145c49"
     },
     {
       "body_sha256": "708f69b1b97d8c36d2eb98fe6adf03deef28512fde0478542f3125a34c8661e6",
@@ -140,21 +140,21 @@
       "path": "posts/2009-02-15--django-recipe-add-an-auto-count-field-to-your-foreignkey-model.md",
       "permalink": "/posts/2009/02/15/django-recipe-add-an-auto-count-field-to-your-foreignkey-model/",
       "published_at": "2009-02-15T22:30:00-08:00",
-      "sha256": "799e9016eb5469e084429563cad4772f8f3964e3b622ec16c4e928b2cd26eabd"
+      "sha256": "e426a68364805f48b6a033ec332aa9fc7f75ce1d48e9e482bbd75405a90efd77"
     },
     {
       "body_sha256": "bd36a4821b412bc1604c5876e5241ac550add4cbc3d1809f77f59df120f2e753",
       "path": "posts/2009-03-03--django-recipe-dump-your-queryset-out-as-a-csv-file.md",
       "permalink": "/posts/2009/03/03/django-recipe-dump-your-queryset-out-as-a-csv-file/",
       "published_at": "2009-03-03T13:53:00-08:00",
-      "sha256": "b357c7a57fe85ff312d71c5586a3900d428fcd32b7ed951e4c78c1b220f23bee"
+      "sha256": "8ea75f9da288d898ebf5230fc740b59d014e70fc61459d9e78dd49df6e415820"
     },
     {
       "body_sha256": "853b6ebe2bce023c24dedf3e18b85c10bf6db97358958d75412c67df1e52efc5",
       "path": "posts/2009-03-04--openlayers-recipe-how-to-map-proportional-symbols.md",
       "permalink": "/posts/2009/03/04/openlayers-recipe-how-to-map-proportional-symbols/",
       "published_at": "2009-03-04T11:04:00-08:00",
-      "sha256": "7c5bc39a0beb2e500a72df05c0850c9c743be1f459c7c2b44e8ac830b2d40280"
+      "sha256": "473ce40fafce9e885a8d8b1033b1c47f249a7b87557787c306a6ad0d0f48ee92"
     },
     {
       "body_sha256": "28108187d4bf5ba2ce4902b2189454a819e8b41b418d98a502a54e7190433f70",
@@ -182,7 +182,7 @@
       "path": "posts/2009-08-01--django-recipe-make-django-tagging-cloud-all-models.md",
       "permalink": "/posts/2009/08/01/django-recipe-make-django-tagging-cloud-all-models/",
       "published_at": "2009-08-01T10:45:25-07:00",
-      "sha256": "e5907528bf206a9600b2877be30a072c806e0d1be5d8df5660b09573da1bf022"
+      "sha256": "5c539c31d62a9adeaa28c6eeefb1ab8718db66b934511e168a7aa3b04d56ba77"
     },
     {
       "body_sha256": "68a38efb14c803e58d41593b1fe867547a2237e2b6dfd1c236f1dfa5b6dcfbcd",
@@ -196,42 +196,42 @@
       "path": "posts/2009-08-07--python-recipe-calculate-adjusted-monthly-values.md",
       "permalink": "/posts/2009/08/07/python-recipe-calculate-adjusted-monthly-values/",
       "published_at": "2009-08-07T20:40:28-07:00",
-      "sha256": "85b824d5d19c229054dfb5752304c4a07a644e9781f48e78cf2453a17f16ca92"
+      "sha256": "c9cc0e144e64bc61c260dc71709c149d9df6b4a0155fa9d6a34d6f933d503b4e"
     },
     {
       "body_sha256": "6248110261742c61c96e5f1ef8b57711b77728100f02aa996d42fd05b44cb834",
       "path": "posts/2009-08-13--django-recipe-use-extent-your-querset-set-map-zoom.md",
       "permalink": "/posts/2009/08/13/django-recipe-use-extent-your-querset-set-map-zoom/",
       "published_at": "2009-08-13T19:09:27-07:00",
-      "sha256": "6ea15745f192f7a7e6b1263deda81b551e46bbf5fba4e3d95631007bcc040a2a"
+      "sha256": "e0c1f77360440ceba23c4b05ca52a7d6741b5256c04c31ad66da034305aa8dbd"
     },
     {
       "body_sha256": "a1d8daa1e41d398fbcd3bbb3d35d7f271b7986f5d164578ddf58dfb3071142fa",
       "path": "posts/2009-08-23--django-recipe-rss-feed-every-tag.md",
       "permalink": "/posts/2009/08/23/django-recipe-rss-feed-every-tag/",
       "published_at": "2009-08-23T17:09:49-07:00",
-      "sha256": "31ef9b8f7243cb392171146b14e425e38799177dddce0e0b2bb028a2917ce88a"
+      "sha256": "9555cf06b886c5a82ea40e38ee3b245172e7f49f2dfa28287a2066453eab61bc"
     },
     {
       "body_sha256": "f70f24f8d64f9abd9e2c477bbfb19eae4c6109cd741a3b9613ae78091f11a191",
       "path": "posts/2009-09-01--python-recipe-fetch-all-days-between-two-dates.md",
       "permalink": "/posts/2009/09/01/python-recipe-fetch-all-days-between-two-dates/",
       "published_at": "2009-09-01T10:32:05-07:00",
-      "sha256": "3c911dd8ee15fffb52b5d62392c8dd84610b221836e47f029da0b0c6392ed970"
+      "sha256": "28e1dd8d55dbf1d6328a177cae3f5493a4782787d7dab2c079040f93c51d0287"
     },
     {
       "body_sha256": "6521c33df064c00b05826f229d242967db3841e74a518d28ac558171ca716b4d",
       "path": "posts/2009-09-01--django-recipe-remove-newlines-text-block.md",
       "permalink": "/posts/2009/09/01/django-recipe-remove-newlines-text-block/",
       "published_at": "2009-09-01T18:01:17-07:00",
-      "sha256": "1caf0fad21ba5701d920d7932cd0a6abb1020b9c2bb00bee3eba3852ecfb6248"
+      "sha256": "ad8196e3149ce5fc3890e697714512e4c815c73b393facc2e145cfa5a3e81d6a"
     },
     {
       "body_sha256": "480e9c44836e4c2e2faf2b0a2f959cf6e0934e922c594b758b12fb1d583f2aab",
       "path": "posts/2009-09-04--django-recipe-pretty-print-objects-and-querysets.md",
       "permalink": "/posts/2009/09/04/django-recipe-pretty-print-objects-and-querysets/",
       "published_at": "2009-09-04T13:41:03-07:00",
-      "sha256": "0e98efdf9dca9c31ed95e386c3e2be92fedd409cb1281ff9ca96434d56e8ea87"
+      "sha256": "305e2add2797fee30b122254892fd795f2042426843723db457a4e8c0a770d67"
     },
     {
       "body_sha256": "2e8b7fb4f2fe99f75c6a23bfae0eff927489d7d8096be5d46589256eb4e29eac",
@@ -245,7 +245,7 @@
       "path": "posts/2009-10-29--django-recipe-dynamically-load-your-google-maps-api-key.md",
       "permalink": "/posts/2009/10/29/django-recipe-dynamically-load-your-google-maps-api-key/",
       "published_at": "2009-10-29T18:06:46-07:00",
-      "sha256": "7e296e715281755f87f9f257602f3581348610615f25ef80f33680c9f630228e"
+      "sha256": "d735f2674ebde1737eabdc62d5b5cf70719d5c5bdc7a576deea286e1b3b9a1f3"
     },
     {
       "body_sha256": "793d66522b9cb0a24a2cd84b4a3cb0320d1d45514aa83eb88c03a2b3ff03ae3f",
@@ -259,7 +259,7 @@
       "path": "posts/2010-03-24--fabric-recipe-delete-pyc-files-runserver-starts.md",
       "permalink": "/posts/2010/03/24/fabric-recipe-delete-pyc-files-runserver-starts/",
       "published_at": "2010-03-24T13:19:09-07:00",
-      "sha256": "867896ceb02fc2172b30af0ff04113408d6d9e0a6665eacdcde6f0fa76cc5434"
+      "sha256": "1ea75131fd545c162c1ff3dc1282866f3c4d48add34d92e3f86a0b46fc7ba729"
     },
     {
       "body_sha256": "88a95f1119613c68a0cd5b0f974cbe85c0ac9062a7c666b2c72273cadd054c40",
@@ -322,14 +322,14 @@
       "path": "posts/2012-02-25--nicar-2012-things-i-said.md",
       "permalink": "/posts/2012/02/25/nicar-2012-things-i-said/",
       "published_at": "2012-02-25T00:01:17-08:00",
-      "sha256": "e102e3f1a62849511081b4f08802e20862c62a217156b73c6237f666fc0a1c9e"
+      "sha256": "431479aff5e2cfe1be89a730d2db600ca3f3d3c1812a25fcb379d5d78a3bd1b3"
     },
     {
       "body_sha256": "90d1522bbc6f257435153577c9dc3bfc9779bc9c1e94385d6414624398fc6e99",
       "path": "posts/2012-03-26--leaflet-recipe-hover-events-features-and-polygons.md",
       "permalink": "/posts/2012/03/26/leaflet-recipe-hover-events-features-and-polygons/",
       "published_at": "2012-03-26T13:47:10-07:00",
-      "sha256": "6a631667c369f80fbbcda9d625995c2d28ee68f3fdf20393e23c073910eb79f2"
+      "sha256": "000b865aa1ec67ebee075a1ef07588ea357d91d8230afafe9319cdf62b69df39"
     },
     {
       "body_sha256": "52508620f5b3e90abbe71fc152fad1771da269a3c2801813c296c330b50bdf61",
@@ -350,7 +350,7 @@
       "path": "posts/2014-07-25--django-recipe-base-management-command-running-custom-sql.md",
       "permalink": "/posts/2014/07/25/django-recipe-base-management-command-running-custom-sql/",
       "published_at": "2014-07-25T12:02:15-07:00",
-      "sha256": "9a4dd77af877da2e976fefe6eedc4ba83f5641eb3b08de0903824ba195269fb8"
+      "sha256": "62e1ac18f189647eed7209d227ff9e1124cfc886eed2734fa17e16f600c87fe9"
     },
     {
       "body_sha256": "3fd914b5385f2e0a2dec7f268d7edf27da0b6846bb69fafb12156274b6b475bd",
@@ -507,7 +507,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "ae22bca08c45b00e82e41e330a81e5495d6e0583e614bd58b63359916e12860c",
+  "posts_fingerprint_sha256": "a2339f67d0789bb930784ceb569f63b19edfa437d6cf5a2b54caf1132ee4a116",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

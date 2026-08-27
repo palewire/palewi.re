@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: a django-tagging cloud for all models'
+title: 'Django recipe: A django-tagging cloud for all models'
 slug: django-recipe-make-django-tagging-cloud-all-models
 published_at: '2009-08-01T10:45:25-07:00'
 ---

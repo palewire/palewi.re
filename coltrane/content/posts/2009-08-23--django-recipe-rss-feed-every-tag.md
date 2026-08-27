@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: make an RSS feed for every tag'
+title: 'Django recipe: Make an RSS feed for every tag'
 slug: django-recipe-rss-feed-every-tag
 published_at: '2009-08-23T17:09:49-07:00'
 ---

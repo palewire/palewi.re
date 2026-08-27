@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: remove newlines from a text block'
+title: 'Django recipe: Remove newlines from a text block'
 slug: django-recipe-remove-newlines-text-block
 published_at: '2009-09-01T18:01:17-07:00'
 ---

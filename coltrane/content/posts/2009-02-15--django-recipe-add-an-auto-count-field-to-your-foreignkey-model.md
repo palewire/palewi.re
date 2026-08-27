@@ -1,5 +1,5 @@
 ---
-title: 'Django recipe: add an auto-count field to your model'
+title: 'Django recipe: Add an auto-count field to your model'
 slug: django-recipe-add-an-auto-count-field-to-your-foreignkey-model
 published_at: '2009-02-15T22:30:00-08:00'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'OpenLayers recipe: how to map proportional symbols'
+title: 'OpenLayers recipe: How to map proportional symbols'
 slug: openlayers-recipe-how-to-map-proportional-symbols
 published_at: '2009-03-04T11:04:00-08:00'
 ---
