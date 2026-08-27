@@ -70,7 +70,7 @@ def report_args(tmp_path: Path, *extra_args: str) -> list[str]:
 
 def test_report_marks_media_untracked_without_archive_root(tmp_path):
     runner = CliRunner()
-    result = runner.invoke(cli, report_args(tmp_path))
+    result = runner.invoke(cli, report_args(tmp_path), env={"MEDIA_ARCHIVE_PATH": ""})
 
     assert result.exit_code == 0, result.output
     assert "Preservation inventory: 2 source URL(s), 2 current, 2 gap(s)." in result.output
