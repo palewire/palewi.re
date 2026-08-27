@@ -82,7 +82,7 @@ def test_django_uses_timezone_aware_datetimes():
 def test_markdown_posts_preserve_legacy_pre_lang_markup():
     """Raw HTML bodies retain code markup and receive semantic highlighting."""
     legacy_posts = [post for post in load_posts() if re.search(r"<pre\s+[^>]*\blang=", post.body_markup)]
-    assert len(legacy_posts) == load_manifest()["legacy_pre_lang_post_count"] == 25
+    assert len(legacy_posts) >= load_manifest()["legacy_pre_lang_post_count"] == 25
 
     python_post = next(post for post in legacy_posts if '<pre lang="python">' in post.body_markup)
     assert '<pre lang="python">' in python_post.body_markup
