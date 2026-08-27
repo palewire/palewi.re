@@ -479,11 +479,11 @@
       "sha256": "8ddae0648ada71f10f7297ae29b31146c5e4b007aacaaaf113e20dfe40ddd421"
     },
     {
-      "body_sha256": "1050cb8925fec52a8bfa7b4c96868becbdd5f264b4efed9e0ea92d1542e96ce0",
+      "body_sha256": "248c211583c860580fc85750ceeb6fff0d0df820b06438a6582c703df96e9b43",
       "path": "posts/2024-10-30--data-journalism-delivery.md",
       "permalink": "/posts/2024/10/30/data-journalism-delivery/",
       "published_at": "2024-10-30T12:00:00-07:00",
-      "sha256": "a1f236aa4c8abdc94b9d87709fc51b3a1cc532a4d54d5e7040d751d73706e98c"
+      "sha256": "92c588cde0dd73cf9ffc466136a24c4e72caead2ff354260ed5e2c5e915b7d6e"
     },
     {
       "body_sha256": "b52217f827a47b58b301d743fc7266f54b22b9a80a4070a19b5233aa4d2d26d8",
@@ -507,7 +507,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "ac12923e2f7752e59443f9b11660d166e1ff142eea461cb0cb0c169a46e27181",
+  "posts_fingerprint_sha256": "5d67aff4f0501322c1ebb046c3fa912e0ce7e6c467ca1e4f11ee2eab2b269fb6",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

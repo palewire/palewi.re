@@ -14,4 +14,4 @@ repr_image: https://palewi.re/static/img/a-new-data-section-on-reuters-com.png
 
 <p>Today it’s led by our latest release, “<a href="https://www.reuters.com/data/tracking-trumps-economy-2025-01-27/">Tracking Trump’s Economy</a>,” a continually updating feature that will show the state of play under Trump 2.0.</p>
 
-<p>Thanks to recent upgrades to our site, we’ll be providing more of this type of data-driven coverage. You can read all about that in <a href="/posts/2024/10/30/data-dashboards-at-reuters/">my earlier post</a>.</p>
+<p>Thanks to recent upgrades to our site, we’ll be providing more of this type of data-driven coverage. You can read all about that in <a href="/posts/2024/10/30/data-journalism-delivery/">my earlier post</a>.</p>
