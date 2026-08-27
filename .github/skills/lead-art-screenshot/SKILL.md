@@ -30,9 +30,9 @@ Use these values for every capture:
 | Item | Value |
 |---|---:|
 | Finished image | 2000x1250 pixels |
-| Page viewport | 2000x1022 pixels |
-| Browser frame | 2000x1110 pixels |
-| Outer margin | 70 pixels above and below, transparent |
+| Page viewport | 2000x1162 pixels |
+| Browser frame | 2000x1250 pixels |
+| Outer margin | None |
 | Device scale | 1 |
 | Format | PNG |
 
