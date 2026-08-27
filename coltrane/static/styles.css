@@ -843,43 +843,34 @@ ul.bullets li {
 
 /* Pygments styles for source code in posts */
 .source .hll {
-  background-color: #404040;
+  background-color: #ffffcc;
+  margin: 0 -12px;
+  padding: 0 12px;
 }
 
 #detailbody .source {
-  position: relative;
   overflow-x: auto;
-  margin: 1.75em 0;
-  padding: 2.4em 1.2em 1.2em;
-  border: 1px solid #3a3a3a;
-  border-radius: 0.4rem;
-  background: #202020;
-  box-shadow: 0 0.35rem 0.9rem rgb(0 0 0 / 12%);
-  color: #d0d0d0;
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.85em;
-  line-height: 1.65;
-  tab-size: 4;
+  margin-bottom: 1.25em;
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+  background-color: #fff;
 }
 
-#detailbody .source::before {
-  position: absolute;
-  top: 0.75rem;
-  left: 1.2rem;
-  color: #ababab;
-  content: attr(data-language);
-  font-size: 0.7em;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-#detailbody .source pre {
+#detailbody .source pre,
+#detailbody .source code {
   margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  padding: 10px 7px;
+  font-family: "IBM Plex Mono", "Droid Sans Mono", monospace;
+  font-size: 1rem;
+  line-height: 1.3em;
   white-space: pre;
+}
+
+@media (max-width: 875px) {
+  #detailbody .source pre,
+  #detailbody .source code {
+    font-size: 0.85em;
+  }
 }
 
 .source .c {
@@ -1084,26 +1075,23 @@ ul.bullets li {
   color: #666666;
 } /* Literal.Number.Integer.Long */
 
-/* Native is the Pygments theme configured in coltrane.utils.pygmenter. */
+/* Matches the Pygments palette used by the Sphinx documentation sites. */
 .source .c,
 .source .ch,
 .source .cm,
 .source .cpf,
 .source .c1 {
-  color: #ababab;
+  color: #408090;
   font-style: italic;
 }
 .source .k,
 .source .kc,
 .source .kd,
 .source .kn,
-.source .kp,
 .source .kr,
-.source .kt,
-.source .nt,
 .source .ow {
-  color: #6ebf26;
-  font-weight: var(--font-weight-bold);
+  color: #007020;
+  font-weight: bold;
 }
 .source .m,
 .source .mb,
@@ -1112,31 +1100,28 @@ ul.bullets li {
 .source .mi,
 .source .mo,
 .source .il {
-  color: #51b2fd;
+  color: #208050;
 }
 .source .s,
 .source .sa,
 .source .sb,
 .source .sc,
 .source .sd,
-.source .se,
 .source .sh,
-.source .si,
-.source .sr,
 .source .s1,
 .source .s2,
 .source .ss {
-  color: #ed9d13;
+  color: #4070a0;
 }
 .source .nb,
 .source .bp {
-  color: #2fbccd;
+  color: #007020;
 }
 .source .nc,
-.source .nf,
 .source .nn,
 .source .fm {
-  color: #71adff;
+  color: #0e84b5;
+  font-weight: bold;
 }
 .source .no,
 .source .nv,
@@ -1144,7 +1129,71 @@ ul.bullets li {
 .source .vg,
 .source .vi,
 .source .vm {
-  color: #40ffff;
+  color: #bb60d5;
+}
+.source .cp,
+.source .kp {
+  color: #007020;
+}
+.source .cs {
+  color: #408090;
+  background-color: #fff0f0;
+}
+.source .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+.source .go {
+  color: #333;
+}
+.source .gp {
+  color: #c65d09;
+  font-weight: bold;
+}
+.source .gt {
+  color: #04d;
+}
+.source .kt {
+  color: #902000;
+}
+.source .na {
+  color: #4070a0;
+}
+.source .nd {
+  color: #555;
+  font-weight: bold;
+}
+.source .ni {
+  color: #d55537;
+  font-weight: bold;
+}
+.source .ne {
+  color: #007020;
+}
+.source .nf {
+  color: #06287e;
+}
+.source .nl {
+  color: #002070;
+  font-weight: bold;
+}
+.source .nt {
+  color: #062873;
+  font-weight: bold;
+}
+.source .se {
+  color: #4070a0;
+  font-weight: bold;
+}
+.source .si {
+  color: #70a0d0;
+  font-style: italic;
+}
+.source .sr {
+  color: #235388;
+}
+.source .sx {
+  color: #c65d09;
 }
 .error-page {
   padding-top: clamp(1.5rem, 8vw, 4.5rem);
