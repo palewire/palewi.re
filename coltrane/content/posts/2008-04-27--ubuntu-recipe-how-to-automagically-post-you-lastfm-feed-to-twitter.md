@@ -1,5 +1,5 @@
 ---
-title: 'Ubuntu Recipe: Post your Last.fm feed to Twitter'
+title: 'Ubuntu recipe: Post your Last.fm feed to Twitter'
 slug: ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter
 published_at: '2008-04-27T12:12:13-07:00'
 wordpress_id: 114

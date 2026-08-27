@@ -1,5 +1,5 @@
 ---
-title: 'Python Recipe: Grab page, scrape table, download file'
+title: 'Python recipe: Grab page, scrape table, download file'
 slug: python-recipe-grab-a-page-scrape-a-table-download-a-file
 published_at: '2008-04-20T13:43:13-07:00'
 wordpress_id: 107

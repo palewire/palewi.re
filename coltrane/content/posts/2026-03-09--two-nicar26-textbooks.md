@@ -1,5 +1,5 @@
 ---
-title: Two NICAR26 Textbooks
+title: Two NICAR26 textbooks
 slug: two-nicar26-textbooks
 published_at: '2026-03-09T03:21:42-07:00'
 repr_image: https://palewi.re/static/img/two-nicar26-textbooks.gif

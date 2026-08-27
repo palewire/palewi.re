@@ -1,5 +1,5 @@
 ---
-title: 'Python Recipe: Open a file, read it, print matching lines'
+title: 'Python recipe: Open a file, read it, print matching lines'
 slug: python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term
 published_at: '2008-04-05T08:49:58-07:00'
 wordpress_id: 93

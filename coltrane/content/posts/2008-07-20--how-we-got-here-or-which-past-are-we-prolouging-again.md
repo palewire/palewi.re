@@ -1,5 +1,5 @@
 ---
-title: How we got here, or Which past are we prolouging again?
+title: How we got here, or which past are we prolouging again?
 slug: how-we-got-here-or-which-past-are-we-prolouging-again
 published_at: '2008-07-20T10:36:17-07:00'
 wordpress_id: 135
