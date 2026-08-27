@@ -839,14 +839,43 @@ ul.bullets li {
 
 /* Pygments styles for source code in posts */
 .source .hll {
-  background-color: #ffffcc;
+  background-color: #404040;
 }
 
-.source {
-  background: var(--color-code-background);
-  overflow: auto;
-  padding: 1em 1em 1em 0;
-  margin: 1em 0;
+#detailbody .source {
+  position: relative;
+  overflow-x: auto;
+  margin: 1.75em 0;
+  padding: 2.4em 1.2em 1.2em;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.4rem;
+  background: #202020;
+  box-shadow: 0 0.35rem 0.9rem rgb(0 0 0 / 12%);
+  color: #d0d0d0;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  line-height: 1.65;
+  tab-size: 4;
+}
+
+#detailbody .source::before {
+  position: absolute;
+  top: 0.75rem;
+  left: 1.2rem;
+  color: #ababab;
+  content: attr(data-language);
+  font-size: 0.7em;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#detailbody .source pre {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: pre;
 }
 
 .source .c {
@@ -1050,6 +1079,69 @@ ul.bullets li {
 .source .il {
   color: #666666;
 } /* Literal.Number.Integer.Long */
+
+/* Native is the Pygments theme configured in coltrane.utils.pygmenter. */
+.source .c,
+.source .ch,
+.source .cm,
+.source .cpf,
+.source .c1 {
+  color: #ababab;
+  font-style: italic;
+}
+.source .k,
+.source .kc,
+.source .kd,
+.source .kn,
+.source .kp,
+.source .kr,
+.source .kt,
+.source .nt,
+.source .ow {
+  color: #6ebf26;
+  font-weight: var(--font-weight-bold);
+}
+.source .m,
+.source .mb,
+.source .mf,
+.source .mh,
+.source .mi,
+.source .mo,
+.source .il {
+  color: #51b2fd;
+}
+.source .s,
+.source .sa,
+.source .sb,
+.source .sc,
+.source .sd,
+.source .se,
+.source .sh,
+.source .si,
+.source .sr,
+.source .s1,
+.source .s2,
+.source .ss {
+  color: #ed9d13;
+}
+.source .nb,
+.source .bp {
+  color: #2fbccd;
+}
+.source .nc,
+.source .nf,
+.source .nn,
+.source .fm {
+  color: #71adff;
+}
+.source .no,
+.source .nv,
+.source .vc,
+.source .vg,
+.source .vi,
+.source .vm {
+  color: #40ffff;
+}
 .error-page {
   padding-top: clamp(1.5rem, 8vw, 4.5rem);
   padding-bottom: clamp(2rem, 10vw, 6rem);
