@@ -7,7 +7,9 @@ from pathlib import Path
 
 from click.testing import CliRunner
 
+from scripts import preservation_inventory
 from scripts.media_archive import manifest as manifest_mod
+from scripts.media_archive.discovery import KIND_DIRECT, MediaCandidate, MediaOccurrence
 from scripts.preservation_inventory import cli
 
 
@@ -73,6 +75,37 @@ def test_report_marks_media_untracked_without_archive_root(tmp_path):
     assert result.exit_code == 0, result.output
     assert "Preservation inventory: 2 source URL(s), 2 current, 2 gap(s)." in result.output
     assert "LOCAL-MEDIA-UNTRACKED" in result.output
+
+
+def test_inventory_marks_committed_static_media_as_site_asset(tmp_path, monkeypatch):
+    asset = tmp_path / "coltrane" / "static" / "img" / "example.mp4"
+    asset.parent.mkdir(parents=True)
+    asset.write_bytes(b"video")
+    monkeypatch.setattr(preservation_inventory, "REPO_ROOT", tmp_path)
+    candidate = MediaCandidate(
+        url="https://palewi.re/static/img/example.mp4",
+        kind=KIND_DIRECT,
+        occurrences=(
+            MediaOccurrence(
+                origin_type="post",
+                origin_id="example",
+                location="video>source",
+                raw_url="/static/img/example.mp4",
+            ),
+        ),
+    )
+
+    report = preservation_inventory.build_inventory(
+        clips=[],
+        candidates=[candidate],
+        manifest=None,
+        archive_root_provided=False,
+        manifest_found=False,
+    )
+
+    source = report["sources"][0]
+    assert source["local_media"]["status"] == "site-asset"
+    assert source["gaps"] == []
 
 
 def test_report_joins_clip_and_media_records_and_writes_stable_json(tmp_path):

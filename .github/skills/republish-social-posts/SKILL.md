@@ -47,8 +47,11 @@ page or direct readers back to a social platform.
    do not substitute unrelated art.
 9. Convert a lead video no longer than 10 seconds into an optimized animated
    GIF and use it as the blog post's `repr_image`. For a longer video, ask the
-   user whether to use a still image or omit lead art. Do not hotlink or embed
-   a platform-hosted video.
+   user whether to use it as a locally served lead video, use a still image, or
+   omit lead art. A nominated post owned by the user grants permission to
+   download its directly associated video for use as a page asset. Store the
+   downloaded video in `coltrane/static/img/` and render it with a `<video>`
+   tag. Do not hotlink or embed a platform-hosted video.
 10. If a lead GIF needs visual touch-ups, use a manually or AI-retouched GIF
     supplied by the user from an approved image editor. Do not apply automatic
     background edits that could damage the original artwork.
