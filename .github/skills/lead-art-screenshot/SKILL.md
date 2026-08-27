@@ -30,14 +30,15 @@ Use these values for every capture:
 | Item | Value |
 |---|---:|
 | Finished image | 2000x1250 pixels |
-| Page viewport | 1860x1022 pixels |
-| Browser frame | 1860x1110 pixels |
-| Outer margin | 70 pixels |
+| Page viewport | 2000x1162 pixels |
+| Browser frame | 2000x1250 pixels |
+| Outer margin | None |
 | Device scale | 1 |
 | Format | PNG |
 
 The browser frame is deliberately synthetic. It provides a stable neutral
-frame without leaking details from the user's real browser.
+frame without leaking details from the user's real browser. The canvas outside
+the browser frame must have real PNG transparency, not a solid background.
 
 ## Capture workflow
 
