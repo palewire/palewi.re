@@ -26,6 +26,7 @@ WAYBACK_MISSING = "missing"
 WAYBACK_NOT_APPLICABLE = "not-applicable"
 
 LOCAL_UNTRACKED = "untracked"
+LOCAL_SITE_ASSET = "site-asset"
 LOCAL_NOT_APPLICABLE = "not-applicable"
 LOCAL_INVALID = "invalid"
 VERIFICATION_VERIFIED = "verified"
@@ -179,6 +180,35 @@ def local_media_record(entry: manifest_mod.ManifestEntry | None) -> dict[str, st
     }
 
 
+def local_site_asset_record() -> dict[str, str | int | None]:
+    """Return the record for media committed as a site asset."""
+    return {
+        "status": LOCAL_SITE_ASSET,
+        "manifest_status": None,
+        "kind": None,
+        "verification_status": VERIFICATION_NOT_APPLICABLE,
+        "attempts": None,
+        "last_attempt_at": None,
+        "last_verified_at": None,
+        "output_filename": None,
+        "size_bytes": None,
+        "sha256": None,
+        "error": None,
+    }
+
+
+def is_local_site_asset(candidate: MediaCandidate) -> bool:
+    """Return whether a candidate references a committed static site file."""
+    static_root = (REPO_ROOT / "coltrane" / "static").resolve()
+    for occurrence in candidate.occurrences:
+        if not occurrence.raw_url.startswith("/static/"):
+            continue
+        asset_path = (static_root / occurrence.raw_url.removeprefix("/static/")).resolve()
+        if asset_path.is_relative_to(static_root) and asset_path.is_file():
+            return True
+    return False
+
+
 def source_gaps(source: dict[str, Any]) -> list[dict[str, str]]:
     """List action-specific preservation gaps without turning status into policy."""
     gaps: list[dict[str, str]] = []
@@ -276,7 +306,7 @@ def build_inventory(
         source.classifications.add(f"media:{candidate.kind}")
         source.add_origins(candidate_origins(candidate))
         entry = manifest.entries.get(candidate.url) if manifest is not None else None
-        source.local_media = local_media_record(entry)
+        source.local_media = local_site_asset_record() if is_local_site_asset(candidate) else local_media_record(entry)
         if entry is not None:
             source.add_origins(manifest_origins(entry))
 

@@ -670,12 +670,14 @@ nav .links li a:hover {
 }
 
 img,
+video,
 object,
 embed {
   max-width: 100%;
 }
 
-img {
+img,
+video {
   height: auto;
 }
 
@@ -710,6 +712,7 @@ figure {
   font-weight: var(--font-weight-light);
 }
 #detailbody .twelvecol > img:first-child,
+#detailbody .twelvecol > video:first-child,
 #detailbody .twelvecol > picture:first-child,
 #detailbody .twelvecol > figure:first-child {
   display: block;
