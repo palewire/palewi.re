@@ -1,0 +1,18 @@
+# palewi.re
+
+Canonical site: https://palewi.re/
+Sitemap: https://palewi.re/sitemap.xml
+RSS feed: https://palewi.re/feeds/posts/
+JSON Feed: https://palewi.re/feeds/posts.json
+
+Content sections:
+- Bio: https://palewi.re/who-is-ben-welsh/
+- Posts: https://palewi.re/posts/
+- Clips: https://palewi.re/clips/
+- Apps: https://palewi.re/apps/
+- Code: https://palewi.re/code/
+- Guides: https://palewi.re/guides/
+- Talks: https://palewi.re/talks/
+- Bots: https://palewi.re/bots/
+
+Individual post pages are the canonical primary sources for posts published on this site.

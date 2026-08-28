@@ -17,11 +17,11 @@
       "sha256": "c11c43734278854c9466fa9ea15c32be9c2db7ba7a9175b6c1b7d772054a7c93"
     },
     {
-      "body_sha256": "e78f2c6012c77f847d619a66a37d55d7ad7780f27fb6496c7a1d013283558161",
+      "body_sha256": "7d2fd043132f0630de37d272d890edbd9381e7c357685db253e27b1fa73ca957",
       "path": "posts/2008-03-24--go-snoop-yourself.md",
       "permalink": "/posts/2008/03/24/go-snoop-yourself/",
       "published_at": "2008-03-24T06:46:31-07:00",
-      "sha256": "c228ea20f419b7423e35acd91f1e89c7c80d0dd08855ad67794e6531d9bdf5d1"
+      "sha256": "ecce8cabf250dd4dd47076be18f5ca0fe5890c1fe27902f57c25099b7bf1a4b8"
     },
     {
       "body_sha256": "412c50671a731e3d1092954275e553b78b38eb4ba45a04e3f68636ba1117b8df",
@@ -164,18 +164,18 @@
       "sha256": "cd8bd9fcba2d9a1faf63322c7ac28a6101c20d514aa9a3ecdf58eea656aceb36"
     },
     {
-      "body_sha256": "231cf8e23142e5904394744840b5d6116c0d93c0ee7b622846c4e34aa4825a3c",
+      "body_sha256": "e27295c23f1bf27c9e5104a7f3715fb45563a66b25f46e087bbf663cb79ac775",
       "path": "posts/2009-07-29--new-improved-even-more-conspicuous-consumption.md",
       "permalink": "/posts/2009/07/29/new-improved-even-more-conspicuous-consumption/",
       "published_at": "2009-07-29T09:42:08-07:00",
-      "sha256": "94c99358ba507944b13b94d1dd30ddee1881daa0549f3805de23c3e83707420b"
+      "sha256": "28cc799b1d2f11b62280be3aabcab0e0028821b589ac111fdd527f7a48127e94"
     },
     {
-      "body_sha256": "cc0651b560934b10786ced792891959b1220b261bd471a40be4977f7eaefb63f",
+      "body_sha256": "9f72c4ecf1d49a51012300f7a95d4472df9a65f5ceeb51116b3fb01ee02fded1",
       "path": "posts/2009-08-01--django-recipe-make-django-tagging-cloud-all-models.md",
       "permalink": "/posts/2009/08/01/django-recipe-make-django-tagging-cloud-all-models/",
       "published_at": "2009-08-01T10:45:25-07:00",
-      "sha256": "5c539c31d62a9adeaa28c6eeefb1ab8718db66b934511e168a7aa3b04d56ba77"
+      "sha256": "a499c2ad63ded5a021a37a9dcb4c0829cbf2cbee16a13554c2aaaa14cb5794b6"
     },
     {
       "body_sha256": "68a38efb14c803e58d41593b1fe867547a2237e2b6dfd1c236f1dfa5b6dcfbcd",
@@ -248,11 +248,11 @@
       "sha256": "1ea75131fd545c162c1ff3dc1282866f3c4d48add34d92e3f86a0b46fc7ba729"
     },
     {
-      "body_sha256": "88a95f1119613c68a0cd5b0f974cbe85c0ac9062a7c666b2c72273cadd054c40",
+      "body_sha256": "f51048f249baae72a9cff235268f449ce6032ca96bd0920130d2f675dceeefe8",
       "path": "posts/2010-11-07--django-recipe-twitter-style-infinite-scroll.md",
       "permalink": "/posts/2010/11/07/django-recipe-twitter-style-infinite-scroll/",
       "published_at": "2010-11-07T12:36:59-08:00",
-      "sha256": "02e683fe48664768b7c6a696816ecb2654bebde4b1c801936c5ac6e7ea54ef6d"
+      "sha256": "904fb4682cd046d06f613ca6adb131a396fbed05ef5fd126cc53a5028c5d2a08"
     },
     {
       "body_sha256": "f2886d440bfe1c0cb673ff1c20811063aa885c15ea152557ff14d22471e46808",
@@ -458,11 +458,11 @@
       "sha256": "336e06c05e5954a8369f09475f009d6615ed14e7e634f3045200a400e20c802c"
     },
     {
-      "body_sha256": "455297fd075fe38df22ad3fb93e649d11ec116fcef5062df75b0b77dd5bb0bda",
+      "body_sha256": "6559df5ff3e70b94bdf244b364712b17e33df74f1d1644c78cfb1a8840b83de8",
       "path": "posts/2021-05-09--public-art-on-la-light-rail-line.md",
       "permalink": "/posts/2021/05/09/public-art-on-la-light-rail-line/",
       "published_at": "2021-05-09T16:52:30-07:00",
-      "sha256": "8ddae0648ada71f10f7297ae29b31146c5e4b007aacaaaf113e20dfe40ddd421"
+      "sha256": "0f269f6c36dfa4e7318563d0143f195573980868eb222b639bb1481c1e7b11a1"
     },
     {
       "body_sha256": "248c211583c860580fc85750ceeb6fff0d0df820b06438a6582c703df96e9b43",
@@ -493,7 +493,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "2e09ae0fbcaf1bc2f8531eea6d82fde064541b3a48290fd7629ebb406b881412",
+  "posts_fingerprint_sha256": "2b5c477fdf15c3ed4602040511b1c0eaa48976f92b9ea692b1cbbc244521135d",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

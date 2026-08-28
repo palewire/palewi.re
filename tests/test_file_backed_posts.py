@@ -1,12 +1,16 @@
 """Tests for public post views backed solely by checked-in Markdown files."""
 
+import json
+import re
 import xml.etree.ElementTree as xml
+from email.utils import parsedate_to_datetime
 from unittest.mock import patch
 
 import pytest
 from django.test import Client
 
 from coltrane.content_loaders import load_posts
+from coltrane.feeds import plain_text_summary
 from coltrane.utils.pygmenter import pygmenter
 
 
@@ -92,7 +96,12 @@ def test_post_detail_keeps_representative_image_metadata(client, public_posts):
     """The structured metadata retains each exported representative image."""
     for post in (post for post in public_posts if post.repr_image):
         response = client.get(post.get_absolute_url())
-        assert post.repr_image in response.content.decode()
+        json_ld_blocks = re.findall(
+            r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
+            response.content.decode(),
+            flags=re.DOTALL,
+        )
+        assert post.repr_image in [json.loads(block).get("image") for block in json_ld_blocks]
 
 
 def test_feed_uses_latest_ten_file_backed_posts(client, public_posts):
@@ -106,7 +115,36 @@ def test_feed_uses_latest_ten_file_backed_posts(client, public_posts):
     assert [item.findtext("link") for item in items] == [
         f"http://testserver{post.get_absolute_url()}" for post in public_posts[:10]
     ]
-    assert [item.findtext("pubDate") for item in items] == [None] * 10
+    publication_dates = [item.findtext("pubDate") for item in items]
+    assert all(publication_date is not None for publication_date in publication_dates)
+    assert [parsedate_to_datetime(publication_date) for publication_date in publication_dates if publication_date] == [
+        post.published_at.replace(microsecond=0) for post in public_posts[:10]
+    ]
+    assert [item.findtext("description") for item in items] == [post.body_html for post in public_posts[:10]]
+
+
+def test_json_feed_contains_every_file_backed_post(client, public_posts):
+    """The JSON Feed has stable canonical metadata and every published post."""
+    response = client.get("/feeds/posts.json")
+    payload = json.loads(response.content)
+    expected_urls = [f"https://palewi.re{post.get_absolute_url()}" for post in public_posts]
+
+    assert response.status_code == 200
+    assert response["Content-Type"] == "application/feed+json; charset=utf-8"
+    assert payload["version"] == "https://jsonfeed.org/version/1.1"
+    assert payload["title"] == "palewi.re posts"
+    assert payload["home_page_url"] == "https://palewi.re/"
+    assert payload["feed_url"] == "https://palewi.re/feeds/posts.json"
+    assert [item["id"] for item in payload["items"]] == expected_urls
+    assert [item["url"] for item in payload["items"]] == expected_urls
+    assert [item["title"] for item in payload["items"]] == [post.title for post in public_posts]
+    assert [item["date_published"] for item in payload["items"]] == [
+        post.published_at.isoformat() for post in public_posts
+    ]
+    assert [item["content_html"] for item in payload["items"]] == [post.body_html for post in public_posts]
+    assert [item["summary"] for item in payload["items"]] == [
+        plain_text_summary(post.body_html) for post in public_posts
+    ]
 
 
 def test_sitemap_lists_every_file_backed_post_with_publication_date(client, public_posts):
