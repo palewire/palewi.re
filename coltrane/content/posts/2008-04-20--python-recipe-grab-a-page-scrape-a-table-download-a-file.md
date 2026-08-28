@@ -484,4 +484,4 @@ outfile.close()</pre>
 
 
 
-<img src="http://www.palewire.com/images/oreilly_lat.gif" alt="The Reporter's Python Cookbook" border=1/>
+<img src="https://palewire.s3.amazonaws.com/img/oreilly_lat.gif" alt="The Reporter's Python Cookbook" border=1/>

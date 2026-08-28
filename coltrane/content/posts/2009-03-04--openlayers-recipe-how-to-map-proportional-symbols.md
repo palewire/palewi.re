@@ -9,7 +9,7 @@ published_at: '2009-03-04T11:04:00-08:00'
 
 <p>Today's L.A. Times has <a href="http://www.latimes.com/business/printedition/la-fallingroof-fl,0,4583412.flash">a nifty Flash map</a> made by my awesome coworkers that shows places in Southern California where real estate projects have stalled due to the recession.</p>
 
-<a href="http://www.palewire.com/openlayers-proportional-symbols/"><img src="http://www.palewire.com/openlayers-proportional-symbols/thumb.gif" alt="C'mon. Click it." /></a>
+<a href="http://www.palewire.com/openlayers-proportional-symbols/"><img src="https://palewire.s3.amazonaws.com/openlayers-proportional-symbols/thumb.gif" alt="C'mon. Click it." /></a>
 
 <p>So I took an hour this morning to see if I could replicate the Flash map in OL. Guess what, it's pretty easy! Click the thumbnail above and have a look. Or just click <a href="http://www.palewire.com/openlayers-proportional-symbols/">here</a>.</p>
 

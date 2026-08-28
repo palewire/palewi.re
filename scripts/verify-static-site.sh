@@ -53,7 +53,7 @@ request() {
 
 expect_security_headers() {
   grep -Fiq "content-security-policy: " "$headers_file"
-  grep -Fiq "frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com" "$headers_file"
+  grep -Fiq "frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com" "$headers_file"
   grep -Fiq "permissions-policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()" "$headers_file"
 }
 
@@ -73,7 +73,7 @@ request "/docs/" 200
 request "/posts/2012/02/25/nicar-2012-things-i-said/" 200
 grep -Fq 'src="https://docs.google.com/' "$body_file"
 request "/posts/2012/03/26/leaflet-recipe-hover-events-features-and-polygons/" 200
-grep -Fq 'src="http://s3-us-west-1.amazonaws.com/' "$body_file"
+grep -Fq 'src="https://s3-us-west-1.amazonaws.com/' "$body_file"
 request "/posts/2017/09/09/what-i-learned/" 200
 grep -Fq 'src="https://player.vimeo.com/' "$body_file"
 request "/posts/2025/05/21/ire-podcast-transcript/" 200
@@ -82,7 +82,7 @@ request "/posts/2026/01/27/how-journalism-lost-its-culture-of-sharing/" 200
 grep -Fq 'src="https://datawrapper.dwcdn.net/6T1Lq/4/"' "$body_file"
 request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 404
 request "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/" 200
-grep -Fq 'src="http://www.palewire.com/' "$body_file"
+grep -Fq 'src="https://palewire.s3.amazonaws.com/img/form-step1.png"' "$body_file"
 request "/posts/2018/04/14/my-times/" 200
 grep -Fq 'src="//palewire.s3.amazonaws.com/latimes-tour/1.jpg"' "$body_file"
 grep -Fq 'src="//palewire.s3.amazonaws.com/latimes-tour/9track.mp4"' "$body_file"
@@ -93,6 +93,9 @@ request "/this-page-does-not-exist/" 404
 grep -Fq 'id="error-heading">404<' "$body_file"
 request "/feeds/posts/" 200
 grep -Fiq 'content-type: application/rss+xml; charset=utf-8' "$headers_file"
+request "/feeds/posts.json" 200
+grep -Fiq 'content-type: application/feed+json; charset=utf-8' "$headers_file"
+grep -Fq '"version": "https://jsonfeed.org/version/1.1"' "$body_file"
 request "/static/styles.css" 200
 test -s "$body_file"
 request "/static/favicon.ico" 200
