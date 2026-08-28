@@ -32,4 +32,4 @@ My education includes a master's degree from the Missouri School of Journalism, 
 
 I grew up near Swisher, Iowa and attended Cedar Rapids' Prairie High School.
 
-Elsewhere on the site, you can find samples of [my work]({work_url}), [my technical documentation]({doc_url}) and [my public-speaking engagements]({talk_url}). An index of my open-source software efforts is [available on GitHub](https://github.com/palewire).
+Elsewhere on the site, you can find samples of [my reporting]({clips_url}), [my open-source software]({code_url}), [my teaching guides]({guides_url}) and [my public-speaking engagements]({talk_url}). More of my open-source work is [available on GitHub](https://github.com/palewire).

@@ -9,13 +9,44 @@ clips:
   date: '2026-08-19'
   url: https://www.linkedin.com/feed/update/urn:li:activity:7495788020411953155/
   archive_exemption: Social media content no longer available in Wayback Machine
+- title: No World Cup match so far has reached FIFA's extreme heat threshold
+  type: story
+  date: '2026-07-10'
+  url: https://www.reuters.com/graphics/SOCCER-WORLDCUP/zgvolqqoypd/#hydration-breaks-versus-heat
+  archive_url: https://web.archive.org/web/20260821062016/https://www.reuters.com/graphics/SOCCER-WORLDCUP/zgvolqqoypd/
+- title: Tracking Western Europe’s heatwave
+  type: story
+  date: '2026-06-15'
+  url: https://www.reuters.com/graphics/CLIMATE-AUTOMATED/MONITOR/akpeykqqapr/western-europe/
+  archive_url: https://web.archive.org/web/20260822120534/https://www.reuters.com/graphics/CLIMATE-AUTOMATED/MONITOR/akpeykqqapr/western-europe/
+- title: How hot is the World Cup?
+  type: story
+  date: '2026-06-11'
+  url: https://www.reuters.com/graphics/CLIMATE-AUTOMATED/MONITOR/akpeykqqapr/world-cup-2026/
+  archive_url: https://web.archive.org/web/20260720104304/https://www.reuters.com/graphics/CLIMATE-AUTOMATED/MONITOR/akpeykqqapr/world-cup-2026/
+- title: AI boom sparks rally, frenzy, and fear
+  type: story
+  date: '2026-06-10'
+  url: https://www.reuters.com/data/ai-boom-sparks-rally-frenzy-fear-2026-06-10/
+  archive_exemption: Data visualization access restricted
+- title: 'Under Pressure: Tracking the pain in G7 government debt'
+  type: story
+  date: '2026-04-14'
+  url: https://www.reuters.com/data/under-pressure-2026-04-14/
+  archive_exemption: Data visualization access restricted
+- title: Yen Crisis Tracker
+  type: story
+  date: '2026-02-03'
+  url: https://www.reuters.com/data/yen-crisis-tracker-2026-02-03/
+  archive_exemption: Data visualization access restricted
 - title: Reuters Climate Monitor
   type: app
   date: '2026-06-11'
   url: https://www.linkedin.com/feed/update/urn:li:activity:7470478927887646720/
   archive_url: https://web.archive.org/web/20260722153340/https://www.linkedin.com/feed/update/urn:li:activity:7470478927887646720/
 - title: fivethirtyeightindex.com
-  type: app
+  type: service
+  catalog_title: fivethirtyeightindex
   date: '2026-05-16'
   url: https://fivethirtyeightindex.com/
   archive_url: https://web.archive.org/web/20260720110900/https://fivethirtyeightindex.com/
@@ -25,7 +56,8 @@ clips:
   url: https://palewire.github.io/cuny-jour-critique-wheel/
   archive_url: https://web.archive.org/web/20260722153340/https://palewire.github.io/cuny-jour-critique-wheel/
 - title: kip.computer
-  type: software
+  type: service
+  catalog_title: kip.computer
   date: '2026-05-06'
   url: https://kip.computer
   archive_url: https://web.archive.org/web/20260617150601/https://kip.computer/
@@ -50,7 +82,8 @@ clips:
   url: https://palewi.re/docs/ire-archive-slide-deck/
   archive_url: https://web.archive.org/web/20260722153341/https://palewi.re/docs/ire-archive-slide-deck/
 - title: archive.ire.org
-  type: app
+  type: service
+  catalog_title: IRE Resource Center
   date: '2026-03-05'
   url: https://archive.ire.org/
   archive_url: https://web.archive.org/web/20260531011948/https://archive.ire.org/
@@ -99,21 +132,11 @@ clips:
   date: '2025-09-29'
   url: https://www.linkedin.com/feed/update/urn:li:activity:7378398717877383168/
   archive_url: https://web.archive.org/web/20260722153414/https://www.linkedin.com/feed/update/urn:li:activity:7378398717877383168/
-- title: 100 interactive embeds on the reuters.com homepage
-  type: app
-  date: '2025-09-08'
-  url: https://www.linkedin.com/feed/update/urn:li:activity:7369731190469070863/
-  archive_url: https://web.archive.org/web/20260722153414/https://www.linkedin.com/feed/update/urn:li:activity:7369731190469070863/
 - title: wnyc-radio-archive-transcriber
   type: software
   date: '2025-07-14'
   url: https://github.com/palewire/wnyc-radio-archive-transcriber
   archive_url: https://web.archive.org/web/20260511172906/https://github.com/palewire/wnyc-radio-archive-transcriber
-- title: First LLM Classifier at Hugging Face
-  type: lesson-plan
-  date: '2025-03-28'
-  url: https://huggingface.co/posts/fdaudens/253707357021654
-  archive_url: https://web.archive.org/web/20260722153415/https://huggingface.co/posts/fdaudens/253707357021654
 - title: Datawrapper JSON bookmarklet
   type: software
   date: '2025-03-17'
@@ -149,11 +172,6 @@ clips:
   date: '2025-01-21'
   url: https://www.reuters.com/data/trumps-approval-rating-2025-01-21/
   archive_url: https://web.archive.org/web/20260120234647/https://www.reuters.com/data/trumps-approval-rating-2025-01-21/
-- title: The decline of open-source news
-  type: story
-  date: '2024-12-17'
-  url: https://www.linkedin.com/feed/update/urn:li:activity:7274806425342599168/
-  archive_url: https://web.archive.org/web/20260722153415/https://www.linkedin.com/feed/update/urn:li:activity:7274806425342599168/
 - title: Federal Reserve Monitor
   type: app
   date: '2024-12-16'
@@ -170,7 +188,7 @@ clips:
   url: https://www.reuters.com/data/magnificent-seven-monitor-2024-10-30/
   archive_exemption: Data visualization access restricted
 - title: Min-Max Rescaling Calculator
-  type: app
+  type: software
   date: '2024-10-03'
   url: https://observablehq.com/@palewire/min-max-rescaling-calculator
   archive_url: https://web.archive.org/web/20260722153415/https://observablehq.com/@palewire/min-max-rescaling-calculator
@@ -185,7 +203,7 @@ clips:
   url: https://x.com/palewire/status/1823817980607914145
   archive_exemption: Social media content no longer available in Wayback Machine
 - title: Data loader to generate PNG from canvas
-  type: story
+  type: software
   date: '2024-07-11'
   url: https://observablehq.observablehq.cloud/framework-example-loader-canvas-to-png/
   archive_url: https://web.archive.org/web/20260722153415/https://observablehq.observablehq.cloud/framework-example-loader-canvas-to-png/
@@ -194,16 +212,6 @@ clips:
   date: '2024-05-20'
   url: https://arxiv.org/pdf/2311.09734
   archive_url: https://web.archive.org/web/20260617175002/https://arxiv.org/pdf/2311.09734
-- title: Enhance your data journalism skills with new advanced Python course
-  type: lesson-plan
-  date: '2024-05-17'
-  url: https://knightcenter.utexas.edu/enhance-your-data-journalism-skills-with-new-advanced-python-course/
-  archive_url: https://web.archive.org/web/20260722153415/https://knightcenter.utexas.edu/enhance-your-data-journalism-skills-with-new-advanced-python-course/
-- title: 'First Python Notebook: Data Analysis on Deadline'
-  type: lesson-plan
-  date: '2024-05-11'
-  url: https://journalismcourses.org/product/first-python-notebook-data-analysis-on-deadline/
-  archive_url: https://web.archive.org/web/20240917115040/https://journalismcourses.org/product/first-python-notebook-data-analysis-on-deadline/
 - title: 'Plot: Weighted Moving Average'
   type: software
   date: '2024-04-23'
@@ -214,19 +222,13 @@ clips:
   date: '2024-04-23'
   url: https://observablehq.com/@palewire/weighted-average
   archive_url: https://web.archive.org/web/20260722153416/https://observablehq.com/@palewire/weighted-average
-- title: How Reuters uses Datawrapper to create, automate and disseminate hundreds
-    of charts each week
-  type: app
-  date: '2024-03-15'
-  url: https://www.youtube.com/watch?v=LmfhEPdBBUU
-  archive_url: https://web.archive.org/web/20260707223314/https://www.youtube.com/watch?v=LmfhEPdBBUU
 - title: ipsos-credibility-interval
   type: software
   date: '2023-12-11'
   url: https://palewi.re/docs/ipsos-credibility-interval/
   archive_url: https://web.archive.org/web/20260722153341/https://palewi.re/docs/ipsos-credibility-interval/
 - title: Ipsos credibility interval calculator
-  type: app
+  type: software
   date: '2023-12-11'
   url: https://observablehq.com/@palewire/credibility-interval-calculator?collection=@palewire/numbers-in-the-newsroom
   archive_url: https://web.archive.org/web/20260722153416/https://observablehq.com/@palewire/credibility-interval-calculator?collection=%40palewire%2Fnumbers-in-the-newsroom
@@ -235,16 +237,6 @@ clips:
   date: '2023-11-26'
   url: https://github.com/palewire/sphinx-palewire-theme/tree/main
   archive_url: https://web.archive.org/web/20260511172913/https://github.com/palewire/sphinx-palewire-theme/tree/main
-- title: '@RandomPigeonGPT'
-  type: app
-  date: '2023-11-18'
-  url: https://mastodon.palewi.re/@RandomPigeonGPT
-  archive_url: https://web.archive.org/web/20260722153417/https://mastodon.palewi.re/@RandomPigeonGPT
-- title: '@NYCDataBot'
-  type: app
-  date: '2023-11-17'
-  url: https://mastodon.palewi.re/@nycdatabot
-  archive_url: https://web.archive.org/web/20260722153417/https://mastodon.palewi.re/@nycdatabot
 - title: atcf-data-parser
   type: software
   date: '2023-11-15'
@@ -265,6 +257,7 @@ clips:
   date: '2023-09-11'
   url: https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html
   archive_url: https://web.archive.org/web/20260820121709/https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html
+  link_url: https://web.archive.org/web/20260820121709/https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html
 - title: fed-dot-plot-scraper
   type: software
   date: '2023-08-10'
@@ -291,7 +284,7 @@ clips:
   url: https://twitter.com/palewire/status/1646895316749422592
   archive_exemption: Social media content no longer available in Wayback Machine
 - title: moneyinpolitics.wtf
-  type: app
+  type: service
   date: '2023-03-04'
   url: https://twitter.com/palewire/status/1632132828363374592
   archive_url: https://web.archive.org/web/20230315113032/https://twitter.com/palewire/status/1632132828363374592
@@ -300,11 +293,6 @@ clips:
   date: '2023-02-21'
   url: https://biglocalnews.org/content/news/2023/02/21/usda-animal-inspection-database.html
   archive_url: https://web.archive.org/web/20250823022905/https://biglocalnews.org/content/news/2023/02/21/usda-animal-inspection-database.html
-- title: '@reutersjobs'
-  type: app
-  date: '2023-02-16'
-  url: https://twitter.com/ReutersJobs
-  archive_url: https://web.archive.org/web/20230318114710/https://twitter.com/ReutersJobs
 - title: Instantly explore Big Local News projects with Datasette
   type: software
   date: '2023-01-30'
@@ -330,11 +318,6 @@ clips:
   date: '2022-11-21'
   url: https://twitter.com/palewire/status/1594697923295875073
   archive_url: https://web.archive.org/web/20221124194230/https://twitter.com/palewire/status/1594697923295875073
-- title: '"is 5" digital scan for archive.org and cummings.ee'
-  type: app
-  date: '2022-11-20'
-  url: https://twitter.com/palewire/status/1594679207535296514
-  archive_url: https://web.archive.org/web/20221125003946/https://twitter.com/palewire/status/1594679207535296514
 - title: Static-site framework deployment at THE CITY
   type: software
   date: '2022-11-09'
@@ -356,12 +339,14 @@ clips:
   url: https://twitter.com/palewire/status/1589605453075714050?t=h56GokOgE9354eQ2qmSPSA&s=19
   archive_url: https://web.archive.org/web/20230318114710/https://twitter.com/palewire/status/1589605453075714050?t=h56GokOgE9354eQ2qmSPSA&s=19
 - title: The AMSAT amateur satellite database
-  type: app
+  type: service
+  catalog_title: AMSAT Satellite Index
   date: '2022-10-24'
   url: https://twitter.com/palewire/status/1584520198274445312
   archive_exemption: Social media content no longer available in Wayback Machine
 - title: 'The Studs Terkel Archive Podcast: Season 2'
-  type: app
+  type: service
+  catalog_title: The Studs Terkel Archive Podcast
   date: '2022-10-14'
   url: https://twitter.com/palewire/status/1580904403942273027
   archive_url: https://web.archive.org/web/20230318114710/https://twitter.com/palewire/status/1580904403942273027
@@ -385,23 +370,20 @@ clips:
   date: '2022-09-13'
   url: https://biglocalnews.org/content/news/2022/09/13/new-calaccess-data.html
   archive_url: https://web.archive.org/web/20250912212750/https://biglocalnews.org/content/news/2022/09/13/new-calaccess-data.html
-- title: '@DivineAnnDvorak'
-  type: app
-  date: '2022-09-05'
-  url: https://twitter.com/palewire/status/1566834557915054080
-  archive_url: https://web.archive.org/web/20220905170646/https://twitter.com/palewire/status/1566834557915054080
 - title: Your Big Local News account has linked up with MuckRock and DocumentCloud
   type: software
   date: '2022-08-24'
   url: https://biglocalnews.org/content/news/2022/08/24/login-upgrade.html
   archive_url: https://web.archive.org/web/20250912224823/https://biglocalnews.org/content/news/2022/08/24/login-upgrade.html
 - title: '@LAXWeatherBot'
-  type: app
+  type: service
+  catalog_title: LAX Weather
   date: '2022-08-21'
   url: https://twitter.com/palewire/status/1561465422536273920
   archive_exemption: Social media content no longer available in Wayback Machine
 - title: '@newshomepages performance and accessibility rankings'
-  type: app
+  type: service
+  catalog_title: The News Homepages Archive
   date: '2022-08-16'
   url: https://twitter.com/palewire/status/1559647099683102721
   archive_url: https://web.archive.org/web/20230318114710/https://twitter.com/palewire/status/1559647099683102721
@@ -447,7 +429,8 @@ clips:
   url: https://github.com/biglocalnews/prefect-flow-template
   archive_url: https://web.archive.org/web/20260519222029/https://github.com/biglocalnews/prefect-flow-template
 - title: '@newshomepages'
-  type: app
+  type: service
+  catalog_title: The News Homepages Archive
   date: '2022-03-12'
   url: https://twitter.com/palewire/status/1502679775973834752
   archive_url: https://web.archive.org/web/20250323132127/https://twitter.com/palewire/status/1502679775973834752
@@ -482,13 +465,13 @@ clips:
   url: https://github.com/biglocalnews/upload-files
   archive_url: https://web.archive.org/web/20260521211723/https://github.com/biglocalnews/upload-files
 - title: How to deploy a Prefect agent to Google Kubernetes Engine
-  type: lesson-plan
+  type: story
   date: '2022-01-31'
   url: https://biglocalnews.org/content/news/2022/01/29/kubernetes-prefect-agent.html
   archive_url: https://web.archive.org/web/20251017014822/https://biglocalnews.org/content/news/2022/01/29/kubernetes-prefect-agent.html
 - title: How to push tagged Docker releases to Google Artifact Registry with a GitHub
     Action
-  type: lesson-plan
+  type: story
   date: '2022-01-22'
   url: https://biglocalnews.org/content/news/2022/01/27/docker-google-artifact-action.html
   archive_url: https://web.archive.org/web/20250805101546/https://biglocalnews.org/content/news/2022/01/27/docker-google-artifact-action.html
@@ -514,7 +497,8 @@ clips:
   url: https://www.latimes.com/california/story/2021-10-26/student-athletes-could-get-kicked-off-team-for-missing-lausd-vaccine-deadline
   archive_url: https://web.archive.org/web/20260722153448/https://www.latimes.com/california/story/2021-10-26/student-athletes-could-get-kicked-off-team-for-missing-lausd-vaccine-deadline
 - title: '@sanbornmaps'
-  type: app
+  type: service
+  catalog_title: Sanborn Maps
   date: '2021-10-17'
   url: https://twitter.com/palewire/status/1449778296476999684
   archive_url: https://web.archive.org/web/20230318114710/https://twitter.com/palewire/status/1449778296476999684
@@ -535,7 +519,8 @@ clips:
   url: https://www.latimes.com/california/story/2021-06-19/vaccination-rates-lag-among-california-public-safety-workers-drawing-concern
   archive_url: https://web.archive.org/web/20260722153448/https://www.latimes.com/california/story/2021-06-19/vaccination-rates-lag-among-california-public-safety-workers-drawing-concern
 - title: the e.e. cummings free poetry archive
-  type: app
+  type: service
+  catalog_title: the e.e. cummings free poetry archive
   date: '2021-05-03'
   url: https://palewi.re/posts/2021/05/02/ee-cummings-archive/
   archive_url: https://web.archive.org/web/20260722153339/https://palewi.re/posts/2021/05/02/ee-cummings-archive/
@@ -809,7 +794,8 @@ clips:
   url: https://github.com/datadesk/census-hard-to-map-analysis
   archive_url: https://web.archive.org/web/20260511172921/https://github.com/datadesk/census-hard-to-map-analysis
 - title: OldLAPhotos
-  type: software
+  type: service
+  catalog_title: Old LA Photos
   date: '2019-04-28'
   url: https://twitter.com/OldLAPhotos/status/1122645046732308480
   archive_url: https://web.archive.org/web/20220716084807/https://twitter.com/OldLAPhotos/status/1122645046732308480
@@ -875,7 +861,8 @@ clips:
   url: https://github.com/datadesk/tijuana-districts-map
   archive_url: https://web.archive.org/web/20260511172923/https://github.com/datadesk/tijuana-districts-map
 - title: muckrockbot
-  type: software
+  type: service
+  catalog_title: MuckRock Bot
   date: '2019-01-05'
   url: https://twitter.com/muckrockbot/status/1081741030301388800
   archive_url: https://web.archive.org/web/20190429045924/https://twitter.com/muckrockbot/status/1081741030301388800
@@ -1011,11 +998,6 @@ clips:
   date: '2018-03-12'
   url: http://www.latimes.com/local/lanow/la-me-ln-los-angeles-firefighters-20180310-story.html
   archive_url: https://web.archive.org/web/20260722153513/https://www.latimes.com/local/lanow/la-me-ln-los-angeles-firefighters-20180310-story.html
-- title: First Graphics App
-  type: lesson-plan
-  date: '2018-03-10'
-  url: http://www.firstgraphicsapp.org/
-  archive_url: https://web.archive.org/web/20181024011700/http://www.firstgraphicsapp.org:80/
 - title: ferc-enforcement-analysis
   type: software
   date: '2017-12-14'
@@ -1036,11 +1018,6 @@ clips:
   date: '2017-11-08'
   url: http://www.latimes.com/projects/la-na-houston-harvey-home-survivors/
   archive_url: https://web.archive.org/web/20260722153522/https://www.latimes.com/projects/la-na-houston-harvey-home-survivors/
-- title: Save My News
-  type: app
-  date: '2017-11-04'
-  url: http://www.savemy.news
-  archive_url: https://web.archive.org/web/20260707223314/https://savemy.news/
 - title: django-calaccess-processed data
   type: app
   date: '2017-10-31'
@@ -1696,11 +1673,6 @@ clips:
   date: '2014-02-28'
   url: http://www.latimes.com/local/la-me-0301-lafd-hiring-20140301-story.html
   archive_url: https://web.archive.org/web/20260722153517/https://www.latimes.com/local/la-me-0301-lafd-hiring-20140301-story.html
-- title: First News App
-  type: lesson-plan
-  date: '2014-02-28'
-  url: http://first-news-app.readthedocs.io/en/latest/
-  archive_url: https://web.archive.org/web/20260617175426/https://first-news-app.readthedocs.io/en/latest/
 - title: One of five LAFD recruits in training class are related to department firefighters
   type: story
   date: '2014-02-27'
@@ -2171,11 +2143,6 @@ clips:
   date: '2011-07-22'
   url: https://github.com/datadesk/latimes-statestyle
   archive_url: https://web.archive.org/web/20260511172930/https://github.com/datadesk/latimes-statestyle
-- title: PastPages
-  type: app
-  date: '2011-07-01'
-  url: http://www.pastpages.org
-  archive_url: https://web.archive.org/web/20260708181600/https://pastpages.org/
 - title: python-lametro-api
   type: software
   date: '2011-05-31'

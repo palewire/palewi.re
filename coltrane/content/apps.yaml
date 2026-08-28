@@ -1,0 +1,57 @@
+apps:
+- title: AMSAT Satellite Index
+  type: database
+  url: https://gitlab.amsat.org/open-source/amsat-satellite-index
+  description: Search and sort amateur satellites in space
+- title: California Civic Data Coalition
+  type: database
+  url: https://www.californiacivicdata.org/
+  description: Download California campaign finance data with ease
+- title: the e.e. cummings free poetry archive
+  type: archiving
+  url: https://cummings.ee/
+  description: A collection of the work of Edward Estlin Cummings, as it enters the public domain
+- title: fivethirtyeightindex
+  type: archiving
+  url: https://fivethirtyeightindex.com/
+  description: Explore 38,593 articles, datasets, podcasts, graphics and illustrations from fivethirtyeight.com
+- title: kip.computer
+  type: personal
+  url: https://kip.computer/
+  description: The homepage of my AI assistant
+- title: moneyinpolitics.wtf
+  type: database
+  url: https://moneyinpolitics.wtf/
+  description: America’s most comprehensive dictionary of campaign finance jargon
+- title: The News Homepages Archive
+  type: archiving
+  url: https://homepages.news/
+  description: An open-source archive that gathers, saves, shares and analyzes news homepages
+- title: palewi.re
+  type: personal
+  url: https://palewi.re/
+  description: The code that powers this website
+- title: The Studs Terkel Archive Podcast
+  type: archiving
+  url: https://studs.show/
+  description: Selections from the WFMT collection of radio interviews
+- title: LAX Weather
+  type: bot
+  url: https://mastodon.palewi.re/@laxweather
+  description: Latest airport weather reports from LAX
+- title: MuckRock Bot
+  type: bot
+  url: https://mastodon.palewi.re/@muckrockbot
+  description: Recent public-records requests from MuckRock
+- title: Old LA Photos
+  type: bot
+  url: https://mastodon.palewi.re/@oldlaphotos
+  description: Historic photographs from the Los Angeles Public Library
+- title: Sanborn Maps
+  type: bot
+  url: https://mastodon.palewi.re/@sanbornmaps
+  description: Random fire-insurance maps from the Library of Congress
+- title: IRE Resource Center
+  type: archiving
+  url: https://archive.ire.org/
+  description: A searchable library of investigative-reporting knowledge

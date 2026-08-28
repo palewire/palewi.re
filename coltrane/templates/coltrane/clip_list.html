@@ -1,21 +1,21 @@
 {% extends "coltrane/base.html" %}
 
-{% block title %}work . {{ block.super }}{% endblock %}
+{% block title %}clips . {{ block.super }}{% endblock %}
 
-{% block canonicalurl %}https://palewi.re/work/{% endblock %}
+{% block canonicalurl %}https://palewi.re/clips/{% endblock %}
 
-{% block ogtitle %}work{% endblock %}
+{% block ogtitle %}clips{% endblock %}
 {% block ogtype %}website{% endblock %}
-{% block ogurl %}https://palewi.re/work/{% endblock %}
-{% block ogdescription %}Stories, apps and open-source software I've authored, typically in partnership with others.{% endblock %}
+{% block ogurl %}https://palewi.re/clips/{% endblock %}
+{% block ogdescription %}My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web.{% endblock %}
 
-{% block twittertitle %}work{% endblock %}
-{% block twitterdescription %}Stories, apps and open-source software I've authored, typically in partnership with others.{% endblock %}
-{% block twitterurl %}https://palewi.re/work/{% endblock %}
+{% block twittertitle %}clips{% endblock %}
+{% block twitterdescription %}My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web.{% endblock %}
+{% block twitterurl %}https://palewi.re/clips/{% endblock %}
 
-{% block googleurl %}https://palewi.re/work/{% endblock %}
-{% block googleheadline %}work{% endblock %}
-{% block googledescription %}Stories, apps and open-source software I've authored, typically in partnership with others.{% endblock %}
+{% block googleurl %}https://palewi.re/clips/{% endblock %}
+{% block googleheadline %}clips{% endblock %}
+{% block googledescription %}My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web.{% endblock %}
 {% block googlecreated %}2019-11-10T00:00:00{% endblock %}
 {% block googlepublished %}2019-11-10T00:00:00{% endblock %}
 {% block googletype %}CollectionPage{% endblock %}
@@ -26,7 +26,7 @@
         {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "url": "https://palewi.re/work/",
+            "url": "https://palewi.re/clips/",
             "itemListOrder": "Descending",
             "numberOfItems": {{ object_list|length }},
             "itemListElement": [
@@ -34,7 +34,7 @@
                 {
                     "@type": "ListItem",
                     "position": {{ forloop.counter }},
-                    "url": "{{ object.url }}",
+                    {% if object.is_linkable %}"url": "{{ object.display_url }}",{% endif %}
                     "name": "{{ object.title|escapejs }}"
                 }{% if not forloop.last %},{% endif %}
                 {% endfor %}
@@ -45,8 +45,8 @@
 
 {% block content %}
 <div class="interiorlist twelvecol last">
-    <h1>Work</h1>
-    <p class="description">Stories, apps and open-source software I've authored, typically in partnership with others</p>
+    <h1>Clips</h1>
+    <p class="description">My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web</p>
     {% for object in object_list %}
         {% ifchanged object.date.year %}
         <div class="row">
@@ -58,7 +58,11 @@
         <div class="row">
             <article class="listitem twelvecol last">
                 {{ object.date|date:"N d" }} •
-                <a href="{{ object.url }}">{{ object.title }}</a>
+                {% if object.is_linkable %}
+                    <a href="{{ object.display_url }}">{{ object.title }}</a>
+                {% else %}
+                    {{ object.title }}
+                {% endif %}
             </article>
         </div>
     {% endfor %}

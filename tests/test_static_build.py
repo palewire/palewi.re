@@ -24,10 +24,13 @@ def test_static_build_matches_public_django_pages(tmp_path: Path) -> None:
     client = Client(HTTP_HOST="palewi.re")
     page_paths = [
         "/who-is-ben-welsh/",
-        "/work/",
-        "/talks/",
         "/posts/",
+        "/clips/",
+        "/apps/",
+        "/code/",
+        "/guides/",
         "/docs/",
+        "/talks/",
         "/bots/",
         *(post.get_absolute_url() for post in load_posts()),
     ]

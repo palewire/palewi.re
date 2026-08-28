@@ -59,9 +59,95 @@ def test_bio_page_footer_links_to_main_commit(client):
     assert ">0123456</a>" in content
 
 
-@pytest.mark.parametrize("page", ["/work/", "/talks/", "/posts/", "/docs/", "/bots/"])
+@pytest.mark.parametrize(
+    "page",
+    ["/posts/", "/clips/", "/apps/", "/code/", "/guides/", "/talks/", "/bots/"],
+)
 def test_public_list_pages_are_available_without_database(client, page):
     assert client.get(page).status_code == 200
+
+
+def test_mobile_navigation_has_menu_disclosure(client):
+    content = client.get("/apps/").content.decode()
+    assert '<div class="nav-menu">' in content
+    assert 'popovertarget="mobile-nav-links"' in content
+    assert '<div id="mobile-nav-links" class="nav-drawer" popover>' in content
+    assert 'aria-label="Close menu"' in content
+    assert '<span class="hamburger" aria-hidden="true">' in content
+
+
+@pytest.mark.parametrize(("old_path", "new_path"), [("/work/", "/clips/")])
+def test_replaced_list_pages_redirect(client, old_path, new_path):
+    response = client.get(old_path)
+    assert response.status_code == 302
+    assert response["Location"] == new_path
+
+
+def test_docs_page_points_to_separate_catalogs(client):
+    content = client.get("/docs/").content.decode()
+    assert 'href="/code/"' in content
+    assert 'href="/guides/"' in content
+
+
+def test_work_records_route_to_their_new_sections(client):
+    content = client.get("/clips/").content.decode()
+    assert "Journalism lost its culture of sharing" in content
+    assert "How to deploy a Prefect agent to Google Kubernetes Engine" in content
+    assert "How to push tagged Docker releases" in content
+    assert "Tracking Trump" in content
+    assert "Reuters Climate Monitor" in content
+    assert "geodataframe-to-pmtiles" not in content
+    assert "RandomPigeonGPT" not in content
+    assert "The decline of open-source news" not in content
+    assert "Min-Max Rescaling Calculator" not in content
+    assert "Data loader to generate PNG from canvas" not in content
+    assert "How Reuters uses Datawrapper" not in content
+    assert "Ipsos credibility interval calculator" not in content
+    assert "is 5" not in content
+    assert "@DivineAnnDvorak" not in content
+
+    apps = client.get("/apps/").content.decode()
+    assert "Services" not in apps
+    assert "Archiving" in apps
+    assert "Databases" in apps
+    assert "Social media bots" in apps
+    assert "Personal websites" in apps
+    assert "Wheel of Feedback" not in apps
+    assert "Datawrapper MCP" not in apps
+    assert "palewi.re data" not in apps
+    assert "fivethirtyeightindex" in apps
+    assert "AMSAT Satellite Index" in apps
+    assert "Random Pigeon GPT" not in apps
+    assert "Reuters Jobs" not in apps
+    assert "Save My News" not in apps
+    assert "NYC Data Bot" not in apps
+    assert "IRE Resource Center" in apps
+    assert "the e.e. cummings free poetry archive" in apps
+    assert "The News Homepages Archive" in apps
+    assert "The Studs Terkel Archive Podcast" in apps
+    assert "PastPages" not in apps
+    assert "The Studs Terkel Archive Podcast: Season 2" not in apps
+
+    code = client.get("/code/").content.decode()
+    assert "air-quality-index" in code
+    assert "datawrapper-mcp" in code
+    assert "Wheel of Feedback" in code
+    assert "Min-Max Rescaling Calculator" in code
+    assert "Data loader to generate PNG from canvas" in code
+    assert "Ipsos credibility interval calculator" in code
+    assert "random-pigeon-gpt" in code
+    assert "reuters-jobs" in code
+    assert "Save My News" in code
+    assert "Updates" not in code
+    assert all(section in code for section in ["Data", "Python", "JavaScript", "Other", "Inactive"])
+
+    guides = client.get("/guides/").content.decode()
+    assert "First Python Notebook" in guides
+    assert 'href="https://palewi.re/docs/first-python-notebook/"' in guides
+    assert "First Observable Notebook" in guides
+    assert "Lessons" not in guides
+    assert "Updates" not in guides
+    assert "First LLM Classifier at Hugging Face" not in guides
 
 
 @pytest.mark.parametrize("page", ["/scrape/albums/2006.html", "/openlayers-proportional-symbols/"])
@@ -82,14 +168,21 @@ def test_django_no_longer_serves_mastodon_discovery_endpoints(client, page):
 
 
 @pytest.mark.parametrize(
-    "path",
+    ("path", "status_code"),
     [
-        *(f"/{rule.source}" for rule in RULES if not rule.is_dynamic),
-        *(example for rule in RULES if rule.is_dynamic for example in rule.examples),
+        *(
+            (
+                f"/{rule.source}",
+                200 if rule.source in {"apps/", "clips/"} else 302 if rule.source == "work/" else 404,
+            )
+            for rule in RULES
+            if not rule.is_dynamic
+        ),
+        *((example, 404) for rule in RULES if rule.is_dynamic for example in rule.examples),
     ],
 )
-def test_legacy_manifest_paths_return_not_found_at_django_origin(client, path):
-    assert client.get(f"{path}?source=test").status_code == 404
+def test_legacy_manifest_paths_have_expected_django_status(client, path, status_code):
+    assert client.get(f"{path}?source=test").status_code == status_code
 
 
 @pytest.mark.parametrize("source", ["/1/02/03/post/", "/2024/2/03/post/", "/2024/02/3/post/"])

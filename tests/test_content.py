@@ -8,9 +8,15 @@ import yaml
 
 from coltrane.content_loaders import (
     ContentError,
+    Doc,
+    group_apps,
+    group_code,
+    load_apps,
     load_awards,
     load_bots,
+    load_clip_updates,
     load_clips,
+    load_code,
     load_docs,
     load_posts,
     load_slogans,
@@ -81,6 +87,86 @@ def test_awards_empty_list_ok(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# apps.yaml
+# ---------------------------------------------------------------------------
+
+
+def test_apps_yaml_loads():
+    apps = load_apps()
+    assert len(apps) == 14
+    assert all(app.description for app in apps)
+    descriptions = {app.title: app.description for app in apps}
+    assert descriptions["the e.e. cummings free poetry archive"].startswith(
+        "A collection of the work of Edward Estlin Cummings"
+    )
+    assert descriptions["fivethirtyeightindex"].startswith("Explore 38,593")
+    assert [category.title for category in group_apps(apps)] == [
+        "Archiving",
+        "Databases",
+        "Social media bots",
+        "Personal websites",
+    ]
+
+
+def test_app_requires_http_url(tmp_path):
+    path = tmp_path / "apps.yaml"
+    path.write_text("apps:\n  - title: Example\n    type: personal\n    url: not-a-url\n")
+
+    with pytest.raises(ContentError, match="HTTP\\(S\\) URL"):
+        load_apps(path)
+
+
+def test_app_duplicate_url_raises(tmp_path):
+    path = tmp_path / "apps.yaml"
+    path.write_text(
+        "apps:\n"
+        "  - title: One\n    type: personal\n    url: https://example.com/\n"
+        "  - title: Two\n    type: personal\n    url: https://example.com/\n"
+    )
+
+    with pytest.raises(ContentError, match="duplicate"):
+        load_apps(path)
+
+
+def test_apps_empty_list_ok(tmp_path):
+    path = tmp_path / "apps.yaml"
+    path.write_text("apps: []\n")
+    assert load_apps(path) == []
+
+
+# ---------------------------------------------------------------------------
+# code.yaml
+# ---------------------------------------------------------------------------
+
+
+def test_code_yaml_loads_as_one_alphabetical_catalog():
+    projects = load_code()
+    assert len(projects) == 250
+    assert [project.title.casefold() for project in projects] == sorted(
+        project.title.casefold() for project in projects
+    )
+    assert [category.title for category in group_code(projects)] == [
+        "Python",
+        "JavaScript",
+        "Data",
+        "Other",
+        "Inactive",
+    ]
+
+
+def test_code_rejects_duplicate_titles(tmp_path):
+    path = tmp_path / "code.yaml"
+    path.write_text(
+        "code:\n"
+        "  - title: Example\n    type: python\n    url: https://github.com/example/one\n"
+        "  - title: example\n    type: python\n    url: https://github.com/example/two\n"
+    )
+
+    with pytest.raises(ContentError, match="duplicate code project title"):
+        load_code(path)
+
+
+# ---------------------------------------------------------------------------
 # clips.yaml
 # ---------------------------------------------------------------------------
 
@@ -101,6 +187,29 @@ def test_clip_invalid_type_raises(tmp_path):
     p.write_text("clips:\n  - title: T\n    type: invalid\n    date: '2024-01-01'\n    url: http://x.com\n")
     with pytest.raises(ContentError, match="type"):
         load_clips(p)
+
+
+def test_clip_updates_remove_catalog_duplicates(tmp_path, monkeypatch):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Same title\n    type: software\n    date: '2024-01-03'\n    url: https://updates.example.com/\n"
+        "  - title: Same URL\n    type: software\n    date: '2024-01-02'\n    url: https://code.example.com/\n"
+        "  - title: Release name\n    catalog_title: Same title\n    type: software\n"
+        "    date: '2024-01-01'\n    url: https://updates.example.com/alias/\n"
+        "  - title: New release\n    type: software\n    date: '2023-01-01'\n    url: https://updates.example.com/new/\n"
+    )
+    monkeypatch.setattr("coltrane.content_loaders.CONTENT_PATH", tmp_path)
+    catalog = [
+        Doc(
+            title="Same title",
+            type="software",
+            url="https://docs.example.com/",
+            repository_url="https://code.example.com/",
+        )
+    ]
+
+    assert [clip.title for clip in load_clip_updates("software", catalog)] == ["New release"]
 
 
 def test_clip_duplicate_url_raises(tmp_path):
@@ -126,6 +235,50 @@ def test_clip_accepts_yaml_date_values(tmp_path):
     p.write_text("clips:\n  - title: T\n    type: story\n    date: 2024-01-01\n    url: http://x.com\n")
 
     assert load_clips(p)[0].date == datetime.date(2024, 1, 1)
+
+
+def test_clip_only_links_http_urls(tmp_path):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Linked\n    type: story\n    date: '2024-01-01'\n    url: https://example.com/\n"
+        "  - title: Lost\n    type: story\n    date: '2023-01-01'\n    url: Original URL lost\n"
+    )
+
+    linked, lost = load_clips(path)
+    assert linked.is_linkable
+    assert not lost.is_linkable
+
+
+def test_clip_can_link_to_preserved_copy(tmp_path):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Preserved\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/gone\n"
+        "    link_url: https://web.archive.org/web/20240101/https://example.com/gone\n"
+    )
+
+    clip = load_clips(path)[0]
+    assert clip.display_url.startswith("https://web.archive.org/")
+    assert clip.is_linkable
+
+
+def test_clip_link_url_error_names_the_field(tmp_path):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Broken fallback\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/gone\n"
+        "    link_url: not-a-url\n"
+    )
+
+    with pytest.raises(ContentError, match="field 'link_url' must be an HTTP\\(S\\) URL"):
+        load_clips(path)
 
 
 def test_clip_accepts_wayback_metadata(tmp_path):
@@ -448,6 +601,8 @@ def test_bots_empty_list_ok(tmp_path):
     ("loader", "key"),
     [
         (load_awards, "awards"),
+        (load_apps, "apps"),
+        (load_code, "code"),
         (load_clips, "clips"),
         (load_talks, "talks"),
         (load_docs, "docs"),

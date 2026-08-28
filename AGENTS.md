@@ -45,7 +45,7 @@ secrets, generated files, or `.goals/` agent state.
 ## Project map
 
 - `coltrane/`: publishing features and content
-  - `coltrane/content/`: YAML-backed content (awards, clips, docs, talks, slogans, bots)
+  - `coltrane/content/`: YAML-backed content (apps, awards, clips, code, docs, talks, slogans, bots)
   - `coltrane/content_loaders.py`: validated loaders for all YAML content types
 - `toolbox/`: shared utilities
 - `project/`: Django settings and URL routing
@@ -88,7 +88,9 @@ Ordered by descending year, then alphabetically by title.
 
 ### clips.yaml
 
-Work items listed on `/work/`.
+Published work records are routed by type: `story` and newsroom `app` records
+appear on `/clips/`, standalone `service` records on `/apps/`, `software`
+records on `/code/`, and `lesson-plan` records on `/guides/`.
 
 ```yaml
 clips:
@@ -124,7 +126,8 @@ Ordered by descending date.
 
 ### docs.yaml
 
-Documentation listed on `/docs/` in two groups.
+Documentation listed in two catalogs: software on `/code/` and lesson plans on
+`/guides/`.
 
 ```yaml
 docs:
@@ -137,7 +140,8 @@ docs:
 
 `repository_url` must be an HTTP(S) URL. Omit it or use an empty value when a
 canonical repository cannot be verified. It is catalog metadata and is not
-rendered on `/docs/`. Docs are ordered by type, then alphabetically by title.
+rendered on the list pages. Docs are ordered by type, then alphabetically by
+title.
 
 ### bio_skills.yaml
 
