@@ -1,0 +1,77 @@
+name: Check security.txt expiration
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-txt-expiration
+  cancel-in-progress: false
+
+jobs:
+  check-expiration:
+    name: Check expiration
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      renewal_needed: ${{ steps.expiration.outputs.renewal_needed }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+
+      - name: Install checker dependencies
+        run: uv sync --locked --group dev
+
+      - name: Check security.txt expiration
+        id: expiration
+        run: uv run python scripts/security_txt_expiry.py --github-output "$GITHUB_OUTPUT"
+
+  manage-renewal-issue:
+    name: Manage renewal issue
+    needs: check-expiration
+    if: needs.check-expiration.outputs.renewal_needed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE_TITLE: Renew security.txt before expiration
+      ISSUE_BODY: |
+        Renew the `security.txt` record before it expires:
+
+        - Confirm the security contact.
+        - Set a new future `Expires:` date within one year.
+        - Deploy the change.
+        - Smoke-test https://palewi.re/.well-known/security.txt.
+    steps:
+      - name: Create or reopen renewal issue
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          existing_issue="$(
+            gh issue list --repo "$GITHUB_REPOSITORY" --state all --search "$ISSUE_TITLE in:title" \
+              --limit 100 --json number,title,state |
+              jq -r --arg title "$ISSUE_TITLE" \
+                '[.[] | select(.title == $title)] | sort_by(.number) | last |
+                if . then "\(.number)\t\(.state)" else empty end'
+          )"
+
+          if [[ -n "$existing_issue" ]]; then
+            IFS=$'\t' read -r issue_number issue_state <<< "$existing_issue"
+            if [[ "$issue_state" == "CLOSED" ]]; then
+              gh issue reopen "$issue_number" --repo "$GITHUB_REPOSITORY"
+            fi
+            gh issue edit "$issue_number" --repo "$GITHUB_REPOSITORY" --body "$ISSUE_BODY"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$ISSUE_TITLE" --body "$ISSUE_BODY"
+          fi
