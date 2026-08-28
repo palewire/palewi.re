@@ -482,10 +482,10 @@ instead of proxying to an origin. This Worker does not fetch a same-zone origin,
 that redirect matches never create a subrequest.
 
 The production smoke workflow runs the same verifier after deployment. It
-checks every exact rule, two representative cases for
-each dynamic rule, the exact `Location`, the Worker marker, and adjacent
-non-legacy paths. It uses a 20-second curl timeout and waits 15 seconds between
-up to four marker checks for route propagation.
+checks every exact rule, two representative cases for each dynamic rule, the
+exact `Location`, the Worker marker, and adjacent non-legacy paths. Canary and
+production verification use a 20-second curl timeout and wait 15 seconds
+between up to four marker checks for route propagation.
 
 Use a dedicated Cloudflare token for deployment, restricted to the owning
 account and `palewi.re` zone. It needs only **Account > Workers Scripts >
