@@ -31,7 +31,7 @@
             "url": "https://palewi.re/who-is-ben-welsh/",
             "image": "https://palewi.re{% static 'img/ben-blue-800.jpg' %}",
             "sameAs": [
-                {% for obj in socialmedia_list %}"{{ obj.url }}"{% if not forloop.last %}, {% endif %}{% endfor %}
+                {% for obj in socialmedia_list %}"{{ obj.url|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}
             ]
         }
         </script>

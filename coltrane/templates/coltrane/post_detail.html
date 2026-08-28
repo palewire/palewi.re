@@ -48,7 +48,7 @@
                 "@type": "Organization",
                 "name": "palewire"
             }{% if object.repr_image %},
-            "image": "{{ object.repr_image }}"{% endif %}
+            "image": "{{ object.repr_image|escapejs }}"{% endif %}
         }
         </script>
 {% endblock %}

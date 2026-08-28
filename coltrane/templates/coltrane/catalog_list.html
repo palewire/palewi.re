@@ -32,7 +32,7 @@
                 {
                     "@type": "ListItem",
                     "position": {{ forloop.counter }},
-                    "url": "{{ object.url }}",
+                    "url": "{{ object.url|escapejs }}",
                     "name": "{{ object.title|escapejs }}"
                 }{% if not forloop.last %},{% endif %}
                 {% endfor %}
