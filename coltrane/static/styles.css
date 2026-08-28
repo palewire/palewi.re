@@ -910,6 +910,11 @@ ul.bullets li {
   font-size: 1em;
   margin: 0 0 0.5em 0;
 }
+.interiorlist .catalog-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .interiorlist .section-hed {
   font-weight: var(--font-weight-bold);
   font-size: 1.1em;

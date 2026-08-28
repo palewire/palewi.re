@@ -1,6 +1,7 @@
 {% extends "coltrane/base.html" %}
 
 {% block title %}clips . {{ block.super }}{% endblock %}
+{% block description %}My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web.{% endblock %}
 
 {% block canonicalurl %}https://palewi.re/clips/{% endblock %}
 
@@ -47,24 +48,31 @@
 <div class="interiorlist twelvecol last">
     <h1>Clips</h1>
     <p class="description">My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web</p>
+    {% if object_list %}
+    <section>
     {% for object in object_list %}
         {% ifchanged object.date.year %}
+        {% if not forloop.first %}</ul>{% endif %}
         <div class="row">
-            <div class="section-hed twelvecol last">
+            <h2 class="section-hed twelvecol last">
                 {{ object.date|date:"Y" }}
-            </div>
+            </h2>
         </div>
+        <ul class="catalog-list">
         {% endifchanged %}
-        <div class="row">
+        <li class="row">
             <article class="listitem twelvecol last">
-                {{ object.date|date:"N d" }} •
+                <time datetime="{{ object.date|date:"Y-m-d" }}">{{ object.date|date:"N d" }}</time> •
                 {% if object.is_linkable %}
                     <a href="{{ object.display_url }}">{{ object.title }}</a>
                 {% else %}
                     {{ object.title }}
                 {% endif %}
             </article>
-        </div>
+        </li>
     {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
 </div>
 {% endblock %}
