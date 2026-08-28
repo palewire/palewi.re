@@ -67,6 +67,19 @@ talks:
   date: '2025-03-20'
   video_url: https://www.youtube.com/watch?feature=shared&v=8FPAu6MccqU
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vSlYWM0QKPW-81ofDOIIrfJM4tTtMWdHlnAdarGDYepdkiKTp2UDzcmx_NNBYXiH4tsLcy68LVWer2x/pub?start=false&loop=false&delayms=3000
+  slug: good-trouble-ai
+  short_title: Good Trouble
+  byline: Ben Welsh and Scott Klein
+  deck_url: /static/talks/good-trouble-ai/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/good-trouble-ai/good-trouble-ai.pdf
+  notes_template: coltrane/talks/good-trouble-ai-notes.html
+  notes_text_url: /static/talks/good-trouble-ai/notes.txt
+  transcript_template: coltrane/talks/good-trouble-ai-transcript.html
+  transcript_text_url: /static/talks/good-trouble-ai/transcript.txt
+  local_video_url: /media/talks/good-trouble-ai/video.mp4
+  captions_url: /static/talks/good-trouble-ai/captions.vtt
+  poster_url: /media/talks/good-trouble-ai/poster.jpg
 - title: First LLM Classifier
   venue: NICAR
   location: Minneapolis

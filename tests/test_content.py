@@ -355,6 +355,8 @@ def test_talk_optional_fields_default_empty(tmp_path):
     assert talks[0].slug == ""
     assert talks[0].deck_url == ""
     assert talks[0].short_title == ""
+    assert talks[0].byline == ""
+    assert talks[0].deck_aspect_ratio == ""
     assert talks[0].notes_text_url == ""
     assert talks[0].transcript_text_url == ""
 
@@ -369,7 +371,9 @@ def test_talk_detail_fields_and_slug_load(tmp_path):
         "    date: '2024-01-01'\n"
         "    slug: a-talk\n"
         "    short_title: A short title\n"
+        "    byline: A Speaker and Another Speaker\n"
         "    deck_url: /static/talks/a-talk/\n"
+        "    deck_aspect_ratio: 16 / 9\n"
         "    notes_template: coltrane/talks/a-talk-notes.html\n"
         "    notes_text_url: /static/talks/a-talk/notes.txt\n"
         "    transcript_template: coltrane/talks/a-talk-transcript.html\n"
@@ -381,11 +385,29 @@ def test_talk_detail_fields_and_slug_load(tmp_path):
     assert talk.get_absolute_url() == "/talks/a-talk/"
     assert talk.deck_url == "/static/talks/a-talk/"
     assert talk.short_title == "A short title"
+    assert talk.byline == "A Speaker and Another Speaker"
+    assert talk.deck_aspect_ratio == "16 / 9"
     assert talk.display_subtitle == "A talk"
     assert talk.notes_template == "coltrane/talks/a-talk-notes.html"
     assert talk.notes_text_url == "/static/talks/a-talk/notes.txt"
     assert talk.transcript_template == "coltrane/talks/a-talk-transcript.html"
     assert talk.transcript_text_url == "/static/talks/a-talk/transcript.txt"
+
+
+@pytest.mark.parametrize("deck_aspect_ratio", ["16:9", "0 / 9", "16 / 0", "wide"])
+def test_talk_rejects_invalid_deck_aspect_ratio(tmp_path, deck_aspect_ratio):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: T\n"
+        "    venue: V\n"
+        "    location: L\n"
+        "    date: '2024-01-01'\n"
+        f"    deck_aspect_ratio: {deck_aspect_ratio}\n"
+    )
+
+    with pytest.raises(ContentError, match="deck_aspect_ratio"):
+        load_talks(p)
 
 
 def test_talk_duplicate_slug_raises(tmp_path):

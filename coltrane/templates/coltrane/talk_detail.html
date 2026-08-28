@@ -23,11 +23,15 @@
         <div id="detailpubdate">
             <p>
                 By
+                {% if object.byline %}
+                {{ object.byline }}
+                {% else %}
                 <span itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <span itemprop="name">
                         <a rel="author" href="/who-is-ben-welsh/">Ben Welsh</a>
                     </span>
                 </span>
+                {% endif %}
                 •
                 <time datetime="{{ object.date|date:"Y-m-d" }}" itemprop="datePublished">{{ object.date|date:"F j, Y" }}</time>
                 •
@@ -39,7 +43,7 @@
     {% if object.deck_url %}
     <section aria-labelledby="slides">
         <h2 id="slides">Slides</h2>
-        <iframe class="talk-detail-deck" src="{{ object.deck_url }}" title="Slides for {{ object.title }}"></iframe>
+        <iframe class="talk-detail-deck"{% if object.deck_aspect_ratio %} style="--talk-deck-aspect-ratio: {{ object.deck_aspect_ratio }};"{% endif %} src="{{ object.deck_url }}" title="Slides for {{ object.title }}"></iframe>
         {% if object.notes_template %}
         <details class="talk-detail-text">
             <summary>Show the extracted slide text</summary>
