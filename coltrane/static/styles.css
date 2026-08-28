@@ -764,6 +764,7 @@ nav .links li a:hover {
 
 .topbar {
   border-bottom: var(--border-topbar);
+  margin-top: 0.625em;
   margin-bottom: 20px;
 }
 
