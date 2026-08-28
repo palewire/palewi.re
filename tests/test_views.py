@@ -1,6 +1,7 @@
 """Tests for public-facing pages and redirects."""
 
 from unittest.mock import patch
+from xml.etree import ElementTree
 
 import pytest
 from django.templatetags.static import static
@@ -264,3 +265,23 @@ def test_robots_txt_ok(client):
 
 def test_sitemap_index_ok(client):
     assert client.get("/sitemap.xml").status_code == 200
+
+
+def test_static_sitemap_lists_every_public_list_page(client):
+    response = client.get("/sitemap-static.xml")
+
+    assert response.status_code == 200
+    root = ElementTree.fromstring(response.content)
+    namespace = {"sitemap": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    urls = {entry.findtext("sitemap:loc", namespaces=namespace) for entry in root.findall("sitemap:url", namespace)}
+    assert urls == {
+        "http://testserver/who-is-ben-welsh/",
+        "http://testserver/posts/",
+        "http://testserver/clips/",
+        "http://testserver/apps/",
+        "http://testserver/code/",
+        "http://testserver/docs/",
+        "http://testserver/guides/",
+        "http://testserver/talks/",
+        "http://testserver/bots/",
+    }
