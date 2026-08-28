@@ -262,11 +262,11 @@
       "sha256": "1ea75131fd545c162c1ff3dc1282866f3c4d48add34d92e3f86a0b46fc7ba729"
     },
     {
-      "body_sha256": "88a95f1119613c68a0cd5b0f974cbe85c0ac9062a7c666b2c72273cadd054c40",
+      "body_sha256": "f51048f249baae72a9cff235268f449ce6032ca96bd0920130d2f675dceeefe8",
       "path": "posts/2010-11-07--django-recipe-twitter-style-infinite-scroll.md",
       "permalink": "/posts/2010/11/07/django-recipe-twitter-style-infinite-scroll/",
       "published_at": "2010-11-07T12:36:59-08:00",
-      "sha256": "02e683fe48664768b7c6a696816ecb2654bebde4b1c801936c5ac6e7ea54ef6d"
+      "sha256": "904fb4682cd046d06f613ca6adb131a396fbed05ef5fd126cc53a5028c5d2a08"
     },
     {
       "body_sha256": "f2886d440bfe1c0cb673ff1c20811063aa885c15ea152557ff14d22471e46808",
@@ -507,7 +507,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "1cca1819a606bf11aab5c7dccd8067bbfc171443924562da0cf0b50eca432564",
+  "posts_fingerprint_sha256": "8b1ba7f68a7c96b8ff813dfda09b672acdaffd76be833ca56fb33331367897bc",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,
