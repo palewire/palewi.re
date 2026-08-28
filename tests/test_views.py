@@ -165,7 +165,7 @@ def test_talk_detail_page_is_available(client):
     assert "Bare Facts First" in content
     assert 'rel="author" href="/who-is-ben-welsh/">Ben Welsh</a>' in content
     assert 'src="/static/talks/bare-facts-first-datawrapper/"' in content
-    assert ">Presentation text<" in content
+    assert "Show the extracted slide text" in content
     assert 'kind="captions" src="/static/talks/bare-facts-first-datawrapper/captions.vtt"' in content
     assert "Show the timestamped transcript" in content
     assert ">Downloads<" in content

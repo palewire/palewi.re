@@ -40,6 +40,14 @@
     <section aria-labelledby="slides">
         <h2 id="slides">Slides</h2>
         <iframe class="talk-detail-deck" src="{{ object.deck_url }}" title="Slides for {{ object.title }}"></iframe>
+        {% if object.notes_template %}
+        <details class="talk-detail-text">
+            <summary>Show the extracted slide text</summary>
+            <div class="talk-detail-text-content">
+                {% include object.notes_template %}
+            </div>
+        </details>
+        {% endif %}
     </section>
     {% endif %}
 
@@ -51,18 +59,14 @@
             {% if object.captions_url %}<track kind="captions" src="{{ object.captions_url }}" srclang="en" label="English">{% endif %}
             Your browser does not support HTML video. <a href="{{ object.local_video_url }}">Download the recording</a>.
         </video>
-    </section>
-    {% endif %}
-
-    {% if object.notes_template %}
-    <section aria-labelledby="presentation-text">
-        <h2 id="presentation-text">Presentation text</h2>
+        {% if object.transcript_template %}
         <details class="talk-detail-text">
-            <summary>Show the extracted slide text</summary>
+            <summary>Show the timestamped transcript</summary>
             <div class="talk-detail-text-content">
-                {% include object.notes_template %}
+                {% include object.transcript_template %}
             </div>
         </details>
+        {% endif %}
     </section>
     {% endif %}
 
@@ -76,18 +80,6 @@
         </p>
     </section>
     {% endif %}
-    {% endif %}
-
-    {% if object.transcript_template %}
-    <section aria-labelledby="transcript">
-        <h2 id="transcript">Transcript</h2>
-        <details class="talk-detail-text">
-            <summary>Show the timestamped transcript</summary>
-            <div class="talk-detail-text-content">
-                {% include object.transcript_template %}
-            </div>
-        </details>
-    </section>
     {% endif %}
 
     {% if object.pdf_url or object.local_video_url or object.text_url %}

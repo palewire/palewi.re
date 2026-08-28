@@ -842,7 +842,6 @@ nav .links li a:hover {
 
 .talk-detail-text summary {
   cursor: pointer;
-  font-weight: var(--font-weight-bold);
 }
 
 .talk-detail-text-content {
