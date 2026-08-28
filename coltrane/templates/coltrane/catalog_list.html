@@ -1,6 +1,7 @@
 {% extends "coltrane/base.html" %}
 
 {% block title %}{{ page_title|lower }} . {{ block.super }}{% endblock %}
+{% block description %}{{ page_description }}.{% endblock %}
 
 {% block canonicalurl %}https://palewi.re/{{ page_slug }}/{% endblock %}
 
@@ -47,62 +48,73 @@
         <p class="description">{{ page_description }}</p>
         {% if category_list %}
         {% for category in category_list %}
-        <div class="row">
-            <div class="section-hed twelvecol last">
-                {{ category.title }}
+        <section>
+            <div class="row">
+                <h2 class="section-hed twelvecol last">
+                    {{ category.title }}
+                </h2>
             </div>
-        </div>
-        {% for object in category.object_list %}
-        <div class="row">
-            <article class="listitem twelvecol last">
-                <a href="{{ object.url }}">{{ object.title }}</a>
-                {% if object.description %} • {{ object.description }}{% endif %}
-            </article>
-        </div>
-        {% endfor %}
+            <ul class="catalog-list">
+            {% for object in category.object_list %}
+                <li class="row">
+                    <article class="listitem twelvecol last">
+                        <a href="{{ object.url }}">{{ object.title }}</a>
+                        {% if object.description %} • {{ object.description }}{% endif %}
+                    </article>
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
         {% endfor %}
         {% else %}
         {% if catalog_heading %}
         <div class="row">
-            <div class="section-hed twelvecol last">
+            <h2 class="section-hed twelvecol last">
                 {{ catalog_heading }}
-            </div>
+            </h2>
         </div>
         {% endif %}
+        <ul class="catalog-list">
         {% for object in object_list %}
-        <div class="row">
-            <article class="listitem twelvecol last">
-                <a href="{{ object.url }}">{{ object.title }}</a>
-                {% if object.description %} • {{ object.description }}{% endif %}
-            </article>
-        </div>
+            <li class="row">
+                <article class="listitem twelvecol last">
+                    <a href="{{ object.url }}">{{ object.title }}</a>
+                    {% if object.description %} • {{ object.description }}{% endif %}
+                </article>
+            </li>
         {% endfor %}
+        </ul>
         {% endif %}
         {% if update_list %}
-        <div class="row">
-            <div class="section-hed twelvecol last">
-                {{ updates_heading }}
+        <section>
+            <div class="row">
+                <h2 class="section-hed twelvecol last">
+                    {{ updates_heading }}
+                </h2>
             </div>
-        </div>
         {% for object in update_list %}
             {% ifchanged object.date.year %}
+            {% if not forloop.first %}</ul>{% endif %}
             <div class="row">
-                <div class="section-hed twelvecol last">
+                <h3 class="section-hed twelvecol last">
                     {{ object.date|date:"Y" }}
-                </div>
+                </h3>
             </div>
+            <ul class="catalog-list">
             {% endifchanged %}
-            <div class="row">
+            <li class="row">
                 <article class="listitem twelvecol last">
-                    {{ object.date|date:"N d" }} •
+                    <time datetime="{{ object.date|date:"Y-m-d" }}">{{ object.date|date:"N d" }}</time> •
                     {% if object.is_linkable %}
                         <a href="{{ object.display_url }}">{{ object.title }}</a>
                     {% else %}
                         {{ object.title }}
                     {% endif %}
                 </article>
-            </div>
+            </li>
         {% endfor %}
+            </ul>
+        </section>
         {% endif %}
     </div>
 {% endblock %}
