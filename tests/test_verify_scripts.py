@@ -86,27 +86,29 @@ count=$((count + 1))
 printf '%s' "$count" > "$FAKE_CURL_COUNT"
 status=200
 location=
+content_type='application/rss+xml; charset=utf-8'
 test "$count" -ne 1 || status=404
 case "$url" in
+  */feeds/posts.json) content_type='application/feed+json; charset=utf-8' ;;
   */posts/2010/03/10/google-charts-takes-tufte-challenge/) status=404 ;;
   */this-page-does-not-exist/) status=404 ;;
   https://palewi.re/) status=302; location=/who-is-ben-welsh/ ;;
   https://palewi.re/favicon.ico) status=302; location=/static/favicon.ico ;;
   https://palewi.re/@palewire) status=302; location=https://mastodon.palewi.re/@palewire ;;
 esac
-printf "HTTP/2 %s\\ncontent-type: application/rss+xml; charset=utf-8\\ncontent-security-policy: base-uri 'self'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com\\npermissions-policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()\\n" "$status" > "$headers_file"
+printf "HTTP/2 %s\\ncontent-type: %s\\ncontent-security-policy: base-uri 'self'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com\\npermissions-policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()\\n" "$status" "$content_type" > "$headers_file"
 test -z "$location" || printf "location: %s\\n" "$location" >> "$headers_file"
 printf "\\n" >> "$headers_file"
 cat > "$body_file" <<'EOF'
 {"status":"ok"}
+{"version": "https://jsonfeed.org/version/1.1"}
 <link rel="canonical" href="https://palewi.re/who-is-ben-welsh/" />
 <iframe src="https://docs.google.com/"></iframe>
-<iframe src="http://s3-us-west-1.amazonaws.com/"></iframe>
+<iframe src="https://s3-us-west-1.amazonaws.com/"></iframe>
 <iframe src="https://player.vimeo.com/"></iframe>
 <iframe src="https://w.soundcloud.com/"></iframe>
 <iframe src="https://datawrapper.dwcdn.net/6T1Lq/4/"></iframe>
-<iframe src="http://chart.apis.google.com/"></iframe>
-<iframe src="http://www.palewire.com/"></iframe>
+<img src="https://palewire.s3.amazonaws.com/img/form-step1.png">
 <img src="//palewire.s3.amazonaws.com/latimes-tour/1.jpg">
 <video src="//palewire.s3.amazonaws.com/latimes-tour/9track.mp4"></video>
 <sitemapindex></sitemapindex>

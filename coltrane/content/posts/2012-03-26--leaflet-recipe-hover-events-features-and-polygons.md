@@ -11,7 +11,7 @@ published_at: '2012-03-26T13:47:10-07:00'
 
 <p>The city of Los Angeles recently redrew its City Council districts. Below is a Leaflet map displaying the boundaries from the redistricting commission's final recommendation. I downloaded the lines as a <a href="http://en.wikipedia.org/wiki/Shapefile">shapefile</a> from <a href="http://redistricting2011.lacity.org/LACITY/proposedFinalMap.html">the commission's Web site</a> and converted them into <a href="http://en.wikipedia.org/wiki/GeoJSON">GeoJSON</a> format using <a href="http://en.wikipedia.org/wiki/Qgis">Quantum GIS</a>.</p>
 
-<iframe src="http://s3-us-west-1.amazonaws.com/palewire/leaflet-hover/before.html" frameborder=0 scrolling=no width=100% height=350px></iframe>
+<iframe src="https://s3-us-west-1.amazonaws.com/palewire/leaflet-hover/before.html" frameborder=0 scrolling=no width=100% height=350px></iframe>
 
 <p style="margin-top:10px">This kind of map can be accomplished by following the <a href="http://leaflet.cloudmade.com/examples/geojson.html">GeoJSON instructions</a> Leaflet already provides. One hundred percent of the code is below. I've annotated it to provide some clues to what's happening, but this is the baseline for making a static map run and I'm going to assume you get how it works. If you get stuck up, fire off a question in the comments or spend some time with <a href="http://leaflet.cloudmade.com/index.html">Leaflet's tutorial for beginners</a>.</p>
 
@@ -86,7 +86,7 @@ published_at: '2012-03-26T13:47:10-07:00'
 
 <p>Our goal is to make the same map as above, except with polygons that light up on hover and a popup that appears with metadata about the selected council district. Something like this.</p>
 
-<iframe src="http://s3-us-west-1.amazonaws.com/palewire/leaflet-hover/after.html" frameborder=0 scrolling=no width=100% height=350px></iframe>
+<iframe src="https://s3-us-west-1.amazonaws.com/palewire/leaflet-hover/after.html" frameborder=0 scrolling=no width=100% height=350px></iframe>
 
 <p style="margin-top:10px;">First add jQuery to the head of the page, so we can easily make the popup when the time comes.</p>
 

@@ -29,8 +29,8 @@ const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "form-action 'self'",
   "frame-ancestors 'self'",
-  "frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com",
-  "img-src 'self' https://palewi.re http://chart.apis.google.com http://www.palewire.com https://palewire.s3.amazonaws.com",
+  "frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com",
+  "img-src 'self' https://palewi.re https://palewire.s3.amazonaws.com",
   "font-src 'self' https://fonts.gstatic.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "script-src 'self'",
@@ -95,6 +95,17 @@ async function serveFeed(request: Request, assets: StaticAssets): Promise<Respon
   });
 }
 
+async function serveJsonFeed(request: Request, assets: StaticAssets): Promise<Response> {
+  const response = await assets.fetch(request);
+  const headers = new Headers(response.headers);
+  headers.set("content-type", "application/feed+json; charset=utf-8");
+  return new Response(response.body, {
+    headers,
+    status: response.status,
+    statusText: response.statusText,
+  });
+}
+
 async function serveSecurityTxt(request: Request, assets: StaticAssets): Promise<Response> {
   const response = await assets.fetch(request);
   const headers = new Headers(response.headers);
@@ -151,6 +162,9 @@ export async function handleRequest(request: Request, environment: WorkerEnviron
   }
   if (url.pathname === "/feeds/posts/") {
     return withSecurityHeaders(await serveFeed(request, environment.ASSETS), request);
+  }
+  if (url.pathname === "/feeds/posts.json") {
+    return withSecurityHeaders(await serveJsonFeed(request, environment.ASSETS), request);
   }
   if (url.pathname === SECURITY_TXT_PATH) {
     return withSecurityHeaders(await serveSecurityTxt(request, environment.ASSETS), request);
