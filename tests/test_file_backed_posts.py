@@ -163,9 +163,17 @@ def test_sitemap_lists_every_file_backed_post_with_publication_date(client, publ
     ]
 
 
-def test_unknown_post_permalink_returns_not_found(client):
-    """A URL absent from the public files retains the legacy 404 behavior."""
-    response = client.get("/posts/2026/01/01/not-a-public-post/")
+@pytest.mark.parametrize(
+    "permalink",
+    [
+        "/posts/2026/01/01/not-a-public-post/",
+        "/posts/2008/05/18/bill-oreilly-flips-out-the-ringtone/",
+        "/posts/2010/03/10/google-charts-takes-tufte-challenge/",
+    ],
+)
+def test_unknown_post_permalink_returns_not_found(client, permalink):
+    """A URL absent from the public files returns the normal 404 response."""
+    response = client.get(permalink)
 
     assert response.status_code == 404
 

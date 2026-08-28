@@ -1,6 +1,6 @@
 {
   "legacy_pre_lang_post_count": 25,
-  "post_count": 72,
+  "post_count": 70,
   "posts": [
     {
       "body_sha256": "7061b29a316090dd15bd99c72c176be91dc3436f634419295c0ff5e65c8e0ce0",
@@ -71,13 +71,6 @@
       "permalink": "/posts/2008/04/27/ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter/",
       "published_at": "2008-04-27T12:12:13-07:00",
       "sha256": "299f3ae843e51f463162be8d964e2d10e35c8da43645ed54721f87348a6e5a65"
-    },
-    {
-      "body_sha256": "81385d2540431b5bc6d0d8bc1826289eeaf5ba050b82fc0e75a0e736eb27d7d3",
-      "path": "posts/2008-05-18--bill-oreilly-flips-out-the-ringtone.md",
-      "permalink": "/posts/2008/05/18/bill-oreilly-flips-out-the-ringtone/",
-      "published_at": "2008-05-18T22:04:00-07:00",
-      "sha256": "3ee996e9ec992e22ae31e3a2121b26b367daf4a33ff53575e64bb39712e91ae4"
     },
     {
       "body_sha256": "e7a564d43685c5829610e4c587b49c93e51487dedd0afbcc66be2aee2f4abf91",
@@ -246,13 +239,6 @@
       "permalink": "/posts/2009/10/29/django-recipe-dynamically-load-your-google-maps-api-key/",
       "published_at": "2009-10-29T18:06:46-07:00",
       "sha256": "d735f2674ebde1737eabdc62d5b5cf70719d5c5bdc7a576deea286e1b3b9a1f3"
-    },
-    {
-      "body_sha256": "793d66522b9cb0a24a2cd84b4a3cb0320d1d45514aa83eb88c03a2b3ff03ae3f",
-      "path": "posts/2010-03-10--google-charts-takes-tufte-challenge.md",
-      "permalink": "/posts/2010/03/10/google-charts-takes-tufte-challenge/",
-      "published_at": "2010-03-10T13:13:57-08:00",
-      "sha256": "a2e82435bc3dced11c97acb7d047e9aeb6720d701a9daf63d779895d685c5cb1"
     },
     {
       "body_sha256": "a98b5c29b9bb02049a1e3cda5e5cfb286ec94e9ccd69ac08a88c20ce8b98e7d6",
@@ -507,7 +493,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "8b1ba7f68a7c96b8ff813dfda09b672acdaffd76be833ca56fb33331367897bc",
+  "posts_fingerprint_sha256": "2b5c477fdf15c3ed4602040511b1c0eaa48976f92b9ea692b1cbbc244521135d",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

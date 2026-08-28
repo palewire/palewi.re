@@ -32,8 +32,8 @@ def test_historical_markdown_posts_match_public_export_manifest():
     manifest_posts = manifest["posts"]
     expected_paths = {entry["path"] for entry in manifest_posts}
     actual_paths = {f"posts/{path.name}" for path in POSTS_PATH.glob("*.md")}
-    assert manifest["post_count"] == 72
-    assert len(manifest_posts) == 72
+    assert manifest["post_count"] == 70
+    assert len(manifest_posts) == 70
     assert expected_paths.issubset(actual_paths)
     assert manifest["production_inventory"] == {"total": 166, "live": 72, "draft": 94, "hidden": 0}
 

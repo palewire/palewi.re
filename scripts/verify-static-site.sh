@@ -80,8 +80,7 @@ request "/posts/2025/05/21/ire-podcast-transcript/" 200
 grep -Fq 'src="https://w.soundcloud.com/' "$body_file"
 request "/posts/2026/01/27/how-journalism-lost-its-culture-of-sharing/" 200
 grep -Fq 'src="https://datawrapper.dwcdn.net/6T1Lq/4/"' "$body_file"
-request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 200
-grep -Fq 'src="http://chart.apis.google.com/' "$body_file"
+request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 404
 request "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/" 200
 grep -Fq 'src="http://www.palewire.com/' "$body_file"
 request "/posts/2018/04/14/my-times/" 200

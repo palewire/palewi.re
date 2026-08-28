@@ -108,6 +108,8 @@ def test_static_build_matches_public_django_pages(tmp_path: Path) -> None:
     assert (build_dir / "favicon.ico").is_file()
     assert (build_dir / "static/styles.css").is_file()
     assert len(list(build_dir.glob("posts/*/*/*/*/index.html"))) == len(load_posts())
+    assert not (build_dir / "posts/2008/05/18/bill-oreilly-flips-out-the-ringtone/index.html").exists()
+    assert not (build_dir / "posts/2010/03/10/google-charts-takes-tufte-challenge/index.html").exists()
 
 
 def test_security_txt_is_baked_as_canonical_plain_text(tmp_path: Path) -> None:

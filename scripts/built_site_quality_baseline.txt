@@ -58,6 +58,4 @@ missing-generated-page	posts/2010/11/07/django-recipe-twitter-style-infinite-scr
 missing-generated-page	posts/2021/05/09/public-art-on-la-light-rail-line/index.html	a[href="Andromeda (M31) galaxy"] targets absent generated page /posts/2021/05/09/public-art-on-la-light-rail-line/Andromeda (M31) galaxy
 missing-generated-page	work/index.html	a[href="LAFD union leader says suspending hiring program 'patently unfair'"] targets absent generated page /work/LAFD union leader says suspending hiring program 'patently unfair'
 missing-generated-page	work/index.html	a[href="cedar-rapids-buildings-unsafe-after-derecho-2020"] targets absent generated page /work/cedar-rapids-buildings-unsafe-after-derecho-2020
-missing-local-asset	posts/2008/05/18/bill-oreilly-flips-out-the-ringtone/index.html	a[href="/media/mp3/bill_oreilly_do_it_live_remix.mp3"] targets absent local asset /media/mp3/bill_oreilly_do_it_live_remix.mp3
-missing-local-asset	posts/2010/03/10/google-charts-takes-tufte-challenge/index.html	img[src="/media/img/tufte2.JPG"] targets absent local asset /media/img/tufte2.JPG
 missing-local-asset	work/index.html	a[href="https://palewi.re/docs/news-homepages/openai-gptbot-robotstxt.html"] targets absent local asset /docs/news-homepages/openai-gptbot-robotstxt.html

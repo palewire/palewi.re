@@ -88,6 +88,7 @@ status=200
 location=
 test "$count" -ne 1 || status=404
 case "$url" in
+  */posts/2010/03/10/google-charts-takes-tufte-challenge/) status=404 ;;
   */this-page-does-not-exist/) status=404 ;;
   https://palewi.re/) status=302; location=/who-is-ben-welsh/ ;;
   https://palewi.re/favicon.ico) status=302; location=/static/favicon.ico ;;
@@ -143,5 +144,6 @@ def test_production_verifiers_cover_new_navigation() -> None:
     for path in ("/apps/", "/clips/", "/code/", "/guides/"):
         assert f'request "{path}" 200' in static_verifier
         assert f'"{path}:200"' in redirect_verifier
+    assert 'request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 404' in static_verifier
     assert 'request "/work/"' not in static_verifier
     assert '"/work/:200"' not in redirect_verifier
