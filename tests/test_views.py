@@ -69,11 +69,24 @@ def test_public_list_pages_are_available_without_database(client, page):
 
 def test_mobile_navigation_has_menu_disclosure(client):
     content = client.get("/apps/").content.decode()
+    assert content.count("<nav") == 1
+    assert '<nav aria-label="Primary">' in content
     assert '<div class="nav-menu">' in content
     assert 'popovertarget="mobile-nav-links"' in content
     assert '<div id="mobile-nav-links" class="nav-drawer" popover>' in content
     assert 'aria-label="Close menu"' in content
     assert '<span class="hamburger" aria-hidden="true">' in content
+
+
+def test_bots_omit_empty_twitter_link(client):
+    content = client.get("/bots/").content.decode()
+
+    assert (
+        '@RandomPigeonGPT (<a target="_blank" href="https://mastodon.palewi.re/@RandomPigeonGPT">Mastodon &raquo;</a>)'
+        in content
+    )
+    assert 'href="">Twitter' not in content
+    assert 'href="https://twitter.com/divineanndvorak">Twitter &raquo;</a>' in content
 
 
 @pytest.mark.parametrize(("old_path", "new_path"), [("/work/", "/clips/")])
