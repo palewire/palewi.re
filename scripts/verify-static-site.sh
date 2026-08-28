@@ -4,14 +4,20 @@ set -eu
 
 base_url=${BASE_URL:-https://palewi.re}
 timeout=${CURL_MAX_TIME:-20}
+attempts=${SITE_VERIFY_ATTEMPTS:-5}
+wait_seconds=${SITE_VERIFY_WAIT_SECONDS:-15}
 
 case "$base_url" in
   http://*|https://*) ;;
   *) echo "BASE_URL must start with http:// or https://." >&2; exit 1 ;;
 esac
-case "$timeout" in
-  *[!0-9]*|"") echo "CURL_MAX_TIME must be a positive integer." >&2; exit 1 ;;
+case "$timeout:$attempts:$wait_seconds" in
+  *[!0-9:]*|*::*) echo "CURL_MAX_TIME, SITE_VERIFY_ATTEMPTS, and SITE_VERIFY_WAIT_SECONDS must be integers." >&2; exit 1 ;;
 esac
+if [ "$timeout" -eq 0 ] || [ "$attempts" -eq 0 ]; then
+  echo "CURL_MAX_TIME and SITE_VERIFY_ATTEMPTS must be positive." >&2
+  exit 1
+fi
 
 headers_file=$(mktemp "${TMPDIR:-/tmp}/palewire-static-site-headers.XXXXXX")
 body_file=$(mktemp "${TMPDIR:-/tmp}/palewire-static-site-body.XXXXXX")
@@ -23,12 +29,26 @@ trap cleanup EXIT HUP INT TERM
 request() {
   path=$1
   expected_status=$2
-  curl --silent --show-error --max-time "$timeout" --dump-header "$headers_file" --output "$body_file" "${base_url%/}${path}"
-  status=$(awk '/^HTTP\// { code=$2 } END { print code }' "$headers_file")
-  test "$status" = "$expected_status" || {
-    echo "$path: expected HTTP $expected_status, received $status." >&2
-    exit 1
-  }
+  attempt=1
+  while :; do
+    : > "$headers_file"
+    : > "$body_file"
+    if curl --silent --show-error --max-time "$timeout" --dump-header "$headers_file" --output "$body_file" "${base_url%/}${path}"; then
+      status=$(awk '/^HTTP\// { code=$2 } END { print code }' "$headers_file")
+    else
+      status=000
+    fi
+    if [ "$status" = "$expected_status" ]; then
+      break
+    fi
+    if [ "$attempt" -ge "$attempts" ]; then
+      echo "$path: expected HTTP $expected_status, received $status." >&2
+      exit 1
+    fi
+    echo "$path: received HTTP $status while deployment propagates; waiting $wait_seconds seconds before retry $((attempt + 1)) of $attempts." >&2
+    sleep "$wait_seconds"
+    attempt=$((attempt + 1))
+  done
 }
 
 expect_security_headers() {
