@@ -77,6 +77,7 @@ BAKERY_VIEWS = [
     "coltrane.bakery_views.GuideListBuildView",
     "coltrane.bakery_views.DocsLandingBuildView",
     "coltrane.bakery_views.TalkListBuildView",
+    "coltrane.bakery_views.TalkDetailBuildView",
     "coltrane.bakery_views.PostListBuildView",
     "coltrane.bakery_views.BotListBuildView",
     "coltrane.bakery_views.PostDetailBuildView",

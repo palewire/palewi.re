@@ -2,8 +2,22 @@ export interface StaticAssets {
   fetch(request: Request): Promise<Response>;
 }
 
+export interface TalkMediaObject {
+  body: ReadableStream | null;
+  httpEtag: string;
+  range?: { length: number; offset: number };
+  size: number;
+  writeHttpMetadata(headers: Headers): void;
+}
+
+export interface TalkMedia {
+  get(key: string, options?: { range?: Headers }): Promise<TalkMediaObject | null>;
+  head(key: string): Promise<TalkMediaObject | null>;
+}
+
 export interface WorkerEnvironment {
   ASSETS: StaticAssets;
+  TALK_MEDIA?: TalkMedia;
 }
 
 const CANONICAL_HOST = "palewi.re";
@@ -14,7 +28,7 @@ const CONTENT_SECURITY_POLICY = [
   "base-uri 'self'",
   "default-src 'self'",
   "form-action 'self'",
-  "frame-ancestors 'none'",
+  "frame-ancestors 'self'",
   "frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com",
   "img-src 'self' https://palewi.re http://chart.apis.google.com http://www.palewire.com https://palewire.s3.amazonaws.com",
   "font-src 'self' https://fonts.gstatic.com",
@@ -92,6 +106,30 @@ async function serveSecurityTxt(request: Request, assets: StaticAssets): Promise
   });
 }
 
+async function serveTalkMedia(request: Request, media: TalkMedia | undefined): Promise<Response> {
+  if (!media) {
+    throw new Error("TALK_MEDIA binding is not configured");
+  }
+  const key = new URL(request.url).pathname.slice("/media/".length);
+  const object =
+    request.method === "HEAD" ? await media.head(key) : await media.get(key, { range: request.headers });
+  if (!object) {
+    return new Response("Not found", { status: 404 });
+  }
+
+  const headers = new Headers({ "cache-control": "public, max-age=31536000, immutable" });
+  object.writeHttpMetadata(headers);
+  headers.set("etag", object.httpEtag);
+  if (object.range) {
+    headers.set("content-length", String(object.range.length));
+    headers.set("content-range", `bytes ${object.range.offset}-${object.range.offset + object.range.length - 1}/${object.size}`);
+  }
+  return new Response(request.method === "HEAD" ? null : object.body, {
+    headers,
+    status: object.range ? 206 : 200,
+  });
+}
+
 export async function handleRequest(request: Request, environment: WorkerEnvironment): Promise<Response> {
   const url = new URL(request.url);
   if (SIBLING_HOSTS.has(url.hostname)) {
@@ -116,6 +154,9 @@ export async function handleRequest(request: Request, environment: WorkerEnviron
   }
   if (url.pathname === SECURITY_TXT_PATH) {
     return withSecurityHeaders(await serveSecurityTxt(request, environment.ASSETS), request);
+  }
+  if (url.pathname.startsWith("/media/talks/")) {
+    return withSecurityHeaders(await serveTalkMedia(request, environment.TALK_MEDIA), request);
   }
   return withSecurityHeaders(await environment.ASSETS.fetch(request), request);
 }

@@ -786,6 +786,113 @@ nav .links li a:hover {
   line-height: 130%;
 }
 
+.talk-detail {
+  max-width: 64rem;
+}
+
+.talk-detail header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.talk-detail header + section {
+  margin-top: 24px;
+}
+
+.talk-detail header > h1 {
+  margin-bottom: 0;
+}
+
+.talk-detail-subtitle {
+  max-width: 42ch;
+  margin: 0;
+  font-size: 1.15em;
+  font-weight: var(--font-weight-light);
+  line-height: 1.3;
+}
+
+.talk-detail #detailpubdate p {
+  margin: 0;
+}
+
+.talk-detail section {
+  margin-top: 2.5em;
+}
+
+.talk-detail h2 {
+  margin-bottom: 0.5em;
+  font-size: 1.15em;
+  font-weight: var(--font-weight-bold);
+}
+
+.talk-detail-deck {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: var(--border-rule);
+}
+
+.talk-detail-text {
+  border-bottom: var(--border-rule);
+  border-top: var(--border-rule);
+  padding: 0.75em 0;
+}
+
+.talk-detail-text summary {
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+}
+
+.talk-detail-text-content {
+  max-width: 68ch;
+  margin-top: 1.25em;
+}
+
+.talk-detail-text-content section + section {
+  margin-top: 1.5em;
+}
+
+.talk-detail-text-content h3 {
+  font-size: 1em;
+}
+
+.talk-detail-text-content pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.talk-transcript {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.talk-transcript li {
+  display: grid;
+  gap: 0.75em;
+  grid-template-columns: 4em 1fr;
+  margin-bottom: 0.8em;
+}
+
+.talk-transcript time {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-bold);
+}
+
+.talk-detail video {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 550px) {
+  .talk-transcript li {
+    grid-template-columns: 1fr;
+    gap: 0.15em;
+  }
+}
+
 img,
 video,
 object,

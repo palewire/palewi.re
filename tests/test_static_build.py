@@ -7,7 +7,7 @@ from pathlib import Path
 from django.core.management import call_command
 from django.test import Client, override_settings
 
-from coltrane.content_loaders import load_posts
+from coltrane.content_loaders import load_posts, load_talks
 
 SECURITY_TXT_CONTENT = (
     "Contact: mailto:b@palewi.re\n"
@@ -76,6 +76,7 @@ def test_static_build_matches_public_django_pages(tmp_path: Path) -> None:
         "/talks/",
         "/bots/",
         *(post.get_absolute_url() for post in load_posts()),
+        *(talk.get_absolute_url() for talk in load_talks() if talk.slug),
     ]
 
     for page_path in page_paths:

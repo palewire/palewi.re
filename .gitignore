@@ -37,6 +37,7 @@ node_modules/
 
 # Collected static
 collected_static/
+coltrane/static/talks/reveal/
 
 # Build / packaging
 dist/

@@ -70,6 +70,7 @@ WORKER_ASSET_PATHS = frozenset(
         "/docs/storysniffer/",
     }
 )
+WORKER_RUNTIME_PATH_PREFIXES = ("/media/talks/",)
 
 
 @dataclass(frozen=True)
@@ -180,7 +181,9 @@ def resolve_internal_url(url: str, source_url: str) -> str:
 def is_runtime_path(path: str) -> bool:
     """Return whether a path is served by a Worker rather than this build."""
     return not path.startswith("//") and (
-        path in WORKER_ASSET_PATHS or any(rule.destination_for(path) is not None for rule in RULES)
+        path in WORKER_ASSET_PATHS
+        or path.startswith(WORKER_RUNTIME_PATH_PREFIXES)
+        or any(rule.destination_for(path) is not None for rule in RULES)
     )
 
 

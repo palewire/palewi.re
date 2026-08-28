@@ -102,8 +102,20 @@ talks:
   venue: Datawrapper
   location: Streamyard
   date: '2024-03-15'
-  video_url: https://www.youtube.com/watch?v=LmfhEPdBBUU
+  slug: bare-facts-first-datawrapper
+  short_title: Bare Facts First
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vRVFd-3cIBo0QpwIO_yuyWf5UcUwC1FB5afiQQpC6IdWItvqUx-szFARetMhmCFAAkaFZDsyWG9cUk8/pub?start=false&loop=false&delayms=3000
+  deck_url: /static/talks/bare-facts-first-datawrapper/
+  pdf_url: /static/talks/bare-facts-first-datawrapper/bare-facts-first-datawrapper.pdf
+  notes_template: coltrane/talks/bare-facts-first-datawrapper-notes.html
+  text_url: /static/talks/bare-facts-first-datawrapper/transcript.txt
+  transcript_template: coltrane/talks/bare-facts-first-datawrapper-transcript.html
+  video_url: https://www.youtube.com/watch?v=LmfhEPdBBUU
+  local_video_url: /media/talks/bare-facts-first-datawrapper/video.mp4
+  captions_url: /static/talks/bare-facts-first-datawrapper/captions.vtt
+  poster_url: /media/talks/bare-facts-first-datawrapper/poster.jpg
+  original_video_url: https://www.youtube.com/watch?v=LmfhEPdBBUU
+  original_slides_url: https://docs.google.com/presentation/d/e/2PACX-1vRVFd-3cIBo0QpwIO_yuyWf5UcUwC1FB5afiQQpC6IdWItvqUx-szFARetMhmCFAAkaFZDsyWG9cUk8/pub?start=false&loop=false&delayms=3000
 - title: What is a Data Journalist?
   venue: CSPA Spring Convention
   location: New York City

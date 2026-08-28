@@ -34,10 +34,16 @@ Edit the appropriate file under ``coltrane/content/``:
   ``javascript``, ``other``, ``inactive``), ``url`` (HTTP(S) URL, unique).
   Optional fields: ``description`` (str).
 
-* ``talks.yaml``   – Talks listed on the /talks/ page.
+* ``talks.yaml``   – Talks listed on the /talks/ page and, when a ``slug`` is
+  supplied, published at /talks/<slug>/.
   Required fields: ``title`` (str), ``venue`` (str), ``location`` (str),
   ``date`` (YYYY-MM-DD).
-  Optional fields: ``video_url`` (str), ``slides_url`` (str).
+  Optional fields: ``slug`` (unique URL slug), ``short_title`` (str),
+  ``video_url`` (str),
+  ``local_video_url`` (str), ``slides_url`` (str), ``deck_url`` (str), ``pdf_url`` (str),
+  ``notes_url`` (str), ``text_url`` (str), ``transcript_url`` (str), ``captions_url`` (str),
+  ``poster_url`` (str), ``original_slides_url`` (str), and
+  ``original_video_url`` (str).
   Ordering: ``-date``.
 
 * ``docs.yaml``    – Software listed on /code/ and lessons listed on /guides/.
@@ -167,7 +173,34 @@ class Talk:
     location: str
     date: datetime.date
     video_url: str = ""
+    local_video_url: str = ""
     slides_url: str = ""
+    slug: str = ""
+    short_title: str = ""
+    deck_url: str = ""
+    pdf_url: str = ""
+    notes_url: str = ""
+    notes_template: str = ""
+    text_url: str = ""
+    transcript_url: str = ""
+    transcript_template: str = ""
+    captions_url: str = ""
+    poster_url: str = ""
+    original_slides_url: str = ""
+    original_video_url: str = ""
+
+    def get_absolute_url(self) -> str:
+        """Return the permanent public page for talks that have one."""
+        return f"/talks/{self.slug}/" if self.slug else "/talks/"
+
+    @property
+    def display_subtitle(self) -> str:
+        """Return the full title without a repeated short title."""
+        if self.short_title:
+            prefix = f"{self.short_title}:"
+            if self.title.startswith(prefix):
+                return self.title.removeprefix(prefix).lstrip()
+        return self.title
 
 
 @dataclass(frozen=True)
@@ -325,6 +358,14 @@ def _require_slug(record: dict, path: str) -> str:
     if re.fullmatch(r"[-\w]+", slug) is None:
         raise ContentError(f"{path}: field 'slug' must contain only letters, numbers, underscores, and hyphens")
     return slug
+
+
+def _optional_slug(record: dict, path: str) -> str:
+    """Return an optional URL slug accepted by the talk detail route."""
+    value = _optional_str(record, "slug", path)
+    if value and re.fullmatch(r"[-\w]+", value) is None:
+        raise ContentError(f"{path}: field 'slug' must contain only letters, numbers, underscores, and hyphens")
+    return value
 
 
 def _optional_wordpress_id(record: dict, path: str) -> int | None:
@@ -550,6 +591,7 @@ def load_talks(path: Path | None = None) -> list[Talk]:
     items = raw.get("talks", [])
     if not isinstance(items, list):
         raise ContentError(f"{label}: 'talks' must be a list")
+    seen_slugs: set[str] = set()
     talks: list[Talk] = []
     for record in items:
         if not isinstance(record, dict):
@@ -560,6 +602,11 @@ def load_talks(path: Path | None = None) -> list[Talk]:
         date = _require_date(record, "date", label)
         video_url = _optional_str(record, "video_url", label)
         slides_url = _optional_str(record, "slides_url", label)
+        slug = _optional_slug(record, label)
+        if slug in seen_slugs:
+            raise ContentError(f"{label}: duplicate talk slug '{slug}'")
+        if slug:
+            seen_slugs.add(slug)
         talks.append(
             Talk(
                 title=title,
@@ -567,7 +614,21 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 location=location,
                 date=date,
                 video_url=video_url,
+                local_video_url=_optional_str(record, "local_video_url", label),
                 slides_url=slides_url,
+                slug=slug,
+                short_title=_optional_str(record, "short_title", label),
+                deck_url=_optional_str(record, "deck_url", label),
+                pdf_url=_optional_str(record, "pdf_url", label),
+                notes_url=_optional_str(record, "notes_url", label),
+                notes_template=_optional_str(record, "notes_template", label),
+                text_url=_optional_str(record, "text_url", label),
+                transcript_url=_optional_str(record, "transcript_url", label),
+                transcript_template=_optional_str(record, "transcript_template", label),
+                captions_url=_optional_str(record, "captions_url", label),
+                poster_url=_optional_str(record, "poster_url", label),
+                original_slides_url=_optional_str(record, "original_slides_url", label),
+                original_video_url=_optional_str(record, "original_video_url", label),
             )
         )
     talks.sort(key=lambda t: t.date, reverse=True)

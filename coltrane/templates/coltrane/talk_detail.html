@@ -1,0 +1,104 @@
+{% extends "coltrane/base.html" %}
+
+{% block title %}{{ object.title|lower }} . talks . {{ block.super }}{% endblock %}
+{% block description %}{{ object.title }} at {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}.{% endblock %}
+{% block canonicalurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
+{% block ogtitle %}{{ object.title }}{% endblock %}
+{% block ogtype %}article{% endblock %}
+{% block ogurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
+{% block ogdescription %}{{ object.title }} at {{ object.venue }}.{% endblock %}
+{% block twittertitle %}{{ object.title }}{% endblock %}
+{% block twitterdescription %}{{ object.title }} at {{ object.venue }}.{% endblock %}
+{% block twitterurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
+{% block googleurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
+{% block googleheadline %}{{ object.title }}{% endblock %}
+{% block googledescription %}{{ object.title }} at {{ object.venue }}.{% endblock %}
+{% block googletype %}PresentationDigitalDocument{% endblock %}
+
+{% block content %}
+<article class="talk-detail twelvecol last">
+    <header>
+        <h1>{{ object.short_title|default:object.title }}</h1>
+        {% if object.short_title %}<p class="talk-detail-subtitle">{{ object.display_subtitle }}</p>{% endif %}
+        <div id="detailpubdate">
+            <p>
+                By
+                <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <span itemprop="name">
+                        <a rel="author" href="/who-is-ben-welsh/">Ben Welsh</a>
+                    </span>
+                </span>
+                •
+                <time datetime="{{ object.date|date:"Y-m-d" }}" itemprop="datePublished">{{ object.date|date:"F j, Y" }}</time>
+                •
+                {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}
+            </p>
+        </div>
+    </header>
+
+    {% if object.deck_url %}
+    <section aria-labelledby="slides">
+        <h2 id="slides">Slides</h2>
+        <iframe class="talk-detail-deck" src="{{ object.deck_url }}" title="Slides for {{ object.title }}"></iframe>
+    </section>
+    {% endif %}
+
+    {% if object.local_video_url %}
+    <section aria-labelledby="recording">
+        <h2 id="recording">Recording</h2>
+        <video controls preload="metadata"{% if object.poster_url %} poster="{{ object.poster_url }}"{% endif %}>
+            <source src="{{ object.local_video_url }}" type="video/mp4">
+            {% if object.captions_url %}<track kind="captions" src="{{ object.captions_url }}" srclang="en" label="English">{% endif %}
+            Your browser does not support HTML video. <a href="{{ object.local_video_url }}">Download the recording</a>.
+        </video>
+    </section>
+    {% endif %}
+
+    {% if object.notes_template %}
+    <section aria-labelledby="presentation-text">
+        <h2 id="presentation-text">Presentation text</h2>
+        <details class="talk-detail-text">
+            <summary>Show the extracted slide text</summary>
+            <div class="talk-detail-text-content">
+                {% include object.notes_template %}
+            </div>
+        </details>
+    </section>
+    {% endif %}
+
+    {% if not object.deck_url %}
+    {% if object.pdf_url or object.notes_url %}
+    <section aria-labelledby="slide-materials">
+        <h2 id="slide-materials">Slides</h2>
+        <p>
+            {% if object.pdf_url %}<a href="{{ object.pdf_url }}">Download the PDF</a>{% endif %}
+            {% if object.notes_url %}{% if object.pdf_url %} · {% endif %}<a href="{{ object.notes_url }}">Read the slide notes</a>{% endif %}
+        </p>
+    </section>
+    {% endif %}
+    {% endif %}
+
+    {% if object.transcript_template %}
+    <section aria-labelledby="transcript">
+        <h2 id="transcript">Transcript</h2>
+        <details class="talk-detail-text">
+            <summary>Show the timestamped transcript</summary>
+            <div class="talk-detail-text-content">
+                {% include object.transcript_template %}
+            </div>
+        </details>
+    </section>
+    {% endif %}
+
+    {% if object.pdf_url or object.local_video_url or object.text_url %}
+    <section aria-labelledby="downloads">
+        <h2 id="downloads">Downloads</h2>
+        <p>
+            {% if object.pdf_url %}<a href="{{ object.pdf_url }}" download>Presentation PDF</a>{% endif %}
+            {% if object.local_video_url %}{% if object.pdf_url %} · {% endif %}<a href="{{ object.local_video_url }}" download>Video file</a>{% endif %}
+            {% if object.text_url %}{% if object.pdf_url or object.local_video_url %} · {% endif %}<a href="{{ object.text_url }}" download>Text version</a>{% endif %}
+        </p>
+    </section>
+    {% endif %}
+</article>
+{% endblock %}

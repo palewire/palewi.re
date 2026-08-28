@@ -130,6 +130,19 @@ class TalkListView(TemplateView):
         return context
 
 
+class TalkDetailView(TemplateView):
+    template_name = "coltrane/talk_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        slug = kwargs["slug"]
+        talk = next((candidate for candidate in load_talks() if candidate.slug == slug), None)
+        if talk is None:
+            raise Http404
+        context["object"] = talk
+        return context
+
+
 class PostListView(ListView):
     template_name = "coltrane/post_list.html"
 
