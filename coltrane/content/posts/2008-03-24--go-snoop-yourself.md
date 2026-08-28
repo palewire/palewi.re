@@ -32,7 +32,7 @@ wordpress_id: 92
 
 
 
-<p>On <a href="&amp;eurl=http://dandelionsalad.wordpress.com/2008/03/20/olbermann-obamas-passport-breach/" target="_blank">this particularly alarmist segment of The Countdown with Keith Olbermann</a>, the host and his guests seem to think there's the potential for quite a lot more to be in there. (In a memorable bit of hype, Keith speculates that the file might be of "Watergatian" proportions). On the other hand, <a href="http://www.time.com/time/nation/article/0,8599,1724759,00.html?imw=Y" target="_blank">the reporting of Time's Brian Bennett</a> seems more in line with the State Department's blog.</p>
+<p>On <a href="https://web.archive.org/web/20080324231400/http://dandelionsalad.wordpress.com:80/2008/03/20/olbermann-obamas-passport-breach/" target="_blank">this particularly alarmist segment of The Countdown with Keith Olbermann</a>, the host and his guests seem to think there's the potential for quite a lot more to be in there. (In a memorable bit of hype, Keith speculates that the file might be of "Watergatian" proportions). On the other hand, <a href="http://www.time.com/time/nation/article/0,8599,1724759,00.html?imw=Y" target="_blank">the reporting of Time's Brian Bennett</a> seems more in line with the State Department's blog.</p>
 
 
 

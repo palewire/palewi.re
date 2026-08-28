@@ -328,7 +328,7 @@ published_at: '2021-05-09T16:52:30-07:00'
 
 <p>This stop at 2nd Place and Hope Street is at the city’s epicenter for the fine arts, next to the opera, philharmonic, several theaters and  numerous arts museums.</p>
 
-<p>The underground train platform will be decorated by two <a href="https://mungothomson.com/">Mungo Thomson</a> images, which were created by inverting photographs of the <a href="Andromeda (M31) galaxy">Andromeda galaxy</a> taken by the <a href="https://en.wikipedia.org/wiki/Hubble_Space_Telescope">Hubble Space Telescope</a>.</p>
+<p>The underground train platform will be decorated by two <a href="https://mungothomson.com/">Mungo Thomson</a> images, which were created by inverting photographs of the Andromeda galaxy taken by the <a href="https://en.wikipedia.org/wiki/Hubble_Space_Telescope">Hubble Space Telescope</a>.</p>
 
 <picture>
   <source type="image/webp" srcset="/static/img/regional-connector/grand-thomson-blue.webp">
