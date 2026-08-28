@@ -1,5 +1,9 @@
 """Tests for public-facing pages and redirects."""
 
+import hashlib
+import json
+import re
+from html.parser import HTMLParser
 from unittest.mock import patch
 from xml.etree import ElementTree
 
@@ -9,6 +13,7 @@ from django.test import Client
 from django.test.utils import override_settings
 from django.urls import include, path
 
+from coltrane.content_loaders import load_clips, load_posts, load_talks
 from project.redirect_manifest import RULES
 
 
@@ -19,9 +24,39 @@ def failing_view(_request):
 urlpatterns = [path("", include("project.urls")), path("failing/", failing_view)]
 
 
+class MainTextParser(HTMLParser):
+    """Collect authored text inside the page's main content."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.in_main = False
+        self.text: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "main" and dict(attrs).get("id") == "bd":
+            self.in_main = True
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "main":
+            self.in_main = False
+
+    def handle_data(self, data: str) -> None:
+        if self.in_main:
+            self.text.append(data)
+
+
 @pytest.fixture
 def client():
     return Client()
+
+
+def main_text_digest(content: str) -> str:
+    """Return a stable checksum of user-visible main content."""
+    parser = MainTextParser()
+    parser.feed(content)
+    parser.close()
+    text = " ".join(" ".join(parser.text).split())
+    return hashlib.sha256(text.encode()).hexdigest()
 
 
 def test_root_redirects_to_bio(client):
@@ -46,6 +81,100 @@ def test_bio_page_uses_canonical_domain(client):
     content = response.content.decode()
     assert '<link rel="canonical" href="https://palewi.re/who-is-ben-welsh/" />' in content
     assert '"url": "https://palewi.re/who-is-ben-welsh/"' in content
+
+
+def test_bio_page_uses_factual_metadata_description(client):
+    content = client.get("/who-is-ben-welsh/").content.decode()
+    description = "Ben Welsh is a reporter, editor and computer programmer."
+
+    assert content.count(f'content="{description}"') == 3
+    assert f'"description": "{description}"' in content
+    assert '"@id": "https://palewi.re/who-is-ben-welsh/"' in content
+
+
+@pytest.mark.parametrize(
+    ("page", "expected_description"),
+    [
+        ("/posts/", "A complete list of articles written for this site."),
+        ("/clips/", "My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web."),
+        ("/apps/", "My independent network of Internet publications."),
+        ("/code/", "Open-source computer programming packages and projects."),
+        ("/guides/", "Practical guides for data journalists."),
+        ("/docs/", "Documentation for my open-source software and teaching guides."),
+        ("/talks/", "Recordings, slides and other materials from my public-speaking appearances."),
+        ("/bots/", "My fleet of automated accounts."),
+    ],
+)
+def test_list_pages_use_page_specific_metadata_descriptions(client, page, expected_description):
+    content = client.get(page).content.decode()
+
+    assert f'<meta name="description" content="{expected_description}" />' in content
+
+
+@pytest.mark.parametrize(
+    ("page", "expected_digest"),
+    [
+        ("/posts/", "1504b00891fbbd026584b629915c526c35f023d60c058cedeb044849d05d401b"),
+        ("/clips/", "16aa691f7161c2aa69d9d104d96e4b31cb5302f3d349b5619899fd7e935d9333"),
+        ("/apps/", "ef2af85cce1c663b9422d3b794f35142e7d008977e1e9c2d649208b87296124f"),
+        ("/code/", "a8f1c5a32b4419dbfe2fb43fd6016efffb53a85a4118008a60d10ea442e93aed"),
+        ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
+        ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
+        ("/talks/", "3546bb185a7ace238b83d813235de99b57ab0b0831a369abebfa678a6e4a78e6"),
+        ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
+    ],
+)
+def test_list_page_visible_text_is_preserved(client, page, expected_digest):
+    assert main_text_digest(client.get(page).content.decode()) == expected_digest
+
+
+@pytest.mark.parametrize("page", ["/posts/", "/clips/", "/apps/", "/code/", "/guides/", "/docs/", "/talks/", "/bots/"])
+def test_list_pages_use_semantic_lists(client, page):
+    content = client.get(page).content.decode()
+
+    assert '<ul class="catalog-list">' in content
+    assert '<li class="row">' in content
+
+
+def test_catalog_and_chronological_pages_use_heading_hierarchy(client):
+    catalog = client.get("/apps/").content.decode()
+    chronological = client.get("/posts/").content.decode()
+
+    assert '<h2 class="section-hed twelvecol last">' in catalog
+    assert '<h2 class="section-hed twelvecol last">' in chronological
+    assert '<div class="section-hed twelvecol last">' not in catalog
+    assert '<div class="section-hed twelvecol last">' not in chronological
+
+
+def test_clip_and_talk_dates_have_machine_readable_values(client):
+    clips = [clip for clip in load_clips() if clip.type in {"app", "story"}]
+    clip_content = client.get("/clips/").content.decode()
+    talk_content = client.get("/talks/").content.decode()
+
+    assert clip_content.count("<time datetime=") == len(clips)
+    assert talk_content.count("<time datetime=") == len(load_talks())
+    assert all(f'<time datetime="{clip.date:%Y-%m-%d}">' in clip_content for clip in clips)
+    assert all(f'<time datetime="{talk.date:%Y-%m-%d}">' in talk_content for talk in load_talks())
+
+
+def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
+    post = load_posts()[0]
+    canonical_url = f"https://palewi.re{post.get_absolute_url()}"
+    content = client.get(post.get_absolute_url()).content.decode()
+    json_ld_blocks = [
+        json.loads(block)
+        for block in re.findall(
+            r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
+            content,
+            flags=re.DOTALL,
+        )
+    ]
+    metadata = next(block for block in json_ld_blocks if block["@type"] == "BlogPosting")
+
+    assert metadata["@id"] == canonical_url
+    assert metadata["url"] == canonical_url
+    assert metadata["mainEntityOfPage"] == {"@type": "WebPage", "@id": canonical_url}
+    assert "dateModified" not in metadata
 
 
 def test_bio_page_footer_links_to_main_commit(client):

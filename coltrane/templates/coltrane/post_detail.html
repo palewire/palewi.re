@@ -1,8 +1,9 @@
 {% extends "coltrane/base.html" %}
 
-{% block extrahtmlattrs %}itemscope itemtype="https://schema.org/Article"{% endblock %}
+{% block extrahtmlattrs %}itemscope itemtype="https://schema.org/BlogPosting"{% endblock %}
 
 {% block title %}{{ object.title|lower }} . {{ block.super }}{% endblock %}
+{% block description %}{{ object.body_html|striptags|truncatechars:180 }}{% endblock %}
 
 {% block canonicalurl %}https://palewi.re{{ object.get_absolute_url }}{% endblock %}
 
@@ -32,13 +33,17 @@
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Article",
+            "@type": "BlogPosting",
+            "@id": "https://palewi.re{{ object.get_absolute_url }}",
             "headline": "{{ object.title|escapejs }}",
             "description": "{{ object.body_html|striptags|truncatechars:180|escapejs }}",
             "inLanguage": "en-US",
             "url": "https://palewi.re{{ object.get_absolute_url }}",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://palewi.re{{ object.get_absolute_url }}"
+            },
             "datePublished": "{{ object.pub_date|date:"c" }}",
-            "dateModified": "{{ object.pub_date|date:"c" }}",
             "author": {
                 "@type": "Person",
                 "name": "Ben Welsh",
@@ -57,7 +62,7 @@
 
 {% block content %}
 
-    <article class="twelvecol last" itemscope itemtype="https://schema.org/Article">
+    <article class="twelvecol last" itemscope itemtype="https://schema.org/BlogPosting">
         <div id="headline" class="row">
             <div class="twelvecol last">
                 <h1 itemprop="headline">

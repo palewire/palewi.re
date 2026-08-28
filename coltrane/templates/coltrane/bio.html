@@ -2,21 +2,22 @@
 {% load static %}
 
 {% block title %}who is ben welsh? . {{ block.super }}{% endblock %}
+{% block description %}Ben Welsh is a reporter, editor and computer programmer.{% endblock %}
 
 {% block canonicalurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
 
 {% block ogtitle %}Who is Ben Welsh?{% endblock %}
 {% block ogtype %}profile{% endblock %}
 {% block ogurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
-{% block ogdescription %}hello.{% endblock %}
+{% block ogdescription %}Ben Welsh is a reporter, editor and computer programmer.{% endblock %}
 
 {% block twittertitle %}Who is Ben Welsh?{% endblock %}
-{% block twitterdescription %}hello.{% endblock %}
+{% block twitterdescription %}Ben Welsh is a reporter, editor and computer programmer.{% endblock %}
 {% block twitterurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
 
 {% block googleurl %}https://palewi.re/who-is-ben-welsh/{% endblock %}
 {% block googleheadline %}who is ben welsh?{% endblock %}
-{% block googledescription %}hello.{% endblock %}
+{% block googledescription %}Ben Welsh is a reporter, editor and computer programmer.{% endblock %}
 {% block googlecreated %}2019-11-10T00:00:00{% endblock %}
 {% block googlepublished %}2019-11-10T00:00:00{% endblock %}
 {% block googletype %}ProfilePage{% endblock %}
@@ -27,8 +28,10 @@
         {
             "@context": "https://schema.org",
             "@type": "Person",
+            "@id": "https://palewi.re/who-is-ben-welsh/",
             "name": "Ben Welsh",
             "url": "https://palewi.re/who-is-ben-welsh/",
+            "description": "Ben Welsh is a reporter, editor and computer programmer.",
             "image": "https://palewi.re{% static 'img/ben-blue-800.jpg' %}",
             "sameAs": [
                 {% for obj in socialmedia_list %}"{{ obj.url|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}
