@@ -13,6 +13,8 @@ from django.views.generic import TemplateView
 
 from coltrane.content_loaders import (
     App,
+    AppCategory,
+    CodeCategory,
     CodeProject,
     Doc,
     MarkdownPost,
@@ -85,12 +87,19 @@ class CatalogListBuildView(CanonicalBuildMixin, BuildableTemplateView):
     def get_catalog(self) -> Sequence[App | CodeProject | Doc]:
         raise NotImplementedError
 
+    def get_category_list(
+        self,
+        catalog: Sequence[App | CodeProject | Doc],
+    ) -> Sequence[AppCategory | CodeCategory]:
+        return []
+
     def get_context_data(self, **kwargs: object) -> dict[str, object]:
         context = super().get_context_data(**kwargs)
         catalog = self.get_catalog()
         context.update(
             {
                 "catalog_heading": self.catalog_heading,
+                "category_list": self.get_category_list(catalog),
                 "object_list": catalog,
                 "page_description": self.page_description,
                 "page_slug": self.page_slug,
@@ -113,10 +122,11 @@ class AppListBuildView(CatalogListBuildView):
     def get_catalog(self) -> Sequence[App]:
         return load_apps()
 
-    def get_context_data(self, **kwargs: object) -> dict[str, object]:
-        context = super().get_context_data(**kwargs)
-        context["category_list"] = group_apps(load_apps())
-        return context
+    def get_category_list(
+        self,
+        catalog: Sequence[App | CodeProject | Doc],
+    ) -> Sequence[AppCategory]:
+        return group_apps([item for item in catalog if isinstance(item, App)])
 
 
 class TalkListBuildView(CanonicalBuildMixin, BuildableTemplateView):
@@ -156,10 +166,11 @@ class CodeListBuildView(CatalogListBuildView):
     def get_catalog(self) -> Sequence[CodeProject]:
         return load_code()
 
-    def get_context_data(self, **kwargs: object) -> dict[str, object]:
-        context = super().get_context_data(**kwargs)
-        context["category_list"] = group_code(load_code())
-        return context
+    def get_category_list(
+        self,
+        catalog: Sequence[App | CodeProject | Doc],
+    ) -> Sequence[CodeCategory]:
+        return group_code([item for item in catalog if isinstance(item, CodeProject)])
 
 
 class GuideListBuildView(DocListBuildView):

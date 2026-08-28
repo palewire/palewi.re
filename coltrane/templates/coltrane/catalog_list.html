@@ -96,7 +96,7 @@
                 <article class="listitem twelvecol last">
                     {{ object.date|date:"N d" }} •
                     {% if object.is_linkable %}
-                        <a href="{{ object.url }}">{{ object.title }}</a>
+                        <a href="{{ object.display_url }}">{{ object.title }}</a>
                     {% else %}
                         {{ object.title }}
                     {% endif %}

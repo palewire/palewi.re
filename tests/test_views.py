@@ -77,9 +77,9 @@ def test_mobile_navigation_has_menu_disclosure(client):
 
 
 @pytest.mark.parametrize(("old_path", "new_path"), [("/work/", "/clips/")])
-def test_replaced_list_pages_redirect_permanently(client, old_path, new_path):
+def test_replaced_list_pages_redirect(client, old_path, new_path):
     response = client.get(old_path)
-    assert response.status_code == 301
+    assert response.status_code == 302
     assert response["Location"] == new_path
 
 
@@ -173,7 +173,7 @@ def test_django_no_longer_serves_mastodon_discovery_endpoints(client, page):
         *(
             (
                 f"/{rule.source}",
-                200 if rule.source in {"apps/", "clips/"} else 301 if rule.source == "work/" else 404,
+                200 if rule.source in {"apps/", "clips/"} else 302 if rule.source == "work/" else 404,
             )
             for rule in RULES
             if not rule.is_dynamic

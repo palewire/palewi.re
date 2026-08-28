@@ -283,9 +283,14 @@ def _optional_http_url(record: dict, field_name: str, path: str, title: str) -> 
 def _require_http_url(record: dict, field_name: str, path: str) -> str:
     """Return a required HTTP(S) URL or raise ContentError."""
     value = _require_str(record, field_name, path)
+    return _validate_http_url(value, field_name, path)
+
+
+def _validate_http_url(value: str, field_name: str, path: str) -> str:
+    """Return an HTTP(S) URL or raise a field-specific ContentError."""
     parsed = urlparse(value)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc or any(char.isspace() for char in value):
-        raise ContentError(f"{path}: record {record!r} field '{field_name}' must be an HTTP(S) URL")
+        raise ContentError(f"{path}: field '{field_name}' must be an HTTP(S) URL, got {value!r}")
     return value
 
 
@@ -407,7 +412,7 @@ def load_clips(path: Path | None = None) -> list[Clip]:
         catalog_title = _optional_str(record, "catalog_title", label)
         link_url = _optional_str(record, "link_url", label)
         if link_url:
-            _require_http_url({"url": link_url}, "url", f"{label}: clip '{title}' link_url")
+            _validate_http_url(link_url, "link_url", f"{label}: clip '{title}'")
         if archive_url:
             parsed_archive_url = urlparse(archive_url)
             if (
@@ -528,8 +533,9 @@ def load_code(path: Path | None = None) -> list[CodeProject]:
 def group_code(projects: Sequence[CodeProject]) -> list[CodeCategory]:
     """Group code projects using the sections from the GitHub README."""
     return [
-        CodeCategory(title=label, object_list=[project for project in projects if project.type == project_type])
+        CodeCategory(title=label, object_list=matching_projects)
         for project_type, label in CODE_TYPE_LABELS.items()
+        if (matching_projects := [project for project in projects if project.type == project_type])
     ]
 
 

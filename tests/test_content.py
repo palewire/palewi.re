@@ -266,6 +266,21 @@ def test_clip_can_link_to_preserved_copy(tmp_path):
     assert clip.is_linkable
 
 
+def test_clip_link_url_error_names_the_field(tmp_path):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Broken fallback\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/gone\n"
+        "    link_url: not-a-url\n"
+    )
+
+    with pytest.raises(ContentError, match="field 'link_url' must be an HTTP\\(S\\) URL"):
+        load_clips(path)
+
+
 def test_clip_accepts_wayback_metadata(tmp_path):
     p = tmp_path / "clips.yaml"
     p.write_text(

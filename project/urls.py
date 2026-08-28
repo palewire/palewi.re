@@ -25,7 +25,7 @@ urlpatterns = [
     path("talks/", views.TalkListView.as_view(), name="coltrane_talk_list"),
     path("bots/", views.BotListView.as_view(), name="coltrane_bot_list"),
     # Replaced list pages
-    path("work/", RedirectView.as_view(pattern_name="coltrane_clip_list", permanent=True)),
+    path("work/", RedirectView.as_view(pattern_name="coltrane_clip_list")),
     path("docs/", TemplateView.as_view(template_name="coltrane/docs_landing.html"), name="coltrane_docs_landing"),
     # Detail pages
     re_path(

@@ -18,6 +18,7 @@ class StaticSitemap(django_sitemaps.Sitemap):
         "clips": "/clips/",
         "apps": "/apps/",
         "code": "/code/",
+        "docs": "/docs/",
         "guides": "/guides/",
         "posts": "/posts/",
         "talks": "/talks/",
