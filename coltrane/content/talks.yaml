@@ -108,8 +108,9 @@ talks:
   deck_url: /static/talks/bare-facts-first-datawrapper/
   pdf_url: /static/talks/bare-facts-first-datawrapper/bare-facts-first-datawrapper.pdf
   notes_template: coltrane/talks/bare-facts-first-datawrapper-notes.html
-  text_url: /static/talks/bare-facts-first-datawrapper/transcript.txt
+  notes_text_url: /static/talks/bare-facts-first-datawrapper/notes.txt
   transcript_template: coltrane/talks/bare-facts-first-datawrapper-transcript.html
+  transcript_text_url: /static/talks/bare-facts-first-datawrapper/transcript.txt
   video_url: https://www.youtube.com/watch?v=LmfhEPdBBUU
   local_video_url: /media/talks/bare-facts-first-datawrapper/video.mp4
   captions_url: /static/talks/bare-facts-first-datawrapper/captions.vtt

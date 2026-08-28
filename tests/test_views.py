@@ -168,6 +168,10 @@ def test_talk_detail_page_is_available(client):
     assert "Show the extracted slide text" in content
     assert 'kind="captions" src="/static/talks/bare-facts-first-datawrapper/captions.vtt"' in content
     assert "Show the timestamped transcript" in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
     assert ">Downloads<" in content
     assert "Original sources" not in content
 

@@ -82,13 +82,14 @@
     {% endif %}
     {% endif %}
 
-    {% if object.pdf_url or object.local_video_url or object.text_url %}
+    {% if object.pdf_url or object.local_video_url or object.notes_text_url or object.transcript_text_url %}
     <section aria-labelledby="downloads">
         <h2 id="downloads">Downloads</h2>
         <p>
-            {% if object.pdf_url %}<a href="{{ object.pdf_url }}" download>Presentation PDF</a>{% endif %}
-            {% if object.local_video_url %}{% if object.pdf_url %} · {% endif %}<a href="{{ object.local_video_url }}" download>Video file</a>{% endif %}
-            {% if object.text_url %}{% if object.pdf_url or object.local_video_url %} · {% endif %}<a href="{{ object.text_url }}" download>Text version</a>{% endif %}
+            {% if object.pdf_url %}<a href="{{ object.pdf_url }}" download>Slides PDF</a>{% endif %}
+            {% if object.local_video_url %}{% if object.pdf_url %} · {% endif %}<a href="{{ object.local_video_url }}" download>Recording video</a>{% endif %}
+            {% if object.notes_text_url %}{% if object.pdf_url or object.local_video_url %} · {% endif %}<a href="{{ object.notes_text_url }}" download>Extracted slide text</a>{% endif %}
+            {% if object.transcript_text_url %}{% if object.pdf_url or object.local_video_url or object.notes_text_url %} · {% endif %}<a href="{{ object.transcript_text_url }}" download>Timestamped transcript</a>{% endif %}
         </p>
     </section>
     {% endif %}

@@ -847,6 +847,9 @@ nav .links li a:hover {
 .talk-detail-text-content {
   max-width: 68ch;
   margin-top: 1.25em;
+  font-size: 1em;
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-body);
 }
 
 .talk-detail-text-content section + section {
@@ -871,13 +874,13 @@ nav .links li a:hover {
 .talk-transcript li {
   display: grid;
   gap: 0.75em;
-  grid-template-columns: max-content minmax(0, 1fr);
+  grid-template-columns: 6em minmax(0, 1fr);
   margin-bottom: 0.8em;
 }
 
 .talk-transcript time {
   font-variant-numeric: tabular-nums;
-  font-weight: var(--font-weight-bold);
+  font-weight: 500;
 }
 
 .talk-detail video {

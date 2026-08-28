@@ -355,7 +355,8 @@ def test_talk_optional_fields_default_empty(tmp_path):
     assert talks[0].slug == ""
     assert talks[0].deck_url == ""
     assert talks[0].short_title == ""
-    assert talks[0].text_url == ""
+    assert talks[0].notes_text_url == ""
+    assert talks[0].transcript_text_url == ""
 
 
 def test_talk_detail_fields_and_slug_load(tmp_path):
@@ -370,8 +371,9 @@ def test_talk_detail_fields_and_slug_load(tmp_path):
         "    short_title: A short title\n"
         "    deck_url: /static/talks/a-talk/\n"
         "    notes_template: coltrane/talks/a-talk-notes.html\n"
-        "    text_url: /static/talks/a-talk/notes.txt\n"
+        "    notes_text_url: /static/talks/a-talk/notes.txt\n"
         "    transcript_template: coltrane/talks/a-talk-transcript.html\n"
+        "    transcript_text_url: /static/talks/a-talk/transcript.txt\n"
     )
 
     talk = load_talks(p)[0]
@@ -381,8 +383,9 @@ def test_talk_detail_fields_and_slug_load(tmp_path):
     assert talk.short_title == "A short title"
     assert talk.display_subtitle == "A talk"
     assert talk.notes_template == "coltrane/talks/a-talk-notes.html"
-    assert talk.text_url == "/static/talks/a-talk/notes.txt"
+    assert talk.notes_text_url == "/static/talks/a-talk/notes.txt"
     assert talk.transcript_template == "coltrane/talks/a-talk-transcript.html"
+    assert talk.transcript_text_url == "/static/talks/a-talk/transcript.txt"
 
 
 def test_talk_duplicate_slug_raises(tmp_path):

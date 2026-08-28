@@ -41,7 +41,8 @@ Edit the appropriate file under ``coltrane/content/``:
   Optional fields: ``slug`` (unique URL slug), ``short_title`` (str),
   ``video_url`` (str),
   ``local_video_url`` (str), ``slides_url`` (str), ``deck_url`` (str), ``pdf_url`` (str),
-  ``notes_url`` (str), ``text_url`` (str), ``transcript_url`` (str), ``captions_url`` (str),
+  ``notes_url`` (str), ``notes_text_url`` (str), ``transcript_url`` (str),
+  ``transcript_text_url`` (str), ``captions_url`` (str),
   ``poster_url`` (str), ``original_slides_url`` (str), and
   ``original_video_url`` (str).
   Ordering: ``-date``.
@@ -181,9 +182,10 @@ class Talk:
     pdf_url: str = ""
     notes_url: str = ""
     notes_template: str = ""
-    text_url: str = ""
+    notes_text_url: str = ""
     transcript_url: str = ""
     transcript_template: str = ""
+    transcript_text_url: str = ""
     captions_url: str = ""
     poster_url: str = ""
     original_slides_url: str = ""
@@ -622,9 +624,10 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 pdf_url=_optional_str(record, "pdf_url", label),
                 notes_url=_optional_str(record, "notes_url", label),
                 notes_template=_optional_str(record, "notes_template", label),
-                text_url=_optional_str(record, "text_url", label),
+                notes_text_url=_optional_str(record, "notes_text_url", label),
                 transcript_url=_optional_str(record, "transcript_url", label),
                 transcript_template=_optional_str(record, "transcript_template", label),
+                transcript_text_url=_optional_str(record, "transcript_text_url", label),
                 captions_url=_optional_str(record, "captions_url", label),
                 poster_url=_optional_str(record, "poster_url", label),
                 original_slides_url=_optional_str(record, "original_slides_url", label),
