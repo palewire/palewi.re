@@ -157,6 +157,27 @@ def test_clip_and_talk_dates_have_machine_readable_values(client):
     assert all(f'<time datetime="{talk.date:%Y-%m-%d}">' in talk_content for talk in load_talks())
 
 
+def test_talk_detail_page_is_available(client):
+    response = client.get("/talks/bare-facts-first-datawrapper/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "Bare Facts First" in content
+    assert 'rel="author" href="/who-is-ben-welsh/">Ben Welsh</a>' in content
+    assert 'src="/static/talks/bare-facts-first-datawrapper/"' in content
+    assert "Show the extracted slide text" in content
+    assert 'kind="captions" src="/static/talks/bare-facts-first-datawrapper/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
+    assert ">00:05</time>" in content
+    assert ">00:05.160</time>" not in content
+    assert ">Downloads<" in content
+    assert "Original sources" not in content
+
+
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
     post = load_posts()[0]
     canonical_url = f"https://palewi.re{post.get_absolute_url()}"

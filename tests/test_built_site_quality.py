@@ -122,6 +122,7 @@ def test_checker_allows_exact_worker_routes_without_allowing_unknown_paths(build
         <a href="/docs/first-python-notebook/">Notebook</a>
         <a href="/colophon/">Colophon</a>
         <a href="/applications/twitter-style-infinite-scroll-with-django-demo/">Demo</a>
+        <a href="/media/talks/bare-facts-first-datawrapper/video.mp4">Talk video</a>
         <a href="/docs/not-a-real-doc/">Missing documentation</a>
         <a href="/not-a-real-legacy-route/">Missing legacy route</a>
         <a href="https://palewi.re//colophon/">Malformed legacy route</a>

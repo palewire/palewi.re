@@ -285,7 +285,7 @@ def test_clip_accepts_wayback_metadata(tmp_path):
     p = tmp_path / "clips.yaml"
     p.write_text(
         "clips:\n"
-        "  - title: T\n"
+        "  - title: 'A short title: A talk'\n"
         "    type: story\n"
         "    date: '2024-01-01'\n"
         "    url: https://example.com/story\n"
@@ -352,6 +352,52 @@ def test_talk_optional_fields_default_empty(tmp_path):
     talks = load_talks(p)
     assert talks[0].video_url == ""
     assert talks[0].slides_url == ""
+    assert talks[0].slug == ""
+    assert talks[0].deck_url == ""
+    assert talks[0].short_title == ""
+    assert talks[0].notes_text_url == ""
+    assert talks[0].transcript_text_url == ""
+
+
+def test_talk_detail_fields_and_slug_load(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: 'A short title: A talk'\n"
+        "    venue: V\n"
+        "    location: L\n"
+        "    date: '2024-01-01'\n"
+        "    slug: a-talk\n"
+        "    short_title: A short title\n"
+        "    deck_url: /static/talks/a-talk/\n"
+        "    notes_template: coltrane/talks/a-talk-notes.html\n"
+        "    notes_text_url: /static/talks/a-talk/notes.txt\n"
+        "    transcript_template: coltrane/talks/a-talk-transcript.html\n"
+        "    transcript_text_url: /static/talks/a-talk/transcript.txt\n"
+    )
+
+    talk = load_talks(p)[0]
+
+    assert talk.get_absolute_url() == "/talks/a-talk/"
+    assert talk.deck_url == "/static/talks/a-talk/"
+    assert talk.short_title == "A short title"
+    assert talk.display_subtitle == "A talk"
+    assert talk.notes_template == "coltrane/talks/a-talk-notes.html"
+    assert talk.notes_text_url == "/static/talks/a-talk/notes.txt"
+    assert talk.transcript_template == "coltrane/talks/a-talk-transcript.html"
+    assert talk.transcript_text_url == "/static/talks/a-talk/transcript.txt"
+
+
+def test_talk_duplicate_slug_raises(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: One\n    venue: V\n    location: L\n    date: '2024-01-01'\n    slug: a-talk\n"
+        "  - title: Two\n    venue: V\n    location: L\n    date: '2024-01-02'\n    slug: a-talk\n"
+    )
+
+    with pytest.raises(ContentError, match="duplicate talk slug"):
+        load_talks(p)
 
 
 def test_talk_missing_required_field_raises(tmp_path):

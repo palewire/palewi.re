@@ -23,6 +23,7 @@ urlpatterns = [
     path("code/", views.CodeListView.as_view(), name="coltrane_code_list"),
     path("guides/", views.GuideListView.as_view(), name="coltrane_guide_list"),
     path("talks/", views.TalkListView.as_view(), name="coltrane_talk_list"),
+    path("talks/<slug:slug>/", views.TalkDetailView.as_view(), name="coltrane_talk_detail"),
     path("bots/", views.BotListView.as_view(), name="coltrane_bot_list"),
     # Replaced list pages
     path("work/", RedirectView.as_view(pattern_name="coltrane_clip_list")),

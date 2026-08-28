@@ -139,6 +139,28 @@ class TalkListBuildView(CanonicalBuildMixin, BuildableTemplateView):
         return context
 
 
+class TalkDetailBuildView(CanonicalBuildMixin, TemplateView, BuildableMixin):
+    template_name = "coltrane/talk_detail.html"
+
+    @property
+    def build_method(self) -> Callable[[], None]:
+        return self.build
+
+    def get_context_data(self, **kwargs: object) -> dict[str, object]:
+        context = super().get_context_data(**kwargs)
+        context["object"] = self.talk
+        return context
+
+    def build(self) -> None:
+        for self.talk in load_talks():
+            if not self.talk.slug:
+                continue
+            build_path = f"{self.talk.get_absolute_url().lstrip('/')}index.html"
+            self.request = self.create_request(self.talk.get_absolute_url())
+            self.prep_directory(build_path)
+            self.build_file(self.get_output_path(build_path), self.get_content())
+
+
 class PostListBuildView(CanonicalBuildMixin, BuildableListView):
     build_path = "posts/index.html"
     template_name = "coltrane/post_list.html"

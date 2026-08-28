@@ -76,7 +76,7 @@ describe("static site Worker", () => {
     });
 
     expect(response.headers.get("content-type")).toBe("application/feed+json; charset=utf-8");
-    expect(response.headers.get("content-security-policy")).toContain("frame-ancestors 'none'");
+    expect(response.headers.get("content-security-policy")).toContain("frame-ancestors 'self'");
     await expect(response.text()).resolves.toBe(content);
   });
 
@@ -98,12 +98,45 @@ describe("static site Worker", () => {
     await expect(response.text()).resolves.toBe(SECURITY_TXT_CONTENT);
   });
 
+  it("serves approved talk media from R2 with byte-range support", async () => {
+    const response = await handleRequest(new Request("https://palewi.re/media/talks/a-talk/video.mp4", { headers: { range: "bytes=0-99" } }), {
+      ASSETS: assets,
+      TALK_MEDIA: {
+        async get(key, options) {
+          expect(key).toBe("talks/a-talk/video.mp4");
+          expect(options?.range).toBeInstanceOf(Headers);
+          if (!options?.range) {
+            throw new Error("Expected range headers");
+          }
+          expect(options?.range.get("range")).toBe("bytes=0-99");
+          return {
+            body: new ReadableStream(),
+            httpEtag: '"video"',
+            range: { length: 100, offset: 0 },
+            size: 1_000,
+            writeHttpMetadata(headers) {
+              headers.set("content-type", "video/mp4");
+            },
+          };
+        },
+        async head() {
+          return null;
+        },
+      },
+    });
+
+    expect(response.status).toBe(206);
+    expect(response.headers.get("content-range")).toBe("bytes 0-99/1000");
+    expect(response.headers.get("content-type")).toBe("video/mp4");
+    expect(response.headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+  });
+
   it("passes static assets through with security headers", async () => {
     const response = await handleRequest(request("/who-is-ben-welsh/"), { ASSETS: assets });
 
     expect(await response.text()).toBe("https://palewi.re/who-is-ben-welsh/");
     expect(response.headers.get("content-security-policy")).toBe(
-      "base-uri 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'none'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com; img-src 'self' https://palewi.re https://palewire.s3.amazonaws.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; media-src 'self' https://palewire.s3.amazonaws.com; object-src 'none'",
+      "base-uri 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'self'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com; img-src 'self' https://palewi.re https://palewire.s3.amazonaws.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; media-src 'self' https://palewire.s3.amazonaws.com; object-src 'none'",
     );
     expect(response.headers.get("permissions-policy")).toBe(
       "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
@@ -117,7 +150,8 @@ describe("static site Worker", () => {
     const healthResponse = await handleRequest(request("/health/"), { ASSETS: assets });
 
     for (const response of [redirectResponse, healthResponse]) {
-      expect(response.headers.get("content-security-policy")).toContain("frame-ancestors 'none'");
+      expect(response.headers.get("content-security-policy")).toContain("frame-ancestors 'self'");
+      expect(response.headers.get("x-frame-options")).toBe("SAMEORIGIN");
       expect(response.headers.get("permissions-policy")).toBe(
         "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
       );

@@ -30,6 +30,13 @@
     "not_found_handling": "404-page",
     "run_worker_first": true
   },
+  "r2_buckets": [
+    {
+      "binding": "TALK_MEDIA",
+      "bucket_name": "palewire-talk-media",
+      "remote": true
+    }
+  ],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
@@ -39,7 +46,14 @@
       "name": "palewire-static-site-preview",
       "workers_dev": true,
       "preview_urls": true,
-      "routes": []
+      "routes": [],
+      "r2_buckets": [
+        {
+          "binding": "TALK_MEDIA",
+          "bucket_name": "palewire-talk-media",
+          "remote": true
+        }
+      ]
     }
   }
 }
