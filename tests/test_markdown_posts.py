@@ -8,6 +8,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pytest
+from bs4 import BeautifulSoup
 from django.conf import settings
 from django.utils import timezone
 
@@ -51,6 +52,15 @@ def test_historical_markdown_posts_match_public_export_manifest():
             hashlib.sha256(posts_by_permalink[entry["permalink"]].body_markup.encode()).hexdigest()
             == entry["body_sha256"]
         )
+
+
+def test_my_times_images_have_alt_attributes():
+    """Every image in the My Times post provides alternative text."""
+    post_path = POSTS_PATH / "2018-04-14--my-times.md"
+    images = BeautifulSoup(post_path.read_text(encoding="utf-8"), "html.parser").find_all("img")
+
+    assert len(images) == 134
+    assert all(image.has_attr("alt") for image in images)
 
 
 def test_markdown_posts_have_unique_slugs_and_preserved_permalinks():

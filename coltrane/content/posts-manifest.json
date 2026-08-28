@@ -430,11 +430,11 @@
       "sha256": "9791af73b8675c3a1291265955f31cb57b0e4ddabd541b829e306bb5c192c4f5"
     },
     {
-      "body_sha256": "b92cf526967556f8d7142ceabb2d6d374361e9463aea8d8d1c91446dd2d014ee",
+      "body_sha256": "80df7eda75eb65c3de92265ac6108b13d9bbde7cbbab5bfc0553f973687ebba9",
       "path": "posts/2018-04-14--my-times.md",
       "permalink": "/posts/2018/04/14/my-times/",
       "published_at": "2018-04-14T10:00:00-07:00",
-      "sha256": "a81a66d72798b9cc9cdbe9ea9a93902be11bf14a7edddf4d6594c2e37a54297d"
+      "sha256": "3562ce435c150d1fbd1da2c4b73500bc7d41fc809271c08ecc5158f639827ad5"
     },
     {
       "body_sha256": "0f1fb56cb208e21b634ee2ac7b57ffc02b13c1884640002f1b810e9229fcf872",
@@ -493,7 +493,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "2b5c477fdf15c3ed4602040511b1c0eaa48976f92b9ea692b1cbbc244521135d",
+  "posts_fingerprint_sha256": "c41f46b51ae7853593a0384bdef6bfbaa60236ee87541dbb4dbc0378ccc9f227",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,
