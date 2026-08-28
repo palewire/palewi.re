@@ -871,7 +871,7 @@ nav .links li a:hover {
 .talk-transcript li {
   display: grid;
   gap: 0.75em;
-  grid-template-columns: 4em 1fr;
+  grid-template-columns: max-content minmax(0, 1fr);
   margin-bottom: 0.8em;
 }
 
