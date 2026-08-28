@@ -44,7 +44,10 @@ request "/who-is-ben-welsh/" 200
 grep -Fq '<link rel="canonical" href="https://palewi.re/who-is-ben-welsh/"' "$body_file"
 expect_security_headers
 request "/posts/" 200
-request "/work/" 200
+request "/clips/" 200
+request "/apps/" 200
+request "/code/" 200
+request "/guides/" 200
 request "/talks/" 200
 request "/docs/" 200
 request "/posts/2012/02/25/nicar-2012-things-i-said/" 200

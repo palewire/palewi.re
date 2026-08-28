@@ -58,7 +58,10 @@ verify_all() {
 verify_untouched() {
   for expected in \
     "/who-is-ben-welsh/:200" \
-    "/work/:200" \
+    "/apps/:200" \
+    "/clips/:200" \
+    "/code/:200" \
+    "/guides/:200" \
     "/docs/:200" \
     "/posts/:200"
   do
