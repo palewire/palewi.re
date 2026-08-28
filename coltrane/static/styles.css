@@ -889,6 +889,10 @@ nav .links li a:hover {
 }
 
 @media (max-width: 550px) {
+  .talk-detail header {
+    gap: 8px;
+  }
+
   .talk-transcript li {
     grid-template-columns: 1fr;
     gap: 0.15em;
