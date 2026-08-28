@@ -22,6 +22,7 @@ class StaticSitemap(django_sitemaps.Sitemap):
         "guides": "/guides/",
         "posts": "/posts/",
         "talks": "/talks/",
+        "bots": "/bots/",
     }
     main_sitemaps = []
     for page in pages.keys():
