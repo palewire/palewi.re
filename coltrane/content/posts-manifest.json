@@ -45,11 +45,11 @@
       "sha256": "b04f99be41d447b0122f24b97066e5f6aa6f02ad6e76e0b4cf8b4f2b3c9a0162"
     },
     {
-      "body_sha256": "ce9d2239b40d8d5f0c8b88d971a83821939760124de265e00ebdb28740984464",
+      "body_sha256": "6b46f01bea9bb094614fd3cac76e78fc77320d11aa9231cbeffd98658d6b2d8e",
       "path": "posts/2008-04-20--python-recipe-grab-a-page-scrape-a-table-download-a-file.md",
       "permalink": "/posts/2008/04/20/python-recipe-grab-a-page-scrape-a-table-download-a-file/",
       "published_at": "2008-04-20T13:43:13-07:00",
-      "sha256": "94d71d3aa98342125f2d0c1ea0589348ddacb62637cac446509f3faa02add4d6"
+      "sha256": "8a7a6937b9e49a219e6413b75cf90e169a8361c914b3364a43abb392d117a944"
     },
     {
       "body_sha256": "208d4f338bda7b4842b6a2949051161e3c29589738763b01f4cbeddda414872a",
@@ -87,11 +87,11 @@
       "sha256": "2643f706a49abcf371bb2aa9e5de0e29b21aa4effd7144c59eceebd27c490950"
     },
     {
-      "body_sha256": "52fd0ad2c3b5ac12cd56ab93c6e0d09a0de6f951a32c29e79905189d5f2dfe08",
+      "body_sha256": "ac8c895ea34148af23d5e6e51fc69c30d6658b559aa45084bf56a7a71cac8dab",
       "path": "posts/2008-06-01--bens-hip-hop-twitter-bot.md",
       "permalink": "/posts/2008/06/01/bens-hip-hop-twitter-bot/",
       "published_at": "2008-06-01T03:56:05-07:00",
-      "sha256": "fb72d619d933223685f62c6b31efe2725f54d841fa98be6820ded4600f5c5886"
+      "sha256": "f23e8aba3057c8cded41be71da8dcff9a301099f87cb8bc15d8a7755c5eca505"
     },
     {
       "body_sha256": "cf7a8b58ec6e075e1409bf91a45363f5009f75bc412cb1e02e0abe3c0ab3fd89",
@@ -108,11 +108,11 @@
       "sha256": "7e1fd470d0f4730ff492cf1ab30e2ec2a4404fe3f7425c78ac9fc68fbc8b9cd3"
     },
     {
-      "body_sha256": "ad671cb98afa3ff26ae6e0d9e10af554480ef7de37c788899e99301ad9e9cd08",
+      "body_sha256": "c95a900929efd0d20f00136fe09f6c0b5c55cb77158ef596456a9a9cc5199e92",
       "path": "posts/2008-07-06--permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks.md",
       "permalink": "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/",
       "published_at": "2008-07-06T20:20:33-07:00",
-      "sha256": "1caf7939b7f364cdfb5e544a27fbec51dc12a25951c8b64b55d6af84579b5997"
+      "sha256": "d106e4d1fe2b303896adf4842746e6facd28aa793037c47dfb72bfa1af3c435c"
     },
     {
       "body_sha256": "4f4ca05a12364ffd666951b3e6188dba798ed1b8ecfa0fddebcf6ee3a6bfd5b2",
@@ -143,11 +143,11 @@
       "sha256": "8ea75f9da288d898ebf5230fc740b59d014e70fc61459d9e78dd49df6e415820"
     },
     {
-      "body_sha256": "853b6ebe2bce023c24dedf3e18b85c10bf6db97358958d75412c67df1e52efc5",
+      "body_sha256": "50f1e084cd377a6533bfe96459c50f22d8f699cb52aa91c80fd19140781519c4",
       "path": "posts/2009-03-04--openlayers-recipe-how-to-map-proportional-symbols.md",
       "permalink": "/posts/2009/03/04/openlayers-recipe-how-to-map-proportional-symbols/",
       "published_at": "2009-03-04T11:04:00-08:00",
-      "sha256": "473ce40fafce9e885a8d8b1033b1c47f249a7b87557787c306a6ad0d0f48ee92"
+      "sha256": "e74525c6cfc4791983ab0263e40409449942ef8a4c894ec0ccaf73f1569b02f8"
     },
     {
       "body_sha256": "28108187d4bf5ba2ce4902b2189454a819e8b41b418d98a502a54e7190433f70",
@@ -311,11 +311,11 @@
       "sha256": "431479aff5e2cfe1be89a730d2db600ca3f3d3c1812a25fcb379d5d78a3bd1b3"
     },
     {
-      "body_sha256": "90d1522bbc6f257435153577c9dc3bfc9779bc9c1e94385d6414624398fc6e99",
+      "body_sha256": "0a622e1d2103cff33b343ffa6403b6ee5a60583f7ea97f3bc9ef5c9e749a0bdc",
       "path": "posts/2012-03-26--leaflet-recipe-hover-events-features-and-polygons.md",
       "permalink": "/posts/2012/03/26/leaflet-recipe-hover-events-features-and-polygons/",
       "published_at": "2012-03-26T13:47:10-07:00",
-      "sha256": "000b865aa1ec67ebee075a1ef07588ea357d91d8230afafe9319cdf62b69df39"
+      "sha256": "8667636f9291c241156d3b241e96b573292edca6638d468ce3161d7ca0628829"
     },
     {
       "body_sha256": "52508620f5b3e90abbe71fc152fad1771da269a3c2801813c296c330b50bdf61",
@@ -493,7 +493,7 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "c41f46b51ae7853593a0384bdef6bfbaa60236ee87541dbb4dbc0378ccc9f227",
+  "posts_fingerprint_sha256": "4ba29ba51de06463b3a52de539abd9b27a3e70d4b309a8f8975f413252a06b56",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,

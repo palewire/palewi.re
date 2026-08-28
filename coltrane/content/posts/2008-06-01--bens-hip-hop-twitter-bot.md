@@ -8,7 +8,7 @@ wordpress_id: 126
 
 
 
-<img src="http://www.palewire.com/images/mistadobalina.png" alt="Screenshot of the @mistadobalina Twitter bot" />
+<img src="https://palewire.s3.amazonaws.com/img/mistadobalina.png" alt="Screenshot of the @mistadobalina Twitter bot" />
 
 
 

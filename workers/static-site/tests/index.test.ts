@@ -62,6 +62,24 @@ describe("static site Worker", () => {
     await expect(response.text()).resolves.toContain("/feeds/posts/index.xml");
   });
 
+  it("serves the JSON Feed with its feed content type and security headers", async () => {
+    const content = '{"version":"https://jsonfeed.org/version/1.1"}';
+    const response = await handleRequest(request("/feeds/posts.json"), {
+      ASSETS: {
+        async fetch(assetRequest) {
+          expect(new URL(assetRequest.url).pathname).toBe("/feeds/posts.json");
+          return new Response(content, {
+            headers: { "content-type": "application/json; charset=utf-8" },
+          });
+        },
+      },
+    });
+
+    expect(response.headers.get("content-type")).toBe("application/feed+json; charset=utf-8");
+    expect(response.headers.get("content-security-policy")).toContain("frame-ancestors 'none'");
+    await expect(response.text()).resolves.toBe(content);
+  });
+
   it("serves security.txt directly as plain text", async () => {
     const response = await handleRequest(request("/.well-known/security.txt"), {
       ASSETS: {
@@ -85,7 +103,7 @@ describe("static site Worker", () => {
 
     expect(await response.text()).toBe("https://palewi.re/who-is-ben-welsh/");
     expect(response.headers.get("content-security-policy")).toBe(
-      "base-uri 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'none'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com http://s3-us-west-1.amazonaws.com https://w.soundcloud.com; img-src 'self' https://palewi.re http://chart.apis.google.com http://www.palewire.com https://palewire.s3.amazonaws.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; media-src 'self' https://palewire.s3.amazonaws.com; object-src 'none'",
+      "base-uri 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'none'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com; img-src 'self' https://palewi.re https://palewire.s3.amazonaws.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; media-src 'self' https://palewire.s3.amazonaws.com; object-src 'none'",
     );
     expect(response.headers.get("permissions-policy")).toBe(
       "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
