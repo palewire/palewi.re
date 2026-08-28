@@ -174,6 +174,13 @@ def test_talk_detail_page_is_available(client):
     assert ">Timestamped transcript<" in content
     assert ">00:05</time>" in content
     assert ">00:05.160</time>" not in content
+
+
+def test_talk_detail_page_uses_configured_byline_and_deck_ratio(client):
+    content = client.get("/talks/good-trouble-ai/").content.decode()
+
+    assert "Ben Welsh and Scott Klein" in content
+    assert 'style="--talk-deck-aspect-ratio: 16 / 9;"' in content
     assert ">Downloads<" in content
     assert "Original sources" not in content
 

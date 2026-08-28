@@ -38,7 +38,8 @@ Edit the appropriate file under ``coltrane/content/``:
   supplied, published at /talks/<slug>/.
   Required fields: ``title`` (str), ``venue`` (str), ``location`` (str),
   ``date`` (YYYY-MM-DD).
-  Optional fields: ``slug`` (unique URL slug), ``short_title`` (str),
+  Optional fields: ``slug`` (unique URL slug), ``short_title`` (str), ``byline`` (str),
+  ``deck_aspect_ratio`` (positive ``width / height`` ratio),
   ``video_url`` (str),
   ``local_video_url`` (str), ``slides_url`` (str), ``deck_url`` (str), ``pdf_url`` (str),
   ``notes_url`` (str), ``notes_text_url`` (str), ``transcript_url`` (str),
@@ -178,7 +179,9 @@ class Talk:
     slides_url: str = ""
     slug: str = ""
     short_title: str = ""
+    byline: str = ""
     deck_url: str = ""
+    deck_aspect_ratio: str = ""
     pdf_url: str = ""
     notes_url: str = ""
     notes_template: str = ""
@@ -299,6 +302,16 @@ def _optional_str(record: dict, field_name: str, path: str) -> str:
         raise ContentError(
             f"{path}: record {record!r} field '{field_name}' must be a string, got {type(value).__name__}"
         )
+    return value
+
+
+def _optional_aspect_ratio(record: dict, field_name: str, path: str) -> str:
+    """Return an optional positive whole-number CSS aspect ratio."""
+    value = _optional_str(record, field_name, path)
+    if not value:
+        return ""
+    if not re.fullmatch(r"[1-9]\d*\s*/\s*[1-9]\d*", value):
+        raise ContentError(f"{path}: record {record!r} field '{field_name}' must be a positive width / height ratio")
     return value
 
 
@@ -620,7 +633,9 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 slides_url=slides_url,
                 slug=slug,
                 short_title=_optional_str(record, "short_title", label),
+                byline=_optional_str(record, "byline", label),
                 deck_url=_optional_str(record, "deck_url", label),
+                deck_aspect_ratio=_optional_aspect_ratio(record, "deck_aspect_ratio", label),
                 pdf_url=_optional_str(record, "pdf_url", label),
                 notes_url=_optional_str(record, "notes_url", label),
                 notes_template=_optional_str(record, "notes_template", label),
