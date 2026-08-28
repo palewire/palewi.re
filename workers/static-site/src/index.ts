@@ -42,7 +42,7 @@ const SECURITY_HEADERS = {
   "permissions-policy": "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
   "referrer-policy": "strict-origin-when-cross-origin",
   "x-content-type-options": "nosniff",
-  "x-frame-options": "DENY",
+  "x-frame-options": "SAMEORIGIN",
 };
 
 function redirect(destination: string, status: 301 | 302): Response {
