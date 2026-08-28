@@ -594,10 +594,13 @@ a:active {
 /* The header */
 nav {
   display: block;
-  margin-top: 0.75em;
-  margin-bottom: 0.5em;
+  margin: 0.625em 0;
   font-size: 1em;
   line-height: 1.7em;
+}
+nav > .row {
+  display: flex;
+  align-items: center;
 }
 nav .shingle {
   font-size: 1.7em;
@@ -638,8 +641,6 @@ nav .links li a:hover {
 }
 @media (max-width: 550px) {
   nav > .row {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
     overflow: visible;
