@@ -828,6 +828,7 @@ nav .links li a:hover {
 }
 
 .talk-detail-deck {
+  box-sizing: border-box;
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -835,7 +836,6 @@ nav .links li a:hover {
 }
 
 .talk-detail-text {
-  border-bottom: var(--border-rule);
   border-top: var(--border-rule);
   padding: 0.75em 0;
 }
@@ -874,7 +874,7 @@ nav .links li a:hover {
 .talk-transcript li {
   display: grid;
   gap: 0.75em;
-  grid-template-columns: 6em minmax(0, 1fr);
+  grid-template-columns: 4em minmax(0, 1fr);
   margin-bottom: 0.8em;
 }
 

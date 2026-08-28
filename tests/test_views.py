@@ -172,6 +172,8 @@ def test_talk_detail_page_is_available(client):
     assert ">Recording video<" in content
     assert ">Extracted slide text<" in content
     assert ">Timestamped transcript<" in content
+    assert ">00:05</time>" in content
+    assert ">00:05.160</time>" not in content
     assert ">Downloads<" in content
     assert "Original sources" not in content
 
