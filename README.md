@@ -272,9 +272,11 @@ from the historical export; do not edit it for new posts.
 ## Deployment
 
 Merges to `main` run the `deploy-static-site` CI job after Lint and Test pass.
-It builds Django's static output in `dist/` and deploys
-`workers/static-site`, which serves `palewi.re` and `www.palewi.re`.
-Django is a build-time publishing system; it does not serve the public site.
+It verifies a same-zone redirect canary, builds Django's static output in
+`dist/`, deploys `workers/static-site`, attaches the generated
+`workers/legacy-redirects` route plan, and verifies production. The static
+Worker serves `palewi.re` and `www.palewi.re`. Django is a build-time
+publishing system; it does not serve the public site.
 
 ## Cloudflare access
 
@@ -458,8 +460,7 @@ attached routes. Django has no fallback for these routes.
 ### Legacy redirect Worker
 
 `project/redirects.yaml` is the readable, validated source of truth for legacy
-redirects. It currently has 22 exact paths and 8 dynamic patterns; this is the
-full retired Django inventory (the issue's earlier 21/7 count was stale).
+redirects. It currently has 21 exact paths and 8 dynamic patterns.
 `project/redirect_manifest.py` is pure Python validation and route-plan tooling
 used by the Worker tests, deployment commands, and production verifier.
 `workers/legacy-redirects/` reads that same file as a bundled text module and
@@ -470,7 +471,7 @@ TypeScript and Wrangler dry-run validation. A matching request receives a
 302, its manifest destination, and
 `X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped.
 
-The generated plan has 37 explicit `palewi.re` routes for the 30 manifest
+The generated plan has 36 explicit `palewi.re` routes for the 29 manifest
 entries. Every pattern has one terminal wildcard, which Cloudflare requires;
 there are no infix wildcards and no `palewi.re/*` route. The root-level date
 pattern uses ten digit-prefixed routes (`0*` through `9*`) because Cloudflare
@@ -520,9 +521,10 @@ CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 make legacy-worker-attach-routes
 WORKER_MARKER_ATTEMPTS=4 WORKER_MARKER_WAIT_SECONDS=15 make legacy-worker-verify-production
 ```
 
-Every mutating command requires its named confirmation variable. The verifier
-waits for the marker during route propagation but fails immediately on a bad
-status or Location.
+Every mutating command requires its named confirmation variable. The
+post-merge deployment runs the same canary, cleanup, route attachment, and
+verification sequence automatically. The verifier waits for the marker during
+route propagation but fails immediately on a bad status or Location.
 
 GitHub releases summarize meaningful batches of deployed changes. See
 [RELEASING.md](RELEASING.md) for the changelog and release process.

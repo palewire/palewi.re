@@ -43,10 +43,10 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 
 ## Deployment
 
-The `deploy-static-site` CI job builds Django's static site and deploys the
-`workers/static-site` Worker after Lint and Test pass on `main`. It serves
-`palewi.re` and `www.palewi.re`; the legacy redirect Worker serves
-`palewire.com` and `www.palewire.com`.
+The `deploy-static-site` CI job builds Django's static site, deploys the
+`workers/static-site` Worker, and deploys the validated legacy redirect route
+plan after Lint and Test pass on `main`. It serves `palewi.re` and
+`www.palewi.re`; the legacy redirect Worker serves the retired paths.
 
 ## Post-deployment smoke checks
 

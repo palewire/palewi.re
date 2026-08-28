@@ -92,7 +92,7 @@ jobs:
           make legacy-worker-validate
 
   deploy-static-site:
-    name: Deploy static site
+    name: Deploy site and redirects
     if: github.ref == 'refs/heads/main'
     needs: [lint, test]
     runs-on: ubuntu-latest
@@ -114,15 +114,32 @@ jobs:
         with:
           node-version: "24"
 
+      - name: Bootstrap deployment
+        run: make ci-bootstrap
+
+      - name: Deploy legacy redirect canary
+        run: |
+          CONFIRM_LEGACY_WORKER_SAME_ZONE_CANARY_DEPLOY=1 make legacy-worker-same-zone-canary-deploy
+          CONFIRM_LEGACY_WORKER_ATTACH_SAME_ZONE_CANARY=1 make legacy-worker-attach-same-zone-canary
+
+      - name: Verify legacy redirect canary
+        run: make legacy-worker-verify-same-zone-canary
+
+      - name: Delete legacy redirect canary
+        if: always()
+        run: CONFIRM_LEGACY_WORKER_DELETE_SAME_ZONE_CANARY=1 make legacy-worker-delete-same-zone-canary
+
       - name: Build and deploy static site
         run: |
-          make ci-bootstrap
           make bake
           npm --prefix workers/static-site ci --ignore-scripts --no-audit --no-fund
           cd workers/static-site
           npm exec -- wrangler deploy --env="" --strict
 
-      - name: Verify static site and existing Workers
+      - name: Deploy legacy redirect routes
+        run: CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 make legacy-worker-attach-routes
+
+      - name: Verify site and Workers
         run: |
           scripts/verify-static-site.sh
           scripts/verify-worker-endpoints.sh
