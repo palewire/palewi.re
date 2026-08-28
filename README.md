@@ -485,7 +485,8 @@ The production smoke workflow runs the same verifier after deployment. It
 checks every exact rule, two representative cases for each dynamic rule, the
 exact `Location`, the Worker marker, and adjacent non-legacy paths. Canary and
 production verification use a 20-second curl timeout and wait 15 seconds
-between up to four marker checks for route propagation.
+between bounded retries for route propagation. Static-site verification also
+retries temporary status mismatches while newly deployed assets propagate.
 
 Use a dedicated Cloudflare token for deployment, restricted to the owning
 account and `palewi.re` zone. It needs only **Account > Workers Scripts >
