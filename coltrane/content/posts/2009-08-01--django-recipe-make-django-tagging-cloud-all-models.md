@@ -5,7 +5,7 @@ published_at: '2009-08-01T10:45:25-07:00'
 ---
 <p>As far as I can tell, <a href="http://code.google.com/p/django-tagging/">django-tagging</a> will only create a cloud for one particular database model. This is usually awesome, but sometimes not enough. What if, for instance, you wanted to make a combined cloud that consolidated tags across more than one model? Maybe your blog puts tags not just on posts, but also on tweets and bookmarks.</p>
 
-<p>That's pretty much the situation I was in, and here's how I hacked on the module's codebase to get it done. The code below accepts a queryset of TaggedItem objects and returns a list of tags and font sizes you can use to format the cloud, as I did <a href="/tags/">here</a>.</p>
+<p>That's pretty much the situation I was in, and here's how I hacked on the module's codebase to get it done. The code below accepts a queryset of TaggedItem objects and returns a list of tags and font sizes you can use to format the cloud, as I did here.</p>
 
 <pre lang="python">
 """
