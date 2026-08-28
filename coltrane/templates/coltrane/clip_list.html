@@ -34,7 +34,7 @@
                 {
                     "@type": "ListItem",
                     "position": {{ forloop.counter }},
-                    {% if object.is_linkable %}"url": "{{ object.display_url }}",{% endif %}
+                    {% if object.is_linkable %}"url": "{{ object.display_url|escapejs }}",{% endif %}
                     "name": "{{ object.title|escapejs }}"
                 }{% if not forloop.last %},{% endif %}
                 {% endfor %}

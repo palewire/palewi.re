@@ -43,7 +43,7 @@
                     "@type": "ListItem",
                     "position": {{ forloop.counter }},
                     "name": "{{ object.title|escapejs }}",
-                    "url": "{{ object.mastodon_url|default:object.twitter_url }}"
+                    "url": "{{ object.mastodon_url|default:object.twitter_url|escapejs }}"
                 }{% if not forloop.last %},{% endif %}
                 {% endfor %}
             ]

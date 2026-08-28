@@ -30,7 +30,7 @@ from coltrane.content_loaders import (
     load_posts,
     load_talks,
 )
-from coltrane.feeds import LatestPostsFeed
+from coltrane.feeds import LatestPostsFeed, LatestPostsJsonFeed
 from coltrane.sitemaps import sitemaps
 from coltrane.views import BIO_EMAIL_LIST, BIO_SKILL_LIST, BIO_SOCIAL_LIST, _load_bio_html
 
@@ -223,6 +223,20 @@ class LatestPostsBuildFeed(CanonicalBuildMixin, LatestPostsFeed):
     feed_url = "/feeds/posts/"
 
 
+class LatestPostsJsonBuildFeed(CanonicalBuildMixin, LatestPostsJsonFeed, BuildableMixin):
+    build_path = "feeds/posts.json"
+    feed_url = "/feeds/posts.json"
+
+    @property
+    def build_method(self) -> Callable[[], None]:
+        return self.build
+
+    def build(self) -> None:
+        self.prep_directory(self.build_path)
+        content = self.get(self.create_request(self.feed_url)).content
+        self.build_file(self.get_output_path(self.build_path), content)
+
+
 class RobotsBuildView(CanonicalBuildMixin, BuildableTemplateView):
     build_path = "robots.txt"
     content_type = "text/plain"
@@ -233,6 +247,12 @@ class SecurityTxtBuildView(CanonicalBuildMixin, BuildableTemplateView):
     build_path = ".well-known/security.txt"
     content_type = "text/plain; charset=utf-8"
     template_name = "security.txt"
+
+
+class LLMsTxtBuildView(CanonicalBuildMixin, BuildableTemplateView):
+    build_path = "llms.txt"
+    content_type = "text/plain; charset=utf-8"
+    template_name = "llms.txt"
 
 
 class Static404BuildView(CanonicalBuildMixin, Buildable404View):

@@ -5,7 +5,7 @@ from django.views.generic import RedirectView, TemplateView
 
 # Views
 from coltrane import views
-from coltrane.feeds import LatestPostsFeed
+from coltrane.feeds import LatestPostsFeed, LatestPostsJsonFeed
 from coltrane.sitemaps import sitemaps
 from toolbox.views import health_check
 
@@ -43,6 +43,12 @@ urlpatterns = [
     ),
     # Plain-text site metadata
     path("feeds/posts/", LatestPostsFeed()),
+    path("feeds/posts.json", LatestPostsJsonFeed.as_view(), name="posts_json_feed"),
+    path(
+        "llms.txt",
+        TemplateView.as_view(template_name="llms.txt", content_type="text/plain; charset=utf-8"),
+        name="llms_txt",
+    ),
     path(
         "robots.txt",
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
