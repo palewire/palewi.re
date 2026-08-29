@@ -352,6 +352,7 @@ def test_talk_optional_fields_default_empty(tmp_path):
     talks = load_talks(p)
     assert talks[0].video_url == ""
     assert talks[0].slides_url == ""
+    assert talks[0].guide_url == ""
     assert talks[0].archive_url == ""
     assert talks[0].slug == ""
     assert talks[0].deck_url == ""

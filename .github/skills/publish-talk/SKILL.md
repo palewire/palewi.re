@@ -32,6 +32,13 @@ talk as a catalog entry rather than creating an empty detail page:
 
 The talks list will link to both the external source and its archived copy.
 
+## Link a related guide
+
+When a first-party guide is the useful companion to a talk, add its URL as
+`guide_url`. Do not add `slug`, local assets, or a Wayback snapshot unless
+other talk materials also require them. The talks list labels this link
+“Guide.”
+
 ## Create the page assets
 
 Create a directory named for the talk slug:

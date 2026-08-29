@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "a8f1c5a32b4419dbfe2fb43fd6016efffb53a85a4118008a60d10ea442e93aed"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "2b325a36519358db171fc85a4f063a6cc7c0bf4f6636cd0697fd7f572f7c389e"),
+        ("/talks/", "90a8bb3f7b0d8f2130b2a917d779590b79d7b795e2f655e415e84a627379dbd2"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -214,6 +214,12 @@ def test_talk_list_links_to_archived_external_talk_pages(client):
         in content
     )
     assert "Archived page &raquo;" in content
+
+
+def test_talk_list_links_to_related_guides(client):
+    content = client.get("/talks/").content.decode()
+
+    assert 'href="https://palewi.re/docs/first-pmtiles-map/">Guide &raquo;</a>' in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):

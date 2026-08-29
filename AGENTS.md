@@ -120,6 +120,7 @@ talks:
     date: "2024-06-15"       # YYYY-MM-DD
     video_url: "https://..." # optional
     slides_url: "https://..." # optional
+    guide_url: "https://..." # optional related guide
     archive_url: "https://web.archive.org/web/..." # optional Wayback snapshot
 ```
 

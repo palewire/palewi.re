@@ -177,6 +177,7 @@ class Talk:
     video_url: str = ""
     local_video_url: str = ""
     slides_url: str = ""
+    guide_url: str = ""
     archive_url: str = ""
     slug: str = ""
     short_title: str = ""
@@ -647,6 +648,7 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 video_url=video_url,
                 local_video_url=_optional_str(record, "local_video_url", label),
                 slides_url=slides_url,
+                guide_url=_optional_str(record, "guide_url", label),
                 archive_url=_optional_wayback_url(record, "archive_url", label),
                 slug=slug,
                 short_title=_optional_str(record, "short_title", label),

@@ -42,7 +42,7 @@ talks:
   venue: NICAR
   location: Indianapolis
   date: '2026-03-07'
-  slides_url: https://palewi.re/docs/first-pmtiles-map/
+  guide_url: https://palewi.re/docs/first-pmtiles-map/
 - title: Introducing the new IRE Resource Center
   venue: NICAR
   location: Indianapolis

@@ -67,9 +67,10 @@
                 <article class="listitem twelvecol last">
                     <time datetime="{{ object.date|date:"Y-m-d" }}">{{ object.date|date:"N" }}</time> •
                     {% if object.slug %}<a href="{{ object.get_absolute_url }}">{% endif %}“{{ object.title }}”{% if object.slug %}</a>{% endif %} at {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}
-                    {% if object.video_url or object.slides_url or object.archive_url %}(
-                        {% if object.video_url %}<a target="_blank" href="{{ object.video_url }}">Video &raquo;</a>{% if object.slides_url or object.archive_url %} · {% endif %}{% endif %}
-                        {% if object.slides_url %}<a target="_blank" href="{{ object.slides_url }}">Materials &raquo;</a>{% if object.archive_url %} · {% endif %}{% endif %}
+                    {% if object.video_url or object.slides_url or object.guide_url or object.archive_url %}(
+                        {% if object.video_url %}<a target="_blank" href="{{ object.video_url }}">Video &raquo;</a>{% if object.slides_url or object.guide_url or object.archive_url %} · {% endif %}{% endif %}
+                        {% if object.slides_url %}<a target="_blank" href="{{ object.slides_url }}">Materials &raquo;</a>{% if object.guide_url or object.archive_url %} · {% endif %}{% endif %}
+                        {% if object.guide_url %}<a href="{{ object.guide_url }}">Guide &raquo;</a>{% if object.archive_url %} · {% endif %}{% endif %}
                         {% if object.archive_url %}<a target="_blank" href="{{ object.archive_url }}">Archived page &raquo;</a>{% endif %}
                     ){% endif %}
                 </article>
