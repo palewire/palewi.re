@@ -11,8 +11,9 @@ the site. Keep the work focused on one talk at a time.
 
 ## Before publishing
 
-- Confirm that the presenter has the right to republish the deck and
-  recording.
+- Treat a user request to publish talk assets as confirmation that they have
+  permission to republish the deck and recording. Ask only if they say the
+  permission status is uncertain or restricted.
 - Keep the original `slides_url` and `video_url` in `talks.yaml` for source
   reference.
 - Use `short_title` when the full title is too long for the page heading.
