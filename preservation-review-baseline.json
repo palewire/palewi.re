@@ -15,7 +15,6 @@
     {"source_url": "https://api.soundcloud.com/tracks/2099172090", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://asu.zoom.us/rec/play/ShKHBZ4M8nipdXFKuZHUaU0FDM8nywZotv5ryyeIvDH4WjGEmDQzvzpVMX10k3XUZ8D-OvEiKhMcilaA.-JekNP08WWLe764M?autoplay=true", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://journalismcourses.org/product/first-python-notebook-data-analysis-on-deadline/", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
-    {"source_url": "https://palewi.re/docs/first-python-notebook/", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://palewire.s3.amazonaws.com/latimes-tour/9track.mp4", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://palewire.s3.amazonaws.com/latimes-tour/button.mp4", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://palewire.s3.amazonaws.com/latimes-tour/handle.mp4", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
