@@ -145,6 +145,14 @@ describe("static site Worker", () => {
     expect(response.headers.get("strict-transport-security")).toContain("max-age=31536000");
   });
 
+  it("allows the IRE Resource Center deck's hashed startup script", async () => {
+    const response = await handleRequest(request("/static/talks/ire-resource-center/"), { ASSETS: assets });
+
+    expect(response.headers.get("content-security-policy")).toContain(
+      "script-src 'self' 'sha256-DMbYlXrnLW14j2GxDuz+ZgtHhA88TY8qe5iEQIAvWbc='",
+    );
+  });
+
   it("applies the security policy to redirects and health responses", async () => {
     const redirectResponse = await handleRequest(request("/"), { ASSETS: assets });
     const healthResponse = await handleRequest(request("/health/"), { ASSETS: assets });

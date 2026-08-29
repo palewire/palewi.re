@@ -24,6 +24,8 @@ const CANONICAL_HOST = "palewi.re";
 const SIBLING_HOSTS = new Set(["www.palewi.re", "palewire.com", "www.palewire.com"]);
 const USERNAME_DESTINATION = "https://mastodon.palewi.re/@palewire";
 const SECURITY_TXT_PATH = "/.well-known/security.txt";
+const IRE_RESOURCE_CENTER_DECK_PATH = "/static/talks/ire-resource-center/";
+const IRE_RESOURCE_CENTER_SCRIPT_HASH = "'sha256-DMbYlXrnLW14j2GxDuz+ZgtHhA88TY8qe5iEQIAvWbc='";
 const CONTENT_SECURITY_POLICY = [
   "base-uri 'self'",
   "default-src 'self'",
@@ -37,6 +39,10 @@ const CONTENT_SECURITY_POLICY = [
   "media-src 'self' https://palewire.s3.amazonaws.com",
   "object-src 'none'",
 ].join("; ");
+const IRE_RESOURCE_CENTER_CONTENT_SECURITY_POLICY = CONTENT_SECURITY_POLICY.replace(
+  "script-src 'self'",
+  `script-src 'self' ${IRE_RESOURCE_CENTER_SCRIPT_HASH}`,
+);
 const SECURITY_HEADERS = {
   "content-security-policy": CONTENT_SECURITY_POLICY,
   "permissions-policy": "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
@@ -60,7 +66,11 @@ function withSecurityHeaders(response: Response, request: Request): Response {
   for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
     headers.set(name, value);
   }
-  if (new URL(request.url).protocol === "https:") {
+  const url = new URL(request.url);
+  if (url.pathname === IRE_RESOURCE_CENTER_DECK_PATH) {
+    headers.set("content-security-policy", IRE_RESOURCE_CENTER_CONTENT_SECURITY_POLICY);
+  }
+  if (url.protocol === "https:") {
     headers.set("strict-transport-security", "max-age=31536000; includeSubDomains; preload");
   }
   return new Response(response.body, {
