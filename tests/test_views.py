@@ -185,6 +185,26 @@ def test_talk_detail_page_uses_configured_byline_and_deck_ratio(client):
     assert "Original sources" not in content
 
 
+def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
+    response = client.get("/talks/ire-resource-center/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert 'src="/static/talks/ire-resource-center/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 48 / 35;"' in content
+    assert "Show the extracted slide text" in content
+    assert "Semantic search" in content
+    assert ">Slides PDF<" in content
+    assert 'src="/media/talks/ire-resource-center/video.mp4"' in content
+    assert 'poster="/media/talks/ire-resource-center/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/ire-resource-center/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "Welcome everybody here." in content
+    assert ">Extracted slide text<" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+
+
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
     post = load_posts()[0]
     canonical_url = f"https://palewi.re{post.get_absolute_url()}"
