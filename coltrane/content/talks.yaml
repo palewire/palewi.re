@@ -21,6 +21,17 @@ talks:
   date: '2026-04-29'
   video_url: https://vimeo.com/1187819115/4fcb0378ca?share=copy&fl=sv&fe=ci
   slides_url: https://palewi.re/docs/ire-archive-slide-deck/
+  slug: ire-resource-center
+  deck_url: /static/talks/ire-resource-center/
+  deck_aspect_ratio: 48 / 35
+  pdf_url: /static/talks/ire-resource-center/ire-resource-center.pdf
+  notes_template: coltrane/talks/ire-resource-center-notes.html
+  notes_text_url: /static/talks/ire-resource-center/notes.txt
+  transcript_template: coltrane/talks/ire-resource-center-transcript.html
+  transcript_text_url: /static/talks/ire-resource-center/transcript.txt
+  local_video_url: /media/talks/ire-resource-center/video.mp4
+  captions_url: /static/talks/ire-resource-center/captions.vtt
+  poster_url: /media/talks/ire-resource-center/poster.jpg
 - title: Today’s News For Tomorrow
   venue: Poynter
   location: Zoom

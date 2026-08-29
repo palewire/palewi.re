@@ -1,0 +1,646 @@
+And we'll get this webinar rolling.
+Welcome everybody here.
+My name is Cody Winchester.
+I am the director of technology at IRE.
+Thank you for coming to hear about our brand new resource center.
+I'm going to be handing this over to Ben Welch here in a minute.
+He and, or the colleague, Derek Willis have been working on,
+if you have not seen it, I'm going to drop a link in chat, archive.ire.org,
+which is our new repository for contest entries, tip sheets,
+all sorts of resources.
+We are working on supplementing that as we go.
+And Ben, you just recently described this as our 1.0 version.
+We're looking for feedback.
+So please kick the tires and let us know what you think.
+And I know this recording will be made available afterward
+for anybody who has to leave early or wasn't able to make it.
+And otherwise, I'm going to turn it over to Derek,
+chair of the board's website improvement task force,
+who's done quite a bit of work to make these resources more accessible.
+Thanks.
+Thanks, Cody.
+And thanks, everybody, for being here.
+Really, what I want to, the way I want to begin is by talking about,
+like, we, I think, all know or like have an idea of like how valuable
+the resources that come out of our IRE's trainings and conferences
+and contests are.
+And like, if you've been a member or been around the organization
+or been to one of the conferences, you know that like you go,
+sometimes a lot of these sessions you go to for the tip sheets.
+The tip sheets are great or the contest entries are great.
+You're like, wow, I really want to know how they did that.
+And so the effort that our task force and in particular Ben worked on,
+has been working on for the last year,
+is about trying to harvest that knowledge and that context
+and make it accessible to the IRE membership.
+And so to that end, like, thanks to the efforts of Cody and other folks
+in terms of getting us, you know,
+digital representations of conference tip sheets, of contest entries,
+we're able to now have a archive site for those and that allows user
+and IRE members to search for interesting things, for useful things,
+for like, oh, hey, I remember this session from this conference
+and I want to find that tip sheet or I want to see, you know,
+what's been done on this topic and all the, you know,
+all the contest entries that we have and, you know, other kinds of materials
+from our conferences, IRE's conferences and trainings.
+And so that's kind of what we've built with the archive site.
+And so we want to kind of show that off and talk a little bit about
+what that entails.
+Ben, can you do me a favor and just drop in like the presentation link,
+because I think I've misplaced it somehow.
+I sure can.
+And I am clear of the thing I had to watch out for.
+Oh, well, then if you'd like to, you give a much better spiel on this
+than I do, but it's up to you. I'm happy to.
+Let's, I'll pull it up and then let's do edit like Kenny and Dolly.
+That sounds great.
+All right. Can you guys see my screen?
+Yes. Excellent.
+So, yeah, you heard it from Derek. There's a brand new website.
+We launched it at the night car conference in Indianapolis.
+You can go to it now if you'd like at archive.iree.org.
+It's our new resource center.
+And I'm going to tell you how it works.
+You can see here on the homepage, which is what you'll see after you log in.
+When you first go, you should be prompted to sign in because this is members only.
+After you log in, you get a big search box.
+And if you type in your own name or the subject of whatever you're working on
+at your job right now or whatever you're interested in,
+you should get back a list of related IRE resources.
+Each one, there's about 33,000 that are currently in the database.
+And each one of them has its own sort of detail page or URL
+where we present everything we have for that resource, which, you know,
+has its name, who came up with it, what type of thing it is.
+And then in most cases, we have the associated thing itself,
+be it a PDF of the tip sheet that was scanned in or emailed over
+or an audio recording of a panel or other event.
+Those are the two most common things.
+And so 33,000 are in there.
+What you'll find if you go in there, if you fish through it,
+is that the majority of them are IRE contest entries.
+So, you know, through the years when people have applied to win an IRE award,
+they've had to fill out a form that explains, you know,
+why they should win and talks about the method behind their work.
+And that actually accounts for the majority of the 33,000
+are those contest entries, which stretch back decades.
+In preparing this site, I heard from some of our members
+who are passionate users of the contest entries.
+I can share with you a couple use cases I heard about
+from real world investigative people.
+One is an editor here at Reuters who told me that he uses the database
+to look for and sniff around topics that he's interested in exploring
+and maybe investigating.
+And what he'll do is look for maybe classic examples
+that he hadn't heard of from decades past.
+Maybe they're localized in different places
+and ask himself, could I nationalize the story
+or is there some lesson I can learn from what's been done in the past?
+It also allows him to see whether other people have already covered the waterfront
+or whether there might be new stuff to look up.
+His view is that newspaper archives are so decayed
+and the internet is so biased towards the present
+that he often can't find the same information when he searches in Google
+and that looking at the contest entries gives him a more direct look
+at what investigative reporters and editors have been doing.
+So that's one case.
+Another case I heard was from people applying for awards.
+So you could look at the applications from the previous year
+and say, hey, who won and why did they apply
+and what things did they emphasize or not?
+And that can help you write a better package yourself.
+That was another tip I heard.
+And then a third use case, which I did not anticipate
+but makes a lot of sense,
+is I think a number of journalism educators use the contest entries
+to help their students learn about the methods and practices
+of kind of like the great stories in IRE history.
+So if you're having your students study the Boston Globe
+child sexual abuse story
+or pick your greatest hit of investigative journalism,
+if you find the contest entries for those stories,
+you can often get a lot of insider detail about how the data analysis
+was done or the story was put together, the kind of behind-the-scenes stuff
+that could be really helpful for students to learn.
+So that was the third interesting use case I heard about contest entries.
+The number two most common thing in the database are, of course, the tip sheets,
+which I suspect are the most popular.
+I don't have data to back that up, but that's going to be all the materials
+presentations through the years with the PDFs attached.
+We have 6,000 of those assembled there in this data set.
+There are a few duplicates and kind of reruns from year to year,
+but it's pretty fresh, pretty fresh and pretty unique.
+And then the third large group are the audio recordings.
+These are all the panel discussions and events that happen at IRE conferences.
+A large share of those are put down to tape,
+and you can listen to MP3s of Bob Woodward and Leonard Downey
+talking about this or that,
+or Sarah Cohen schooling you up on the database frame of mind way back when.
+You also are able to listen to the audio recordings of more recent events as well
+and find stuff related to topics you're interested in.
+And for me, as someone who was really exploring this archive in depth
+for the first time making the site,
+I had a lot of fun going back and listening to some of the older stuff
+and tuning into the golden oldies.
+Every asset in here has a common set of metadata
+or columns in the spreadsheet that go with each record,
+and some are filled in better than others.
+This is not a perfect data set.
+This release we're doing is really a first effort
+just to get this stuff up and out,
+and there's a lot of room for improvement.
+And this is one of those areas where we think we can improve.
+You can see why everything has a category and a title and description.
+Our author's field isn't very well structured or formatted.
+It's a little loosey goosey.
+And we've got some pretty big gaps as far as the year or date
+when the records were created,
+which means that when you do a search and try to sort
+for what the most recent document is,
+which is a really common use case we heard from people,
+we don't have a perfect solution yet.
+And that's something we want to get better at
+bringing up these numbers that you see here on this chart
+is one of our goals,
+and we want to gradually add more and more extra stuff on as well.
+I will jump in here to say that this is much more
+of a problem of a past resource problem.
+The efforts of the staff have really helped us have more data,
+more metadata information about more recent resources,
+tip sheets, conference entries, things like that.
+But there are quite a few resources from older conferences,
+events where that information isn't present.
+And oftentimes that affiliation, which is one of the lowest ones,
+essentially that's being extracted from people's names
+and information on, say, a tip sheet.
+And in those cases, if there wasn't really a standard,
+people might just put their names and emails on a tip sheet.
+And so there's literal cases where the information isn't there
+and we have to either sort of derive it
+or maybe we won't get it,
+or we have to wait until someone might claim it.
+Yep.
+And this database that you can search with uses
+what's called semantic search.
+And so this is kind of an AI-flavored version of search
+that goes a little beyond just doing kind of strict keyword matching
+of what you're putting in.
+Kind of under the hood, inside the database,
+we've had a machine learning system kind of break up each asset
+into kind of its component parts
+using the kind of fancy vectorization and AI stuff
+we hear so much about these days.
+And that allows it to take your query, what you search in there,
+and find something closer to what you really mean.
+And it also allows us to sort of rate documents
+based on their similarity to each other
+and other interesting things.
+All of the code that does this is open source on GitHub
+on the IRE apps profile page, if anyone's interested.
+And you can see the Python code we do.
+I'd be happy to get nerdy in the question and answer portion
+and go into the details of this,
+but I don't want to bore you too much.
+But we can brag and say we do have an AI-enabled search,
+which is pretty cool and was a big learning experience
+for me putting this together.
+After you do your search, you see a result page kind of like this,
+which takes the result of that AI funnel
+and says, here's what we think are the best matches for you,
+which you then can pick and see from the list how you like.
+You're able to tune that search by, say,
+limiting it to different categories.
+Say you only want to search tip sheets or audio.
+You're able to just check and uncheck those boxes and do that.
+You're allowed to sort newest and oldest in addition to relevance,
+but it is imperfect due to those gaps in the data currently.
+And if you really, really hate AI,
+you can just turn it off there with that little switch
+and do a standard keyword search as well.
+At the bottom of each of pages, each assets page,
+you can see some recommended similar documents.
+This is based on that same AI sugar where we're able to say,
+you know, this one is most similar to that one and on and on.
+I did have an AI bot make these similar scores for my slide,
+and I can see that it has titled one,
+a guide to ass kicking in the 90s.
+I just noticed that.
+I don't think that's a real tip sheet.
+Maybe it is a real tip sheet. I don't know.
+We'll have to look that one up.
+As we said at the start, this is member walled.
+So just registering with the IRE website is not enough to access this database.
+You have to both be registered and have an active membership,
+aka have paid your dues in the last year.
+If you don't do that, you can't get it. Sorry.
+And this is the kind of software tools we're using.
+We're using kind of a vectorized database,
+which is a newfangled thing to kind of build.
+And this site, I began, I'd be happy to talk about the tech later
+if people want to get into it.
+But, you know, just to wrap up,
+I just want to say this is a work in progress.
+It's a very simple search that has a couple interesting features,
+but there's so much more we probably can and should be doing with this.
+We want to hear your feedback on what's broken or not like it should be.
+We want to hear your feature requests on what it should be doing, that it's not.
+And if you're really passionate about this,
+we would love to welcome you into our volunteer creation process.
+We have a sort of list of priorities going forward.
+Our top priority is to expand this system to make it possible for the IRE
+staff to do rolling incremental updates.
+Currently, we're just able to do like big database dumps every so often in
+that requires like me or Derek to push a button or Cody.
+And we'd rather have like an administrative panel
+where the staff can be actively improving it.
+That's our top priority.
+We're going to do that in the coming months.
+But then we also have some gaps in the data,
+stuff that was lost in the migration, some of these flawed fields.
+We want to try to start cleaning that up.
+And then finally,
+we have some really interesting stuff associated with the assets.
+We haven't integrated yet like the OCRing of all the documents,
+the transcribing of all the audio files.
+We do have all those associated transcripts,
+but we have not yet integrated those into the search or the interface.
+You can't see them on the site.
+Your search doesn't benefit from them.
+And we'd really like to get around to that before too long too.
+So that's kind of our roadmap.
+The whole thing was done on a volunteer basis by really the three of us
+and our colleagues on the volunteer task force.
+So be nice to us because this was a nice weekend thing.
+But we definitely also want your brutal honesty about how it can
+and should be better as well.
+And that's really my spiel.
+And I don't know if Cody has an agenda beyond this,
+but I'd love to hear from folks of what they think about it,
+how they use the IRE archives and how we can make them better.
+No, let's go ahead and open it up if people want to chat.
+Okay, I can get us started.
+Hi, everybody.
+Thanks so much for sharing.
+Well, for building the tool or for sharing it with everyone.
+One piece of feedback I gave in the Slack that I wanted to follow up on
+was categorization or the possibility of categorization.
+I had mentioned that for me as someone who is new to journalism,
+I'm not aware of what I don't know.
+And so even coming up with what to search for is hard
+when I'm presented with just a search bar on the homepage.
+So definitely something like that would be really helpful
+as a future request for me.
+You'd be interested in kind of browsing topics you're interested in.
+Am I hearing that right?
+Exactly.
+Yeah, we've heard that you're not the only person who said that.
+You know, we had several other people at NyCar raise the same question.
+They're kind of like, I want to nose around.
+I want to walk through the stacks a little bit, you know.
+And I could imagine, you know, we don't currently have kind of tags
+or categories beyond the sort of like, this is a tip sheet.
+This is a contest entry level stuff.
+And so getting that, like applying those groupings
+is like something maybe AI can help us with or I don't know what.
+Like, so that's a challenge.
+And we were actually talking about that earlier today.
+Like, how could we do that in a disciplined way?
+A second idea we've heard, I wonder what you would think of this,
+is maybe having the IRA staff or muck rock or members of the community
+curate kind of like maybe greatest hits kind of lists,
+like a reporter who really knows a topic or someone on the staff
+collected the 10 best tip sheets on topic X
+and it was a little more of a DJ playlist.
+Does that appealing or how do you react to those ideas?
+Yeah, I mean, I would definitely love something like that.
+I think if those curated lists could still also link to the non,
+the top, you know, top 20 or 10 to 20, 20 to 30 of whatever else is left.
+So I could then follow up with other things.
+I think that would be really helpful.
+But as a place to start, for sure, I would love to see something like that.
+Yeah.
+And I'm assuming it's also tricky because language changes over time too.
+So the way something is described in the 90s maybe is described with using
+different words now.
+So I'm sure it's a challenge.
+That's an interesting question.
+There's a PhD thesis for you, Derek.
+I mean, there's a lot of, I'll pass, but there's a lot of like,
+there are definitely sort of topics or specific phrases or techniques
+that kind of die out for not extinction level stuff,
+but in terms of like what IRE members talk about.
+Yeah.
+It's like as if that were the case that essentially like we used to talk
+about these things and now we don't talk about that specific thing anymore.
+We've replaced that with something else or we've, we've moved on.
+So there's definitely a, a life cycle to some of these, some of these things.
+I, I, you know, not like mostly not for things like if you're browsing by,
+like I want to do the story on this kind of institution or things like that,
+or I'm interested in what's been done in this area.
+Like probably that's fine, but like there's definitely some specific
+technique stuff that is either, that is basically now mostly dead in terms
+of like we have, like we have a lot of people talking about it, but like,
+like there are a lot of tip sheets in there on how to search the internet.
+Right.
+And right.
+And now maybe somebody would use the word OSINT if they're talking about
+talking about like, yeah.
+And so like, and so like, but I mean, I do think that like Ben,
+like the semantic aspect of this search engine does handle some of those
+use cases where like, if I'm describing what we now call OSINT probably
+should find that stuff anyway.
+Right.
+Or a car versus data journalism, that kind of thing.
+I think it's like, like that's, that's where like, that's the whole,
+that's the whole ball game for semantic search.
+That's why you use it is to be like, I.
+Yeah.
+Like it could appear in all these different ways.
+So.
+Yeah.
+Cool.
+Thank you.
+Um, once I could follow up one small bug that I have noticed so far is if I
+click on, I haven't pulled up, if I click on an item and I see that there's
+a category tip sheet or audio, if I click on it,
+it just takes me back to the homepage search bar rather than I was,
+I was like, I was expecting, I guess I would say like a list of all the audio
+ones or all the tip sheets kind of in one spot.
+That's what it should be doing.
+I mean, yeah, like, like, oh no, no, she's absolutely right.
+Like I just tried it with contest entry and it just goes right back to the
+homepage.
+This is like one of my Svelte kit bugs.
+Yeah.
+Where like, you know, you're trying to do that.
+I don't want to drag you into my JavaScript life, but like,
+this is something that like where it'll work on your local development.
+And then not when you build it out on versatile Derek and like,
+there's like little things like that, that I, that it's good people point out.
+So, wow.
+Should we just like assign AI to do this right now?
+Get on it, Claude.
+I mean, probably.
+I'm doing it right now.
+Other, other thoughts.
+Yeah.
+We went here.
+We want your bug reports.
+Thank you so much for that.
+That's really helpful.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+I'm curious to know if folks have thoughts about how we should,
+or whether or how we should handle.
+Not whether, or essentially how we should handle.
+We have like, we've got some amount of non-English language.
+Resources, right?
+Yeah.
+We, we, we do have some number.
+They're not currently categorized that way.
+And a lot of the.
+A lot of the backlog that we have to load into the database from the last
+couple of years, we have quite a bit more mostly Spanish language content.
+But being able to categorize by language is another.
+I mean, when we're, when we're talking about, you know,
+What does the process look like when we're loading new resources into the
+database, being able to categorize by language is one of,
+is one of our, on our wish list.
+Okay.
+Other thoughts or.
+Or future suggestions or.
+We'll make this more useful.
+Beyond brow, beyond browsing, which we definitely now hear.
+Silvia, I just linked you to the issue where AI has been assigned to pick
+it up. If you're interested in.
+Co-pilot as a spectator sport.
+Let me know if I got the description of the bug wrong. I think I got it.
+But yeah.
+Hi.
+Hello. Hello. How are you?
+I'm great. Thank you. And thank you for organizing this.
+I found really useful.
+I don't know if it is already possible or covered,
+but I was wondering if.
+There might be like a connection in database.
+If a story won an award,
+one of like a Pulitzer award or,
+or another award. And so you can have that.
+Like the, the most important,
+the category of the awarded stories.
+Hmm.
+That's a good, like,
+that's a good idea for one of these curated lists, right? Or you, you know,
+you would say here, here's like,
+here's all of last year's winners, right?
+Maybe you're something like that or.
+And then.
+Sorry. And then it might be interesting.
+If the authors or someone else will write.
+A behind the scene.
+A story of the story.
+About the tools used.
+The method.
+The methodology and the tools.
+These will be the real value.
+I think I don't know if the other.
+Agree.
+So we do have like, well, I mean,
+first of all, we, we kind of used to have for,
+for like technical sort of methodological stuff.
+We, we.
+I already sometimes will.
+You know, obviously there's,
+there's some panels and sessions about that that go into some detail
+about that.
+This is also what we used to use uplink for in a lot of cases.
+Or in some cases, at least a description of it.
+Uplink was like this older newsletter that we had.
+And.
+And I think we're going to be able to,
+at least one of my goals is to be able to integrate the,
+the text of uplinks into there.
+As well.
+But I do think that like.
+There's a.
+Like.
+Like the, the, the, I think the challenge,
+one of the challenges for that is that there are like the tip sheets
+are usually like a summer and even the conference presentations
+themselves are usually a summary of that rather than like a play by
+play.
+So.
+Oh, we're bringing back.
+I read your.
+Oh, all right.
+Nice uplink returns. Great.
+Great.
+But I do think like one of the issues was sort of like, I guess it
+depends.
+How detailed do you want that methodological stuff?
+To be.
+Because a lot of times we don't get all,
+we don't really have all of that as part of our resources.
+Okay. Thank you.
+It might be interesting also to involve the voters of the,
+of the stories.
+So we would like,
+we would like people to be able to like members to be able to claim
+resources that they've uploaded.
+You know, it's sort of been like, you know,
+if you go like to a member's page,
+the member directory and be like, Hey,
+I've got here are the resources from this member.
+And like, I, you know,
+eventually allow them to like add thing or at least, you know,
+augment that.
+This information that would be,
+that would be a great thing to do because I suspect there were people
+who have things that are like, okay.
+Yeah. Most of this advice is still good, but this thing is not.
+Or like I've updated this here or like, you know,
+you should contact me about this because things have changed.
+Thank you so much.
+Yep. Do you use the, um, the resources yourself much now?
+I will.
+Okay.
+I'm curious what people are doing in real life.
+You know,
+cause you make something like this and it's hard to know like,
+what are people really doing out there? You know,
+I wasn't aware of these resources, but now,
+thanks to this webinar, I'm, I'm aware.
+So thank you for organizing it.
+Of course.
+Because we receive tons of emails.
+So, and sometimes I don't even open and just read the title.
+So, because there are so many emails and we need to prioritize.
+But so these, there was in the title,
+in the headline of the email, there was written the new resource center.
+I said, okay, interesting.
+Little editing advice there. I love it.
+Yeah. Other thoughts or questions.
+Yeah. Well, if nobody has any other questions or sorry,
+Sylvia just saw you unmute. I didn't mean to interrupt you there.
+Oh, I was out of curiosity. I was wondering,
+so every time you refresh the homepage,
+there's a different set of suggestions under the search bar.
+And I was curious how those are generated.
+It is a list that I made up and they are drawn randomly.
+And do you have one you'd like to see added?
+We can make a pull request right now.
+Yeah.
+We just add to it.
+I don't have anything particular, I guess, but I do often rely on like,
+as far as browsing, sometimes I will look there to see like, oh,
+what's this other topic that I know nothing about? And I'll click on it.
+Yeah. Yeah.
+It was me trying to be cutesy. So if you click this link, Sylvia,
+I don't know if you're interested in JavaScript,
+but you can see the full list right there.
+So I wanted them not to be too long so that it wouldn't wrap the two
+lines. Yeah.
+I do think that we also have the opportunity to possibly like, you know,
+maybe we do something where it's like, um,
+all like in the month or two or, you know,
+after a conference where it's like one of the canned searches is tip
+sheets from night car, this year's night car tip sheets from this year's
+IRE conference, whether we could do something like that.
+Yeah. I think that would be really useful too. Mm hmm.
+Cause so many people ask for the chip sheets like right after the
+conference you're looking for. I'm like right after. Yeah.
+So the constant annoyance of our staff, I'm sure.
+We're like, yeah, we're getting there. We're getting to them.
+We got to upload all these things.
+Yeah. Steep sheet and the presentations,
+or if you can share all the presentation, that would be great.
+Yeah. Those will be included in many cases. Right. Cody,
+if people had like a PowerPoint deck or whatever.
+Oh yeah. And in every case we, we have, uh, you know,
+we, we talked a little bit about getting some of the, um,
+resources from recent conferences.
+So if you go to that list that I posted in a chat,
+all of those are eventually going to get loaded into, um,
+the resource database plus a bunch more, um,
+you know, kind of odds and ends. And then, you know,
+figuring out like how, like webinars like this, you know,
+we record it. Uh, we usually upload this like to our Vimeo, uh,
+account.
+Our, our previous, uh, system did not have a concept of like,
+you know, an embed code for a video or even just like a link to
+something as opposed to like a document.
+So this will be a lot more flexible and we'll be able to, um, um,
+yeah, anything that the speaker send us plus the audio that we record,
+we will upload into this for sure.
+Thank you.
+Any other thoughts, questions, ideas, bug reports?
+So be asked what help will we're looking for? Well, bug reports is a big one.
+Feature request is another one. You know,
+um, for people who are interested in programming or the kind of library
+science of doing this kind of thing.
+We'd love to welcome people in. The whole thing is open source software.
+Um, and that's not just, uh, to show off.
+It's really a desperate plea for help.
+And, uh, so, you know, if you also have,
+if anybody has time or interest in improving the software,
+we'd love to welcome you in.
+Um,
+if anybody has time or interest in improving the software,
+we'd love to welcome you into that.
+We're currently have a closed source repo where we're trying to work on
+that administrative panel. I mentioned, so the staff can update it.
+That isn't open,
+but if people are interested in participating in that software project,
+I would be happy to welcome them in as collaborators.
+Um,
+and I also, yeah, I think also another way is like,
+because we've been talking about,
+and then heard from people about like the aspect of like browsing,
+like we have our ideas about that. Obviously, you know, like those,
+right? Like not randomly, but the ones that Ben already has put in there,
+uh, suggestions, but like if people have ideas for like, okay, well,
+if I were going to design like a browser, you know,
+like a topic system here, uh, you know, like, what would that encompass?
+Like, what should that, what would that look like?
+What should that look like? Um, like,
+I think the more suggestions and input we have on that,
+the better any system that we might come up with is going to be.
+And I just, uh, toss in the chat, if you just email,
+and this is on the, the, uh, page as well.
+If you see an issue, email help at irie.org.
+If you have a feature request, that's a great place for it too.
+All that eventually gets filtered over into a, you know, kind of a bug,
+bug track, bug and feature tracking websites, uh, that we use.
+So definitely, uh, please kick the tires and let us know what you think.
+Yep.
+Also that the AI has already sunned me and, and, uh, made its suggestion
+for how to improve the code.
+So you can see the link.
+I've got the, the pull request is already in, I,
+what it's describing as the bug sounds right,
+but I kind of want to pull that down to my computer and look at it first
+before we send it out to the world.
+But, um, I think that's probably a pretty good guess just looking at it.
+I probably just made the link Ron.
+Or I'd made it one way and then changed how it works and forgot to update it.
+The kind of dumb stuff you do when you make websites.
+Anybody else?
+Final thoughts, questions, discussion.
+All right.
+Well, um, thank you so much to Derek and Ben for being here today and also
+just for all the work y'all have put into this.
+It's fantastic.
+It's such a huge improvement over what we have.
+And thank you all for coming to give your feedback.
+Like I said, um, help at ira.org, um,
+is going to be your email address if you have any feedback.
+Um, otherwise we will see around and we will post a recording of this,
+uh, on our website soon.
+Thank you everybody.
+Thanks for coming.
+Thanks for your thoughts.
+Yeah.
+Yeah.
+Thank you.
