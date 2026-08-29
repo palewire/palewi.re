@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "a8f1c5a32b4419dbfe2fb43fd6016efffb53a85a4118008a60d10ea442e93aed"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "3546bb185a7ace238b83d813235de99b57ab0b0831a369abebfa678a6e4a78e6"),
+        ("/talks/", "2b325a36519358db171fc85a4f063a6cc7c0bf4f6636cd0697fd7f572f7c389e"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -203,6 +203,17 @@ def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
     assert ">Extracted slide text<" in content
     assert ">Recording video<" in content
     assert ">Timestamped transcript<" in content
+
+
+def test_talk_list_links_to_archived_external_talk_pages(client):
+    content = client.get("/talks/").content.decode()
+
+    assert 'href="https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"' in content
+    assert (
+        'href="https://web.archive.org/web/20260610235645/https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"'
+        in content
+    )
+    assert "Archived page &raquo;" in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):

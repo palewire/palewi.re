@@ -177,6 +177,7 @@ class Talk:
     video_url: str = ""
     local_video_url: str = ""
     slides_url: str = ""
+    archive_url: str = ""
     slug: str = ""
     short_title: str = ""
     byline: str = ""
@@ -325,6 +326,21 @@ def _optional_http_url(record: dict, field_name: str, path: str, title: str) -> 
     parsed = urlparse(value)
     if value and (parsed.scheme not in {"http", "https"} or not parsed.netloc or any(char.isspace() for char in value)):
         raise ContentError(f"{path}: doc '{title}' {field_name} must be an HTTP(S) URL, got {value!r}")
+    return value
+
+
+def _optional_wayback_url(record: dict, field_name: str, path: str) -> str:
+    """Return an optional Wayback Machine snapshot URL."""
+    value = _optional_str(record, field_name, path)
+    if not value:
+        return ""
+    parsed = urlparse(value)
+    if (
+        parsed.scheme not in {"http", "https"}
+        or parsed.netloc != "web.archive.org"
+        or any(char.isspace() for char in value)
+    ):
+        raise ContentError(f"{path}: field '{field_name}' must be a web.archive.org HTTP(S) URL, got {value!r}")
     return value
 
 
@@ -631,6 +647,7 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 video_url=video_url,
                 local_video_url=_optional_str(record, "local_video_url", label),
                 slides_url=slides_url,
+                archive_url=_optional_wayback_url(record, "archive_url", label),
                 slug=slug,
                 short_title=_optional_str(record, "short_title", label),
                 byline=_optional_str(record, "byline", label),
