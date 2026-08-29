@@ -37,11 +37,12 @@ talks:
   location: Zoom
   date: '2026-03-10'
   slides_url: https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/
+  archive_url: https://web.archive.org/web/20260610235645/https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/
 - title: First PMTiles Map
   venue: NICAR
   location: Indianapolis
   date: '2026-03-07'
-  slides_url: https://palewi.re/docs/first-pmtiles-map/
+  guide_url: https://palewi.re/docs/first-pmtiles-map/
 - title: Introducing the new IRE Resource Center
   venue: NICAR
   location: Indianapolis
@@ -51,12 +52,12 @@ talks:
   venue: NICAR
   location: Indianapolis
   date: '2026-03-05'
-  slides_url: https://palewi.re/docs/first-llm-classifier/
+  guide_url: https://palewi.re/docs/first-llm-classifier/
 - title: Go big with Github Actions
   venue: IRE Watchdog Workshop
   location: New York
   date: '2026-01-24'
-  slides_url: https://palewi.re/docs/go-big-with-github-actions/
+  guide_url: https://palewi.re/docs/go-big-with-github-actions/
 - title: 'Storytelling with graphics: From raw data to reader impact'
   venue: Observable webinar
   location: Zoom
@@ -106,17 +107,17 @@ talks:
   venue: NICAR
   location: Minneapolis
   date: '2025-03-08'
-  slides_url: https://palewi.re/docs/first-llm-classifier/
+  guide_url: https://palewi.re/docs/first-llm-classifier/
 - title: First Athena Query
   venue: NICAR
   location: Minneapolis
   date: '2025-03-07'
-  slides_url: https://palewi.re/docs/first-athena-query/
+  guide_url: https://palewi.re/docs/first-athena-query/
 - title: Go big with GitHub Actions
   venue: NICAR
   location: Minneapolis
   date: '2025-03-06'
-  slides_url: https://palewi.re/docs/go-big-with-github-actions/
+  guide_url: https://palewi.re/docs/go-big-with-github-actions/
 - title: FOIA Fellowship
   venue: DePaul University Center for Journalism Integrity & Excellence
   location: Zoom
@@ -161,17 +162,17 @@ talks:
   venue: NICAR
   location: Baltimore
   date: '2024-03-09'
-  video_url: https://palewi.re/docs/first-python-notebook/
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: First Automated Chart
   venue: NICAR
   location: Baltimore
   date: '2024-03-08'
-  slides_url: https://palewi.re/docs/first-automated-chart/
+  guide_url: https://palewi.re/docs/first-automated-chart/
 - title: First Visual Story
   venue: NICAR
   location: Baltimore
   date: '2024-03-07'
-  slides_url: https://palewi.re/docs/first-visual-story/
+  guide_url: https://palewi.re/docs/first-visual-story/
 - title: Have a little fun with FOIA
   venue: National FOIA Summit 23
   location: Zoom
@@ -180,12 +181,12 @@ talks:
   venue: NICAR
   location: New Orleans
   date: '2023-03-07'
-  slides_url: https://palewi.re/docs/first-visual-story/
+  guide_url: https://palewi.re/docs/first-visual-story/
 - title: First Visual Story
   venue: NICAR
   location: Nashville
   date: '2023-03-04'
-  slides_url: https://palewi.re/docs/first-visual-story/
+  guide_url: https://palewi.re/docs/first-visual-story/
 - title: Introducing moneyinpolitics.wtf
   venue: NICAR
   location: Nashville
@@ -195,13 +196,13 @@ talks:
   venue: NICAR
   location: Nashville
   date: '2023-03-03'
-  slides_url: https://palewi.re/docs/first-python-notebook/
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: First Pull Request
   venue: the e.e. cummings free poetry archive
   location: Zoom
   date: '2022-12-10'
   video_url: https://www.youtube.com/watch?v=E5cVRseyEOA
-  slides_url: https://palewi.re/docs/first-pull-request/
+  guide_url: https://palewi.re/docs/first-pull-request/
 - title: How do we make FOI fun?
   venue: National FOIA Summit 22
   location: Zoom
@@ -211,7 +212,7 @@ talks:
   location: Zoom
   date: '2022-09-24'
   video_url: https://www.youtube.com/watch?v=2RgPoy05AnA
-  slides_url: https://palewi.re/docs/first-python-notebook/_extra/fast-python-notebook/lab/
+  guide_url: https://palewi.re/docs/first-python-notebook/_extra/fast-python-notebook/lab/
 - title: What is Big Local News?
   venue: 17º Congresso Internacional de Journalismo da Abraji
   location: São Paulo
@@ -242,17 +243,17 @@ talks:
   venue: NICAR
   location: Atlanta
   date: '2022-03-05'
-  slides_url: https://palewi.re/docs/first-visual-story/
+  guide_url: https://palewi.re/docs/first-visual-story/
 - title: First GitHub Scraper
   venue: NICAR
   location: Atlanta
   date: '2022-03-04'
-  slides_url: https://palewi.re/docs/first-github-scraper/
+  guide_url: https://palewi.re/docs/first-github-scraper/
 - title: First Python Notebook
   venue: NICAR
   location: Atlanta
   date: '2022-03-03'
-  slides_url: https://palewi.re/docs/first-python-notebook/
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: The state of local data journalism
   venue: The Data Journalism Podcast
   location: Zoom
@@ -308,7 +309,7 @@ talks:
   venue: NICAR
   location: New Orleans
   date: '2020-03-06'
-  slides_url: https://palewi.re/docs/first-python-notebook/
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: First Observable notebook
   venue: NICAR
   location: New Orleans

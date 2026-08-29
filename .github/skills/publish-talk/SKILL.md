@@ -1,6 +1,6 @@
 ---
 name: publish-talk
-description: Create or update a permanent, first-party talk page from a presentation and recording. Use whenever adding a talk detail page, locally hosting a talk deck, or publishing a talk transcript or captions.
+description: Create or update a permanent talk page or archived external talk link. Use whenever adding a talk detail page, locally hosting a talk deck, publishing a talk transcript or captions, or preserving an external talk page.
 ---
 
 # Publish a talk page
@@ -20,6 +20,24 @@ the site. Keep the work focused on one talk at a time.
   The page displays the remaining title as its subtitle.
 - Do not deploy the Worker or alter Cloudflare routes as part of this
   workflow.
+
+## Link an external-only talk
+
+When no approved deck, recording, or other local asset is available, keep the
+talk as a catalog entry rather than creating an empty detail page:
+
+1. Keep the external event or materials URL in `slides_url` or `video_url`.
+2. Find or create a Wayback Machine snapshot and add it as `archive_url`.
+3. Do not set `slug` or add local talk assets.
+
+The talks list will link to both the external source and its archived copy.
+
+## Link a related guide
+
+When a first-party guide is the useful companion to a talk, add its URL as
+`guide_url`. Do not add `slug`, local assets, or a Wayback snapshot unless
+other talk materials also require them. The talks list labels this link
+“Guide.”
 
 ## Create the page assets
 
@@ -84,6 +102,13 @@ poster_url: /media/talks/example-talk/poster.jpg
 Only add URLs for assets that exist. The Downloads section should use the
 same labels as the page: `Slides PDF`, `Recording video`, `Extracted slide
 text`, and `Timestamped transcript`.
+
+For an external-only talk, use only the source and Wayback URLs:
+
+```yaml
+slides_url: https://example.org/event
+archive_url: https://web.archive.org/web/20260101000000/https://example.org/event
+```
 
 ## Upload recording media
 
