@@ -4,6 +4,17 @@ talks:
   location: Boston
   date: '2026-05-05'
   slides_url: https://docs.google.com/presentation/d/130fB6OvKdduUCwEAkIEJAzlQym-b73HQTV2VETO9IHM/edit?usp=sharing
+  slug: reuters-climate-monitor
+  deck_url: /static/talks/reuters-climate-monitor/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/reuters-climate-monitor/reuters-climate-monitor.pdf
+  notes_template: coltrane/talks/reuters-climate-monitor-notes.html
+  notes_text_url: /static/talks/reuters-climate-monitor/notes.txt
+  transcript_template: coltrane/talks/reuters-climate-monitor-transcript.html
+  transcript_text_url: /static/talks/reuters-climate-monitor/transcript.txt
+  local_video_url: /media/talks/reuters-climate-monitor/video.mp4
+  captions_url: /static/talks/reuters-climate-monitor/captions.vtt
+  poster_url: /media/talks/reuters-climate-monitor/poster.jpg
 - title: Introducing the New IRE Resource Center
   venue: Investigative Reporters and Editors
   location: Zoom

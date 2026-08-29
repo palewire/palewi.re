@@ -1,0 +1,769 @@
+WEBVTT
+
+00:00.040 --> 00:03.000
+This is what my wife calls my Bible salesman photo.
+
+00:04.900 --> 00:05.380
+Yeah.
+
+00:06.420 --> 00:07.240
+Accurate, yes?
+
+00:08.180 --> 00:08.620
+Yeah.
+
+00:09.160 --> 00:10.220
+No lies detected.
+
+00:11.300 --> 00:14.180
+So I've got a little presentation here I want to walk you through
+
+00:14.180 --> 00:16.480
+that I think I'm able to click my way to.
+
+00:16.680 --> 00:17.280
+No, wait.
+
+00:17.480 --> 00:18.840
+I'm clicking the wrong slides.
+
+00:19.620 --> 00:20.600
+My friend's in the back.
+
+00:20.900 --> 00:21.440
+Can we flip?
+
+00:23.060 --> 00:25.240
+Anyone else take the Acela up this morning?
+
+00:26.060 --> 00:28.320
+I was on the 5 o'clock from Penn Station.
+
+00:28.320 --> 00:30.320
+So if I get a little delirious, that's why.
+
+00:31.280 --> 00:31.700
+All right.
+
+00:31.740 --> 00:32.960
+We're waiting for the deck.
+
+00:34.240 --> 00:35.940
+We're going to take questions at the end.
+
+00:36.260 --> 00:38.260
+And you can ask me about my presentation, really,
+
+00:38.340 --> 00:40.020
+anything you want to know about Reuters News.
+
+00:40.360 --> 00:44.780
+I work in Times Square every single day, five days a week.
+
+00:45.380 --> 00:48.640
+And there you find the New York newsroom of Reuters News,
+
+00:48.820 --> 00:50.740
+which I think you probably have some familiarity with,
+
+00:50.760 --> 00:53.540
+one of the world's largest news organizations with people all around it.
+
+00:54.140 --> 00:56.720
+And I'm here to introduce you to a new project that we are,
+
+00:56.720 --> 01:01.440
+I think, publicly speaking about for the first time today at this event.
+
+01:01.600 --> 01:03.300
+And we'll launch in the coming weeks.
+
+01:03.440 --> 01:04.680
+This is kind of a sneak peek.
+
+01:04.820 --> 01:06.820
+And we call it the Reuters Climate Monitor.
+
+01:07.480 --> 01:08.300
+So what is that?
+
+01:08.760 --> 01:10.420
+I'm going to talk you through who I am,
+
+01:10.800 --> 01:12.120
+kind of what my team does,
+
+01:12.560 --> 01:16.060
+and then this new approach we're taking towards climate data as we go.
+
+01:17.400 --> 01:19.020
+Please put your questions in.
+
+01:19.560 --> 01:19.760
+All right.
+
+01:19.780 --> 01:20.580
+So I'm Ben Welsh.
+
+01:20.880 --> 01:21.900
+I'm from Iowa.
+
+01:22.240 --> 01:23.380
+Any other Hawkeyes here?
+
+01:23.380 --> 01:27.600
+All right.
+
+01:27.680 --> 01:29.560
+Any other Caitlin Clark fans here?
+
+01:29.740 --> 01:30.520
+Can I go for that?
+
+01:30.760 --> 01:31.420
+Yeah, okay.
+
+01:33.160 --> 01:36.380
+And I've been working at Reuters in New York for three years now,
+
+01:36.500 --> 01:38.920
+and I'm one of these nerds in the newsroom.
+
+01:39.020 --> 01:42.100
+I'm a reporter, an editor, and a computer programmer.
+
+01:42.440 --> 01:46.520
+And I lead a specialized team that works on automating data
+
+01:46.520 --> 01:49.420
+to cover breaking news for our service.
+
+01:49.760 --> 01:50.660
+What does that mean?
+
+01:50.660 --> 01:51.720
+Well, I'll give you an example.
+
+01:51.820 --> 01:55.680
+So our goal is really to build off these types of data applications
+
+01:55.680 --> 01:57.140
+that have become part of news,
+
+01:57.240 --> 01:59.060
+but you might not always think of as software.
+
+01:59.480 --> 02:02.240
+These are the live election results we look at on election night, right?
+
+02:02.620 --> 02:04.680
+I bet people in this room spent a lot of time
+
+02:04.680 --> 02:07.720
+refreshing their local coronavirus tracker, you know,
+
+02:07.980 --> 02:09.340
+when we were in the middle of the pandemic.
+
+02:09.340 --> 02:13.640
+And those data apps have become kind of almost by accident
+
+02:13.640 --> 02:17.660
+some of the most successful things that news organizations publish
+
+02:17.660 --> 02:19.920
+on their dot-com websites and in their apps.
+
+02:20.660 --> 02:24.020
+And what teams like mine at all the different news organizations
+
+02:24.020 --> 02:27.180
+really around the world have tried to do in the last few years
+
+02:27.180 --> 02:31.240
+is kind of retool and create miniature assembly lines
+
+02:31.240 --> 02:33.000
+inside of our information factories
+
+02:33.000 --> 02:36.280
+that kind of manufacture these types of products, right?
+
+02:36.280 --> 02:38.920
+And they're really just automated software systems,
+
+02:39.040 --> 02:42.060
+data pipelines that go to your local election office, right?
+
+02:42.160 --> 02:45.540
+Gather the results, bring them back, clean them up,
+
+02:45.920 --> 02:48.720
+and then put them up on a beautiful map
+
+02:48.720 --> 02:50.500
+before your eyes, right?
+
+02:50.520 --> 02:51.240
+You're familiar with this.
+
+02:51.300 --> 02:53.340
+And that approach works not just for elections,
+
+02:53.340 --> 02:55.740
+but really for all kinds of different stuff.
+
+02:56.260 --> 02:59.400
+And so my group is this new little assembly line inside Reuters
+
+02:59.400 --> 03:02.520
+trying to manufacture as many of those widgets as we can.
+
+03:02.520 --> 03:05.920
+And so like an example that is on our homepage
+
+03:05.920 --> 03:07.620
+like five or six times a week
+
+03:07.620 --> 03:09.300
+is we have all these automations
+
+03:09.300 --> 03:12.080
+that go get the latest economics and financial data
+
+03:12.080 --> 03:14.680
+from like a kind of business terminal type situation
+
+03:14.680 --> 03:16.020
+or a government website.
+
+03:16.420 --> 03:18.320
+And it doesn't just bring them down
+
+03:18.320 --> 03:21.140
+and allow us to analyze them.
+
+03:21.180 --> 03:23.600
+It goes all the way through out into live charts
+
+03:23.600 --> 03:25.340
+that go up onto our website, right?
+
+03:25.360 --> 03:26.620
+So we've got hundreds and hundreds
+
+03:26.620 --> 03:28.240
+of these breaking news automations
+
+03:28.240 --> 03:31.580
+that help us cover markets, economics, public opinion,
+
+03:31.580 --> 03:32.360
+other things.
+
+03:32.460 --> 03:33.880
+And that's been a success for us.
+
+03:34.420 --> 03:35.340
+And so we're trying to,
+
+03:35.900 --> 03:38.360
+and so we try to aim for the biggest stories
+
+03:38.360 --> 03:40.080
+so that when we invest in these automations,
+
+03:40.180 --> 03:42.080
+we can get continual use of them
+
+03:42.080 --> 03:43.880
+and really cover the top stuff.
+
+03:44.000 --> 03:46.740
+So the last few weeks, a lot of oil prices charts, right?
+
+03:46.780 --> 03:47.740
+I've been sitting on our homepage
+
+03:47.740 --> 03:49.180
+coming out of these automations.
+
+03:49.680 --> 03:52.400
+And we're looking to expand that approach
+
+03:52.400 --> 03:54.640
+beyond just stuff having to do with money
+
+03:54.640 --> 03:56.120
+and markets and that kind of thing
+
+03:56.120 --> 03:58.240
+into other major breaking news events,
+
+03:58.340 --> 04:01.400
+which of course extreme weather is a great example of, right?
+
+04:01.400 --> 04:06.040
+And so last year we rolled out a new hurricane tracking system
+
+04:06.040 --> 04:08.240
+that allows us to watch cyclones
+
+04:08.240 --> 04:10.320
+not just around Florida in the United States
+
+04:10.320 --> 04:12.700
+but really in Asia and elsewhere in the world
+
+04:12.700 --> 04:14.820
+so that we're able to cover those events
+
+04:14.820 --> 04:17.880
+kind of as they happen in this same style.
+
+04:19.460 --> 04:23.060
+And our next goal and what we've been working on
+
+04:23.060 --> 04:25.060
+is bringing that approach to climate
+
+04:25.060 --> 04:28.800
+and to the stuff this conference is about.
+
+04:28.800 --> 04:30.680
+So this guy right here, this is my boss.
+
+04:30.780 --> 04:31.760
+This is Simon Robinson.
+
+04:31.920 --> 04:33.080
+Don't tell him I'm doing this.
+
+04:33.620 --> 04:37.280
+And he's the executive editor of Reuters in London.
+
+04:37.440 --> 04:39.500
+And he came to me with a challenge
+
+04:39.500 --> 04:43.100
+which was could our newsroom use data
+
+04:43.100 --> 04:45.240
+and this approach I've been telling you about
+
+04:45.240 --> 04:48.500
+to cover the day-to-day kind of impact of climate change
+
+04:48.500 --> 04:52.360
+because he really saw a kind of gap in our coverage.
+
+04:52.360 --> 04:55.500
+If you think about you have a major heat wave
+
+04:55.500 --> 04:57.020
+in the Mediterranean last summer
+
+04:57.020 --> 04:59.540
+and for us at Reuters that's a big story
+
+04:59.540 --> 05:02.120
+that's going to dominate the top of the file,
+
+05:02.340 --> 05:05.300
+the homepage every day for maybe even a week, right?
+
+05:05.580 --> 05:07.540
+But in that coverage we only have
+
+05:07.540 --> 05:09.700
+the kind of traditional weather and temperature data
+
+05:09.700 --> 05:13.360
+and it just seemed to him that there's this kind of gap
+
+05:13.360 --> 05:16.120
+where the context of climate
+
+05:16.120 --> 05:18.740
+is kind of missing from those major storylines.
+
+05:18.740 --> 05:23.140
+And so his challenge was how could we try to address that
+
+05:23.140 --> 05:24.640
+or could we try to address that?
+
+05:25.200 --> 05:27.280
+And it was the first time I really thought about it
+
+05:27.280 --> 05:29.860
+and, you know, I definitely want feedback from you all
+
+05:29.860 --> 05:31.160
+on how we're doing as we go through this
+
+05:31.160 --> 05:32.440
+because you know more about it than me.
+
+05:33.040 --> 05:35.280
+But it seemed to me that one of the problems was
+
+05:35.280 --> 05:37.880
+is that unlike the stock market data
+
+05:37.880 --> 05:39.200
+or the oil prices data,
+
+05:39.680 --> 05:41.860
+which updates every second, right,
+
+05:41.900 --> 05:43.600
+almost around the clock, right,
+
+05:43.720 --> 05:46.800
+a lot of climate data is a little slower moving, right,
+
+05:47.100 --> 05:48.220
+where it might tell you,
+
+05:48.220 --> 05:51.940
+well, the Earth's temperature was this last month
+
+05:51.940 --> 05:55.180
+or last year, not today or tomorrow, right?
+
+05:55.740 --> 05:57.300
+And a lot of climate data,
+
+05:57.580 --> 05:59.300
+for very good scientific reasons,
+
+05:59.660 --> 06:02.400
+is measured in these kind of arcane statistics
+
+06:02.400 --> 06:05.740
+that aren't how the average person thinks about the weather.
+
+06:06.000 --> 06:08.240
+The average temperature is a great example, right,
+
+06:08.280 --> 06:10.480
+where the most climate goals, as I understand it,
+
+06:10.500 --> 06:11.860
+are set using the average temperature,
+
+06:12.020 --> 06:13.020
+but if I asked any of you,
+
+06:13.160 --> 06:15.260
+what's the average temperature in Boston today,
+
+06:15.680 --> 06:17.180
+you probably never even thought about it, right?
+
+06:17.180 --> 06:18.920
+People think in highs and lows.
+
+06:19.680 --> 06:23.240
+And so my feeling was that if we're going to address this,
+
+06:23.300 --> 06:24.580
+we had to take those things on.
+
+06:25.200 --> 06:26.840
+And so I went out to kind of,
+
+06:26.960 --> 06:28.620
+on a little reporting trip to see,
+
+06:29.180 --> 06:31.240
+could we get faster climate data
+
+06:31.240 --> 06:33.540
+that is in more relatable statistics
+
+06:33.540 --> 06:36.160
+and that isn't just entirely global either,
+
+06:36.260 --> 06:38.440
+but maybe can relate to people like where they live,
+
+06:38.520 --> 06:39.720
+like the weather report does.
+
+06:39.720 --> 06:42.620
+And so we surveyed what everybody else did,
+
+06:42.720 --> 06:44.500
+I interviewed a bunch of nerdy nerds,
+
+06:44.500 --> 06:46.840
+and we found the answer is yes,
+
+06:46.880 --> 06:49.420
+it actually might be possible to pull off such a thing.
+
+06:49.920 --> 06:51.840
+And if you guys want to get into all the details
+
+06:51.840 --> 06:54.240
+of the era five data set and all that stuff,
+
+06:54.280 --> 06:55.300
+I'm happy to go down the road,
+
+06:55.300 --> 06:58.220
+but we kind of came up with a rough methodology
+
+06:58.220 --> 07:01.880
+that we think will allow us just getting started
+
+07:01.880 --> 07:03.680
+in our first steps into this coverage
+
+07:03.680 --> 07:05.680
+to create a daily dashboard
+
+07:05.680 --> 07:09.360
+that automatically compares today's temperature,
+
+07:09.540 --> 07:10.520
+tomorrow's temperature,
+
+07:10.900 --> 07:12.200
+against the historic record,
+
+07:12.560 --> 07:13.880
+against what used to be normal
+
+07:13.880 --> 07:16.100
+before widespread global climate change
+
+07:16.100 --> 07:17.880
+for Boston, for Swisher, Iowa,
+
+07:18.060 --> 07:18.720
+where I grew up,
+
+07:18.980 --> 07:20.420
+for anywhere on earth, right?
+
+07:20.420 --> 07:23.060
+And then deliver a comprehensive view
+
+07:23.060 --> 07:27.080
+of today's, how weird today's temperature is, right?
+
+07:27.100 --> 07:28.540
+The thing we all ask ourselves
+
+07:28.540 --> 07:30.900
+when we're close to one of these events
+
+07:30.900 --> 07:33.220
+by measuring what people call an anomaly,
+
+07:33.540 --> 07:34.960
+just the difference between today
+
+07:34.960 --> 07:36.080
+and what used to be normal.
+
+07:37.200 --> 07:40.280
+And we've created and we're preparing to launch
+
+07:40.280 --> 07:42.280
+a color-coded world map
+
+07:42.280 --> 07:45.520
+that will update each day and highlight right now
+
+07:45.520 --> 07:48.740
+where the most significant temperature anomalies are on earth,
+
+07:48.740 --> 07:51.340
+the interactive controls will allow you
+
+07:51.340 --> 07:54.000
+to search your hometown, where your mom lives,
+
+07:54.500 --> 07:55.300
+wherever you'd like to go,
+
+07:55.360 --> 07:56.440
+whatever you're interested in,
+
+07:56.600 --> 07:58.060
+and find out the differences there
+
+07:58.060 --> 07:59.880
+in the same way that the weather report can.
+
+08:00.440 --> 08:02.580
+We're calling it the Reuters Climate Monitor,
+
+08:03.540 --> 08:05.060
+and we have a prototype
+
+08:05.060 --> 08:07.720
+that this is the screenshot of
+
+08:07.720 --> 08:09.240
+that we're preparing to launch.
+
+08:10.000 --> 08:11.660
+And we were going to try maybe
+
+08:11.660 --> 08:13.380
+to open up the webpage in the back,
+
+08:13.740 --> 08:15.920
+and this is just a quick look at the demo page,
+
+08:16.020 --> 08:17.420
+you know, where you're able to see
+
+08:17.420 --> 08:19.580
+today's kind of forecast,
+
+08:19.920 --> 08:21.080
+the red areas are higher,
+
+08:21.180 --> 08:21.880
+the blue are lower,
+
+08:22.380 --> 08:24.800
+and you'd be able to search anywhere you wanted
+
+08:24.800 --> 08:26.640
+and zoom in and get a report, right?
+
+08:27.520 --> 08:28.680
+We can jump back.
+
+08:32.060 --> 08:34.120
+And that's just the beginning, right?
+
+08:34.500 --> 08:36.940
+So after we get this up and out,
+
+08:37.140 --> 08:38.900
+we have immediate plans to follow on
+
+08:38.900 --> 08:40.840
+with stuff that we hope will make it more newsy.
+
+08:41.100 --> 08:43.340
+We're going to try to calculate the number of people
+
+08:43.340 --> 08:45.740
+living in extreme conditions every day,
+
+08:45.900 --> 08:47.700
+today, tomorrow, the day after,
+
+08:48.060 --> 08:49.540
+so that we're able to roll up
+
+08:49.540 --> 08:52.720
+those summaries of how many million people, etc.,
+
+08:52.720 --> 08:53.980
+into our coverage.
+
+08:54.320 --> 08:57.060
+And that, to me, is delivering that type of context
+
+08:57.060 --> 08:59.020
+that Simon thought was missing from those reports.
+
+08:59.400 --> 09:02.120
+So on the very day that we're writing about,
+
+09:02.640 --> 09:04.200
+an unusual temperature event somewhere,
+
+09:04.300 --> 09:07.120
+we're able to get that context automatically in, right?
+
+09:07.940 --> 09:09.620
+We're going to try to forecast it out
+
+09:09.620 --> 09:10.520
+further into the future,
+
+09:11.060 --> 09:12.480
+and we're going to use this analysis,
+
+09:12.760 --> 09:14.560
+we actually currently are using this analysis
+
+09:14.560 --> 09:18.300
+to kind of fling correspondence around the world
+
+09:18.300 --> 09:21.440
+to areas where we've seen significant climate change
+
+09:21.440 --> 09:23.160
+already bubbling up out of this data
+
+09:23.160 --> 09:24.600
+over the last 30, 40 years,
+
+09:24.800 --> 09:27.540
+and report on the impacts of that.
+
+09:27.720 --> 09:29.200
+And so it's going to serve as a reporting tool
+
+09:29.200 --> 09:31.480
+for enterprise as well.
+
+09:33.740 --> 09:34.740
+I want to hear from you.
+
+09:34.740 --> 09:37.820
+So this is just the very beginning.
+
+09:38.000 --> 09:39.920
+It might seem kind of basic to you guys.
+
+09:39.980 --> 09:40.240
+I don't know.
+
+09:40.280 --> 09:41.040
+I'm curious to learn.
+
+09:41.580 --> 09:42.780
+But in this room with experts,
+
+09:42.940 --> 09:45.700
+I would love to know answers to questions like these
+
+09:45.700 --> 09:48.940
+and how you think a news organization like Reuters
+
+09:48.940 --> 09:53.140
+could and should or ought to better use data
+
+09:53.140 --> 09:55.280
+to cover climate change.
+
+09:55.940 --> 09:56.600
+Thank you.
+
+09:56.600 --> 09:58.660
+Thank you.
+
+09:58.660 --> 09:59.140
+Thank you.
+
+09:59.340 --> 09:59.880
+Thank you.
+
+10:00.060 --> 10:01.760
+Thank you.
+
+10:01.760 --> 10:31.740
+Thank you.
