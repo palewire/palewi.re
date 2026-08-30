@@ -910,6 +910,10 @@ code:
   url: https://observablehq.com/@palewire/tinting-a-canvas-image
   description: How to overlay a color filter on top of a canvas image
   type: javascript
+- title: trmnl-jazz-lineup
+  url: https://github.com/kip-claw/trmnl-jazz-lineup
+  description: A TRMNL recipe that brings JazzLineup.com’s New York City jazz listings to an e-ink display
+  type: other
 - title: trump-tweets
   url: https://observablehq.com/collection/@palewire/trump-tweets
   description: Techniques for working President Donald Trump's posts on twitter.com
