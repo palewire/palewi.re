@@ -174,6 +174,12 @@ talks:
   location: New York City
   date: '2024-03-15'
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTpymERcu2Mrl2-u51l6TeCuRTQpCvQCqkSQKsPcBuXDO_8s5cTm2mhp6RU4AViwZVcIu0vz3zK6oeF/pub?start=false&loop=false&delayms=3000
+  slug: what-is-a-data-journalist
+  deck_url: /static/talks/what-is-a-data-journalist/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/what-is-a-data-journalist/what-is-a-data-journalist.pdf
+  notes_template: coltrane/talks/what-is-a-data-journalist-notes.html
+  notes_text_url: /static/talks/what-is-a-data-journalist/notes.txt
 - title: First Python Notebook
   venue: NICAR
   location: Baltimore
