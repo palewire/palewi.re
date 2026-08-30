@@ -19,6 +19,10 @@ apps:
   type: personal
   url: https://kip.computer/
   description: The homepage of my AI assistant
+- title: JazzLineup.com NYC
+  type: personal
+  url: https://trmnl.com/recipes/385200
+  description: A TRMNL recipe that puts New York City jazz listings on an e-ink display
 - title: moneyinpolitics.wtf
   type: database
   url: https://moneyinpolitics.wtf/
