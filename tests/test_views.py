@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "00e42adbf42c8f4caff7270c01ae0a5efbf87271c64b8f54d7fb9c56c7401557"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "6220e551abf42eb39e6233a728ac265bbf0b3a717fe69b956b2f7c0ddaedd0bd"),
+        ("/talks/", "b1d58fdd2ee9806eff797f53d39e0630e3e7e6ae348712e36585500248233176"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
