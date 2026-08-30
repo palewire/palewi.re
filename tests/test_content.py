@@ -93,7 +93,7 @@ def test_awards_empty_list_ok(tmp_path):
 
 def test_apps_yaml_loads():
     apps = load_apps()
-    assert len(apps) == 14
+    assert len(apps) == 15
     assert all(app.description for app in apps)
     descriptions = {app.title: app.description for app in apps}
     assert descriptions["the e.e. cummings free poetry archive"].startswith(
@@ -141,7 +141,7 @@ def test_apps_empty_list_ok(tmp_path):
 
 def test_code_yaml_loads_as_one_alphabetical_catalog():
     projects = load_code()
-    assert len(projects) == 250
+    assert len(projects) == 251
     assert [project.title.casefold() for project in projects] == sorted(
         project.title.casefold() for project in projects
     )
