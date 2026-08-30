@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "00e42adbf42c8f4caff7270c01ae0a5efbf87271c64b8f54d7fb9c56c7401557"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "f646b271577601ab35412a041bdf94290f034b079d2893307efd2431a8177773"),
+        ("/talks/", "6220e551abf42eb39e6233a728ac265bbf0b3a717fe69b956b2f7c0ddaedd0bd"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -183,6 +183,19 @@ def test_talk_detail_page_uses_configured_byline_and_deck_ratio(client):
     assert 'style="--talk-deck-aspect-ratio: 16 / 9;"' in content
     assert ">Downloads<" in content
     assert "Original sources" not in content
+
+
+def test_harnessing_ai_talk_page_is_video_only(client):
+    response = client.get("/talks/harnessing-ai/")
+    talk = next(talk for talk in load_talks() if talk.slug == "harnessing-ai")
+
+    assert response.status_code == 200
+    assert talk.slides_url == ""
+    content = response.content.decode()
+    assert "<h1>Harnessing AI</h1>" in content
+    assert 'src="/media/talks/harnessing-ai/video.mp4"' in content
+    assert 'poster="/media/talks/harnessing-ai/poster.jpg"' in content
+    assert 'aria-labelledby="slides"' not in content
 
 
 def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
