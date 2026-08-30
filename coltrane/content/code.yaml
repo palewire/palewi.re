@@ -73,7 +73,7 @@ code:
   type: javascript
 - title: biglocalnews/local-election-results-etl
   url: https://github.com/biglocalnews/local-election-results-etl
-  description: ''
+  description: 'Extract, transform and load election results posted online by local U.S. election officials'
   type: data
 - title: bln-python-client
   url: https://github.com/biglocalnews/bln-python-client
@@ -134,7 +134,7 @@ code:
   type: inactive
 - title: california-kindergarten-vaccination-analysis
   url: https://github.com/datadesk/california-kindergarten-vaccination-analysis
-  description: ''
+  description: 'A Los Angeles Times analysis of California kindergartens with the lowest vaccination rates'
   type: data
 - title: california-poppy-generator
   url: https://observablehq.com/@palewire/california-poppy-generator?collection=@palewire/downloaders
@@ -183,7 +183,7 @@ code:
   type: data
 - title: checkbook-la-watchdog
   url: https://github.com/datadesk/checkbook-la-watchdog
-  description: ''
+  description: "A periodically updated archive of financial data published by the city of Los Angeles' Checkbook LA portal"
   type: data
 - title: chicago-regions-map
   url: https://github.com/palewire/chicago-regions-map
@@ -207,7 +207,7 @@ code:
   type: data
 - title: copyboy
   url: https://github.com/datadesk/copyboy
-  description: ''
+  description: "The Los Angeles Times Data Desk's fork of GitHub's Campfire bot, hubot"
   type: python
 - title: covid-19-prototypes
   url: https://observablehq.com/collection/@palewire/covid-19
@@ -273,7 +273,7 @@ code:
   type: python
 - title: django-bigbuild
   url: https://github.com/datadesk/django-bigbuild
-  description: ''
+  description: "The open-source engine that powers the Los Angeles Times Data Desk's system for publishing standalone pages"
   type: python
 - title: django-calaccess-campaign-browser
   url: https://github.com/palewire/django-calaccess-campaign-browser
@@ -363,7 +363,7 @@ code:
   type: inactive
 - title: django-softhyphen
   url: https://github.com/datadesk/django-softhyphen
-  description: ''
+  description: 'A Python library for hyphenating HTML in your Django project'
   type: python
 - title: django-swineflu
   url: https://github.com/palewire/django-swineflu
@@ -451,7 +451,7 @@ code:
   type: python
 - title: geomac-wildfires
   url: https://github.com/datadesk/geomac-wildfires
-  description: ''
+  description: 'Download wildfire perimeter data from the National Interagency Fire Center'
   type: data
 - title: geopandas-intersection-area-example
   url: https://github.com/datadesk/geopandas-intersection-area-example
@@ -520,11 +520,11 @@ code:
   type: python
 - title: ire-archive-backend
   url: https://github.com/ireapps/ire-archive-backend
-  description: ''
+  description: 'FastAPI backend for archive.ire.org'
   type: python
 - title: ire-archive-frontend
   url: https://github.com/ireapps/ire-archive-frontend
-  description: ''
+  description: 'SvelteKit frontend for archive.ire.org'
   type: javascript
 - title: ire-archive-slide-deck
   url: https://github.com/palewire/ire-archive-slide-deck
@@ -596,7 +596,7 @@ code:
   type: inactive
 - title: lat-soundsystem
   url: https://github.com/datadesk/lat-soundsystem
-  description: ''
+  description: 'The voice of the Los Angeles Times Data Desk'
   type: javascript
 - title: lausd-school-campus-polygons
   url: https://github.com/datadesk/lausd-school-campus-polygons
@@ -617,7 +617,7 @@ code:
   type: data
 - title: los-angeles-police-killings-data
   url: https://github.com/datadesk/los-angeles-police-killings-data
-  description: ''
+  description: "The Los Angeles Times' database of people killed by local police in Los Angeles County"
   type: data
 - title: mappingla
   url: https://github.com/datadesk/latimes-mappingla-api
@@ -701,7 +701,7 @@ code:
   type: data
 - title: nyrb-covers-analysis
   url: https://github.com/datadesk/nyrb-covers-analysis
-  description: ''
+  description: 'An analysis of the colors and content of NYRB Classics book covers'
   type: data
 - title: observable-framework-cpi-example
   url: https://github.com/palewire/observable-framework-cpi-example/tree/main
@@ -773,11 +773,11 @@ code:
   type: inactive
 - title: python-censusbatchgeocoder
   url: https://github.com/datadesk/python-censusbatchgeocoder
-  description: ''
+  description: 'A simple Python wrapper for the U.S. Census Geocoding Services API batch service'
   type: python
 - title: python-desknet
   url: https://github.com/datadesk/python-desknet
-  description: ''
+  description: 'A simple Python wrapper for the DeskNet API'
   type: python
 - title: python-elections
   url: https://github.com/datadesk/python-elections
@@ -900,11 +900,11 @@ code:
   type: inactive
 - title: the-other-americans
   url: https://github.com/palewire/the-other-americans
-  description: ''
+  description: "Visualizing the rotating narrators of Laila Lalami's novel \"The Other Americans\""
   type: data
 - title: tijuana-districts-map
   url: https://github.com/datadesk/tijuana-districts-map
-  description: ''
+  description: 'Downloads an electronic map of Tijuana districts from the Instituto Metropolitano de Planeación de Tijuana website'
   type: data
 - title: tinting-a-canvas-image
   url: https://observablehq.com/@palewire/tinting-a-canvas-image
@@ -928,7 +928,7 @@ code:
   type: data
 - title: uptime-grove
   url: https://github.com/datadesk/uptime-grove
-  description: ''
+  description: 'An Uptime plugin that sends notifications to the Grove.io IRC service'
   type: python
 - title: us-ca-butte_county-addresses_parcels_roads-shp
   url: https://github.com/datadesk/us-ca-butte_county-addresses_parcels_roads-shp
@@ -997,7 +997,7 @@ code:
   type: data
 - title: usc-crime-reports-scraper
   url: https://github.com/biglocalnews/usc-crime-reports-scraper
-  description: ''
+  description: "A GitHub Action workflow automating the collection of crime and fire logs posted by USC's Department of Public Safety"
   type: data
 - title: usgs-anss-logo
   url: https://github.com/palewire/usgs-anss-logo

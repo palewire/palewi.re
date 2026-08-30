@@ -129,6 +129,45 @@ npm exec -- wrangler r2 object put \
   --content-type video/mp4
 ```
 
+Wrangler only accepts files up to 300 MiB. For a larger recording, use
+`boto3`'s multipart upload support with the repository's configured R2
+credentials, then verify the stored size and content type:
+
+```bash
+uv run --env-file .env python - <<'PY'
+import os
+from pathlib import Path
+
+import boto3
+from boto3.s3.transfer import TransferConfig
+
+path = Path("/absolute/path/to/video.mp4")
+bucket = "palewire-talk-media"
+key = "talks/<slug>/video.mp4"
+client = boto3.client(
+    "s3",
+    endpoint_url=os.environ.get("R2_ENDPOINT_URL")
+    or f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
+    aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
+    aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
+    region_name="auto",
+)
+client.upload_file(
+    str(path),
+    bucket,
+    key,
+    ExtraArgs={"ContentType": "video/mp4"},
+    Config=TransferConfig(
+        multipart_threshold=8 * 1024 * 1024,
+        multipart_chunksize=16 * 1024 * 1024,
+    ),
+)
+metadata = client.head_object(Bucket=bucket, Key=key)
+assert metadata["ContentLength"] == path.stat().st_size
+assert metadata["ContentType"] == "video/mp4"
+PY
+```
+
 The static-site Worker serves video from
 `/media/talks/<slug>/video.mp4`, with byte-range support. Keep captions in
 the repository's static assets so they are committed and baked with the site.

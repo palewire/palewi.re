@@ -117,10 +117,10 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/posts/", "1504b00891fbbd026584b629915c526c35f023d60c058cedeb044849d05d401b"),
         ("/clips/", "16aa691f7161c2aa69d9d104d96e4b31cb5302f3d349b5619899fd7e935d9333"),
         ("/apps/", "ef2af85cce1c663b9422d3b794f35142e7d008977e1e9c2d649208b87296124f"),
-        ("/code/", "a8f1c5a32b4419dbfe2fb43fd6016efffb53a85a4118008a60d10ea442e93aed"),
+        ("/code/", "00e42adbf42c8f4caff7270c01ae0a5efbf87271c64b8f54d7fb9c56c7401557"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "1acbdc226662033cf730d4f670877bb1c579d3e65fa6443e2d59eb6de8fa3816"),
+        ("/talks/", "bc10b9f24e373c57cb50d3a4548609df8a0508a47cbc6291b29aee06305604a7"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -183,6 +183,19 @@ def test_talk_detail_page_uses_configured_byline_and_deck_ratio(client):
     assert 'style="--talk-deck-aspect-ratio: 16 / 9;"' in content
     assert ">Downloads<" in content
     assert "Original sources" not in content
+
+
+def test_harnessing_ai_talk_page_is_video_only(client):
+    response = client.get("/talks/harnessing-ai/")
+    talk = next(talk for talk in load_talks() if talk.slug == "harnessing-ai")
+
+    assert response.status_code == 200
+    assert talk.slides_url == ""
+    content = response.content.decode()
+    assert "<h1>Harnessing AI</h1>" in content
+    assert 'src="/media/talks/harnessing-ai/video.mp4"' in content
+    assert 'poster="/media/talks/harnessing-ai/poster.jpg"' in content
+    assert 'aria-labelledby="slides"' not in content
 
 
 def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
