@@ -79,7 +79,8 @@ talks:
   venue: SVA Theatre
   location: Manhattan
   date: '2025-11-22'
-  video_url: https://www.youtube.com/watch?v=NK6vZaY0TZk&list=WL&index=2
+  slides_url: https://svatheatre.com/events/dvc-presents-signal-in-the-noise/
+  archive_url: https://web.archive.org/web/20260313233441/https://svatheatre.com/events/dvc-presents-signal-in-the-noise/
 - title: What AI means for covering money
   venue: SABEW Personal Finance Summit
   location: New York
@@ -217,7 +218,12 @@ talks:
   location: Zoom
   date: '2022-12-10'
   video_url: https://www.youtube.com/watch?v=E5cVRseyEOA
-  guide_url: https://palewi.re/docs/first-pull-request/
+  slug: first-pull-request
+  transcript_template: coltrane/talks/first-pull-request-transcript.html
+  transcript_text_url: /static/talks/first-pull-request/transcript.txt
+  local_video_url: /media/talks/first-pull-request/video.mp4
+  captions_url: /static/talks/first-pull-request/captions.vtt
+  poster_url: /media/talks/first-pull-request/poster.jpg
 - title: How do we make FOI fun?
   venue: National FOIA Summit 22
   location: Zoom
