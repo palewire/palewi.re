@@ -91,7 +91,10 @@ talks:
   location: Zoom
   date: '2025-06-25'
   video_url: https://www.youtube.com/watch?v=pvarfN4F19g
-  slides_url: https://sabew.org/event/harnessing-ai-how-journalists-can-reap-the-benefits-and-avoid-the-pitfalls-of-emerging-ai-tools/
+  slug: harnessing-ai
+  short_title: Harnessing AI
+  local_video_url: /media/talks/harnessing-ai/video.mp4
+  poster_url: /media/talks/harnessing-ai/poster.jpg
 - title: Journalism in the visual age
   venue: Canva meetup
   location: New York City
