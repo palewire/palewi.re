@@ -72,6 +72,11 @@
         </details>
         {% endif %}
     </section>
+    {% elif object.youtube_embed_url %}
+    <section aria-labelledby="recording">
+        <h2 id="recording">Recording</h2>
+        <iframe class="talk-detail-video-embed" src="{{ object.youtube_embed_url }}" title="Recording of {{ object.title }}" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
     {% endif %}
 
     {% if not object.deck_url %}

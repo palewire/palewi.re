@@ -361,6 +361,7 @@ def test_talk_optional_fields_default_empty(tmp_path):
     assert talks[0].deck_aspect_ratio == ""
     assert talks[0].notes_text_url == ""
     assert talks[0].transcript_text_url == ""
+    assert talks[0].youtube_embed_url == ""
 
 
 def test_talk_detail_fields_and_slug_load(tmp_path):
@@ -394,6 +395,20 @@ def test_talk_detail_fields_and_slug_load(tmp_path):
     assert talk.notes_text_url == "/static/talks/a-talk/notes.txt"
     assert talk.transcript_template == "coltrane/talks/a-talk-transcript.html"
     assert talk.transcript_text_url == "/static/talks/a-talk/transcript.txt"
+
+
+def test_talk_derives_privacy_enhanced_youtube_embed_url(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: A talk\n"
+        "    venue: V\n"
+        "    location: L\n"
+        "    date: '2024-01-01'\n"
+        "    video_url: https://www.youtube.com/watch?v=2RgPoy05AnA\n"
+    )
+
+    assert load_talks(p)[0].youtube_embed_url == "https://www.youtube-nocookie.com/embed/2RgPoy05AnA"
 
 
 def test_talk_archive_url_must_be_a_wayback_snapshot(tmp_path):
