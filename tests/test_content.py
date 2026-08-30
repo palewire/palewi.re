@@ -346,6 +346,14 @@ def test_talks_sorted_descending_date():
     assert dates == sorted(dates, reverse=True)
 
 
+def test_big_local_news_talk_has_no_unavailable_materials():
+    talk = next(talk for talk in load_talks() if talk.title == "What is Big Local News?")
+
+    assert talk.video_url == ""
+    assert talk.slides_url == ""
+    assert talk.archive_url == ""
+
+
 def test_talk_optional_fields_default_empty(tmp_path):
     p = tmp_path / "talks.yaml"
     p.write_text("talks:\n  - title: T\n    venue: V\n    location: L\n    date: '2024-01-01'\n")
