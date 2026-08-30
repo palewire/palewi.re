@@ -148,7 +148,15 @@ talks:
   venue: Data Visualization Society
   location: New York City
   date: '2024-04-30'
+  slug: bare-facts-first-data-visualization-society
+  short_title: Bare Facts First
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTFf1nR6Bs5Y41kUzv3n-ZkBWJmSeF0W7inISfvG7pfPR1BrP8VdO6bwxxVJtToKacTcxhyXcgDzyQM/pub?start=false&loop=false&delayms=3000&slide=id.g2c1d60c8208_3_0
+  deck_url: /static/talks/bare-facts-first-data-visualization-society/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/bare-facts-first-data-visualization-society/bare-facts-first-data-visualization-society.pdf
+  notes_template: coltrane/talks/bare-facts-first-data-visualization-society-notes.html
+  notes_text_url: /static/talks/bare-facts-first-data-visualization-society/notes.txt
+  original_slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTFf1nR6Bs5Y41kUzv3n-ZkBWJmSeF0W7inISfvG7pfPR1BrP8VdO6bwxxVJtToKacTcxhyXcgDzyQM/pub?start=false&loop=false&delayms=3000&slide=id.g2c1d60c8208_3_0
 - title: 'Bare Facts First: How Reuters uses Datawrapper to create, automate and disseminate
     hundreds of charts each week'
   venue: Datawrapper
