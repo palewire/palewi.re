@@ -198,6 +198,20 @@ def test_harnessing_ai_talk_page_is_video_only(client):
     assert 'aria-labelledby="slides"' not in content
 
 
+def test_first_pull_request_talk_page_has_hosted_recording(client):
+    response = client.get("/talks/first-pull-request/")
+    talk = next(talk for talk in load_talks() if talk.slug == "first-pull-request")
+
+    assert response.status_code == 200
+    assert talk.guide_url == ""
+    content = response.content.decode()
+    assert 'src="/media/talks/first-pull-request/video.mp4"' in content
+    assert 'poster="/media/talks/first-pull-request/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/first-pull-request/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert 'aria-labelledby="slides"' not in content
+
+
 def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
     response = client.get("/talks/ire-resource-center/")
 

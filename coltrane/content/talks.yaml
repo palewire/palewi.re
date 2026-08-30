@@ -219,7 +219,12 @@ talks:
   location: Zoom
   date: '2022-12-10'
   video_url: https://www.youtube.com/watch?v=E5cVRseyEOA
-  guide_url: https://palewi.re/docs/first-pull-request/
+  slug: first-pull-request
+  transcript_template: coltrane/talks/first-pull-request-transcript.html
+  transcript_text_url: /static/talks/first-pull-request/transcript.txt
+  local_video_url: /media/talks/first-pull-request/video.mp4
+  captions_url: /static/talks/first-pull-request/captions.vtt
+  poster_url: /media/talks/first-pull-request/poster.jpg
 - title: How do we make FOI fun?
   venue: National FOIA Summit 22
   location: Zoom
