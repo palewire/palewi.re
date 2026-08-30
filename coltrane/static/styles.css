@@ -827,12 +827,17 @@ nav .links li a:hover {
   font-weight: var(--font-weight-bold);
 }
 
-.talk-detail-deck {
+.talk-detail-deck,
+.talk-detail-video-embed {
   box-sizing: border-box;
   display: block;
   width: 100%;
   aspect-ratio: var(--talk-deck-aspect-ratio, 4 / 3);
   border: var(--border-rule);
+}
+
+.talk-detail-video-embed {
+  aspect-ratio: 16 / 9;
 }
 
 .talk-detail-text {

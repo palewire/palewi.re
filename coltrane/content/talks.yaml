@@ -234,7 +234,7 @@ talks:
   location: Zoom
   date: '2022-09-24'
   video_url: https://www.youtube.com/watch?v=2RgPoy05AnA
-  guide_url: https://palewi.re/docs/first-python-notebook/_extra/fast-python-notebook/lab/
+  slug: fast-first-python-notebook
 - title: What is Big Local News?
   venue: 17º Congresso Internacional de Journalismo da Abraji
   location: São Paulo

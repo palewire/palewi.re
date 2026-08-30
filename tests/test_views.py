@@ -212,6 +212,19 @@ def test_first_pull_request_talk_page_has_hosted_recording(client):
     assert 'aria-labelledby="slides"' not in content
 
 
+def test_fast_first_python_notebook_talk_embeds_youtube_recording(client):
+    response = client.get("/talks/fast-first-python-notebook/")
+    talk = next(talk for talk in load_talks() if talk.slug == "fast-first-python-notebook")
+
+    assert response.status_code == 200
+    assert talk.guide_url == ""
+    content = response.content.decode()
+    assert "<h1>Fast First Python Notebook</h1>" in content
+    assert 'src="https://www.youtube-nocookie.com/embed/2RgPoy05AnA"' in content
+    assert 'title="Recording of Fast First Python Notebook"' in content
+    assert 'referrerpolicy="strict-origin-when-cross-origin"' in content
+
+
 def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
     response = client.get("/talks/ire-resource-center/")
 
