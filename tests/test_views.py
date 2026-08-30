@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "61f1f5932c04d387a0cceaf52ae99cd7aae9b34f212e2df64e260de92c687617"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "6220e551abf42eb39e6233a728ac265bbf0b3a717fe69b956b2f7c0ddaedd0bd"),
+        ("/talks/", "bc10b9f24e373c57cb50d3a4548609df8a0508a47cbc6291b29aee06305604a7"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -252,8 +252,13 @@ def test_talk_list_links_to_archived_external_talk_pages(client):
     content = client.get("/talks/").content.decode()
 
     assert 'href="https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"' in content
+    assert 'href="https://svatheatre.com/events/dvc-presents-signal-in-the-noise/"' in content
     assert (
         '<a target="_blank" href="https://web.archive.org/web/20260610235645/https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/">“Today’s News For Tomorrow”</a>'
+        in content
+    )
+    assert (
+        '<a target="_blank" href="https://web.archive.org/web/20260313233441/https://svatheatre.com/events/dvc-presents-signal-in-the-noise/">“DV&amp;C Presents: Signal in the Noise”</a>'
         in content
     )
     assert "Archived page &raquo;" not in content
