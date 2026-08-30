@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "a8f1c5a32b4419dbfe2fb43fd6016efffb53a85a4118008a60d10ea442e93aed"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "d17406751918536d8f660322a310a20653b6f3395f5423cc10d1efab8e798000"),
+        ("/talks/", "f646b271577601ab35412a041bdf94290f034b079d2893307efd2431a8177773"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -205,21 +205,52 @@ def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
     assert ">Timestamped transcript<" in content
 
 
+def test_nicar_ire_resource_center_talk_reuses_the_deck_without_a_recording(client):
+    response = client.get("/talks/ire-resource-center-nicar/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert 'src="/static/talks/ire-resource-center/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 48 / 35;"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Recording video<" not in content
+    assert "Show the timestamped transcript" not in content
+
+
+def test_storytelling_with_graphics_talk_has_a_local_recording_and_transcript(client):
+    response = client.get("/talks/storytelling-with-graphics/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "Storytelling with graphics: From raw data to reader impact" in content
+    assert 'src="/media/talks/storytelling-with-graphics/video.mp4"' in content
+    assert 'poster="/media/talks/storytelling-with-graphics/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/storytelling-with-graphics/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "All right. Hello, everybody, and welcome." in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert '<h2 id="slides">Slides</h2>' not in content
+
+
 def test_talk_list_links_to_archived_external_talk_pages(client):
     content = client.get("/talks/").content.decode()
 
     assert 'href="https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"' in content
     assert (
-        'href="https://web.archive.org/web/20260610235645/https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"'
+        '<a target="_blank" href="https://web.archive.org/web/20260610235645/https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/">“Today’s News For Tomorrow”</a>'
         in content
     )
-    assert "Archived page &raquo;" in content
+    assert "Archived page &raquo;" not in content
 
 
 def test_talk_list_links_to_related_guides(client):
     content = client.get("/talks/").content.decode()
 
-    assert 'href="https://palewi.re/docs/first-pmtiles-map/">Guide &raquo;</a>' in content
+    assert '<a href="https://palewi.re/docs/first-pmtiles-map/">“First PMTiles Map”</a>' in content
+    assert "Guide &raquo;" not in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):

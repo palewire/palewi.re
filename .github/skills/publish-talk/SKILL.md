@@ -30,14 +30,15 @@ talk as a catalog entry rather than creating an empty detail page:
 2. Find or create a Wayback Machine snapshot and add it as `archive_url`.
 3. Do not set `slug` or add local talk assets.
 
-The talks list will link to both the external source and its archived copy.
+The talk title will link to the archived copy. Any separate source-material
+link remains in the parenthetical links.
 
 ## Link a related guide
 
 When a first-party guide is the useful companion to a talk, add its URL as
 `guide_url`. Do not add `slug`, local assets, or a Wayback snapshot unless
 other talk materials also require them. The talks list labels this link
-“Guide.”
+with the talk title.
 
 ## Create the page assets
 

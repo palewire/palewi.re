@@ -48,6 +48,12 @@ talks:
   location: Indianapolis
   date: '2026-03-06'
   slides_url: https://palewi.re/docs/ire-archive-slide-deck/
+  slug: ire-resource-center-nicar
+  deck_url: /static/talks/ire-resource-center/
+  deck_aspect_ratio: 48 / 35
+  pdf_url: /static/talks/ire-resource-center/ire-resource-center.pdf
+  notes_template: coltrane/talks/ire-resource-center-notes.html
+  notes_text_url: /static/talks/ire-resource-center/notes.txt
 - title: First LLM Classifier
   venue: NICAR
   location: Indianapolis
@@ -63,6 +69,12 @@ talks:
   location: Zoom
   date: '2025-12-04'
   video_url: https://www.youtube.com/live/_dh4gRkQiRw?t=98s
+  slug: storytelling-with-graphics
+  transcript_template: coltrane/talks/storytelling-with-graphics-transcript.html
+  transcript_text_url: /static/talks/storytelling-with-graphics/transcript.txt
+  local_video_url: /media/talks/storytelling-with-graphics/video.mp4
+  captions_url: /static/talks/storytelling-with-graphics/captions.vtt
+  poster_url: /media/talks/storytelling-with-graphics/poster.jpg
 - title: 'DV&C Presents: Signal in the Noise'
   venue: SVA Theatre
   location: Manhattan
