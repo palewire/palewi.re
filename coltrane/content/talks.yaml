@@ -143,13 +143,20 @@ talks:
   venue: Knight Center at UT-Austin
   location: an online class
   date: '2024-05-11'
-  video_url: https://journalismcourses.org/product/first-python-notebook-data-analysis-on-deadline/
 - title: 'Bare Facts First: How Reuters uses Datawrapper to create, automate and disseminate
     hundreds of charts each week'
   venue: Data Visualization Society
   location: New York City
   date: '2024-04-30'
+  slug: bare-facts-first-data-visualization-society
+  short_title: Bare Facts First
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTFf1nR6Bs5Y41kUzv3n-ZkBWJmSeF0W7inISfvG7pfPR1BrP8VdO6bwxxVJtToKacTcxhyXcgDzyQM/pub?start=false&loop=false&delayms=3000&slide=id.g2c1d60c8208_3_0
+  deck_url: /static/talks/bare-facts-first-data-visualization-society/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/bare-facts-first-data-visualization-society/bare-facts-first-data-visualization-society.pdf
+  notes_template: coltrane/talks/bare-facts-first-data-visualization-society-notes.html
+  notes_text_url: /static/talks/bare-facts-first-data-visualization-society/notes.txt
+  original_slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTFf1nR6Bs5Y41kUzv3n-ZkBWJmSeF0W7inISfvG7pfPR1BrP8VdO6bwxxVJtToKacTcxhyXcgDzyQM/pub?start=false&loop=false&delayms=3000&slide=id.g2c1d60c8208_3_0
 - title: 'Bare Facts First: How Reuters uses Datawrapper to create, automate and disseminate
     hundreds of charts each week'
   venue: Datawrapper
@@ -175,6 +182,12 @@ talks:
   location: New York City
   date: '2024-03-15'
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTpymERcu2Mrl2-u51l6TeCuRTQpCvQCqkSQKsPcBuXDO_8s5cTm2mhp6RU4AViwZVcIu0vz3zK6oeF/pub?start=false&loop=false&delayms=3000
+  slug: what-is-a-data-journalist
+  deck_url: /static/talks/what-is-a-data-journalist/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/what-is-a-data-journalist/what-is-a-data-journalist.pdf
+  notes_template: coltrane/talks/what-is-a-data-journalist-notes.html
+  notes_text_url: /static/talks/what-is-a-data-journalist/notes.txt
 - title: First Python Notebook
   venue: NICAR
   location: Baltimore
@@ -208,7 +221,6 @@ talks:
   venue: NICAR
   location: Nashville
   date: '2023-03-04'
-  slides_url: https://moneyinpolitics.wtf/
 - title: First Python Notebook
   venue: NICAR
   location: Nashville
@@ -234,12 +246,11 @@ talks:
   location: Zoom
   date: '2022-09-24'
   video_url: https://www.youtube.com/watch?v=2RgPoy05AnA
-  guide_url: https://palewi.re/docs/first-python-notebook/_extra/fast-python-notebook/lab/
+  slug: fast-first-python-notebook
 - title: What is Big Local News?
   venue: 17º Congresso Internacional de Journalismo da Abraji
   location: São Paulo
   date: '2022-08-06'
-  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vSafvmUAXIPgtCmwjgDXx5g1JIRd1li_Uueuu7rzFxV1npB91ylw8evdTyyRenxf7uMARPpC9GM6bAx/pub?start=false&loop=false&delayms=60000&slide=id.g142fc79cdb2_0_0
 - title: First Python Notebook
   venue: JSK Connect Master Class
   location: Zoom

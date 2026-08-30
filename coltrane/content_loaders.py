@@ -78,7 +78,7 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from functools import cached_property
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -208,6 +208,26 @@ class Talk:
             if self.title.startswith(prefix):
                 return self.title.removeprefix(prefix).lstrip()
         return self.title
+
+    @property
+    def youtube_embed_url(self) -> str:
+        """Return a privacy-enhanced YouTube embed URL when the recording is eligible."""
+        parsed = urlparse(self.video_url)
+        host = parsed.netloc.lower().removeprefix("www.").removeprefix("m.")
+        if host == "youtu.be":
+            video_id = parsed.path.lstrip("/").split("/", maxsplit=1)[0]
+        elif host == "youtube.com":
+            if parsed.path == "/watch":
+                video_id = parse_qs(parsed.query).get("v", [""])[0]
+            elif parsed.path.startswith(("/embed/", "/live/", "/shorts/")):
+                video_id = parsed.path.split("/")[2]
+            else:
+                return ""
+        else:
+            return ""
+        if re.fullmatch(r"[-\w]{11}", video_id) is None:
+            return ""
+        return f"https://www.youtube-nocookie.com/embed/{video_id}"
 
 
 @dataclass(frozen=True)

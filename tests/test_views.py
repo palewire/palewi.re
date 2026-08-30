@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "61f1f5932c04d387a0cceaf52ae99cd7aae9b34f212e2df64e260de92c687617"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "bc10b9f24e373c57cb50d3a4548609df8a0508a47cbc6291b29aee06305604a7"),
+        ("/talks/", "7ec84effea267f9a65b207b498087215b5fee81978bb7909cb556f7c547aafee"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -210,6 +210,19 @@ def test_first_pull_request_talk_page_has_hosted_recording(client):
     assert 'kind="captions" src="/static/talks/first-pull-request/captions.vtt"' in content
     assert "Show the timestamped transcript" in content
     assert 'aria-labelledby="slides"' not in content
+
+
+def test_fast_first_python_notebook_talk_embeds_youtube_recording(client):
+    response = client.get("/talks/fast-first-python-notebook/")
+    talk = next(talk for talk in load_talks() if talk.slug == "fast-first-python-notebook")
+
+    assert response.status_code == 200
+    assert talk.guide_url == ""
+    content = response.content.decode()
+    assert "<h1>Fast First Python Notebook</h1>" in content
+    assert 'src="https://www.youtube-nocookie.com/embed/2RgPoy05AnA"' in content
+    assert 'title="Recording of Fast First Python Notebook"' in content
+    assert 'referrerpolicy="strict-origin-when-cross-origin"' in content
 
 
 def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
