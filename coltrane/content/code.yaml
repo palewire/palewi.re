@@ -623,6 +623,10 @@ code:
   url: https://github.com/datadesk/latimes-mappingla-api
   description: A Python wrapper for accessing the Mapping L.A. Boundaries API
   type: inactive
+- title: metar-weather-bot
+  url: https://github.com/palewire/metar-weather-bot
+  description: A Twitter bot that posts the latest METAR and EPA weather report for LAX airport
+  type: python
 - title: Min-Max Rescaling Calculator
   url: https://observablehq.com/@palewire/min-max-rescaling-calculator
   description: Rescale a value from one numeric range to another
@@ -630,6 +634,11 @@ code:
 - title: mlbcolors
   url: https://github.com/palewire/mlbcolors
   description: Easy access to the official colors of every team in Major League Baseball
+  type: python
+- title: muckrockbot
+  url: https://github.com/palewire/muckrockbot
+  description: A Fediverse robot account that posts the latest public records requests filed and completed
+    at muckrock.com
   type: python
 - title: nasa-wildfires
   url: https://github.com/datadesk/nasa-wildfires
@@ -639,6 +648,10 @@ code:
   url: https://github.com/datadesk/native-american-census-analysis
   description: The 2020 census is coming. Will Native Americans be counted?
   type: data
+- title: news-homepages-runner
+  url: https://github.com/palewire/news-homepages-runner
+  description: A task runner for the homepages.news open-source archive
+  type: python
 - title: nicar2010
   url: https://github.com/palewire/nicar2010
   description: Materials from the Django bootcamp at NICAR 2010
@@ -691,6 +704,10 @@ code:
   url: https://github.com/datadesk/nws-wwa
   description: Download watch, warning and advisory data from the National Weather Service
   type: python
+- title: nyc-open-data-monitor
+  url: https://github.com/palewire/nyc-open-data-monitor
+  description: Automated monitoring of new and updated datasets posted to New York City's data portal
+  type: inactive
 - title: nyc-hpd-bronx-lead-paint-violations
   url: https://github.com/palewire/nyc-hpd-bronx-lead-paint-violations
   description: Download and process housing code lead paint violations in the Bronx from NYC Open Data
@@ -711,6 +728,10 @@ code:
   url: https://observablehq.com/collection/@palewire/downloaders
   description: Utilities to help do things
   type: javascript
+- title: old-la-photos
+  url: https://github.com/palewire/old-la-photos
+  description: A bot that posts photographs from the Los Angeles Public Library's digital collection
+  type: python
 - title: open-source-news-analysis
   url: https://github.com/palewire/open-source-news-analysis
   description: How active are news nerds on GitHub?
@@ -834,6 +855,11 @@ code:
   url: https://github.com/palewire/savemy.news
   description: A personal, permanent clipping service for journalists
   type: inactive
+- title: sanbornmaps
+  url: https://github.com/palewire/sanbornmaps
+  description: A bot that posts random images from the Library of Congress collection of Sanborn Fire Insurance
+    Company maps
+  type: python
 - title: savepagenow
   url: https://github.com/palewire/savepagenow
   description: A simple Python wrapper for archive.org's "Save Page Now" capturing service

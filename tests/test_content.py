@@ -141,7 +141,7 @@ def test_apps_empty_list_ok(tmp_path):
 
 def test_code_yaml_loads_as_one_alphabetical_catalog():
     projects = load_code()
-    assert len(projects) == 251
+    assert len(projects) == 257
     assert [project.title.casefold() for project in projects] == sorted(
         project.title.casefold() for project in projects
     )
@@ -152,6 +152,23 @@ def test_code_yaml_loads_as_one_alphabetical_catalog():
         "Other",
         "Inactive",
     ]
+
+
+def test_code_yaml_includes_bot_repositories_from_profile_readme():
+    projects = load_code()
+    titles = {project.title for project in projects}
+
+    assert {
+        "datawrapper-mcp",
+        "metar-weather-bot",
+        "muckrockbot",
+        "news-homepages-runner",
+        "nyc-open-data-monitor",
+        "old-la-photos",
+        "random-pigeon-gpt",
+        "reuters-jobs",
+        "sanbornmaps",
+    }.issubset(titles)
 
 
 def test_code_rejects_duplicate_titles(tmp_path):
