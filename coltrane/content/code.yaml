@@ -144,6 +144,10 @@ code:
   url: https://github.com/datadesk/california-topojson-atlas
   description: Simple maps of California's 58 counties
   type: data
+- title: californiacivicdata.org
+  url: https://github.com/palewire/californiacivicdata.org
+  description: The online home of the California Civic Data Coalition
+  type: other
 - title: cedar-rapids-buildings-unsafe-after-derecho-2020
   url: https://github.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020
   description: Buildings marked as unsafe to occupy by the Cedar Rapids city government following the
@@ -221,6 +225,10 @@ code:
   url: https://github.com/palewire/cubs-opening-day-analysis
   description: Analysis of the Opening Day starters for the Chicago Cubs baseball team
   type: data
+- title: cummings.ee
+  url: https://github.com/palewire/cummings.ee
+  description: A collection of the work of Edward Estlin Cummings, as it enters the public domain
+  type: other
 - title: cuny-jour-static-site-template
   url: https://github.com/palewire/cuny-jour-static-site-template
   description: 'A simple SvelteKit starter template for "JOUR 73361: Coding the News," a course taught
@@ -230,6 +238,10 @@ code:
   url: https://observablehq.observablehq.cloud/framework-example-loader-canvas-to-png/
   description: Generate a PNG image from an HTML canvas with an Observable Framework data loader
   type: javascript
+- title: datasette
+  url: https://github.com/palewire/datasette
+  description: A Datasette instance hosting public records gathered by palewi.re
+  type: python
 - title: datawrapper
   url: https://github.com/chekos/Datawrapper/
   description: A light-weight wrapper for the Datawrapper API
@@ -441,6 +453,10 @@ code:
   url: https://github.com/palewire/first-python-notebook-binder
   description: A template for deploying "First Python Notebook" with Binder
   type: inactive
+- title: fivethirtyeightindex.com
+  url: https://github.com/palewire/fivethirtyeightindex.com
+  description: An index of pages published by FiveThirtyEight
+  type: python
 - title: fullpage-app-template
   url: https://github.com/palewire/fullpage-app-template
   description: A template for building and deploying fullpage custom news apps for THE CITY
@@ -635,6 +651,10 @@ code:
   url: https://github.com/palewire/mlbcolors
   description: Easy access to the official colors of every team in Major League Baseball
   type: python
+- title: moneyinpolitics.wtf
+  url: https://github.com/palewire/moneyinpolitics.wtf
+  description: America's most comprehensive dictionary of campaign finance jargon
+  type: other
 - title: muckrockbot
   url: https://github.com/palewire/muckrockbot
   description: A Fediverse robot account that posts the latest public records requests filed and completed
@@ -648,6 +668,10 @@ code:
   url: https://github.com/datadesk/native-american-census-analysis
   description: The 2020 census is coming. Will Native Americans be counted?
   type: data
+- title: news-homepages
+  url: https://github.com/palewire/news-homepages
+  description: An open-source archive that gathers, archives and shares news homepages
+  type: javascript
 - title: news-homepages-runner
   url: https://github.com/palewire/news-homepages-runner
   description: A task runner for the homepages.news open-source archive
@@ -744,6 +768,10 @@ code:
   url: https://github.com/datadesk/osm-silent-la
   description: A template for a black base layer about Southern California
   type: inactive
+- title: palewi.re
+  url: https://github.com/palewire/palewi.re
+  description: The code that powers this website
+  type: python
 - title: pandas-combine-workbooks-example
   url: https://github.com/palewire/pandas-combine-workbooks-example
   description: How to use Python's pandas library to combine tabs from multiple Microsoft Excel workbooks
@@ -904,6 +932,10 @@ code:
   url: https://github.com/palewire/storytracker
   description: Tools for tracking stories on news homepages
   type: inactive
+- title: studs-terkel-podcast
+  url: https://github.com/palewire/studs-terkel-podcast
+  description: Selections from the WFMT collection of Terkel’s radio interviews, delivered each Friday
+  type: python
 - title: street-racing-analysis
   url: https://github.com/datadesk/street-racing-analysis
   description: Street racing fatalities in L.A. County
