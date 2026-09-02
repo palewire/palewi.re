@@ -117,7 +117,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/posts/", "1504b00891fbbd026584b629915c526c35f023d60c058cedeb044849d05d401b"),
         ("/clips/", "16aa691f7161c2aa69d9d104d96e4b31cb5302f3d349b5619899fd7e935d9333"),
         ("/apps/", "bb938e968fc7a05c6adb5bf151b896f84a80fad31e0313c3b294b4d6eb9e38bd"),
-        ("/code/", "1ece3fe0d44f88cfcf4faed6e659063879578da7b71a29013ab0e76a57ca82da"),
+        ("/code/", "9d0bdeabde841710207e0f021dcabc1bbcc74b81d84d3a11696c08866c7df547"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
         ("/talks/", "7ec84effea267f9a65b207b498087215b5fee81978bb7909cb556f7c547aafee"),
