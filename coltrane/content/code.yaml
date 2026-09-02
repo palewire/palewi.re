@@ -153,6 +153,10 @@ code:
   description: Buildings marked as unsafe to occupy by the Cedar Rapids city government following the
     2020 derecho storms
   type: data
+- title: cee-agriculture-climate-analysis
+  url: https://github.com/palewire/cee-agriculture-climate-analysis
+  description: Data and notebook behind Reuters analysis of June-July temperatures in Central and Eastern Europe
+  type: data
 - title: census-data-aggregator
   url: https://github.com/datadesk/census-data-aggregator
   description: Combine U.S. census data responsibly
