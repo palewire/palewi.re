@@ -270,7 +270,8 @@ talks:
   venue: The California Newsroom
   location: Zoom
   date: '2022-04-20'
-  slides_url: https://biglocalnews.org/posts/2022/04/11/guide-to-fbi-crime-statistics.html
+  slides_url: https://biglocalnews.org/content/news/2022/04/11/guide-to-fbi-crime-statistics.html
+  archive_url: https://web.archive.org/web/20250912230225/https://biglocalnews.org/content/news/2022/04/11/guide-to-fbi-crime-statistics.html
 - title: Scaling up scrapers with Prefect and Google Cloud
   venue: Prefect Live
   location: Twitch
