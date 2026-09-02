@@ -141,7 +141,7 @@ def test_apps_empty_list_ok(tmp_path):
 
 def test_code_yaml_loads_as_one_alphabetical_catalog():
     projects = load_code()
-    assert len(projects) == 251
+    assert len(projects) == 265
     assert [project.title.casefold() for project in projects] == sorted(
         project.title.casefold() for project in projects
     )
@@ -152,6 +152,33 @@ def test_code_yaml_loads_as_one_alphabetical_catalog():
         "Other",
         "Inactive",
     ]
+
+
+def test_code_yaml_includes_profile_readme_product_repositories():
+    projects = load_code()
+    urls = {project.url for project in projects}
+
+    assert {
+        "https://github.com/palewire/californiacivicdata.org",
+        "https://github.com/palewire/cummings.ee",
+        "https://github.com/palewire/cuny-jour-critique-wheel",
+        "https://github.com/palewire/datawrapper-mcp",
+        "https://github.com/palewire/datasette",
+        "https://github.com/palewire/fivethirtyeightindex.com",
+        "https://github.com/palewire/metar-weather-bot",
+        "https://github.com/palewire/moneyinpolitics.wtf",
+        "https://github.com/palewire/muckrockbot",
+        "https://github.com/palewire/news-homepages",
+        "https://github.com/palewire/news-homepages-runner",
+        "https://github.com/palewire/nyc-open-data-monitor",
+        "https://github.com/palewire/old-la-photos",
+        "https://github.com/palewire/palewi.re",
+        "https://github.com/palewire/random-pigeon-gpt",
+        "https://github.com/palewire/reuters-jobs",
+        "https://github.com/palewire/sanbornmaps",
+        "https://github.com/palewire/savemy.news",
+        "https://github.com/palewire/studs-terkel-podcast",
+    }.issubset(urls)
 
 
 def test_code_rejects_duplicate_titles(tmp_path):
