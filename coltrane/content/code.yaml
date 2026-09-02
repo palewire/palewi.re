@@ -50,6 +50,10 @@ code:
   url: https://observablehq.com/collection/@palewire/color
   description: Experiments in manipulating color data
   type: javascript
+- title: aphis-inspection-reports
+  url: https://github.com/data-liberation-project/aphis-inspection-reports
+  description: Inspection data and PDFs from the USDA's Animal and Plant Health Inspection Service
+  type: python
 - title: appengine-template
   url: https://github.com/datadesk/latimes-appengine-template
   description: Bootstrap a Google App Engine project with Django and other goodies
@@ -71,6 +75,10 @@ code:
   url: https://observablehq.com/collection/@palewire/baseball
   description: Abstracting America's pastime
   type: javascript
+- title: boundaries.latimes.com
+  url: https://github.com/datadesk/boundaries.latimes.com
+  description: An API that serves up local GIS data
+  type: inactive
 - title: biglocalnews/local-election-results-etl
   url: https://github.com/biglocalnews/local-election-results-etl
   description: 'Extract, transform and load election results posted online by local U.S. election officials'
@@ -148,6 +156,9 @@ code:
   url: https://github.com/palewire/californiacivicdata.org
   description: The online home of the California Civic Data Coalition
   type: other
+- title: campaign_finance
+  url: https://github.com/palewire/campaign_finance
+  type: inactive
 - title: cedar-rapids-buildings-unsafe-after-derecho-2020
   url: https://github.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020
   description: Buildings marked as unsafe to occupy by the Cedar Rapids city government following the
@@ -232,6 +243,10 @@ code:
 - title: cummings.ee
   url: https://github.com/palewire/cummings.ee
   description: A collection of the work of Edward Estlin Cummings, as it enters the public domain
+  type: other
+- title: cuny-jour-73361-coding-the-news
+  url: https://github.com/palewire/cuny-jour-73361-coding-the-news
+  description: 'The syllabus for "JOUR 73361: Coding the News," a course taught at the City University of New York''s Craig Newmark Graduate School of Journalism'
   type: other
 - title: cuny-jour-static-site-template
   url: https://github.com/palewire/cuny-jour-static-site-template
@@ -435,6 +450,10 @@ code:
   url: https://github.com/palewire/elgar-ringtones
   description: Ringtone and notification clips cut from Elgar's Cello Concerto
   type: other
+- title: everytractcount
+  url: https://github.com/palewire/everytractcount
+  description: Statistics about every U.S. Census tract mapped by @everytract
+  type: inactive
 - title: faa-drone-license-analysis
   url: https://github.com/palewire/faa-drone-license-analysis
   description: Who can fly commercially?
@@ -448,15 +467,63 @@ code:
   url: https://github.com/datadesk/ferc-enforcement-analysis
   description: Civil penalties issued by FERC
   type: data
+- title: first-athena-query
+  url: https://github.com/palewire/first-athena-query
+  description: How to analyze millions of records in seconds with Amazon Web Services and SQL
+  type: python
+- title: first-automated-chart
+  url: https://github.com/palewire/first-automated-chart
+  description: Learn how you can use Python and the Datawrapper API to create a limitless number of charts and maps
+  type: data
+- title: first-basemap
+  url: https://github.com/palewire/first-basemap
+  description: Create a shockingly fast and virtually free interactive map of the world using OpenStreetMap and PMTiles
+  type: javascript
+- title: first-django-admin
+  url: https://github.com/palewire/first-django-admin
+  description: A step-by-step guide to creating a simple web application that empowers reporters in data entry and refinement
+  type: python
+- title: first-github-scraper
+  url: https://github.com/palewire/first-github-scraper
+  description: An introduction to free, automated web scraping with GitHub's Actions framework
+  type: python
+- title: first-llm-classifier
+  url: https://github.com/palewire/first-llm-classifier
+  description: Learn how journalists use large-language models to organize and analyze massive datasets
+  type: data
+- title: first-news-app
+  url: https://github.com/palewire/first-news-app
+  description: A step-by-step guide to publishing a simple news application
+  type: javascript
 - title: first-observable-notebook
   url: https://observablehq.com/collection/@palewire/first-observable-notebook-2020
   description: A course taught at the 2020 conference of the National Institute for Computer Assisted
     Reporting
   type: javascript
+- title: first-pmtiles-map
+  url: https://github.com/palewire/first-pmtiles-map
+  description: Learn how to display a massive dataset on an interactive map using PMTiles and MapLibre
+  type: javascript
+- title: first-pull-request
+  url: https://github.com/palewire/first-pull-request
+  description: How to propose changes to open-source software using GitHub pull requests
+  type: other
+- title: first-python-notebook
+  url: https://github.com/palewire/first-python-notebook
+  description: A step-by-step guide to analyzing data with Python and the Jupyter notebook
+  type: python
 - title: first-python-notebook-binder
   url: https://github.com/palewire/first-python-notebook-binder
   description: A template for deploying "First Python Notebook" with Binder
   type: inactive
+- title: first-visual-story
+  url: https://github.com/palewire/first-visual-story
+  description: A step-by-step guide to publishing a standalone story from a dataset
+  type: javascript
+- title: first-web-scraper
+  url: https://github.com/palewire/first-web-scraper
+  description: A step-by-step guide to writing a web scraper with Python
+  type: python
 - title: fivethirtyeightindex.com
   url: https://github.com/palewire/fivethirtyeightindex.com
   description: An index of pages published by FiveThirtyEight
@@ -485,6 +552,10 @@ code:
   url: https://github.com/palewire/git-scraper-example
   description: A example of a git scraper that download, lints, commits and archives a data set
   type: python
+- title: go-big-with-github-actions
+  url: https://github.com/palewire/go-big-with-github-actions
+  description: Learn how to scale up your data pipelines using GitHub's Actions framework
+  type: javascript
 - title: helicopter-accident-analysis
   url: https://github.com/datadesk/helicopter-accident-analysis
   description: A Los Angeles Times analysis of helicopter accident rates
@@ -562,6 +633,10 @@ code:
   url: https://github.com/palewire/isobands
   description: An easy way to make filled contour maps with Python
   type: python
+- title: kip-claw
+  url: https://github.com/kip-claw/kip-claw
+  description: "@palewire's OpenClaw AI assistant"
+  type: javascript
 - title: judge-home-run-analysis
   url: https://github.com/palewire/judge-home-run-analysis
   description: How the Yankee slugger's 2022 pace compares to the past
@@ -618,6 +693,14 @@ code:
   url: https://github.com/datadesk/lat-soundsystem
   description: 'The voice of the Los Angeles Times Data Desk'
   type: javascript
+- title: latimes-document-stacker
+  url: https://github.com/datadesk/latimes-document-stacker
+  description: Use DocumentCloud to publish PDFs for humans
+  type: inactive
+- title: latimes-table-stacker
+  url: https://github.com/datadesk/latimes-table-stacker
+  description: Publish spreadsheets as interactive tables on deadline
+  type: inactive
 - title: lausd-school-campus-polygons
   url: https://github.com/datadesk/lausd-school-campus-polygons
   description: The areas of school campuses at the Los Angeles Unified School District
@@ -655,6 +738,10 @@ code:
   url: https://github.com/palewire/mlbcolors
   description: Easy access to the official colors of every team in Major League Baseball
   type: python
+- title: mlb-postseason-bot
+  url: https://github.com/palewire/mlb-postseason-bot
+  description: Twitter bot that posts daily updates on a team's chance to make the Major League Baseball postseason
+  type: inactive
 - title: moneyinpolitics.wtf
   url: https://github.com/palewire/moneyinpolitics.wtf
   description: America's most comprehensive dictionary of campaign finance jargon
@@ -680,6 +767,13 @@ code:
   url: https://github.com/palewire/news-homepages-runner
   description: A task runner for the homepages.news open-source archive
   type: python
+- title: nicar18-datadesk-family-reunion
+  url: https://github.com/palewire/nicar18-datadesk-family-reunion
+  description: Los Angeles Times Data Desk Family Reunion
+  type: inactive
+- title: nicar19-datadesk-family-reunion
+  url: https://github.com/palewire/nicar19-datadesk-family-reunion
+  type: inactive
 - title: nicar2010
   url: https://github.com/palewire/nicar2010
   description: Materials from the Django bootcamp at NICAR 2010
@@ -764,6 +858,9 @@ code:
   url: https://github.com/palewire/open-source-news-analysis
   description: How active are news nerds on GitHub?
   type: data
+- title: orchestral-motion.github.io
+  url: https://github.com/orchestral-motion/orchestral-motion.github.io
+  type: inactive
 - title: osm-quiet-la
   url: https://github.com/datadesk/osm-la-streets
   description: A street-centric base layer for overlaying point data about Southern California
@@ -785,6 +882,10 @@ code:
   url: https://github.com/datadesk/pandas-squarify-example
   description: How to use the squarify extension to matplotlib to visualize a pandas DataFrame as a treemap
   type: python
+- title: pastpages.org
+  url: https://github.com/palewire/pastpages.org
+  description: The news homepage archive
+  type: inactive
 - title: pastpages2gif
   url: https://github.com/palewire/pastpages2gif
   description: Create an animated GIF from the PastPages news homepage archive
@@ -848,6 +949,10 @@ code:
   url: https://github.com/palewire/python-open-source-template
   description: A template for open-source Python software repositories
   type: python
+- title: questionheds
+  url: https://github.com/palewire/questionheds
+  description: A feed of headlines with question marks in them
+  type: inactive
 - title: qiklog
   url: https://github.com/datadesk/latimes-qiklog
   description: A simplified wrapper for Python's logging module
@@ -980,6 +1085,10 @@ code:
   url: https://observablehq.com/collection/@palewire/trump-tweets
   description: Techniques for working President Donald Trump's posts on twitter.com
   type: javascript
+- title: twitter-mistadobalina
+  url: https://github.com/palewire/twitter-mistadobalina
+  description: A script that posts raps by Del Tha Funkee Homosapien to @mistadobalina on Twitter
+  type: inactive
 - title: tulips-and-chimneys
   url: https://github.com/palewire/tulips-and-chimneys
   description: Page scans of E.E. Cummings’ first published book of verse
