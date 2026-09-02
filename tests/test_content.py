@@ -141,7 +141,7 @@ def test_apps_empty_list_ok(tmp_path):
 
 def test_code_yaml_loads_as_one_alphabetical_catalog():
     projects = load_code()
-    assert len(projects) == 266
+    assert len(projects) == 294
     assert [project.title.casefold() for project in projects] == sorted(
         project.title.casefold() for project in projects
     )
@@ -179,6 +179,42 @@ def test_code_yaml_includes_nominated_repositories():
         "https://github.com/palewire/sanbornmaps",
         "https://github.com/palewire/savemy.news",
         "https://github.com/palewire/studs-terkel-podcast",
+    }.issubset(urls)
+
+
+def test_code_yaml_includes_remaining_profile_readme_repositories():
+    projects = load_code()
+    urls = {project.url for project in projects}
+
+    assert {
+        "https://github.com/data-liberation-project/aphis-inspection-reports",
+        "https://github.com/datadesk/boundaries.latimes.com",
+        "https://github.com/datadesk/latimes-document-stacker",
+        "https://github.com/datadesk/latimes-table-stacker",
+        "https://github.com/kip-claw/kip-claw",
+        "https://github.com/orchestral-motion/orchestral-motion.github.io",
+        "https://github.com/palewire/campaign_finance",
+        "https://github.com/palewire/cuny-jour-73361-coding-the-news",
+        "https://github.com/palewire/everytractcount",
+        "https://github.com/palewire/first-athena-query",
+        "https://github.com/palewire/first-automated-chart",
+        "https://github.com/palewire/first-basemap",
+        "https://github.com/palewire/first-django-admin",
+        "https://github.com/palewire/first-github-scraper",
+        "https://github.com/palewire/first-llm-classifier",
+        "https://github.com/palewire/first-news-app",
+        "https://github.com/palewire/first-pmtiles-map",
+        "https://github.com/palewire/first-pull-request",
+        "https://github.com/palewire/first-python-notebook",
+        "https://github.com/palewire/first-visual-story",
+        "https://github.com/palewire/first-web-scraper",
+        "https://github.com/palewire/go-big-with-github-actions",
+        "https://github.com/palewire/mlb-postseason-bot",
+        "https://github.com/palewire/nicar18-datadesk-family-reunion",
+        "https://github.com/palewire/nicar19-datadesk-family-reunion",
+        "https://github.com/palewire/pastpages.org",
+        "https://github.com/palewire/questionheds",
+        "https://github.com/palewire/twitter-mistadobalina",
     }.issubset(urls)
 
 
