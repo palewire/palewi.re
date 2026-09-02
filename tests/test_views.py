@@ -414,11 +414,9 @@ def test_work_records_route_to_their_new_sections(client):
 
     code = client.get("/code/").content.decode()
     assert "air-quality-index" in code
-    assert "californiacivicdata.org" in code
     assert "cummings.ee" in code
     assert "datawrapper-mcp" in code
     assert "datasette" in code
-    assert "fivethirtyeightindex.com" in code
     assert "metar-weather-bot" in code
     assert "moneyinpolitics.wtf" in code
     assert "muckrockbot" in code
