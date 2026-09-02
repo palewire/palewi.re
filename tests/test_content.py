@@ -418,6 +418,16 @@ def test_big_local_news_talk_has_no_unavailable_materials():
     assert talk.archive_url == ""
 
 
+def test_data_journalism_workshop_uses_locally_hosted_recording():
+    talk = next(talk for talk in load_talks() if talk.title == "Data Journalism Workshop")
+
+    assert talk.get_absolute_url() == "/talks/data-journalism-workshop/"
+    assert talk.local_video_url == "/media/talks/data-journalism-workshop/video.mp4"
+    assert talk.captions_url == "/static/talks/data-journalism-workshop/captions.vtt"
+    assert talk.transcript_text_url == "/static/talks/data-journalism-workshop/transcript.txt"
+    assert talk.slides_url == ""
+
+
 def test_talk_optional_fields_default_empty(tmp_path):
     p = tmp_path / "talks.yaml"
     p.write_text("talks:\n  - title: T\n    venue: V\n    location: L\n    date: '2024-01-01'\n")

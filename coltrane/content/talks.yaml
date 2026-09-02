@@ -260,12 +260,18 @@ talks:
   location: Zoom
   date: '2022-04-21'
   video_url: https://www.youtube.com/watch?v=p21X-0vJZsA&feature=youtu.be
-  slides_url: https://www.eventbrite.com/e/14-east-and-spjona-data-workshop-tickets-318943838607?aff=ebdssbdestsearch
+  slug: data-journalism-workshop
+  local_video_url: /media/talks/data-journalism-workshop/video.mp4
+  captions_url: /static/talks/data-journalism-workshop/captions.vtt
+  poster_url: /media/talks/data-journalism-workshop/poster.jpg
+  transcript_template: coltrane/talks/data-journalism-workshop-transcript.html
+  transcript_text_url: /static/talks/data-journalism-workshop/transcript.txt
 - title: A beginner’s guide to FBI crime statistics
   venue: The California Newsroom
   location: Zoom
   date: '2022-04-20'
-  slides_url: https://biglocalnews.org/posts/2022/04/11/guide-to-fbi-crime-statistics.html
+  slides_url: https://biglocalnews.org/content/news/2022/04/11/guide-to-fbi-crime-statistics.html
+  archive_url: https://web.archive.org/web/20250912230225/https://biglocalnews.org/content/news/2022/04/11/guide-to-fbi-crime-statistics.html
 - title: Scaling up scrapers with Prefect and Google Cloud
   venue: Prefect Live
   location: Twitch
