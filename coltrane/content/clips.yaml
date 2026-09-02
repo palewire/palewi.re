@@ -1,4 +1,9 @@
 clips:
+- title: Climate shocks hit EU maize heartland in Hungary and Romania
+  type: story
+  date: '2026-09-02'
+  url: https://www.reuters.com/business/environment/climate-shocks-hit-eu-maize-heartland-hungary-romania-2026-09-02/
+  archive_exemption: Wayback capture failed with HTTP 520
 - title: geodataframe-to-pmtiles
   type: software
   date: '2026-08-21'
