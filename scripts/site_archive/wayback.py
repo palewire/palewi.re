@@ -16,7 +16,9 @@ from savepagenow import BlockedByRobots
 from savepagenow import capture as save_capture
 from savepagenow.exceptions import BadGateway, TooManyRequests, UnknownError, WaybackRuntimeError
 
-from scripts.site_archive.manifest import ArchiveError, PageRecord
+from scripts.check_built_site import PageParser
+from scripts.site_archive.discovery import MAX_RESPONSE_BYTES, normalize_url
+from scripts.site_archive.manifest import ArchiveError, PageRecord, paths_differ_only_by_trailing_slash
 
 AVAILABILITY_URL = "https://archive.org/wayback/available"
 USER_AGENT = "palewi.re site archiver (https://github.com/palewire/palewi.re)"
@@ -50,6 +52,7 @@ class WaybackClient:
         self,
         *,
         timeout: float = 30.0,
+        capture_timeout: float = 120.0,
         capture_delay: float = 12.0,
         lookup_delay: float = 1.0,
         session: HttpSession | None = None,
@@ -62,7 +65,8 @@ class WaybackClient:
         """Configure a rate-limited Wayback client.
 
         Args:
-            timeout: Per-request timeout in seconds.
+            timeout: Availability lookup timeout in seconds.
+            capture_timeout: Save Page Now capture timeout in seconds.
             capture_delay: Minimum delay between capture submissions.
             lookup_delay: Minimum delay between availability lookups.
             session: Optional requests session for testing or customization.
@@ -76,9 +80,10 @@ class WaybackClient:
             None.
 
         Examples:
-            ``WaybackClient(timeout=10.0).verify(page)`` checks one page.
+            ``WaybackClient(timeout=10.0, capture_timeout=120.0).verify(page)`` checks one page.
         """
         self.timeout = timeout
+        self.capture_timeout = capture_timeout
         self.capture_delay = capture_delay
         self.lookup_delay = lookup_delay
         self.session = session or requests.Session()
@@ -116,7 +121,7 @@ class WaybackClient:
             )
             response.raise_for_status()
             payload = response.json()
-            snapshot = _availability_snapshot(payload, page.url)
+            snapshot = _availability_snapshot(payload, page.url, self._validate_snapshot)
         except (requests.RequestException, ValueError, ArchiveError) as error:
             message = _safe_error(error, operation="availability check")
             self._record_error(page, message, _retry_after(error, self._datetime()))
@@ -184,12 +189,12 @@ class WaybackClient:
                 page.url,
                 user_agent=USER_AGENT,
                 accept_cache=True,
-                timeout=max(1, int(self.timeout)),
+                timeout=max(1, int(self.capture_timeout)),
                 authenticate=True,
             )
             if not isinstance(snapshot_url, str):
                 raise ArchiveError("Wayback capture returned no snapshot URL")
-            normalized, _ = _validate_snapshot(snapshot_url, page.url)
+            normalized, _ = self._validate_snapshot(snapshot_url, page.url)
         except BlockedByRobots:
             page.archive_status = "blocked"
             page.last_error = "Wayback capture blocked by the publisher's robots policy"
@@ -214,6 +219,77 @@ class WaybackClient:
         page.last_error = ""
         page.next_retry_at = ""
         page.attempts = 0
+
+    def _validate_snapshot(self, snapshot_url: str, page_url: str) -> tuple[str, str]:
+        """Validate a snapshot and prove a permitted trailing-slash alias.
+
+        Args:
+            snapshot_url: Candidate Wayback snapshot URL.
+            page_url: Requested canonical public page URL.
+
+        Returns:
+            Normalized HTTPS snapshot URL and its timestamp.
+
+        Raises:
+            ArchiveError: The snapshot is invalid or its alias cannot be proven.
+
+        Examples:
+            ``client._validate_snapshot(snapshot, "https://palewi.re/posts/")`` validates a snapshot.
+        """
+        normalized, timestamp, original = _parse_snapshot(snapshot_url)
+        if _same_original_url(original, page_url):
+            return normalized, timestamp
+        if not _is_trailing_slash_alias(original, page_url):
+            raise ArchiveError("Wayback snapshot does not match the requested page URL")
+        alias_url = normalize_url(original)
+        if alias_url is None:
+            raise ArchiveError("Wayback snapshot does not match the requested page URL")
+        if self._live_canonical(page_url) != page_url or self._live_canonical(alias_url) != page_url:
+            raise ArchiveError("Wayback snapshot trailing-slash alias cannot be proven by live canonical links")
+        return normalized, timestamp
+
+    def _live_canonical(self, url: str) -> str:
+        """Fetch one public HTML page and return its sole normalized canonical link.
+
+        Args:
+            url: Normalized public page URL to read.
+
+        Returns:
+            The page's normalized canonical URL.
+
+        Raises:
+            ArchiveError: The page is not successful HTML with one valid canonical link.
+            requests.RequestException: The public page request fails.
+
+        Examples:
+            ``client._live_canonical("https://palewi.re/posts/")`` returns its canonical URL.
+        """
+        self._wait_for("lookup")
+        with self.session.get(
+            url,
+            headers={"User-Agent": USER_AGENT},
+            timeout=self.timeout,
+            allow_redirects=False,
+            stream=True,
+        ) as response:
+            if response.status_code != 200:
+                raise ArchiveError(f"{url}: expected live HTML, got HTTP {response.status_code}")
+            content_type = response.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+            if content_type not in {"text/html", "application/xhtml+xml"}:
+                raise ArchiveError(f"{url}: expected live HTML, got {content_type!r}")
+            body = bytearray()
+            for chunk in response.iter_content(chunk_size=64_000):
+                body.extend(chunk)
+                if len(body) > MAX_RESPONSE_BYTES:
+                    raise ArchiveError(f"{url}: response exceeds {MAX_RESPONSE_BYTES} bytes")
+        parser = PageParser()
+        parser.feed(bytes(body).decode(response.encoding or "utf-8", errors="replace"))
+        if len(parser.canonicals) != 1:
+            raise ArchiveError(f"{url}: expected exactly one canonical link")
+        canonical = normalize_url(parser.canonicals[0], url)
+        if canonical is None:
+            raise ArchiveError(f"{url}: canonical link is not a normalized public URL")
+        return canonical
 
     def _wait_for(self, kind: str) -> None:
         """Apply the configured finite delay before another API request.
@@ -292,18 +368,23 @@ class WaybackClient:
         page.next_retry_at = (self._datetime() + delay).isoformat().replace("+00:00", "Z")
 
 
-def _availability_snapshot(payload: Any, page_url: str) -> tuple[str, str] | None:
+def _availability_snapshot(
+    payload: Any,
+    page_url: str,
+    validate_snapshot: Callable[[str, str], tuple[str, str]],
+) -> tuple[str, str] | None:
     """Extract a confirmed matching snapshot from an API response.
 
     Args:
         payload: Decoded Wayback availability response.
         page_url: Requested canonical public page URL.
+        validate_snapshot: Client method that validates a candidate snapshot.
 
     Returns:
         Normalized snapshot URL and timestamp, or None when truly absent.
 
     Examples:
-        ``_availability_snapshot({"archived_snapshots": {}}, url)`` is None.
+        ``_availability_snapshot({"archived_snapshots": {}}, url, validate_snapshot)`` is None.
     """
     if not isinstance(payload, dict):
         raise ArchiveError("Wayback returned an invalid availability response")
@@ -329,24 +410,23 @@ def _availability_snapshot(payload: Any, page_url: str) -> tuple[str, str] | Non
         raise ArchiveError("Wayback availability response has an invalid timestamp")
     if not isinstance(snapshot_url, str):
         raise ArchiveError("Wayback availability response has an invalid snapshot URL")
-    normalized, path_timestamp = _validate_snapshot(snapshot_url, page_url)
+    normalized, path_timestamp = validate_snapshot(snapshot_url, page_url)
     if path_timestamp != timestamp:
         raise ArchiveError("Wayback availability response has mismatched snapshot timestamps")
     return normalized, timestamp
 
 
-def _validate_snapshot(snapshot_url: str, page_url: str) -> tuple[str, str]:
-    """Validate, normalize, and identify one same-page Wayback snapshot.
+def _parse_snapshot(snapshot_url: str) -> tuple[str, str, str]:
+    """Validate and normalize the structure of one Wayback snapshot URL.
 
     Args:
         snapshot_url: Candidate Wayback snapshot URL.
-        page_url: Requested canonical public page URL.
 
     Returns:
-        Normalized HTTPS snapshot URL and its timestamp.
+        Normalized HTTPS snapshot URL, timestamp, and embedded original URL.
 
     Examples:
-        ``_validate_snapshot(snapshot, "https://palewi.re/")`` validates a snapshot.
+        ``_parse_snapshot(snapshot)`` extracts its original URL.
     """
     try:
         parsed = urlsplit(snapshot_url)
@@ -369,9 +449,7 @@ def _validate_snapshot(snapshot_url: str, page_url: str) -> tuple[str, str]:
     timestamp, original = match.groups()
     if not _is_wayback_timestamp(timestamp):
         raise ArchiveError("Wayback returned an invalid snapshot timestamp")
-    if not _same_original_url(original, page_url):
-        raise ArchiveError("Wayback snapshot does not match the requested page URL")
-    return f"https://web.archive.org{parsed.path}", timestamp
+    return f"https://web.archive.org{parsed.path}", timestamp, original
 
 
 def _same_original_url(candidate: str, page_url: str) -> bool:
@@ -405,6 +483,39 @@ def _same_original_url(candidate: str, page_url: str) -> bool:
         and original.path.rstrip("/") == page.path.rstrip("/")
         and original.path.endswith("/") == page.path.endswith("/")
         and page_port is None
+    )
+
+
+def _is_trailing_slash_alias(candidate: str, page_url: str) -> bool:
+    """Check whether a snapshot source is a supported one-slash path alias.
+
+    Args:
+        candidate: Original URL embedded in a Wayback snapshot.
+        page_url: Canonical requested public page URL.
+
+    Returns:
+        Whether the source satisfies strict URL checks except for one final slash.
+
+    Examples:
+        ``_is_trailing_slash_alias("https://palewi.re/posts", "https://palewi.re/posts/")`` is True.
+    """
+    try:
+        original = urlsplit(candidate)
+        page = urlsplit(page_url)
+        original_port = original.port
+        page_port = page.port
+    except ValueError:
+        return False
+    return (
+        original.scheme in {"http", "https"}
+        and original.hostname in {"palewi.re", "www.palewi.re"}
+        and original.username is None
+        and original.password is None
+        and original_port in {None, 80 if original.scheme == "http" else 443}
+        and not original.query
+        and not original.fragment
+        and page_port is None
+        and paths_differ_only_by_trailing_slash(original.path, page.path)
     )
 
 

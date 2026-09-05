@@ -35,7 +35,11 @@ credentials.
 Before submitting a capture, the tool checks that the page still serves public
 HTML and checks Wayback again. It saves the pending request before contacting
 the capture service, so an interrupted response does not lead to an immediate
-duplicate submission.
+duplicate submission. Availability lookups time out after 30 seconds; capture
+requests have a separate 120-second timeout. Due pending captures are checked
+before pages that have never been checked. A returned snapshot URL that differs
+only by one trailing slash is accepted only after both live pages report the
+requested canonical URL.
 
 ## Durable branch persistence
 
