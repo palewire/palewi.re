@@ -166,6 +166,25 @@ does not need an archive root, credentials, a network connection, or a media
 download. Its output names the exact clip, talk, or post location and the next
 Wayback, local-backup, checksum, and private-R2 action.
 
+## Site archive coverage
+
+The separate site archive tool inventories public palewi.re pages, including
+talk pages, hosted HTML decks, and same-site documentation. It checks Wayback
+before requesting missing captures and saves partial progress between runs:
+
+```bash
+make bake
+uv run python -m scripts.site_archive sync --lookup-only
+make site-archive-report
+```
+
+The weekly **Site archive** workflow saves its manifest on the
+`site-archive-data` branch without redeploying the site. Existing snapshots
+are sufficient; it does not recapture pages just because they are old.
+See [the site archive runbook](docs/site-archive.md) for credentials, manual
+captures, incomplete discovery, and recovery. A page snapshot does not
+guarantee that embedded media or interactive features have been preserved.
+
 ## Media archive (audio/video backup)
 
 `scripts/media_archive/` finds every playable audio/video source referenced

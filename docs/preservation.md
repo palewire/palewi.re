@@ -2,6 +2,12 @@
 
 ## Purpose and boundaries
 
+For palewi.re's own public pages, use the separate
+[site archive workflow](site-archive.md). It includes same-site documentation
+and HTML slide decks, keeps a durable manifest on `site-archive-data`, and
+requests missing Wayback captures. Its coverage report is separate from the
+external-content inventory below, and it is not a replacement for media backup.
+
 The preservation inventory is a local, network-free view of two separate
 systems:
 

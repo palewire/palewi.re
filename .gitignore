@@ -33,6 +33,7 @@ node_modules/
 .goals/
 .lead-art/
 .impeccable/
+.site-archive/
 *.cpuprofile
 
 # Collected static

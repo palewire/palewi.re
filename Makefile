@@ -32,6 +32,7 @@ TALK_ASSET_DIR := talks
 
 
 .PHONY: preservation-inventory report-built-site-quality
+.PHONY: site-archive-discover site-archive-verify site-archive-capture site-archive-sync site-archive-report
 
 # Use uv's parser instead of sourcing a dotenv file in the shell.
 define run-with-dotenv
@@ -71,6 +72,11 @@ help:
 	@echo "  fmt        Auto-format with Ruff"
 	@echo "  archive-clips  Archive clip URLs missing Wayback metadata"
 	@echo "  check-clip-archives  Confirm every clip has Wayback metadata"
+	@echo "  site-archive-discover  Discover public pages from dist/ and live site links"
+	@echo "  site-archive-verify  Look up existing Wayback snapshots without captures"
+	@echo "  site-archive-capture  Request captures for pages confirmed missing"
+	@echo "  site-archive-sync  Discover, check, and capture a resumable page batch"
+	@echo "  site-archive-report  Show saved page archive coverage without network access"
 	@echo "  preservation-inventory  Report page and media preservation state without network access"
 	@echo "  preservation-review  Reject new unreviewed external preservation gaps"
 	@echo "  media-archive-inventory  List discovered talk/post media without downloading anything"
@@ -189,6 +195,21 @@ archive-clips:
 
 check-clip-archives:
 	@"$$(command -v uv)" run python -m scripts.archive_clips check
+
+site-archive-discover:
+	@"$$(command -v uv)" run python -m scripts.site_archive discover
+
+site-archive-verify:
+	@"$$(command -v uv)" run python -m scripts.site_archive verify
+
+site-archive-capture:
+	@"$$(command -v uv)" run python -m scripts.site_archive capture
+
+site-archive-sync:
+	@"$$(command -v uv)" run python -m scripts.site_archive sync
+
+site-archive-report:
+	@"$$(command -v uv)" run python -m scripts.site_archive report
 
 preservation-inventory:
 	@"$$(command -v uv)" run python -m scripts.preservation_inventory $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
