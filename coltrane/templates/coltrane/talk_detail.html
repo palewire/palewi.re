@@ -59,7 +59,7 @@
     <section aria-labelledby="recording">
         <h2 id="recording">Recording</h2>
         <video controls preload="metadata"{% if object.poster_url %} poster="{{ object.poster_url }}"{% endif %}>
-            <source src="{{ object.local_video_url }}" type="video/mp4">
+            <source src="{{ object.local_video_url }}" type="{{ object.local_video_mime_type }}">
             {% if object.captions_url %}<track kind="captions" src="{{ object.captions_url }}" srclang="en" label="English">{% endif %}
             Your browser does not support HTML video. <a href="{{ object.local_video_url }}">Download the recording</a>.
         </video>

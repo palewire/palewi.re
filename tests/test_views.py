@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "ede4cc6ada0c799fec9f773638c3b553946c3ed0b56e53af09f3e485dd265a68"),
+        ("/talks/", "d9c39cdfdf2caaee3a9d8413c9061a483195bccbfe769aafb70f3aec86fe4e84"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -193,7 +193,7 @@ def test_harnessing_ai_talk_page_is_video_only(client):
     assert talk.slides_url == ""
     content = response.content.decode()
     assert "<h1>Harnessing AI</h1>" in content
-    assert 'src="/media/talks/harnessing-ai/video.mp4"' in content
+    assert '<source src="/media/talks/harnessing-ai/video.mp4" type="video/mp4">' in content
     assert 'poster="/media/talks/harnessing-ai/poster.jpg"' in content
     assert 'aria-labelledby="slides"' not in content
 
@@ -226,6 +226,82 @@ def test_local_data_journalism_podcast_has_hosted_audio_and_transcript(client):
     assert ">Recording audio<" in content
     assert ">Timestamped transcript<" in content
     assert ">00:21</time>" in content
+
+
+@pytest.mark.parametrize(
+    ("slug", "title", "recording_url", "recording_type", "transcript_text"),
+    [
+        (
+            "showing-your-work-with-ben-welsh",
+            "Showing Your Work with Ben Welsh",
+            "/media/talks/showing-your-work-with-ben-welsh/audio.m4a",
+            "",
+            "Hello, and welcome to the Data Journalism Podcast.",
+        ),
+        (
+            "a-conversation-with-ben-welsh",
+            "A conversation with Ben Welsh",
+            "/media/talks/a-conversation-with-ben-welsh/audio.m4a",
+            "",
+            "Data journalism is a collaborative field",
+        ),
+        (
+            "unspun-data-journalism",
+            "Episode 20: Data journalism (feat. Ben Welsh)",
+            "/media/talks/unspun-data-journalism/audio.mp3",
+            "",
+            "Do you seek adventure and want to serve your country?",
+        ),
+        (
+            "understanding-europes-heatwave",
+            "Understanding Europe’s heatwave",
+            "/media/talks/understanding-europes-heatwave/video.webm",
+            ' type="video/webm"',
+            "Europe is absolutely boiling.",
+        ),
+    ],
+)
+def test_new_appearance_talk_pages_have_local_recordings_and_transcripts(
+    client, slug, title, recording_url, recording_type, transcript_text
+):
+    content = client.get(f"/talks/{slug}/").content.decode()
+    download_label = "Recording video" if recording_type else "Recording audio"
+
+    assert f"<h1>{title}</h1>" in content
+    assert f'<source src="{recording_url}"{recording_type}>' in content
+    assert f'kind="captions" src="/static/talks/{slug}/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert transcript_text in content
+    assert f">{download_label}<" in content
+    assert ">Timestamped transcript<" in content
+    assert ">00:00</time>" in content
+
+
+def test_talk_list_keeps_new_appearance_detail_and_source_links(client):
+    content = client.get("/talks/").content.decode()
+
+    expected_links = (
+        (
+            "/talks/showing-your-work-with-ben-welsh/",
+            "https://creators.spotify.com/pod/profile/ddjpodcast/episodes/Showing-Your-Work-with-Ben-Welsh-e3jusc0",
+        ),
+        (
+            "/talks/a-conversation-with-ben-welsh/",
+            "https://soundcloud.com/ire-nicar/a-conversation-with-ben-welsh",
+        ),
+        (
+            "/talks/unspun-data-journalism/",
+            "https://pocketcasts.com/podcast/unspun/34ea4330-2b54-013c-f664-0acc26574db2/episode-20-data-journalism-feat-ben-welsh/5ae8fd71-6fdc-4b46-bd0c-53d0accb80e2",
+        ),
+        (
+            "/talks/understanding-europes-heatwave/",
+            "https://www.youtube.com/watch?v=me0DlYHkJKE&amp;t=28s",
+        ),
+    )
+
+    for detail_url, source_url in expected_links:
+        assert f'href="{detail_url}"' in content
+        assert f'href="{source_url}"' in content
 
 
 def test_fast_first_python_notebook_talk_embeds_youtube_recording(client):

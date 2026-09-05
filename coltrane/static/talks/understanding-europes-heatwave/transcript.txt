@@ -1,0 +1,237 @@
+[00:00] If you've been reading the news this week or perhaps walking outside, you would know
+[00:05] that Europe is absolutely boiling.
+[00:11] And the people living under this heat dome, which is hovering over much of Western Europe,
+[00:16] are struggling to cope.
+[00:19] In London, teachers spray children with a hose to help cool down in the blistering heat.
+[00:25] And Prague beleaguered horses cool off in a river. In Paris, overheated shoppers line
+[00:31] up to buy fans.
+[00:37] Tereen Lebousit says the 100-degree heat wave has been "hell on earth."
+[00:44] These are the scenes this week across Europe, from Bordeaux to Barcelona.
+[00:49] The continent has endured a brutal, record-smashing heat wave that has turned deadly.
+[00:55] France saw a huge spike in drownings as people tried to beat the heat in the water.
+[01:02] And if you feel like this kind of weather is new, abnormal, you're right.
+[01:07] And if there are any doubt, we've just launched the Reuters Climate Monitor, which is an interactive
+[01:13] map that tracks just how abnormal the current high temperatures are across the globe.
+[01:20] So on today's On Assignment, we'll sit down with Ben Welsh, the data journalist behind
+[01:25] the project, to break down what the data actually shows, how unusual this moment really is,
+[01:32] and what it tells us about where this summer, and our climate, is headed next.
+[01:38] I'm your host, Jonah Green.
+[01:43] Ben Welsh is an investigative journalist who focuses on data-driven reporting and newsroom
+[01:54] tools.
+[01:55] And he joins us here today on the show.
+[01:58] Thanks for coming on, Ben.
+[02:00] Thanks for having me.
+[02:01] I'm excited to be here.
+[02:02] That's the spirit.
+[02:04] Where are you currently?
+[02:07] Is it also very hot where you are?
+[02:09] I'm talking to you right now from Money Making Manhattan, the center of it all, where I work
+[02:15] many days in the Times Square newsroom, but I'm coming to you from my home here on 28th
+[02:20] Street.
+[02:21] It looks nice.
+[02:22] It's a sticky, warm day that we have here today in New York.
+[02:25] I wouldn't call it pleasant, but it's not as dangerous as the heat we're reporting on
+[02:30] in other parts of the world.
+[02:31] Yeah.
+[02:32] I mean, it is, I was in New York a few days ago, it was oddly cool, which was a weird contrast
+[02:38] because New York City, especially, is no stranger to these disgustingly hot, humid summers.
+[02:46] And it's not uncommon for it to be 100 degrees Fahrenheit, which is 37 centigrade.
+[02:53] But Europe seems to be having a really hard time with these numbers.
+[02:57] And as you see the death toll coming out of these countries, why is Europe struggling
+[03:05] so much with this kind of heat?
+[03:07] Well, currently, there's a high pressure system, not to get too nerdy right away out the gate,
+[03:11] but there's a dome, there's a kind of air trapped over Europe, what's called an Omega
+[03:17] wave, I'm told.
+[03:18] Or it's really just a big bubble of hot air that has dried out the area and has brought
+[03:22] those temperatures up to highs that are rarely seen in that part of the world.
+[03:27] And there's one forecaster in France who's saying it's the highest temperature ever recorded.
+[03:32] We'll see if that holds up as people scrub the data in the coming days.
+[03:36] But it's really hot.
+[03:37] You might live in a place where 90 degrees Fahrenheit doesn't seem that hot to you.
+[03:41] And I think it's the to you and to them that's the key piece of it.
+[03:45] Because heat is dangerous for absolute reasons to talk in a mathy way, a high number is a
+[03:52] high number.
+[03:53] But it's also relative to where you live.
+[03:56] And that has to do with the infrastructure of where you live.
+[03:59] Do you have air conditioning?
+[04:01] Yes or no.
+[04:02] And also kind of cultural factors having to do with people's lifestyle, do they spend
+[04:07] a lot of time indoors or outdoors and do they are they practiced at protecting themselves
+[04:13] from heat?
+[04:16] Why is El Nino so powerful this year?
+[04:20] Sure.
+[04:21] So El Nino is a cyclical thing that's been going on long before you and I are born.
+[04:26] Basically, every few years, the sea temperature, the heat in the water, you know, in the eastern
+[04:33] Pacific kind of by Peru and Central America, just south of the United States and Mexico
+[04:38] will heat up.
+[04:39] And that process, which is about every two to seven years, has a ripple effect that goes
+[04:46] off across the entire globe, leading to lots and lots of different changes to our weather
+[04:50] that have become fairly predictable as scientists have tested it and measured it through the
+[04:55] years.
+[04:56] And one thing it does is it leads to a weaker hurricane season, typically, though you still
+[04:59] can have dangerous hurricanes in an El Nino year.
+[05:02] It leads to more rainfall in Southern California and at maybe the most global level, it tends
+[05:09] to lead to higher temperatures all across the planet and in a few particular places
+[05:13] as well.
+[05:14] And so as of this week, the U.S. Weather Service is saying we are entering our first El Nino
+[05:21] in several years.
+[05:22] It's you know, no one can know precisely how big it will be.
+[05:26] But due to some of the trends we've seen over the last few decades, the expectation and
+[05:31] the forecast is it will be one of the largest on record, which some are dubbing the super
+[05:36] El Nino.
+[05:38] If that comes to pass, it's predicted that we may see the hottest months and years on
+[05:44] record as a result in the days ahead.
+[05:48] And making people uncomfortable or causing death in certain cases, for those who are
+[05:53] more vulnerable.
+[05:55] What does this kind of heat do, you know, globally to supply chains, food production,
+[06:02] migratory patterns?
+[06:03] Like, give us a sense of the disruption that we may not even be aware of.
+[06:09] Yeah, I mean, it's just like climate change itself, it can be a slow and difficult to
+[06:14] directly observe kind of patterns, but we know that there's all kinds of shifts to where
+[06:19] people live, how they're living, agriculture, how the natural ecosystem and other animals
+[06:25] besides humans are living and moving, all kind of adds up to these larger scale changes
+[06:31] over time that we expect to unfold.
+[06:36] And it's hard to it's hard to directly measure that or understand and see all of it happening.
+[06:43] But as the global climate system changes, the world will evolve and adapt to match that
+[06:49] gradually.
+[06:50] And so a lot of us just kind of feel like it's hotter than we remember, and I think
+[06:57] the data bears that out.
+[06:59] But hopefully you have put together this database for where it is called the Climate Monitor
+[07:05] to visualize just how much hotter it is compared to historic averages.
+[07:12] Tell me about this project and how it works and why it came about.
+[07:17] Sure, I think you framed it pretty well there.
+[07:20] I can't speak for everyone watching and listening, but I suspect that many people out there in
+[07:25] Listenerland have woken up to a high weather forecast in the area where they lived and
+[07:31] thought to themselves, "Hey, has it always been this hot here this time of year?
+[07:36] Could it be climate change?
+[07:38] Is this weird?"
+[07:41] And I think that more and more people are asking themselves that question on a day-to-day
+[07:44] basis, and we wanted to try to help people find the answer.
+[07:47] And so what we've done is we've created a new website called the Reuters Climate Monitor,
+[07:52] which is it updates daily and it takes the weather forecast for everywhere on Earth,
+[07:58] and it compares today's high temperature to what used to be normal in that same place
+[08:03] about a century ago with kind of the oldest available data that we have and what a climate
+[08:08] scientist would call the "normal temperature."
+[08:11] And so you're able to on any given day say, "Here's the high now, and here's what the
+[08:16] high typically used to be in the same place."
+[08:19] That's plotted out on the map so you can see patterns across the whole world, and it wouldn't
+[08:23] surprise you if you were to look at it today and you were following the news to see that
+[08:28] there's a big red spot over Europe right now where the temperatures are highly unusual for
+[08:33] this time of year in those areas.
+[08:36] And just to give you some specifics, you can look at some of the cities in northern Spain
+[08:41] on the Atlantic coast, which are actually kind of the cooler part of Spain historically,
+[08:46] are seeing highs come in this week that are nearly double what the temperature kind of
+[08:50] typically was in those same places between 1960 and 1990, which is the comparison period
+[08:57] that we use.
+[08:58] That's unbelievable.
+[08:59] Yeah, I was playing with it earlier, and it's pretty shocking just to see it laid out so
+[09:05] clearly to show that yes, the world is getting hotter than it used to be.
+[09:10] It's not our imagination, and you can see that very clearly on the graph.
+[09:15] Let's see, I'm going to try to put in Paris here to see what this brings up.
+[09:20] Yeah, today's high forecast is 100 degrees Fahrenheit, which is 38 degrees in centigrade.
+[09:29] That is way above normal, and if you zoom in on the graph next to it, you could see
+[09:36] every month the temperature average is above normal.
+[09:42] This month so far it's 12 degrees, and then you have this nifty graph below kind of showing
+[09:48] the noise of many years past, but the blue line represents a normal average year, and
+[09:55] the red is this year, which is very high.
+[09:59] That chart shows you the entire globe in contrast to just Paris, but when you zoom in on any
+[10:04] place you can get the same comparison against a normal year for more than two million locations
+[10:10] on the planet using the data set that we've taken from the European Climate Agency.
+[10:16] How did you compile this?
+[10:19] We built it entirely using open source data created by the European Weather Agency.
+[10:24] American listeners and watchers may be familiar with the National Weather Service, which is
+[10:29] the United States kind of government-funded forecasting unit.
+[10:33] There's a similar operation in Europe that actually has what scientists will tell you
+[10:39] is the most authoritative record of Earth's temperatures for not just the planet as a
+[10:45] whole but for any location on Earth going back to 1940, and that database is the core
+[10:51] and the foundation of almost all climate science, but because it is generated using supercomputers
+[10:57] and is highly sophisticated, it takes five days for it to generate today's temperatures.
+[11:05] Today's temperatures won't enter that data set until five days from now.
+[11:09] The result of that has been that almost all climate science and reporting that's done,
+[11:14] not just in the news media but in the scientific community, tends to have a delay in it.
+[11:19] You're usually hearing about the high temperature last month or last week or last year, and
+[11:24] it's often delivered you in kind of the arcane statistics of an average temperature.
+[11:29] I doubt there's anyone out there that wakes up in the morning and asks themselves, "What
+[11:32] will the average temperature be today?"
+[11:34] That number is really useful when you're trying to look at the global trend at the highest
+[11:38] possible level, but it doesn't help the average person get the context that they're looking
+[11:42] for on the life that they're living or to help them better understand what's going on
+[11:46] in Europe right now if they're not there.
+[11:49] What we've tried to do is bridge that gap by taking today's weather forecast put out
+[11:53] by the same agency and doing a simple comparison of those two.
+[11:57] Now, there's some statistical procedures you go through to take two different models and
+[12:02] compare them.
+[12:03] We interviewed and worked with some of the world's leading climate scientists to make
+[12:07] sure we got all the math right and did it the correct way, but the result is by taking
+[12:13] today's forecast and comparing it to that historic record, we're able to do in real
+[12:18] time and ahead of time tell you how unusual today's temperatures are for any place on
+[12:25] Earth.
+[12:26] That's the most novel thing scientifically in our Humble project is putting those two
+[12:32] data sets together from the same agency in this new way.
+[12:37] This heat wave, this El Nino, this supercharged heat, and this aberration of average temperatures,
+[12:47] this is climate change.
+[12:49] Yes.
+[12:50] Well, what is climate change is a wonderful philosophical question.
+[12:53] I think it means different things to different people over time.
+[12:57] One thing a lot of experts emphasize is that the word climate change was selected and is
+[13:03] popularized because it has a broad application.
+[13:06] It can mean things getting hotter and in some cases maybe things getting colder or other
+[13:11] parts of the climate changing besides temperature, looking at other things that go on with the
+[13:17] atmosphere and in our oceans.
+[13:21] Climate change broadly is used to encompass all of those things.
+[13:25] I think that what we're primarily measuring thus far, we do want to add a lot of stuff
+[13:30] in the future we haven't got to yet, but what we're primarily focusing on so far is really
+[13:36] what used to be called more commonly, you don't hear as much anymore as global warming,
+[13:41] which is just the planet gradually getting warmer over time, which there is just overwhelming
+[13:46] evidence for and the data sets we're bringing to bear here are ones that we hope will try
+[13:53] to help the average person better see and understand what the numbers have to tell us.
+[13:59] Yeah.
+[14:00] What does a data reporter do?
+[14:01] It's a great question, I wish I got asked it more often.
+[14:05] What does a data reporter do?
+[14:07] I would say that we use STEM, science, technology, math skills to find and tell stories.
+[14:16] And that could mean downloading a spreadsheet and analyzing it and sorting it and then seeing
+[14:23] who's in the number one spot on the list and giving them a phone call.
+[14:27] And so it's about, to me, kind of a smarter or more scientific form of really traditional
+[14:32] journalistic techniques.
+[14:34] And so we're trying to use our technical skills to, like I said, find and tell stories.
+[14:40] So like another example on our desk just today, which is Tuesday, is we have a new public
+[14:45] opinion poll from our partner at Ipsos on how Americans feel about the president's performance
+[14:51] and the outcome thus far of the war in Iran.
+[14:54] And that, you know, public opinion polling is a statistical sample that we're doing and
+[14:58] then trying to find the story out of the headline and bring it across to our readers.
+[15:04] And a fun thing about being a data reporter is because you're a specialist and you have
+[15:08] some of those skills that help you do things that maybe not everybody knows how to do,
+[15:13] but you're able to cover a lot of different topics.
+[15:15] And so a fun thing about being a data reporter is you can cover public opinion one day, you
+[15:20] can cover economics another, and you can cover climate the next.
+[15:25] And it seems especially valuable now, if I may, given the kind of divisive political
+[15:35] scene we have here, especially in the U.S. and the fragmented media landscape in which,
+[15:41] you know, various news agencies can sort of portray their own reality.
+[15:47] And so, but you are, you are operating, at least the goal here is within the realm of
+[15:54] the objective.
+[15:56] That's the goal.
+[15:58] The reader can be the judge on how well I'm doing.
+[16:01] And I welcome their critiques and, you know, obviously just to say it, numbers and statistics
+[16:06] can and have very frequently been used to mislead people, you know?
+[16:09] And so they are, you know, not unimpeachable or undefeated on the field of play.
+[16:15] But as someone who's just trying to learn new things every day and share those things
+[16:20] with our readers to try to be able to verify what we're doing and convince people that
+[16:25] they should maybe consider learning from it, you know, showing your work, being clear and
+[16:33] verifiable, you know, and hopefully convincing is what data can help you do.
+[16:40] And it doesn't mean every data, every data analysis follows that or achieves that.
+[16:45] But it's a tool that we use to try to do better journalism.
+[16:50] Check out the website, guys, Reuters Climate Monitor, send me your bug reports.
+[16:54] Yeah.
+[16:55] Let me put all your complaints in the YouTube comments.
+[17:07] Thanks again to Ben for his time in reporting.
+[17:09] Music for this episode was by Josh Sommer with sound design and editing help from Jonathan
+[17:14] Stayers and Alex Sommer.
+[17:16] Our podcast team also includes Kim Vannell, Gail Issa, David Spencer, Christopher Wall-Jasper,
+[17:23] Mindy Burroughs, Sharon Reich-Garson, Abisoya Adelousi, Ethan Plotkin and Eliza Davis-Beard.
+[17:30] Our senior producers are Tara Oakes, Carmel Crimmins and me, Jonah Green.
+[17:35] Our executive producer is Leela De Kretzer.
+[17:37] For daily news around the world, check out our sister podcast, Reuters World News, which
+[17:42] we now publish seven days a week.
+[17:45] And we'll be back next weekend with another On Assignment.
+[17:53] (dramatic music)

@@ -1,0 +1,688 @@
+[00:00] Do you seek adventure and want to serve your country?
+[00:02] The Central Intelligence Agency's Directorate of Operations is hiring.
+[00:06] We are looking for individuals with a can-do attitude and a collaborative mindset.
+[00:10] If you are looking for a challenge, apply online at cia.gov/careers.
+[00:15] DreamWorks Waterpark at American Dream, just minutes from Manhattan.
+[00:20] Over 40 rides, record-breaking slides, the world's largest indoor wave pool,
+[00:25] and the steepest indoor drop slide.
+[00:28] Tickets start at $59.
+[00:30] Book your visit today at americandream.com.
+[00:38] Our press secretary gave alternative facts to that.
+[00:43] My goal in this deposition was to be truthful, but not particularly helpful.
+[00:51] Welcome to Unspun, the podcast that makes you better at finding the truth.
+[00:56] The way people get news is changing.
+[00:58] It used to be that there were many reporters who would research stories and write articles,
+[01:02] but now politicians and famous people share information directly with you on social media and the internet.
+[01:08] That means you find out things fast, but it's up to you to make sure the information is actually accurate.
+[01:13] And newsmakers don't always do their part.
+[01:15] The temptation to manipulate information is strong.
+[01:19] They bend the truth to deceive so that they can avoid accountability, so that they can advance their agendas.
+[01:24] When you recognize these agendas, you can sometimes find out what's real.
+[01:28] And we're at a crossroads where anyone can share anything online,
+[01:31] so it's important to sharpen your critical thinking skills.
+[01:35] Finding that deception before it goes viral is pretty much a survival skill now,
+[01:38] and we're going to do it together.
+[01:40] Let's get Unspun.
+[01:43] Hello, everyone, and welcome to this week's Unspun.
+[01:47] In this episode, you'll learn to recognize some ways that newsmakers use distraction to shape the news you see.
+[01:52] Then when interviews and press conferences are not enough,
+[01:56] journalists can use databases to find questions and answers that help hold the powerful to account.
+[02:01] So a lot of data journalist Ben Welsh will join me for the interview.
+[02:05] Sound good? Let's get Unspun.
+[02:09] Imagine this. Your child has maybe been taking it easy and they're not doing so well in school.
+[02:14] Education is important to you, and you know he's pretty capable,
+[02:17] so you expect pretty good marks on the next report card.
+[02:20] But your child knows that the next one you see is going to be really disappointing.
+[02:24] For several days before that report arrives home,
+[02:27] he pays extra attention to his contributions in keeping the home clean.
+[02:31] He cleans his room maybe, he remembers to take his shoes off at the door.
+[02:34] Somehow his dishes manage to make it from the table into the dishwasher without you even having to remind him.
+[02:40] The day comes and you open up that mail from the school.
+[02:44] You look up from that disappointing lineup and you start to say something,
+[02:47] and he interrupts to say, "Hey, have you seen my room? It's very clean."
+[02:51] Your child is hoping you will fall for distraction.
+[02:54] Distraction tactics are powerful.
+[02:56] They can change what people think and they hide important problems.
+[02:59] By understanding these tactics, we can see the difference between real talk and lies.
+[03:05] Distraction works by taking advantage of how our brains work.
+[03:08] It's hard to focus on many things at once.
+[03:10] When something new or exciting pops up, we pay attention to that instead.
+[03:14] And this lets people hide things they don't want us to pay attention to.
+[03:18] The news and social media make this worse.
+[03:20] News needs to be new and exciting to get our attention,
+[03:23] and that means big flashy stories, even if they're not important, they get shown more.
+[03:27] And social media doesn't help, because it learns what we like and it shows us more of that.
+[03:32] Which means we might only see things we already agree with, even if they're not true.
+[03:36] This is bad for everyone.
+[03:38] When we don't talk about real problems, they don't get fixed.
+[03:42] Distraction stops us from making good choices because we don't have all the facts.
+[03:46] We need to be careful and look for what's hidden when things feel like they're too simple,
+[03:49] or even just too exciting.
+[03:51] So let's unpack this in the political world.
+[03:55] We'll listen to a few examples for this week's warm-up.
+[03:58] Have a listen and see if you can identify the distraction.
+[04:02] Around the globe, the president realized that our current approach to testing
+[04:06] was inadequate to meet the needs of the American public.
+[04:10] He asked for an entire overhaul of the testing approach.
+[04:14] He immediately called the private sector laboratories to the White House, as noted,
+[04:19] and charged them with developing a high-throughput quality platform
+[04:22] that can meet the needs of the American public.
+[04:25] We are grateful to LabCorp and Quest for taking up the charge immediately after the meeting,
+[04:30] and within 72 hours bringing additional testing access,
+[04:34] particularly to the outbreak areas of Washington State and California and now across the country.
+[04:42] Ah, 2020, the early days of COVID.
+[04:45] Maybe you remember the uncertainty, the fear,
+[04:49] if you live in the United States, the daily press conferences.
+[04:53] This clip beautifully illustrates a classic logical fallacy, the fallacy of distraction.
+[04:58] So here's how it works.
+[05:00] Instead of addressing the actual issue at hand,
+[05:02] in this case, a lack of COVID testing, a shiny, irrelevant fact shows up.
+[05:07] Hey, companies are helping us.
+[05:09] All the things that are being described here are plans that have just started,
+[05:13] but the situation was not good at the time.
+[05:16] In fact, this is the same speech in which the president declared a national health emergency.
+[05:21] Now, imagine this playing out in the whirlwind of the 24/7 news cycle.
+[05:25] Headlines are changing at lightning speed and there's a constant influx of information,
+[05:29] and it makes it difficult to focus on any one thing for too long.
+[05:33] This environment is fertile ground for the distraction fallacy to thrive.
+[05:37] Before we even have time to process the lack of testing,
+[05:39] we're already swept away by the promise of a great new website from Google.
+[05:44] And then enter social media algorithms designed to feed us more of what we already engage with,
+[05:48] you know, creating those echo chambers and those filter bubbles.
+[05:51] So when a politician or an organization successfully deploys a distraction
+[05:55] that aligns with our existing biases, the algorithm amplifies it.
+[06:00] But, you know, this strategy, this well-timed distraction is nothing new.
+[06:04] So here's another example.
+[06:07] Picture this, it's 1998, the Bill Clinton era,
+[06:11] and the House is getting ready to vote on impeaching the president.
+[06:14] A member of the House of Representatives gets up and says this.
+[06:18] Where do we go from here?
+[06:21] We will go to the floor of the House of Representatives to debate this issue.
+[06:27] It is going to be a nasty debate.
+[06:31] It will be a debate about sex.
+[06:33] It will be a debate about the private affair of the president.
+[06:37] It will be a debate about the extramarital affair.
+[06:40] It will be a debate that the American public may not necessarily want to hear.
+[06:45] But they have been thrust into this debate by members of this House
+[06:52] and the Republican Party who are intent and who will stop at nothing
+[06:57] to bring down the president of the United States of America.
+[07:01] So, you know, at this time, the Monica Lewinsky scandal is exploding.
+[07:05] And impeachment hearings are on everybody's mind.
+[07:07] The actual grounds for the impeachment were perjury.
+[07:10] Clinton, when he was being deposed for a sexual harassment lawsuit,
+[07:14] denied having sex with Monica Lewinsky.
+[07:16] And later, evidence emerged proving that he lied
+[07:20] and this led to those charges of perjury, you know, that lying under oath.
+[07:24] But when Representative Waters says what she says,
+[07:27] she's implying that the Republicans are trying to impeach Clinton
+[07:30] for a consensual affair rather than for the perjury itself.
+[07:34] And this framing, whether it's accurate or not,
+[07:36] shifted the focus away from the legal charge of perjury
+[07:39] and toward a debate about the appropriateness of the relationship.
+[07:43] Distraction achieved.
+[07:45] As a little side note, this also kind of showed up
+[07:49] when President Trump was being tried in New York City
+[07:52] and Stormy Daniels was on the stand.
+[07:54] You heard some people commenting saying that people just wanted the,
+[07:57] you know, salacious details of the encounter
+[08:00] between Stormy Daniels and the president.
+[08:04] There was a second distraction tactic that was related to Clinton.
+[08:07] Here's Senator Dianne Feinstein.
+[08:09] Well, I've read most of the press from other countries.
+[08:13] And as you know, it's universal that no one can understand what is happening
+[08:18] and that most of the leaders of these other countries
+[08:22] really believe that we're tearing at the fabric of the presidency
+[08:25] at a time when the United States is really important in the world
+[08:30] in terms of peace and stability.
+[08:34] The world is a more uncertain place now than it has been.
+[08:39] The world is a more uncertain place now than it has been in the last ten years.
+[08:43] And having a strong American president out there is important.
+[08:47] And all of this goes to diminish that.
+[08:50] So I'm one that believes it should be brought to conclusion as quickly as possible.
+[08:55] And then let's get on with it.
+[08:58] Did you hear the distraction here?
+[09:01] The rest of the world will think less of the United States.
+[09:04] So if you're debating this, what are you not debating?
+[09:07] Whether or not the president committed perjury.
+[09:10] So what's the takeaway?
+[09:11] Well, we live in a world of carefully curated narratives
+[09:14] where bad news is eclipsed by shiny distractions
+[09:17] and it's amplified by the actual technology we use to consume the information.
+[09:22] So whether it's a press conference or a news feed
+[09:25] or even just a casual conversation, remember,
+[09:28] you can always look below the surface.
+[09:31] And one thing that helps journalists look below the surface
+[09:33] is to get the data behind the story so that they can evaluate it themselves.
+[09:38] I need to take a quick break, but when I come back,
+[09:41] Ben Welsh from Reuters and I talk about the world of data journalism.
+[09:44] I'll be right back.
+[09:48] While we're on a break, I wanted to remind you that I have a lot of material
+[09:51] like what we have in warm up in my book, Detecting Deception,
+[09:54] Tools to Fight Fake News.
+[09:56] I break down more than 20 ways that newsmakers use facts and language
+[09:59] to be deceptive, and for each, I give you real world examples to explain
+[10:03] and then some historical examples that let you put yourself
+[10:05] in the role of a journalist trying to report on these newsmakers.
+[10:08] There's even answers in the back.
+[10:11] It's an inexpensive, helpful little book that you might enjoy
+[10:13] but in between unspun episodes.
+[10:16] You can find out more at bit.ly/detectingdeceptionbook, all one word.
+[10:22] That's bit.ly/detectingdeceptionbook, all one word.
+[10:28] And now just a quick word from my sponsors
+[10:29] and then my uninterrupted interview with Ben Welsh.
+[10:34] Welcome back.
+[10:38] All right, so I'm very excited to have you with us this week on the podcast.
+[10:42] And one of the things I first wanted to ask you is it seems like your job
+[10:46] is really different from the job you might like see a journalist on TV doing,
+[10:49] right, you know, like in a movie or something.
+[10:51] So it's different from sitting in a press briefing
+[10:53] and asking questions or talking to someone on the phone.
+[10:56] So first of all, can you just explain what data reporting is?
+[11:00] What is data reporting? Great question.
+[11:02] I think it actually is actually more than one answer.
+[11:04] And the way to summarize it, like a lot of things in life, is it depends.
+[11:08] It kind of depends what you do with it.
+[11:10] I mean, the most famous example of a data journalist people might encounter
+[11:14] on cable news would be John King or Steve Kranacki
+[11:18] or these folks that stand in front of the magic maps on election night
+[11:21] and help to decode what the data is telling us about how voters,
+[11:26] you know, how voters are behaving.
+[11:28] But data journalism is a lot more than that, too.
+[11:30] It's it really is, you know, reporters and editors
+[11:34] who treat structured information, spreadsheets, maps,
+[11:39] big piles of documents as sources in the same way
+[11:42] that we've traditionally all treated people.
+[11:46] We can talk to it on the telephone or shoot questions out of the press
+[11:49] conference as sources, you know, structured information.
+[11:53] Data is is a source that in the same ways.
+[11:57] And we're we're using as data journalists
+[11:59] just kind of different tools to ask questions and try to get answers
+[12:03] out of, you know, the data that surrounds us all every day.
+[12:07] Yeah. So that sounds like it would have a kind of different set of challenges
+[12:10] from doing live interviews.
+[12:13] Would you be willing to give maybe an example of a story
+[12:15] that you've worked on that you're particularly proud of? Hmm.
+[12:19] Well, it's always interesting which one pops into your head.
+[12:23] Well, as a few years ago, I was working as a reporter at the Los Angeles Times
+[12:27] and a thing happened in the news.
+[12:29] A candidate for mayor made an allegation.
+[12:32] He said that, hey, the fire department here in our city is in big trouble
+[12:36] and you better elect me to fix it.
+[12:38] Now, obviously, that's a bit of a caricature on my part,
+[12:41] but he said something along those lines.
+[12:43] He actually said it in more vivid terms, made some pretty strong claims
+[12:47] about what was happening in our local 911 system.
+[12:50] And that kind of raised a question in our public sphere in Los Angeles about,
+[12:55] hey, is the fire department doing a bad job?
+[12:57] What's going on over there? Right.
+[12:59] And that's a question that, you know, with traditional techniques,
+[13:02] you can answer by just interviewing people,
+[13:06] you know, going to a fire station and riding along and seeing what's going on.
+[13:09] And all that is supremely valuable.
+[13:11] But it's also a question that there's a measurable answer to.
+[13:14] In some cases, you know, it's claims were and as a data journalist,
+[13:17] that's often what we're looking to do.
+[13:19] We have we have questions for the world.
+[13:21] But can we can we measure the answer to help us come up with something
+[13:25] that's a little maybe more stronger or broader or more contextualized
+[13:29] than what you could do without it?
+[13:30] And so in that case, the claim really was that the response times,
+[13:34] how long it was taking for the fire department to arrive when you call 911
+[13:38] was getting slower was the claim of the candidate.
+[13:41] And hey, that's measurable.
+[13:42] And so I set out to file a Freedom of Information Act request
+[13:47] seeking not public documents, not emails or memos, but a database.
+[13:51] There's a database at the core of the 911 system.
+[13:55] I learned that by interviewing people as a traditional reporter would.
+[13:58] I filed the request is a longer story, but, you know, I eventually received
+[14:03] a CD in the mail that had the government database of every 911 call
+[14:07] for a long period of time.
+[14:09] And then I set out to to write the computer code necessary
+[14:13] to sort of get my hands on and interview that database
+[14:17] to ask you questions like, hey, how long does it take, say, on average
+[14:20] for a 911 response to arrive?
+[14:22] Hey, is it faster in one part of town versus another?
+[14:25] Hey, is it getting slower?
+[14:27] Is it getting faster over time? Right.
+[14:30] And and I also sought out outside standards for what might be good or bad.
+[14:34] Hey, the fire department has said their goal is to respond in X amount of time.
+[14:40] Are they doing that? Are they not, et cetera, et cetera?
+[14:42] And so those are all kind of questions that were measurable.
+[14:46] And then you write the code that kind of spits out the answer,
+[14:49] you know, not unlike how a social scientist or someone who works
+[14:52] at a university might for an academic study, just maybe in a simpler way.
+[14:58] And then the answers that we got back from those provided the foundation
+[15:02] for a whole series of stories we did about problems in the 911 system,
+[15:07] which led to some pretty significant reforms and how it was managed,
+[15:11] including changes to how calls were handled, the replacement of the fire chief.
+[15:15] Ultimately, and a number of changes.
+[15:17] And one fun fact is all the things that we discover and wrote about
+[15:21] were not what the candidate was complaining about.
+[15:24] His complaints were actually inaccurate.
+[15:26] But by getting the data and figuring it out ourselves with, you know,
+[15:31] with our technical skills and a more scientific approach,
+[15:34] we actually got a lot closer to the truth. Right.
+[15:37] Fair enough.
+[15:38] So one thing that makes me think of is that I know that in journalism,
+[15:42] a lot of reporters have sort of standard coverage areas that they work in.
+[15:45] Right. So that they get to know the sources and they get expertise in that area.
+[15:48] You know, we might call that like beat reporting as a data reporter.
+[15:52] Do you have particular areas of specialization
+[15:55] or is it more that you kind of go out and work with other people?
+[15:59] Some do, some don't.
+[16:00] You know, I think it really, again, come back to my unsatisfying answer.
+[16:04] It depends.
+[16:05] And so there are data journalists who have areas of really strong expertise.
+[16:09] I think elections is an example of that and political science and polling.
+[16:13] There's a lot of great data journalists who that's pretty much all they do.
+[16:16] And they do it very, very well. Right.
+[16:19] And then there's other data journalists who are maybe a little more
+[16:22] technical specialists or sort of, you know,
+[16:24] social scientists for hire in the newsroom, you know,
+[16:28] who will range and partner with reporters who have expertise
+[16:31] in this topic or that topic. Right.
+[16:34] And juggle a lot of different things over time.
+[16:36] I think in the career of a data journalist, you can end up in either of those situations.
+[16:41] And it often depends on the personality of the person.
+[16:45] But I think either model can work really very well.
+[16:48] You do end up developing as this is true of all reporters,
+[16:51] is you do end up kind of developing expertise in the areas you cover over time.
+[16:57] And that isn't always planned out. It just kind of happens.
+[17:01] OK, it sounds like this kind of projects take a lot of time, too.
+[17:04] Would that be fair to say?
+[17:05] They can. Again, it depends.
+[17:07] You know, I think traditionally data analysis and journalism was developed
+[17:11] a lot earlier than I think people realize there.
+[17:14] I mean, there were data stories that were quite scientific in the 19th century,
+[17:18] including one you can read about, about how a young congressman named
+[17:22] Abraham Lincoln was submitting the largest expense reports in Congress
+[17:25] at the time for travel.
+[17:28] Those were, of course, all done with, you know,
+[17:29] very traditional analog computational techniques,
+[17:33] probably pen and paper. And but, you know, even computerized data analysis
+[17:38] is older than people realize it in the 1960s and 70s.
+[17:41] You already had a small group of data journalists doing very ambitious
+[17:46] survey stories and other other works of analysis
+[17:49] using punch cards and early computers.
+[17:51] And those projects created kind of an early investigative tradition
+[17:55] in data journalism, where a lot of the specialists were really focused
+[17:58] on long term investigative pieces that took quite a bit of time to get done. Right.
+[18:03] And so that was kind of the origin of a lot of the computational approaches
+[18:07] to data in news. However, over time, as these tools have gotten easier to use,
+[18:12] as data has become much more commonplace in our society,
+[18:16] you see a lot of data work happening very, very quickly.
+[18:19] And so you can see data stories that happen on a one or two day turnaround.
+[18:23] You know, when there's an unexpected event where data can help cover it.
+[18:26] And then there's also cases now where, you know, data has become a flowing
+[18:29] river of news where every day when a new macro economic number comes across
+[18:36] the wire from the Bureau of Labor Statistics that can feed into
+[18:39] not just traditional stories that a data journalist would report and put out,
+[18:44] but also maybe into software applications you're making to automatically publish new stories.
+[18:50] So you're saying you actually do write software as a part of your job?
+[18:54] I do not all data journalists do, but I definitely do.
+[18:57] An example that I think almost all of your listeners will be familiar with.
+[19:00] There's two. One is election night.
+[19:02] So, you know, the most popular piece of journalism on election night now
+[19:06] and pretty much since about 2008 have been the live updating election maps
+[19:12] that give you the results as they come in.
+[19:14] Almost all of those systems were invented and developed by people who started
+[19:19] their careers as news reporters and editors and kind of drifted into software
+[19:23] development or sought it out because it does take quite a bit of editorial
+[19:27] kind of knowledge to be able to make something like that correctly.
+[19:31] Another example that's more recent is a coronavirus tracking.
+[19:35] So I'm sure almost everyone who's listening looked at, you know, a daily
+[19:40] updating map or chart, at least with some frequency of the latest
+[19:44] information on coronavirus where they live.
+[19:46] Those were also cases where data journalists were kind of filling the void
+[19:51] of where the government information wasn't satisfactory and developing
+[19:55] software to kind of put news out automatically.
+[19:59] Yeah. So you bring up, I think, an important thing here, which is
+[20:02] it sounds like this kind of reporting is pretty resource intensive
+[20:06] in terms of sort of the human resources, the time, the expertise.
+[20:09] People have to build up those kind of things.
+[20:11] So I guess what I'm getting at is what makes it worth it.
+[20:17] So you've brought up kind of one thing, which is that you can kind of fill in
+[20:19] gaps, right, telling stories that are not going to come out otherwise.
+[20:23] Are there other things that kind of make the investment worth it?
+[20:26] You're right. It is higher skill work.
+[20:27] And we've seen this in both data and graphics journalism over the last two
+[20:31] decades is that they've gone from jobs that were often about creating
+[20:34] small accessories to go with stories to making these much more sophisticated
+[20:39] feature stories, large scale investigations and these data applications.
+[20:44] So it's definitely higher skill work.
+[20:46] You hit on one of the major payoffs is like, yeah, it lets you do the big
+[20:49] story you couldn't have got otherwise.
+[20:51] Right. And that's been the reason this field really started to develop
+[20:55] in the first place decades ago.
+[20:56] But you have to remember is that once you automate something
+[21:00] and put it on the Internet, you can have quite a bit of scale. Right.
+[21:03] And so, for instance,
+[21:06] when I was an editor at the Los Angeles Times, we created a system
+[21:09] to automatically draft blog posts every time there was an earthquake.
+[21:13] The government data would come across and we would have within seconds
+[21:17] a post with a map that had the bare facts about the earthquake
+[21:20] that was reviewed by a human editor, of course, but was ready to go out
+[21:24] before everyone else for this, an event that would draw a lot of attention.
+[21:28] Well, yeah, it did take us a few months to invent that application,
+[21:31] finish it, vet it and prepare it.
+[21:33] But once it was running, it was close to zero labor whatsoever. Right.
+[21:38] And it then every time there was an earthquake
+[21:41] yielded a piece of content that was oftentimes of very high value. Right.
+[21:46] And so you have a large investment at the outset. Right.
+[21:51] But once it's operational, it can have quite a bit of long running value
+[21:56] and a really wide amount of scale.
+[21:59] The third thing is is a lot of these data features are actually significantly
+[22:05] sometimes by an order of magnitude or more
+[22:09] more popular than a traditional text and photo story. Right.
+[22:14] The coronavirus trackers, for instance, that were published by news
+[22:17] organizations were in almost every case, the most popular piece of content
+[22:22] ever published in the history of the news organizations that published them.
+[22:27] That's these are like at the Los Angeles Times, our coronavirus tracker
+[22:31] was the most read thing ever published by the L.A. Times in 130 years. Right.
+[22:38] Of thousands of people spending how many work hours creating product.
+[22:43] And so, yes, it is higher skill work.
+[22:44] And yes, it does require more time than writing an individual story.
+[22:48] But it also can be significantly more valuable.
+[22:54] OK, so that makes a good business case, I guess, for my investment.
+[22:58] This is why this is me to my boss saying, hey, let me hire some people.
+[23:03] OK, that's fair enough.
+[23:04] It does bring up another question, though, because I think about, you know,
+[23:07] a larger resource publication or TV station like a CNN or L.A.
+[23:12] Times versus maybe like your local news or your local newspaper.
+[23:16] Do you think that the ability to produce these kinds of stories
+[23:19] sort of creates an information divide between national and local?
+[23:22] It definitely does, yes, because it requires this higher amount of skill
+[23:26] to publish it. It can be hard for a small newsroom to put it together.
+[23:29] So the attempts to solve that in the marketplace have been, of course,
+[23:33] like everything else with local news, chain ownership, you know what I mean?
+[23:37] And so the Gannett Company and these sort of large chains that own dozens
+[23:41] and dozens, if not hundreds of local newsrooms have experimented
+[23:45] with having sort of centralized teams that, you know, provide this type
+[23:50] of work for the entire chain.
+[23:51] You see that also in the television marketplace.
+[23:54] So CBS News here in New York has a growing data team they're hiring
+[23:58] for right now, and they'll perform data analysis and work for all
+[24:02] of the owned and operated CBS stations across the country.
+[24:05] So centralization is definitely one solution.
+[24:08] Obviously, I should pump here a little bit for the wire services.
+[24:12] I work at Reuters News, which is one of the world's largest agency
+[24:16] and wire services, and so subscribers, you know, to our wire service,
+[24:20] any outlet are able to access a lot of these graphics that we make automatically
+[24:25] using some of these things I've talked about.
+[24:27] And our live election results will publish this November
+[24:31] with the national election pool are available to subscribers to our wire.
+[24:35] So if you're if you're a member of Reuters News, you'll be able to take
+[24:38] at a bare minimum the sort of finished maps and tables that we create
+[24:42] and put them on your site or on your TV station.
+[24:44] So those are two ways it works.
+[24:46] There are some nonprofit academic alternatives to this.
+[24:49] I spent a year at Stanford University recently working
+[24:53] on a project called Big Local News, and the intention of this project is
+[24:58] to create sort of a a similar model, a similar
+[25:04] centralized kind of model for providing data services and skills
+[25:08] and support to newsrooms in the nonprofit sector.
+[25:11] So a lot of, you know, a lot of the small newsrooms that are coming up
+[25:14] on the nonprofit side who don't have access to the things
+[25:18] these these larger commercial chains do.
+[25:20] OK, so I want to switch gears a little bit here
+[25:24] and ask you about the particular data sets and things that you access.
+[25:29] And can you talk a little bit about how you try to verify
+[25:32] sort of the reliability of the data that you get access to?
+[25:35] Sure. I mean, it can depend because there's there's different types of data sets,
+[25:40] you know, and there's different ways they're kind of created.
+[25:43] But to use the 911 data set as an example, we started with.
+[25:48] So I have via a Freedom of Information Act quest,
+[25:51] the official database from the primary source. Right.
+[25:55] So in a way, that's the same as interviewing the buyer chief.
+[25:58] There's no there's no intermediary who might introduce error. Right.
+[26:02] Now, there are cases where you might get a data set from an intermediary
+[26:05] and that could introduce some question about the kind of chain of custody.
+[26:10] But in this case, it was what I would call a primary source.
+[26:13] But it's, you know, 15 database tables that are largely undocumented.
+[26:17] And not a lot of people at the agency are all that willing to explain to me
+[26:21] how they fit together and how they work and what the caveats are of.
+[26:25] Oh, gee, you need to filter and exclude all these and oh, gee,
+[26:28] be careful when you merge these two things and all the crazy stuff
+[26:31] that can happen with databases. Right.
+[26:34] And what do these fields and columns even mean?
+[26:36] They have these cryptic names.
+[26:38] And so there often is in a circumstance like that in data journalism,
+[26:41] a bit of forensic analysis you do to just sort of try to gradually
+[26:45] test and deduce what the heck is in there.
+[26:48] That can include interviewing people who have worked on the system,
+[26:52] which I did in that case.
+[26:53] We found an ex employee who had worked on the database
+[26:56] and someone who had done data entry on the database.
+[26:58] And we kind of were able to decode what was in there
+[27:01] and understand better how to interpret it.
+[27:06] Oftentimes, just finding the form that's used to create a database
+[27:09] can really help you understand what's in there
+[27:11] because, you know, that has a little more of a human sort of base to it.
+[27:16] And then to me, there's sort of, I guess, lacking a better term,
+[27:21] I would say kind of external validation or checking, checking, checking my work.
+[27:27] And so in the case of the fire system, I had some questions
+[27:30] I wanted to answer that were really specifically about our story
+[27:33] and like, hey, are the response times meeting this national standard?
+[27:37] Are are things getting faster, things getting slow?
+[27:39] That's what I wanted to know at the end of the day.
+[27:41] But those those didn't help me verify whether I was right or not. Right.
+[27:45] And so what I did is I sought out
+[27:48] data analysis that had been published by the department itself
+[27:52] in its annual reports and presented at hearings before the city council.
+[27:56] So in the past, the fire department had added up.
+[27:59] We did this many total calls over the whole year.
+[28:02] And these sort of general aggregate statistics have been published.
+[28:06] And I sort of hypothesized or thought, hey, if I'm analyzing this database correctly,
+[28:13] right, I should be able to hit those numbers, right?
+[28:16] Using whatever sort of queries or formulas I'm going to use to analyze the data set.
+[28:21] And that gave me some confidence that, hey, I'm able to interpret this data
+[28:25] without making a lot of it, you know, without making a mistake in how I'm working with it.
+[28:30] And then, you know, in a case like this, an investigative report,
+[28:34] all of our findings were presented
+[28:37] to the agency prior to being published.
+[28:40] And so I'm a big fan of when publishing
+[28:44] sort of claims that are that are going to that are going to get out on a limb
+[28:47] a little bit or challenge a source or subject,
+[28:51] is that they have the opportunity to review, comment, critique on the method
+[28:56] and the numbers prior to publication, which I did in that.
+[28:59] There's other stories I've been down that road on it to me.
+[29:01] That's a really important step.
+[29:04] And we did that.
+[29:08] And but, you know, even at the end of the day, there sometimes can be a little
+[29:13] you might not get a hundred percent answer
+[29:16] from your source about whether or not you've done it right,
+[29:18] because you may be breaking new ground in terms of, you know, your findings.
+[29:23] And so a really important piece
+[29:27] that I think is often overlooked in a lot of the data journalism today
+[29:30] that's done very quickly or by people who don't have a journalism background
+[29:34] is shoe leather ground truthing the data, which is basically saying, OK,
+[29:40] so we did this analysis that was like these this this part of the call system
+[29:44] is really slow and it's causing problems.
+[29:46] Well, if that's right, I should be able to sort and list the calls
+[29:50] that are the worst, the outliers that were that are going to be inside
+[29:53] this kind of claim that we're making.
+[29:55] And we should be able to call up the people on the phone or knock on the door
+[29:59] of the people who are listed there and be able to verify that.
+[30:03] Yeah, it was slow. Right.
+[30:04] And so to me, it was taking the data out into the real world. Right.
+[30:08] To verify that, hey, our assumption is that this is pointing to a thing
+[30:12] that happened in the world. Did it? Right.
+[30:15] And that requires getting, you know, unplugging your laptop, closing the lid,
+[30:19] you know, getting out onto the street, knocking on doors, talking to people
+[30:22] and really checking whether things you match up out there in the real world.
+[30:27] And I think that that is an underrated and essential piece
+[30:31] of doing quality data journalism.
+[30:33] It also helps you find the stories and real people who are affected
+[30:37] by the statistical stuff that you're writing about.
+[30:41] And you end up with a much, much better piece of journalism.
+[30:44] And you also can have an even greater degree of confidence
+[30:48] that what you're writing about matters, whether or not it, quote, adds up.
+[30:55] Yeah. So just to go back to a term that you used,
+[30:57] you use the term chain of custody.
+[30:59] You got it directly from the horse's mouth. Right.
+[31:01] So there's cases where this happens frequently with document dumps
+[31:05] and other types of data stories where you get the information
+[31:10] from an intermediary, a leaker, right, or there's been a hack.
+[31:14] And you may remember this from the coverage of the WikiLeaks documents
+[31:18] and things about a decade ago.
+[31:20] Questions were raised about whether the information had been tampered with.
+[31:24] Right. And can we really believe that this email that says is from Hillary Clinton
+[31:29] is really from Hillary Clinton? Right.
+[31:31] And those are cases where you have to make extra steps
+[31:34] to verify that what you have is is is authentic.
+[31:38] But in the case where you file a Freedom of Information Act
+[31:40] directly to a government agency and they give it to you directly,
+[31:43] you don't have that intermediary.
+[31:45] The human equivalent of this, and this is true in data journalism,
+[31:48] almost anything we would talk about in this wonky, techie data way.
+[31:52] There almost always is a shoe leather on the street,
+[31:56] old school reporter version of is, hey, you went to the protest
+[32:01] where things really got crazy and did you see the crazy thing that happened?
+[32:05] Did you talk to the person who the crazy thing happened to
+[32:08] or did you talk to the person who heard from the person
+[32:11] the crazy thing happened to? Right.
+[32:13] And it's the same thing.
+[32:14] And this is true in all different aspects of journalism,
+[32:16] is how close are you really to the to the real thing?
+[32:20] Right. To what actually happened and this and in data that's no different.
+[32:25] How do you balance all of those technical wonky things you just talked about
+[32:29] with the need to tell a really interesting story
+[32:32] maybe to a public who's often number phobic?
+[32:35] I mean, connecting it to real people and real things that happened,
+[32:38] I think is is essential.
+[32:40] I think it is missing from a lot of data reporting.
+[32:43] However, I think there's more appetite for data than I think is appreciated.
+[32:47] You know, I think that properly balanced reported and presented
+[32:53] data stories are really very popular.
+[32:55] And I think that not to not to hit this nail too many times in our talk here today,
+[32:59] but I think that that is underappreciated.
+[33:02] I think there's oftentimes a sense that these are vegetable stories
+[33:06] when in fact, when we look at the look at the numbers and the metrics,
+[33:09] we see that these are actually quite popular stories when done well.
+[33:14] Right. The public wants information that's more trustworthy and reliable
+[33:18] and data and science is a way that we bring that to our journalism.
+[33:22] Right. To me, there's a lot of it comes down to the editing.
+[33:26] And this is true in traditional stories as well.
+[33:29] Is data stories can sometimes lack that ground truth thing
+[33:33] and that connection to what's really out there. Right.
+[33:36] They can sometimes be what in a in a traditional story
+[33:40] would be called a notebook dump.
+[33:42] You know, so, hey, I did a data analysis.
+[33:44] Here's 15 things I found from looking at the data.
+[33:47] And it's just like a bunch of stuff.
+[33:49] And it's not clearly focused enough that it connects directly
+[33:53] with a busy person who who is just trying to go through the headlines and read the news.
+[33:58] And so to me, the best data stories, not always,
+[34:01] but oftentimes are about one finding or one very simple statistic.
+[34:06] And then they don't overload all the numbers and stuff in the way
+[34:11] that there's there's a good reason that academic papers do that. Right.
+[34:15] And I do think a well presented data story will offer, you know, below the fold,
+[34:20] so to speak, in the news or on a link that goes off to a methodology page
+[34:24] or some code and data that you posted online.
+[34:26] It will provide that extra stuff for the reader who wants more of it.
+[34:30] And to verify it's kind of it's it's reproducibility.
+[34:35] But the headline, what we call news, the nut graph,
+[34:39] the central finding of any piece needs to be almost always like one thing
+[34:43] with maybe just one or two numbers that really connect
+[34:47] directly as possible to the reader. Why is this news, you know?
+[34:52] Yeah. And so I guess that would explain then why there's often
+[34:55] a big series around a large data story, right?
+[34:58] Each one is telling a different piece of it.
+[35:00] It can be, yes. Yeah. All right.
+[35:03] What are some of the biggest challenges that you face in doing this kind of work?
+[35:06] Gee, I mean, it does require more technical skills
+[35:11] than I think a lot of people receive in their journalism training.
+[35:14] You know, over time, it's something that any person could learn.
+[35:18] Being a data journalist is not like being an opera singer or the piano player
+[35:25] at the orchestra. It's not something that requires you're born
+[35:28] with some incredible innate talent.
+[35:29] It just requires that you learn
+[35:32] numeracy and kind of set of kind of spreadsheet like skills
+[35:37] for how to get your hooks into clean up, deal with and interview a data source.
+[35:42] And so I think that that is its own little educational ladder
+[35:46] that you have to climb to to do.
+[35:49] But I think it's really attainable to anyone.
+[35:51] But I think starting out, that can be a challenge, you know,
+[35:55] in the same way that starting out at any professional job
+[35:57] requires a little bit of of learning.
+[36:00] The data that is often most newsworthy is often difficult to acquire.
+[36:05] So it's there's cases where, you know, the government has a data set
+[36:09] that you want to do a story about, but they're not giving it to you.
+[36:12] And so you got to figure out how to get it.
+[36:14] And so that kind of struggle to get the data that will make the news
+[36:19] is a challenge. Cleaning data, as anyone who works in what is now
+[36:23] known as data science and a lot of kind of these more practical applications
+[36:28] of statistics will tell you, cleaning the data can end up being
+[36:31] about 95 percent of the work.
+[36:33] So the actual analysis that you do can be quite simple,
+[36:36] especially for a journalism story.
+[36:38] But once you even have acquired the data, just getting it into shape
+[36:42] where it's ready to analyze can be a ton of work
+[36:45] just due to errors in how it's been structured or formatted.
+[36:50] That the need to to kind of clean up values, all the different ways
+[36:54] that you can spell the street names of New York or L.A.
+[36:57] If you're a police officer filling out a citation form, right,
+[37:01] can lead to quite a lot of variations that need to be mopped up.
+[37:05] So cleaning is in and learning the skills of cleaning
+[37:07] and how to do it correctly and all that can be a bit of a challenge.
+[37:12] And it's oftentimes most of the job.
+[37:15] All right. And I appreciate your time and thank you so much for stopping by.
+[37:19] Thanks for getting Unspun with me this week.
+[37:21] Unspun is a production of me, Amanda Sturgill,
+[37:24] and is a proud member of the MSW Media family of podcasts.
+[37:28] Some of your thoughts and ideas about trickery in the news on Gmail
+[37:31] at theunspunpodcast@gmail.com.
+[37:35] I even write back.
+[37:37] And find this episode's show notes and more information
+[37:39] at theunspunpodcast.substack.com.
+[37:43] Want to learn more and get smarter?
+[37:45] Check out my book, Detecting Deception, Tools to Fight Fake News,
+[37:48] which is available on Amazon or your favorite online bookseller.
+[37:51] And until next time, stay sharp, everyone.
+[38:02] Looking for the best of VRBO?
+[38:04] Discover Vacation Rentals of the Year,
+[38:05] top quality homes guests love from across the country.
+[38:08] Our curated list takes the guests work out of planning
+[38:11] so you can spend less time searching and more time packing.
+[38:14] Book your next day now with VRBO.
+[38:17] This is Bethany Frankel from Just Be with Bethany Frankel.
+[38:19] I may be in Florida these days, but at heart, I'm a New Yorker.
+[38:23] We're real, we don't do fake, and that includes what we feed our dogs.
+[38:27] Just Food for Dogs has real kitchens right in New York City,
+[38:30] where you can watch chefs make fresh, human-grade food for your dog,
+[38:35] not mystery kibble, real food.
+[38:37] My dogs, Biggie and Smalls, would lose their minds
+[38:40] in the Just Food for Dogs kitchen.
+[38:41] And honestly, same, do better for your dog.
+[38:44] They are obsessed.
+[38:46] Stop by a Just Food for Dogs kitchen
+[38:49] and claim a free meal at jffd.com/free.
+[38:53] You're welcome.
+[38:54] Tired of sugar-coated news and corporate spin?
+[38:57] Check out the Nicole Sandler Show.
+[39:00] Speaking truth to power with the irreverence it deserves.
+[39:03] Smart, fearless, and just the right amount of snark,
+[39:06] Nicole breaks down the headlines, exposes the hypocrisy,
+[39:10] and talks with the people working for real change.
+[39:13] Weekdays at 3 Eastern noon Pacific on Progressive Voices,
+[39:16] nicolesandler.com, Substack, YouTube, or wherever you get your podcasts.
+[39:21] Don't just get the news, get the truth.
+[39:24] Hello, Martin Sheen here, and I have a question for you.
+[39:28] What do you do on Sunday to relax and unwind?
+[39:31] Sleep in, read the paper, eat stuff you shouldn't,
+[39:34] binge watch the shows on your My Stuff list?
+[39:37] Okay, all good and fine, but I think this routine could be a bit better.
+[39:42] Let me offer something to make your me time really special, my podcast.
+[39:47] And I think once you hear it, you'll realize it is the perfect addition to
+[39:51] your Sunday or whenever you're looking for a chance to unwind.
+[39:56] Tune in as I share the stories of my life along with some poetry and
+[40:00] an occasional personal reflection in a way that will have you saying,
+[40:03] that was time well spent, and I didn't even have to get out of my pajamas.
+[40:08] Season four of the Martin Sheen podcast with yours truly Martin Sheen,
+[40:12] of course, is underway with ten brand new episodes.
+[40:16] I know our lives can be very busy and demanding these days, whose are not.
+[40:20] So join me on a storytelling journey that you can enjoy from the comfort of
+[40:24] your favorite easy chair and a chance to relax and be in the moment.
+[40:29] So check out the Martin Sheen podcast, season four underway right now,
+[40:33] and make it part of your self-care routine.
+[40:36] And as always, thank you for listening.

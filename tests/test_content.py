@@ -437,6 +437,31 @@ def test_local_data_journalism_podcast_has_audio_sources_and_transcript():
     assert talk.transcript_text_url == "/static/talks/local-data-journalism-podcast/transcript.txt"
 
 
+def test_new_appearance_talks_have_hosted_recordings_and_text_assets():
+    talks = {talk.slug: talk for talk in load_talks()}
+
+    showing_your_work = talks["showing-your-work-with-ben-welsh"]
+    assert showing_your_work.audio_url.startswith("https://creators.spotify.com/pod/profile/ddjpodcast/")
+    assert showing_your_work.local_audio_url == "/media/talks/showing-your-work-with-ben-welsh/audio.m4a"
+    assert showing_your_work.captions_url == "/static/talks/showing-your-work-with-ben-welsh/captions.vtt"
+
+    ire_radio = talks["a-conversation-with-ben-welsh"]
+    assert ire_radio.audio_url == "https://soundcloud.com/ire-nicar/a-conversation-with-ben-welsh"
+    assert ire_radio.local_audio_url == "/media/talks/a-conversation-with-ben-welsh/audio.m4a"
+    assert ire_radio.transcript_text_url == "/static/talks/a-conversation-with-ben-welsh/transcript.txt"
+
+    unspun = talks["unspun-data-journalism"]
+    assert unspun.audio_url.startswith("https://pocketcasts.com/podcast/unspun/")
+    assert unspun.local_audio_url == "/media/talks/unspun-data-journalism/audio.mp3"
+    assert unspun.captions_url == "/static/talks/unspun-data-journalism/captions.vtt"
+
+    reuters = talks["understanding-europes-heatwave"]
+    assert reuters.video_url == "https://www.youtube.com/watch?v=me0DlYHkJKE&t=28s"
+    assert reuters.local_video_url == "/media/talks/understanding-europes-heatwave/video.webm"
+    assert reuters.local_video_mime_type == "video/webm"
+    assert reuters.transcript_text_url == "/static/talks/understanding-europes-heatwave/transcript.txt"
+
+
 def test_talk_audio_fields_load(tmp_path):
     p = tmp_path / "talks.yaml"
     p.write_text(
