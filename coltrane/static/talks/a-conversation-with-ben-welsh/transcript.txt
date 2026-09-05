@@ -1,0 +1,279 @@
+[00:00] Data journalism is a collaborative field with journalists growing into better reporters
+[00:10] with the help of practice and partnership.
+[00:12] In this episode of the IRE radio podcast, veteran reporter, editor, and computer programmer
+[00:19] Ben Welsh joins to talk about his journalism career and how he got to where he is today.
+[00:26] As the founder of Reuters News Applications Desk, where he is currently an editor, Welsh
+[00:30] has gained a multitude of tips and tricks for data journalism that he will share with
+[00:35] you throughout this episode.
+[00:37] Additionally, we discuss his personal site that archives his various data in investigative
+[00:43] journalism panels and resources.
+[00:45] This is Nakyla Carter and you're listening to IRE radio.
+[01:05] So the first thing I want to say is just when did you know journalism was your thing and
+[01:09] then how did you nurture it to be the person you are today?
+[01:12] Oh man, we can go way back with this, I'm getting old.
+[01:17] I never set out to be a journalist.
+[01:18] It wasn't something I did much in high school or a career goal I went into college with.
+[01:24] I was an undergraduate at DePaul University in Chicago, Illinois after growing up in Eastern
+[01:29] Iowa and kind of stumbled into journalism accidentally.
+[01:33] I had a job answering phones in the communication department as part of kind of one of these
+[01:37] work study programs to make a little money while I was in school and that kind of thing.
+[01:43] In that job I was entrusted with some very important responsibilities.
+[01:47] One of them was pinning up flyers on the bulletin boards around campus about upcoming events
+[01:52] that the department was running.
+[01:54] So I was often the first person to see the notice of new things happening.
+[01:58] One day I was pinning up the flyer and I noticed that it was an advertisement for an internship
+[02:03] with two journalists who were taking up residency at the university, Carol Marine and Don Mosley.
+[02:09] They were looking for a student to join them.
+[02:11] I was pinning in, I thought, "Hey, that sounds cool."
+[02:14] It sounds a lot cooler than this job pinning up flyers on bulletin boards.
+[02:19] Because I was the first person to see the flyer, I suspect I was the first person to
+[02:23] apply.
+[02:24] I never asked how many other people applied, but I ended up getting that internship despite
+[02:29] being ridiculously unqualified and began my journalism career, as it was, as the grunt
+[02:36] assistant to this producer and correspondent team who were doing weekly television pieces
+[02:42] and newspaper columns and some long-form documentaries.
+[02:46] I got into journalism as an accident and pretty quickly saw it was a lot of fun.
+[02:51] It was a great way to engage with the world and learn about it and was also a challenge
+[02:56] and maybe something I could do.
+[02:58] I think that was amazing because I think it's important to understand that everybody's
+[03:02] plight into journalism is completely different.
+[03:04] It's always interesting to hear how did you get started there.
+[03:08] You talk about how you kind of got into the journalism realm.
+[03:11] How did you start doing more so data type of things?
+[03:14] I was, as I said, pretty unqualified to work in this journalism office I was working in,
+[03:20] but data and the work that I do now today quickly found me in a public records request.
+[03:27] We got a tip that a local suburb of the city had.
+[03:31] The tip was that a local alderman had been bid-rigging some legal contracts in this city
+[03:38] to rack up some money for himself and his allies.
+[03:41] To check it out, we filed a public records request asking for a list of every legal contract
+[03:47] or fee that was paid out to the city, to this particular law firm.
+[03:51] It was my first FOIA ever.
+[03:54] After a few weeks or months, I can't remember exactly, finally in the mail came a big long
+[03:58] printout, a computer printout.
+[04:00] This is like a 1990s or '80s style one where it's an accordion sheet of paper, dozens of
+[04:05] pages connected by the little tear strips on the outside.
+[04:09] It was all the legal fees, but they were spread out in this dot matrix style across a lot
+[04:13] of paper.
+[04:15] We initially had the question, "Well, how the heck are we going to make sense of this?"
+[04:18] I honestly don't remember or don't know where I got the idea, but I thought, "Hey, what
+[04:24] if I type it all into a spreadsheet?"
+[04:26] It kind of came to me.
+[04:27] I sat down there.
+[04:28] It took me a day or two to go through it all and double and triple check it.
+[04:32] We arrived at kind of a pretty big number, a big enough number to justify the story being
+[04:37] on the news.
+[04:38] We kind of got our little scoop, our investigative piece, out of the tip, the FOIA, and the data
+[04:43] entry.
+[04:45] With that, I kind of was hooked, one, I saw the data was kind of a shortcut to getting
+[04:50] to work on really cool stories, more than just kind of the run of the mill stuff, things
+[04:54] I found exciting.
+[04:55] Hey, as the guy who could sit down and figure out the tech, it might be a niche for me or
+[05:00] a place for me to be the guy who fills that gap and helps make those stories happen.
+[05:05] Those two things kind of got me going on it.
+[05:07] I wanted to go further down that road, so I went to the University of Missouri and was
+[05:11] a graduate assistant at IRE NYCAR, where I really got to focus on not just faking it,
+[05:16] but actually learning how to do these skills, learning how to code, learning what real analysis
+[05:20] was, getting a lot more practice.
+[05:23] That set me off onto the path I still am today, now more than 20 years later.
+[05:28] On that respect, I think that you'd grow so much as a data journalist by obviously knowing
+[05:32] the practical experience, but also talking to people and collaboration and learning other
+[05:39] people's tips and tricks.
+[05:40] So I have to talk about your website, PowerWire, because I was like, this is amazing.
+[05:44] I wish I had seen this last year.
+[05:46] But yeah, like what made you want to compile all that information?
+[05:50] Because it's not something that you're required to do, but it's amazingly helpful.
+[05:53] Well, you know, it's nothing that happened overnight.
+[05:55] It's the accumulation of kind of years and years of chipping stuff together.
+[05:59] But you know, for me, the annual IRE NYCAR conference is really just kind of an opportunity
+[06:04] to challenge myself and for all of us in our community to come together, to say, what do
+[06:10] we want to teach each other?
+[06:11] What's important?
+[06:12] What have we learned in the last year that's worth passing on to other people or that we're
+[06:16] excited about or that we want to share?
+[06:18] You know, and I look at every year's conference as kind of that type of moment or opportunity
+[06:23] and try to drum up new stuff.
+[06:25] And I've, you know, been doing it long enough that I kind of got a little playbook for it,
+[06:29] a little routine, and I've just been adding, you know, incrementally more and more of these
+[06:34] kind of lessons that I put together with other people who helped me, by the way, of course.
+[06:39] And it's become, you know, over time, this collection.
+[06:43] And do you have any favorites or any talks that you have that, you know, you look forward
+[06:47] to saying?
+[06:48] Because I know some of them you repeat and some of them you tweak and things like that.
+[06:51] But is there ever one where you kind of are like, I wish that something like this existed
+[06:55] when I first got started?
+[06:56] Well, I don't know if I have a favorite child, so to speak.
+[07:00] To me, the best thing about it for me, there's a lot of great things about it.
+[07:03] I love coming together with peers and people I respect to help create the classes and that
+[07:08] sort of formative experience of us collaborating to really take an idea or a technique that
+[07:14] hasn't really been fully fleshed out and trying to put it on paper and get it across.
+[07:19] Like, that creative process is really stimulating and always rewarding to me, and that keeps
+[07:24] me doing it.
+[07:25] And then, you know, the conference itself is a great experience, but, you know, maybe most
+[07:29] of all is the thing that comes out of putting it on the web and just kind of having a little
+[07:33] bit of faith in the world or giving it out there is I am just often stunned to hear from
+[07:39] people on the other side of the planet who I've never met, never will, who will reach
+[07:43] out and say they learned this or that just based on a resource that we put on the web,
+[07:47] not really knowing what would happen with it.
+[07:49] And there's something that is kind of magical to that, that is a hit I keep chasing or that
+[07:56] I just love, and it really reminds me of my own formative experiences on the internet
+[08:01] as a teenager in the 90s, you know, I'm old enough that, you know, I remember life before
+[08:05] the web and as a kid in rural Iowa, its arrival was a big deal.
+[08:10] And the internet was really my kind of gateway to the world and such an exciting, stimulating
+[08:15] place to learn and connect and to still have experiences like that 30 years later with people
+[08:21] in Ukraine or Brazil or wherever else is just, it's the magic of technology that I find so
+[08:28] rewarding.
+[08:29] You know, I'm learning about your plight to where you are today and you went from not
+[08:33] knowing that journalism was something that you even were interested in to creating an
+[08:38] entire news applications desk.
+[08:40] How did you know that that is something that that newsroom needed and how do you operate
+[08:45] in that position?
+[08:47] Not sounding too grandiose or self-assured, I think we are entering kind of a new era
+[08:53] of data journalism in kind of the commercial space, commercial media, which is I think
+[08:58] one of industrialization and specialization.
+[09:02] You know, when I started out at the LA Times in 2007, the whole idea of putting data on
+[09:07] the internet on a newspaper website was still a pretty new one.
+[09:11] We weren't the first to do it for sure, you know what I mean?
+[09:13] But in our context, it was definitely new, and I think a lot of what was going on even
+[09:18] at the leading news organizations then was really experimental.
+[09:21] You had really small teams of people kind of goofing around trying to make things happen
+[09:25] on the web, often totally separate from their mainline newsrooms.
+[09:29] You know, it's good to remember that it was that 2008 election was probably really the
+[09:33] first one where you had really widespread live election results on newspaper and news
+[09:38] organization websites.
+[09:40] When Obama was first elected, they did, there was examples of that before, but the really
+[09:44] kind of first like widespread publication of it was that time.
+[09:49] And it was really kind of an experiment that was then wildly successful.
+[09:53] And I think there's been many other examples since then running up to coronavirus trackers.
+[09:59] And you can go down the list of all these different ways that taking data directly to
+[10:03] the audience in the form of dashboards and databases and visualizations that aren't traditional
+[10:09] stories, you know what I mean?
+[10:10] That has gone from an experiment to really a widget or a product that we want to manufacture,
+[10:16] you know, inside the metaphorical assembly line or factory of your newsroom.
+[10:22] And so it's my view as we enter, as we want to go from experiment to mass production,
+[10:28] we need to, you know, institutionalize, specialize, and really ramp up how we are organized to
+[10:34] create these widgets, you know?
+[10:36] And in my view, that means making a news desk, which is its own little assembly line in the
+[10:40] factory that focuses not on the kind of battleship investigative reporting projects, not necessarily
+[10:48] on kind of one-off graphics to accompany traditional text stories, but instead on these data products,
+[10:56] whatever you want to call them, that are incredibly popular with audiences and are also, it could
+[11:02] be Capital J journalism as well, right?
+[11:05] And so this news application's desk is our attempt to name something that does that.
+[11:10] I don't know if I love the name, if you have a better name, I'd love to hear it, but that's
+[11:15] what we mean.
+[11:16] Basically, that's what we're trying to do here at Reuters, is to create a group of people
+[11:19] who just focus on making that type of thing.
+[11:22] I think that's amazing, especially because, like you said, we're moving towards a time
+[11:26] in data journalism where I like to say that people almost expect data to be in the story.
+[11:30] That's become way more normal, and so I think it's amazing that you guys are thinking about
+[11:36] this.
+[11:37] Yeah, I think we can't forget that.
+[11:38] I think because data journalism grew out of the investigative reporting tradition, or at
+[11:43] least a large part of it did, there's many streams and strands, there's not one way.
+[11:47] But the IRE/NICAR tradition is really one that stems back to investigative reporting,
+[11:52] which is really what I was trained in and what I love and respect, and I've done a lot of
+[11:56] it in my career, but the justification for that type of work, for the investment, for
+[12:01] the dollars to be spent to fund it, is typically one that's based on prestige and public service,
+[12:08] which are two of the very high call-ins of our profession, but in a time of decreasing
+[12:14] resources and brutal disruption to the economic model that supports journalism, it can be
+[12:19] difficult to justify jobs and investment in data journalism if it's strictly seen as a
+[12:25] prestige project, so that's bad news, baby.
+[12:28] But the good news is, and I think we often undersell this good news, is that these data
+[12:32] products I'm talking about, your live election results or your coronavirus tracker, these
+[12:37] are, yes, they are public service, and yes, they ought to be seen as prestigious.
+[12:41] They have won some of the highest awards, but they are also popular, right?
+[12:46] I think last year, Reuters.com, the most popular thing all year, were the live election results
+[12:52] done by our team in London, led by John McClure, and the most popular thing in the history
+[12:57] of the Los Angeles Times, where I used to work for the most read piece of journalism
+[13:01] in the 100-and-whatever-year history of the LA Times, was its coronavirus tracker, and
+[13:06] I suspect the same is for the New York Times and many, many other news organizations, and
+[13:11] I think we shouldn't sell ourselves short.
+[13:14] We're making things people want.
+[13:17] A lot of people say journalists and math don't go together, or a lot of journalists aren't,
+[13:22] I guess, set up naturally to do data, stuff like that, but what is your advice for someone
+[13:26] who wants to get into that realm of things?
+[13:29] It is a hot commodity right now, and it's an amazing skill set to have.
+[13:33] Well, then, that's your advantage.
+[13:35] You know what I mean?
+[13:36] If other people are avoiding it and you're willing to take it on, that's going to give
+[13:40] you the edge, that's going to give you the front foot, and I think you should not listen
+[13:45] to people who are discouraging you to not go down this road if it's where you want to
+[13:49] go, because, as you just said, we know it's where things are headed, and we know that
+[13:53] it's valuable, and so don't be afraid to have the confidence of that and surround yourself
+[13:59] with people who agree with you and find mentors and role models that'll help you move down
+[14:05] that path.
+[14:06] It's a lane that's wide open.
+[14:08] What are some things that you live by when you're doing data analysis and news application
+[14:13] creation?
+[14:14] I don't know if I can rewind.
+[14:16] What would I tell younger me?
+[14:17] I mean, I've studied harder in high school, you know what I mean?
+[14:21] I don't know.
+[14:23] I don't have any regrets or any big thing like that.
+[14:27] There's reassurance, I think, we all need when we're young and that I needed like everyone
+[14:31] else, which is if you work hard, it will pay off.
+[14:35] I've seen that in my own life, and I've seen it in many others, and I would just encourage
+[14:39] people to ... I almost said lean in.
+[14:41] I won't say lean in.
+[14:42] I'll say work hard and be a good person and it'll work out.
+[14:48] That's what I would tell myself because I was a very nervous, young, country kid in
+[14:51] the city.
+[14:52] As far as the work we're doing, I mean, to me, you got to have high standards for yourself
+[14:58] and you can't cut corners and you got to do the work.
+[15:02] I think that that means coming in every day like you got something to prove, not being
+[15:07] afraid of challenges and realizing that by pushing through them is how you're going to
+[15:12] do something you're proud of.
+[15:14] Don't be lazy.
+[15:15] It's the same message maybe, but it's really what I believe.
+[15:18] I think it's all about progress and push and not giving up.
+[15:23] I have to ask some things.
+[15:24] Do you prefer Python or R?
+[15:26] Why?
+[15:27] I'm definitely a Python person, but I respect R and really about the results.
+[15:33] I think there's a lot of great and talented people who work in R, but Python is obviously
+[15:38] superior.
+[15:39] I agree.
+[15:40] I wholeheartedly agree.
+[15:43] And then I wanted to ask, what is your favorite data journalism memory?
+[15:46] Something that if it's a story or maybe an interview or just something that happened
+[15:50] where you're just like, yeah, this is the career for me.
+[15:52] Well, there's that first story I told you earlier where I kind of had the spark of the
+[15:56] light bulb went on.
+[15:57] This could be something for me.
+[15:59] To me, the most powerful moments are often, and maybe it does go back to those investigative
+[16:04] pieces, but when statistics and data lead me to someone's doorstep or to somewhere in
+[16:09] the world and help both me, the journalist who's trying to figure out the story, but
+[16:15] more importantly in the moment and maybe in the cosmic sense, the people who lived the
+[16:20] story helped them better understand what the heck happened to them in life, particularly
+[16:25] if it was something bad.
+[16:27] I did a whole series of stories about the local 911 system in Los Angeles where we uncovered
+[16:33] a lot of systemic flaws and how emergency care is delivered, how the fire department
+[16:38] is run.
+[16:39] And some of the most powerful memories they had is where the statistics would tell us,
+[16:43] well, there's this kink in the system.
+[16:44] There's this inefficiency, there's this problem, and it could be having really bad effects
+[16:48] out there in the world.
+[16:49] But then we followed the data, individual calls out to doors and knocked on them to
+[16:53] see what really happened in this case or that case where the data says something maybe went
+[16:57] wrong.
+[16:58] And what we found often is, yeah, it did go wrong.
+[17:00] And so there's this way in which you kind of discovered a story based on a spreadsheet.
+[17:05] But then also there's this powerful moment of connection with the person on the other
+[17:10] end of the journalistic exchange where you help them understand why something bad happened
+[17:17] in their life and help them be part of an effort to describe and share that with their
+[17:22] community so that maybe it can be fixed and it doesn't happen to someone else.
+[17:26] And to me, those moments of where statistics and shoe leather and the kind of connection
+[17:31] with a subject come together are kind of these magical moments that data does make possible
+[17:37] because when you don't just go off your own bias or instincts, when you let the math and
+[17:42] science lead the way, you can have these powerful moments of discovery.
+[17:46] And they're not the same as Albert Einstein and E=MC squared or whatever.
+[17:51] But they are powerful.
+[17:52] And so I struggle to describe it and contextually it would be almost impossible to give you
+[17:57] every detail of what that was really like without writing a novel or something.
+[18:01] But like those moments of discovery and connection where statistics and shoe leather meat are
+[18:06] intense.
+[18:11] To access Ben Welsh's site and his resources, be sure to check out p-a-l-e-w-i-dot-r-e.
+[18:20] You can also find the link in the description of this episode.
+[18:24] Reporting for IRE and Nightcar, I'm Nikkyla Carter, and this has been an episode of the
+[18:29] IRE Radio Podcast.
+[18:31] Doug Meggs edited the script of this episode, and we are recorded in the studios of KBIA
+[18:37] at the University of Missouri School of Journalism.

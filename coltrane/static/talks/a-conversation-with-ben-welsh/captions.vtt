@@ -1,0 +1,838 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:10.280
+ Data journalism is a collaborative field with journalists growing into better reporters
+
+00:00:10.280 --> 00:00:12.920
+ with the help of practice and partnership.
+
+00:00:12.920 --> 00:00:19.760
+ In this episode of the IRE radio podcast, veteran reporter, editor, and computer programmer
+
+00:00:19.760 --> 00:00:26.200
+ Ben Welsh joins to talk about his journalism career and how he got to where he is today.
+
+00:00:26.200 --> 00:00:30.880
+ As the founder of Reuters News Applications Desk, where he is currently an editor, Welsh
+
+00:00:30.880 --> 00:00:35.720
+ has gained a multitude of tips and tricks for data journalism that he will share with
+
+00:00:35.720 --> 00:00:37.800
+ you throughout this episode.
+
+00:00:37.800 --> 00:00:43.280
+ Additionally, we discuss his personal site that archives his various data in investigative
+
+00:00:43.280 --> 00:00:45.880
+ journalism panels and resources.
+
+00:00:45.880 --> 00:01:05.200
+ This is Nakyla Carter and you're listening to IRE radio.
+
+00:01:05.200 --> 00:01:09.640
+ So the first thing I want to say is just when did you know journalism was your thing and
+
+00:01:09.640 --> 00:01:12.680
+ then how did you nurture it to be the person you are today?
+
+00:01:12.680 --> 00:01:17.160
+ Oh man, we can go way back with this, I'm getting old.
+
+00:01:17.160 --> 00:01:18.880
+ I never set out to be a journalist.
+
+00:01:18.880 --> 00:01:24.280
+ It wasn't something I did much in high school or a career goal I went into college with.
+
+00:01:24.280 --> 00:01:29.800
+ I was an undergraduate at DePaul University in Chicago, Illinois after growing up in Eastern
+
+00:01:29.800 --> 00:01:33.760
+ Iowa and kind of stumbled into journalism accidentally.
+
+00:01:33.760 --> 00:01:37.880
+ I had a job answering phones in the communication department as part of kind of one of these
+
+00:01:37.880 --> 00:01:43.320
+ work study programs to make a little money while I was in school and that kind of thing.
+
+00:01:43.320 --> 00:01:47.160
+ In that job I was entrusted with some very important responsibilities.
+
+00:01:47.160 --> 00:01:52.820
+ One of them was pinning up flyers on the bulletin boards around campus about upcoming events
+
+00:01:52.820 --> 00:01:54.360
+ that the department was running.
+
+00:01:54.360 --> 00:01:58.320
+ So I was often the first person to see the notice of new things happening.
+
+00:01:58.320 --> 00:02:03.200
+ One day I was pinning up the flyer and I noticed that it was an advertisement for an internship
+
+00:02:03.200 --> 00:02:09.200
+ with two journalists who were taking up residency at the university, Carol Marine and Don Mosley.
+
+00:02:09.200 --> 00:02:11.780
+ They were looking for a student to join them.
+
+00:02:11.780 --> 00:02:14.240
+ I was pinning in, I thought, "Hey, that sounds cool."
+
+00:02:14.240 --> 00:02:19.620
+ It sounds a lot cooler than this job pinning up flyers on bulletin boards.
+
+00:02:19.620 --> 00:02:23.960
+ Because I was the first person to see the flyer, I suspect I was the first person to
+
+00:02:23.960 --> 00:02:24.960
+ apply.
+
+00:02:24.960 --> 00:02:29.600
+ I never asked how many other people applied, but I ended up getting that internship despite
+
+00:02:29.600 --> 00:02:36.680
+ being ridiculously unqualified and began my journalism career, as it was, as the grunt
+
+00:02:36.680 --> 00:02:42.380
+ assistant to this producer and correspondent team who were doing weekly television pieces
+
+00:02:42.380 --> 00:02:46.080
+ and newspaper columns and some long-form documentaries.
+
+00:02:46.080 --> 00:02:51.560
+ I got into journalism as an accident and pretty quickly saw it was a lot of fun.
+
+00:02:51.560 --> 00:02:56.840
+ It was a great way to engage with the world and learn about it and was also a challenge
+
+00:02:56.840 --> 00:02:58.400
+ and maybe something I could do.
+
+00:02:58.400 --> 00:03:02.120
+ I think that was amazing because I think it's important to understand that everybody's
+
+00:03:02.120 --> 00:03:04.360
+ plight into journalism is completely different.
+
+00:03:04.360 --> 00:03:08.360
+ It's always interesting to hear how did you get started there.
+
+00:03:08.360 --> 00:03:11.280
+ You talk about how you kind of got into the journalism realm.
+
+00:03:11.280 --> 00:03:14.880
+ How did you start doing more so data type of things?
+
+00:03:14.880 --> 00:03:20.760
+ I was, as I said, pretty unqualified to work in this journalism office I was working in,
+
+00:03:20.760 --> 00:03:27.720
+ but data and the work that I do now today quickly found me in a public records request.
+
+00:03:27.720 --> 00:03:31.960
+ We got a tip that a local suburb of the city had.
+
+00:03:31.960 --> 00:03:38.440
+ The tip was that a local alderman had been bid-rigging some legal contracts in this city
+
+00:03:38.440 --> 00:03:41.280
+ to rack up some money for himself and his allies.
+
+00:03:41.280 --> 00:03:47.640
+ To check it out, we filed a public records request asking for a list of every legal contract
+
+00:03:47.640 --> 00:03:51.760
+ or fee that was paid out to the city, to this particular law firm.
+
+00:03:51.760 --> 00:03:54.120
+ It was my first FOIA ever.
+
+00:03:54.120 --> 00:03:58.940
+ After a few weeks or months, I can't remember exactly, finally in the mail came a big long
+
+00:03:58.940 --> 00:04:00.560
+ printout, a computer printout.
+
+00:04:00.560 --> 00:04:05.640
+ This is like a 1990s or '80s style one where it's an accordion sheet of paper, dozens of
+
+00:04:05.640 --> 00:04:09.080
+ pages connected by the little tear strips on the outside.
+
+00:04:09.080 --> 00:04:13.640
+ It was all the legal fees, but they were spread out in this dot matrix style across a lot
+
+00:04:13.640 --> 00:04:15.040
+ of paper.
+
+00:04:15.040 --> 00:04:18.920
+ We initially had the question, "Well, how the heck are we going to make sense of this?"
+
+00:04:18.920 --> 00:04:24.200
+ I honestly don't remember or don't know where I got the idea, but I thought, "Hey, what
+
+00:04:24.200 --> 00:04:26.880
+ if I type it all into a spreadsheet?"
+
+00:04:26.880 --> 00:04:27.880
+ It kind of came to me.
+
+00:04:27.880 --> 00:04:28.880
+ I sat down there.
+
+00:04:28.880 --> 00:04:32.920
+ It took me a day or two to go through it all and double and triple check it.
+
+00:04:32.920 --> 00:04:37.320
+ We arrived at kind of a pretty big number, a big enough number to justify the story being
+
+00:04:37.320 --> 00:04:38.320
+ on the news.
+
+00:04:38.320 --> 00:04:43.960
+ We kind of got our little scoop, our investigative piece, out of the tip, the FOIA, and the data
+
+00:04:43.960 --> 00:04:45.200
+ entry.
+
+00:04:45.200 --> 00:04:50.240
+ With that, I kind of was hooked, one, I saw the data was kind of a shortcut to getting
+
+00:04:50.240 --> 00:04:54.120
+ to work on really cool stories, more than just kind of the run of the mill stuff, things
+
+00:04:54.120 --> 00:04:55.280
+ I found exciting.
+
+00:04:55.280 --> 00:05:00.760
+ Hey, as the guy who could sit down and figure out the tech, it might be a niche for me or
+
+00:05:00.760 --> 00:05:05.520
+ a place for me to be the guy who fills that gap and helps make those stories happen.
+
+00:05:05.520 --> 00:05:07.200
+ Those two things kind of got me going on it.
+
+00:05:07.200 --> 00:05:11.000
+ I wanted to go further down that road, so I went to the University of Missouri and was
+
+00:05:11.000 --> 00:05:16.060
+ a graduate assistant at IRE NYCAR, where I really got to focus on not just faking it,
+
+00:05:16.060 --> 00:05:20.560
+ but actually learning how to do these skills, learning how to code, learning what real analysis
+
+00:05:20.560 --> 00:05:23.040
+ was, getting a lot more practice.
+
+00:05:23.040 --> 00:05:28.240
+ That set me off onto the path I still am today, now more than 20 years later.
+
+00:05:28.240 --> 00:05:32.440
+ On that respect, I think that you'd grow so much as a data journalist by obviously knowing
+
+00:05:32.440 --> 00:05:39.120
+ the practical experience, but also talking to people and collaboration and learning other
+
+00:05:39.120 --> 00:05:40.120
+ people's tips and tricks.
+
+00:05:40.120 --> 00:05:44.280
+ So I have to talk about your website, PowerWire, because I was like, this is amazing.
+
+00:05:44.280 --> 00:05:46.320
+ I wish I had seen this last year.
+
+00:05:46.320 --> 00:05:50.060
+ But yeah, like what made you want to compile all that information?
+
+00:05:50.060 --> 00:05:53.240
+ Because it's not something that you're required to do, but it's amazingly helpful.
+
+00:05:53.240 --> 00:05:55.440
+ Well, you know, it's nothing that happened overnight.
+
+00:05:55.440 --> 00:05:59.400
+ It's the accumulation of kind of years and years of chipping stuff together.
+
+00:05:59.400 --> 00:06:04.920
+ But you know, for me, the annual IRE NYCAR conference is really just kind of an opportunity
+
+00:06:04.920 --> 00:06:10.560
+ to challenge myself and for all of us in our community to come together, to say, what do
+
+00:06:10.560 --> 00:06:11.800
+ we want to teach each other?
+
+00:06:11.800 --> 00:06:12.800
+ What's important?
+
+00:06:12.800 --> 00:06:16.020
+ What have we learned in the last year that's worth passing on to other people or that we're
+
+00:06:16.020 --> 00:06:18.960
+ excited about or that we want to share?
+
+00:06:18.960 --> 00:06:23.640
+ You know, and I look at every year's conference as kind of that type of moment or opportunity
+
+00:06:23.640 --> 00:06:25.880
+ and try to drum up new stuff.
+
+00:06:25.880 --> 00:06:29.240
+ And I've, you know, been doing it long enough that I kind of got a little playbook for it,
+
+00:06:29.240 --> 00:06:34.160
+ a little routine, and I've just been adding, you know, incrementally more and more of these
+
+00:06:34.160 --> 00:06:39.120
+ kind of lessons that I put together with other people who helped me, by the way, of course.
+
+00:06:39.120 --> 00:06:43.120
+ And it's become, you know, over time, this collection.
+
+00:06:43.120 --> 00:06:47.640
+ And do you have any favorites or any talks that you have that, you know, you look forward
+
+00:06:47.640 --> 00:06:48.640
+ to saying?
+
+00:06:48.640 --> 00:06:51.320
+ Because I know some of them you repeat and some of them you tweak and things like that.
+
+00:06:51.320 --> 00:06:55.380
+ But is there ever one where you kind of are like, I wish that something like this existed
+
+00:06:55.380 --> 00:06:56.840
+ when I first got started?
+
+00:06:56.840 --> 00:07:00.240
+ Well, I don't know if I have a favorite child, so to speak.
+
+00:07:00.240 --> 00:07:03.080
+ To me, the best thing about it for me, there's a lot of great things about it.
+
+00:07:03.080 --> 00:07:08.200
+ I love coming together with peers and people I respect to help create the classes and that
+
+00:07:08.200 --> 00:07:14.320
+ sort of formative experience of us collaborating to really take an idea or a technique that
+
+00:07:14.320 --> 00:07:19.760
+ hasn't really been fully fleshed out and trying to put it on paper and get it across.
+
+00:07:19.760 --> 00:07:24.020
+ Like, that creative process is really stimulating and always rewarding to me, and that keeps
+
+00:07:24.020 --> 00:07:25.020
+ me doing it.
+
+00:07:25.020 --> 00:07:29.040
+ And then, you know, the conference itself is a great experience, but, you know, maybe most
+
+00:07:29.040 --> 00:07:33.320
+ of all is the thing that comes out of putting it on the web and just kind of having a little
+
+00:07:33.320 --> 00:07:39.020
+ bit of faith in the world or giving it out there is I am just often stunned to hear from
+
+00:07:39.020 --> 00:07:43.360
+ people on the other side of the planet who I've never met, never will, who will reach
+
+00:07:43.360 --> 00:07:47.920
+ out and say they learned this or that just based on a resource that we put on the web,
+
+00:07:47.920 --> 00:07:49.640
+ not really knowing what would happen with it.
+
+00:07:49.640 --> 00:07:56.320
+ And there's something that is kind of magical to that, that is a hit I keep chasing or that
+
+00:07:56.320 --> 00:08:01.120
+ I just love, and it really reminds me of my own formative experiences on the internet
+
+00:08:01.120 --> 00:08:05.720
+ as a teenager in the 90s, you know, I'm old enough that, you know, I remember life before
+
+00:08:05.720 --> 00:08:10.760
+ the web and as a kid in rural Iowa, its arrival was a big deal.
+
+00:08:10.760 --> 00:08:15.720
+ And the internet was really my kind of gateway to the world and such an exciting, stimulating
+
+00:08:15.720 --> 00:08:21.480
+ place to learn and connect and to still have experiences like that 30 years later with people
+
+00:08:21.480 --> 00:08:28.080
+ in Ukraine or Brazil or wherever else is just, it's the magic of technology that I find so
+
+00:08:28.080 --> 00:08:29.080
+ rewarding.
+
+00:08:29.080 --> 00:08:33.840
+ You know, I'm learning about your plight to where you are today and you went from not
+
+00:08:33.840 --> 00:08:38.160
+ knowing that journalism was something that you even were interested in to creating an
+
+00:08:38.160 --> 00:08:40.720
+ entire news applications desk.
+
+00:08:40.720 --> 00:08:45.600
+ How did you know that that is something that that newsroom needed and how do you operate
+
+00:08:45.600 --> 00:08:47.320
+ in that position?
+
+00:08:47.320 --> 00:08:53.680
+ Not sounding too grandiose or self-assured, I think we are entering kind of a new era
+
+00:08:53.680 --> 00:08:58.800
+ of data journalism in kind of the commercial space, commercial media, which is I think
+
+00:08:58.800 --> 00:09:02.080
+ one of industrialization and specialization.
+
+00:09:02.080 --> 00:09:07.920
+ You know, when I started out at the LA Times in 2007, the whole idea of putting data on
+
+00:09:07.920 --> 00:09:11.400
+ the internet on a newspaper website was still a pretty new one.
+
+00:09:11.400 --> 00:09:13.820
+ We weren't the first to do it for sure, you know what I mean?
+
+00:09:13.820 --> 00:09:18.040
+ But in our context, it was definitely new, and I think a lot of what was going on even
+
+00:09:18.040 --> 00:09:21.600
+ at the leading news organizations then was really experimental.
+
+00:09:21.600 --> 00:09:25.760
+ You had really small teams of people kind of goofing around trying to make things happen
+
+00:09:25.760 --> 00:09:29.480
+ on the web, often totally separate from their mainline newsrooms.
+
+00:09:29.480 --> 00:09:33.240
+ You know, it's good to remember that it was that 2008 election was probably really the
+
+00:09:33.240 --> 00:09:38.880
+ first one where you had really widespread live election results on newspaper and news
+
+00:09:38.880 --> 00:09:40.720
+ organization websites.
+
+00:09:40.720 --> 00:09:44.880
+ When Obama was first elected, they did, there was examples of that before, but the really
+
+00:09:44.880 --> 00:09:49.120
+ kind of first like widespread publication of it was that time.
+
+00:09:49.120 --> 00:09:53.440
+ And it was really kind of an experiment that was then wildly successful.
+
+00:09:53.440 --> 00:09:59.100
+ And I think there's been many other examples since then running up to coronavirus trackers.
+
+00:09:59.100 --> 00:10:03.520
+ And you can go down the list of all these different ways that taking data directly to
+
+00:10:03.520 --> 00:10:09.560
+ the audience in the form of dashboards and databases and visualizations that aren't traditional
+
+00:10:09.560 --> 00:10:10.880
+ stories, you know what I mean?
+
+00:10:10.880 --> 00:10:16.240
+ That has gone from an experiment to really a widget or a product that we want to manufacture,
+
+00:10:16.240 --> 00:10:22.000
+ you know, inside the metaphorical assembly line or factory of your newsroom.
+
+00:10:22.000 --> 00:10:28.260
+ And so it's my view as we enter, as we want to go from experiment to mass production,
+
+00:10:28.260 --> 00:10:34.480
+ we need to, you know, institutionalize, specialize, and really ramp up how we are organized to
+
+00:10:34.480 --> 00:10:36.120
+ create these widgets, you know?
+
+00:10:36.120 --> 00:10:40.480
+ And in my view, that means making a news desk, which is its own little assembly line in the
+
+00:10:40.480 --> 00:10:48.480
+ factory that focuses not on the kind of battleship investigative reporting projects, not necessarily
+
+00:10:48.480 --> 00:10:56.720
+ on kind of one-off graphics to accompany traditional text stories, but instead on these data products,
+
+00:10:56.720 --> 00:11:02.400
+ whatever you want to call them, that are incredibly popular with audiences and are also, it could
+
+00:11:02.400 --> 00:11:05.300
+ be Capital J journalism as well, right?
+
+00:11:05.300 --> 00:11:10.000
+ And so this news application's desk is our attempt to name something that does that.
+
+00:11:10.000 --> 00:11:15.040
+ I don't know if I love the name, if you have a better name, I'd love to hear it, but that's
+
+00:11:15.040 --> 00:11:16.040
+ what we mean.
+
+00:11:16.040 --> 00:11:19.580
+ Basically, that's what we're trying to do here at Reuters, is to create a group of people
+
+00:11:19.580 --> 00:11:22.680
+ who just focus on making that type of thing.
+
+00:11:22.680 --> 00:11:26.000
+ I think that's amazing, especially because, like you said, we're moving towards a time
+
+00:11:26.000 --> 00:11:30.960
+ in data journalism where I like to say that people almost expect data to be in the story.
+
+00:11:30.960 --> 00:11:36.240
+ That's become way more normal, and so I think it's amazing that you guys are thinking about
+
+00:11:36.240 --> 00:11:37.240
+ this.
+
+00:11:37.240 --> 00:11:38.640
+ Yeah, I think we can't forget that.
+
+00:11:38.640 --> 00:11:43.520
+ I think because data journalism grew out of the investigative reporting tradition, or at
+
+00:11:43.520 --> 00:11:47.560
+ least a large part of it did, there's many streams and strands, there's not one way.
+
+00:11:47.560 --> 00:11:52.240
+ But the IRE/NICAR tradition is really one that stems back to investigative reporting,
+
+00:11:52.240 --> 00:11:56.760
+ which is really what I was trained in and what I love and respect, and I've done a lot of
+
+00:11:56.760 --> 00:12:01.720
+ it in my career, but the justification for that type of work, for the investment, for
+
+00:12:01.720 --> 00:12:08.760
+ the dollars to be spent to fund it, is typically one that's based on prestige and public service,
+
+00:12:08.760 --> 00:12:14.160
+ which are two of the very high call-ins of our profession, but in a time of decreasing
+
+00:12:14.160 --> 00:12:19.680
+ resources and brutal disruption to the economic model that supports journalism, it can be
+
+00:12:19.680 --> 00:12:25.040
+ difficult to justify jobs and investment in data journalism if it's strictly seen as a
+
+00:12:25.040 --> 00:12:28.080
+ prestige project, so that's bad news, baby.
+
+00:12:28.080 --> 00:12:32.400
+ But the good news is, and I think we often undersell this good news, is that these data
+
+00:12:32.400 --> 00:12:37.640
+ products I'm talking about, your live election results or your coronavirus tracker, these
+
+00:12:37.640 --> 00:12:41.960
+ are, yes, they are public service, and yes, they ought to be seen as prestigious.
+
+00:12:41.960 --> 00:12:46.320
+ They have won some of the highest awards, but they are also popular, right?
+
+00:12:46.320 --> 00:12:52.000
+ I think last year, Reuters.com, the most popular thing all year, were the live election results
+
+00:12:52.000 --> 00:12:57.500
+ done by our team in London, led by John McClure, and the most popular thing in the history
+
+00:12:57.500 --> 00:13:01.440
+ of the Los Angeles Times, where I used to work for the most read piece of journalism
+
+00:13:01.440 --> 00:13:06.640
+ in the 100-and-whatever-year history of the LA Times, was its coronavirus tracker, and
+
+00:13:06.640 --> 00:13:11.680
+ I suspect the same is for the New York Times and many, many other news organizations, and
+
+00:13:11.680 --> 00:13:14.120
+ I think we shouldn't sell ourselves short.
+
+00:13:14.120 --> 00:13:17.240
+ We're making things people want.
+
+00:13:17.240 --> 00:13:22.720
+ A lot of people say journalists and math don't go together, or a lot of journalists aren't,
+
+00:13:22.720 --> 00:13:26.960
+ I guess, set up naturally to do data, stuff like that, but what is your advice for someone
+
+00:13:26.960 --> 00:13:29.640
+ who wants to get into that realm of things?
+
+00:13:29.640 --> 00:13:33.320
+ It is a hot commodity right now, and it's an amazing skill set to have.
+
+00:13:33.320 --> 00:13:35.320
+ Well, then, that's your advantage.
+
+00:13:35.320 --> 00:13:36.320
+ You know what I mean?
+
+00:13:36.320 --> 00:13:40.440
+ If other people are avoiding it and you're willing to take it on, that's going to give
+
+00:13:40.440 --> 00:13:45.520
+ you the edge, that's going to give you the front foot, and I think you should not listen
+
+00:13:45.520 --> 00:13:49.800
+ to people who are discouraging you to not go down this road if it's where you want to
+
+00:13:49.800 --> 00:13:53.920
+ go, because, as you just said, we know it's where things are headed, and we know that
+
+00:13:53.920 --> 00:13:59.560
+ it's valuable, and so don't be afraid to have the confidence of that and surround yourself
+
+00:13:59.560 --> 00:14:05.320
+ with people who agree with you and find mentors and role models that'll help you move down
+
+00:14:05.320 --> 00:14:06.320
+ that path.
+
+00:14:06.320 --> 00:14:08.040
+ It's a lane that's wide open.
+
+00:14:08.040 --> 00:14:13.480
+ What are some things that you live by when you're doing data analysis and news application
+
+00:14:13.480 --> 00:14:14.640
+ creation?
+
+00:14:14.640 --> 00:14:16.080
+ I don't know if I can rewind.
+
+00:14:16.080 --> 00:14:17.720
+ What would I tell younger me?
+
+00:14:17.720 --> 00:14:21.880
+ I mean, I've studied harder in high school, you know what I mean?
+
+00:14:21.880 --> 00:14:23.480
+ I don't know.
+
+00:14:23.480 --> 00:14:27.680
+ I don't have any regrets or any big thing like that.
+
+00:14:27.680 --> 00:14:31.720
+ There's reassurance, I think, we all need when we're young and that I needed like everyone
+
+00:14:31.720 --> 00:14:35.240
+ else, which is if you work hard, it will pay off.
+
+00:14:35.240 --> 00:14:39.280
+ I've seen that in my own life, and I've seen it in many others, and I would just encourage
+
+00:14:39.280 --> 00:14:41.960
+ people to ... I almost said lean in.
+
+00:14:41.960 --> 00:14:42.960
+ I won't say lean in.
+
+00:14:42.960 --> 00:14:48.040
+ I'll say work hard and be a good person and it'll work out.
+
+00:14:48.040 --> 00:14:51.400
+ That's what I would tell myself because I was a very nervous, young, country kid in
+
+00:14:51.400 --> 00:14:52.400
+ the city.
+
+00:14:52.400 --> 00:14:58.640
+ As far as the work we're doing, I mean, to me, you got to have high standards for yourself
+
+00:14:58.640 --> 00:15:02.840
+ and you can't cut corners and you got to do the work.
+
+00:15:02.840 --> 00:15:07.520
+ I think that that means coming in every day like you got something to prove, not being
+
+00:15:07.520 --> 00:15:12.840
+ afraid of challenges and realizing that by pushing through them is how you're going to
+
+00:15:12.840 --> 00:15:14.840
+ do something you're proud of.
+
+00:15:14.840 --> 00:15:15.840
+ Don't be lazy.
+
+00:15:15.840 --> 00:15:18.200
+ It's the same message maybe, but it's really what I believe.
+
+00:15:18.200 --> 00:15:23.120
+ I think it's all about progress and push and not giving up.
+
+00:15:23.120 --> 00:15:24.960
+ I have to ask some things.
+
+00:15:24.960 --> 00:15:26.880
+ Do you prefer Python or R?
+
+00:15:26.880 --> 00:15:27.880
+ Why?
+
+00:15:27.880 --> 00:15:33.800
+ I'm definitely a Python person, but I respect R and really about the results.
+
+00:15:33.800 --> 00:15:38.680
+ I think there's a lot of great and talented people who work in R, but Python is obviously
+
+00:15:38.680 --> 00:15:39.680
+ superior.
+
+00:15:39.680 --> 00:15:40.680
+ I agree.
+
+00:15:40.680 --> 00:15:43.160
+ I wholeheartedly agree.
+
+00:15:43.160 --> 00:15:46.560
+ And then I wanted to ask, what is your favorite data journalism memory?
+
+00:15:46.560 --> 00:15:50.320
+ Something that if it's a story or maybe an interview or just something that happened
+
+00:15:50.320 --> 00:15:52.280
+ where you're just like, yeah, this is the career for me.
+
+00:15:52.280 --> 00:15:56.000
+ Well, there's that first story I told you earlier where I kind of had the spark of the
+
+00:15:56.000 --> 00:15:57.240
+ light bulb went on.
+
+00:15:57.240 --> 00:15:59.000
+ This could be something for me.
+
+00:15:59.000 --> 00:16:04.160
+ To me, the most powerful moments are often, and maybe it does go back to those investigative
+
+00:16:04.160 --> 00:16:09.440
+ pieces, but when statistics and data lead me to someone's doorstep or to somewhere in
+
+00:16:09.440 --> 00:16:15.160
+ the world and help both me, the journalist who's trying to figure out the story, but
+
+00:16:15.160 --> 00:16:20.400
+ more importantly in the moment and maybe in the cosmic sense, the people who lived the
+
+00:16:20.400 --> 00:16:25.960
+ story helped them better understand what the heck happened to them in life, particularly
+
+00:16:25.960 --> 00:16:27.960
+ if it was something bad.
+
+00:16:27.960 --> 00:16:33.560
+ I did a whole series of stories about the local 911 system in Los Angeles where we uncovered
+
+00:16:33.560 --> 00:16:38.560
+ a lot of systemic flaws and how emergency care is delivered, how the fire department
+
+00:16:38.560 --> 00:16:39.800
+ is run.
+
+00:16:39.800 --> 00:16:43.320
+ And some of the most powerful memories they had is where the statistics would tell us,
+
+00:16:43.320 --> 00:16:44.960
+ well, there's this kink in the system.
+
+00:16:44.960 --> 00:16:48.520
+ There's this inefficiency, there's this problem, and it could be having really bad effects
+
+00:16:48.520 --> 00:16:49.640
+ out there in the world.
+
+00:16:49.640 --> 00:16:53.480
+ But then we followed the data, individual calls out to doors and knocked on them to
+
+00:16:53.480 --> 00:16:57.800
+ see what really happened in this case or that case where the data says something maybe went
+
+00:16:57.800 --> 00:16:58.800
+ wrong.
+
+00:16:58.800 --> 00:17:00.800
+ And what we found often is, yeah, it did go wrong.
+
+00:17:00.800 --> 00:17:05.640
+ And so there's this way in which you kind of discovered a story based on a spreadsheet.
+
+00:17:05.640 --> 00:17:10.560
+ But then also there's this powerful moment of connection with the person on the other
+
+00:17:10.560 --> 00:17:17.600
+ end of the journalistic exchange where you help them understand why something bad happened
+
+00:17:17.600 --> 00:17:22.600
+ in their life and help them be part of an effort to describe and share that with their
+
+00:17:22.600 --> 00:17:26.760
+ community so that maybe it can be fixed and it doesn't happen to someone else.
+
+00:17:26.760 --> 00:17:31.560
+ And to me, those moments of where statistics and shoe leather and the kind of connection
+
+00:17:31.560 --> 00:17:37.000
+ with a subject come together are kind of these magical moments that data does make possible
+
+00:17:37.000 --> 00:17:42.640
+ because when you don't just go off your own bias or instincts, when you let the math and
+
+00:17:42.640 --> 00:17:46.680
+ science lead the way, you can have these powerful moments of discovery.
+
+00:17:46.680 --> 00:17:51.040
+ And they're not the same as Albert Einstein and E=MC squared or whatever.
+
+00:17:51.040 --> 00:17:52.480
+ But they are powerful.
+
+00:17:52.480 --> 00:17:57.360
+ And so I struggle to describe it and contextually it would be almost impossible to give you
+
+00:17:57.360 --> 00:18:01.240
+ every detail of what that was really like without writing a novel or something.
+
+00:18:01.240 --> 00:18:06.480
+ But like those moments of discovery and connection where statistics and shoe leather meat are
+
+00:18:06.480 --> 00:18:11.960
+ intense.
+
+00:18:11.960 --> 00:18:20.640
+ To access Ben Welsh's site and his resources, be sure to check out p-a-l-e-w-i-dot-r-e.
+
+00:18:20.640 --> 00:18:24.280
+ You can also find the link in the description of this episode.
+
+00:18:24.280 --> 00:18:29.720
+ Reporting for IRE and Nightcar, I'm Nikkyla Carter, and this has been an episode of the
+
+00:18:29.720 --> 00:18:31.960
+ IRE Radio Podcast.
+
+00:18:31.960 --> 00:18:37.640
+ Doug Meggs edited the script of this episode, and we are recorded in the studios of KBIA
+
+00:18:37.640 --> 00:18:55.040
+ at the University of Missouri School of Journalism.

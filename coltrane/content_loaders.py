@@ -214,6 +214,22 @@ class Talk:
         return self.title
 
     @property
+    def local_video_mime_type(self) -> str:
+        """Return the browser MIME type for the hosted video recording.
+
+        Returns:
+            The MIME type matching ``local_video_url``. WebM recordings return
+            ``"video/webm"``; every other recording returns ``"video/mp4"``.
+
+        Examples:
+            A Talk whose local_video_url ends in ``.webm`` returns
+            ``"video/webm"``.
+        """
+        if urlparse(self.local_video_url).path.lower().endswith(".webm"):
+            return "video/webm"
+        return "video/mp4"
+
+    @property
     def youtube_embed_url(self) -> str:
         """Return a privacy-enhanced YouTube embed URL when the recording is eligible."""
         parsed = urlparse(self.video_url)

@@ -126,14 +126,17 @@ Load the `wrangler` skill before using Wrangler. Verify the pinned version:
 make check-wrangler
 ```
 
-Upload the approved MP4 and optional poster to the private R2 bucket:
+Upload the approved local video file and optional poster to the private R2 bucket.
+Keep the source file's browser-compatible extension in `local_video_url`; the
+detail page selects `video/mp4` or `video/webm` from that extension. Upload
+the matching content type:
 
 ```bash
 cd workers/static-site
 npm exec -- wrangler r2 object put \
-  palewire-talk-media/talks/<slug>/video.mp4 \
-  --remote --file /absolute/path/to/video.mp4 \
-  --content-type video/mp4
+  palewire-talk-media/talks/<slug>/video.webm \
+  --remote --file /absolute/path/to/video.webm \
+  --content-type video/webm
 ```
 
 Wrangler only accepts files up to 300 MiB. For a larger recording, use
@@ -176,8 +179,9 @@ PY
 ```
 
 The static-site Worker serves media from `/media/talks/<slug>/`, including
-`video.mp4` and `audio.mp3`, with byte-range support. Keep captions in the
-repository's static assets so they are committed and baked with the site.
+`video.mp4`, `video.webm`, `audio.mp3`, and `audio.m4a`, with byte-range
+support. Keep captions in the repository's static assets so they are
+committed and baked with the site.
 
 For a podcast, run the preservation backup first with an archive root outside
 the repository, verify it, then upload the approved MP3 to the talk-media
