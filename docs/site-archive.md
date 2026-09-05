@@ -83,6 +83,23 @@ branch head. Fetch into a fresh local directory so the recovery copy is not
 overwritten. Reconcile its page records with the latest manifest, then push
 using the newly fetched token.
 
+## Manual capture-only backlog runs
+
+To work through confirmed missing archives without spending the run on
+discovery or Wayback lookups, start the workflow from `main` with
+`capture_only=true`. For example, this requests up to 62 captures:
+
+```sh
+gh workflow run site-archive.yaml --ref main \
+  -f capture_only=true -f max_captures=62
+```
+
+The workflow accepts whole-number capture limits from 1 through 100. It keeps
+the 900-second deadline, so a large batch can be split across runs. Re-running
+the same capture-only request safely resumes eligible work and does not submit
+recent pending captures again. Capture confirmation remains separate lookup
+work: run a later `lookup_only=true` workflow to confirm pending snapshots.
+
 After these code changes reach `main`, the weekly job runs on Mondays at
 06:17 UTC. For the first run, use **Run workflow** with **lookup_only** enabled
 to inspect the inventory without requesting captures. Then allow a small
