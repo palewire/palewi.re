@@ -485,11 +485,16 @@ talks:
   location: Los Angeles
   date: '2017-06-08'
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
-- title: Distinguished Journalism Awards
+- title: What I learned
   venue: Union Club
   location: Chicago
   date: '2017-04-20'
   video_url: https://vimeo.com/214875675#t=407s
+  slug: what-i-learned
+  local_video_url: /media/talks/what-i-learned/video.mp4
+  transcript_template: coltrane/talks/what-i-learned-transcript.html
+  transcript_text_url: /static/talks/what-i-learned/transcript.txt
+  captions_url: /static/talks/what-i-learned/captions.vtt
 - title: 'Just enough Django: Distributed data entry in the newsroom'
   venue: NICAR
   location: Jacksonville
