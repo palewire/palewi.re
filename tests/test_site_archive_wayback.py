@@ -18,13 +18,13 @@ NOW = datetime(2026, 9, 5, 12, 0, tzinfo=UTC)
 
 
 class Session:
-    """Minimal request session returning a configured response or exception."""
+    """Minimal request session returning configured responses or exceptions."""
 
-    def __init__(self, result: requests.Response | BaseException):
-        """Set a response returned from the availability endpoint.
+    def __init__(self, result: requests.Response | BaseException | list[requests.Response | BaseException]):
+        """Set one or more responses returned from requests.
 
         Args:
-            result: Response or exception to return.
+            result: Response, exception, or ordered responses and exceptions to return.
 
         Returns:
             None.
@@ -32,7 +32,7 @@ class Session:
         Examples:
             ``Session(response({"archived_snapshots": {}}))`` reports absent data.
         """
-        self.result = result
+        self.results = list(result) if isinstance(result, list) else [result]
         self.calls: list[tuple[str, dict[str, object]]] = []
 
     def get(self, url: str, **kwargs: object) -> requests.Response:
@@ -49,18 +49,27 @@ class Session:
             The client requests the documented availability endpoint.
         """
         self.calls.append((url, kwargs))
-        if isinstance(self.result, BaseException):
-            raise self.result
-        return self.result
+        result = self.results.pop(0)
+        if isinstance(result, BaseException):
+            raise result
+        if not isinstance(result, requests.Response):
+            raise AssertionError("Session result must be a requests response")
+        return result
 
 
-def response(payload: object, status: int = 200, retry_after: str | None = None) -> requests.Response:
+def response(
+    payload: object,
+    status: int = 200,
+    retry_after: str | None = None,
+    content_type: str | None = None,
+) -> requests.Response:
     """Build an in-memory JSON response.
 
     Args:
         payload: JSON value to return.
         status: HTTP status code.
         retry_after: Optional Retry-After header.
+        content_type: Optional response MIME type.
 
     Returns:
         Configured requests response.
@@ -71,9 +80,12 @@ def response(payload: object, status: int = 200, retry_after: str | None = None)
     result = requests.Response()
     result.status_code = status
     result.url = AVAILABILITY_URL
-    result._content = json.dumps(payload).encode()
+    result._content = payload.encode() if isinstance(payload, str) else json.dumps(payload).encode()
+    result._content_consumed = True
     if retry_after:
         result.headers["Retry-After"] = retry_after
+    if content_type:
+        result.headers["Content-Type"] = content_type
     return result
 
 
@@ -196,6 +208,84 @@ def test_verify_empty_mapping_is_missing_but_retains_fresh_pending_capture() -> 
     client(response({"archived_snapshots": {}})).verify(pending)
     assert pending.archive_status == "pending"
     assert pending.pending_archive_url == SNAPSHOT
+
+
+def test_verify_accepts_proven_trailing_slash_snapshot_alias() -> None:
+    """Confirm an alias snapshot only when both live pages name one canonical URL.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        A snapshot of ``/week-1`` can confirm the canonical ``/week-1/`` page.
+    """
+    requested = "https://palewi.re/docs/coding-the-news/scripts/week-1/"
+    alias = requested.rstrip("/")
+    snapshot = f"http://web.archive.org/web/{STAMP}/{alias}"
+    canonical_link = f'<link rel="canonical" href="{requested}">'
+    session = Session(
+        [
+            response(
+                {
+                    "archived_snapshots": {
+                        "closest": {"available": True, "status": 200, "timestamp": STAMP, "url": snapshot}
+                    }
+                }
+            ),
+            response(canonical_link, content_type="text/html"),
+            response(canonical_link, content_type="text/html"),
+        ]
+    )
+    page = PageRecord(url=requested, live_status="live")
+    WaybackClient(session=session, clock=lambda: NOW, sleep=lambda seconds: None).verify(page)
+    assert page.archive_status == "archived"
+    assert page.archive_url == snapshot.replace("http://", "https://", 1)
+    assert [url for url, _ in session.calls] == [AVAILABILITY_URL, requested, alias]
+
+
+@pytest.mark.parametrize(
+    "alias_html",
+    [
+        "<p>No canonical link</p>",
+        '<link rel="canonical" href="https://palewi.re/docs/coding-the-news/scripts/week-2/">',
+    ],
+)
+def test_verify_rejects_unproven_trailing_slash_snapshot_alias(alias_html: str) -> None:
+    """Reject a slash alias unless both live pages prove the requested canonical.
+
+    Args:
+        alias_html: Alias page HTML without the requested sole canonical link.
+
+    Returns:
+        None.
+
+    Examples:
+        A missing or unrelated canonical link keeps a snapshot unconfirmed.
+    """
+    requested = "https://palewi.re/docs/coding-the-news/scripts/week-1/"
+    alias = requested.rstrip("/")
+    snapshot = f"https://web.archive.org/web/{STAMP}/{alias}"
+    session = Session(
+        [
+            response(
+                {
+                    "archived_snapshots": {
+                        "closest": {"available": True, "status": 200, "timestamp": STAMP, "url": snapshot}
+                    }
+                }
+            ),
+            response(f'<link rel="canonical" href="{requested}">', content_type="text/html"),
+            response(alias_html, content_type="text/html"),
+        ]
+    )
+    page = PageRecord(url=requested, live_status="live")
+    with pytest.raises(ArchiveError, match="canonical"):
+        WaybackClient(session=session, clock=lambda: NOW, sleep=lambda seconds: None).verify(page)
+    assert page.archive_status == "unknown"
+    assert page.last_check_status == "error"
 
 
 def test_verify_throttle_honors_retry_after_and_preserves_archived_evidence() -> None:
@@ -344,6 +434,42 @@ def test_lookup_and_capture_timeouts_are_separate(monkeypatch: pytest.MonkeyPatc
     archive.capture(page)
     assert session.calls[0][1]["timeout"] == 7.5
     assert submitted[0]["timeout"] == 80
+
+
+def test_capture_accepts_proven_trailing_slash_snapshot_alias(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Save a proven trailing-slash alias as a pending capture result.
+
+    Args:
+        monkeypatch: Supplies capture credentials.
+
+    Returns:
+        None.
+
+    Examples:
+        A ``/week-1`` response remains pending for canonical ``/week-1/``.
+    """
+    monkeypatch.setenv("SAVEPAGENOW_ACCESS_KEY", "key")
+    monkeypatch.setenv("SAVEPAGENOW_SECRET_KEY", "secret")
+    requested = "https://palewi.re/docs/coding-the-news/scripts/week-1/"
+    alias = requested.rstrip("/")
+    snapshot = f"https://web.archive.org/web/{STAMP}/{alias}"
+    canonical_link = f'<link rel="canonical" href="{requested}">'
+    session = Session(
+        [
+            response({"archived_snapshots": {}}),
+            response(canonical_link, content_type="text/html"),
+            response(canonical_link, content_type="text/html"),
+        ]
+    )
+    page = PageRecord(url=requested, live_status="live", archive_status="missing")
+    WaybackClient(
+        session=session,
+        capture_page=lambda url, **kwargs: snapshot,
+        clock=lambda: NOW,
+        sleep=lambda seconds: None,
+    ).capture(page)
+    assert page.archive_status == "pending"
+    assert page.pending_archive_url == snapshot
 
 
 def test_capture_keeps_response_headers_and_bodies_out_of_error_state(monkeypatch: pytest.MonkeyPatch) -> None:

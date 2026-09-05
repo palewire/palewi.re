@@ -225,6 +225,30 @@ def test_manifest_requires_confirmed_and_pending_archive_evidence(tmp_path: Path
         ManifestStore(path).save(pending)
 
 
+def test_manifest_round_trips_a_one_trailing_slash_snapshot_alias(tmp_path: Path) -> None:
+    """Allow runtime-proven snapshot aliases to remain in saved state.
+
+    Args:
+        tmp_path: Temporary test directory.
+
+    Returns:
+        None.
+
+    Examples:
+        An archived ``/posts`` snapshot may belong to canonical ``/posts/``.
+    """
+    path = tmp_path / "manifest.json"
+    state = Manifest()
+    page = state.page(URL)
+    page.live_status = "live"
+    page.archive_status = "archived"
+    page.archive_url = SNAPSHOT.rstrip("/")
+    page.snapshot_at = "20260905120000"
+    page.last_verified_at = utc_now()
+    ManifestStore(path).save(state)
+    assert ManifestStore(path).load().pages[URL].archive_url == SNAPSHOT.rstrip("/")
+
+
 def test_manifest_rejects_impossible_snapshot_dates(tmp_path: Path) -> None:
     """Reject digit-only timestamps that are not real dates.
 
