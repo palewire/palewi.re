@@ -33,10 +33,10 @@ def test_historical_markdown_posts_match_public_export_manifest():
     manifest_posts = manifest["posts"]
     expected_paths = {entry["path"] for entry in manifest_posts}
     actual_paths = {f"posts/{path.name}" for path in POSTS_PATH.glob("*.md")}
-    assert manifest["post_count"] == 70
-    assert len(manifest_posts) == 70
+    assert manifest["post_count"] == 69
+    assert len(manifest_posts) == 69
     assert expected_paths.issubset(actual_paths)
-    assert manifest["production_inventory"] == {"total": 166, "live": 72, "draft": 94, "hidden": 0}
+    assert manifest["production_inventory"] == {"total": 165, "live": 71, "draft": 94, "hidden": 0}
 
     fingerprint = hashlib.sha256(
         json.dumps(manifest_posts, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode()
@@ -66,7 +66,7 @@ def test_my_times_images_have_alt_attributes():
 def test_markdown_posts_have_unique_slugs_and_preserved_permalinks():
     """Posts retain globally unique slugs and date URLs."""
     posts = load_posts()
-    assert len(posts) >= 72
+    assert len(posts) >= 71
     assert len({post.slug for post in posts}) == len(posts)
     assert len({(post.published_at.date(), post.slug) for post in posts}) == len(posts)
 

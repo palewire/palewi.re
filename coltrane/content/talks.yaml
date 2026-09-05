@@ -424,7 +424,6 @@ talks:
   venue: USC
   location: Los Angeles
   date: '2019-03-22'
-  video_url: https://www.facebook.com/ReportingonHealth/videos/818708295141862/
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vS4JR3gwFQDxSd5EtBgfjOFBUW8ArqW4vJ3zIsh22r5WjVFLEnH8gg8d-VVQ3Dc9SMmu4KEtSBXhIe5/pub?start=false&loop=false&delayms=3000&slide=id.p
 - title: First Graphics App
   venue: NICAR
@@ -452,7 +451,6 @@ talks:
   venue: BitCurator Users Forum
   location: Los Angeles
   date: '2018-09-14'
-  video_url: https://twitter.com/bitconsortium/status/1040662449853149184
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit#slide=id.g17e30fc242_1_90
 - title: Data, data, gimme the news
   venue: USC
@@ -481,7 +479,6 @@ talks:
   venue: Big Data Day
   location: Los Angeles
   date: '2017-08-05'
-  video_url: https://www.youtube.com/watch?v=1PGHPAc5vSo&feature=youtu.be&t=1155
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
 - title: What is a Data Desk?
   venue: Hollywood Data Science
@@ -509,7 +506,6 @@ talks:
   venue: Dodging the Memory Hole III
   location: Los Angeles
   date: '2016-10-15'
-  video_url: https://www.facebook.com/reynoldsjournalisminstitute/videos/10154119388683165/
 - title: First Python Notebook
   venue: IRE Watchdog Workshop
   location: San Diego
@@ -598,7 +594,6 @@ talks:
   venue: DataVis LA
   location: Santa Monica
   date: '2014-02-25'
-  video_url: https://vimeo.com/88182731
 - title: El Cartografo en su Laberinto
   venue: Data Fest
   location: Buenos Aires
