@@ -14,6 +14,7 @@ from scripts.media_archive.discovery import (
     discover_candidates,
     discover_post_occurrences,
     discover_talk_occurrence,
+    discover_talk_occurrences,
     normalize_url,
 )
 
@@ -27,8 +28,16 @@ def make_post(slug: str, body_markup: str) -> MarkdownPost:
     )
 
 
-def make_talk(title: str, video_url: str = "") -> Talk:
-    return Talk(title=title, venue="Venue", location="City", date=datetime.date(2024, 1, 1), video_url=video_url)
+def make_talk(title: str, video_url: str = "", audio_url: str = "", audio_download_url: str = "") -> Talk:
+    return Talk(
+        title=title,
+        venue="Venue",
+        location="City",
+        date=datetime.date(2024, 1, 1),
+        video_url=video_url,
+        audio_url=audio_url,
+        audio_download_url=audio_download_url,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -153,6 +162,34 @@ def test_discover_talk_occurrence_with_video():
 def test_discover_talk_occurrence_without_video_returns_none():
     talk = make_talk("No Video")
     assert discover_talk_occurrence(talk) is None
+
+
+def test_discover_talk_occurrences_includes_audio():
+    talk = make_talk(
+        "Podcast",
+        video_url="https://example.com/video.mp4",
+        audio_url="https://example.com/episode.mp3",
+    )
+
+    occurrences = discover_talk_occurrences(talk)
+
+    assert [occurrence[2].location for occurrence in occurrences] == ["video_url", "audio_url"]
+    assert occurrences[1][0] == talk.audio_url
+    assert occurrences[1][1] == KIND_DIRECT
+
+
+def test_discover_talk_occurrences_prefers_explicit_audio_download():
+    talk = make_talk(
+        "Podcast",
+        audio_url="https://podcasts.example.com/episode",
+        audio_download_url="https://cdn.example.com/episode.m4a",
+    )
+
+    occurrences = discover_talk_occurrences(talk)
+
+    assert len(occurrences) == 1
+    assert occurrences[0][0] == talk.audio_download_url
+    assert occurrences[0][2].location == "audio_download_url"
 
 
 def test_discover_talk_occurrence_unknown_host_still_included():

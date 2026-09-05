@@ -174,24 +174,40 @@ def _talk_origin_id(talk: Talk) -> str:
     return f"{talk.date.isoformat()} {talk.title}"
 
 
-def discover_talk_occurrence(talk: Talk) -> tuple[str, str, MediaOccurrence] | None:
-    """Return the ``(url, kind, occurrence)`` for a talk's video, if any.
+def discover_talk_occurrences(talk: Talk) -> list[tuple[str, str, MediaOccurrence]]:
+    """Return every ``(url, kind, occurrence)`` for a talk's media sources.
 
-    Every non-empty ``video_url`` is preserved because the field's meaning
-    already guarantees it is a video link curated by the author. Unrecognized
-    hosts still get a candidate (``kind="unknown"``) so yt-dlp's own
-    site-detection can attempt the download.
+    Every non-empty ``video_url`` or ``audio_url`` is preserved because these
+    fields identify a curated recording. Unrecognized hosts still get a
+    candidate (``kind="unknown"``) so yt-dlp's own site-detection can attempt
+    the download.
     """
-    if not talk.video_url:
-        return None
-    kind = classify_media_url(talk.video_url) or KIND_UNKNOWN
-    occurrence = MediaOccurrence(
-        origin_type="talk",
-        origin_id=_talk_origin_id(talk),
-        location="video_url",
-        raw_url=talk.video_url,
+    results: list[tuple[str, str, MediaOccurrence]] = []
+    audio_source = (
+        ("audio_download_url", talk.audio_download_url) if talk.audio_download_url else ("audio_url", talk.audio_url)
     )
-    return talk.video_url, kind, occurrence
+    for location, source_url in (("video_url", talk.video_url), audio_source):
+        if not source_url:
+            continue
+        results.append(
+            (
+                source_url,
+                classify_media_url(source_url) or KIND_UNKNOWN,
+                MediaOccurrence(
+                    origin_type="talk",
+                    origin_id=_talk_origin_id(talk),
+                    location=location,
+                    raw_url=source_url,
+                ),
+            )
+        )
+    return results
+
+
+def discover_talk_occurrence(talk: Talk) -> tuple[str, str, MediaOccurrence] | None:
+    """Return the first talk media source for callers that need one result."""
+    occurrences = discover_talk_occurrences(talk)
+    return occurrences[0] if occurrences else None
 
 
 def _attribute(tag: Any, name: str) -> str | None:
@@ -269,8 +285,7 @@ def discover_candidates(talks: Sequence[Talk], posts: Sequence[MarkdownPost]) ->
         occurrences[normalized].append(occurrence)
 
     for talk in talks:
-        found = discover_talk_occurrence(talk)
-        if found is not None:
+        for found in discover_talk_occurrences(talk):
             record(*found)
 
     for post in posts:

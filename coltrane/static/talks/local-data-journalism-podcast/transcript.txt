@@ -1,0 +1,1056 @@
+[00:00] [MUSIC PLAYING]
+[00:21] Hello, and welcome to the Data Journalism Podcast.
+[00:25] My name is Simon Rogers.
+[00:26] I am a Data Journalist, speaker, and teacher, and data
+[00:29] editor at Google.
+[00:31] And my name is Alberto Cairo.
+[00:32] I am a professor of Visualization
+[00:34] at the University of Miami, an Infographics designer,
+[00:37] and journalist, and also a book author.
+[00:40] We love using data to tell stories.
+[00:42] And the music you can hear is the sound of data,
+[00:44] made with two-tone, an app that turns numbers into tunes.
+[00:48] There's also the sound of football, American football,
+[00:50] that is, with a changing football school since 1920,
+[00:54] care of one of our guests today.
+[00:57] And this is the Data Journalism Podcast
+[01:00] that dissects the latest trends in data journalism
+[01:02] around the world.
+[01:03] In each episode, we will explore the latest in data journalism,
+[01:07] and we will chat with some of the world's top data journalists.
+[01:11] You'll get to find out how they do what they do.
+[01:14] So subscribe at datajournalismpodcast.com
+[01:17] to see how data is changing the world of journalism forever.
+[01:21] Hi, Simon.
+[01:22] Hey, Alberto.
+[01:24] How are you doing?
+[01:25] So good.
+[01:26] I'm really thrilled to have the chat that we had this week.
+[01:29] It was a lot of fun.
+[01:30] It was a very interesting one, right?
+[01:32] Can you tell us a little bit about our guests?
+[01:34] Yeah, so we have two doyen of local data journalism.
+[01:39] We've got Ben Welsh from the LA Times, who
+[01:43] has been just one of the first people out there
+[01:47] to really see the power of using data to tell stories.
+[01:51] The Los Angeles Times have one of the first great data
+[01:54] journalism sections, and he has forgotten more than we will ever
+[01:58] learn about how data can just improve local reporting.
+[02:03] And we also are lucky enough to have Mary Jo Webster, who
+[02:06] is a great local reporter who's just taught herself
+[02:10] how to work in this area and really created
+[02:13] some interesting work.
+[02:15] It was a very interesting conversation with both of them,
+[02:18] and we got into sort of how they got started,
+[02:22] how they discovered the tools that they use nowadays,
+[02:25] beginning with Excel.
+[02:27] They tell a couple of funny stories
+[02:29] about how they discovered Excel and then later more
+[02:32] sophisticated data analysis tools.
+[02:34] I think that it was a very enlightening conversation,
+[02:37] and listeners will enjoy it a lot.
+[02:39] We should do an episode one day about Excel
+[02:42] and the power of this tool in getting people
+[02:44] into data journalism.
+[02:45] Love it or hate it.
+[02:46] It's just become this kind of like entry-level drug
+[02:49] for people who are getting into data and reporting.
+[02:54] I mean, it's super useful.
+[02:55] You can do amazing things in Excel, right?
+[02:57] I mean, both Ben and Mary Jo, they
+[02:59] mentioned AR, the programming language, and Python,
+[03:03] and many other tools.
+[03:04] But both of them say, you know, if you
+[03:05] can get away with doing this very simple thing with Excel,
+[03:09] why don't do it with Excel?
+[03:10] Or if you are getting started in this field,
+[03:14] it's better to begin with the tools that you already know
+[03:16] and many people already know that it's Excel, right?
+[03:19] Yeah, and one of the things we wanted to do with this episode
+[03:21] was really getting some of the nitty-gritty.
+[03:23] So we have a rapid-fire series of questions at the end,
+[03:28] really about the kind of people's top tools,
+[03:30] some of their foibles, some of the stories they care about.
+[03:33] It's a lot of fun.
+[03:34] And I would really advise sticking around to that,
+[03:36] because you'll learn a lot about how each of them works.
+[03:39] It was an excellent episode, I think.
+[03:40] So let's get into it.
+[03:42] Let's get into it.
+[03:42] [MUSIC PLAYING]
+[03:49] [MUSIC PLAYING]
+[03:57] Hi, I'm Mary Jo Webster.
+[03:59] I'm the data editor at the Star Tribune in Minneapolis.
+[04:02] And hello, I'm Ben Welsh.
+[04:04] I live in Los Angeles, where I work on a project
+[04:07] at Stanford University called Big Local News
+[04:09] and at the Los Angeles Times.
+[04:12] Thank you so much for joining us, Mary Jo and Ben.
+[04:15] We're really happy to have you both here today to talk really
+[04:18] about local data journalism and how it's
+[04:20] growing around the country, and I think around the world
+[04:23] as well.
+[04:24] But I would love you to talk a little bit first about how
+[04:26] you got into this world.
+[04:28] Now, Ben, when I was at The Guardian back in the day,
+[04:31] when we were setting up the data blog,
+[04:33] we were definitely looking at the work
+[04:34] that you guys were doing.
+[04:35] And I feel like you were actually really
+[04:37] one of the innovators in this field.
+[04:39] So talk to me a little bit about how
+[04:41] you got into data journalism and the kind of work that you do.
+[04:44] Well, it definitely wasn't the plan.
+[04:46] It wasn't anything that happened on purpose,
+[04:48] but I'm really glad it did.
+[04:50] I was a pretty listless undergraduate in Chicago,
+[04:53] Illinois at DePaul University and kind of unclear
+[04:56] of where I was going with my life and career,
+[04:58] like perhaps many undergraduates that Alberto
+[05:01] encounters from time to time, and maybe himself as well.
+[05:06] And I won't bore you with the whole long story,
+[05:09] but through sort of an unusual series of events,
+[05:12] I became the assistant to two local television journalists
+[05:15] in Chicago, who were both excellent practitioners.
+[05:18] And I became what was known at that time
+[05:20] as the foot man, which was a very glorified term
+[05:23] for the intern or the helper around the office.
+[05:25] And so as they prepare a weekly newspaper column
+[05:28] and television piece, I would do research and scheduling
+[05:31] and a little bit of television editing too.
+[05:34] And in that, I kind of caught the journalism bug.
+[05:36] And one of the early stories we worked on
+[05:38] was about corruption in a Chicago suburb.
+[05:41] Locals could probably guess which ones.
+[05:44] And we did my first public records request
+[05:46] for legal fees from a sort of local heavy
+[05:49] who was milking the city out of money.
+[05:51] And it came as a really, really long printout.
+[05:55] Remember when printouts used to have the perforated tears
+[05:58] along each side and a single print over 20, 30 pages
+[06:03] will be connected through these long strips in the side
+[06:05] that you have to rip off, right?
+[06:07] And we got that back, this epic printout
+[06:10] of all the legal fees.
+[06:11] And we thought, well, what are we gonna do with this?
+[06:12] How are we gonna turn this into a story?
+[06:14] And I don't even know from where,
+[06:16] but I got the idea of just typing it into a spreadsheet.
+[06:19] I think it was probably the first spreadsheet
+[06:21] of my entire life.
+[06:23] And I spent having nothing better to do.
+[06:25] I spent a good chunk of time just hammering all that in
+[06:28] and we added it up.
+[06:29] And at the end, that number got read out on the local news.
+[06:33] The anchor even climbed up a step ladder
+[06:35] and dropped the sort of accordion of paper live on camera,
+[06:38] which was kind of a funny little gag.
+[06:40] And I kind of caught the bug.
+[06:41] You know what I mean?
+[06:42] And within that, I saw that through technology and data,
+[06:46] it was kind of like a way I could help.
+[06:48] It's something I could chip in and do
+[06:50] as a place for me to contribute.
+[06:52] And it also was a gateway to doing more ambitious journalism
+[06:55] than just the average run of the mill story.
+[06:57] We did a story nobody else was doing
+[06:59] that was more ambitious and analytical,
+[07:02] and that was exciting.
+[07:03] And so I kind of just got into it there.
+[07:05] This is now 20 years ago, I guess,
+[07:07] or more than that actually.
+[07:09] And I just followed that and followed that.
+[07:12] And without boring you with my whole life story,
+[07:14] I mean, I kind of ended up on this podcast today.
+[07:17] - Mary Jo, tell us about how you caught the bug.
+[07:22] - Mine is very much a local news-based situation.
+[07:26] I was, I don't know, three or four years into my career
+[07:28] working as a reporter in Oshkosh, Wisconsin,
+[07:32] a very small daily paper.
+[07:34] I was tasked with covering the police and sheriff's department
+[07:37] both on a kind of a policy standpoint,
+[07:39] but also, you know, I went out to the crime scenes
+[07:42] and the fires and whatnot.
+[07:45] But I was covering the city budget
+[07:48] and it looked like the police department
+[07:50] was growing its budget dramatically one year to the next.
+[07:52] And I was sitting there with a calculator
+[07:54] trying to calculate the percent change
+[07:56] between the two years for all of the departments.
+[07:59] And a colleague of mine came over and said,
+[08:02] do you know what Excel is?
+[08:03] And I was like, no, no idea.
+[08:06] He opened it up.
+[08:07] He showed me how to do a simple percent change formula.
+[08:10] My eyes were bugging out.
+[08:11] I was like, wow, this is so cool.
+[08:14] Where did you learn this?
+[08:16] You see, he told me I went to this IRE&NICAR bootcamp
+[08:19] and they teach you all this stuff called,
+[08:21] back then it was called computer-assisted reporting.
+[08:24] And I was immediately hooked
+[08:26] and I decided I had to keep going.
+[08:29] And sometime later that year,
+[08:32] I was able to attend a training that Sarah Cohen did.
+[08:35] She was the IRE trainer at the time.
+[08:38] And I remember sitting in this room.
+[08:40] I don't think it was a hands-on training.
+[08:42] My memory serves.
+[08:44] But I just remember being enthralled
+[08:46] by everything she was saying
+[08:48] and mind being blown by this entirely different way
+[08:53] of reporting that I had not learned in college
+[08:56] that my editors had not taught me in my early years.
+[08:59] And it was a complete turning point for me.
+[09:02] - That's amazing.
+[09:03] Both historical, welcome to the podcast in the first place.
+[09:06] So thank you for being here.
+[09:08] But the stories that you are telling
+[09:10] are similar to some of the stories
+[09:11] that I tell my students that
+[09:13] when you see data journalism or my own field,
+[09:16] data visualization from the outside,
+[09:18] it looks like these very shiny, super advanced,
+[09:22] high technology kind of endeavor.
+[09:25] But when you see how this software is made,
+[09:27] it's actually sometimes pretty pedestrian, right?
+[09:30] It's like you essentially type the data
+[09:32] into an Excel spreadsheet
+[09:34] or you don't use machine learning algorithm.
+[09:37] No, you just use a simple Excel pivot table, right?
+[09:40] So I find all that absolutely fascinating.
+[09:43] I mean, we are going to go back and forth
+[09:45] between your professional careers,
+[09:47] but also other sites of your professional endeavors.
+[09:54] I'm really curious about your educational endeavors
+[09:57] because both of you have been involved
+[09:59] in educational initiatives, right?
+[10:01] Can you talk a little bit about that?
+[10:02] Both of you?
+[10:05] - You mean what training we have taken or the teaching?
+[10:10] - The training that you offer,
+[10:11] because for example, Mary Jo,
+[10:13] you have a data journalism academy, right?
+[10:16] So both of you have been involved
+[10:17] in these types of initiatives.
+[10:19] Not only, I mean, you didn't take advantage
+[10:21] as of things such as like IRE NYCAR,
+[10:23] but you also offered to the community.
+[10:26] - Yes, I am a huge believer in teaching.
+[10:29] I think it has helped me
+[10:33] as much as it helps the other people
+[10:34] because I believe very much in the learn, do, teach approach.
+[10:39] I found all the holes in my knowledge
+[10:41] by having to turn around and teach it to somebody else.
+[10:44] So I've also gotten so much back from other people.
+[10:49] That's how I learned.
+[10:50] So I feel the need to turn around
+[10:52] and teach it to other people.
+[10:55] I have taught for about 10 years as an adjunct
+[10:58] at the University of Minnesota,
+[11:00] a data journalism class that was fully dedicated
+[11:04] just to data journalism.
+[11:07] I'm currently a senior fellow
+[11:08] with the Center for Health Journalism's
+[11:10] Data Journalism Program,
+[11:12] in that we do a week-long training
+[11:14] and then we do six months of mentoring
+[11:16] and additional training throughout that time.
+[11:19] I'm particularly enjoying the mentoring part of that
+[11:23] because it's another level of teaching.
+[11:25] You're helping them get a project off the ground.
+[11:28] You didn't just teach them how to run things in Excel
+[11:30] and then walk away.
+[11:32] You keep it going and help them get a story out the door.
+[11:35] And it's quite fulfilling, actually.
+[11:38] And then I taught at IRE and Nicar a lot
+[11:42] and I built up so many materials
+[11:44] that I've gradually decided I should share those materials.
+[11:48] And at the start of the pandemic
+[11:50] when I had a bunch of free time, I thought,
+[11:52] you know what, it's time to turn some of these materials
+[11:54] into videos.
+[11:56] So I made a new website and posted a lot of stuff there,
+[11:59] mainly Excel and other teaching things.
+[12:03] I am doing a new thing right now
+[12:05] that I'm actually gonna present about this
+[12:07] at the Nicar conference this year.
+[12:10] I've created a little data for editors training module
+[12:14] for the assignment editors in our room.
+[12:16] And so these are the people who work directly
+[12:18] with the reporters, mainly in our local news section.
+[12:22] And I've broken it down.
+[12:23] I'm not teaching them how to use Excel
+[12:26] or how to run data or any of that.
+[12:29] I've broken it down into little sections
+[12:32] of the different points in a data-driven story
+[12:35] that the editor needs to weigh in and look at
+[12:40] and what they should be doing at each point
+[12:42] and what they should be looking for.
+[12:43] So like the key ones are that brainstorming process
+[12:48] with their reporters when they're talking
+[12:50] about what story should I do?
+[12:51] What should I tackle?
+[12:53] Looking, having, I'm giving them some clues
+[12:56] that they should be watching for
+[12:57] that maybe there's a data opportunity here.
+[13:01] What questions they should be asking, things like that.
+[13:04] And then the bulletproofing process.
+[13:06] Okay, the data has come in.
+[13:07] We've got findings.
+[13:08] We're showing you a bunch of charts and tables.
+[13:11] What do you do with it?
+[13:12] Too often the editors just look at it and go,
+[13:15] oh, that's pretty.
+[13:16] Oh, that's kind of interesting.
+[13:17] And I'm trying to teach them like,
+[13:19] how about we take it to another level
+[13:21] and you really help bulletproof it.
+[13:23] And then the third level is the editing the written story.
+[13:28] One of the things I've seen a lot as editors
+[13:30] see a paragraph full of numbers
+[13:33] and they just glaze right over it.
+[13:36] And they don't think about like,
+[13:37] what are we really saying?
+[13:39] What are the key points we're getting across?
+[13:41] So I'm trying to teach them some editing things around,
+[13:45] you know, what's the key finding?
+[13:48] You know, not lumping too many numbers in a paragraph.
+[13:50] All these kinds of things to try to help
+[13:52] make the story more powerful.
+[13:54] And then we're also gonna do a graphic session.
+[13:57] My colleague at the head of our graphics department
+[13:59] is gonna help me with that.
+[14:00] And that'll be more about, okay, when should we use graphics?
+[14:03] What kinds of graphics should we use?
+[14:05] What should you as an editor be doing
+[14:07] when we send you those proofs?
+[14:09] Instead of just saying, oh, that looks beautiful.
+[14:12] What else should you be doing?
+[14:13] And I'm really anxious to see what kind of outcome that gets.
+[14:19] If it leads to more data-driven stories on a beat basis
+[14:25] and more daily basis or a weekly basis,
+[14:27] not just the big enterprise kind of stories.
+[14:31] - What about you, Ben?
+[14:32] Can I talk a little bit about your educational efforts?
+[14:35] - Well, I think Mary Jo said something
+[14:36] very sort of succinct and wise there
+[14:38] with the learn D2, learn, do, teach formulation.
+[14:41] You know what I mean?
+[14:42] It's a great way.
+[14:43] It definitely benefits yourself.
+[14:44] But I also think there's another great thing
+[14:45] about that kind of approach or model
+[14:47] is there's really a very sort of like stimulating
+[14:50] and actually rewarding creative process
+[14:53] of converting something that you've learned how to do
+[14:55] into like a lesson or something
+[14:56] that you can teach someone else.
+[14:58] And it actually is like, it kind of gets the neurons firing
+[15:01] the same way when you're like kind of innovating the code
+[15:04] in the first place for the idea.
+[15:05] And so for me along those lines, you know,
+[15:08] one like sort of approach to teaching that I've enjoyed
+[15:13] or found fruitful is taking emerging new techniques
+[15:17] that we're developing in the newsroom
+[15:18] that I feel like are kind of like a big deal for me
+[15:20] or a big deal for our team,
+[15:22] but that I don't see like being taught
+[15:24] and then trying to convert that
+[15:25] into like a night-card bootcamp or class
+[15:28] to try to spread it to other people.
+[15:29] And so, you know, examples I've done this with not alone.
+[15:32] I always try to seek out other folks
+[15:34] to help me like really strengthen the idea.
+[15:36] But with others, we've created some of the earliest
+[15:39] night-card bootcamps on how to use Jupyter Notebooks,
+[15:42] how to use the static site frameworks
+[15:44] that so many newsrooms use to make standalone visual stories
+[15:48] but like nobody ever talks about, right?
+[15:50] And this year at night-card, we're gonna have,
+[15:52] I think the first kind of three hour bootcamp
+[15:54] on how to automate a scraper
+[15:56] within the GitHub actions framework.
+[15:58] And so to me, like those three things, Jupyter Notebooks,
+[16:02] static site page building, Git scraping
+[16:04] are three really important like technologies
+[16:07] that have taken off in our world
+[16:08] in the last five or 10 years.
+[16:10] And it's just been fun to try to like think about
+[16:13] and pin down, well, how exactly do we use these?
+[16:15] What are the fundamental skills?
+[16:17] How can I pass that on to someone else?
+[16:20] - It's really interesting to me
+[16:21] how you're both so involved in teaching.
+[16:26] And I wonder, does that reflect towards,
+[16:29] I wonder if this is particularly applies to people
+[16:32] working with data on a local level,
+[16:34] is often people are kind of isolated.
+[16:37] Often it's like one or two people on their own,
+[16:39] they've got no support, there's no network.
+[16:42] But the colleagues from other organizations
+[16:45] are kind of struggling in the same way.
+[16:47] So there's a kind of a need there, is that fair?
+[16:49] - I love the psychoanalytical take here.
+[16:51] I mean, I did grow up as a lonely, nerdy kid
+[16:54] on a grand full road side,
+[16:56] who didn't have a lot of friends.
+[16:58] And so maybe this is me still trying to connect,
+[17:01] you know what I mean, and get over.
+[17:02] I was not crazy.
+[17:06] - Well, I think you're right.
+[17:07] There's so many that, you know,
+[17:08] these days they refer to themselves as lonely coders.
+[17:12] The majority of my 20 years in data journalism
+[17:15] was spent in a newsroom where I didn't have support
+[17:18] from anybody else.
+[17:19] And so I sought it out from other people
+[17:21] and learned from other people.
+[17:23] And then, you know, I turned around and taught.
+[17:24] But I think another factor is the Nykar community
+[17:29] has always been a sharing community.
+[17:32] If you even look at how Nykar was formed in the first place,
+[17:36] it was really a group of investigative reporters
+[17:39] who realized they needed to learn how to work with data
+[17:44] and they didn't know.
+[17:46] And a few of them learned somehow, I'm not sure how,
+[17:48] and then they decided to share it with the others
+[17:51] to try to pass it along.
+[17:52] And so it was really, that's how Nykar got started.
+[17:55] And that has been infused throughout all the years.
+[17:59] I remember so many boot camps,
+[18:01] and I think Ben is guilty of this,
+[18:03] of people sitting at the bar at the end of the conference
+[18:06] helping somebody with their data, you know, hovering over
+[18:10] a laptop, helping someone with their data
+[18:12] when they should be, you know, having fun
+[18:14] and enjoying themselves.
+[18:15] But that's how much I think our community likes to share
+[18:19] and teach each other and it just, it's wonderful.
+[18:22] - Yeah, and just to add to that,
+[18:23] I mean, I think if you follow the origins back
+[18:26] like Mary Jo was doing, I mean, data journalism's roots
+[18:29] go a lot further than I think is commonly recognized.
+[18:31] You know what I mean?
+[18:32] It's really a practice that stretches back decades
+[18:34] into the invention of the computer in the '60s and '70s.
+[18:37] And I think is that culture of those early days
+[18:40] is probably in like an anthropological sense,
+[18:43] like indistinguishable from the hacker culture of MIT
+[18:47] that's so celebrated.
+[18:48] You know what I mean?
+[18:49] It really was a very similar people
+[18:52] with very similar sort of ethos of sharing
+[18:56] that is the wellspring for a lot of what we do today.
+[19:00] And I think that, you know, as an inheritor of that,
+[19:03] I'm continuing to be inspired by it
+[19:05] and I feel some obligation to uphold it, you know?
+[19:08] - I think that we all do.
+[19:09] We all have the sort of like feel the need
+[19:11] to contribute back to the community that helped us
+[19:15] at the beginning of our career, right?
+[19:17] I have a question related to what you were both saying
+[19:20] about, you know, growing up as a nerdy kid, right?
+[19:23] I sort of sympathize with that because, I mean,
+[19:25] people don't see where I'm sitting right now,
+[19:27] but I'm sitting in a room with my kid
+[19:30] and then surrounded by comic books, science fiction novels,
+[19:34] you know, books about history and psychology
+[19:37] and then some tabletop games.
+[19:38] So the nerdery comes naturally to me.
+[19:41] So has that improved or has that changed?
+[19:44] It's like, are we still seeing or are you still seeing
+[19:47] as sort of like the nerds in the newsroom
+[19:49] or has that situation changed
+[19:51] and data journalism, data visualization,
+[19:54] computer assistant reporting,
+[19:55] has it has become more widespread and more accepted
+[20:00] or more popular within local newsrooms?
+[20:02] What do you think?
+[20:04] - I think it is more widely accepted
+[20:07] as a tool that every reporter should have in their toolbox.
+[20:12] I like to talk about data analysis
+[20:14] as really another form of interviewing a source.
+[20:17] That's all we're doing really.
+[20:19] And it just requires kind of a little bit
+[20:21] of a foreign language to do it.
+[20:22] I also see a data journalists increasingly
+[20:25] as the innovators in the room.
+[20:28] In all the newsrooms I've been in
+[20:30] for quite a few years now,
+[20:32] the data journalists have been at the forefront
+[20:34] of whatever new digital innovation we're gonna do.
+[20:38] And they're the ones pushing for it and seeking it out.
+[20:41] And in my newsroom right now,
+[20:44] my team is the one often called upon
+[20:47] for like, what do we do next?
+[20:49] Where do we go?
+[20:50] And I think that's wonderful.
+[20:51] And I think that takes us out of the nerdy idea
+[20:55] into kind of more of the leaders.
+[20:59] - Yeah, and you see this in the product realm too,
+[21:01] where a lot of people out of the data journalism world
+[21:03] have become leaders in the next generation
+[21:06] of digital business products
+[21:07] their companies are putting together,
+[21:09] which is a whole other level beyond
+[21:12] just like what's happening in the newsroom.
+[21:15] To be frank with you,
+[21:16] I think in the last two or three years,
+[21:17] we've seen a quantum leap with data journalism in newsrooms.
+[21:21] The takeover has happened.
+[21:24] You see it at the prestige level with those metrics.
+[21:27] You look at the Pulitzer Prizes last year,
+[21:29] five of the Pulitzer Prizes
+[21:31] went to data journalism projects,
+[21:33] including the public service highest award,
+[21:37] which went to the New York Times COVID tracking effort, right?
+[21:40] Which on its own was a gigantic public service
+[21:42] and an incredible feat of like data gathering and analysis.
+[21:46] But it also was the most popular
+[21:50] and I'll say it most lucrative thing
+[21:53] the New York Times has ever published.
+[21:55] And those COVID tracking things
+[21:56] I bet at the Minneapolis paper
+[21:58] was the most popular thing ever published.
+[22:00] I'll just throw that out there.
+[22:01] Mary Jo can correct me.
+[22:02] It's the most popular thing
+[22:03] the Washington Post ever published.
+[22:04] It's the most popular thing
+[22:05] the Los Angeles Times published.
+[22:07] And I don't mean to demean the news by saying that,
+[22:11] but once the product you're creating
+[22:13] is both the high prestige thing
+[22:16] and more importantly, the economic and economic engine.
+[22:21] You know what I mean?
+[22:22] That's growing the digital audience
+[22:23] of which there's a desperate need to grow.
+[22:26] The entire way the organization looks at you changes
+[22:28] just fundamentally.
+[22:30] And that's happening.
+[22:32] - Yes, the tracker we'd put up was,
+[22:34] is hands down the historically most read page
+[22:38] in the history of the Star Tribune.
+[22:40] And the numbers on it are so astronomical
+[22:42] that I don't envision it being that record being broken.
+[22:47] So it would take something pretty massive,
+[22:49] I think to break it.
+[22:50] But the other interesting thing we saw
+[22:53] is that it was also the most popular page
+[22:56] among our digital readers who are not subscribers,
+[23:01] but they come to us pretty regularly
+[23:03] and we would like them to be subscribers.
+[23:06] We call them in tenders.
+[23:07] And it was the most popular page among them.
+[23:10] And now we have conversations going around
+[23:14] what else like that, maybe not data,
+[23:17] but more in the service journalism realm,
+[23:20] but data is one of the things you can do
+[23:23] for service journalism.
+[23:24] What can we do to help get more of those people
+[23:27] to become subscribers?
+[23:29] - Exactly.
+[23:30] This all changed.
+[23:31] And Steve Kornacki was named
+[23:32] one of the sexiest men alive guys.
+[23:34] Come on, we're on top.
+[23:37] Yeah, the dog agrees with that assessment.
+[23:40] So we have talked a lot about COVID on this podcast.
+[23:44] And I wonder what you think the longer term effects
+[23:47] are gonna be for your field
+[23:49] of that very data intensive experience
+[23:53] of working with COVID data in a way that readers
+[23:56] and users actually really responded to.
+[23:59] - I mean, the tracker thing is here to stay.
+[24:01] And I think the creating dashboards for the general public
+[24:05] on major topics they care about is not new.
+[24:07] I mean, it's something that's been around with weather
+[24:10] and sports for a long time.
+[24:12] But I think that it's a type of product
+[24:14] that clearly our audience wants
+[24:16] that is in my opinion, like capital J journalism
+[24:19] in most circumstances, but requires a new assembly line
+[24:24] to be constructed inside the metaphorical factory
+[24:27] of your newsroom to create that.
+[24:29] You know what I mean?
+[24:30] It requires a little bit more
+[24:31] of a product development mindset,
+[24:33] a longer development cycle, a more iterative approach,
+[24:36] you know what I mean?
+[24:37] Than juggling what's on Sunday's front page
+[24:40] and the sort of like day-to-day heartbeat of the newsroom.
+[24:43] And so I think there's a way in which
+[24:46] to produce more of those kinds of widgets,
+[24:49] data journals and teams are gonna have to find a way
+[24:52] to create a kind of app workflow
+[24:54] that's able to support that.
+[24:56] And I think that's becoming more
+[24:57] like a product development team in some ways.
+[25:00] - From a different perspective,
+[25:01] I think it's gonna have a long-term effect in newsrooms
+[25:05] because I think it really woke up a lot of people
+[25:08] to the need and benefits to being able
+[25:11] to analyze your own data
+[25:13] and not rely on a government official
+[25:15] to hand you some numbers on a press release.
+[25:18] Especially in those early days
+[25:19] where we kind of had to pull stuff together ourselves.
+[25:23] But then even more long-term is data literacy,
+[25:28] increasing understanding among reporters and editors
+[25:31] for the need to understand
+[25:33] all the weird little caveats behind data
+[25:36] and the problems we have with denominators and whatnot.
+[25:42] And I think there's gonna be,
+[25:45] I'm expecting to see greater appetite
+[25:49] for data training in my newsroom.
+[25:51] - We talked a lot about how data journalism is affecting
+[25:56] the bottom line for news organizations
+[25:57] and how they're all seeing the value now.
+[25:59] If you're a reader or a user,
+[26:02] you don't necessarily realize
+[26:03] you're looking at data journalism, I guess.
+[26:05] But what difference does it make to them?
+[26:08] Do you think it helps people understand
+[26:09] the local areas better
+[26:11] in ways that we haven't quite kind of grasped
+[26:14] the long-term impact of yet?
+[26:17] - Well, I think the way we present data journalism,
+[26:20] especially in charts and graphs and things like that,
+[26:23] allow people who maybe need a visual aid like that
+[26:27] to see something rather than reading
+[26:30] long sentences of text,
+[26:31] that some readers just do better
+[26:34] with absorbing information that way than others.
+[26:37] And I think also the readers maybe
+[26:40] who aren't naturally inclined to do that
+[26:43] are getting better at it because there is so much of it.
+[26:47] - We all have, oh, sorry, Ben.
+[26:50] Were you going to say something?
+[26:51] We can make a pause.
+[26:52] Let's set this up, okay, perfect.
+[26:56] I was about to say, let's begin there,
+[26:59] we all have projects in our past as professionals
+[27:02] that we are very fond of,
+[27:04] even if they are not perhaps the best projects
+[27:06] that we have ever done,
+[27:07] but there are certain projects that we hold dear, right?
+[27:09] So if you had to choose just one of your local
+[27:13] data journalism projects in the past, right,
+[27:16] what would that be and why?
+[27:18] What was the story about?
+[27:20] What do you do to gather the data or visualize
+[27:22] or display the data, explain the data,
+[27:25] and what type of impact that story had?
+[27:30] - In 2018, we did a series called Denied Justice
+[27:34] that looked at how the criminal justice system
+[27:37] in Minnesota was handling sex assault investigations.
+[27:41] A reporter came to me and said he was hearing
+[27:44] that very few cases that get reported to police
+[27:49] actually result in a conviction, but nobody tracks that.
+[27:53] It's not a number that someone calculates.
+[27:56] So we put in requests for thousands of police
+[28:00] investigative reports and we built our own database,
+[28:05] tracking key bits of information off these cases
+[28:07] and then hunting down, was this referred to the prosecutor?
+[28:11] Were charges filed?
+[28:13] Was somebody convicted?
+[28:15] And a mountain of work in order to get a few numbers.
+[28:19] And what we found is like 8% of reported cases
+[28:23] result in a conviction.
+[28:25] And we ended up doing a series,
+[28:27] it ended up being a nine part series,
+[28:28] which we did not expect,
+[28:30] because it ended up being so powerful.
+[28:33] The response was overwhelming from readers and policymakers.
+[28:37] And we had hundreds of victims come forward
+[28:41] to share their stories because they read our first story
+[28:45] and were like, oh my gosh, I'm not the only one
+[28:48] who had this bad experience with the police department.
+[28:51] I'm not the only one.
+[28:52] This is so cathartic to hear this
+[28:56] and they wanted to share their stories.
+[28:58] And as a result, Minnesota's sexual assault laws
+[29:02] have been overhauled quite substantially.
+[29:05] Several police departments have added additional staff
+[29:10] or like victim advocates embedded into their department,
+[29:14] prosecutors embedded into the department
+[29:16] to help improve the quality of the investigations.
+[29:19] And it was one of the most,
+[29:24] probably hands down the most rewarding
+[29:26] piece of work I've ever done.
+[29:28] At the end of it, we gathered all these victims
+[29:32] at the state Capitol and took a picture
+[29:35] of all of them together.
+[29:37] And these women came out in the bitter cold in Minnesota
+[29:41] in December to do this photo.
+[29:43] And they came up to me and the other reporters
+[29:45] and they were so thankful.
+[29:48] And I've never had that experience before
+[29:51] that the people just thanking us for the work.
+[29:54] And that story is a really big combination
+[29:58] of data being the spine holding up the key findings
+[30:02] and then these powerful emotional stories from victims.
+[30:06] And policy makers told us that the two things combined
+[30:09] were so powerful that they could not ignore it.
+[30:16] - Yeah, when the data comes together
+[30:17] with real life in a way, you know what I mean?
+[30:19] Or when the data leads you to the doorstep
+[30:21] you didn't know you needed to go to, right?
+[30:24] That is just this sort of like unforgettable feeling.
+[30:28] You know what I mean?
+[30:29] It's kind of like one of the deeper work hits.
+[30:32] It's better than any hack, you know what I mean?
+[30:34] And so like for me, like an example of that was
+[30:36] we had a circumstance where there was like
+[30:39] a little political fight in LA government
+[30:41] over the fire department that was really pretty superficial
+[30:44] and was just a couple of people
+[30:46] trying to score political points.
+[30:47] But it raised some questions about the efficacy
+[30:50] of the 911 system in the city of Los Angeles.
+[30:53] And so my colleague and I, Robert Lopez,
+[30:55] decided to get a copy of the entire 911 calls database
+[30:59] and analyze what was happening with the 911 system.
+[31:02] And you know, there's a lot of ins and outs
+[31:05] to how it all worked out.
+[31:06] But the reality was is by doing our own
+[31:07] independent analysis of the data,
+[31:09] we were able to identify several structural flaws
+[31:13] in how the 911 center operates,
+[31:15] how they handle calls near the city border
+[31:17] with neighboring fire departments,
+[31:19] and then go out into the real world tracking real calls,
+[31:22] knock on doors and find out what happened.
+[31:24] And in that we discovered these kind of deeper problems
+[31:27] with the system that nobody was talking about
+[31:29] in city politics.
+[31:30] And we were able to really point to where the system
+[31:33] needed to improve to like make a difference.
+[31:36] And then a change actually did happen, you know.
+[31:40] And to me, that's sort of like that feeling of
+[31:44] where the statistics lead you to the store,
+[31:46] you listen to the numbers,
+[31:48] and then you follow them out into the real world.
+[31:50] And then you connect that with what's really happening there.
+[31:52] And then you bring that back to your audience.
+[31:54] That's better than any chart.
+[31:56] That's better.
+[31:56] You know, I love charts, you know what I mean?
+[31:57] But like, that's better than any little dinky thing.
+[32:01] That's the deeper like thing
+[32:03] that numbers and statistics can lead you to,
+[32:06] which is the sort of hidden truth,
+[32:07] but the deeper story that isn't being told.
+[32:10] And that's the hit, you know,
+[32:14] I'm still looking for it on every story to get back to.
+[32:17] I'm still chasing.
+[32:18] - Those are both examples of stories where a human
+[32:21] is probably not gonna come forward and tell us
+[32:23] that there's a story there.
+[32:25] Maybe they'd have an inkling,
+[32:26] but probably nobody did the data analysis
+[32:30] to know for sure that that's what it is.
+[32:32] And it takes us to do these kinds of lifts
+[32:37] to heavy lifts on data to find those stories.
+[32:40] And, you know, as I said, interview the source
+[32:43] to get at the meat of that story that needs to be told.
+[32:47] - And then sometimes I think this may have happened
+[32:49] in Mary Jo's case too.
+[32:50] Your finding, your synthesis of what's really going on
+[32:53] actually gives a name to and some meaning to something
+[32:57] really negative that happened to somebody.
+[32:58] And then they decide, then your sources
+[33:00] and the people you're writing about
+[33:01] find this deeper reward in the whole thing.
+[33:04] And it's very rare, you know what I mean?
+[33:06] But to me, that's as good as it gets.
+[33:10] - That combination of like traditional reporting
+[33:14] with the data and that sweet spot event have impact as well
+[33:18] is just everything you can ask for, isn't it?
+[33:21] So we are in February, this is our first part of the year.
+[33:24] If you two were to make predictions,
+[33:27] I know everybody does make predictions,
+[33:28] but you two make predictions
+[33:30] about what your big exercise is gonna be this year.
+[33:35] - Let's let Mary Jo off the hook here.
+[33:36] I don't want you to make her pop up too much.
+[33:38] So since I'm working on this new project at Stanford
+[33:41] called Big Local News,
+[33:42] which is really an open source collaborative effort
+[33:45] to try to be a data backbone for all the local newsrooms
+[33:49] who maybe need help or some consulting
+[33:53] or some technology to really pull off big data projects,
+[33:57] we're looking to take it up a notch, Simon.
+[34:00] I mean, I think this year, this team I'm on
+[34:02] with Cheryl and Surdar and everybody up on the farm
+[34:05] in Palo Alto, I'll say it here,
+[34:07] we are going to build the biggest web scrapers
+[34:09] in the history of data journalism.
+[34:11] We're gonna, we have a project called Agenda Watch
+[34:14] where we're gonna scrape hundreds of city council agendas
+[34:17] across the country, put them into one database,
+[34:19] and we're gonna try to do the same thing
+[34:21] with county courthouses.
+[34:22] And you know, those types of projects,
+[34:24] scraping your local county courthouse or city council,
+[34:27] I mean, every local newspaper in America
+[34:29] has wanted to do it.
+[34:31] Some of them have tried to do it.
+[34:34] A very few have succeeded in doing it
+[34:37] for like a short period of time,
+[34:38] but I just don't think that there's been a lasting
+[34:41] and sort of broad solution to that challenge
+[34:44] because it's a lot of work, there's competing priorities,
+[34:49] you know, da, da, da, da, da.
+[34:51] And we're really looking to solve that or try to
+[34:54] by being the sort of database library
+[34:56] that attacks those big things.
+[34:58] And so by December 31st,
+[35:00] we'll be the biggest scraper you've ever seen,
+[35:03] outside of Google, of course.
+[35:05] - I love the Local News Project,
+[35:07] I'm really glad to hear that.
+[35:08] (upbeat music)
+[35:13] Okay, so we are gonna finish off with a new section,
+[35:17] which I'm gonna just call no dumb questions
+[35:19] because these are quite dumb questions.
+[35:22] And they're one word answers,
+[35:23] but I'm gonna go first.
+[35:25] And my one to Mary Jo is,
+[35:29] what book or class had an impact on you
+[35:32] as a professional?
+[35:35] - The Investigative Reporter's Handbook.
+[35:38] - Very good, how about you, Ben?
+[35:41] - Oh, just one?
+[35:42] - Yeah, just one, I'm afraid, sorry.
+[35:44] - Oh, man.
+[35:46] - Be concise, we are all journalists,
+[35:48] we are supposed to be concise.
+[35:49] - Gotta be concise, all right, I'm gonna do it.
+[35:51] I will say the one that had an effect on me,
+[35:53] I will say The Autobiography of Malcolm X
+[35:57] by Alex Haley, guys.
+[35:58] How about that?
+[35:59] It's like a young teenage me,
+[36:01] you know what I mean, moving from the country to Chicago,
+[36:03] getting a broader view of the world.
+[36:05] It was nonfiction journalism
+[36:07] that helped me like see what was up,
+[36:09] you know, and its book is an alternative version
+[36:11] of American history that I hadn't heard before.
+[36:14] It's also a religious conversion story,
+[36:16] not unlike one I've been taught in church,
+[36:19] you know, as a kid who went to Sunday school.
+[36:21] And it shows the power of stories
+[36:23] that go against the grain
+[36:25] that aren't otherwise being told.
+[36:28] And it's a great piece of literature.
+[36:29] So if you haven't read it, you know,
+[36:32] you should check it out.
+[36:35] I think sadly in some ways, you know,
+[36:37] we've regressed since then.
+[36:39] You know, that was a time when Alex Haley
+[36:41] could have the most popular show on television
+[36:43] and write a really provocative book.
+[36:46] And as a reminder of the power,
+[36:50] and I would say virtue of the mainstream media,
+[36:53] when it's properly focused, you know.
+[36:56] - Those were the times.
+[36:58] Okay, next quick question for both of you, actually.
+[37:01] So if you could keep just one of the tools
+[37:05] that you commonly use in your daily job,
+[37:07] what would that tool be?
+[37:10] - R.
+[37:12] - I like that answer.
+[37:14] What about you, Ben?
+[37:16] - Oh, a spreadsheet, guys.
+[37:17] It all begins with a spreadsheet.
+[37:19] You can't play baseball without a bat
+[37:21] and you can't crush data without a spreadsheet.
+[37:23] And--
+[37:24] - Oh, you can, you can, R can do everything.
+[37:28] There's so many things that R can do that Excel can't.
+[37:31] - These R people, they really love R.
+[37:33] Have you guys noticed this?
+[37:34] Like, I think--
+[37:36] - I have actually noticed that.
+[37:38] - Yeah, I think that, you know,
+[37:40] not unlike, that it's like R conversion stories.
+[37:43] It has an evangelical fervor and flavor,
+[37:45] not unlike the Nation of Islam.
+[37:47] - You are only saying that because you're a Python person.
+[37:50] That's the only reason why you're saying that.
+[37:52] I thought you were gonna say Python for sure.
+[37:55] - No, I think it all comes down to the fundamentals.
+[37:57] You know, you can't dribble.
+[37:58] You can't play basketball if you can't dribble.
+[38:00] Can't play baseball without a bat.
+[38:03] I'll give you the religious flavor,
+[38:04] is I'll pick Libre Office's Calc,
+[38:06] the open source free alternative spreadsheet,
+[38:08] which is just as good as the ones from those companies
+[38:12] you maybe have heard of.
+[38:14] - Okay, if you rephrase the question to
+[38:16] what should any journalist have a tool,
+[38:19] I would say Excel.
+[38:21] But what should I, as a professional data journalist,
+[38:24] doing this full-time, crunching numbers like non-stopped,
+[38:28] then it's R.
+[38:30] - All right, okay.
+[38:33] Next one, what is your favorite hack
+[38:36] that you are too embarrassed to admit?
+[38:38] I can tell you my one is,
+[38:41] and I still do this occasionally,
+[38:42] is the way you can use the finder and place
+[38:46] in Microsoft Word as a shortcut to getting stuff done
+[38:49] if you're in a hurry.
+[38:50] I still use it.
+[38:51] I'm slightly embarrassed about it.
+[38:52] So there you go, that's mine.
+[38:54] Ben, do you go first?
+[38:55] - Well, I'm not easily embarrassed,
+[38:56] which maybe is a bug, not a feature in my personality.
+[39:02] But I mean, a hack,
+[39:05] saying no to other people in the newsroom.
+[39:09] You know what I mean?
+[39:09] I think that the data journalists,
+[39:11] especially in smaller newsrooms,
+[39:12] can sometimes get consumed by helping things
+[39:18] just go the way they've always been going
+[39:19] or sort of chipping in around the edges.
+[39:21] And I think that being a helper
+[39:24] and assisting that is noble work and often really valuable.
+[39:27] But I see it pulled back a lot of other data journalists
+[39:31] from really reaching their potential from taking risks
+[39:33] and from doing the more ambitious, powerful work
+[39:36] that our skills are capable of.
+[39:38] So never be afraid to say no
+[39:40] and never be afraid to bet on yourself
+[39:45] and to take a chance.
+[39:46] - I guess I don't know if I'd call this a hack,
+[39:48] but I am probably most embarrassed to admit
+[39:50] that I have data import scripts
+[39:54] that I have not automated, but I probably should.
+[39:58] And I just still keep running them.
+[40:01] It's not exactly by hand, but they're not automated.
+[40:03] I feel like I should be moving into the 21st century,
+[40:06] but, oh well.
+[40:09] - Well, I still run out of patience
+[40:11] whenever I need to style graphs or charts in R
+[40:14] and I export them as PDFs and I style them in Illustrator
+[40:17] just because I find it faster.
+[40:19] So that would be my personal hack.
+[40:20] And I'm not embarrassed at all in admitting it.
+[40:22] So we all have a skeletons in our closet, I guess.
+[40:27] - I had trouble making a graphic in R yesterday
+[40:30] and I was like, ugh, okay, I'm just gonna put it in Excel
+[40:33] and I will make it in Excel.
+[40:35] - I do the same thing with Illustrator.
+[40:36] It's like R is not working, fine.
+[40:39] Let me go to the Illustrator's graphing tool,
+[40:41] which is sort of like the clunkiest graphing tool ever.
+[40:44] So anyway, so let's go to the next one.
+[40:49] What would you have done
+[40:51] if you hadn't gone into journalism?
+[40:53] - Oh, MG, I have no idea.
+[40:55] I've wanted to be a journalist since I was 16, no clue.
+[41:01] - Well, I was not in a very motivated place
+[41:03] before I found journalism as we covered already, Alberto.
+[41:06] But one thing I did like to do at that time in my young life
+[41:09] was read pretentious books and be like a pretentious student.
+[41:14] And so I think at that time, if you had asked me,
+[41:16] I probably would have told you
+[41:18] I would have become a high school English teacher
+[41:20] or something, you know what I mean?
+[41:21] And I don't think that that's a crazy outcome for me.
+[41:26] And maybe I would have been happy doing that.
+[41:29] It's hard to say.
+[41:29] I probably would have stayed in Chicago
+[41:31] and now that I think about it, never met my wife,
+[41:35] which is making me sad to even contemplate.
+[41:38] Like, you know, that's probably it.
+[41:40] - So glad you didn't do that, Ben.
+[41:42] (laughing)
+[41:44] - Oh my God.
+[41:45] My monologue to like high school students
+[41:47] about of mice and men, it would be just terrible.
+[41:50] - I would hope I need to hear that.
+[41:52] Okay, last one, pie charts or tree maps.
+[41:55] And I'm going to go to Mary Jo for this one.
+[41:58] - Tree maps.
+[41:59] - Like anything with visualizations, it depends.
+[42:02] You know what I mean?
+[42:03] Like, so like, I would say like,
+[42:05] well, at first I would say never pie charts
+[42:07] in the circular form.
+[42:09] However, if you have like a single,
+[42:12] like a categorical thing,
+[42:14] I think the like underrated pie chart alternative
+[42:18] is a single stacked bar.
+[42:20] You know what I mean?
+[42:21] Just like one rectangle sliced up.
+[42:23] You can do the nice little labels on the top and bottom.
+[42:26] And I guess it's technically a stacked bar chart,
+[42:28] but it's just a single bar.
+[42:29] It's also a pie chart.
+[42:30] I think those are great.
+[42:31] I think those really work and you can stack them.
+[42:34] It doesn't like Pew do that on their quizzes.
+[42:35] I think that's good.
+[42:36] Cause like, cause maybe that is a tree map.
+[42:39] I don't know.
+[42:40] You guys tell me in some way it is a tree map, I guess,
+[42:42] but like to me the tree map works
+[42:44] when there's a lot of slices,
+[42:46] like there's like 50 slices
+[42:49] and like one or two of them are huge, you know?
+[42:52] And you want to be like, these ones are big
+[42:53] and these ones are small.
+[42:55] But like, if you only have like five things, you know,
+[42:58] you don't need that vertical part of the tree map.
+[43:00] If it's just like a fixed wide height, it works fine.
+[43:05] Sorry, I just did that.
+[43:07] But that's really how I feel about it.
+[43:09] - It's a great, it's a great answer.
+[43:10] I mean, tree maps were created to show a nested hierarchies,
+[43:15] right?
+[43:16] So you have a total
+[43:17] and then you subdivide that total into large divisions,
+[43:19] for example, population of the world.
+[43:21] And then you start dividing them into continents
+[43:23] and each one of the continent pieces
+[43:26] gets further subdivided into the country.
+[43:28] So that's what tree maps are for.
+[43:30] So it's an excellent answer.
+[43:31] I would advocate for the pie chart though.
+[43:34] So just to be the contrarian,
+[43:36] I would vote for pie charts if I could.
+[43:38] Simon, can I do that?
+[43:41] - You don't get advocate for pie charts.
+[43:43] - I did not expect that, Alberto.
+[43:46] - I'm getting old.
+[43:48] Getting older, you know, on a simple pie chart.
+[43:51] I tweeted the other day, if a graphic works, it's good.
+[43:55] And pie charts unfortunately are fortunate, often work.
+[43:59] It's like if there are two, three subdivisions,
+[44:01] four subdivisions perhaps, readers like them,
+[44:04] readers understand them, readers read them,
+[44:07] they bring attention to the data.
+[44:09] So, you know, I'm getting older, more flexible,
+[44:12] more pragmatic in some sense.
+[44:13] So go for the pie chart.
+[44:15] - Even the three-dimensional pie chart?
+[44:17] - No, three-dimensional.
+[44:18] That's going to, maybe when I'm 80.
+[44:20] - That's the limit so far.
+[44:21] - Yeah, that's, no, maybe when I'm about to retire,
+[44:24] maybe I will accept three pie charts.
+[44:26] - Wow, now that Alberto has been switched with somebody else,
+[44:29] I think that's a good point to end.
+[44:31] Ben Welsh, MaryJo Webster, thank you so much.
+[44:34] - Thank you.
+[44:35] - Thank you for having us.
+[44:39] (upbeat music)
+[45:09] (upbeat music)
+[45:39] (upbeat music)

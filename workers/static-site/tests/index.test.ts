@@ -131,6 +131,39 @@ describe("static site Worker", () => {
     expect(response.headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
   });
 
+  it("serves approved podcast audio from R2 with byte-range support", async () => {
+    const response = await handleRequest(
+      new Request("https://palewi.re/media/talks/local-data-journalism-podcast/audio.m4a", {
+        headers: { range: "bytes=100-199" },
+      }),
+      {
+        ASSETS: assets,
+        TALK_MEDIA: {
+          async get(key, options) {
+            expect(key).toBe("talks/local-data-journalism-podcast/audio.m4a");
+            expect(options?.range?.get("range")).toBe("bytes=100-199");
+            return {
+              body: new ReadableStream(),
+              httpEtag: '"audio"',
+              range: { length: 100, offset: 100 },
+              size: 22_704_169,
+              writeHttpMetadata(headers) {
+                headers.set("content-type", "audio/mp4");
+              },
+            };
+          },
+          async head() {
+            return null;
+          },
+        },
+      },
+    );
+
+    expect(response.status).toBe(206);
+    expect(response.headers.get("content-range")).toBe("bytes 100-199/22704169");
+    expect(response.headers.get("content-type")).toBe("audio/mp4");
+  });
+
   it("passes static assets through with security headers", async () => {
     const response = await handleRequest(request("/who-is-ben-welsh/"), { ASSETS: assets });
 

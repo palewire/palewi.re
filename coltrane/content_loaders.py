@@ -40,8 +40,9 @@ Edit the appropriate file under ``coltrane/content/``:
   ``date`` (YYYY-MM-DD).
   Optional fields: ``slug`` (unique URL slug), ``short_title`` (str), ``byline`` (str),
   ``deck_aspect_ratio`` (positive ``width / height`` ratio),
-  ``video_url`` (str),
-  ``local_video_url`` (str), ``slides_url`` (str), ``deck_url`` (str), ``pdf_url`` (str),
+  ``video_url`` (str), ``audio_url`` (str), ``audio_download_url`` (str),
+  ``local_video_url`` (str), ``local_audio_url`` (str), ``slides_url`` (str),
+  ``deck_url`` (str), ``pdf_url`` (str),
   ``notes_url`` (str), ``notes_text_url`` (str), ``transcript_url`` (str),
   ``transcript_text_url`` (str), ``captions_url`` (str),
   ``poster_url`` (str), ``original_slides_url`` (str), and
@@ -176,6 +177,9 @@ class Talk:
     date: datetime.date
     video_url: str = ""
     local_video_url: str = ""
+    audio_url: str = ""
+    audio_download_url: str = ""
+    local_audio_url: str = ""
     slides_url: str = ""
     guide_url: str = ""
     archive_url: str = ""
@@ -653,6 +657,8 @@ def load_talks(path: Path | None = None) -> list[Talk]:
         location = _require_str(record, "location", label)
         date = _require_date(record, "date", label)
         video_url = _optional_str(record, "video_url", label)
+        audio_url = _optional_str(record, "audio_url", label)
+        audio_download_url = _optional_str(record, "audio_download_url", label)
         slides_url = _optional_str(record, "slides_url", label)
         slug = _optional_slug(record, label)
         if slug in seen_slugs:
@@ -667,6 +673,9 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 date=date,
                 video_url=video_url,
                 local_video_url=_optional_str(record, "local_video_url", label),
+                audio_url=audio_url,
+                audio_download_url=audio_download_url,
+                local_audio_url=_optional_str(record, "local_audio_url", label),
                 slides_url=slides_url,
                 guide_url=_optional_str(record, "guide_url", label),
                 archive_url=_optional_wayback_url(record, "archive_url", label),

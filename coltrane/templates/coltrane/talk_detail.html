@@ -72,6 +72,26 @@
         </details>
         {% endif %}
     </section>
+    {% elif object.local_audio_url %}
+    <section aria-labelledby="recording">
+        <h2 id="recording">Recording</h2>
+        <audio controls preload="metadata">
+            <source src="{{ object.local_audio_url }}">
+            {% if object.captions_url %}<track kind="captions" src="{{ object.captions_url }}" srclang="en" label="English">{% endif %}
+            Your browser does not support audio. <a href="{{ object.local_audio_url }}">Download the recording</a>.
+        </audio>
+        {% if object.audio_url %}
+        <p><a target="_blank" href="{{ object.audio_url }}">Listen on the original podcast site</a></p>
+        {% endif %}
+        {% if object.transcript_template %}
+        <details class="talk-detail-text">
+            <summary>Show the timestamped transcript</summary>
+            <div class="talk-detail-text-content">
+                {% include object.transcript_template %}
+            </div>
+        </details>
+        {% endif %}
+    </section>
     {% elif object.youtube_embed_url %}
     <section aria-labelledby="recording">
         <h2 id="recording">Recording</h2>
@@ -91,14 +111,15 @@
     {% endif %}
     {% endif %}
 
-    {% if object.pdf_url or object.local_video_url or object.notes_text_url or object.transcript_text_url %}
+    {% if object.pdf_url or object.local_video_url or object.local_audio_url or object.notes_text_url or object.transcript_text_url %}
     <section aria-labelledby="downloads">
         <h2 id="downloads">Downloads</h2>
         <p>
             {% if object.pdf_url %}<a href="{{ object.pdf_url }}" download>Slides PDF</a>{% endif %}
             {% if object.local_video_url %}{% if object.pdf_url %} · {% endif %}<a href="{{ object.local_video_url }}" download>Recording video</a>{% endif %}
-            {% if object.notes_text_url %}{% if object.pdf_url or object.local_video_url %} · {% endif %}<a href="{{ object.notes_text_url }}" download>Extracted slide text</a>{% endif %}
-            {% if object.transcript_text_url %}{% if object.pdf_url or object.local_video_url or object.notes_text_url %} · {% endif %}<a href="{{ object.transcript_text_url }}" download>Timestamped transcript</a>{% endif %}
+            {% if object.local_audio_url %}{% if object.pdf_url or object.local_video_url %} · {% endif %}<a href="{{ object.local_audio_url }}" download>Recording audio</a>{% endif %}
+            {% if object.notes_text_url %}{% if object.pdf_url or object.local_video_url or object.local_audio_url %} · {% endif %}<a href="{{ object.notes_text_url }}" download>Extracted slide text</a>{% endif %}
+            {% if object.transcript_text_url %}{% if object.pdf_url or object.local_video_url or object.local_audio_url or object.notes_text_url %} · {% endif %}<a href="{{ object.transcript_text_url }}" download>Timestamped transcript</a>{% endif %}
         </p>
     </section>
     {% endif %}

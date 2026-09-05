@@ -14,8 +14,8 @@ the site. Keep the work focused on one talk at a time.
 - Treat a user request to publish talk assets as confirmation that they have
   permission to republish the deck and recording. Ask only if they say the
   permission status is uncertain or restricted.
-- Keep the original `slides_url` and `video_url` in `talks.yaml` for source
-  reference.
+- Keep the original `slides_url`, `video_url`, or `audio_url` in `talks.yaml`
+  for source reference.
 - Use `short_title` when the full title is too long for the page heading.
   The page displays the remaining title as its subtitle.
 - Do not deploy the Worker or alter Cloudflare routes as part of this
@@ -96,13 +96,20 @@ notes_text_url: /static/talks/example-talk/notes.txt
 transcript_template: coltrane/talks/example-talk-transcript.html
 transcript_text_url: /static/talks/example-talk/transcript.txt
 local_video_url: /media/talks/example-talk/video.mp4
+audio_url: https://podcasts.example.com/episode
+audio_download_url: https://cdn.example.com/episode.m4a
+local_audio_url: /media/talks/example-talk/audio.mp3
 captions_url: /static/talks/example-talk/captions.vtt
 poster_url: /media/talks/example-talk/poster.jpg
 ```
 
 Only add URLs for assets that exist. The Downloads section should use the
-same labels as the page: `Slides PDF`, `Recording video`, `Extracted slide
-text`, and `Timestamped transcript`.
+same labels as the page: `Slides PDF`, `Recording video`, `Recording audio`,
+`Extracted slide text`, and `Timestamped transcript`. A locally hosted audio
+recording uses the same folded transcript reader as a video recording and
+links to `audio_url` as the original podcast source. When the episode page
+and public enclosure differ, record the stable episode page in `audio_url`
+and the publicly downloadable enclosure in `audio_download_url`.
 
 For an external-only talk, use only the source and Wayback URLs:
 
@@ -168,9 +175,26 @@ assert metadata["ContentType"] == "video/mp4"
 PY
 ```
 
-The static-site Worker serves video from
-`/media/talks/<slug>/video.mp4`, with byte-range support. Keep captions in
-the repository's static assets so they are committed and baked with the site.
+The static-site Worker serves media from `/media/talks/<slug>/`, including
+`video.mp4` and `audio.mp3`, with byte-range support. Keep captions in the
+repository's static assets so they are committed and baked with the site.
+
+For a podcast, run the preservation backup first with an archive root outside
+the repository, verify it, then upload the approved MP3 to the talk-media
+bucket:
+
+```bash
+ARCHIVE_ROOT=/absolute/path/outside/the/repo make media-archive-backup
+ARCHIVE_ROOT=/absolute/path/outside/the/repo make media-archive-verify
+cd workers/static-site
+npm exec -- wrangler r2 object put \
+  palewire-talk-media/talks/<slug>/audio.m4a \
+  --remote --file /absolute/path/to/audio.m4a \
+  --content-type audio/mp4
+```
+
+Do not commit the MP3. Commit `transcript.txt`, `captions.vtt`, and the
+readable transcript fragment instead.
 
 ## Preview and validate
 
