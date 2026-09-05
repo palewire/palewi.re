@@ -10,6 +10,16 @@ on:
         required: false
         default: false
         type: boolean
+      capture_only:
+        description: "Request captures only; skip discovery and archive lookups"
+        required: false
+        default: false
+        type: boolean
+      max_captures:
+        description: "Maximum capture requests for a manual run (1-100)"
+        required: false
+        default: 10
+        type: number
 
 permissions:
   contents: read
@@ -35,6 +45,9 @@ jobs:
       MANIFEST: .site-archive/manifest.json
       STATE_TOKEN: .site-archive/state-token.json
       SUMMARY: .site-archive/report.md
+      LOOKUP_ONLY: ${{ inputs.lookup_only || false }}
+      CAPTURE_ONLY: ${{ inputs.capture_only || false }}
+      MAX_CAPTURES: ${{ inputs.max_captures || '10' }}
     steps:
       - name: Check out production source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -76,17 +89,33 @@ jobs:
         id: sync
         continue-on-error: true
         run: |
+          if test "$LOOKUP_ONLY" = "true" && test "$CAPTURE_ONLY" = "true"; then
+            echo "lookup_only and capture_only cannot both be enabled." >&2
+            exit 1
+          fi
+          if ! [[ "$MAX_CAPTURES" =~ ^[1-9][0-9]*$ ]] || test "$MAX_CAPTURES" -gt 100; then
+            echo "max_captures must be a whole number from 1 through 100." >&2
+            exit 1
+          fi
+          if test "$CAPTURE_ONLY" = "true"; then
+            uv run python -m scripts.site_archive capture \
+              --manifest "$MANIFEST" \
+              --max-captures "$MAX_CAPTURES" \
+              --max-seconds 900 \
+              --summary "$SUMMARY"
+            exit 0
+          fi
           args=(
             sync
             --build-dir dist
             --manifest "$MANIFEST"
             --max-pages 100
             --max-checks 100
-            --max-captures 10
+            --max-captures "$MAX_CAPTURES"
             --max-seconds 900
             --summary "$SUMMARY"
           )
-          if test "${{ inputs.lookup_only || false }}" = "true"; then
+          if test "$LOOKUP_ONLY" = "true"; then
             args+=(--lookup-only)
           fi
           uv run python -m scripts.site_archive "${args[@]}"
