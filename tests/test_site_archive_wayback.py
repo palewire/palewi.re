@@ -246,11 +246,46 @@ def test_verify_accepts_proven_trailing_slash_snapshot_alias() -> None:
     assert [url for url, _ in session.calls] == [AVAILABILITY_URL, requested, alias]
 
 
+def test_verify_accepts_reverse_proven_trailing_slash_snapshot_alias() -> None:
+    """Confirm aliases when the slash form is the shared canonical URL.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        A ``/week-1/`` snapshot can confirm a ``/week-1`` record.
+    """
+    requested = "https://palewi.re/docs/coding-the-news/scripts/week-1"
+    alias = f"{requested}/"
+    snapshot = f"https://web.archive.org/web/{STAMP}/{alias}"
+    canonical_link = f'<link rel="canonical" href="{alias}">'
+    session = Session(
+        [
+            response(
+                {
+                    "archived_snapshots": {
+                        "closest": {"available": True, "status": 200, "timestamp": STAMP, "url": snapshot}
+                    }
+                }
+            ),
+            response(canonical_link, content_type="text/html"),
+            response(canonical_link, content_type="text/html"),
+        ]
+    )
+    page = PageRecord(url=requested, live_status="live")
+    WaybackClient(session=session, clock=lambda: NOW, sleep=lambda seconds: None).verify(page)
+    assert page.archive_status == "archived"
+
+
 @pytest.mark.parametrize(
     "alias_html",
     [
         "<p>No canonical link</p>",
         '<link rel="canonical" href="https://palewi.re/docs/coding-the-news/scripts/week-2/">',
+        '<link rel="canonical" href="https://example.com/docs/coding-the-news/scripts/week-1/">',
     ],
 )
 def test_verify_rejects_unproven_trailing_slash_snapshot_alias(alias_html: str) -> None:

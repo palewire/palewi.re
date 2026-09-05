@@ -478,6 +478,113 @@ def test_live_missing_and_completed_sweep_restart(tmp_path: Path, monkeypatch: p
     assert state.discovery_complete
 
 
+def test_canonical_slash_alias_uses_canonical_link_base(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Fetch a trailing-slash canonical page before following relative links.
+
+    Args:
+        tmp_path: State directory.
+        monkeypatch: Replaces network access.
+
+    Returns:
+        None.
+
+    Examples:
+        ``/docs/course`` discovers links from ``/docs/course/``.
+    """
+    alias = f"{ORIGIN}/docs/course"
+    canonical = f"{alias}/"
+    chapter = f"{canonical}scripts/week-1"
+    calls: list[str] = []
+    responses = {
+        alias: response(f'<link rel="canonical" href="{canonical}"><a href="scripts/week-1">Week 1</a>'),
+        canonical: response('<a href="scripts/week-1">Week 1</a>'),
+        chapter: response("Week 1"),
+    }
+
+    def get(_session: requests.Session, url: str, **kwargs: object) -> requests.Response:
+        """Return a fixture response and record its URL.
+
+        Args:
+            _session: Unused session.
+            url: Requested URL.
+            **kwargs: Request options.
+
+        Returns:
+            Configured fixture response.
+
+        Examples:
+            The alias page is fetched before its canonical page.
+        """
+        calls.append(url)
+        return responses[url]
+
+    monkeypatch.setattr(requests.Session, "get", get)
+    state = Manifest()
+    PageDiscovery(state, ManifestStore(tmp_path / "state.json"), delay=0).run([alias], limit=3)
+    assert calls == [alias, canonical, chapter]
+    assert state.pages[alias].live_status == "redirect"
+    assert f"{ORIGIN}/docs/scripts/week-1" not in state.pages
+
+
+@pytest.mark.parametrize(
+    "canonical",
+    ["https://palewi.re/docs/other/", "https://example.com/docs/course/"],
+)
+def test_unrelated_or_offsite_canonical_is_not_an_alias(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, canonical: str
+) -> None:
+    """Ignore canonicals that are not the one permitted slash alias.
+
+    Args:
+        tmp_path: State directory.
+        monkeypatch: Replaces network access.
+        canonical: Unrelated or off-site canonical URL.
+
+    Returns:
+        None.
+
+    Examples:
+        An external canonical does not redirect discovery outside the site.
+    """
+    url = f"{ORIGIN}/docs/course"
+    monkeypatch.setattr(
+        requests.Session,
+        "get",
+        lambda *args, **kwargs: response(f'<link rel="canonical" href="{canonical}">'),
+    )
+    state = Manifest()
+    PageDiscovery(state, ManifestStore(tmp_path / "state.json"), delay=0).run([url])
+    assert state.pages[url].live_status == "live"
+    assert not state.discovery_queue
+
+
+@pytest.mark.parametrize("status", [403, 404, 410])
+def test_broken_page_links_are_gaps_not_run_failures(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, status: int
+) -> None:
+    """Retain inaccessible links without treating them as service failures.
+
+    Args:
+        tmp_path: State directory.
+        monkeypatch: Replaces network access.
+        status: Broken-link HTTP status.
+
+    Returns:
+        None.
+
+    Examples:
+        A 403 stays visible but is not retried as an outage.
+    """
+    url = f"{ORIGIN}/broken/"
+    monkeypatch.setattr(requests.Session, "get", lambda *args, **kwargs: response(status=status))
+    state = Manifest()
+    crawler = PageDiscovery(state, ManifestStore(tmp_path / "state.json"), delay=0)
+    crawler.run([url])
+    assert state.discovery_errors[url] == f"HTTP {status}"
+    assert state.pages[url].live_status == ("error" if status == 403 else "missing")
+    assert not crawler.failures
+
+
 @pytest.mark.parametrize("status", [429, 503])
 def test_service_failures_defer_remaining_discovery(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, status: int
@@ -499,7 +606,9 @@ def test_service_failures_defer_remaining_discovery(
     second = f"{ORIGIN}/second/"
     monkeypatch.setattr(requests.Session, "get", lambda *args, **kwargs: response(status=status))
     state = Manifest()
-    attempted = PageDiscovery(state, ManifestStore(tmp_path / "state.json"), delay=0).run([first, second])
+    crawler = PageDiscovery(state, ManifestStore(tmp_path / "state.json"), delay=0)
+    attempted = crawler.run([first, second])
     assert attempted == 1
     assert state.discovery_queue == [second, first]
     assert not state.discovery_seen
+    assert crawler.failures

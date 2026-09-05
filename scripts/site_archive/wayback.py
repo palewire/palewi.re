@@ -244,7 +244,8 @@ class WaybackClient:
         alias_url = normalize_url(original)
         if alias_url is None:
             raise ArchiveError("Wayback snapshot does not match the requested page URL")
-        if self._live_canonical(page_url) != page_url or self._live_canonical(alias_url) != page_url:
+        canonical = self._live_canonical(page_url)
+        if canonical != self._live_canonical(alias_url) or canonical not in {page_url, alias_url}:
             raise ArchiveError("Wayback snapshot trailing-slash alias cannot be proven by live canonical links")
         return normalized, timestamp
 

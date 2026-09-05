@@ -37,9 +37,9 @@ HTML and checks Wayback again. It saves the pending request before contacting
 the capture service, so an interrupted response does not lead to an immediate
 duplicate submission. Availability lookups time out after 30 seconds; capture
 requests have a separate 120-second timeout. Due pending captures are checked
-before pages that have never been checked. A returned snapshot URL that differs
-only by one trailing slash is accepted only after both live pages report the
-requested canonical URL.
+before pages that have never been checked. A returned snapshot URL that differs only by one trailing slash is accepted
+only after both live pages report the same canonical URL, which must be one
+of those two slash variants.
 
 ## Durable branch persistence
 
@@ -101,14 +101,19 @@ responses are recorded as errors, not converted to `missing`; routine backlog
 is different from an outage or configuration failure.
 
 Discovery starts with the production build, the live sitemap, internal links,
-and same-site documentation catalogs. Public documentation navigation is
-followed when a sitemap is absent or unavailable. A docs sitemap returning
-403, 404, or 410 is reported as an optional discovery gap so navigation can
-continue; other discovery and service errors fail the run and remain visible
-in the report. A docs site published by another repository may still have
-unlinked pages that cannot be proven discoverable without that publisher's
-complete inventory. Interrupted scans keep their queue and known URLs for a
-later run.
+and same-site documentation catalogs. A page that declares a sole same-site
+canonical URL differing only by a trailing slash is treated as an alias; its
+links are ignored and the canonical page is fetched instead so relative links
+use the right base URL. Public documentation navigation is followed when a
+sitemap is absent or unavailable. Links returning 403, 404, or 410 remain
+visible as coverage gaps and are never submitted for capture. They are
+backlog items, not a failed archive service run. Timeouts, rate limits, server
+errors, malformed responses, and persistence failures remain operational
+errors that fail the current run. Earlier gaps stay in the report without
+making later clean runs fail. A docs site published by another repository may
+still have unlinked pages that cannot be proven discoverable without that
+publisher's complete inventory. Interrupted scans keep their queue and known
+URLs for a later run.
 
 A blocked page is not submitted again automatically. Resolve the stated
 restriction first. To retry, fetch into a fresh directory, change that page's
