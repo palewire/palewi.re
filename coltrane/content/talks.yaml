@@ -1,4 +1,25 @@
 talks:
+- title: Understanding Europe’s heatwave
+  venue: Reuters On Assignment
+  location: YouTube
+  date: '2026-06-26'
+  video_url: https://www.youtube.com/watch?v=me0DlYHkJKE&t=28s
+  slug: understanding-europes-heatwave
+  local_video_url: /media/talks/understanding-europes-heatwave/video.webm
+  transcript_template: coltrane/talks/understanding-europes-heatwave-transcript.html
+  transcript_text_url: /static/talks/understanding-europes-heatwave/transcript.txt
+  captions_url: /static/talks/understanding-europes-heatwave/captions.vtt
+- title: Showing Your Work with Ben Welsh
+  venue: The Data Journalism Podcast
+  location: Spotify
+  date: '2026-05-27'
+  audio_url: https://creators.spotify.com/pod/profile/ddjpodcast/episodes/Showing-Your-Work-with-Ben-Welsh-e3jusc0
+  audio_download_url: https://anchor.fm/s/47aac444/podcast/play/120598336/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-4-27%2F424964500-44100-2-2a73f8e2d8bbc.m4a
+  slug: showing-your-work-with-ben-welsh
+  local_audio_url: /media/talks/showing-your-work-with-ben-welsh/audio.m4a
+  transcript_template: coltrane/talks/showing-your-work-with-ben-welsh-transcript.html
+  transcript_text_url: /static/talks/showing-your-work-with-ben-welsh/transcript.txt
+  captions_url: /static/talks/showing-your-work-with-ben-welsh/captions.vtt
 - title: Introducing the Reuters Climate Monitor
   venue: Responsible Business USA 2026
   location: Boston
@@ -101,6 +122,16 @@ talks:
   venue: Canva meetup
   location: New York City
   date: '2025-05-20'
+- title: A conversation with Ben Welsh
+  venue: IRE Radio
+  location: SoundCloud
+  date: '2025-05-20'
+  audio_url: https://soundcloud.com/ire-nicar/a-conversation-with-ben-welsh
+  slug: a-conversation-with-ben-welsh
+  local_audio_url: /media/talks/a-conversation-with-ben-welsh/audio.m4a
+  transcript_template: coltrane/talks/a-conversation-with-ben-welsh-transcript.html
+  transcript_text_url: /static/talks/a-conversation-with-ben-welsh/transcript.txt
+  captions_url: /static/talks/a-conversation-with-ben-welsh/captions.vtt
 - title: 'Good Trouble: Let''s use AI to do journalism'
   venue: Columbia Scholastic Press Association
   location: New York City
@@ -143,6 +174,17 @@ talks:
   venue: Knight Center at UT-Austin
   location: an online class
   date: '2024-05-11'
+- title: 'Episode 20: Data journalism (feat. Ben Welsh)'
+  venue: Unspun
+  location: Pocket Casts
+  date: '2024-06-11'
+  audio_url: https://pocketcasts.com/podcast/unspun/34ea4330-2b54-013c-f664-0acc26574db2/episode-20-data-journalism-feat-ben-welsh/5ae8fd71-6fdc-4b46-bd0c-53d0accb80e2
+  audio_download_url: https://pdst.fm/e/dts.podtrac.com/redirect.mp3/audio3.redcircle.com/episodes/22b7fdfb-8c77-4179-be5b-1083b9c69fd4/stream.mp3
+  slug: unspun-data-journalism
+  local_audio_url: /media/talks/unspun-data-journalism/audio.mp3
+  transcript_template: coltrane/talks/unspun-data-journalism-transcript.html
+  transcript_text_url: /static/talks/unspun-data-journalism/transcript.txt
+  captions_url: /static/talks/unspun-data-journalism/captions.vtt
 - title: 'Bare Facts First: How Reuters uses Datawrapper to create, automate and disseminate
     hundreds of charts each week'
   venue: Data Visualization Society
