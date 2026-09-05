@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "d9c39cdfdf2caaee3a9d8413c9061a483195bccbfe769aafb70f3aec86fe4e84"),
+        ("/talks/", "970dd096ab9dd688148c8caa62f5444ed42239aa67e699bd4fdf4eb8861262b6"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -196,6 +196,19 @@ def test_harnessing_ai_talk_page_is_video_only(client):
     assert '<source src="/media/talks/harnessing-ai/video.mp4" type="video/mp4">' in content
     assert 'poster="/media/talks/harnessing-ai/poster.jpg"' in content
     assert 'aria-labelledby="slides"' not in content
+
+
+def test_what_i_learned_talk_page_has_hosted_vimeo_recording_and_transcript(client):
+    response = client.get("/talks/what-i-learned/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>What I learned</h1>" in content
+    assert '<source src="/media/talks/what-i-learned/video.mp4" type="video/mp4">' in content
+    assert 'kind="captions" src="/static/talks/what-i-learned/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
 
 
 def test_first_pull_request_talk_page_has_hosted_recording(client):
@@ -281,6 +294,10 @@ def test_talk_list_keeps_new_appearance_detail_and_source_links(client):
     content = client.get("/talks/").content.decode()
 
     expected_links = (
+        (
+            "/talks/what-i-learned/",
+            "https://vimeo.com/214875675#t=407s",
+        ),
         (
             "/talks/showing-your-work-with-ben-welsh/",
             "https://creators.spotify.com/pod/profile/ddjpodcast/episodes/Showing-Your-Work-with-Ben-Welsh-e3jusc0",

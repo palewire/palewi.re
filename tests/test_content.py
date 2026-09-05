@@ -428,6 +428,19 @@ def test_data_journalism_workshop_uses_locally_hosted_recording():
     assert talk.slides_url == ""
 
 
+def test_what_i_learned_talk_preserves_vimeo_source_and_adds_local_assets():
+    talk = next(talk for talk in load_talks() if talk.slug == "what-i-learned")
+
+    assert talk.title == "What I learned"
+    assert talk.venue == "Union Club"
+    assert talk.location == "Chicago"
+    assert talk.date == datetime.date(2017, 4, 20)
+    assert talk.video_url == "https://vimeo.com/214875675#t=407s"
+    assert talk.local_video_url == "/media/talks/what-i-learned/video.mp4"
+    assert talk.transcript_text_url == "/static/talks/what-i-learned/transcript.txt"
+    assert talk.captions_url == "/static/talks/what-i-learned/captions.vtt"
+
+
 def test_local_data_journalism_podcast_has_audio_sources_and_transcript():
     talk = next(talk for talk in load_talks() if talk.slug == "local-data-journalism-podcast")
 
