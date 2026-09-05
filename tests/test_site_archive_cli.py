@@ -519,4 +519,73 @@ def test_capture_rechecks_public_page(tmp_path: Path, monkeypatch: pytest.Monkey
     run.capture(1, float("inf"))
     assert calls == (["capture"] if live_status == "live" else [])
     assert ManifestStore(path).load().pages[URL].live_status == live_status
-    assert bool(run.failures) is (live_status != "live")
+    assert bool(run.failures) is (live_status == "error")
+
+
+def test_stale_discovery_gaps_do_not_fail_a_clean_discovery_batch(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Report an old gap without failing a later clean command.
+
+    Args:
+        tmp_path: State directory.
+        monkeypatch: Replaces build and discovery work.
+
+    Returns:
+        None.
+
+    Examples:
+        A historical 404 remains in the manifest but exits successfully.
+    """
+    path = tmp_path / "state.json"
+    state = Manifest(discovery_errors={f"{URL}missing/": "HTTP 404"})
+    ManifestStore(path).save(state)
+    monkeypatch.setattr(archive_cli, "build_seeds", lambda _build_dir: [])
+    monkeypatch.setattr(archive_cli.PageDiscovery, "run", lambda *args, **kwargs: 0)
+    result = CliRunner().invoke(cli, ["discover", "--manifest", str(path)])
+    assert result.exit_code == 0
+    assert f"{URL}missing/" in ManifestStore(path).load().discovery_errors
+
+
+def test_capture_skips_nonlive_candidates_and_continues(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Defer an alias candidate while continuing to the next live page.
+
+    Args:
+        tmp_path: State directory.
+        monkeypatch: Replaces discovery and capture requests.
+
+    Returns:
+        None.
+
+    Examples:
+        A canonical alias is never submitted to Save Page Now.
+    """
+    path = tmp_path / "state.json"
+    state = seed_manifest(path, "missing")
+    alias = state.page("https://palewi.re/alias/")
+    alias.live_status = "live"
+    alias.archive_status = "missing"
+    ManifestStore(path).save(state)
+    calls: list[str] = []
+
+    def visit(discovery: archive_cli.PageDiscovery, url: str) -> None:
+        """Mark one candidate as an alias and leave the other live.
+
+        Args:
+            discovery: Discovery instance.
+            url: Requested candidate URL.
+
+        Returns:
+            None.
+
+        Examples:
+            An alias is deferred before archive submission.
+        """
+        discovery.manifest.pages[url].live_status = "redirect" if url == alias.url else "live"
+
+    monkeypatch.setattr(archive_cli.PageDiscovery, "visit", visit)
+    monkeypatch.setattr(WaybackClient, "capture", lambda _client, page: calls.append(page.url))
+    run = ArchiveRun(path)
+    run.capture(2, float("inf"))
+    assert calls == [URL]
+    assert not run.failures

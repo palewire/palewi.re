@@ -11,7 +11,13 @@ import requests
 
 from coltrane.content_loaders import load_docs
 from scripts.check_built_site import ERROR_PAGES, PageParser, public_url_for_page
-from scripts.site_archive.manifest import ArchiveError, Manifest, ManifestStore, utc_now
+from scripts.site_archive.manifest import (
+    ArchiveError,
+    Manifest,
+    ManifestStore,
+    paths_differ_only_by_trailing_slash,
+    utc_now,
+)
 
 ORIGIN = "https://palewi.re"
 USER_AGENT = "palewi.re archive inventory (https://github.com/palewire/palewi.re)"
@@ -141,6 +147,7 @@ class PageDiscovery:
         self.delay = delay
         self.session = requests.Session()
         self.session.headers["User-Agent"] = USER_AGENT
+        self.failures: list[str] = []
 
     def enqueue(self, url: str) -> None:
         """Queue a URL once during this discovery sweep.
@@ -176,7 +183,6 @@ class PageDiscovery:
         """
         if not self.manifest.discovery_queue:
             self.manifest.discovery_seen = []
-            self.manifest.discovery_errors = {}
             self.manifest.discovery_started_at = utc_now()
             # Revisit old pages too: a temporarily absent link must not erase them.
             seeds = list(dict.fromkeys([*seeds, *self.manifest.pages]))
@@ -192,6 +198,7 @@ class PageDiscovery:
                     self.visit(url)
                 except (requests.RequestException, ArchiveError) as error:
                     self.manifest.discovery_errors[url] = str(error)
+                    self.failures.append(f"{url}: {error}")
                     defer = isinstance(error, (requests.ConnectionError, requests.Timeout)) or (
                         isinstance(error, requests.HTTPError)
                         and error.response is not None
@@ -257,9 +264,9 @@ class PageDiscovery:
                 if destination and (is_page_url(destination) or destination.endswith(".xml")):
                     self.enqueue(destination)
                 return
-            if response.status_code in {404, 410} or (response.status_code == 403 and url.endswith("/sitemap.xml")):
+            if response.status_code in {404, 410, 403}:
                 if page:
-                    page.live_status = "missing"
+                    page.live_status = "missing" if response.status_code in {404, 410} else "error"
                     page.live_error = f"Live page returned HTTP {response.status_code}"
                 self.manifest.discovery_errors[url] = f"HTTP {response.status_code}"
                 self.manifest.discovery_complete = False
@@ -283,6 +290,13 @@ class PageDiscovery:
                 page.live_status = "live"
                 parser = PageParser()
                 parser.feed(bytes(body).decode(response.encoding or "utf-8", errors="replace"))
+                if len(parser.canonicals) == 1:
+                    canonical = normalize_url(parser.canonicals[0], url)
+                    if canonical and paths_differ_only_by_trailing_slash(urlsplit(url).path, urlsplit(canonical).path):
+                        page.live_status = "redirect"
+                        self.enqueue(canonical)
+                        self.manifest.discovery_errors.pop(url, None)
+                        return
                 for link in parser.links:
                     destination = normalize_url(link.value, url)
                     if link.tag == "a" and destination and is_page_url(destination):

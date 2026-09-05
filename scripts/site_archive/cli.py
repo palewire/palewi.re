@@ -49,7 +49,7 @@ def report_text(manifest: Manifest) -> str:
         f"| Live HTML pages | {live_counts['live']} |",
         f"| Live pages missing or unavailable | {live_counts['missing'] + live_counts['error']} |",
         f"| Live pages not yet checked | {live_counts['unknown']} |",
-        f"| Redirect aliases (not separate pages) | {live_counts['redirect']} |",
+        f"| Redirect or canonical aliases (not separate pages) | {live_counts['redirect']} |",
         f"| Discovery requests remaining | {len(manifest.discovery_queue)} |",
         f"| Discovery problems | {len(manifest.discovery_errors)} |",
         "",
@@ -183,7 +183,9 @@ class ArchiveRun:
             if time.monotonic() >= deadline:
                 break
             if not self.check_live(page):
-                break
+                if self.failures:
+                    break
+                continue
             failures_before = len(self.failures)
             try:
                 client.capture(page)
@@ -215,11 +217,12 @@ class ArchiveRun:
             page.live_error = str(error)
             self.manifest.discovery_errors[page.url] = str(error)
             self.manifest.discovery_complete = False
+            self.failures.append(f"{page.url}: {error}")
         finally:
             discovery.session.close()
             self.store.save(self.manifest)
         if page.live_status != "live":
-            self.failures.append(f"{page.url}: capture deferred; live page is {page.live_status}")
+            click.echo(f"{page.url}: capture deferred; live page is {page.live_status}")
             return False
         return True
 
@@ -440,14 +443,9 @@ def execute(
         try:
             if action in {"discover", "sync"}:
                 discovery_deadline = start + max_seconds / 3 if action == "sync" else deadline
-                PageDiscovery(run.manifest, run.store).run(
-                    build_seeds(build_dir), limit=max_pages, deadline=discovery_deadline
-                )
-                run.failures.extend(
-                    f"{url}: {error}"
-                    for url, error in run.manifest.discovery_errors.items()
-                    if not (url.endswith("/sitemap.xml") and error in {"HTTP 403", "HTTP 404", "HTTP 410"})
-                )
+                discovery = PageDiscovery(run.manifest, run.store)
+                discovery.run(build_seeds(build_dir), limit=max_pages, deadline=discovery_deadline)
+                run.failures.extend(discovery.failures)
             if action in {"verify", "sync"}:
                 verify_deadline = start + max_seconds * 2 / 3 if action == "sync" and not lookup_only else deadline
                 run.verify(max_checks, verify_deadline)
