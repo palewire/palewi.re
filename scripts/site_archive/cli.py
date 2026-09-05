@@ -114,7 +114,7 @@ class ArchiveRun:
         self.wayback_failed = False
 
     def verify(self, limit: int, deadline: float) -> None:
-        """Check live pages, prioritizing unknown state and older checks.
+        """Check live pages, prioritizing pending confirmations, then fair ordering.
 
         Args:
             limit: Maximum page lookups.
@@ -133,7 +133,12 @@ class ArchiveRun:
                 for page in self.manifest.pages.values()
                 if page.live_status == "live" and page.archive_status != "blocked" and is_due(page)
             ),
-            key=lambda page: (bool(page.last_check_at), page.last_check_at, page.url),
+            key=lambda page: (
+                page.archive_status != "pending",
+                bool(page.last_check_at),
+                page.last_check_at,
+                page.url,
+            ),
         )
         for page in pages[:limit]:
             if time.monotonic() >= deadline:

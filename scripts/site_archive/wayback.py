@@ -50,6 +50,7 @@ class WaybackClient:
         self,
         *,
         timeout: float = 30.0,
+        capture_timeout: float = 120.0,
         capture_delay: float = 12.0,
         lookup_delay: float = 1.0,
         session: HttpSession | None = None,
@@ -62,7 +63,8 @@ class WaybackClient:
         """Configure a rate-limited Wayback client.
 
         Args:
-            timeout: Per-request timeout in seconds.
+            timeout: Availability lookup timeout in seconds.
+            capture_timeout: Save Page Now capture timeout in seconds.
             capture_delay: Minimum delay between capture submissions.
             lookup_delay: Minimum delay between availability lookups.
             session: Optional requests session for testing or customization.
@@ -76,9 +78,10 @@ class WaybackClient:
             None.
 
         Examples:
-            ``WaybackClient(timeout=10.0).verify(page)`` checks one page.
+            ``WaybackClient(timeout=10.0, capture_timeout=120.0).verify(page)`` checks one page.
         """
         self.timeout = timeout
+        self.capture_timeout = capture_timeout
         self.capture_delay = capture_delay
         self.lookup_delay = lookup_delay
         self.session = session or requests.Session()
@@ -184,7 +187,7 @@ class WaybackClient:
                 page.url,
                 user_agent=USER_AGENT,
                 accept_cache=True,
-                timeout=max(1, int(self.timeout)),
+                timeout=max(1, int(self.capture_timeout)),
                 authenticate=True,
             )
             if not isinstance(snapshot_url, str):

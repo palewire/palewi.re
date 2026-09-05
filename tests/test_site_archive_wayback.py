@@ -292,10 +292,58 @@ def test_capture_rechecks_then_records_pending_and_respects_rate_delay(monkeypat
         {
             "user_agent": USER_AGENT,
             "accept_cache": True,
-            "timeout": 30,
+            "timeout": 120,
             "authenticate": True,
         }
     ]
+
+
+def test_lookup_and_capture_timeouts_are_separate(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Use dedicated timeouts for availability checks and capture submissions.
+
+    Args:
+        monkeypatch: Supplies capture credentials.
+
+    Returns:
+        None.
+
+    Examples:
+        A short availability timeout does not shorten a slow capture request.
+    """
+    monkeypatch.setenv("SAVEPAGENOW_ACCESS_KEY", "key")
+    monkeypatch.setenv("SAVEPAGENOW_SECRET_KEY", "secret")
+    submitted: list[dict[str, object]] = []
+    session = Session(response({"archived_snapshots": {}}))
+    page = PageRecord(url=URL, live_status="live", archive_status="missing")
+
+    def submit(url: str, **kwargs: object) -> str:
+        """Record the Save Page Now options used for one capture.
+
+        Args:
+            url: Submitted page URL.
+            **kwargs: Save Page Now options.
+
+        Returns:
+            Pending snapshot URL.
+
+        Examples:
+            A capture uses the configured capture timeout.
+        """
+        assert url == URL
+        submitted.append(kwargs)
+        return SNAPSHOT
+
+    archive = WaybackClient(
+        timeout=7.5,
+        capture_timeout=80.9,
+        session=session,
+        capture_page=submit,
+        clock=lambda: NOW,
+        sleep=lambda seconds: None,
+    )
+    archive.capture(page)
+    assert session.calls[0][1]["timeout"] == 7.5
+    assert submitted[0]["timeout"] == 80
 
 
 def test_capture_keeps_response_headers_and_bodies_out_of_error_state(monkeypatch: pytest.MonkeyPatch) -> None:
