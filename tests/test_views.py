@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "c07868f60596cc6e3c635fdd4d52890ddadf2509a934977c92cd2fac726de416"),
+        ("/talks/", "1dda73834fbf2fc3ac6b93702b47388012f4e4d4e6be1435355286689014712f"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -270,6 +270,20 @@ def test_storytelling_with_graphics_talk_has_a_local_recording_and_transcript(cl
     assert 'kind="captions" src="/static/talks/storytelling-with-graphics/captions.vtt"' in content
     assert "Show the timestamped transcript" in content
     assert "All right. Hello, everybody, and welcome." in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert '<h2 id="slides">Slides</h2>' not in content
+
+
+def test_scaling_scrapers_talk_has_a_local_recording_and_transcript(client):
+    response = client.get("/talks/scaling-up-scrapers-prefect-google-cloud/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert 'src="/media/talks/scaling-up-scrapers-prefect-google-cloud/video.mp4"' in content
+    assert 'kind="captions" src="/static/talks/scaling-up-scrapers-prefect-google-cloud/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "hey everybody welcome back to another" in content
     assert ">Recording video<" in content
     assert ">Timestamped transcript<" in content
     assert '<h2 id="slides">Slides</h2>' not in content

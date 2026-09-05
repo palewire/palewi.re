@@ -277,7 +277,11 @@ talks:
   location: Twitch
   date: '2022-04-13'
   video_url: https://www.youtube.com/watch?v=Goi8Ezqs-dM
-  slides_url: https://biglocalnews.org/posts/2022/04/14/prefect-live-scaling-scraping-with-gcp.html
+  slug: scaling-up-scrapers-prefect-google-cloud
+  local_video_url: /media/talks/scaling-up-scrapers-prefect-google-cloud/video.mp4
+  transcript_template: coltrane/talks/scaling-up-scrapers-prefect-google-cloud-transcript.html
+  transcript_text_url: /static/talks/scaling-up-scrapers-prefect-google-cloud/transcript.txt
+  captions_url: /static/talks/scaling-up-scrapers-prefect-google-cloud/captions.vtt
 - title: First Visual Story
   venue: NICAR
   location: Atlanta
