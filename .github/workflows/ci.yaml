@@ -36,6 +36,25 @@ jobs:
       - name: Install dev dependencies
         run: make install
 
+      - name: Verify changelog label
+        if: github.event_name == 'pull_request'
+        env:
+          PR_LABELS: ${{ toJson(github.event.pull_request.labels.*.name) }}
+        run: |
+          category_count="$(
+            jq '[
+              any(.[]; . == "feature"),
+              any(.[]; . == "improvement" or . == "enhancement"),
+              any(.[]; . == "fix"),
+              any(.[]; . == "maintenance" or . == "dependencies" or . == "github_actions"),
+              any(.[]; . == "skip-changelog")
+            ] | map(select(.)) | length' <<< "$PR_LABELS"
+          )"
+          test "$category_count" -eq 1 || {
+            echo "Apply exactly one changelog category: feature, improvement, fix, maintenance, or skip-changelog." >&2
+            exit 1
+          }
+
       - name: Check with Ruff
         run: make lint
 
