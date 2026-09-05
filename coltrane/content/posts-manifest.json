@@ -1,6 +1,6 @@
 {
   "legacy_pre_lang_post_count": 25,
-  "post_count": 70,
+  "post_count": 69,
   "posts": [
     {
       "body_sha256": "7061b29a316090dd15bd99c72c176be91dc3436f634419295c0ff5e65c8e0ce0",
@@ -22,13 +22,6 @@
       "permalink": "/posts/2008/03/24/go-snoop-yourself/",
       "published_at": "2008-03-24T06:46:31-07:00",
       "sha256": "ecce8cabf250dd4dd47076be18f5ca0fe5890c1fe27902f57c25099b7bf1a4b8"
-    },
-    {
-      "body_sha256": "412c50671a731e3d1092954275e553b78b38eb4ba45a04e3f68636ba1117b8df",
-      "path": "posts/2008-04-05--python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term.md",
-      "permalink": "/posts/2008/04/05/python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term/",
-      "published_at": "2008-04-05T08:49:58-07:00",
-      "sha256": "6e438f0261b6710761e1f3ab32c0778e27a13d091b7067b8071d19707faf28ef"
     },
     {
       "body_sha256": "d6d66f3d1992c1419bbdc47cc5256a2eb640bdfdf6a35d04b7d75d3b55bc6c4a",
@@ -493,12 +486,12 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "4ba29ba51de06463b3a52de539abd9b27a3e70d4b309a8f8975f413252a06b56",
+  "posts_fingerprint_sha256": "657ae40a1671572a06a7518e29eb86098dd03da372d77af7f8546e05e780962e",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,
-    "live": 72,
-    "total": 166
+    "live": 71,
+    "total": 165
   },
   "schema_version": 1
 }
