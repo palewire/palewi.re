@@ -428,11 +428,43 @@ def test_data_journalism_workshop_uses_locally_hosted_recording():
     assert talk.slides_url == ""
 
 
+def test_local_data_journalism_podcast_has_audio_sources_and_transcript():
+    talk = next(talk for talk in load_talks() if talk.slug == "local-data-journalism-podcast")
+
+    assert talk.audio_url.startswith("https://podcasters.spotify.com/pod/show/ddjpodcast/")
+    assert talk.audio_download_url.startswith("https://anchor.fm/s/47aac444/podcast/play/47380538/")
+    assert talk.local_audio_url == "/media/talks/local-data-journalism-podcast/audio.m4a"
+    assert talk.transcript_text_url == "/static/talks/local-data-journalism-podcast/transcript.txt"
+
+
+def test_talk_audio_fields_load(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: Podcast\n"
+        "    venue: A podcast\n"
+        "    location: Remote\n"
+        "    date: '2024-01-01'\n"
+        "    audio_url: https://podcasts.example.com/episode\n"
+        "    audio_download_url: https://cdn.example.com/episode.m4a\n"
+        "    local_audio_url: /media/talks/podcast/audio.mp3\n"
+    )
+
+    talk = load_talks(p)[0]
+
+    assert talk.audio_url == "https://podcasts.example.com/episode"
+    assert talk.audio_download_url == "https://cdn.example.com/episode.m4a"
+    assert talk.local_audio_url == "/media/talks/podcast/audio.mp3"
+
+
 def test_talk_optional_fields_default_empty(tmp_path):
     p = tmp_path / "talks.yaml"
     p.write_text("talks:\n  - title: T\n    venue: V\n    location: L\n    date: '2024-01-01'\n")
     talks = load_talks(p)
     assert talks[0].video_url == ""
+    assert talks[0].audio_url == ""
+    assert talks[0].audio_download_url == ""
+    assert talks[0].local_audio_url == ""
     assert talks[0].slides_url == ""
     assert talks[0].guide_url == ""
     assert talks[0].archive_url == ""

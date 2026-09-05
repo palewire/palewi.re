@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "1dda73834fbf2fc3ac6b93702b47388012f4e4d4e6be1435355286689014712f"),
+        ("/talks/", "2ebc8fd0e060a5f44dc334f4dfe916fd80dbdcfa5ba04653e313d4c85f34a679"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -210,6 +210,22 @@ def test_first_pull_request_talk_page_has_hosted_recording(client):
     assert 'kind="captions" src="/static/talks/first-pull-request/captions.vtt"' in content
     assert "Show the timestamped transcript" in content
     assert 'aria-labelledby="slides"' not in content
+
+
+def test_local_data_journalism_podcast_has_hosted_audio_and_transcript(client):
+    response = client.get("/talks/local-data-journalism-podcast/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>The state of local data journalism</h1>" in content
+    assert '<source src="/media/talks/local-data-journalism-podcast/audio.m4a">' in content
+    assert 'kind="captions" src="/static/talks/local-data-journalism-podcast/captions.vtt"' in content
+    assert "Listen on the original podcast site" in content
+    assert "Show the timestamped transcript" in content
+    assert "Hello, and welcome to the Data Journalism Podcast." in content
+    assert ">Recording audio<" in content
+    assert ">Timestamped transcript<" in content
+    assert ">00:21</time>" in content
 
 
 def test_fast_first_python_notebook_talk_embeds_youtube_recording(client):

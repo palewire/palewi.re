@@ -301,7 +301,13 @@ talks:
   venue: The Data Journalism Podcast
   location: Zoom
   date: '2022-02-09'
-  video_url: https://anchor.fm/ddjpodcast/episodes/Data-journalism-for-the-people--Ben-Welsh-and-MaryJo-Webster-on-the-state-of-local-data-journalism-e1e4ejq
+  audio_url: https://podcasters.spotify.com/pod/show/ddjpodcast/episodes/Data-journalism-for-the-people--Ben-Welsh-and-MaryJo-Webster-on-the-state-of-local-data-journalism-e1e4ejq
+  audio_download_url: https://anchor.fm/s/47aac444/podcast/play/47380538/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-1-9%2Fce3905b3-8474-57b3-0bf7-1f1db81fd87c.m4a
+  slug: local-data-journalism-podcast
+  local_audio_url: /media/talks/local-data-journalism-podcast/audio.m4a
+  transcript_template: coltrane/talks/local-data-journalism-podcast-transcript.html
+  transcript_text_url: /static/talks/local-data-journalism-podcast/transcript.txt
+  captions_url: /static/talks/local-data-journalism-podcast/captions.vtt
 - title: How the Low Angeles Times overhauled its graphics workflow
   venue: OpenNews Community Call
   location: SoundCloud
