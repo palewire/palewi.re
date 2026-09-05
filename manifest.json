@@ -2,9 +2,6 @@
   "discovery_complete": false,
   "discovery_errors": {},
   "discovery_queue": [
-    "https://palewi.re/code/",
-    "https://palewi.re/docs/",
-    "https://palewi.re/docs/air-quality-index/",
     "https://palewi.re/docs/air-quality-index/sitemap.xml",
     "https://palewi.re/docs/atcf-data-parser/",
     "https://palewi.re/docs/atcf-data-parser/sitemap.xml",
@@ -213,12 +210,16 @@
     "https://palewi.re/talks/unspun-data-journalism/",
     "https://palewi.re/talks/what-is-a-data-journalist/",
     "https://palewi.re/who-is-ben-welsh/",
-    "https://palewi.re/docs/ire-archive-slide-deck/"
+    "https://palewi.re/docs/ire-archive-slide-deck/",
+    "https://palewi.re/work/"
   ],
   "discovery_seen": [
     "https://palewi.re/apps/",
     "https://palewi.re/bots/",
-    "https://palewi.re/clips/"
+    "https://palewi.re/clips/",
+    "https://palewi.re/code/",
+    "https://palewi.re/docs/",
+    "https://palewi.re/docs/air-quality-index/"
   ],
   "discovery_started_at": "2026-09-05T13:30:54.134869Z",
   "pages": {
@@ -274,54 +275,54 @@
       "url": "https://palewi.re/clips/"
     },
     "https://palewi.re/code/": {
-      "archive_status": "unknown",
+      "archive_status": "missing",
       "archive_url": "",
       "attempts": 0,
-      "last_check_at": "",
-      "last_check_status": "",
+      "last_check_at": "2026-09-05T13:31:32.570116Z",
+      "last_check_status": "success",
       "last_error": "",
       "last_submit_at": "",
       "last_verified_at": "",
-      "live_checked_at": "",
+      "live_checked_at": "2026-09-05T13:31:31.106304Z",
       "live_error": "",
-      "live_status": "unknown",
+      "live_status": "live",
       "next_retry_at": "",
       "pending_archive_url": "",
       "snapshot_at": "",
       "url": "https://palewi.re/code/"
     },
     "https://palewi.re/docs/": {
-      "archive_status": "unknown",
-      "archive_url": "",
+      "archive_status": "archived",
+      "archive_url": "https://web.archive.org/web/20260824154840/https://palewi.re/docs/",
       "attempts": 0,
-      "last_check_at": "",
-      "last_check_status": "",
+      "last_check_at": "2026-09-05T13:31:33.575198Z",
+      "last_check_status": "success",
       "last_error": "",
       "last_submit_at": "",
-      "last_verified_at": "",
-      "live_checked_at": "",
+      "last_verified_at": "2026-09-05T13:31:33.575198Z",
+      "live_checked_at": "2026-09-05T13:31:31.936756Z",
       "live_error": "",
-      "live_status": "unknown",
+      "live_status": "live",
       "next_retry_at": "",
       "pending_archive_url": "",
-      "snapshot_at": "",
+      "snapshot_at": "20260824154840",
       "url": "https://palewi.re/docs/"
     },
     "https://palewi.re/docs/air-quality-index/": {
-      "archive_status": "unknown",
-      "archive_url": "",
+      "archive_status": "archived",
+      "archive_url": "https://web.archive.org/web/20260905014116/https://palewi.re/docs/air-quality-index/",
       "attempts": 0,
-      "last_check_at": "",
-      "last_check_status": "",
+      "last_check_at": "2026-09-05T13:31:34.579627Z",
+      "last_check_status": "success",
       "last_error": "",
       "last_submit_at": "",
-      "last_verified_at": "",
-      "live_checked_at": "",
+      "last_verified_at": "2026-09-05T13:31:34.579627Z",
+      "live_checked_at": "2026-09-05T13:31:32.357560Z",
       "live_error": "",
-      "live_status": "unknown",
+      "live_status": "live",
       "next_retry_at": "",
       "pending_archive_url": "",
-      "snapshot_at": "",
+      "snapshot_at": "20260905014116",
       "url": "https://palewi.re/docs/air-quality-index/"
     },
     "https://palewi.re/docs/atcf-data-parser/": {
@@ -3196,6 +3197,23 @@
       "pending_archive_url": "",
       "snapshot_at": "",
       "url": "https://palewi.re/who-is-ben-welsh/"
+    },
+    "https://palewi.re/work/": {
+      "archive_status": "unknown",
+      "archive_url": "",
+      "attempts": 0,
+      "last_check_at": "",
+      "last_check_status": "",
+      "last_error": "",
+      "last_submit_at": "",
+      "last_verified_at": "",
+      "live_checked_at": "",
+      "live_error": "",
+      "live_status": "unknown",
+      "next_retry_at": "",
+      "pending_archive_url": "",
+      "snapshot_at": "",
+      "url": "https://palewi.re/work/"
     }
   }
 }
