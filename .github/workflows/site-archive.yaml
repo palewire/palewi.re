@@ -1,0 +1,165 @@
+name: Site archive
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      lookup_only:
+        description: "Only verify existing snapshots; do not request captures"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-archive-data-writer
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    name: Discover and archive
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    outputs:
+      ready: ${{ steps.fetch.outputs.ready }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SAVEPAGENOW_ACCESS_KEY: ${{ secrets.SAVEPAGENOW_ACCESS_KEY }}
+      SAVEPAGENOW_SECRET_KEY: ${{ secrets.SAVEPAGENOW_SECRET_KEY }}
+      UV_NO_ENV_FILE: "1"
+      MANIFEST: .site-archive/manifest.json
+      STATE_TOKEN: .site-archive/state-token.json
+      SUMMARY: .site-archive/report.md
+    steps:
+      - name: Check out production source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Guard production-only checkout
+        run: |
+          if test "$GITHUB_EVENT_NAME" = workflow_dispatch && test "$GITHUB_REF" != refs/heads/main; then
+            echo "Site archive must run from main, not $GITHUB_REF." >&2
+            exit 1
+          fi
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+
+      - name: Bootstrap and build
+        run: |
+          make ci-bootstrap
+          make bake
+
+      - name: Fetch archive state
+        id: fetch
+        run: |
+          mkdir -p .site-archive
+          uv run python -m scripts.site_archive.branch fetch \
+            --path "$MANIFEST" --state-token "$STATE_TOKEN"
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Synchronize archive inventory
+        id: sync
+        continue-on-error: true
+        run: |
+          args=(
+            sync
+            --build-dir dist
+            --manifest "$MANIFEST"
+            --max-pages 100
+            --max-checks 100
+            --max-captures 10
+            --max-seconds 900
+            --summary "$SUMMARY"
+          )
+          if test "${{ inputs.lookup_only || false }}" = "true"; then
+            args+=(--lookup-only)
+          fi
+          uv run python -m scripts.site_archive "${args[@]}"
+
+      - name: Ensure a report exists
+        if: always() && steps.fetch.outputs.ready == 'true'
+        run: |
+          if test ! -s "$SUMMARY"; then
+            uv run python -m scripts.site_archive report --manifest "$MANIFEST" > "$SUMMARY"
+          fi
+
+      - name: Publish archive summary
+        if: always() && steps.fetch.outputs.ready == 'true'
+        run: cat "$SUMMARY" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload recovery checkpoint
+        if: always() && steps.fetch.outputs.ready == 'true'
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
+        with:
+          name: site-archive-checkpoint
+          path: |
+            .site-archive/manifest.json
+            .site-archive/state-token.json
+            .site-archive/report.md
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Surface synchronization failure
+        if: steps.sync.outcome == 'failure'
+        run: |
+          echo "Archive synchronization reported errors; checkpoint was uploaded." >&2
+          exit 1
+
+  persist:
+    name: Persist archive state
+    needs: archive
+    if: always() && needs.archive.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      UV_NO_ENV_FILE: "1"
+    steps:
+      - name: Check out production source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+
+      - name: Bootstrap persistence command
+        run: make ci-bootstrap
+
+      - name: Download recovery checkpoint
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-archive-checkpoint
+          path: .site-archive
+
+      - name: Persist checkpoint
+        run: |
+          uv run python -m scripts.site_archive.branch push \
+            --path .site-archive/manifest.json \
+            --state-token .site-archive/state-token.json
