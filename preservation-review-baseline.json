@@ -15,7 +15,6 @@
     {"source_url": "https://palewire.s3.amazonaws.com/latimes-tour/handle.mp4", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://palewire.s3.amazonaws.com/latimes-tour/kardex.mp4", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://soundcloud.app.goo.gl/7hPSU", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
-    {"source_url": "https://soundcloud.app.goo.gl/K4Qmy", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://soundcloud.com/ire-nicar/a-conversation-with-ben-welsh", "code": "local-media-untracked", "reason": "Public M4A stream was backed up and checksum-verified in the external archive, then mirrored to the private palewire-talk-media R2 bucket on 2026-09-05."},
     {"source_url": "https://vimeo.com/1187819115/4fcb0378ca?share=copy&fl=sv&fe=ci", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "https://vimeo.com/214875675", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},

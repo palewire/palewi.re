@@ -354,7 +354,6 @@ talks:
   venue: OpenNews Community Call
   location: SoundCloud
   date: '2021-11-04'
-  video_url: https://soundcloud.app.goo.gl/K4Qmy
 - title: 'Beyond JMS: The power of Python'
   venue: San Diego State University
   location: Zoom
