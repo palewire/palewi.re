@@ -128,6 +128,53 @@ def test_verify_orders_unchecked_pages_and_preserves_failures(tmp_path: Path, mo
     assert "| Archive checks with errors | 1 |" in report.read_text()
 
 
+def test_verify_prioritizes_due_pending_confirmations(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Check pending confirmations before the unverified discovery backlog.
+
+    Args:
+        tmp_path: State directory.
+        monkeypatch: Replaces Wayback requests.
+
+    Returns:
+        None.
+
+    Examples:
+        A due pending capture is checked even when unknown pages exist.
+    """
+    path = tmp_path / "state.json"
+    state = seed_manifest(path)
+    pending = state.page("https://palewi.re/pending/")
+    pending.live_status = "live"
+    pending.archive_status = "pending"
+    pending.last_submit_at = "2026-01-01T00:00:00Z"
+    deferred = state.page("https://palewi.re/deferred/")
+    deferred.live_status = "live"
+    deferred.archive_status = "pending"
+    deferred.last_submit_at = "2026-01-01T00:00:00Z"
+    deferred.next_retry_at = "2099-01-01T00:00:00+00:00"
+    ManifestStore(path).save(state)
+    calls: list[str] = []
+
+    def verify(_client: WaybackClient, page: archive_cli.PageRecord) -> None:
+        """Record each selected confirmation candidate.
+
+        Args:
+            _client: Unused client.
+            page: Selected page record.
+
+        Returns:
+            None.
+
+        Examples:
+            The first candidate is the due pending page.
+        """
+        calls.append(page.url)
+
+    monkeypatch.setattr(WaybackClient, "verify", verify)
+    ArchiveRun(path).verify(1, float("inf"))
+    assert calls == [pending.url]
+
+
 def test_capture_limits_and_retry_dates(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """Select due missing pages and exclude pending, blocked, and non-live pages.
 

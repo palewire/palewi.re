@@ -32,6 +32,25 @@ def test_checkpoint_includes_hidden_files_and_restores_expected_directory() -> N
     assert "always()" in jobs["persist"]["if"]
 
 
+def test_artifact_actions_are_pinned_to_node24_releases() -> None:
+    """Use current artifact actions that run on the supported Node version.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        The upload and download steps use the verified v7 and v8 release commits.
+    """
+    jobs = yaml.safe_load(WORKFLOW.read_text())["jobs"]
+    upload = next(step for step in jobs["archive"]["steps"] if step.get("uses", "").startswith("actions/upload-"))
+    download = next(step for step in jobs["persist"]["steps"] if step.get("uses", "").startswith("actions/download-"))
+    assert upload["uses"] == "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+    assert download["uses"] == "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c"
+
+
 def test_only_persistence_can_write_and_both_jobs_use_the_same_source() -> None:
     """Limit write access and prevent different code between archive and persist.
 

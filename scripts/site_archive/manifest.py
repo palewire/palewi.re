@@ -441,9 +441,27 @@ def _validate_snapshot_url(url: str, location: str, page_url: str) -> None:
         or original_port not in {None, 80 if original.scheme == "http" else 443}
         or original.query
         or original.fragment
-        or original.path != page.path
+        or (original.path != page.path and not paths_differ_only_by_trailing_slash(original.path, page.path))
     ):
         raise ArchiveError(f"{location}: snapshot must match its page URL")
+
+
+def paths_differ_only_by_trailing_slash(first: str, second: str) -> bool:
+    """Check whether two paths differ only by one final slash.
+
+    Args:
+        first: First URL path.
+        second: Second URL path.
+
+    Returns:
+        Whether either path is the other path with exactly one trailing slash.
+
+    Examples:
+        ``paths_differ_only_by_trailing_slash("/docs/week-1", "/docs/week-1/")`` is True.
+    """
+    return (first.endswith("/") and not second.endswith("/") and first[:-1] == second) or (
+        second.endswith("/") and not first.endswith("/") and second[:-1] == first
+    )
 
 
 def _validate_wayback_timestamp(value: str, location: str) -> None:
