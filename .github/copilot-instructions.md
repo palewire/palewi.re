@@ -29,6 +29,16 @@ make check
 
 This runs Ruff lint + format check, **ty static type analysis**, and pytest with coverage.
 
+## Releases
+
+Apply exactly one changelog category to every pull request: `feature`,
+`improvement`, `fix`, `maintenance`, or `skip-changelog`. The required Lint
+check enforces this. `enhancement` counts as an improvement; Dependabot's
+`dependencies` and `github_actions` labels count as maintenance. Read
+`RELEASING.md` before creating a release. GitHub Releases are the site's
+public changelog. Use semantic versions, create a draft from the deployed
+`main` commit, and publish only after the production smoke test passes.
+
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.

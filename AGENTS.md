@@ -33,6 +33,15 @@ When creating browser-framed lead art for a post from a public URL, load the
 Run `make check`. This is the same set of lint, type, Django, and test checks
 used by CI.
 
+Before opening or merging a pull request, apply exactly one changelog category:
+`feature`, `improvement`, `fix`, `maintenance`, or `skip-changelog`. The
+required Lint check rejects pull requests without exactly one category.
+`enhancement` counts as an improvement; Dependabot's `dependencies` and
+`github_actions` labels count as maintenance. Read `RELEASING.md` before
+creating a GitHub release. Releases use semantic versions, point to the
+deployed `main` commit, and are published only after the production smoke test
+passes.
+
 Worker changes also require `make worker-test`, `make worker-validate`,
 `make legacy-worker-test`, and `make legacy-worker-validate`. Production
 Wrangler configs keep `workers_dev` and `preview_urls` disabled; the named
