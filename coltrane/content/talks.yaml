@@ -397,7 +397,7 @@ talks:
   video_url: https://www.youtube.com/watch?v=sSEiBF_RAMc&feature=emb_title
   slug: data-and-graphics-an-introduction
   local_video_url: /media/talks/data-and-graphics-an-introduction/video.mp4
-  poster_url: /media/talks/data-and-graphics-an-introduction/poster.jpg
+  poster_url: /media/talks/data-and-graphics-an-introduction/presentation.jpg
   transcript_template: coltrane/talks/data-and-graphics-an-introduction-transcript.html
   transcript_text_url: /static/talks/data-and-graphics-an-introduction/transcript.txt
   captions_url: /static/talks/data-and-graphics-an-introduction/captions.vtt

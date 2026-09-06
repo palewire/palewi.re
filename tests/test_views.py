@@ -324,6 +324,8 @@ def test_new_appearance_talk_pages_have_local_recordings_and_transcripts(
 
     assert f"<h1>{title}</h1>" in content
     assert f'<source src="{recording_url}"{recording_type}>' in content
+    if slug == "data-and-graphics-an-introduction":
+        assert 'poster="/media/talks/data-and-graphics-an-introduction/presentation.jpg"' in content
     assert f'kind="captions" src="/static/talks/{slug}/captions.vtt"' in content
     assert "Show the timestamped transcript" in content
     assert transcript_text in content
