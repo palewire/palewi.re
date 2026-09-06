@@ -40,7 +40,7 @@
     {"source_url": "https://pdst.fm/e/dts.podtrac.com/redirect.mp3/audio3.redcircle.com/episodes/22b7fdfb-8c77-4179-be5b-1083b9c69fd4/stream.mp3", "code": "local-media-untracked", "reason": "Public MP3 enclosure was backed up and checksum-verified in the external archive, then mirrored to the private palewire-talk-media R2 bucket on 2026-09-05."},
     {"source_url": "https://www.youtube.com/watch?v=paVSRMTitLQ", "code": "local-media-untracked", "reason": "Public WebM recording was backed up and checksum-verified in the external archive, then mirrored to the private palewire-talk-media R2 bucket on 2026-09-06."},
     {"source_url": "https://www.youtube.com/watch?v=pvarfN4F19g", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
-    {"source_url": "https://www.youtube.com/watch?v=sSEiBF_RAMc&feature=emb_title", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
+    {"source_url": "https://www.youtube.com/watch?v=sSEiBF_RAMc&feature=emb_title", "code": "local-media-untracked", "reason": "Public recording was backed up and checksum-verified in the external archive, then mirrored to the private palewire-talk-media R2 bucket on 2026-09-06."},
     {"source_url": "https://www.youtube.com/watch?v=yGGLT43sdIY", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."}
   ]
 }
