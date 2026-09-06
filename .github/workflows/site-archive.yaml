@@ -163,8 +163,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
+      actions: write
       contents: write
     env:
+      CATCH_UP_ID: ${{ inputs.catch_up_id || '' }}
       GH_TOKEN: ${{ github.token }}
       UV_NO_ENV_FILE: "1"
     steps:
@@ -198,3 +200,9 @@ jobs:
           uv run python -m scripts.site_archive.branch push \
             --path .site-archive/manifest.json \
             --state-token .site-archive/state-token.json
+
+      - name: Continue controller-dispatched catch-up
+        if: env.CATCH_UP_ID != ''
+        run: |
+          gh workflow run site-archive-catch-up.yaml --repo "$GITHUB_REPOSITORY" --ref main \
+            -f action=continue

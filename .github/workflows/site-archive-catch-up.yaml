@@ -4,11 +4,6 @@ run-name: Site archive catch-up controller
 on:
   schedule:
     - cron: "*/10 * * * *"
-  workflow_run:
-    workflows:
-      - Site archive
-    types:
-      - completed
   workflow_dispatch:
     inputs:
       action:
@@ -21,6 +16,7 @@ on:
           - resume
           - stop
           - status
+          - continue
 
 permissions:
   actions: write
@@ -32,10 +28,6 @@ concurrency:
 
 jobs:
   controller:
-    if: >-
-      github.event_name != 'workflow_run' ||
-      (github.event.workflow_run.head_branch == 'main' &&
-      github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -91,6 +83,8 @@ jobs:
             status)
               uv run python -m scripts.site_archive.catch_up status --state "$STATE"
               echo "skip=true" >> "$GITHUB_ENV"
+              ;;
+            continue)
               ;;
             *)
               echo "Unsupported control action: $ACTION" >&2

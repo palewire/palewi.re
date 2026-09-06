@@ -63,6 +63,7 @@ def test_checkpoint_includes_hidden_files_and_restores_expected_directory() -> N
     assert ".site-archive/state-token.json" in upload["with"]["path"]
     assert "always()" in upload["if"]
     assert "always()" in jobs["persist"]["if"]
+    assert jobs["persist"]["permissions"] == {"actions": "write", "contents": "write"}
 
 
 def test_artifact_actions_are_pinned_to_node24_releases() -> None:
@@ -219,7 +220,6 @@ def test_catch_up_controller_wiring_is_serialized_and_leaves_weekly_run_unchange
     run = "\n".join(step.get("run", "") for step in jobs["controller"]["steps"])
 
     assert controller[True]["schedule"] == [{"cron": "*/10 * * * *"}]
-    assert controller[True]["workflow_run"] == {"workflows": ["Site archive"], "types": ["completed"]}
     assert controller["permissions"] == {"actions": "write", "contents": "write"}
     assert controller["concurrency"] == load_workflow()["concurrency"]
     assert controller[True]["workflow_dispatch"]["inputs"]["action"]["options"] == [
@@ -227,6 +227,7 @@ def test_catch_up_controller_wiring_is_serialized_and_leaves_weekly_run_unchange
         "resume",
         "stop",
         "status",
+        "continue",
     ]
     assert "scripts.site_archive.catch_up fetch" in run
     assert "scripts.site_archive.catch_up push" in run
@@ -234,9 +235,10 @@ def test_catch_up_controller_wiring_is_serialized_and_leaves_weekly_run_unchange
     assert 'catch_up_id="$GITHUB_RUN_ID"' in run
     assert "capture_only=true" in run
     assert "lookup_only=true" in run
-    assert "github.event.workflow_run.head_branch == 'main'" in jobs["controller"]["if"]
-    assert "github.event.workflow_run.head_repository.full_name == github.repository" in jobs["controller"]["if"]
     step_names = [step["name"] for step in jobs["controller"]["steps"]]
     assert step_names.index("Persist controller state") < step_names.index("Dispatch selected archive batch")
+    archive_steps = [step["name"] for step in load_workflow()["jobs"]["persist"]["steps"]]
+    assert archive_steps.index("Persist checkpoint") < archive_steps.index("Continue controller-dispatched catch-up")
+    assert "action=continue" in "\n".join(step.get("run", "") for step in load_workflow()["jobs"]["persist"]["steps"])
     assert load_workflow()[True]["schedule"] == [{"cron": "17 6 * * 1"}]
     assert load_workflow()[True]["workflow_dispatch"]["inputs"]["catch_up_id"]["type"] == "string"
