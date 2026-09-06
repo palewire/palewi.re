@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "698926154d1562276a9933d7255e130b59c2dc1af8b90f9ecbfe6f2680c3a0c6"),
+        ("/talks/", "03948b37d6f8ca3f7ff596266534c92175a68e3f8ee117de117b1237459f16af"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -367,6 +367,23 @@ def test_fast_first_python_notebook_talk_embeds_youtube_recording(client):
     assert 'src="https://www.youtube-nocookie.com/embed/2RgPoy05AnA"' in content
     assert 'title="Recording of Fast First Python Notebook"' in content
     assert 'referrerpolicy="strict-origin-when-cross-origin"' in content
+
+
+def test_nicar21_first_python_notebook_talk_has_hosted_recording_and_transcript(client):
+    response = client.get("/talks/first-python-notebook-nicar21/")
+    talk = next(talk for talk in load_talks() if talk.slug == "first-python-notebook-nicar21")
+
+    assert response.status_code == 200
+    assert talk.video_url == "https://www.youtube.com/watch?v=paVSRMTitLQ"
+    content = response.content.decode()
+    assert "<h1>First Python Notebook</h1>" in content
+    assert '<source src="/media/talks/first-python-notebook-nicar21/video.webm" type="video/webm">' in content
+    assert 'poster="/media/talks/first-python-notebook-nicar21/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/first-python-notebook-nicar21/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "kicking off" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
 
 
 def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
