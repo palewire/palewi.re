@@ -395,7 +395,14 @@ talks:
   location: UCLA
   date: '2020-10-30'
   video_url: https://www.youtube.com/watch?v=sSEiBF_RAMc&feature=emb_title
-  slides_url: https://docs.google.com/presentation/d/1zyVSGRCmVohHc18JD-A7tozprMj4tOmcVxaK2_d0A5o/edit?usp=sharing
+  slug: data-and-graphics-an-introduction
+  local_video_url: /media/talks/data-and-graphics-an-introduction/video.mp4
+  poster_url: /media/talks/data-and-graphics-an-introduction/poster.jpg
+  transcript_template: coltrane/talks/data-and-graphics-an-introduction-transcript.html
+  transcript_text_url: /static/talks/data-and-graphics-an-introduction/transcript.txt
+  captions_url: /static/talks/data-and-graphics-an-introduction/captions.vtt
+  original_slides_url: https://docs.google.com/presentation/d/1zyVSGRCmVohHc18JD-A7tozprMj4tOmcVxaK2_d0A5o/edit?usp=sharing
+  archive_url: https://web.archive.org/web/20201101062410/https://docs.google.com/presentation/d/1zyVSGRCmVohHc18JD-A7tozprMj4tOmcVxaK2_d0A5o/edit?usp=sharing
 - title: First Python Notebook
   venue: Flash MOOC
   location: Zoom

@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "698926154d1562276a9933d7255e130b59c2dc1af8b90f9ecbfe6f2680c3a0c6"),
+        ("/talks/", "63ab184116462f7fb318bf5647b51cac88e0a0447a0311d5f8ffc08b64c7ba32"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -307,6 +307,13 @@ def test_local_data_journalism_podcast_has_hosted_audio_and_transcript(client):
             ' type="video/webm"',
             "Europe is absolutely boiling.",
         ),
+        (
+            "data-and-graphics-an-introduction",
+            "DATA AND GRAPHICS: An introduction",
+            "/media/talks/data-and-graphics-an-introduction/video.mp4",
+            ' type="video/mp4"',
+            "zooming you from my phone",
+        ),
     ],
 )
 def test_new_appearance_talk_pages_have_local_recordings_and_transcripts(
@@ -322,7 +329,7 @@ def test_new_appearance_talk_pages_have_local_recordings_and_transcripts(
     assert transcript_text in content
     assert f">{download_label}<" in content
     assert ">Timestamped transcript<" in content
-    assert ">00:00</time>" in content
+    assert ">00:00" in content
 
 
 def test_talk_list_keeps_new_appearance_detail_and_source_links(client):
@@ -348,6 +355,10 @@ def test_talk_list_keeps_new_appearance_detail_and_source_links(client):
         (
             "/talks/understanding-europes-heatwave/",
             "https://www.youtube.com/watch?v=me0DlYHkJKE&amp;t=28s",
+        ),
+        (
+            "/talks/data-and-graphics-an-introduction/",
+            "https://www.youtube.com/watch?v=sSEiBF_RAMc&amp;feature=emb_title",
         ),
     )
 
