@@ -425,6 +425,12 @@ talks:
   location: UC Santa Cruz
   date: '2019-05-20'
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vTkAHd4dlfGYE-Jh8C2R2ERG7KiDAogRfLWxLt8U2ABJUUR0WeNHgYrYLIbV-56gwoztYf31Z-vQ3hQ/pub?start=false&loop=false&delayms=3000&slide=id.p
+  slug: data-journalism-on-deadline
+  deck_url: /static/talks/data-journalism-on-deadline/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/data-journalism-on-deadline/data-journalism-on-deadline.pdf
+  notes_template: coltrane/talks/data-journalism-on-deadline-notes.html
+  notes_text_url: /static/talks/data-journalism-on-deadline/notes.txt
 - title: Nerds in the Newsroom
   venue: The National High School Journalism Convention
   location: Anaheim
