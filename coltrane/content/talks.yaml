@@ -403,7 +403,7 @@ talks:
   venue: Flash MOOC
   location: Zoom
   date: '2020-03-28'
-  slides_url: https://palewi.re/posts/2020/03/21/flash-mooc-first-python-notebook/
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: First Python Notebook
   venue: NICAR
   location: New Orleans
