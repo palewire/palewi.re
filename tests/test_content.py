@@ -441,6 +441,35 @@ def test_what_i_learned_talk_preserves_vimeo_source_and_adds_local_assets():
     assert talk.captions_url == "/static/talks/what-i-learned/captions.vtt"
 
 
+def test_beyond_jms_talk_has_a_recording_and_no_dead_materials() -> None:
+    """Keep the original video source and replace dead materials with local assets.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_content.py -k beyond_jms``.
+    """
+    talk = next(talk for talk in load_talks() if talk.slug == "beyond-jms-the-power-of-python")
+
+    assert talk.title == "Beyond JMS: The power of Python"
+    assert talk.byline == "Ben Welsh and Iris Lee"
+    assert talk.venue == "San Diego State University"
+    assert talk.date == datetime.date(2021, 9, 24)
+    assert talk.video_url == "https://www.youtube.com/watch?v=QYCTVZLbbCU"
+    assert talk.get_absolute_url() == "/talks/beyond-jms-the-power-of-python/"
+    assert talk.local_video_url == "/media/talks/beyond-jms-the-power-of-python/video.webm"
+    assert talk.local_video_mime_type == "video/webm"
+    assert talk.transcript_template == "coltrane/talks/beyond-jms-the-power-of-python-transcript.html"
+    assert talk.transcript_text_url == "/static/talks/beyond-jms-the-power-of-python/transcript.txt"
+    assert talk.captions_url == "/static/talks/beyond-jms-the-power-of-python/captions.vtt"
+    assert talk.slides_url == ""
+    assert talk.deck_url == ""
+
+
 def test_local_data_journalism_podcast_has_audio_sources_and_transcript():
     talk = next(talk for talk in load_talks() if talk.slug == "local-data-journalism-podcast")
 

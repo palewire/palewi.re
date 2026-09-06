@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "7f2e2528159cdb851952e2e610d8b3d1e1a5eebab1bb148a99e5245039e7b8a0"),
+        ("/talks/", "698926154d1562276a9933d7255e130b59c2dc1af8b90f9ecbfe6f2680c3a0c6"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -223,6 +223,41 @@ def test_first_pull_request_talk_page_has_hosted_recording(client):
     assert 'kind="captions" src="/static/talks/first-pull-request/captions.vtt"' in content
     assert "Show the timestamped transcript" in content
     assert 'aria-labelledby="slides"' not in content
+
+
+def test_beyond_jms_talk_page_has_recording_captions_and_transcript(client: Client) -> None:
+    """Render the recording and folded transcript without the dead materials link.
+
+    Args:
+        client: Django test client.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_views.py -k beyond_jms``.
+    """
+    response = client.get("/talks/beyond-jms-the-power-of-python/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Beyond JMS: The power of Python</h1>" in content
+    assert "Ben Welsh and Iris Lee" in content
+    assert '<source src="/media/talks/beyond-jms-the-power-of-python/video.webm" type="video/webm">' in content
+    assert 'poster="/media/talks/beyond-jms-the-power-of-python/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/beyond-jms-the-power-of-python/captions.vtt"' in content
+    assert '<details class="talk-detail-text">' in content
+    assert "Show the timestamped transcript" in content
+    assert '<ol class="talk-transcript">' in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert 'aria-labelledby="slides"' not in content
+    assert ">Slides PDF<" not in content
+
+    catalog = client.get("/talks/").content.decode()
+    assert 'href="/talks/beyond-jms-the-power-of-python/"' in catalog
+    assert 'href="https://www.youtube.com/watch?v=QYCTVZLbbCU"' in catalog
+    assert "1_sC3bFYbg4CD7TmlS9g1hPDD3_oIhcHsqECtzSx34XE" not in catalog
 
 
 def test_local_data_journalism_podcast_has_hosted_audio_and_transcript(client):

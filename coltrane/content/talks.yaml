@@ -355,11 +355,17 @@ talks:
   location: SoundCloud
   date: '2021-11-04'
 - title: 'Beyond JMS: The power of Python'
+  byline: Ben Welsh and Iris Lee
   venue: San Diego State University
   location: Zoom
   date: '2021-09-24'
   video_url: https://www.youtube.com/watch?v=QYCTVZLbbCU
-  slides_url: https://docs.google.com/presentation/d/1_sC3bFYbg4CD7TmlS9g1hPDD3_oIhcHsqECtzSx34XE/edit?usp=sharing
+  slug: beyond-jms-the-power-of-python
+  local_video_url: /media/talks/beyond-jms-the-power-of-python/video.webm
+  poster_url: /media/talks/beyond-jms-the-power-of-python/poster.jpg
+  transcript_template: coltrane/talks/beyond-jms-the-power-of-python-transcript.html
+  transcript_text_url: /static/talks/beyond-jms-the-power-of-python/transcript.txt
+  captions_url: /static/talks/beyond-jms-the-power-of-python/captions.vtt
 - title: Hosting data on the Internet Archive with Django
   venue: OpenNews Community Call
   location: SoundCloud
