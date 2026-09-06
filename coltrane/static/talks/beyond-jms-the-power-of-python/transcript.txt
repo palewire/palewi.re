@@ -1,0 +1,412 @@
+[00:00] Welcome to Beyond JMS. I'm Temple Northup, the Director of the School of Journalism and Media Studies here at SDSU, and I'm excited to have you join us today as we talk Python and data journalism.
+[00:14] For those joining us for the very first time, our Beyond JMS events are platforms for professionals to share valuable tips, insight, and knowledge about careers in the media and the skills you need to succeed in those careers.
+[00:27] We hold them Fridays at noon here on Zoom and usually post them later on YouTube, so there are many opportunities to see what we're doing.
+[00:36] Before we begin, I'd like to take a moment for a land acknowledgement.
+[00:40] A land acknowledgement is a formal statement that recognizes and respects Indigenous peoples as traditional stewards of a given geographic area and the enduring relationship that exists between Indigenous peoples and their ancestral territories.
+[00:54] For San Diego State University, we recognize the land as Kumeyaay.
+[00:57] For millennia, the Kumeyaay people have been part of this land.
+[01:00] This land has nourished, healed, protected, and embraced them for generations in a relationship of balance and harmony.
+[01:06] As members of the San Diego State community, we acknowledge this legacy.
+[01:10] We promote this balance and harmony.
+[01:12] We find inspiration from this land, the land of the Kumeyaay.
+[01:17] Thank you.
+[01:18] I personally am super excited about today's webinar, mostly because it's something I know very little bit about.
+[01:24] So I'm just curious to learn more.
+[01:26] So let me turn this over to people who do know what they're talking about, starting with Dr. Amy Schmitz-Weiss, who's a professor of journalism within our school, who will introduce the topic and our panelists.
+[01:38] So Amy, let me turn it over to you.
+[01:41] Thank you so much, Dr. Northup.
+[01:43] Hello, everybody.
+[01:44] I am Professor Amy Schmitz-Weiss, and welcome to this webinar today from our school of JMS at SDSU.
+[01:50] I am, you know, Professor Amy Schmitz-Weiss, and my co-host Professor Yang from Advertising will be joining us today as well to be your moderators for this awesome webinar.
+[02:01] Today, we're going to be talking about data journalism and the power of Python.
+[02:05] We are joined today by Ben Welsh, data and graphics editor from L.A. Times, and data journalist Iris Lee from the L.A. Times.
+[02:13] During this next hour, you will have an opportunity to ask your questions, so feel free to put them in the chat.
+[02:19] And we will get to them in a little bit.
+[02:22] So feel free to type them anytime.
+[02:24] And if you have any, any other questions, feel free to plop them in the chat box.
+[02:30] So why don't we go ahead and jump in.
+[02:32] So Amy, so Ben and Iris, can you tell us a little bit about yourselves and the daily work that you're doing at the L.A. Times?
+[02:42] Sure, thank you for having us, Amy Yang Temple.
+[02:45] It's such an honor.
+[02:47] My name is Ben Welsh, and I'm the data and graphics editor at the L.A. Times.
+[02:53] I'm coming to you live from downtown Los Angeles, where I live with my wife.
+[02:57] With me today is...
+[02:58] Hi, my name is Iris Lee.
+[03:01] I'm a reporter for data graphics desk.
+[03:04] Ben is my editor, my boss.
+[03:07] And we at our team report using data, and hopefully start telling you about that today.
+[03:13] Yep, let me fire up the PowerPoint.
+[03:16] Where would we be without that, guys?
+[03:18] All right.
+[03:19] Can you see it?
+[03:22] We're there.
+[03:23] All right, so Iris and I are going to give you kind of a brief overview of the types of products our department makes.
+[03:29] And she's going to walk you through really how she made one of them recently.
+[03:32] And we'll try to keep it quick, and then we'll get into questions.
+[03:35] All right.
+[03:36] But what we have here is my introduction to the data and graphics department.
+[03:40] This is me, or at least this used to be me before COVID.
+[03:44] My wife calls this my Bible salesman photo.
+[03:47] And now I look a little bit more like this after two years of COVID.
+[03:51] Shout out to all the Twin Peaks fans in the audience.
+[03:54] With me, of course, is Iris, and this entire deck I'm going to go through is available.
+[03:59] If you want to check it out for yourself, because I'm going to go pretty quick.
+[04:02] It's at bit.ly/lat-sdsu.
+[04:07] Okay.
+[04:08] What is the data and graphics department?
+[04:10] It is a team of people who try to create digital journalism, and I would underline digital, right?
+[04:15] That is important to our readers with data, development, and design.
+[04:19] That's pretty broad.
+[04:21] What's it really boil down to?
+[04:22] It boils down to a group of about 15 to 20 people who are reporters and editors, just like any other department in the newsroom, but who are also computer programmers, information designers, and just in some cases, nerds, right?
+[04:37] And so we are journalists who have a lot of the traditional skills of conventional reporters, but we also have a different set of skills that allows us to gather, organize, analyze data, right?
+[04:50] To find stories in the raw materials of data, and then to convert that raw material into a new line of finished products, a different assembly line than what you might have found in a newspaper 100 years ago.
+[05:03] And so on those assembly lines, on those assembly lines, we make roughly three types of things, I would say.
+[05:08] One, we make what I would call applications.
+[05:10] These are software products that the data is the raw material, and the thing on the web is the product for the audience.
+[05:17] Thing two is visual stories.
+[05:19] This is using visualization techniques to help people understand the news, and three is digital designs.
+[05:25] This is using our computer skills to break outside the mold of traditional storytelling forms and do different things online.
+[05:32] These are the three types of things we make, and we're going to go through them now, kind of one, two, three, with some concrete examples.
+[05:38] All right?
+[05:39] So thing one is what I would call applications.
+[05:41] Some people call them news apps.
+[05:43] It's not really a great term for it, but you'll know when you see it.
+[05:46] They gather and refine data to serve the audience.
+[05:50] A classic example right now for us is our coronavirus tracker.
+[05:54] So there are dozens of pages on the L.A. Times website that are gathering data from all across the internet about the latest on the spread of coronavirus in California, and converting that into a series of web pages that allow people to keep tabs on what's happening.
+[06:09] We're not the only newsroom doing this.
+[06:11] The one in your community, I'm sure, is as well, wherever you happen to be on planet Earth.
+[06:15] This has been a huge feature for data journals and departments around the world the last couple of years, right?
+[06:21] Another one would be something like live election results.
+[06:24] So in our governor's recall election last week, our team was responsible for writing the computer code and building the systems that ferry the latest election results live onto the internet and visualize them in tables and charts and maps, right?
+[06:38] Another example would be our live wildfires map.
+[06:41] This is where we take in data that's that's sprinkled around government websites all over the internet and written computer code that pulls it together and gives you a dashboard of the latest view of what's happening with wildfires here in the West.
+[06:55] Another example would be our quick black tool.
+[06:58] This is where every time there's an earthquake, a little pulse of data is sent out by government seismologists, and we have computer code that's reading that in evaluating according to our algorithm, whether or not it's news.
+[07:11] And then if the answer is yes, spitting out this post automatically with no human intervention, right?
+[07:17] Another example would be our database of police killings.
+[07:21] We're a team at the L.A. Times with rebuild the database of everyone in L.A. County has been killed by police match that up with later investigations into those killings and then created this online database, which is its own feature on the web, independent of any traditional story.
+[07:37] And this type of approach of application building can be applied in really any circumstance where there's sort of a moving, flowing data feed that itself is generating news right based on the latest things that kind of show up in it.
+[07:51] I think stock prices right would be like an example from a totally different domain, right?
+[07:55] But then also can be rolled up into something like a tracker or an app or a thing that then summarizes that data and helps readers like kind of get their grip on it, right?
+[08:07] And they themselves on their own can be very, very popular features for readers.
+[08:12] Our coronavirus tracker is the most popular thing ever published by the Los Angeles Times on the Internet, just on its own, without ever having generated a traditional front page story or scoop.
+[08:24] Or like, you know, conventional data journalism product and that's not just true for us that's true for all the other newsrooms that are doing the same thing.
+[08:33] However, once you have assembled that data.
+[08:36] It can become a powerful resource for you to do enterprise and investigative work, whereby having assembled all the information you can then begin to ask interesting questions and tell stories that other people can't because you have it together.
+[08:50] And so these data applications tend to be a great partner for analysis and enterprise like, for instance, in the case of our COVID tracker having assembled all this data from all these different domains, not just cases and deaths, but openings and closings and other elements on the calendar allowed us to do a lot of enterprise pieces about how the government was handling the response and whether it was going well or not.
+[09:13] Right. In the case of the police killings database, when one particular killing drew a lot of media attention, a young man who was shot after a bicycle stop, we were able to look into our database and identify many other cases that had similar characteristics and to provide context about the one event that was in the news because we had this data to draw from.
+[09:38] Right.
+[09:43] Iris has been a leader on our team on exactly these kinds of efforts and even on this particular story.
+[09:47] And so now I want to hand it off to her so that she can kind of walk through all the steps to go into creating a piece like these ones we've been looking at.
+[09:54] Right, and the one we're going to look at is her recent standalone tracker about coronavirus cases identified at the L.A. Unified School District, America's second largest school district, which just reopened iris take it away.
+[10:10] Okay, thanks, Ben.
+[10:12] So, just to go back one slide to the design because the story.
+[10:18] Like, I'm just going to kind of repeat what Ben said so we love to collect data and we like to think about how to present what we collected with our readers a lot.
+[10:27] So, at times, it can be like a very straightforward presentation, like the police killings database that you saw, or we can dig deeper and give more context and focus on the stories that bring the data home to a person.
+[10:42] Or a community, and I think like this is a great example of that we were able to use the data we collected and our reporters reported out and found very similar cases and wrote like this beautiful story about others like these on kids who was killed by the police on while riding a bike.
+[11:04] So, I just want you guys to keep this in mind well while I talk about the LAUSD tracker because I also keep this in mind whenever i'm about to jump into a data project.
+[11:13] Okay, so the LAUSD tracker next site.
+[11:19] So we're going to go deeper into the application that we published recently, this is the LAUSD outbreak tracker.
+[11:27] So when schools started for the Los Angeles unified school district back in late August, there was a lot of anxiety around you know kids going back to school, given that you know only if you were eligible eligible for vaccines.
+[11:43] There was like a delta surge happening, and I knew that people were kind of like talking about this next slide and an education reporter.
+[11:54] So, and I think that's what I was working with at the time on a different project kind of showed me this dashboard that the district had published.
+[12:03] So LAUSD district published this dashboard where you could kind of scroll down to a specific school and see if there were any active COVID cases among staff and students.
+[12:14] So, as well as if there was an outbreak in the school or if the school was being investigated for an outbreak, as well as all these other information around case rates and the case rates in the community.
+[12:26] And she kind of—our educational reporter, Paloma—she was like, “Oh, do you think you could collect this data?”
+[12:35] I think my initial response was like, well, do we really need to because when we collect this type of data.
+[12:44] The question I like to ask for us is like, do we have to like, are we going to make this better by collecting this data?
+[12:50] And that's what kind of I asked myself first, because even though we do this a lot, this takes a lot of work and a lot of programming and a lot of cleaning.
+[13:03] And especially if we're going to collect data over and over again, over a period of time, we're going to have to maintain a which takes a teamwork, you know, all the coronavirus trackers.
+[13:12] It takes a village to run this sort of application and maintain it, especially over time.
+[13:17] So I was kind of thinking about if we need it or not, because the information presented there is pretty, you know, it's good.
+[13:24] It's good information.
+[13:25] It's pretty straightforward.
+[13:27] And then my second reason for being hesitant was that us presenting this information wouldn't make it any more clear that, you know, the 75th Street Elementary or Early Education Center has like zero cases today.
+[13:45] But then what this doesn't show this dashboard doesn't show is it doesn't show the cumulus has numbers, right?
+[13:53] So even though we could kind of look at every school, we don't know what it looks like from bird's eye point of view when we look at the school district as a whole.
+[14:02] So it doesn't show that.
+[14:03] And also because this data refreshes every day, we don't know, we can't see the trend, you know, is the case counts rising or the case is the case count dropping is, is there more outbreaks or less outbreaks than a week before.
+[14:18] So this was kind of like myself process in deciding that I was going to dig into this data and try to pry it out from the web.
+[14:31] And also, lastly, for you know programmers out there, if you ever try to scrape any kind of dashboard.
+[14:38] This is a Microsoft BI dashboard, which is very notorious for having very complicated like data back in and it's very hard to pry data out of this dashboard.
+[14:49] So I just knew it was going to be a bit of work.
+[14:53] So when we scrape data, which is like our term for using computer programming to take data out of a site, we can do it in largely two ways, we can kind of look in the back side of the site and see where the data feed is coming from.
+[15:11] This is like your API's, and we can try to like download that or connect to that and we could get the data that way.
+[15:17] Or for this instance, I decided to go with web scraping using a Python library called Selenium, which allows you to control the web server or the web browser.
+[15:31] You can tell you can write a code in Python and tell the code to, you know, click on this part and then save that number or click and drag on this part and save that number.
+[15:43] And I decided to go with selenium because I've actually had scrape a very similar dashboard just couple months prior for the California prison system.
+[15:55] So I was already a little familiar with how this would work out.
+[15:57] So I kind of like try to give it a go.
+[15:59] I started my Jupyter Notebook and started tinkering with some code to see if I could start collecting the data.
+[16:07] And once I kind of wrote a script that I knew that was going to collect data for every school in that dashboard by clicking.
+[16:16] You know, drop pointing to the drop down clicking the school taking the information pointing the drop down clicking the school and taking another information.
+[16:24] So I knew that I knew that I could, you know, collect this information and I, and what we usually do after that in order to run the script daily or monthly or weekly, we put it on a thing called cron, which is basically like a scheduler.
+[16:41] So, so we can tell GitHub Actions to run my scraper script every day at, you know, 4am when, you know, hopefully there's no traffic and hopefully no one's like messing in the repository.
+[16:56] So we put it on a cron and we set a scheduled run every day for my script to collect the data from the dashboard once it refreshes.
+[17:08] So once we got the data that way, I knew that we could get it daily.
+[17:13] We took that data back into the notebook, and this is so we just collected the data.
+[17:19] And now, with the data that we collected, we start cleaning up the data right, so we have to kind of append the data on top of each other so yesterday's data on top of today's data, so that we can kind of see the time trend and I did that using again Python.
+[17:37] pandas library, which is like a data analysis library that you can use to kind of collect and simplify the data and kind of trim down to the information that we want to show our readers that we think will be helpful for our readers.
+[17:52] And in the back of my head, I was also thinking, well, now that we're aggregating this data every day, perhaps in, you know, maybe at the end of the semester, I can look back at all this data that we collected.
+[18:05] And see if there is another story because this application is just presentation of data.
+[18:11] It's not really digging in deep into the story.
+[18:14] And in my mind, I was thinking, well, but because we're doing this collection, there is an opportunity to dig into this data later on, maybe after the semester.
+[18:23] So once we process all this data, we feed it, we feed the data out into a different format called JSON format from like basically a data frame to a JSON file so that our our front end publishing system can read this data.
+[18:45] So we have a special publishing system that was built by our team.
+[18:53] And it can read this data in a JSON format and build out a page for us.
+[18:57] So it uses front end code like HTML or front end languages like HTML, CSS and JavaScript, and it kind of takes the data.
+[19:09] We can make charts with it or tables with it.
+[19:13] We can also, you know, write, you know, paragraphs, insert like pieces of data in our paragraph using like templating.
+[19:21] And so we, and that's what we did so we fed the data into our system to kind of work on the presentation.
+[19:30] So our final project was this outbreak dashboard.
+[19:36] So what this dashboard does is every day it updates with new data collected from the LAUSD, LAUSD's own dashboard, and you can kind of see the time trend where active cases are going.
+[19:49] You can kind of see how many schools have how many cases, and then parents can look for schools, or there are markers where the schools are bolded, which means they're also being investigated by the outbreak.
+[20:03] So it's kind of a place where readers could come every day and suss out the trends happening in their communities or in their school district.
+[20:13] But for me, my hidden motive or my secondary motive also is to kind of collect this data daily, and eventually look back and do a look back into the first semester that LAUSD open to see if there's anything that the data could tell us that we can't get.
+[20:34] We like that we can easily get so that oh, and then I also want to say that I was able to do this fairly quickly with a lot of help from Ben in about a week.
+[20:49] And that's only because we were we have done this before, and that's kind of a privilege I have as a journalist and a large data team with a lot of programmers and reporters that I can learn from.
+[21:02] Because we've done the coronavirus tracker for the last year and a half for me to make this page was very easy, because all the pieces were there I knew what we had to do this was, you know that probably like the 50s or 60s page that we're doing that's in similar format.
+[21:20] But it's probably good to note that there are a lot of data journalists like me out there that are, you know, only ones in the newsroom that kind of have to do this old on older by themselves from scratch.
+[21:32] So I was really lucky that I had a big team that worked on this project, a very supportive editor as well.
+[21:39] Yeah, and that's the story. Ben.
+[21:43] Thank you, Iris, and we can go into all the nerdy stuff later if people want to know about code, but I'm going to head, I'm going to zoom back out to the high level.
+[21:50] So I was screen gave us a great example of like assembly line one, which are these data applications that sometimes lead to data enterprise and analysis right now I'm going to jump ahead to think to so that the second type of thing we make is what I would call a visual story.
+[22:06] There's not really a name for this type of thing, but pretty much this has become the stock and trade of I think most digital graphics departments around the world.
+[22:15] This is where graphics reporters, you know, are making and reporting and designing visual coverage of major events where their work is substantial enough to stand alone, as opposed to charts that are just an accessory to a traditional story in print.
+[22:31] The web is this whole new opportunity for visual journalists to do their own thing and to go far above and beyond what words alone can do.
+[22:40] And examples of that would be when Kobe Bryant's helicopter crashed a few years ago here in Southern California, an unexpected event on a Sunday morning, they kick started a whole cycle of coverage by our team.
+[22:52] And you know, one or two days later we had pieced together a visual piece that used the available data on the web to guide you through the final moments of the helicopter flight to help readers understand the sort of fatal final turn and mistake by the pilot that led to led to the crash.
+[23:11] And this is a case where we're using the same types of tools that I was just talking about in terms of building a page, but there's not this like data pipeline behind it all.
+[23:20] This is really a case where those tools are being used to showcase visual storytelling techniques and and the piece like this can come together in only one or two days if we really get our act together.
+[23:32] Another example would be after the recall election last week we went and got the neighborhood level precinct results from four or five counties here in Southern California, and turned that into an interactive map that allowed the reader to really quickly zoom in and see how people on their block voted.
+[23:49] One example would be we did our we did a little social science last year we sent our reporters out around SoCal, and actually with little clickers modeled on ways that professor.
+[24:01] Study things in other circumstance measure how many people are wearing masks in and around different parts of the area which then, instead of being surfaced as like a traditional inverted pyramid story with the nut graph.
+[24:13] We surfaced as this sort of what I would call visual story where the major there's there's three or four different graphic components which you know carry the weight of telling the story right another example was after.
+[24:26] Or during the George Floyd protests in Los Angeles last year, there was a lot of anecdotal collection of police brutality around L.A., and our team gathered as much of that as we could.
+[24:39] And tried to roll it up into something that had a little more substance and sweep to it to help people understand.
+[24:46] What the heck just happened out here.
+[24:48] The visuals themselves being kind of the core of the content.
+[24:54] [inaudible]
+[25:03] [inaudible]
+[25:32] [inaudible]
+[25:52] [inaudible]
+[26:01] You know, and that comes in handy in a lot of different contexts around the L.A.
+[26:05] One of those ways is taking the sort of newsroom's most ambitious journalism and trying to dial it up and take it to a next level by breaking the mold of the standard story template and doing like really cool stuff on the web.
+[26:20] Right. And so like an example would be we put together histories about as many different victims of the coronavirus pandemic as possible, which was then packaged together into this kind of custom presentation.
+[26:34] Another was a major investigation DDT dumping off the coast of Long Beach in L.A. that was put together with kind of a custom look and feel. The videos that are from the archives really dialed up.
+[26:48] Another example would be our Chicano moratorium package of last year, which is an anniversary of an anti Vietnam War protest in East L.A., for which the paper was assembling kind of a magazine style coverage with a variety of different pieces.
+[27:02] And so then coming up with kind of a unified design and package for it is something that, you know, can make sense where five or six different pieces all get kind of folded into a big kind of beautiful design and the same tools that built the coronavirus tracker that built the scrolling homeless map will build something like this, too.
+[27:21] And these are not Python tools, but this is a set of tools that you'll find in most major newsrooms around America now, which is sort of the ability to make little static web pages outside your CMS and push them onto the web really quickly.
+[27:34] Okay, so though, to review, we are reporters, editors, computer programmers, right, and we make applications, visual stories and digital designs, often using Python, sometimes using other things.
+[27:49] Let's really get into it.
+[27:51] All the slides are right there if you want.
+[27:53] All right.
+[27:54] Thank you, Ben for an Iris for that fast look into data journalism.
+[28:02] I think we may have some audio that was lost there a few moments ago, Ben, on your end.
+[28:12] So we may jump in and have Iris step in for a few moments here while Ben gets his audio connection set up.
+[28:25] So I think we'll go ahead and start with some questions from both Professor Feng and I and then we're going to jump into some questions from you all that are attending this so feel free to pop them in the Q&A section.
+[28:36] So we can jump in and ask those in the remaining time that we have.
+[28:41] So, you know, I think in the terms of the bigger picture, as you were talking about Ben and Iris, you know, looking at the idea of, you know, telling important stories in the community.
+[28:52] Could you go back a few steps and kind of explain a little bit about how you see the process coming together for the stories you've done with this data journalism lens?
+[29:08] I think it's kind of kind of how do you decide how to dive into it and what aspects do you perhaps storyboard or otherwise make frameworks to help you with thinking through these steps?
+[29:22] And then from there, how you decide which kind of tool application or scripting language you decide to use in those moments that can help you?
+[29:32] So maybe Iris, if you want to jump in and answer that first and then we can go over to Ben.
+[29:37] Okay.
+[29:40] Sorry, I just made it.
+[29:43] So how do we decide to jump into a story?
+[29:46] I think that was like our first question, right?
+[29:48] Exactly.
+[29:49] Yeah.
+[29:50] So I think when we, for one, because we have experience with collecting a lot of data and then this data turning into like a bigger, more in-depth story, I think our instinct is to like, when we see something that we think is going to be important, maybe not now, but maybe later is to just like collect data because we can and because we have the resources.
+[30:19] But also I feel like sometimes we think about, you know, like any project you do, and this is not even just journalism, you have to think about like the return on investment, right?
+[30:32] Like is the time that we put in to collect the data or do this story worth what is going to be an output.
+[30:45] And then, and then, and then, and then, and then, and then also what kind of impact does it have in, to our readers and to our communities, because at times I feel like data is data can kind of like reveal the parts of.
+[31:02] Communities that we ignore maybe at times kind of like the homicides data or even looking at, you know, school grades.
+[31:21] You can kind of see which communities do better than others, and I think this is kind of like easy to spot easier to spot when you work with large sets of data.
+[31:37] What do you think, Ben?
+[31:39] I think you're right.
+[31:40] I mean, data allows us, you know, it has its flaws and pitfalls, which we could talk about later, but it is, you know, compared to many other techniques allows us to be comprehensive and scientific and empirical in a way that we often struggle to with and with anecdotes.
+[31:55] And I think that's totally right.
+[31:56] One thing I'd add is it allows us also to, to get into accountability.
+[32:00] You know what I mean?
+[32:01] Where you could measure things, not just like as a census would do, or in some sort of comprehensive sense, but you can look at, well, there's goals, there's targets, there's expectations, there's laws, there's promises.
+[32:12] There's all these things out there that ought to be happening.
+[32:15] You know, we can use our tools of measurement to evaluate whether they are, or whether they're being, they are for everyone, you know, and so that's a huge power of data in the news.
+[32:25] That is often missing without it, you know.
+[32:29] I think when it comes to the visual part of graphics work to do, I think there's ways in which that, you know, a visual approach can help connect with an audience and really help people understand concepts in a way that that words often just really struggle or in a much more condensed and powerful way.
+[32:48] And so I think with visual things you're just looking, you're often looking for ways of helping people really understand something important that they might struggle.
+[32:57] And that oftentimes doesn't have, data can be the raw material, but it's not like a mathematical formula.
+[33:02] Like, I don't think I really understood what happened to Kobe Bryant's helicopter until I saw the path of it in three dimensions.
+[33:10] You know what I mean? And then that really helped me understand, or a recent New York Times example of this, the condo building that collapsed in Florida.
+[33:18] You know, they did a scrollytelling piece, much like the one that we showed that really helped you understand where those weaknesses in the buildings construction work that I think people just talking just talking about it couldn't get you there, you know.
+[33:32] Well, thank you, Ben and Aris. And also, I think our audiences are really interesting in your double identities.
+[33:39] So you are journalists on the one hand, right, but also you are the data scientist.
+[33:43] On the other hand, that defines your role as data journalist.
+[33:47] So can you kind of share with us how did you get involved in Python and data science originally?
+[33:54] Yeah, so I actually only took one Python course in school, and rest of it I learned through a lot of resources which is out there.
+[34:11] You know, by attending like webinars or MOOCs, one of the first Python MOOC I took, Ben was teaching it and I wasn't even working for him at the time.
+[34:21] And so, you know, I know that this is like looks like a lot of coding and a lot of programming and it is, and it seems like oh well then forget it then right I can't do this much programming and be a journalist at the same time, which I also thought a lot.
+[34:36] I still think that sometimes, but the thing is, it's, it's surprisingly, you know, learning a programming language is like learning another language like, you know, learning Spanish or Korean or whatever.
+[34:50] It's doable and anyone can do it, but you do have to put the time and the effort into it.
+[34:55] So I kind of think of it as like, so this is a tool it's kind of like learning a new language which means I have to invest a lot of time in it and look for resources and kind of like practice it almost like every day, in order to make it accessible to your to you, you know.
+[35:11] So it's, it's not easy, but it's definitely doable if you're committed, and if you practice a little every day pick a project, you know, listen to a webinar.
+[35:23] Go do there's so many like, you know Python lessons on YouTube to like so there's like information and resources are out there, especially this like open source.
+[35:36] Programming like community is very open to like teaching others so it's out there if you want to learn, but you do have to commit in order to get to a place where you can use it as a tool.
+[35:50] You want the origin story you want to know where the nerd came from.
+[36:00] Is that what I'm yeah yeah audience will be really interesting to know.
+[36:04] Okay, well it's nothing I set out to do it wasn't like a goal I had I definitely didn't aspire to it.
+[36:11] I kind of stumbled into it.
+[36:12] The short version is as I stumbled into a job as a journalist working in TV journalism in Chicago, a little about 20 years ago or so, and I didn't, you know, we were doing a story about a kind of corrupt suburb of the city of Chicago that.
+[36:28] We had a tip was building the city, the city was being built by corrupt law firm for excess legal fees right was the tip.
+[36:38] And so we filed a public records request and we got back this massive print out like old school with the terror strips on the side and the little circles, and it was like 4050 pages of like old school print out of these legal bills.
+[36:50] And we were like, well, what are we going to do with this and and and and I was like, well, maybe we could make a spreadsheet and to be honest with you I'd maybe made like one or two spreadsheets in my entire life like at that point I don't even know where I got the idea.
+[37:02] And so I just sat there and key punched the whole thing into the spreadsheet, it took, you know, a day or whatever, but then at the end we could add up the total and we got to do a great story on local TV.
+[37:12] And the anchor actually climbed a step ladder and drop the paper down just to show how funny it was and for me that was kind of like my first hit of like what you can do with data analysis and journalism, which is you can tell a story that otherwise never would have been told.
+[37:30] You can do like cool investigative work and you can just do stuff that's frankly better than like the typical journalism thing and so for me, that sort of hook I got then of like if I learn this stuff I can do cool stories that I couldn't do otherwise.
+[37:45] And also, it was kind of like a way in for me, like I was the one who was nerdy enough to do that, you know what I mean, and was then nerdy enough to learn how to do more of it, you know, and so I saw opportunity for myself to, you know, in that.
+[37:58] And I then made I think a crucial decision to go to graduate school at the University of Missouri MIZ.
+[38:05] Where I worked at a place called the National Institute for Computer Assisted Reporting as a graduate assistant, and I really had two years of time in graduate school to really begin to learn how to do this work more seriously.
+[38:17] And to meet a lot of people in the field, and so I know graduate school is is controversial, I know that the the Wall Street Journal.
+[38:26] And so I had a lot of conversations with all these people who graduated from graduate school which have you believe it's not worth it.
+[38:31] And maybe it isn't in some circumstances, but if you look at that great scatter plot they published on J school costs, Mizzou was right down at the bottom because it's a very affordable place to go to school.
+[38:41] So it's crucial for me, and then, of course, finding mentors and jobs to go further and further.
+[38:45] But for me, that was really the beginning, and the excel was the gateway drug.
+[38:50] It truly was.
+[38:51] Thank you so much, Iris and Ben for sharing with us, you know, how you started the data science and Python journey.
+[39:00] And we have one question from the audience, and they are wondering, in your opinion, any person with data analytics skills, you know, does the person still need to take journalism courses based on your experiences?
+[39:16] So if you have data analysis, analytics skills, do you have to take journalism courses, I would say yes.
+[39:26] Because when we do data analysis, we're not doing it.
+[39:34] We're kind of like it's part of the reporting, you know, analyzing data is kind of part of reporting and we have to ask like the right questions.
+[39:41] And I think journalism classes kind of teach you what kind of questions you should be asking in any given story.
+[39:46] Sure, there are questions that's reserved for data sets, like technical questions that you should ask a data.
+[39:53] But all in all, we're trying to find, you know, we're trying to tell a story we're trying to uncover something perhaps.
+[40:00] And those type of exercises of talking to people, who to talk to, what to include, and thinking about like your audience concepts like that I think are more taught in journalism schools.
+[40:16] Although, well, I wouldn't know because I didn't take data now analytics cause but i'm assuming those aren't really taught in the analytics class so I do think it's really helpful and.
+[40:28] When i'm looking at data i'm you know that LAUSD dashboard I published it's not that I just like took the data and published it I talked to the district, and I try to understand what these data points meant.
+[40:41] You know, and then I went back and was like this doesn't make sense to me, can you tell me more, so we had to like, you know, make some changes to the page, so this is like I am talking to people getting information from them along with my data and putting them out there, so I do think.
+[40:57] It's probably helpful that you take your own courses.
+[41:02] Thank you iris so what is your opinion been.
+[41:05] I definitely can't hurt you know I think I think the crucial thing is to really embrace like what I was just saying one that you have to take ultimate accountability for the accuracy of the work which is going to and the raw materials are often going to be things that you don't create.
+[41:21] And so there's like a there's a reporting process of like really vetting and understanding the data before you try to summarize it for other people, which I think probably isn't there in a lot of corporate data science contexts where.
+[41:33] Or maybe it is you guys tell me but maybe less so than in these cases and so there's a there's like a whole set of like an attitude of of reporting that I think is crucial.
+[41:45] And then I think just embracing that what you're ultimately making is for the general public for someone not unlike your mother or sister or whatever or neighbor, you know, as opposed to the the technology and the output of the analysis itself being the product I think is really crucial to succeeding.
+[42:03] At kind of our weird cross disciplinary work, and I think that just having to write a headline and a lead to like a normal news story is really great practice to helping boil down what it is you really want to get across.
+[42:17] And I think that you know that that is part of our work.
+[42:21] And it's actually to be honest with you a really exciting part of being a data journalist, because you really, you really try to get out there and reach people, you know.
+[42:33] Thanks, Ben and Iris for sharing your insights with us on that.
+[42:37] And I want to jump into another question that we have here and curious to hear your thoughts on it, you know there's subjectivity and everything that a journalist can do.
+[42:48] You know, depending on how they approach who they interview what they enter, you know what side to enter, you know, focus on what, where they decide to go, and and everything within that, and data is no stranger to that as well.
+[43:00] So team inquiry mentioned, you know, do you run the risk of setting up a database that has a particular slant rather than a neutral point of view.
+[43:08] How do you handle the subjectivity that occurs within data.
+[43:12] And how do you, you know, deal with that as you move forward in the project in providing the data to the public and the decisions that you make as to what you decide to visualize or not visualize for the reader.
+[43:26] Yeah, I think these challenges that are really at the core of all kinds of journalism, of course, also exist in data journalism, and I think there's a way in which like the sort of the scientific, like framing of a lot of data drills and can sometimes suggest otherwise.
+[43:40] That's not true, you know what I mean the things we choose to cover, and how we choose to cover them and how we choose to surface it clearly reflects our choices and values, and can be, you know, critically unpacked, you know what I mean like I think anything else could in this university environment, which I would welcome.
+[43:56] Like an example I like is like you know data dumps like when we decided to dump data on the web.
+[44:01] Whose data and why and how right where I think you can see that within journalism there's really strongly different opinions.
+[44:09] You know, some people think the WikiLeaks State Department cables database, which was a data application, just like the ones we were showing from a technical point of view.
+[44:19] It's all the same thing it's just different data flowing through the system right some people would say that's heroic other people would say it's literally treason, right, you know, I think there's more local examples of like.
+[44:32] Is it okay to publish the concealed weapons database in your local community, if people are interested to know who has a concealed weapons license.
+[44:39] In real life, a local newspaper did that and got a lot of blowback, you know, and so I think that like in every circumstance.
+[44:46] You have to weigh that, you know what I mean, and I think that reasonable people are going to disagree.
+[44:51] An example I like to give is we did a story about what's called the American Independent Party here in California.
+[44:57] This is a third party that most people don't know about.
+[45:00] It was actually formed in 1968 so that George Wallace could get on the ballot as a third party candidate because he couldn't win a major party nomination.
+[45:08] But it was created by a racist candidate to run a racist campaign in 1968 and then mostly forgotten about right, but due to quirks and how the form is set up in the State of California.
+[45:19] When you are registered to vote, many people are accidentally signing up to be in the American Independent Party, because they think it's.
+[45:27] It's it's being politically independent, not having a party right, and so we decided to do a story about this, which involved a public opinion poll to really establish that people were doing it accidentally.
+[45:38] But then, like all political registration records, who's in what party is 100% public.
+[45:43] So we were able to get from the Secretary of State every member of the American Independent Party in a list, which included Kaley Cuoco and Demi Moore, and believe it or not, the now owner of the Los Angeles Times, Patrick Soon-Shiong.
+[45:58] And we contacted them and wrote about it, and then with our story, we decided to allow people to find out had I accidentally registered in that party.
+[46:08] Right. And so for the purposes of our research, we built the database application that surfaced all the names and we searched, and we typed it 90210, and we like look for different things, you know what I mean to find people, but we didn't put that on the Internet.
+[46:21] Because we felt that to ultimately put that full list on the Internet wouldn't really help the mission of our story.
+[46:26] The mission of our story was based on the poll and our reporting was that well intentioned people were accidentally signing up for this group, and so to just to drop the whole database on the web felt counterproductive.
+[46:37] Right. That's that was our decision. So what we did instead is we made a search that made you type in your last name and your date of birth, and then it would tell you yes or no, whether you're a member.
+[46:47] Right. And so that created a little bit of an obstacle and didn't allow for like total fishing expeditions into the database. Right.
+[46:54] Right. But that was an entirely artificial obstacle that I coded onto the data, because I felt that it would result in what I thought was a better journalism.
+[47:03] That's totally debatable though. Right. So that's that's my long spiel. Sorry, it was so long.
+[47:10] No, not at all. Iris, would you like to share your thoughts on this, too?
+[47:14] I think this is where, you know, editors and other reporters are really helpful.
+[47:21] So like Ben said, he well, he has like a lot of experience in looking at different types of data sets and information.
+[47:30] So as a reporter, I would always bounce what my findings against with like to to him and see what he thinks if see if what else is missing.
+[47:41] If I'm doing a specific subject matter, I might talk to the reporter that covers that beat so that they could give me some insights to what I may or may not be seeing.
+[47:53] So I like to utilize my resources.
+[47:56] And also, I guess, when I think about data, you know, it's collected by people and people are biased and people have different motives.
+[48:06] So data is because data is collected by people who are biased and have motives.
+[48:13] Data itself, even though it feels neutral, it does it when collected, it can have its biases and motives to, you know, and one of the interesting things I've heard like in one of these data journalism class, you know, webinars is how
+[48:32] about what you're looking at, you know, because of these biases like for example, you would think that like transgender people don't exist in our community.
+[48:41] When you look into the past because people didn't collect information on them because people had a different type of mindset.
+[48:48] So I think it's always like important to keep in your mind that what you're looking at is information collected by people and therefore are flawed and can be biased and just look at data.
+[49:01] Like you would interview a person, you know, try to ask the questions, but also kind of try to find the motives behind them.
+[49:11] Exactly. I think that's a great point, Iris, interviewing the data is something that I think is an important part to all of this process, interrogating it as much as possible, as you said.
+[49:26] We have a few more minutes left. I wanted to see if we can jump into the last two questions that we have here.
+[49:32] The next question is from Cindy Broyal, who mentioned how important the visual can be to telling a story, and how important is it to make the presentations interactive and engaging the audience.
+[49:43] The next question is, Iris, do you want to jump in and then Ben?
+[49:46] Yeah, I think we talk about this a lot in our team, too.
+[49:51] Sometimes we think less is more. Sometimes it doesn't have to have large bells or whistles.
+[49:56] Sometimes us, you know, a simple bar graph can tell you a lot more than you think.
+[50:02] And then other times, like the Kobe story, like visual elements are like the only way you can understand a story really fully.
+[50:13] So I sorry I kind of lost my train of thought. Was there a question again?
+[50:20] No worries. So looking at how how important is it to make the presentation interactive and engaging the audience?
+[50:27] Right. So interactivity also is like a hard technical lift.
+[50:32] So we always think about is it worth it? Is it really enhancing the story, helping the story by putting this feature and asking audience to engage?
+[50:42] Will it help our readers?
+[50:45] And a big example of that, which we always try to make it interactive is like the precincts map.
+[50:49] You know, everyone wants to know where they're like how the area that they're living voted.
+[50:54] So we like to make those things interactive and other times we try to, you know, dial it down and just keep it simple because that's enough.
+[51:06] Yep. And one thing I would just add is that, you know, one big change since I started doing this work is just the rise of mobile phones.
+[51:12] When I started in the flash era when everybody was on desktop computers, graphics tended to be very heavily interactive because there was this expectation that all of your users had like a mouse and that interactivity was how you really went above and beyond a traditional piece.
+[51:27] So for now with, you know, 60% or more of your readers looking at things on mobile phones, they just do all those bells and whistles and those more sort of detailed exquisite displays just no longer work.
+[51:39] And so I think that's a big reason why over the last 10 years you've seen the top graphics groups in the world really simplifying a lot moving towards scrolling type approaches and thumbing type approaches over click and pick kind of approaches.
+[51:57] So, thank you.
+[51:59] Thank you, Ben and Iris. So we have one last question. So in your opinion, what are the fundamental computer coding skills or data science skills one need to learn if they want to break out into the data journalism field.
+[52:15] So we start with iris. Yeah, I think that depends.
+[52:21] You can, if you start with Python, you can do more ambitious analysis that you might not be able to do in itself. Same for R.
+[52:31] I like Python because it's kind of more flexible in terms of I can make a tool and I can also do like analysis. But if you are into more visual storytelling.
+[52:43] Front-end computer languages like HTML, CSS, and JavaScript are probably what you want to learn.
+[52:53] When I got started and thought about learning these programming languages,
+[53:01] I still think about this a lot because I think the best way to learn is kind of like pick a project that you want to try.
+[53:22] You know, like, I like this story because of the analysis, or maybe I like the story because of this beautiful graphic. You know, I want to do something like this. And then, like, pick a goal and try to learn things around it because depending on what you want to do, there are so many languages you can learn and so many languages you don't have to learn.
+[53:36] So I would recommend kind of really thinking about what is it? Do I just want to learn programming, and, but why? You know, like, what do I want to do with it? And then maybe setting like a post to go towards, walk towards.
+[53:53] Thank you, Iris.
+[53:54] So you're saying that practice is really important.
+[53:56] So you can start with a project that you're interesting to learn more about the coding stuff, right?
+[54:01] Thank you.
+[54:02] What do you say, Ben?
+[54:04] I think Iris it on.
+[54:07] I think really having an applied approach and an incremental attitude like you're gonna like gradually learn more and more as you do more and more projects is totally right.
+[54:16] It takes a long time to get good at all this stuff.
+[54:18] But no one is just gonna study, study, study, and then be ready, right?
+[54:21] It's gonna be fits and starts through your whole career, and you have to embrace that process.
+[54:25] The only thing I would add is that if you're interested in working with data, in my view, the spreadsheet is the fundamental skill.
+[54:31] You know, I think that being able to structure data into a simple spreadsheet, sort it, filter it, group and analyze it with pivot tables.
+[54:44] It, look at the data and find flaws in it, right?
+[54:48] You know what I mean?
+[54:49] Correct those flaws.
+[54:50] Calculate new columns.
+[54:52] Those four or five like basic skills to me are, it's like learning how to dribble in basketball.
+[54:58] You know, you can't really play until you understand those basic skills.
+[55:01] And then the computer programming of, of R or of Python just allows you to scale up and to do those skills like more effectively with larger data sets and script it so it can work while you're sleeping like Iris has done or whatever else.
+[55:15] But it all comes back to the fundamentals of structured data, which is found in LibreOffice, let's say the free alternative to Microsoft Excel.
+[55:29] Thank you, Ben.
+[55:30] I put in the chat for everyone some resources that you wanted to leave folks with as well.
+[55:35] Would you be able to talk for just a second about the Python first Python notebook then?
+[55:40] And what people may be able to get out of that?
+[55:42] Yeah, sure.
+[55:43] I mean, so five or six years ago I came to San Diego State for an IRE training event and we, we did an experiment, we said, could we sort of like tack on a Python and Jupyter Notebook training class on to an event that was otherwise happening there.
+[55:59] And with some partners of mine, including Cheryl Phillips at Stanford, and Aaron Williams, who's now at Netflix and others, we developed a little bit of a class that teaches you just enough Python and Jupyter Notebook to do an analysis of campaign finance and California politics.
+[56:17] And so this class which is at firstpythonnotebook.org, and has improved quite a bit since our first effort I think.
+[56:24] It's the idea is to help you to learn how to dribble with Python, but then also at the same time to learn some of the important caveats and quirks of analyzing money and politics, which has its own kind of interesting challenges.
+[56:41] Thanks, Ben, you think that will be really helpful for folks if they want to dive into it.
+[56:45] This hour has just like zoomed by literally on zoom.
+[56:50] Okay, bad joke.
+[56:51] But thank you all for joining us today.
+[56:53] For this webinar.
+[56:54] We hope you came away with some new insights and thoughts.
+[56:57] We want to give a thank you to the School of Journalism & Media Studies as well as to Iris and Ben for their time today.
+[57:03] We hope this has inspired some of you or all of you out there to want to go forth and do some awesome work and data journalism and tackle Python if you're so interested.
+[57:13] Have a wonderful rest of the day, everybody.
+[57:15] Take care.
+[57:16] Thanks, Ben.
+[57:17] Thanks, bye.
