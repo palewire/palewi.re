@@ -470,6 +470,33 @@ def test_beyond_jms_talk_has_a_recording_and_no_dead_materials() -> None:
     assert talk.deck_url == ""
 
 
+def test_data_and_graphics_talk_has_a_recording_and_archived_slides() -> None:
+    """Keep the recovered recording and archive the unavailable slides.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_content.py -k data_and_graphics``.
+    """
+    talk = next(talk for talk in load_talks() if talk.slug == "data-and-graphics-an-introduction")
+
+    assert talk.title == "DATA AND GRAPHICS: An introduction"
+    assert talk.date == datetime.date(2020, 10, 30)
+    assert talk.video_url == "https://www.youtube.com/watch?v=sSEiBF_RAMc&feature=emb_title"
+    assert talk.local_video_url == "/media/talks/data-and-graphics-an-introduction/video.mp4"
+    assert talk.poster_url == "/media/talks/data-and-graphics-an-introduction/presentation.jpg"
+    assert talk.transcript_template == "coltrane/talks/data-and-graphics-an-introduction-transcript.html"
+    assert talk.transcript_text_url == "/static/talks/data-and-graphics-an-introduction/transcript.txt"
+    assert talk.captions_url == "/static/talks/data-and-graphics-an-introduction/captions.vtt"
+    assert talk.slides_url == ""
+    assert talk.original_slides_url.endswith("/edit?usp=sharing")
+    assert talk.archive_url.startswith("https://web.archive.org/web/20201101062410/")
+
+
 def test_local_data_journalism_podcast_has_audio_sources_and_transcript():
     talk = next(talk for talk in load_talks() if talk.slug == "local-data-journalism-podcast")
 
