@@ -236,5 +236,7 @@ def test_catch_up_controller_wiring_is_serialized_and_leaves_weekly_run_unchange
     assert "lookup_only=true" in run
     assert "github.event.workflow_run.head_branch == 'main'" in jobs["controller"]["if"]
     assert "github.event.workflow_run.head_repository.full_name == github.repository" in jobs["controller"]["if"]
+    step_names = [step["name"] for step in jobs["controller"]["steps"]]
+    assert step_names.index("Persist controller state") < step_names.index("Dispatch selected archive batch")
     assert load_workflow()[True]["schedule"] == [{"cron": "17 6 * * 1"}]
     assert load_workflow()[True]["workflow_dispatch"]["inputs"]["catch_up_id"]["type"] == "string"
