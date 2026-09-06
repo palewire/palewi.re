@@ -370,18 +370,21 @@ talks:
   venue: OpenNews Community Call
   location: SoundCloud
   date: '2021-07-01'
-  video_url: https://soundcloud.app.goo.gl/7hPSU
 - title: Hello datawrapper
   venue: Arizona State University
   location: Zoom
   date: '2021-05-23'
-  video_url: https://asu.zoom.us/rec/play/ShKHBZ4M8nipdXFKuZHUaU0FDM8nywZotv5ryyeIvDH4WjGEmDQzvzpVMX10k3XUZ8D-OvEiKhMcilaA.-JekNP08WWLe764M?autoplay=true
-  slides_url: https://twitter.com/palewire/status/1396537050292056064
 - title: First Python Notebook
   venue: NICAR21 After Party
   location: Zoom
   date: '2021-03-06'
   video_url: https://www.youtube.com/watch?v=paVSRMTitLQ
+  slug: first-python-notebook-nicar21
+  local_video_url: /media/talks/first-python-notebook-nicar21/video.webm
+  poster_url: /media/talks/first-python-notebook-nicar21/poster.jpg
+  transcript_template: coltrane/talks/first-python-notebook-nicar21-transcript.html
+  transcript_text_url: /static/talks/first-python-notebook-nicar21/transcript.txt
+  captions_url: /static/talks/first-python-notebook-nicar21/captions.vtt
 - title: 'Learning to code: What''s holding you back?'
   venue: NICAR
   location: Zoom
