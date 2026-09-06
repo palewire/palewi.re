@@ -32,6 +32,43 @@ The corresponding convenience targets are
 requests are allowed; lookup-only verification does not need Save Page Now
 credentials.
 
+## GitHub Actions catch-up controller
+
+The regular Monday workflow remains a one-time maintenance batch. The separate
+**Site archive catch-up** workflow polls every ten minutes but does nothing
+until an operator starts the durable controller state on `site-archive-data`.
+It also wakes after a trusted `main` **Site archive** completion. It dispatches
+at most one existing archive batch at a time, and dispatch is its final step,
+so the batch starts only after the controller releases the shared writer slot.
+
+Start or resume only after checking that no manual archive run is in progress:
+
+```sh
+gh workflow run site-archive-catch-up.yaml --ref main -f action=start
+gh workflow run site-archive-catch-up.yaml --ref main -f action=resume
+```
+
+Stop later dispatches or inspect the saved controller state without changing
+it:
+
+```sh
+gh workflow run site-archive-catch-up.yaml --ref main -f action=stop
+gh workflow run site-archive-catch-up.yaml --ref main -f action=status
+```
+
+It starts with known, due missing pages, then alternates 100-page capture
+batches with lookup/discovery batches. It does not repeat a queued or running
+batch, honors per-page Retry-After deadlines and the 24-hour pending-capture
+window. A persisted partial batch with a current transient Wayback error stays
+active and waits for the later of its recorded retry time or a conservative
+ten-minute pause; its next batch begins with lookup confirmation. It blocks
+only when persistence, configuration, or validation fails; its dispatched run
+cannot be found; or two successful batches make no durable progress. Use
+`resume` only after resolving a blocked cause. It waits through documented
+retry and pending-confirmation deadlines, and marks itself complete only when
+the discovery queue is empty and every known live page is archived or blocked;
+unavailable references remain reported as gaps rather than claimed as archives.
+
 Before submitting a capture, the tool checks that the page still serves public
 HTML and checks Wayback again. It saves the pending request before contacting
 the capture service, so an interrupted response does not lead to an immediate

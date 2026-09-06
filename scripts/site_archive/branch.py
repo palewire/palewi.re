@@ -20,6 +20,7 @@ from scripts.site_archive.manifest import ArchiveError, Manifest, ManifestStore
 DEFAULT_REPOSITORY = "palewire/palewi.re"
 DEFAULT_BRANCH = "site-archive-data"
 REMOTE_MANIFEST = "manifest.json"
+REMOTE_CATCH_UP_STATE = "catch-up.json"
 COAUTHOR = "Copilot App <223556219+Copilot@users.noreply.github.com>"
 GH_TIMEOUT_SECONDS = 60
 _SHA = re.compile(r"^[0-9a-fA-F]{40}$")
@@ -178,8 +179,46 @@ class GitHubClient:
             raise BranchPersistenceError("GitHub returned an invalid branch head")
         return sha
 
+    def content(self, head: str, path: str, *, required: bool = True) -> bytes | None:
+        """Read a known data-branch file through an immutable commit ref.
+
+        Args:
+            head: Commit SHA to read.
+            path: One permitted data-branch filename.
+            required: Whether a missing file is an error.
+
+        Returns:
+            UTF-8 file bytes, or None when an optional file is absent.
+
+        Raises:
+            BranchPersistenceError: If the file is absent, malformed, or unreadable.
+
+        Examples:
+            ``client.content(head, REMOTE_MANIFEST)`` reads the manifest.
+        """
+        if path not in {REMOTE_MANIFEST, REMOTE_CATCH_UP_STATE}:
+            raise BranchPersistenceError("unsupported archive data path")
+        try:
+            response = self.request(f"contents/{path}?ref={quote(head, safe='')}")
+        except GitHubRequestError as error:
+            if not required and error.status == 404:
+                return None
+            raise BranchPersistenceError(f"cannot read {path} at {head}: {error}") from error
+        value = response.value
+        if not isinstance(value, dict):
+            raise BranchPersistenceError(f"GitHub returned no usable {path}")
+        if value.get("encoding") == "none" and isinstance(value.get("sha"), str):
+            return self.blob(value["sha"])
+        if value.get("encoding") != "base64" or not isinstance(value.get("content"), str):
+            raise BranchPersistenceError(f"GitHub returned no usable {path}")
+        try:
+            encoded = "".join(value["content"].split())
+            return base64.b64decode(encoded, validate=True)
+        except (binascii.Error, ValueError) as error:
+            raise BranchPersistenceError(f"GitHub returned invalid {path} content") from error
+
     def manifest(self, head: str) -> bytes:
-        """Read the manifest through an immutable commit ref.
+        """Read the required manifest through an immutable commit ref.
 
         Args:
             head: Commit SHA to read.
@@ -188,27 +227,14 @@ class GitHubClient:
             UTF-8 manifest bytes.
 
         Raises:
-            BranchPersistenceError: If the file is absent, malformed, or unreadable.
+            BranchPersistenceError: The required manifest cannot be read.
 
         Examples:
             ``client.manifest(head)`` reads exactly the file at that commit.
         """
-        try:
-            response = self.request(f"contents/{REMOTE_MANIFEST}?ref={quote(head, safe='')}")
-        except GitHubRequestError as error:
-            raise BranchPersistenceError(f"cannot read {REMOTE_MANIFEST} at {head}: {error}") from error
-        value = response.value
-        if not isinstance(value, dict):
-            raise BranchPersistenceError(f"GitHub returned no usable {REMOTE_MANIFEST}")
-        if value.get("encoding") == "none" and isinstance(value.get("sha"), str):
-            return self.blob(value["sha"])
-        if value.get("encoding") != "base64" or not isinstance(value.get("content"), str):
-            raise BranchPersistenceError(f"GitHub returned no usable {REMOTE_MANIFEST}")
-        try:
-            encoded = "".join(value["content"].split())
-            return base64.b64decode(encoded, validate=True)
-        except (binascii.Error, ValueError) as error:
-            raise BranchPersistenceError(f"GitHub returned invalid {REMOTE_MANIFEST} content") from error
+        content = self.content(head, REMOTE_MANIFEST)
+        assert content is not None
+        return content
 
     def blob(self, sha: str) -> bytes:
         """Read an immutable Git blob by SHA.
@@ -293,12 +319,13 @@ class GitHubClient:
             raise BranchPersistenceError("cannot create manifest blob") from error
         return _require_sha(sha, "blob")
 
-    def create_tree(self, blob: str, base_tree: str | None) -> str:
+    def create_tree(self, blob: str, base_tree: str | None, path: str = REMOTE_MANIFEST) -> str:
         """Create a tree containing only the manifest file.
 
         Args:
             blob: Manifest blob SHA.
             base_tree: Existing tree SHA, or ``None`` for an orphan commit.
+            path: Permitted data-branch filename replaced by this blob.
 
         Returns:
             New tree SHA.
@@ -309,7 +336,9 @@ class GitHubClient:
         Examples:
             ``client.create_tree(blob, None)`` creates an orphan single-file tree.
         """
-        payload: dict[str, Any] = {"tree": [{"path": REMOTE_MANIFEST, "mode": "100644", "type": "blob", "sha": blob}]}
+        if path not in {REMOTE_MANIFEST, REMOTE_CATCH_UP_STATE}:
+            raise BranchPersistenceError("unsupported archive data path")
+        payload: dict[str, Any] = {"tree": [{"path": path, "mode": "100644", "type": "blob", "sha": blob}]}
         if base_tree is not None:
             payload["base_tree"] = base_tree
         try:

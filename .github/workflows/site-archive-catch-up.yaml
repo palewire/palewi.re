@@ -1,0 +1,134 @@
+name: Site archive catch-up
+run-name: Site archive catch-up controller
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_run:
+    workflows:
+      - Site archive
+    types:
+      - completed
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Control action"
+        required: true
+        default: status
+        type: choice
+        options:
+          - start
+          - resume
+          - stop
+          - status
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: site-archive-data-writer
+  cancel-in-progress: false
+
+jobs:
+  controller:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      UV_NO_ENV_FILE: "1"
+      MANIFEST: .site-archive/manifest.json
+      STATE: .site-archive/catch-up.json
+      STATE_TOKEN: .site-archive/state-token.json
+      ACTION: ${{ inputs.action || 'tick' }}
+    steps:
+      - name: Check out production source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Guard production-only checkout
+        run: |
+          if test "$GITHUB_EVENT_NAME" = workflow_dispatch && test "$GITHUB_REF" != refs/heads/main; then
+            echo "Site archive catch-up must run from main, not $GITHUB_REF." >&2
+            exit 1
+          fi
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+
+      - name: Bootstrap controller
+        run: make ci-bootstrap
+
+      - name: Fetch durable archive state
+        run: |
+          mkdir -p .site-archive
+          uv run python -m scripts.site_archive.catch_up fetch \
+            --manifest "$MANIFEST" --state "$STATE" --state-token "$STATE_TOKEN"
+
+      - name: Apply requested control action
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          case "$ACTION" in
+            start|resume)
+              uv run python -m scripts.site_archive.catch_up start --state "$STATE"
+              ;;
+            stop)
+              uv run python -m scripts.site_archive.catch_up stop --state "$STATE"
+              ;;
+            status)
+              uv run python -m scripts.site_archive.catch_up status --state "$STATE"
+              echo "skip=true" >> "$GITHUB_ENV"
+              ;;
+            *)
+              echo "Unsupported control action: $ACTION" >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Select next archive batch
+        if: env.skip != 'true'
+        id: tick
+        run: |
+          action="$(
+            uv run python -m scripts.site_archive.catch_up tick \
+              --manifest "$MANIFEST" --state "$STATE" --controller-run-id "$GITHUB_RUN_ID"
+          )"
+          case "$action" in
+            capture|lookup|wait|idle|blocked|complete)
+              echo "action=$action" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "Unexpected controller action: $action" >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Persist controller state
+        if: env.skip != 'true'
+        run: |
+          uv run python -m scripts.site_archive.catch_up push \
+            --state "$STATE" --state-token "$STATE_TOKEN"
+
+      - name: Dispatch selected archive batch
+        if: steps.tick.outputs.action == 'capture' || steps.tick.outputs.action == 'lookup'
+        run: |
+          if test "${{ steps.tick.outputs.action }}" = capture; then
+            gh workflow run site-archive.yaml --repo "$GITHUB_REPOSITORY" --ref main \
+              -f capture_only=true -f max_captures=100 -f catch_up_id="$GITHUB_RUN_ID"
+          else
+            gh workflow run site-archive.yaml --repo "$GITHUB_REPOSITORY" --ref main \
+              -f lookup_only=true -f max_captures=1 -f catch_up_id="$GITHUB_RUN_ID"
+          fi
