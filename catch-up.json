@@ -1,0 +1,14 @@
+{
+  "active": true,
+  "archive_run_id": 0,
+  "before_archive_progress": 510,
+  "before_manifest_sha256": "9b4773a063ea73c583e0843029d320a83010c6e60026e1a4e4234e082378c421",
+  "dispatch_token": "34024427755",
+  "dispatched_at": "2026-09-06T09:21:57.612718Z",
+  "finished_at": "",
+  "last_error": "",
+  "last_run_id": 0,
+  "next_retry_at": "2026-09-06T09:36:57.612718Z",
+  "no_progress_runs": 0,
+  "phase": "lookup"
+}
