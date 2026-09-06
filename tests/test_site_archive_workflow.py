@@ -199,3 +199,42 @@ def test_manual_inputs_reject_conflicting_flags_and_unsafe_capture_limits() -> N
     assert 'test "$MAX_CAPTURES" -gt 100' in run
     assert "max_captures must be a whole number from 1 through 100." in run
     assert archive_step()["continue-on-error"] is True
+
+
+def test_catch_up_controller_wiring_is_serialized_and_leaves_weekly_run_unchanged() -> None:
+    """Keep continuous catch-up opt-in, durable, and separate from Monday maintenance.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        The controller dispatches one labelled existing archive workflow run.
+    """
+    controller_path = WORKFLOW.with_name("site-archive-catch-up.yaml")
+    controller = yaml.safe_load(controller_path.read_text())
+    jobs = controller["jobs"]
+    run = "\n".join(step.get("run", "") for step in jobs["controller"]["steps"])
+
+    assert controller[True]["schedule"] == [{"cron": "*/10 * * * *"}]
+    assert controller[True]["workflow_run"] == {"workflows": ["Site archive"], "types": ["completed"]}
+    assert controller["permissions"] == {"actions": "write", "contents": "write"}
+    assert controller["concurrency"] == load_workflow()["concurrency"]
+    assert controller[True]["workflow_dispatch"]["inputs"]["action"]["options"] == [
+        "start",
+        "resume",
+        "stop",
+        "status",
+    ]
+    assert "scripts.site_archive.catch_up fetch" in run
+    assert "scripts.site_archive.catch_up push" in run
+    assert "group: site-archive-data-writer" in controller_path.read_text()
+    assert 'catch_up_id="$GITHUB_RUN_ID"' in run
+    assert "capture_only=true" in run
+    assert "lookup_only=true" in run
+    assert "github.event.workflow_run.head_branch == 'main'" in jobs["controller"]["if"]
+    assert "github.event.workflow_run.head_repository.full_name == github.repository" in jobs["controller"]["if"]
+    assert load_workflow()[True]["schedule"] == [{"cron": "17 6 * * 1"}]
+    assert load_workflow()[True]["workflow_dispatch"]["inputs"]["catch_up_id"]["type"] == "string"

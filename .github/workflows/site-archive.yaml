@@ -1,4 +1,5 @@
 name: Site archive
+run-name: ${{ inputs.catch_up_id && format('Site archive catch-up {0}', inputs.catch_up_id) || 'Site archive' }}
 
 on:
   schedule:
@@ -20,6 +21,11 @@ on:
         required: false
         default: 10
         type: number
+      catch_up_id:
+        description: "Internal controller run ID; leave blank for ordinary manual runs"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: read
