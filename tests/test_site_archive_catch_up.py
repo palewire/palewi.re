@@ -213,7 +213,14 @@ def test_failed_or_missing_dispatched_runs_pause_controller() -> None:
     assert "did not appear" in state.last_error
 
 
-def test_partial_transient_failure_waits_then_automatically_resumes() -> None:
+@pytest.mark.parametrize(
+    "error",
+    [
+        "Wayback capture request failed",
+        "Wayback capture connection failed",
+    ],
+)
+def test_partial_transient_failure_waits_then_automatically_resumes(error: str) -> None:
     """Keep catch-up active after a persisted partial Wayback service failure.
 
     Args:
@@ -234,7 +241,7 @@ def test_partial_transient_failure_waits_then_automatically_resumes() -> None:
     ambiguous = manifest.pages["https://palewi.re/ambiguous/"]
     ambiguous.last_submit_at = "2026-09-06T12:00:00Z"
     ambiguous.last_check_status = "error"
-    ambiguous.last_error = "Wayback capture request failed"
+    ambiguous.last_error = error
     ambiguous.next_retry_at = "2026-09-06T12:03:00Z"
     state = state_with_dispatch()
     state.before_archive_progress = 0
