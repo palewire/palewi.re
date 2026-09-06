@@ -37,9 +37,10 @@ credentials.
 The regular Monday workflow remains a one-time maintenance batch. The separate
 **Site archive catch-up** workflow polls every ten minutes but does nothing
 until an operator starts the durable controller state on `site-archive-data`.
-It also wakes after a trusted `main` **Site archive** completion. It dispatches
-at most one existing archive batch at a time, and dispatch is its final step,
-so the batch starts only after the controller releases the shared writer slot.
+Each controller-dispatched archive run queues an internal continuation only
+after its checkpoint persistence succeeds. It dispatches at most one existing
+archive batch at a time, and dispatch is its final step, so the batch starts
+only after the controller releases the shared writer slot.
 
 Start or resume only after checking that no manual archive run is in progress:
 
