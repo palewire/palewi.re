@@ -1,14 +1,14 @@
 {
   "active": true,
   "archive_run_id": 0,
-  "before_archive_progress": 1625,
-  "before_manifest_sha256": "f3404954756fb333d09880e65e31957267bd9799e88ec633f4fd711aed454457",
-  "dispatch_token": "34147755455",
-  "dispatched_at": "2026-09-07T17:29:02.579074Z",
+  "before_archive_progress": 1631,
+  "before_manifest_sha256": "6e6771d0f60ab280599d8257075a24b0e030f948671f34cdff3a65bc15019d5e",
+  "dispatch_token": "34148106506",
+  "dispatched_at": "2026-09-07T17:34:37.361059Z",
   "finished_at": "",
   "last_error": "",
-  "last_run_id": 34147266791,
-  "next_retry_at": "2026-09-07T17:44:02.579074Z",
+  "last_run_id": 34147796402,
+  "next_retry_at": "2026-09-07T17:49:37.361059Z",
   "no_progress_runs": 0,
-  "phase": "lookup"
+  "phase": "capture"
 }
