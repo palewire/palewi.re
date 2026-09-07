@@ -24780,20 +24780,20 @@
       "url": "https://palewi.re/docs/news-homepages/sites/thesunnews.html"
     },
     "https://palewi.re/docs/news-homepages/sites/thetimes.html": {
-      "archive_status": "missing",
-      "archive_url": "",
+      "archive_status": "archived",
+      "archive_url": "https://web.archive.org/web/20260420194458/https://palewi.re/docs/news-homepages/sites/thetimes.html",
       "attempts": 0,
-      "last_check_at": "2026-09-07T07:56:24.690059Z",
+      "last_check_at": "2026-09-07T08:04:00.898764Z",
       "last_check_status": "success",
       "last_error": "",
       "last_submit_at": "",
-      "last_verified_at": "",
-      "live_checked_at": "2026-09-06T23:57:57.258857Z",
+      "last_verified_at": "2026-09-07T08:04:00.898764Z",
+      "live_checked_at": "2026-09-07T08:04:00.502853Z",
       "live_error": "",
       "live_status": "live",
       "next_retry_at": "",
       "pending_archive_url": "",
-      "snapshot_at": "",
+      "snapshot_at": "20260420194458",
       "url": "https://palewi.re/docs/news-homepages/sites/thetimes.html"
     },
     "https://palewi.re/docs/news-homepages/sites/thetimesnews.html": {
@@ -25069,20 +25069,20 @@
       "url": "https://palewi.re/docs/news-homepages/sites/timesofindia.html"
     },
     "https://palewi.re/docs/news-homepages/sites/timesofisrael.html": {
-      "archive_status": "missing",
-      "archive_url": "",
+      "archive_status": "archived",
+      "archive_url": "https://web.archive.org/web/20260611132445/https://palewi.re/docs/news-homepages/sites/timesofisrael.html",
       "attempts": 0,
-      "last_check_at": "2026-09-07T07:56:51.159895Z",
+      "last_check_at": "2026-09-07T08:04:02.430130Z",
       "last_check_status": "success",
       "last_error": "",
       "last_submit_at": "",
-      "last_verified_at": "",
-      "live_checked_at": "2026-09-06T23:58:05.017812Z",
+      "last_verified_at": "2026-09-07T08:04:02.430130Z",
+      "live_checked_at": "2026-09-07T08:04:02.062783Z",
       "live_error": "",
       "live_status": "live",
       "next_retry_at": "",
       "pending_archive_url": "",
-      "snapshot_at": "",
+      "snapshot_at": "20260611132445",
       "url": "https://palewi.re/docs/news-homepages/sites/timesofisrael.html"
     },
     "https://palewi.re/docs/news-homepages/sites/timesrecord.html": {
