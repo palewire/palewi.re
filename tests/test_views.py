@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "01ea39c8281f619ab1f6c9195ae4cf7d7f8e3a0a333c33397fea0a9b50268b7b"),
+        ("/talks/", "5cf2b7c52ececf092dfcb87aa609173b37ef95c60863ad28aaff063bdf127b07"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -436,7 +436,7 @@ def test_beyond_jms_talk_page_has_recording_captions_and_transcript(client: Clie
 
     catalog = client.get("/talks/").content.decode()
     assert 'href="/talks/beyond-jms-the-power-of-python/"' in catalog
-    assert 'href="https://www.youtube.com/watch?v=QYCTVZLbbCU"' in catalog
+    assert 'href="https://www.youtube.com/watch?v=QYCTVZLbbCU"' not in catalog
     assert "1_sC3bFYbg4CD7TmlS9g1hPDD3_oIhcHsqECtzSx34XE" not in catalog
 
 
@@ -587,7 +587,7 @@ def test_new_appearance_talk_pages_have_local_recordings_and_transcripts(
     assert f">{first_timestamp}" in content
 
 
-def test_talk_list_keeps_new_appearance_detail_and_source_links(client):
+def test_talk_list_keeps_new_appearance_detail_links_without_source_links(client):
     content = client.get("/talks/").content.decode()
 
     expected_links = (
@@ -619,7 +619,11 @@ def test_talk_list_keeps_new_appearance_detail_and_source_links(client):
 
     for detail_url, source_url in expected_links:
         assert f'href="{detail_url}"' in content
-        assert f'href="{source_url}"' in content
+        assert f'href="{source_url}"' not in content
+
+    assert "Video &raquo;" not in content
+    assert "Audio &raquo;" not in content
+    assert "Materials &raquo;" not in content
 
 
 def test_fast_first_python_notebook_talk_uses_local_recording_and_transcript(client):
@@ -723,24 +727,17 @@ def test_scaling_scrapers_talk_has_a_local_recording_and_transcript(client):
 def test_talk_list_links_to_archived_external_talk_pages(client):
     content = client.get("/talks/").content.decode()
 
-    assert 'href="https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"' in content
-    assert 'href="https://svatheatre.com/events/dvc-presents-signal-in-the-noise/"' in content
-    assert (
-        '<a target="_blank" href="https://web.archive.org/web/20260610235645/https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/">“Today’s News For Tomorrow”</a>'
-        in content
-    )
-    assert (
-        '<a target="_blank" href="https://web.archive.org/web/20260313233441/https://svatheatre.com/events/dvc-presents-signal-in-the-noise/">“DV&amp;C Presents: Signal in the Noise”</a>'
-        in content
-    )
-    assert "Archived page &raquo;" not in content
+    assert 'href="https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"' not in content
+    assert 'href="https://svatheatre.com/events/dvc-presents-signal-in-the-noise/"' not in content
+    assert "“Today’s News For Tomorrow”</a>" not in content
+    assert "“DV&amp;C Presents: Signal in the Noise”</a>" not in content
 
 
 def test_talk_list_links_to_related_guides(client):
     content = client.get("/talks/").content.decode()
 
-    assert '<a href="https://palewi.re/docs/first-pmtiles-map/">“First PMTiles Map”</a>' in content
-    assert "Guide &raquo;" not in content
+    assert 'href="https://palewi.re/docs/first-pmtiles-map/"' not in content
+    assert "“First PMTiles Map”</a>" not in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
