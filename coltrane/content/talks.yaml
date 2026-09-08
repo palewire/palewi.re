@@ -289,6 +289,11 @@ talks:
   date: '2022-09-24'
   video_url: https://www.youtube.com/watch?v=2RgPoy05AnA
   slug: fast-first-python-notebook
+  local_video_url: /media/talks/fast-first-python-notebook/video.mp4
+  poster_url: /media/talks/fast-first-python-notebook/poster.jpg
+  captions_url: /static/talks/fast-first-python-notebook/captions.vtt
+  transcript_template: coltrane/talks/fast-first-python-notebook-transcript.html
+  transcript_text_url: /static/talks/fast-first-python-notebook/transcript.txt
 - title: What is Big Local News?
   venue: 17º Congresso Internacional de Journalismo da Abraji
   location: São Paulo

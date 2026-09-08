@@ -596,7 +596,7 @@ def test_talk_list_keeps_new_appearance_detail_and_source_links(client):
         assert f'href="{source_url}"' in content
 
 
-def test_fast_first_python_notebook_talk_embeds_youtube_recording(client):
+def test_fast_first_python_notebook_talk_uses_local_recording_and_transcript(client):
     response = client.get("/talks/fast-first-python-notebook/")
     talk = next(talk for talk in load_talks() if talk.slug == "fast-first-python-notebook")
 
@@ -604,9 +604,13 @@ def test_fast_first_python_notebook_talk_embeds_youtube_recording(client):
     assert talk.guide_url == ""
     content = response.content.decode()
     assert "<h1>Fast First Python Notebook</h1>" in content
-    assert 'src="https://www.youtube-nocookie.com/embed/2RgPoy05AnA"' in content
-    assert 'title="Recording of Fast First Python Notebook"' in content
-    assert 'referrerpolicy="strict-origin-when-cross-origin"' in content
+    assert '<source src="/media/talks/fast-first-python-notebook/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/fast-first-python-notebook/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/fast-first-python-notebook/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "Welcome to First Python Notebook." in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
 
 
 def test_nicar21_first_python_notebook_talk_has_hosted_recording_and_transcript(client):
