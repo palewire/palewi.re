@@ -176,6 +176,32 @@ def test_talk_detail_page_is_available(client):
     assert ">00:05.160</time>" not in content
 
 
+def test_las_political_calculus_talk_page_uses_local_deck(client):
+    response = client.get("/talks/las-political-calculus/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>L.A.&#x27;s Political Calculus</h1>" in content
+    assert 'src="/static/talks/las-political-calculus/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 4 / 3;"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+
+
+def test_data_journalism_on_deadline_talk_page_uses_local_deck(client):
+    response = client.get("/talks/data-journalism-on-deadline/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Data journalism on deadline</h1>" in content
+    assert 'src="/static/talks/data-journalism-on-deadline/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 16 / 9;"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+
+
 def test_talk_detail_page_uses_configured_byline_and_deck_ratio(client):
     content = client.get("/talks/good-trouble-ai/").content.decode()
 
