@@ -29900,10 +29900,10 @@
       "url": "https://palewi.re/talks/storytelling-with-graphics/"
     },
     "https://palewi.re/talks/understanding-europes-heatwave/": {
-      "archive_status": "pending",
+      "archive_status": "missing",
       "archive_url": "",
       "attempts": 0,
-      "last_check_at": "2026-09-08T10:19:13.611163Z",
+      "last_check_at": "2026-09-08T12:58:54.245401Z",
       "last_check_status": "success",
       "last_error": "",
       "last_submit_at": "2026-09-07T12:48:47.991560Z",
