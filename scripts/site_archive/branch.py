@@ -20,7 +20,6 @@ from scripts.site_archive.manifest import ArchiveError, Manifest, ManifestStore
 DEFAULT_REPOSITORY = "palewire/palewi.re"
 DEFAULT_BRANCH = "site-archive-data"
 REMOTE_MANIFEST = "manifest.json"
-REMOTE_CATCH_UP_STATE = "catch-up.json"
 COAUTHOR = "Copilot App <223556219+Copilot@users.noreply.github.com>"
 GH_TIMEOUT_SECONDS = 60
 _SHA = re.compile(r"^[0-9a-fA-F]{40}$")
@@ -196,7 +195,7 @@ class GitHubClient:
         Examples:
             ``client.content(head, REMOTE_MANIFEST)`` reads the manifest.
         """
-        if path not in {REMOTE_MANIFEST, REMOTE_CATCH_UP_STATE}:
+        if path != REMOTE_MANIFEST:
             raise BranchPersistenceError("unsupported archive data path")
         try:
             response = self.request(f"contents/{path}?ref={quote(head, safe='')}")
@@ -336,7 +335,7 @@ class GitHubClient:
         Examples:
             ``client.create_tree(blob, None)`` creates an orphan single-file tree.
         """
-        if path not in {REMOTE_MANIFEST, REMOTE_CATCH_UP_STATE}:
+        if path != REMOTE_MANIFEST:
             raise BranchPersistenceError("unsupported archive data path")
         payload: dict[str, Any] = {"tree": [{"path": path, "mode": "100644", "type": "blob", "sha": blob}]}
         if base_tree is not None:
