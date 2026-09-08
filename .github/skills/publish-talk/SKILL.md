@@ -55,12 +55,24 @@ Commit these source assets to the repository:
   to the presentation's actual aspect ratio.
 - A compact presentation PDF, kept below the repository's 5 MB file limit.
 - `notes.txt` — extracted slide text.
-- `transcript.txt` — the spoken transcript, when a recording is available.
-- `captions.vtt` — WebVTT captions, when a recording is available.
+- `transcript.txt` — the spoken transcript, required when a recording is
+  available.
+- `captions.vtt` — WebVTT captions when the source provides them.
 
 Use `.github/skills/archive-media/SKILL.md` before downloading media for
 preservation. Do not commit the recording itself; it belongs in the private
 `palewire-talk-media` R2 bucket.
+
+## Transcribe every recording
+
+Every hosted recording must have a committed timestamped transcript. Download
+and commit public captions as `captions.vtt` when they exist, then make the
+transcript from them. When no captions exist, transcribe the recording with
+Whisper and commit `transcript.txt` plus its readable template fragment.
+
+If Whisper fails on an Apple GPU, retry with its CPU backend. Do not omit the
+transcript merely because the source has no captions or the first
+transcription attempt fails.
 
 ## Build text readers
 
@@ -126,10 +138,11 @@ Load the `wrangler` skill before using Wrangler. Verify the pinned version:
 make check-wrangler
 ```
 
-Upload the approved local video file and optional poster to the private R2 bucket.
-Keep the source file's browser-compatible extension in `local_video_url`; the
-detail page selects `video/mp4` or `video/webm` from that extension. Upload
-the matching content type:
+Upload the approved **full-size original video** and optional poster to the
+private R2 bucket. Never transcode or downsize a recording to fit Wrangler's
+upload limit. Keep the source file's browser-compatible extension in
+`local_video_url`; the detail page selects `video/mp4` or `video/webm` from
+that extension. Upload the matching content type:
 
 ```bash
 cd workers/static-site
@@ -139,12 +152,15 @@ npm exec -- wrangler r2 object put \
   --content-type video/webm
 ```
 
-Wrangler only accepts files up to 300 MiB. For a larger recording, use
-`boto3`'s multipart upload support with the repository's configured R2
-credentials, then verify the stored size and content type:
+Wrangler only accepts files up to 300 MiB. Before uploading a larger
+recording, confirm that `R2_ENDPOINT_URL`, `R2_ACCOUNT_ID`,
+`R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY` are available from the
+configured credential file. If they are not available, ask the user where the
+credentials are stored; do not assume they are in `.env`. Use `boto3`'s
+multipart upload support, then verify the stored size and content type:
 
 ```bash
-uv run --env-file .env python - <<'PY'
+uv run --env-file /path/provided-by-the-user/r2.env python - <<'PY'
 import os
 from pathlib import Path
 

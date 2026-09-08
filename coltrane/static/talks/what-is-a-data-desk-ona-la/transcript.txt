@@ -1,0 +1,1320 @@
+O-N-A-L-A, LA Times Meetup, if you're tweeting this,
+O-N-A-L-A-T hashtag.
+Welcome, we're, you know, this is kind of new ground for us.
+We're, the LA Times is happy to host this event,
+to get together more digital journalists in a room
+than in this town, than we've seen in a while.
+And I just welcome you and haven't prepared any remarks,
+so I'm gonna turn it over to Julie,
+who perhaps has prepared.
+Yeah, there's this idea it's gonna get better from here,
+but you might be disappointed.
+Thank you guys so much for coming.
+I really, I have no idea who you all are,
+and that's so exciting.
+I just, we wanted to start doing more of these
+types of things to get people together,
+with wine and snacks, and some information.
+So we hope to keep doing these things,
+and actually Robert is gonna talk about that.
+Hello, I'm Robert Hernandez.
+My Twitter handle is webjournalist,
+some people know me from that.
+Stand over here by the screen.
+We, Kim and I started O-N-A-L-A about two years ago or so.
+I'm a professor at USC, I moved back to LA
+about three years ago, and I wanted to meet other web nerds,
+and my virtual office wife and I met.
+And since then, we've been trying to get people together
+to kind of connect and nerd out and support each other.
+And normally it tends to be with like 48 hours notice
+at the Redwood, we haven't seen each other in a while,
+so we meet and drink.
+And thanks to Julie, we have this formal presentation
+or programming that we hope to do every couple of months.
+We wanna do it more, you know,
+the formal sit down learning,
+mind exchange every couple of months,
+and then some social meetup every other month
+or something like that.
+It's great to see so many folks,
+I know a chunk of you are from LA Times,
+and some new folks I don't know as well.
+Hope that this becomes a more routine thing,
+because it's better, journalism is better,
+the community is better served
+when we kind of share our knowledge,
+and experience, and be nerds together.
+Thank you for coming.
+Hi, I'm Kim, I am Robert's virtual office spouse.
+And my only job is to tell you that if your newsroom,
+or if you have ideas on what we should do for this programming,
+we are willingly accepting them.
+Just find one of us before, after the programming,
+pitch your idea, or if you have a cool bar we should go to.
+And also become a member of ONA,
+because it's kind of awesome.
+Who is a member of ONA?
+I'm on the board for the national.
+So, ONA, if you don't know, tends to be DC focused,
+or historically it's been East Coast focused.
+I got elected onto the board almost two years ago,
+I'm up for reelection if I decide to run again this year.
+But one of the things that I wanted to do
+when I was on the board was to make sure
+West Coast was represented in some form.
+But we need members to participate.
+Outside of a great conference,
+there's other things like this
+to kind of justify your membership,
+but at the very least, as an ONA person,
+it's this group that is growing.
+I think it's the largest international web journalism,
+online journalism organization.
+And it's just growing and getting better,
+but only made better through its members.
+So please consider joining.
+I think it's like 75 bucks or something, go on.
+Please.
+Martin's, sorry guys.
+Martin's gonna introduce the wonderful data desk people,
+but if everyone could give Martin a hand
+because he did a great job getting all of this together.
+Thank you.
+So, without any further ado whatsoever,
+Megan Garvey is our,
+she's somehow attached to the data desk.
+No one's really sure, but she'll tell you more about it.
+She provides the alcohol.
+I do do that, which is probably
+why anyone listens to me at all.
+They pointed that out to me.
+So I'm Megan Garvey, and I've been at the LA Times
+since 1998.
+I started out as a very traditional print journalist,
+and I can't even remember the first time I saw our website.
+And then a few years ago,
+I proposed an idea to do a database of California's war dead.
+So the men and women who'd been killed
+in the wars in California.
+And at the time I'd worked with Doug Smith,
+who's sitting, Doug, raise your hand.
+There he is.
+I had worked with Doug Smith on some data oriented projects
+in the past, but at the time there was really no way
+to publish most of what we did online.
+So a lot of work went into stuff that ended up
+as print graphics or informed stories,
+but was never really made accessible to the public.
+So I went to Doug and I said, I have this idea.
+And he said, two months ago, I would have said,
+great idea, no way, we can't do it.
+But we just hired someone named Ben Welsh,
+and I think you should meet him.
+So that was the beginning of, I don't know what it is, but.
+A beautiful friendship.
+Yes, a beautiful friendship.
+So the data desk here is really not,
+it's funny because a lot of people think of it
+as an official thing, but really what it is
+is a group of people from different sections of the paper
+who've kind of banded together.
+I don't know if it's on a life boat or a ship or raft
+or I don't know, a parachute.
+I'm not sure exactly what it is, but.
+Yes, only Doug, some kind of motorcycle.
+But the nice thing about that is that we work together
+by choice, and so it's been a lot of fun.
+And we have a weekly meeting we call show and tell
+where we often argue and fight with each other,
+but at the end of the day, come up with good ideas.
+And Ben is gonna come up and talk more
+about what it is that we actually do
+and what the data desk is.
+And then we're gonna take a look at a project
+that actually was born out of a lot of fighting
+and arguing and discussing.
+So Ben, come on up.
+Hello, okay, so does this work when I stand this far away?
+Can everybody hear me?
+Okay, good.
+My name's Ben Welsh, I work at the LA Times,
+and I do this stuff like Megan said.
+And our little band of people has been together
+for a few years and we've put together some stuff,
+and I'm gonna run you through kind of what we do
+and our work, add some examples of that,
+and then hand it off to Anthony to get more specific, okay?
+So I'm gonna go through a lot of stuff really fast,
+and if there's anything you have questions about
+or you wanna know more about,
+just raise your hand or say, hey, Ben, or whatever,
+because this is informal enough that we can stop
+and have a conversation, at least I hope so, okay?
+So feel free when the time comes.
+So the name of my talk is What is a Data Desk?
+And I'm gonna walk you through kind of what we do.
+If you wanna check out the slides later,
+they're at this URL here at the bottom,
+which is lat.ms slash Who is Data Desk?
+Okay, so like Megan said,
+the Data Desk is an informal team of reporters
+and programmers here in downtown LA at the LA Times,
+emphasis on team.
+And what we do basically in like a really oversimplified way
+is we turn databases into news,
+though in some cases, news is into databases,
+but that's like a whole other thing.
+But usually we turn databases into news.
+So like an example would be the California War Dead database
+that Megan talked about where there's a record
+for every casualty and then all those go,
+every one of those casualties gets its own page
+on the internet and you sort of turn the database
+into something on a news website
+that is different from a story, right?
+Other examples we've done that are more notorious
+include the rating of how well every teacher at LAUSD
+improves the test scores of their students,
+every person who's on the Hollywood Walk of Fame
+would be another example too.
+This is where you build the database
+that is sort of news in its way, right?
+That means that we write code, right?
+Like real code, we don't just talk about it,
+we do it and we do it all day, right?
+And I like to write a lot of Django, that's my favorite,
+and we do a lot of our projects in Django,
+which is a Python framework
+that makes it easier to build websites.
+So it's the Python programming language,
+it's all these handy shortcuts
+that make doing stuff a lot easier, right?
+And this is an example of a stack
+that you would use to put out a Python website
+that actually a lot of our sites
+kind of work a little bit like this.
+But that's not all that we use, right?
+There's a lot of other technologies that we use,
+there's people different from me
+who have different opinions and use different software
+like Doug, who uses a lot of SAS,
+though I'm trying to win him over, gradually.
+And there's other projects that you work on
+where certain tools are better than other tools, right?
+And so these are just some examples
+of different technologies we use.
+I'm sort of, I'm showing my age
+with the DHTML reference, right?
+Is anyone here old enough to remember that, right?
+Yes, right, I like to remind the younger developers,
+the internet had buzzwords before you were born, right?
+And anyway, but we also still can write in English,
+we didn't lose that when we became computer programmers.
+I know some people think that or that like they're somehow,
+they're like two, the two things don't go together,
+but that's not true at all.
+We remain the people we were before,
+we learned to program, right?
+And these are some examples of some front page stories
+that have come out of our work, right?
+And so now here we go through it.
+One thing we do, we make a lot of maps, right?
+That's the globe lobby you've just seen.
+I call it Art Deco Data Vis, right?
+In a certain sense, but we have a site
+where we map out the most recent crimes
+in the city of Los Angeles by neighborhood.
+Ken, it built a beautiful site to show every homicide
+in LA County over the last what, six years?
+Something like that.
+Something like that and Malloy and Sarah Artilani
+do a ton of awesome work to keep that up to date.
+You know, there's, we do a lot of other data
+by neighborhood, this is the census,
+this is every marijuana dispensary in Los Angeles, right?
+And we're putting out a lot of maps like this.
+Yeah, I know, this is not minimal, right?
+This is whatever the opposite of minimal is.
+And this is a very recent map I'm geeked about
+because this is one that Ken did to coincide
+with the LA riots with a lot of research from Malloy
+that shows everyone who died during the LA riots.
+And one that's really interesting in itself,
+but one little geeky thing
+that maybe some users wouldn't notice
+is this is the first LA Times map
+that has custom map tiles.
+It doesn't rely on Google maps for its service.
+Ken has done a lot of awesome work
+using OpenStreetMap and Tile Mill
+to get us on the path to escape from Google maps, right?
+And so this was our Sputnik.
+So besides maps, we also do investigations, right?
+You know, a lot of data work that people think of
+as data journalism or as this brand new web thing
+that never existed before because whatever,
+because big data is a buzzword now, it isn't true.
+I mean, computer assisted reporting is a geeky term,
+but it's been around for 25 years
+and people like Doug and Sandy and Malloy
+who are in this room have used technical skills
+to do investigations for literally decades
+and we still do that, right?
+So a recent example is Malloy and Ken
+worked on a story about all those people
+who then died in the riots
+and the cases that are still open, right?
+That's a recent one.
+Last year we did a big investigation about autism
+in California and across the country
+that included a lot of data analysis
+done by Doug and Sandy Poindexter
+who I don't think is here.
+But that's really good stuff if you haven't seen it.
+That's at latimes.com slash autism.
+I'd recommend the whole package.
+And then, you know, when Occupy hit last year,
+I was able to use some data to do a quickie census
+of the people who were arrested, right?
+So we still do a lot of these classic things
+that have to do with data analysis and investigations.
+Right, we also train robot reporters.
+That's another thing that we do, right?
+So what does that mean, right?
+Well, so for instance, this is a blog post
+from the Homicide Report, right?
+Which is a site that Ken built
+and is staffed by some people here at the Times
+where we write a blog post for every person
+who is killed in Los Angeles County, right?
+We're the only ones who do this.
+Now, you know, that's a lot of work and we can't staff it.
+But one way to make it less work
+is to automate some of the easy stuff.
+So as soon as the spreadsheet comes in from the corner
+every Monday, every Monday, Malloy, right,
+feeds it into the system.
+And the system, just based on the basic data fields
+that are in the spreadsheet, the age of the person,
+their race, their name, the location of where they died.
+Is there anything else that's, how they died
+that like you ever stabbed or shot?
+Ken has written some code that will take those rows
+and fields from the spreadsheet
+and write the first paragraph to every story.
+So before any human has to do any work,
+well, barring Malloy, you know, right?
+Right, sorry, Malloy's going by pseudonym tonight,
+I'm sorry.
+That initial paragraph is automatically written
+with no human intervention.
+And that's not all we do, but it's the bare minimum, right?
+So we have something up as soon as possible.
+And then if or when we're able to assign more resources
+to cover homicide, that person can then write through that
+and add more material onto the post, right?
+Which in this case was Robert Lopez,
+who was in the room but had to leave, right?
+And we take that approach to a lot of different things.
+Here's a blog post that appears a couple times a week,
+every time new crime data is fed to us by the LAPD,
+where we have an algorithm that goes through it,
+identifies the neighborhoods that are having unusually
+high amount of crime, and writes this post
+and makes this map and does all this
+with no human work whatsoever, right?
+We have pages for all these neighborhoods about crime
+and all this text is automatically written by algorithm.
+And one, the example I think is the coolest
+is one that Ken did, where he has a computer application
+that sits on top of the USGS's database
+and notification system.
+And every time an earthquake notification goes out,
+it processes that, has certain filters it puts it through
+before it decides it's newsworthy, right?
+And that's his news judgment written into code, right?
+And then if it's a newsworthy earthquake
+according to the algorithm, this blog post,
+this map, all this automatically written, fed into the blog,
+email sent to the editor, get on it, right?
+I bet people in this room have covered earthquakes.
+Somebody has probably, who doesn't work here?
+And what, yeah, and what usually happens, right?
+What usually happens, either it hits the wire
+and you're like, oh shit, we missed it.
+Or somebody says, did you feel that?
+And then everybody is clicking around on the USGS website.
+Where is it, where's that link?
+They have 18 versions.
+Which one is this one, it fought, fought, fought, fought, fought.
+Right?
+And in this case, in our case, that's Ron Lynn, right?
+That's the, for the LA Times people.
+But we don't need to do that anymore.
+The computer can do it.
+And Ron Lynn could work on his investigation
+into corruption at the Coliseum Commission
+and freakin' make our city a better place to live.
+You know what I mean?
+You worry about this stupid earthquake, right?
+Unless an earthquake hits the city.
+Unless an earthquake hits the city.
+One that surpasses a certain barrier on your algorithm, right?
+So anyway, that's a cool example of that.
+We also build open source tools, right?
+We have a GitHub account.
+Who here is on GitHub?
+Right, so GitHub is like the social network
+for computer programmers.
+It's where you put your open source code up on there
+and your friends can follow it, right?
+And when you make an update, you patch some code,
+they get a little Facebook update, right?
+And you can, it's true.
+It sounds, and it's awesome.
+So I don't know what's so funny.
+But like if you wanna like learn to code
+or get into programming or have something better
+than a crappy PDF resume, I'd recommend
+that you put your code up on GitHub
+and share it with the world and you know,
+start participating in what is really a historic
+like thing in computer programming.
+And so we have a GitHub account and you know,
+we're not anything special, but we've got you know,
+10 or 12 open source projects that are out there
+that we're you know, trying to build a community around.
+And this is just a couple examples.
+One is we have a framework for quickly making
+an interactive table.
+You know, you wanna make, you wanna search and sort
+and filter really simply a table on deadline.
+We've built a framework internally that can do that
+and open sourced it.
+It's called Table Stacker.
+It's being used by about a half dozen different newsrooms.
+This here on MinPost.
+Here we had, Ken made a really great library,
+a wrapper on top of the AP's election data service,
+that like FTP that they dump everything on,
+that makes it really, really easy for you
+to write Python code to put the data out
+and put it up on your website.
+And after he did that, probably what,
+six or seven different news organizations
+have just stopped writing that same redundant code
+themselves and instead are using ours.
+And not only are they getting something out of it,
+they're contributing patches, fixes and features
+to our code so we don't have to do any work
+and they're making our life easier, right?
+Okay, so that's the benefit.
+Right, another example is this is a fun one.
+It's like auto complete for address searches.
+It uses the Google Geocoder as you type in an address.
+That's the LA Times address.
+It starts to suggest different places, right,
+which is kind of fun.
+But there's a lot of other ones if you go to
+github.com slash data desk.
+Okay, and Anthony who's gonna follow me up here,
+this is him on Twitter, Anthony J. Pesci, so follow him.
+He does a lot of different work here,
+but one thing that he focuses on
+and has really had a lot of success with
+is taking some of our print or less interactive
+graphic stuff and making it more interactive
+or more up to speed with the latest stuff on the web.
+And he's gonna show you in depth one of those examples,
+but here's some other stuff that he's done.
+We have a template now to make a California counties map
+just using a spreadsheet.
+We just upload the spreadsheet,
+boom, we've got the map like in 10 or 15 minutes,
+the power of automation, right?
+These are maps we have to do a lot.
+Same thing for the US states, he's made that.
+This is a recent one that he did for a big Sunday package
+that's more custom, that's about the boulevards
+of Los Angeles, our architecture critic is walking people
+through the major changes on them.
+And this sits on top of this big story he's written,
+which you can find where?
+What's the URL?
+LAtimes.com slash boulevards.
+This just came out on Sunday.
+We have templates now for doing these big long graphics
+where you sort of have a little nav that changes
+as you scroll down and you can link to.
+And the template is done in a way so that the graphics staff
+who couldn't build a page like this without some training,
+all they have to do is upload the images at a certain size
+and boom, they've got a graphic like this.
+So since they've done this,
+since we introduced this template,
+they've probably done what a dozen of these?
+Right, and it takes graphics work that in many cases
+either would have been in print,
+appreciated by print readers and then hated on the web
+because it was in a crappy template
+or just totally lost on the web
+and puts it in a really just simple template
+that makes it like actually halfway enjoyable
+for the internet, more than halfway Anthony, like, you know,
+like, but yeah.
+And it's really been amazing to me to see the response
+on social media where it's just graphics
+that were in a sense routine
+for our really talented graphics artists
+that were just ignored online,
+suddenly can have a lot of success on social media
+just because there's something to link to
+that people don't hate, right?
+And so like this particular graphic,
+this is the, of all the things we've done
+since I've been here,
+one of the things I'm most proud of
+is that William Gibson tweeted this graphic.
+The man who like freaking brought drones
+and science fiction together
+and like was way ahead of all this stuff,
+he loved this graphic, right?
+Which was by Raul, I think down in the graphics department.
+Yeah, see, thank you, Will.
+Will works down there.
+And you know, would William Gibson have seen it
+and tweeted it to his tens of thousands
+of really influential like tech followers
+if it hadn't been in something, you know, reasonably good.
+Also, Anthony did a lot of great work
+in getting live data out of Ken's data feed
+and into some interactive maps
+so that we were able to have live county by county results
+for all the GOP primaries, right?
+Anyway, so you should follow us, right?
+And here's where you can find us on the web.
+Our website where we have our big projects
+and also a feed of our latest stuff
+is at datadesk.latimes.com.
+You can follow us on Twitter at latdatadesk,
+which will have all that latest stuff as well.
+And you should get on GitHub if you're not already
+and follow us at github.com slash datadesk.
+That's about it.
+We consistently do have internships here at the LA Times
+so if there's anyone who would be interested with that
+in the last three or four years
+we've had three data desk interns, is that right?
+The first was Ken who now works here.
+The second was Michelle Minkoff
+who now works for the AP in DC, right?
+And the third was Alan Vestal who is either gonna take a job
+or go to grad school, I haven't heard yet,
+but has been offered jobs.
+And so there's a lot of demand for this stuff.
+If you wanna pick up some skills
+and get thrown in the deep end, we're happy to do it.
+And I promise you there'll be work for you somewhere
+when you come out the other side.
+So if you wanna do that.
+Apply with a GitHub account.
+Apply with a GitHub account and talk to Dan Gaines
+who's my supervisor who I don't think is here
+but his email is very small at the bottom.
+It's daniel.gaines at latimes.com, right?
+Or onlinejobsatlatimes.com
+Or onlinejobsatlatimes.com says Tracy Boucher
+who you could probably also bother after this meeting
+if you wanted to.
+And that's my whole talk.
+Does anybody have any questions
+before I hand it over to Anthony?
+Robert.
+Do you take two seconds not to buy a Kickstarter project?
+Okay, so outside of my work in the last few weeks
+I launched a website which is called Past Pages.
+It is at pastpages.org.
+And it is essentially, let's see if we can fire it up here
+maybe, let's run with scissors as Sarah Cohen would call it.
+We're gonna use the live web.
+And essentially every hour it goes through
+several dozen internet news site homepages
+and takes snapshots of them
+where it will hopefully archive them forever.
+A lot of you are probably familiar
+with the Wayback Machine at archive.org
+which is a really awesome site.
+However, it doesn't update often enough
+or regular enough to really do thorough study
+of what media is up to.
+And so the goal of this site is to really regularly capture
+as many media homepages as possible
+so that academics like Robert can have a great resource
+to study what happens on these pages over time.
+Like what if you could do an academic study
+of every photo of Michelle Obama
+that was used by the media before this election, right?
+Or whatever, right?
+You can start thinking about different ways you can do it.
+Or when we have a financial collapse next year,
+how the Wall Street Journal decides to cover that, right?
+So it has an academic use.
+Second, hopefully I think it has a media criticism use.
+For instance, last week the Drudge Report
+posted a false story about how President Obama
+had fabricated things in his memoir.
+It was only up for several minutes and then it disappeared
+but the screenshots on this site captured it.
+So if someone wanted to write a story pointing out
+that Matt Drudge likes to hype things
+that usually aren't true,
+they could use that as evidence.
+Right, so, and also, you know,
+if you work at one of these news outlets
+and you just wanna keep track of what's going on
+with your homepage over time,
+I hope it can be useful to you.
+This is an indie endeavor that I have funded
+out of my own pocket and built on my own time.
+But thanks to everybody on Twitter and other people
+in the awesome community of online geeks,
+I've raised $5,000 via Kickstarter to try to keep it alive.
+And so if you have any thoughts about
+what it ought to do or ought to be
+or what I've screwed up with it,
+please feel free to tell me afterwards.
+It is pastpages.org.
+Any other questions?
+No, okay, well, with that, I'll hand it over to Anthony.
+This is one of the more recent projects that I've worked on
+and it is a sort of interactive web graphic
+for looking at how super PACs are spending their money
+in the primary race.
+Does everybody know what a super PAC is?
+So a political action committee is sort of
+supposedly independent organization
+that can spend money during a campaign, right?
+Super PACs, a result of a recent Supreme Court decision,
+can spend unlimited amounts of money
+called independent expenditures
+and can receive unlimited donations from interested parties.
+In many cases, super PACs are not supposed to be
+tied to a candidate or controlled by a candidate in any way.
+They're supposed to be independent,
+but many of these PACs are run by people
+who are friends and advisors and work with
+some of the candidates.
+So we've tried to describe some of the super PAC activity
+happening in the selection using this graphic.
+Before I get into it too much,
+I wanted to show ProPublica has done some excellent work
+looking at super PACs also, both spending and contributors
+and the New York Times has done some work
+on super PACs as well,
+looking at some of the top contributors among other things.
+We took a look at some of this work
+and decided that we wanted to contribute something
+to the story about what was happening with super PACs
+in this election season.
+And we sort of sat in a meeting on a Friday afternoon
+and argued for about an hour.
+And sort of decided that, after looking at some of the data
+and decided that what's probably going to be
+the most interesting story or at least a very interesting
+story is how are these candidates using affiliated
+but not affiliated PACs to spend money on other candidates?
+And we sort of discovered, tell you right here,
+56% of all of these expenditures
+have been spent opposing candidates.
+And you can see from looking at this graphic
+that Mitt Romney spent an exorbitant amount of money,
+almost $21 million opposing Santorum
+and almost $19 million opposing Newt Gingrich
+and in large part knocked them out of the race.
+So you don't really get that looking here.
+You don't really get that looking here.
+And I think one of the key things we decided
+both specifically about this graphic and in general
+about the kinds of presentations we wanna do
+for a database is it needs to tell a story.
+So for us it was really important to have something
+that was quick and relatively digestible
+where you could come here and see what was happening
+in a way that you couldn't if you just received
+sort of a dump of a database onto a webpage.
+And you can dive in.
+We have a timeline where you can look at spending over time.
+So you can see Romney's really concerned about Newt Gingrich
+in January and February.
+Newt didn't do so well.
+He starts contributing against Santorum.
+Most of these large jumps you see by the way
+are right before key state primaries.
+And then, okay there goes Santorum
+and lately now he's spending money on himself.
+You can see very recently Obama has started spending
+some money against Romney.
+We still have people like Herman Cain and Huntsman
+and Rick Perry here.
+But you can dive in.
+So it tells a story initially when you come to the page
+to look at it and it allows you to sort of come in
+and explore and look at how the spending has evolved
+over the course of the primary season.
+Any questions so far?
+Okay.
+We also have a spreadsheet available of the biggest donors.
+Very, very wealthy and politically interested people
+who are contributing to one or more super PACs
+and in incredibly large amounts of money.
+This would not have been really possible before
+or at least not like this.
+So I'm gonna tell you a little bit about how we get
+and clean and process the data and store it in a database
+and then I'm gonna talk very briefly about some of the code
+that went into it.
+This is, we get all of our data from the FEC,
+the Federal Election Commission.
+If you come to this page, FEC.gov slash data slash
+independent expenditure dot do,
+you can look at the latest filings
+and this is updated what, every day or two more?
+It depends on the committee but it's on a 24, 48 hour cycle.
+They update each file, each committee file.
+So the FEC has kindly provided this interface
+where you can come and you can start to explore the data
+and you can download it here with a CSV as a CSV
+which is what we do which gets you this.
+Not a particularly handy format
+although you can sort of see what they have, right?
+So there's a candidate name and some sort of ID
+and another ID, a state maybe, which office it is,
+how much money, the date.
+There's a lot of data here.
+It's somewhat indecipherable what's going on.
+So we wrote a program to come to this page,
+download the CSV, store it into a database
+and from there, there's a little bit of a manual process
+for cleaning up the data that Malloy can talk more about.
+But essentially the problem is when you come to this page
+and you download the spreadsheet,
+if you were to do a sum on this expended amount
+on the spreadsheet, it wouldn't actually be accurate
+because you can amend an FEC filing.
+So if you file one report that says you spent 20 bucks
+on advertising, you can come back and you can say,
+oops, I forgot a line item.
+I actually spent 20 bucks here and five bucks there
+and that just gets inserted into the top of the spreadsheet
+with all of the new expenses and all of the old expenses
+and you kind of have to manually go through
+and figure out what's what and what amended what
+and that's this column, AMN underscore IND, right?
+And if it's an N, it means it has not been amended
+and if it's an A1 or an A2, it means it has been.
+So you kind of have to figure out
+where these expenses line up.
+And Molloy, do you wanna come up for a sec?
+So Molloy is our fabulous researcher
+who spends her days toiling away doing this.
+So go to the FEC.
+So the one thing you'll notice on this site,
+this is the FEC site where you can look at,
+this is an example of associated buildings
+and it's every day they file a report
+and then they file quarterly or monthly
+depending on what cycle they're on
+but you can see here that that filing amended
+the one that filed it.
+So back in Anthony's database,
+what I have to do is I have to say,
+I wanna keep the 77820 and I wanna get rid
+of everything else because if I don't,
+then I'm gonna do this double count
+and there's not a nice way to do it
+except manually look at the file, the spreadsheet
+and look at those 5D numbers and then come back in here
+and get rid of the ones I don't want
+and keep the ones I do want.
+And it doesn't take a lot of time
+but I have noticed before that I've not been careful.
+I thought, oh, I've gotten rid of everything
+and then I'm like looking at things
+and I've forgotten to eliminate stuff.
+It goes by pretty quickly.
+You can do it in a pretty quick span of time
+and get rid of the things you don't need to have.
+So this is sort of a peek at our admin for this site.
+It's powered by a database of all of these expenditures.
+The one thing back on this file that we're starting with,
+this is Super PACs working to,
+for the presidential campaign and congressional campaign too.
+So that's our next thing we're gonna work on.
+We're gonna look at how Super PACs
+are supporting congressional races in California.
+But basically the workflow on something like this
+we've set up is I have this script
+that can go and fetch the spreadsheet from the FEC,
+look at everything, store it in our database,
+but we can't publish that live right away.
+You need to actually take a minute, look at the data,
+fix any of the amended filings,
+make sure it passes the smell test
+and then hit a publish button.
+So we have an interface where in this admin,
+you click a button and it pulls the data from the FEC.
+When the robot has finished loading it into the database,
+it emails me and Malloy.
+We see if there are any amended filings,
+if there are any new PACs, if anything's really changed,
+it'll summarize this in the email.
+Malloy can come in, see all of the new amended filings,
+check them manually against this horrible thing
+on the FEC's website by searching for the,
+the identifier, check a few boxes,
+make sure everything's kosher, hit publish,
+and then the graphic updates.
+So it's really important on something like this
+where you're relying on an external data source
+that you have a robot going to download and process
+that you actually do have a human who sort of sits there
+and looks at it and says, okay, everything looks good,
+everything's lining up, we're gonna hit publish.
+I would strongly recommend that.
+Other people have made a mistake.
+It's just a reminder that for all the stuff
+you do programmatically we still need common sense
+and knowledge and thought and so that,
+we kind of joke around about how they just push a button
+but the truth is there's almost none of that.
+Almost nothing that we do is that simple.
+It either required work on the front end
+like Ken's earthquake program to decide
+what was newsworthy and what should we exclude
+or on this stuff which is very complicated
+and we've spent a long time really learning
+the political campaign process
+and brings a lot of knowledge to it.
+So I mean Ben kind of jokes about like a robot reporter.
+The point is to take care of the busy work
+and reserve sort of the brain power and stuff
+that really matters to produce the quality content
+out the other end.
+Exactly and so this is a sort of database view
+of that CSV I was showing you earlier.
+This is all of the information we get from the FEC.
+We have a separate admin where we can for instance
+tie a pack to a specific candidate.
+So we do all of that in the back and then we hit go
+and then it spits out this nice page
+that is actually powered by an extremely robust database
+that we've spent a great deal of time developing
+and cleaning and checking.
+Malloy and I have double and triple and quadruple
+checked the accuracy of all of this
+on at least a number of occasions
+and we keep like going back and doing it again.
+So we know it's good.
+And this is sort of how you would arrive at that.
+It's a Django database.
+This is a very simple pack model
+where it's the Sierra Club.
+They have their FEC unique identifier
+and if we wanted to tie the Sierra Club
+to any one of these candidates we could.
+For those of you who don't have the programming
+and research resources to build your own database,
+write scripts to automate pulling in FEC data
+and have a researcher who has years and years of experience
+dealing with the FEC to go in and clean it up.
+The New York Times handily has a campaign finance API
+that actually ProPublica uses for this presentation
+that if you want to start playing around
+with some of this campaign finance data
+I would highly recommend it.
+I haven't spent a great deal of time in here myself
+although I've talked to a couple of the developers
+who made it and they are very smart people.
+And you can for instance come in and get a JSON list
+of the most recent expenditures that looks like this
+through the New York Times campaign finance API.
+You need an API key.
+I'm pretty sure anyone in this room could get one.
+And it's a very nice representation of the FEC data.
+I'm not positive the New York Times cleans it up
+in the same way that we do although I would imagine
+that they do.
+Probably something to look into if you're interested
+in using it.
+On the front end, so I talked about the database
+and stuff on the front end, this is all just JavaScript.
+So for those of you who know a little bit of HTML
+there's actually not a lot of fancy stuff going on
+like this is just a table.
+Like it's an HTML table which is handy
+because you're dealing with a graphic
+that it has huge sums of money that are changing
+and growing every single day.
+And you have this opposed column on one side
+and a support column on the other side
+and you need to make sure that everything is fitting
+into 980 pixels and that the bars are all sized appropriately
+for the space you have and the amount of money
+they're supposed to represent.
+Django, which is the software we use sort of on the backend
+to develop this, has some very handy features
+that you can apply on the template
+that will automatically resize your divs
+based on a value and a maximum width, right?
+So in this case the maximum width is 980 pixels
+and your value is 20 million dollars
+and then your maximum value is 33 million dollars,
+34 million dollars.
+So like the pixels on the div are actually
+completely representative of the amount of money
+that they're supposed to have
+and everything sizes automatically.
+And all of that is sort of handled for me.
+The table adjusts automatically if more
+falls under the oppose or the support
+because an HTML table is just built that way.
+The divs all size appropriately
+because we have some code on the backend
+and a full featured piece of software
+to sort of handle that for us.
+And then, how many of you have heard of jQuery?
+Right, so if you don't know JavaScript
+or don't have a lot of front end development experience,
+you can actually sort of get a long way using jQuery.
+Like this, this was a feature we added later
+but we have the date picker and slider.
+Somebody had written a jQuery plugin
+for a slider by date range, or not by date range,
+just for a slider, right?
+And I went in and I lightly modified it
+to accommodate what I needed
+and in less than a day's work,
+it was working for my specific application, right?
+So chances are if you have a feature in mind
+or you want to sort of accomplish something technically,
+someone has already kind of done a lot of the work
+for you and open sourced it.
+And that was true here.
+So my focus here was writing some JavaScript
+to handle the math to sort of adjust all of these numbers
+and adjust the different sizes of the bars and the divs
+to accommodate the slide,
+but I didn't actually have to code the slider from scratch.
+So I got to focus on the actual problem,
+which was the math and making sure everything was adjusted
+and like the numbers and these tool tips update
+as you drag it, like, you know,
+making sure all of that worked as I wanted it to
+and tested that and not so much worry about the rest.
+We have some code on the backend also that takes, right,
+all of these different FEC expenditures and transactions
+we have stored in the database.
+It sort of looks at all of them in aggregate,
+does some math and spits out a JSON feed onto this page
+that we then use to render the graphic.
+Does anybody know what JSON is?
+Okay, it's a way of sort of serializing your data
+so that it comes out in a structured,
+easy to use way on the front end.
+Much like this, right?
+So instead of some crazy, right, like FEC spreadsheet,
+you actually sort of see the breakdown of the data
+and it's easy for you to come in
+and programmatically access and process.
+So that probably just about does it
+in terms of this presentation.
+I'm happy to answer questions about it
+or to show off some other stuff
+we've been doing with elections lately.
+So, yeah.
+Just the qualifying, if an ad is
+definitively opposing one candidate
+or supporting another candidate,
+because some apps do die and kind of split,
+even though the 30 seconds kind of split the time,
+is that an editorial decision that you see the FEC make?
+Luckily, that is not a call we make, right?
+So the FEC in their filing requirements
+makes them pick, right?
+So they have this neat column
+in their spreadsheet support repose.
+And that comes over to us automatically.
+Otherwise, it would be a nightmare.
+Like there would be literally no way.
+Yeah, that's an interesting question.
+I mean, maybe you could game the system
+by faking some of your FEC filings, although I doubt it.
+So the colors are key to the candidate.
+So this is Romney.
+This is Santorum.
+This is Mr. Gingrich.
+I mean, a bunch of us laugh because, I mean,
+colors are a horrifying job to get to online.
+You've got Anthony, God bless him, is color blind,
+so he's our special needs face
+on the data team.
+That's one of the reasons we kept him.
+He actually started as an intern on the onset before it,
+which he was not necessarily.
+And it taught himself, you know,
+most of that, all of his color stuff.
+So early on, when we had, you know,
+a large number of Republican candidates who were getting votes,
+we had to choose colors that would read easily online
+and not be shaped to their minds.
+Sorry, I was saying that early on
+when we had a lot of Republican candidates still in the race,
+we were faced with finding enough colors
+that were distinct and yet not political,
+you know, in order to display them.
+So for instance, like, you know, and we went,
+believe me, this was like through the ringer on this.
+This could be a whole ONA presentation on its own.
+But, you know, for instance, like,
+you can't give Romney red.
+I mean, that indicates that you think
+he's gonna win eventually, even if you did think that.
+You know, it's like, so we went through
+a lot of different incarnations.
+So all this is, is this was trying for consistency
+throughout our presentation.
+So as we were presenting the live election nights,
+live election results on primary nights,
+we wanted to make sure that throughout
+our whole presentation of the primaries
+and then into the general
+that we were consistent with colors.
+Of course, as we switch into the general,
+if, you know, Romney does in fact
+become the nominee at the convention
+and Obama is the nominee,
+then we go into much more traditional red and blue colors.
+But, you know, we have a whole,
+I mean, is this like the prettiest map we could have made?
+No.
+But can you understand who got which votes?
+And there's all sorts of things to like,
+you know, like there's this whole debate.
+Can we give Bachman pink?
+We had to switch that.
+You know, you're gonna make her pink, you know,
+and then, you know, you went right.
+So it was a big debate, but that's what it is.
+It's basically trying to be consistent from here
+throughout the rest of the products
+that we created for the campaign.
+I can tell there's probably other people in the room
+who have faced this problem.
+It's very, very fun.
+Any other questions?
+I wonder if how many LA Times journalists source this data?
+Also, do you see other journalists
+that are doing this data?
+All right, so the question is how many LA Times
+journalists are sourcing this data
+and what other organizations are doing the same thing?
+Okay, how many of us work on it,
+on elections or super PACs?
+Yeah, we actually field requests from reporters
+and our DC Bureau on a fairly regular basis,
+particularly with campaign finance.
+Malloy does a lot of that.
+Doug Smith and Sandra Poindexter
+also do a lot of that.
+I sort of have the keys to the database
+on the super PAC expenditures.
+So I help out from time to time
+when there's a super PAC specific question.
+So the number of people who are looking at
+and cleaning up and analyzing this kind of data,
+five or six maybe, including Malloy, Doug Smith,
+Sandy Poindexter, and then Ken and me
+and then other organizations.
+New York Times is doing it.
+Open Secrets does it.
+Anyone else?
+I'm sure there's other people.
+I think every lot of organizations are playing too
+because we all know that the kind of money
+that's going to be spent during this campaign cycle,
+why people have it, is kind of hard to wrap it all around.
+They're already very close to 100 million dollars.
+And that's not even talking about
+what the management committee themselves is going to do.
+It's going to be a lot of money spent.
+So our goal here was to try and get people an idea
+of how much money is being spent
+and how it is being spent.
+And you can see in this example here
+that we're on the test with the past affiliated with law
+and we are in support of the expense of a lot of money
+and we have to get rid of the
+I mean a lot of money.
+It was fascinating to watch with the timeline.
+You could see a moment in time when all of a sudden
+one of me turned his attention to the timeline.
+He no longer cared about the image.
+We could watch it and we got our interest in Europe.
+We were like, you just had a white coat.
+Now, you could see this moment in time.
+It was very clear that there had been a shift
+and that English was no longer a threat.
+For that, this has been really useful.
+I think it's really a good tool to try and explain
+how this campaign is going to play out with super PAC money.
+That was kind of our motivation in using it.
+I think a lot of other organizations
+are trying to use super PACs to tell the story
+and do it in different ways.
+Do you talk about, if you remember,
+what can you first, if you will,
+in terms of the branding, design,
+when you knew that the story was about spending a post-up,
+or did you go through data first and then say,
+this is the story we are going to tell,
+then you go to find it.
+Does that make sense?
+It does and it was a lot of both.
+We had looked at what some of our competitors were doing.
+We looked at ProPublica, we looked at MIT, OpenSecrets,
+a couple other people,
+and saw what they had done.
+It's, in some cases, a little bit difficult to come here
+and quickly process what's happening.
+We knew we wanted to tell a story.
+We didn't want to have a data dump
+that a reader or a viewer would have to come in
+and sift through in order to figure out
+what's going on in the world.
+So, we had this philosophy like,
+we don't have as many resources
+as some of the other news organizations out there.
+We're a small team, three developers,
+three people who analyze and play with data.
+We can't do everything and be everything all the time.
+So, a lot of the times, we want to try and focus
+on one really great thing,
+one really great part of the data that we can show off,
+one really great interactive or feature
+that we can do and do really well
+rather than trying to,
+rather than doing the whole thing.
+Like, you know, in this case, or in this case,
+like ProPublica has this really great tree map
+of the biggest donors that we haven't,
+we would very much like to do
+but have not gotten around to yet.
+This is another example of something like that
+where we just launched this recently.
+You know, the idea here was we wanted to give people
+information about what states were considered
+at play in the election.
+So, we have our wonderful DC Bureau
+wrote a very informative blurb about each state.
+And we've made editorial selections
+about which states are considered battleground states
+that the reader can come in and turn either Obama or Romney
+to see what the results could be.
+You know, and the Huffington Post and the New York Times
+and other news organizations have done a lot more
+with this kind of data.
+We wanted to make something that was both informative
+and fun, something that focused you on
+what was really the story, what was really going on,
+rather than giving you a ton of different options
+and sort of overwhelming the user.
+But, you know, so our philosophy on Super PACs was,
+let's tell a story, let's come in and find a unique way
+of presenting the data and telling the best story
+about what was interesting.
+So, we looked at what our competitors had done.
+We looked at the raw data.
+We sat around the table for a long time,
+sort of batting back and forth different ways
+of presenting it and different things to break it down by.
+And a lot of it was dictated by what the FEC gave us, right?
+So, they gave us support and oppose.
+We knew pretty well which PACs were affiliated
+with each candidate.
+And we decided we wanted to look at how
+those PACs were spending on other candidates.
+And we, you know, you kind of had an idea at the outset
+that it would probably be a lot of negative.
+And it was.
+And, you know, you come to this page
+and you immediately see that Rami has just spent
+exorbitant amounts of money opposing Santorum and Gingrich.
+And this was sort of,
+this kind of storytelling is what we were after.
+So, it was, you know, a combination of
+what's the best way of presenting the data?
+What do we have already that's available?
+And what looking at it do we think is interesting
+or is going to be interesting?
+Both, if the raw data already and just sort of knowing,
+having that knowledge of what we thought
+was probably gonna happen.
+I was just wondering if there was an exception
+in the equation, how many people
+were there to be required for the project?
+That's a good question.
+So, the question is from, you know,
+the first idea to launch, basically,
+how much time and resources and people
+were required for the project.
+I did pretty much all of the coding front and back.
+Malloy did a tremendous amount of work,
+initially cleaning up all of the FEC data
+and continually, every single day,
+every time we update it, it's coming in
+and doing work to clean up the filings.
+A few weeks.
+So, it was a pretty quick turnaround, considering.
+You talked about the secular sub-product,
+whether some of these people are using, you know,
+some of these people.
+Sure.
+Yeah, I decided to learn to code because I wanted a job.
+I, you know, I came here as an intern
+and I was a web intern and I got lucky enough
+to be placed with Megan on the data team, writing.
+Is it on camera?
+This is on camera.
+I was lucky enough to be placed with Megan Garvey
+as an intern.
+And sort of looked at Ben and looked at Ken
+when he came in as an intern also
+and sort of figured like, you know,
+the company's bankrupt.
+They're not gonna hire me unless I have
+seriously marketable skills, right?
+So, I worked on the skills.
+I started off, I sort of already knew a little bit of HTML,
+no JavaScript, so I polished my HTML skills,
+picked up jQuery.
+From there, I learned more JavaScript.
+Through books.
+Books and websites like W3schools is really good
+for HTML in particular.
+And then from there, I learned Python and then Django.
+Two years?
+Three years?
+Something in there.
+Oh, nine.
+Yeah.
+Since 2009.
+Takes a while.
+Yes.
+Absolutely.
+I think it's pretty rare that we launch
+a fully baked product right off the bat.
+And we're trying to sort of get away
+from that attitude as well.
+But no, this, it launched sort of as a more
+static version of this.
+The date range picker and slider was not here.
+But, like, this stuff was.
+Oh, right, this, right.
+The sort of rollover where you could see how a candidate
+get highlighted on it was added later.
+The date range slider was added later.
+But it launched looking a lot like this.
+And we'd like to add, like, it's nice to see the events
+that precipitated some of the spending.
+So like the South Carolina primary,
+or the Gingrich winning South Carolina,
+or St. John dropping out of the race.
+We've got some space issues.
+Anthony actually cleaned that up earlier today.
+So I think it's always a work in progress.
+I've never done that.
+And yeah, the other thing is we have this great database now
+of all of these expenditures and super packs.
+And we have one page, right, which is great.
+But it'd be nice if we had detail pages on each pack.
+It'd be nice if we could do a little bit more
+and tell a few more stories with the enormous amount
+of data we have and the great database we have from the FEC.
+So certainly there's a plan to do more.
+What it's gonna be yet is still a little bit up in the air.
+But this was an evolution.
+And then there will be more with the data later
+after the California primary, probably.
+Yes.
+Is there a lot of response to this?
+Or is there anything that you'd like to say?
+We've gotten some great response on this.
+Apparently not a lot of comments, but.
+But this map though, there are so many comments.
+It's really.
+But stuff like this, it does well.
+And I sit next to our homepage producers
+and can badger them to link to more interactive
+and database-driven work that we're doing.
+And we regularly are sending emails to all of our bloggers
+and reporters in DC to get stuff linked up
+that we do on their posts.
+So it's an ongoing effort to get even our stuff promoted
+across the website in the way that it should be.
+But when people do find it, it does really well.
+And people spend a lot of time on these pages.
+And they do well on their own, just in terms of page views.
+We have a much longer half-life story.
+The story's gonna get 99% views per two hours.
+Something like this can be linked to stories
+that come from the website.
+And then they actually have a lot more answers,
+but we're not always allowed to be linked to versions
+of the stuff like this under them.
+After all, it's gonna be linked to stories like this.
+Yeah.
+Sorry, so.
+The question is about how much of the work that we do
+makes it back into print.
+And Ben showed a couple examples early on of that
+where does this precise graphic make it into print?
+This has not yet.
+There might be other examples where it has.
+But I think that we've really worked to try to do more,
+to inform more of print by some of the web work
+that we're doing and not be so dictated
+by what we would do for print anyway.
+So that's definitely a struggle that has gone on.
+And the thing is, so like what Ben was saying,
+where there's a longer half-life, where this stuff lives on,
+where this stuff, you know what I mean,
+we're gonna eventually boil this down to Romney and Obama.
+And it'll change in that sense
+because the whole focus of what's going on
+in the news right now is about to change significantly
+as we look forward to November.
+But yeah, I mean that's definitely something
+that I think as an organization we're trying
+to think more creatively and think differently
+about how we produce the news
+so that the online stuff doesn't just stay online
+and the print stuff doesn't just stay in print,
+that there's much more communication back and forth.
+And I think Martin is ready to come up
+and bid you farewell.
+Thank you, Anthony.
+Very much.
+And we're gonna wrap up.
+We're gonna put the screen up.
+We're gonna open the bar again.
+And I just wanna thank you again for coming
+and join the ONA.
+I know I will, eventually, someday.
+Thank you, Julie, for the idea of this
+and for convincing us to do it.
+We had a good time and hope you all did too.
+And we'll be around, pinhole us, talk to us,
+follow us on Twitter, and so on.
+But thank you very much for coming.
+Thank you.

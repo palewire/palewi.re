@@ -1,0 +1,130 @@
+Human-assisted reporting
+
+How to create robot reporters in your own image
+Art by Mark S. Fisher
+
+All URLs available at
+
+http://lat.ms/robotreporters
+
+How we act now
+You
+Your
+computer
+
+Photo: ThomasHawk
+
+The story
+
+Your computer
+
+Your computer
+
+How it ought to be
+
+You
+
+Here's when it hit me
+
+That's news!!!
+
+Teach me how to Dougie!
+
+Find a simple, repetitive and moving data stream
+
+Do standard pull and parse, but put it on loop.
+
+- What has happened lately?
+
+You again
+
+- What is trending in short term?
+- What is typical over long term?
+- What are the outliers?
+- How do entities compare?
+- Have newsmakers been active?
+- What matches other data sets?
+- Answer me! I'm a newspaperman!
+
+Train it to answer the questions you would ask
+
+This doesn't have to be complicated
+
+Train the system to send you alerts
+
+Make a dashboard to drilldown
+
+Train it to write a nut graf...
+
+...which comes out like this.
+
+WHAT DO I GET OUT OF IT?
+
+BREAKING NEWS
+
+A WAY AROUND PIOs
+
+INSTANT ANALYSIS
+
+AUTOMATED COPY
+
+OPPORTUNITIES
+- Election results
+
+- SEC filings
+
+- Home sales
+
+- Environmental data
+
+- Money in politics
+
+- Crime reports, arrests, etc.
+
+- Legislatures
+
+- Gov't inspections
+
+- Court filings
+
+- Gas prices
+
+- 990 forms
+
+- Gov't contracting
+
+- Sports results
+
+- Stock tickers
+
+PEOPLE DOING THIS
+
+“In five years, a computer
+program will win a
+Pulitzer Prize — and I’ll
+be damned if it’s not our
+technology.”
+- Kris Hammond to The New York Times
+
+TOO LATE, DUDE
+
+BE CAREFUL
+WHAT YOU BUILD!
+
+Downtown
+Santa Monica
+
+South L.A.
+
+What's wrong with this picture?
+
+THANK YOU!
+I am
+
+Ben Welsh
+Follow me at
+
+@palewire, @LATdatadesk
+All URLs available at
+
+http://lat.ms/robotreporters

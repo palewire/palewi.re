@@ -1,0 +1,84 @@
+WHAT IS A
+DATA DESK?
+A brief tutorial
+My name is Ben
+ I sometimes go by @palewire
+  All my slides are belong to
+lat.ms/whoisdatadesk
+I work at @latimes in #GUNDO
+Our team is called the Data Desk
+       We turn databases into news
+We write in code
+Including English
+Rosanna Xia
+@rosannaxia
+http://www.latimes.com/local/lanow/la-me-hollister-ranch-public-access-20181005-htmlst
+Steve Lopez
+@LATstevelopez
+https://en.wikipedia.org/wiki/Williamson_Act
+https://nbviewer.jupyter.org/github/datadesk/hollister-ranch-analysis/blob/master/src/parcels.ipynb
+https://nbviewer.jupyter.org/github/datadesk/hollister-ranch-analysis/blob/master/src/download.ipynb
+https://nbviewer.jupyter.org/github/datadesk/hollister-ranch-analysis/blob/master/notebook.ipynb
+http://www.latimes.com/local/california/la-me-lopez-hollister-taxes-20181020-story.html
+https://github.com/datadesk/notebooks
+Andy Roberson
+@andyroberson22
+http://www.latimes.com/projects/la-sp-lakers-roster/
+Ryan Menezes
+@ryanvmenezes
+https://beta.observablehq.com/@ryanvmenezes/nba-player-hex-calcs
+We turn news into databases
+Maloy Moore
+@maloym
+http://projects.latimes.com/wardead/name/daniel-r-parker/
+http://homicide.latimes.com/
+Nicole Santa Cruz
+@nicolesantacruz
+Iris Lee
+@irisslee
+http://homicide.latimes.com/post/bijan-michael-shoushtari/
+http://homicide.latimes.com/post/bijan-michael-shoushtari/
+http://homicide.latimes.com/post/autumn-johnson/
+http://homicide.latimes.com/post/michael-jackson/
+http://homicide.latimes.com/post/michael-jackson/
+https://nbviewer.jupyter.org/github/datadesk/street-racing-analysis/blob/master/notebook.ipynb
+We turn news into software
+http://www.latimes.com/projects/la-pol-ca-california-primary-election-results-2018/
+https://python-elections.readthedocs.io
+https://elex.readthedocs.io/
+http://rrcc.co.la.ca.us/elect/downrslt.html-ssi
+Anthony Pesce
+@anthonyjpesce
+https://github.com/datadesk/la-election-night
+https://github.com/datadesk/packages
+And vice versa
+http://cal-access.ss.ca.gov/
+http://www.californiacivicdata.org/
+http://www.latimes.com/projects/la-pol-ca-california-governor-2018-money/
+http://calaccess.californiacivicdata.org/downloads/latest/
+Ryan Menezes
+@ryanvmenezes
+Maloy Moore
+@maloym
+Seema Mehta
+@LATseema
+http://www.latimes.com/politics/la-pol-ca-newsom-cannabis-20170727-story.html
+http://www.latimes.com/projects/la-pol-ca-california-governor-2018-money/
+http://www.latimes.com/politics/la-pol-ca-antonio-villaraigosa-charter-school-money-governor-20180514-story.html
+http://www.latimes.com/politics/la-pol-ca-governors-race-independent-expenditures-20180527-story.html
+http://www.latimes.com/projects/la-pol-ca-gavin-newsom-san-francisco-money/
+PLUS
+BOTS
+TOOLS
+TOYS
+THE
+END
+  Follow us
+www.latimes.com
+
+@LATdatadesk
+
+
+github.com/datadesk
+  All my slides are belong to
+lat.ms/whoisdatadesk

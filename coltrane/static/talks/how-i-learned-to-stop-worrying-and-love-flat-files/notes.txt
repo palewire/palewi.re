@@ -1,0 +1,69 @@
+HOW I LEARNED
+TO STOP
+WORRYING AND
+LOVE FLAT
+FILES
+
+THIS IS FUNNY
+
+THIS IS NOT
+
+ONE RESPONSE
+
+BEN
+
+CONRAD
+OTIS
+
+HOW WE ROLL
+
+WE CALL IT BAKING
+
+STEP 1:
+SAVE EVERY PAGE
+
+VIA
+DIY DJANGO VIEWS
+
+BUILDING AS A CHAIN
+
+STEP 2:
+UPLOAD TO WWW
+
+FOLDER -> BUCKET
+
+- No site crashes
+- Skip app optimization
+- Zero server config
+- Bandwidth is cheap
+- Less stress (!!!)
+- Offline admins are
+more secure
+
+- You have to build the
+bakery (We're working
+on making this easier)
+- No online database
+means all read, no write.
+(no UGC, no searches,
+etc.)
+
+GOOD FOR ELECTIONS
+
+TIMELINES
+
+INTERACTIVE TABLES
+
+DOCUMENTS
+
+BLOG POSTS
+
+SPECIAL PROJECTS
+
+ALL FROM ADMIN INSIDE VPN
+
+NOW YOU CAN TOO!
+
+WITH THESE CLASSES
+
+http://lat.ms/flatfiles

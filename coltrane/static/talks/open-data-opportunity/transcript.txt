@@ -1,0 +1,946 @@
+[00:00] Ladies and gentlemen, thank you very much for coming today and being willing to brave
+[00:13] the mid-afternoon trap that is Santa Monica for our forum.
+[00:17] My name is Kevin Cloud and I'm managing director of the California Center here at the Milken
+[00:22] Institute and I want to welcome you today on a forum we're doing in partnership with
+[00:28] Los Angeles Times on the key topic of open data.
+[00:32] So thank you everyone for coming, I'm sure it's going to be a very enlightening and insightful
+[00:37] conference on a topic that on the surface sounds somewhat simple but is in fact very
+[00:44] important and to discuss for a minute what makes this topic so significant, I'm going
+[00:50] to hand over the microphone to my colleague Jason Barrett.
+[00:56] Thank you Kevin, my name is Jason Barrett, I am a policy analyst with the Milken Institute.
+[01:00] I just want to say a quick word or two about the importance of open data to the Institute
+[01:06] and also to the state of California.
+[01:07] There are three main issues that the Institute has examined when it comes to open data.
+[01:12] The first is government transparency.
+[01:14] It's a very important issue, voters want to know where their money is going and they feel
+[01:18] that they have a right to know.
+[01:20] The second is government effectiveness.
+[01:22] It's not just a matter of helping Californians understand their government, it's about helping
+[01:27] the California government understand itself.
+[01:30] Interagency cooperation is very important from any number of issues regarding permitting,
+[01:36] secret reform, there are a lot of needless delays that come from an overarching bureaucracy
+[01:42] within a government that is the size of Californians.
+[01:46] And the third topic is economic development opportunities.
+[01:50] One of our panelists today is from Trulia which is a real estate company that has really
+[01:56] kind of led the way in terms of using open data to create a software platform and create
+[02:03] a huge company out of it and that's just one example.
+[02:06] So without further ado I will hand it over to our moderator.
+[02:10] He is the editor of the LA Times data desk.
+[02:13] He is one of the leading journalists in open data in California and he's written several
+[02:17] articles about the need for open data in California.
+[02:20] Ben Welsh.
+[02:21] Ben.
+[02:22] Hello.
+[02:23] Hi everybody.
+[02:24] Thank you for coming out on a Wednesday afternoon, we really appreciate it.
+[02:29] I think we're going to be talking here as a group as a discussion for about one hour
+[02:33] and then you'll have the opportunity to send in your questions to the address they post
+[02:38] up and we'll read those, I'll read those off to the panel when that time comes too.
+[02:42] Okay.
+[02:43] So to kick things off I just want to introduce the four guests here.
+[02:46] The first is Deep Varma.
+[02:48] He is a vice president of data engineering at Trulia which is a real estate website I
+[02:52] bet it's pretty popular here in Santa Monica.
+[02:55] You can go on there and click around on a map to oversimplify things maybe to the point
+[02:58] of insult.
+[02:59] Click around on a map and look up the recent real estate sales and listings and kind of
+[03:04] track the Southern California's greatest spectator sport and he's an expert in the field of how
+[03:11] you take government data and you turn it into something useful and that people love to interact
+[03:15] with and that ultimately makes money.
+[03:18] Sitting next to him is Secretary of State Alex Padilla who if I can still read a calendar
+[03:24] was elected to office one year ago today.
+[03:27] This is the anniversary of his election to that office.
+[03:32] Obviously as Secretary of State he oversees elections here in the state of California
+[03:36] as well as a number of important data systems which might be called open data relating to
+[03:40] voter registration, the registration of corporations and LLCs and a number of other things.
+[03:47] Prior to being the Secretary of State he was in the California State Senate for I believe
+[03:50] two terms.
+[03:51] He can correct me here and before that was elected city councilman here to represent
+[03:56] the San Fernando Valley at the very young age of 26 where you grew up.
+[04:02] Is that correct?
+[04:03] Is it Angelino?
+[04:04] Born and raised.
+[04:05] Great.
+[04:06] Next up is Alicia Ruo who is a senior advisor to the president of a group called Code for
+[04:11] America.
+[04:12] Does everybody here know what Code for America is?
+[04:15] No.
+[04:16] Okay it's a very cool non-profit organization that partners with local governments and state
+[04:22] and larger governments too all across America to bring in young bright techie people into
+[04:27] government offices and help them kind of do things a different way, introduce talent,
+[04:32] introduce new techniques for making software both by bringing in the talent and at the
+[04:36] higher level advising people on how to get stuff done.
+[04:39] And so she's a very important person there.
+[04:42] And then next to her is Ted Ross another very important person who is the chief information
+[04:47] officer for the city of Los Angeles which means he's the general manager and department
+[04:52] head of a whole big section of city government that runs tons and tons of software that can
+[04:57] range from boring stuff like email and payroll all the way to really exciting cutting edge
+[05:04] stuff like open data portals and the body cameras that are going to go on all the LAPD
+[05:10] officers as well.
+[05:12] And so these four are you know going to be the stars of the show here and I'm just going
+[05:16] to ask them a bunch of questions and hopefully we'll have a great conversation.
+[05:20] Does that sound good?
+[05:22] Love it.
+[05:23] Okay so even though I'm a nerd and I work at this nerdy thing called the data desk and
+[05:26] write code all day I still am kind of a reporter at heart right and so I have my little notes
+[05:32] here and I want to open with the news.
+[05:34] So I don't know if you all heard but Governor Jerry Brown signed two new open data bills
+[05:40] last month.
+[05:41] One AB 169 which is now law requires that all data published online by California state
+[05:48] by California governments has to be published in something called an open format that's
+[05:53] easily downloadable can be picked up and parsed and reused by humans and by the computer programming
+[06:00] scripts that humans write to do things for them.
+[06:03] The second bill SB 272 getting this right I hope requires all the agencies in addition
+[06:10] to that to create a list an index they call it of all the different data systems that
+[06:16] the particular agency runs and then publish that list online right and so these two bills
+[06:21] which are now law as of about a little less than a month ago are being hailed by the activists
+[06:27] and people who are pushing open data as an idea as landmark legislation you know open
+[06:33] formats for the data and a list of databases.
+[06:36] Now if you're not a techie person in this world this might not sound like that big a deal
+[06:39] right well how big a deal is a list of databases but it really is and I want to first off ask
+[06:45] the secretary to explain it like why is this legislation quote unquote landmark why does
+[06:50] it matter what are what what's the big deal.
+[06:53] What's the big deal I guess for technologists it may seem pretty straightforward simple
+[07:00] kind of common sense but it's certainly significant culture change I think on behalf of government
+[07:06] you know we can debate what the expectations were pre Nixon post Nixon information sharing
+[07:16] you know what led to things like the Freedom of Information Act and Public Records Act
+[07:21] and those sorts of things but the bottom line is government by and large got into the mindset
+[07:26] of you know everything you don't want to make a mistake so don't share information that
+[07:31] you're not compelled to for fear of making a mistake all right there's certain there
+[07:36] is reason for some things to not be shared privacy protection security protections etc.
+[07:42] But I think where government law side of the fundamental premise that public information
+[07:47] is public information and it ought to be easily available and usable by the public and with
+[07:56] the advances in technology it was no longer or will fulfill your request and now sends
+[08:00] us 10 cents per page so we can make photocopies of stuff right we can now share electronically
+[08:07] post electronically and the fundamental mindset shift is wait a minute let's not the default
+[08:14] be we're going to hold on to data unless we're compelled to share if there if there isn't
+[08:18] a reason to want to hold on to let's make it readily available that seems kind of obvious
+[08:23] why is that why is a law necessary I think a law was necessary a because the culture
+[08:30] shift hasn't completely played out and so sometimes you need that directive or or that
+[08:37] requirement on the part of city department city county state departments and agencies
+[08:45] to share that information otherwise they were choosing not to but I think you know we can have
+[08:51] a longer conversation about what the upside is of having that data more readily available both for
+[08:56] other government users for individuals for app developers and everybody in between okay I mean
+[09:03] now deep you are you work at a company that takes government data and is a raw raw material and
+[09:09] turns it into kind of like a finished product yeah right would something there's a law that
+[09:13] requires an open format help you with that and explain what an open format is and how it would
+[09:18] impact the kind of work that you guys are doing yeah so definitely truly a lead by an example on
+[09:23] this and we saw a challenge from a consumer point of view I still remember 1999 when I bought my
+[09:29] first house it is you know I spent months and months going through the documents and looking
+[09:36] into you know neighborhood looking into the crime score looking into the past transactions and you
+[09:41] know collecting all the pieces of the documents sitting with my wife going over all the things
+[09:46] and it the journey was a meaningful journey but at the end it is a time which I could have spent
+[09:51] better with my family we saw that how we can use all this data which is lying around because if
+[09:57] the data is an information information is the power what we all need so if the data is lying
+[10:03] there on the pages I have to read the pages but can technology help us use these documents
+[10:10] transform into a more structured information make it in the way that it is searchable so when we
+[10:17] thought we thought from a consumer point of view when consumer comes to Trulia consumer comes and
+[10:22] says you know this is what I'm looking for and we provide this data which is which is you know
+[10:28] when I sit with my engineers on a day-to-day basis it is a millions of the rows of the data which is
+[10:34] coming into our database it's not that simple so we have to run the pipelines and the hours of
+[10:40] processing to make it meaningful meaningful to us so too I think overall for the industry this
+[10:46] open format or the open data allows us to focus on where we want to focus on so rather than
+[10:55] focusing on getting this 20 files and making them into one format and then spending all our time I
+[11:02] will rather if I know all this data coming to Trulia is it in a consistent format it is a quality
+[11:08] of a data it is a fresh data then I would rather focus more towards consumer and make this
+[11:15] information the crime data the neighborhood data the school information the transit information
+[11:21] make it more easily accessible to the consumers so that's what I feel those two you know bills
+[11:28] are the step in the right direction but it's still we are scratching the surface we have to go way
+[11:33] more than that before even we see the benefits out of that and we'll get to that now Alicia now if
+[11:39] governments aren't publishing data in open formats now what are they doing well many governments
+[11:46] love the pdf and while that seems like does everybody know what a pdf is okay so it's it's
+[11:52] a step better than paper that I honestly need to boo go ahead you know releasing pdfs is a great
+[12:02] gesture toward opening and releasing information but when you're a programmer and if we think about
+[12:07] the way that data is actually used it's used in applications it's used in queries if it's not
+[12:14] actually readable by a machine it's not useful so part of the law that was passed is a part in it
+[12:22] that says it needs to be machine readable which means that computers can actually parse it
+[12:27] there's a great example in the city of portland one of the the first ways data was really made
+[12:33] open in the united states was around transit data there's a transit and i deep kind of just
+[12:40] referred to transit data as being an important data set portland's transportation commission
+[12:45] called trimet released their data and they did so under a specification which simply just means
+[12:52] it's standardized it has specific columns field names and they're consistent and this was sort
+[12:58] of the format that the rest of the united states through google actually started publishing their
+[13:04] transit data so when we talk about the word standard that's what we mean is it's produced
+[13:09] consistently and published consistently so that machines can actually process it yeah so that's
+[13:14] why i can use my google maps to find out the bus schedule and the and the traffic anywhere in
+[13:19] america but i can't do the same thing for crime or for other things that deep mention that's right
+[13:25] now ted at the city of la you guys have already taken a lot of steps along the road that these
+[13:30] laws kind of point to right uh why don't you share with the audience what what the city's done
+[13:35] certainly so i have the honor of serving mayor eric garcetti and so uh the fact that probably
+[13:42] most of the folks in the room don't know while he was a then council member running for the mayor's
+[13:45] office he was actually as a council member pushing a council motion through council to
+[13:50] try to be able to launch an open data portal and to do a lot more when it came to providing open
+[13:55] government i think the reason why is he you know philosophically completely agrees it's the citizens
+[14:01] government and it truly is citizens data and there's the ability of capturing so much opportunity
+[14:07] because there's things that government does well and there's things that obviously private
+[14:11] sector non-profits do well so why not let government which has a monopoly in many ways on
+[14:16] the data there's truly data that only government has why not partner that data so long as it's
+[14:21] responsible and doesn't it doesn't violate any security issues or personal individual rights
+[14:25] etc social security numbers those types of things why not partner government's greatest asset in its
+[14:30] data partner that with private sector which is innovating and non-profits which are researching
+[14:35] and then you can get a very powerful a very powerful force a nexus of forces if you will
+[14:40] in which you can get a lot more services delivered to the citizen i think it's a great example here
+[14:45] with real estate information with other aspects it allows government to deliver a service not
+[14:50] directly i kind of liken it to a point guard in basketball you know the point guard doesn't do all
+[14:55] the scoring but they often push the ball around they feed it to other people so they can score
+[14:59] they do assist this is a way for government to assist others and at the city of los angeles
+[15:04] we did a lot when it came to getting across our city government all sorts of different data sets
+[15:08] and making them available and more than just publishing them in a portal really seeking ways
+[15:13] to engage people so partnering with folks like google so that ways data would have city information
+[15:18] regarding street closures and all sorts of things that improve the users for that app or partnering
+[15:23] with others to be able to deliver that information going to hackathons right where programmers will
+[15:27] get together and they'll hack on certain topics we have huge issues around things like a drought
+[15:32] in southern california so let's bring a group together and let's get data from our department
+[15:36] of water and power and others to be able to start hacking on that and so it's trying to identify
+[15:41] ways to really engage universities around traffic and traffic collision information we did that
+[15:46] recently and all sorts of other developers so it's more than just making data available in which that
+[15:51] will capture one group of people but is actually making data available consumable and finding those
+[15:56] who are interested to do really good things with that uh so now that this law is passed people who
+[16:03] aren't as up to speed as you that need a law to get them to do it are going to be challenged to
+[16:07] kind of like make it happen right so lisha you've seen the inside of a lot of different governments
+[16:11] in your work with code for america right that's right so what is it that stops governments from
+[16:16] making progress on this front um i think there's a lot of reasons why open data is is hard to get
+[16:24] started with um if you think about top-down leadership um that's not always present there's
+[16:31] not always the case to open data um luckily l.a has leadership that is you know very much in
+[16:38] support of opening data as does santa monica so why would it in all fairness yes so no so why
+[16:44] would a government be against that doesn't open data sound good guys how could you oppose that
+[16:48] well i think it's sometimes hard to trace sort of the the roi the immediate return on opening this
+[16:54] information um and i think opening data to open for opening data's sake is not necessarily the
+[17:01] right way to go um we did some work in alba kirky uh and and there one of the um the folks that
+[17:07] worked in the it department um really had to struggle to make the case to his leadership
+[17:13] that um opening data would be a good thing for the city his criteria was that if you can't trace it
+[17:19] down to an actual consumer or an end user that will benefit from it it's not worth opening
+[17:25] and i think that that sort of criteria is a way to help governments open information when
+[17:30] transparency isn't necessarily working so what would an example of that be so he worked on
+[17:36] reducing the number of 311 calls into the city so it was an efficiency play um he said you know if
+[17:42] you open the 311 data and we can see where the complaints are coming time after time spatially
+[17:48] geographically um we can actually reduce the number of complaints that we get to the city
+[17:53] and it worked it actually reduced the number of complaints that came in and so then he got
+[17:57] promoted and he's the general manager like ted no no oh go ahead i don't know i have an interesting
+[18:03] example that you referenced 311 and trying to create a more efficient 311 because the very
+[18:09] existence of 311 systems was trying to take the the load and inefficiencies out of a 911 system
+[18:16] and so i just can't help but recognize how far we actually have come
+[18:19] government is not perfect we have a long way to go but in the last 20 years alone
+[18:24] we had uh you know 911 overburdened you know thank baltimore for really pioneering
+[18:29] but the 311 system former police chief bill bratton here in la who's back in new york is
+[18:35] a police commissioner there really sort of uh thinking more more more digitally analytically
+[18:41] developing a comp step model right using data to drive decisions on how you deploy resources to try
+[18:48] to both minimize crime prevent crime etc which then sponsor the city stats and more comprehensive
+[18:55] governments uh in general conversations about using data you know internally so there's just
+[19:00] been this evolution you know government internally using data to make better decisions and investments
+[19:06] and i think given where technology is now the ability to share that data with other partners
+[19:12] to tap the innovative juices that we have not just in california but to utilize this data in in ways
+[19:17] that you know no one person in government knows it all but we've come a long way i think the last 20
+[19:23] years and you know i think the curve is exponentially increasing and how much more we're
+[19:29] going to see at all i'm going to pass this i think so open data is mind shift that's the
+[19:36] most important thing we just cannot go just with the bills and say okay we have passed the two
+[19:41] bills but there's a mind shift and on top of the mind shift i think so it's it's we just cannot
+[19:46] leave the open data and say it's always for the betterment of the transparency i think so it's an
+[19:50] effectiveness what is the effectiveness for the government for the states for the counties how
+[19:56] can we serve our consumers or our people better and faster i think is that the what i feel is it's
+[20:04] the the bottleneck here is the bill's been passed but what's the driving value what's who's going
+[20:09] to drive this forward certainly i local agency go and publish all my enterprise systems so i think
+[20:16] is that mind shift needs to happen and to me is bill is a step in that direction where i think
+[20:22] california is doing an amazing job by passing the bill but i think is we need to have the
+[20:27] leaders those who help us like you know ted is doing in this shift the mindset and say that why
+[20:34] this is important so that's the critical piece too and i mean that's really one of the goals of
+[20:39] code for america right is to introduce those different types of thinking and people who think
+[20:42] that way and come from this silicon valley world into government but i guess ted ted why is that
+[20:48] necessary do you guys have is is you know if the city of l.a when they open up job applications
+[20:54] for to be a firefighter i love to write about the fire department it's one of my hobby horses
+[20:57] there'll be 70 jobs and 10 000 people will apply right oh the vast majority of whom are probably
+[21:03] well qualified for the job and very eager to take it why does government struggle to attract talent
+[21:10] to kind of help it build capacity to bring in new blood and need something like code for america
+[21:16] well it some of it comes down philosophically to where government often sees itself
+[21:20] so you find that governments get very busy doing things and as you start reducing staff you start
+[21:26] reducing budget i i serve in department i manage a department that's lost 40 of staff in the last
+[21:32] six years so since the great recession we're a very much smaller department which makes us
+[21:36] reprioritize also a lot of things and when open data becomes in as a conversation all too often
+[21:42] it gets interpreted it shows up on the radar is look here's another thing we're being required
+[21:47] to do when i've got all these other systems and all these you know police or fire department
+[21:51] systems i'm maintaining and now i've got this one more thing put on my plate and so i think
+[21:55] sometimes it gets misunderstood and misinterpreted so at the city of los angeles it becomes really
+[22:00] critical to have that philosophical shift to have that change honestly and this is someone coming
+[22:05] from inside government one of the greatest benefits of open data i'm a firm believer in
+[22:09] transparency i'm an angelina i'm a firm believer in transparency i'm a firm believer in open
+[22:14] government but the application of everything you do with open data inside of government is also
+[22:19] beneficial so you'd be surprised how much data is not being shared between departments let alone
+[22:25] with the public right you know i i implemented a financial system in which quite often you were
+[22:31] figuring out we were instructed from all these different department managers on ways to keep
+[22:35] other departments from seeing your budget and so they're trying to figure out ways of building all
+[22:39] these modifications so we can't see each other's data when the reality is obviously we should be
+[22:44] sharing it even with others so it becomes something fundamentally important for us to
+[22:49] share data across departments to create what they call apis interfaces between data so that
+[22:54] systems and machines can go ahead and integrate data between each other so open data is a very
+[22:59] powerful movement and a very powerful concept that you can apply across so many different areas
+[23:04] we get all sorts of requests for information if that's saying if i identify the types of requests
+[23:09] for information i get and put it as self-service you don't have to ask me anymore right so there's
+[23:14] all these ways of making government more efficient by putting it out there and and really to address
+[23:19] ben's question often at the city of los angeles and often in government we get too stuck in the
+[23:24] day-to-day we get too stuck in what we were delivering last week and and a very large
+[23:28] workload and when we really need to be stepping out of it and thinking more strategically
+[23:32] if i'm busy processing public records requests i really need to maybe take a step back and say
+[23:38] what's a mechanism or a method so i don't have to be processing these and that you could go get
+[23:43] them in a very easy to understand a reasonable format and i think one of the other uh under
+[23:49] appreciated upsides of open data and the movement for it is based on the assumption that government
+[23:55] has good quality data clean data organized data that's right right and so the expectations we'll
+[24:01] just share it just share it just share it because we want to unleash you know innovation and
+[24:06] all the brilliant ideas that will come as a result so so don't overestimate the quality
+[24:12] or organization of our data but on the other hand keep the pressure on because that is pushing all
+[24:17] areas of government and all levels of government to to upgrade and modernize and and improve the
+[24:22] secretary hit the nail on the head once i have to start publishing data i'll take a step and look
+[24:27] at it and say and i i don't really mean me but a department will take a look at it and say
+[24:32] boy the quality of this data really isn't quite right which begs the question why do you have data
+[24:36] that is of poor quality are you running your operation off of poor quality data so i like
+[24:42] just about every question involved with open data i like the idea that if you have to publish it
+[24:46] it needs to be good and if it's not good let's make it good and that just improves everything
+[24:52] it's true you know i don't use the expression very often i truly do see a lot of win-win when it
+[24:56] comes to an open government open data type of conversation you know the whole idea of open data
+[25:04] it all sounds great and it sounds new maybe to people who haven't heard it before but it's really
+[25:08] not new right you know this is an initiative that president obama came into office trumpeting and
+[25:13] gosh that was nearly eight years ago now and he's preparing to leave office and you know i'm kind of
+[25:20] you know how much progress can we really claim when i really when you think about it in that
+[25:25] time period we've had a lot of panel discussions like this we've had a lot of little laws we've
+[25:31] had a lot of fellows go out right but we've also we've also had healthcare.gov happen
+[25:37] right we've had uh the state's unemployment check system fail to the point that it can't send them
+[25:44] out we have the secretary state's office still struggling with many large it projects to push
+[25:49] through that you inherited when you came into office is this stuff like really moving the needle
+[25:56] or is it or is it is it is it still more rhetoric than results mr secretary okay it's probably a
+[26:03] combination right it's um so let's understand one dynamic intention here uh to oversimplify
+[26:12] we have silicon valley right i mean innovation is happening on a daily basis
+[26:17] stuff is advancing stuff is progressing stuff is constantly getting better
+[26:20] public policy right how a bill becomes a law goes a little bit slower uh so whether it's policy
+[26:30] law statute regulation etc it doesn't move nearly as fast as the pace of innovation so it comes
+[26:37] so there's always going to be this this tension and this trouble i'd like to point out at least one
+[26:42] i think a quick win uh in my first year in office and it was part a public finance transparency
+[26:51] accountability win and part not so much a technological advance but you know i think
+[26:58] a huge win in sort of bypassing the traditional it procurement process in the state of california
+[27:06] others would call it the traditional it procurement quagmire in the state of california
+[27:11] when we were willing to share data which opened to everybody on campaign finance who's raising
+[27:19] money from who map light the organization map light through found private foundation funding
+[27:27] was able to put together a much better search engine for who's raising money from who developed
+[27:34] this tool called power search which they were willing to you know gift to the state of california
+[27:40] we integrated into our secretary of state's website so think about that in the course of
+[27:44] months not years at no cost of taxpayer dollars there's all of a sudden an open source based much
+[27:51] you know new and improved search function for the public and the press to track those campaign
+[27:58] dollars but unfortunately it's the exception to the rule because if you google state of california
+[28:04] it project and hit news you know not a lifetime of 100 it's a bad news story not a good news
+[28:11] right but in that case you essentially solved it by giving up right and having someone else do it
+[28:15] for you i mean can the government not build the capacity to build a website that works we didn't
+[28:20] give up we we found a third way we partnered with somebody and you know during the course of my
+[28:24] campaign people uh proposed y'all ought to get out of that business of you know sharing uh or
+[28:31] posting campaign finance data just let somebody who knows what they're doing kind of take it over
+[28:35] but shouldn't the state know how to do these things yeah we we do and and we can again my first year
+[28:41] in office state of california was the first state in the nation to have a public website with all
+[28:46] this information available that was a good news the bad news we hadn't really upgraded it or updated
+[28:50] it since uh so you know we're on it now but at least in the short term we can do these piecemeal
+[28:56] things that being data driven you know calaxas makes a lot of things possible but the vast
+[29:02] majority of what people go to it for is this campaign contribution tracking so let's focus
+[29:07] on that let's at least upgrade that piece first quickly while we buy time and tackle the rest of
+[29:12] the pieces uh in the coming years i mean alicia you've worked with a lot of governments what do
+[29:17] you think of that model the idea that the government lets kind of somebody else manage a lot of it and
+[29:22] they just lay they put the date on the porch and see who runs off with it well so code for america
+[29:27] is probably an example of in a third party partnering with government to make it better
+[29:33] and so i would say that that model definitely works particularly in a situation where
+[29:37] government is not quite ready to change or do it itself um code for america has this model where
+[29:43] we bring in that silicon valley talent for a year of public service and that year of public service
+[29:50] is really the only amount of time that somebody making six figures at google would actually want
+[29:55] to spend working in government but they come and they do their public service it's a little bit
+[30:00] what we call peace corps for geeks um and we embed uh engineers and designers and product people
+[30:08] into government itself and so they build technology and they process math and they
+[30:14] ultimately pursue a model called user-centered design what's that user-centered design is making
+[30:21] the citizen the customer at the center of every choice that's made so if you think about this
+[30:26] from a service delivery perspective let's say that you want to start a new business
+[30:32] and you go to get a permit filed that's a customer transaction that you have with your government
+[30:38] and so what we do is we take different business transactions in government we map them out and
+[30:43] then we try to solve some of the clunkier paper-based processes through technology
+[30:50] and so that it's interesting there's a couple interesting things i heard there one
+[30:54] obviously was the the six figure thing she quoted did you guys hear that
+[30:58] so um you know um deep i just out of curiosity i'm going to probe here so you oversee a large
+[31:03] engineering team of people who basically and i'm going to oversimplify i'm a reporter they pay me
+[31:08] to oversimplify right who basically take the government data from all the different county
+[31:14] governments who keep those assessor databases and merge them together into one big fancy system and
+[31:19] do it and they're doing that ugly work of working with the data how much do how many people does it
+[31:23] take to do that at trulia and how much does someone who does that work like a frontline person get
+[31:28] paid yeah so i think it's uh we all know silicon valley is silicon valley for a reason right and
+[31:35] this is where the problems comes and we come together and we solve problem and we move fast
+[31:41] and think about the scale right so the scale is there and before i go to this it'll be tough for
+[31:46] me to answer the numbers like who how much people make there but it's you know being in i think is
+[31:52] the how much it's it's all about the problem when you think about google you go back 12 years back
+[31:58] it's all the websites were there all the websites were there standing as a siloed version where
+[32:05] you as a consumer have to go and know about this but google came and changed the mindset
+[32:11] where it started building the indexes started crawling indexing making it searchable and now
+[32:18] guess what even my 11 year old son and my 16 year old son their life goes with the google if they
+[32:24] don't find from dad and mom they go to google it right so this is a great example of why silicon
+[32:29] valley is this and why silicon valley people paid high because you know they solve the problem they
+[32:35] scale it now what it takes to get the data it's all about the scale when we look into
+[32:42] trulia has millions of consumers coming to trulia we have 33 counties across us where we collect
+[32:48] the data on a daily basis someone selling home someone buying home it's all this data is scattered
+[32:54] in a very different formats so what does it mean it means someone needs to understand this data
+[33:00] there are times we are lucky enough to say oh this data means this you know a means this b means
+[33:06] this and there are times you don't know so once we understand the data this is where technology
+[33:13] and the computer are helpful where human beings don't need to sit and do manually we tell computers
+[33:19] when you see this you do that so within the data engineering organization within trulia we have
+[33:26] close to 50 engineers and their job is acquisition of the 50 five zero okay yeah and this is but still
+[33:34] when you look into five zero 50 engineers serving millions of consumers so it is not that we are
+[33:42] talking about 500 just 50 engineers came together and they took all the data where we are serving
+[33:48] and solving that problem for millions and millions of consumers and paying it's basically you know
+[33:55] silicon agriculture has always been risk and reward right i've been in two of my own startups
+[33:59] you go you find a problem you solve a problem and if you solve a problem in a right way you
+[34:05] get rewarded sure but i mean these government the government budgets and systems are as big or bigger
+[34:10] than trulia what prevents the state of california from solving the problem from building the 50
+[34:15] person team from making it happen i think it's so first is which i said clearly is is the mind
+[34:20] shift i think is the mind shift and there has to be more partnership between private and the public
+[34:26] sectors and when i am in silicon valley for so many years traffic is not bad as la but the traffic
+[34:32] in the silicon valley roads are crazy and every time i hear oh the president of this country is
+[34:38] visiting silicon valley to go to google the president of this country is going to facebook
+[34:44] when there are people coming from the outside of us coming to the silicon valley to get the help
+[34:49] that partnership needs to evolve more that how come silicon valley is solving those problems much
+[34:57] faster as compared to and it's i'm not saying there is no desire from public sector not to
+[35:02] solve that it is the partnership needs to come together where we need to come this is where
+[35:08] court for america is helping a lot and i think is defining that partnership is critical and at
+[35:14] the same time this laws are going to help mind shift and then government officials needs to stand
+[35:23] up and say guys the open data defining what the open data means so it's not just a one simple
+[35:29] solution we need to bring all the forces together to solve that so that's where i think is collaboration
+[35:34] between the two silicon valley and the government officials coming together and saying this is how
+[35:40] we're going to scale it and how we're going to solve it hmm that's a point of a key feature
+[35:47] of truly most people will think oh we're going to develop this there's this great new real estate app
+[35:52] and all the information that would sort of support that of course it's land value you know interest
+[35:57] rates you know projected mortgage costs when was the last time it sold yeah what's the price history
+[36:03] on a property i don't know what your analytics tell you but from my experience and a lot of my
+[36:07] friends you know when you find a listing that catches your eye if it's not the second thing
+[36:12] you click on it's the first how do the schools in that area rank yeah right but that's not based on
+[36:18] real estate data that's based on school district information that once upon a time probably wasn't
+[36:25] shared you know and once upon a time was probably only begrudgingly shared with parents that really
+[36:30] insisted right because you know the or newspapers that sued i would point out right but now you know
+[36:37] through a real estate app all of a sudden it's it's readily available and very useful context
+[36:43] maybe i'm wrong no no you know that's a no that's i think that's a fair point you know this is
+[36:49] having this data like commute data the park data there are consumer comes to our side they're
+[36:54] looking for what's the closest park to my home right and this is the data once it becomes public
+[37:00] we are using the technology and empowering our consumer with this data so yeah there was a time
+[37:06] in 90s when this data was not publicly there now being it is there it is much easier for us to
+[37:12] consume this data but for the value what it brings it to the consumer that's a fair point
+[37:17] okay so silicon valley has the solution this is an answer we think we hear pretty frequently
+[37:26] right and one solution i love from silicon valley this is one of the quirky ones is that we could
+[37:30] we could set up some a new country out in the ocean on like a floating platform which would
+[37:35] be free of many of the existing regulations and problems and i mean so let's say ted that that
+[37:40] the deep here financed your effort to build a new new city off the coast of california
+[37:46] right and you had to begin again would have a problem begin again from the start and you
+[37:52] didn't have to remake and you could start a city from scratch and get all this stuff right
+[37:57] what would you do how would it happen different wow that's a that's a fundamental question
+[38:03] you know one i think one thing that's interesting about it and you know i did an mba and so i can't
+[38:07] help but looking at things that way is often you've got different companies in the industry you've
+[38:11] got competitive advantages and so silicon valley has a very powerful competitive advantage and i
+[38:17] and might i say silicon beach in downtown la right technology is occurring as much in many
+[38:22] ways in southern california as it is up there but the reality is tech the tech sector is great in
+[38:29] the sense that they're highly innovative they put their skin in the game and if the product doesn't
+[38:33] sell and it doesn't truly add value you're out of business right and so that is a very powerful
+[38:38] capitalist model that is churning out tremendous innovations and we're one of the finest countries
+[38:44] in the world to be able to make that happen but if you apply that model to government government
+[38:48] does in many ways have a very different model a very different perspective we are expecting our
+[38:53] civil servants to be responsible and ethical to not accept bribes to not be corruptible to be able
+[38:59] to treat people fairly and equally to be able to consider people who often don't have a voice in
+[39:03] government and so we often see a very different model and i think really what works very well
+[39:08] from my perspective is taking a lot of that powerful civil service ethics and integrity
+[39:13] and loyalty and they deliver that where we are to really truly represent the citizens and businesses
+[39:19] and tourists who come to our city and to match that with the innovation so it's identifying the
+[39:24] right partnerships to open everything up to a tech sector and this is coming from a tech guy
+[39:29] to open everything up to a tech sector is just finding one side of the coin to open everything
+[39:34] up to government say government you just do everything yourself it's just another side of a
+[39:38] coin and we could probably run down various different areas where you truly need to have
+[39:42] an integration you need a facilitation you have to have people who start to play their roles
+[39:46] appropriately government needs to know what it does well a private sector does a lot of things
+[39:51] well non-profits do things well i think the best government is one that facilitates all these
+[39:55] different players to truly take into account the needs of the citizens if i were to if i were to
+[40:01] manage that that you know make believe city you know it's funny coming from someone who's
+[40:06] been in government for some time in the private sector before that that's a very difficult
+[40:10] question i would really have to defer to an elected official i'd have to defer to someone
+[40:14] who helps represent the people and and and that's even the other side of it right when we were
+[40:20] implementing open data at the city of la we very quickly saw the roles people played as an it
+[40:26] manager we know the data but don't put us in charge of open data because we're going to see
+[40:31] things from our narrow focus we think they're elected officials are the people who are out in
+[40:36] the streets the people who should have a much better feeling and an understanding of what the
+[40:39] citizens want and what people are asking for so when we kind of looked at the cycle we started to
+[40:44] see elected officials who could represent the people best the people who want the data and then
+[40:48] we could look at technologists who the best people to provide the data in formats that the people who
+[40:53] the elected officials are hearing from should have provided in and then we could also pull in private
+[40:57] sector who had the greatest platforms to make that data available and so we saw very much a
+[41:02] very powerful triad if our elected officials don't participate i don't really hear the will of the
+[41:07] people if the technologists don't participate you're not getting data and if private sector
+[41:12] doesn't participate you're probably getting it in an antiquated useless platform so we often find in
+[41:18] governments about taking the different pieces putting them into their proper roles and really
+[41:22] implementing it that's just my perspective i think that's a great way to describe it because
+[41:28] you describe this potential to create utopia you know and so what would we envision well
+[41:33] you know my background's in engineering i didn't study political science i didn't you know
+[41:38] major in government or anything but that's not my career and so i can tell you if you're going to
+[41:42] start a new society it's going to be a reflection of okay well who's there right and some sort of
+[41:49] process to collectively go through the conversation of okay how are we going to govern ourselves
+[41:55] and once you have some semblance of an institution then what are we going to do what are we going to
+[41:59] contract out for right or we're going to what are we going to partner on and making those deliberate
+[42:05] decisions and different different cities are governed differently whether it's fire and
+[42:11] police protection or technology and everything in between here's a man who's interacted with
+[42:17] citizens you know a thousand times more ten thousand times more than i have and so i'm very
+[42:22] quick to say listen here's a person who's done it and done it well for many years and so i'm
+[42:27] humble and intelligent enough to know that i'd look to him to be able to understand the interactions
+[42:31] with the people and i would expect the same for an elected officials for people who have ten
+[42:35] thousand times the experience on the technology side to be able to bring us in as subject matter
+[42:40] experts when it comes to technology you know i think one of the greatest assets of america is
+[42:45] the fact it was such a diverse group especially here in southern california we're extremely
+[42:48] diverse and we get great power out of that diversity because we've got engineers and we've
+[42:53] got social scientists we've got philosophers and we've got psychologists and we're all really
+[42:58] coming together and we're contributing quite a bit in our own area and i'd like to think that a
+[43:02] utopian city would have a lot of that so maybe for some of the folks watching at home you know
+[43:08] we can talk about open data and open source and quality format of data not pdf but is it
+[43:19] and you said you know that the open data conversation is not a new one when president
+[43:23] obama was elected it was an executive order that was 2009 but raise your hand if you've ever heard
+[43:29] or wondered about police response time everybody has for a long long time that's like a very simple
+[43:37] way of describing what open data is all about imagine the city that wouldn't shovel police
+[43:42] response time was whether it's had a concern for your community there probably are quite a few to
+[43:47] be great or you're looking to buy a house yes probably not so much anymore because of public
+[43:52] demand for that kind of information but i can tell you not police response time but things like
+[43:57] graffiti removal uh or you know firefighter ambulance response and trash pickup you know
+[44:03] statistics when i was at the city i won't name names but there were folks who didn't want to
+[44:08] share that information because it's going to make us look bad right and so this goes back to the
+[44:13] cultural shift no mayor verdon was a leader on this train the whole charter uh reform debate
+[44:19] and the charter reform commissions and your charter being adopted information is good you know you may
+[44:24] not like what it says initially but that's how you create the dynamics where the pressure points come
+[44:29] back to improve i think open data is just a state-of-the-art technology version of that
+[44:34] government accountability and improving government services dynamic with an economic development
+[44:39] opportunity don't we need more for like some of the entrenched interests that do not want data to be
+[44:44] released to be forced to i mean you know just list last year in the united states we've had a
+[44:48] a nationwide outcry over police brutality and shootings across the country and i don't know
+[44:52] if you guys would follow this but there actually are no statistics the numbers are not compiled
+[44:57] or collected about how many people are killed by police across america systematically so the
+[45:02] reality is we just don't know right and the reason we don't know that or we don't know a lot of data
+[45:08] about spree shootings is that there are interest groups in congress and in state governments and
+[45:13] in local governments that oftentimes can prevent certain pieces of information from being released
+[45:18] so for instance i would point out in this inventory law that was just passed if you look
+[45:22] very carefully between the commas like i was trying to do earlier you can see that the local
+[45:26] school districts have been exempted from this law for some reason i don't know but you know that
+[45:31] happened and you can find things like that all across government and in my experience as a reporter
+[45:36] has been and i'm on my soapbox here so forgive me guys my experience as a reporter has been that the
+[45:41] most valuable most sensitive oftentimes most important data is the hardest to get because
+[45:47] there's people who don't want you to have it and so what i hear in a lot of this discussion which i
+[45:51] love and is music to my ears as a nerd is like enlightened smart government people who are saying
+[45:56] we want to make things better and are technocratic in this sort of old school way where they're going
+[46:01] to be good managers who make it happen but can they really control these interest group infections
+[46:05] within the government you know before we talked about open data i'm really going here there was
+[46:10] a thing called the california public records act which really allowed anyone in the public and still
+[46:14] does to request information and the government doesn't have a choice they have to give it right
+[46:20] but at the same time the state government was passing the laws to to loosen this open data
+[46:26] there also was an effort in the legislature i think when you were still there to gut the
+[46:30] california public records act and and not no longer require local governments to meet those
+[46:35] demands directly from the citizens as opposed to ted and the people at the city government getting
+[46:41] to decide what they released and like how do you square that why are how are these two why are these
+[46:45] two winds almost blowing in opposite directions at the same time president obama open data executive
+[46:52] order edward snowden has to go to russia and people who talk to reporters all go to jail
+[46:57] how is it those those two things are happening at the same time that's a great debate there's a
+[47:02] one-man debate right my question for yes i know uh you know the just a quick side note on you know
+[47:08] state uh pra you know statute change of what that was much more a budget issue than not uh
+[47:15] counties that were no longer required there's they're still fulfilling uh the the requirements
+[47:21] at least the spirit and intent but it was a change in language as part of being able to score a
+[47:26] saving in balancing the budget in very very tough tough economic times i don't think jerry brown or
+[47:31] any member of the legislature that voted for the budget you know truly believed we had to go
+[47:36] backwards on uh pra that's that's just you know my side bar there uh but you know the frustration
+[47:42] that you have with while you have some jurisdictions going forward others not wanting to and you know
+[47:49] the exceptions that you may uncover and this and that that's not a technology process that's a
+[47:54] democratic process right that's a that's the result of who's participating who's not who's
+[48:00] what who's weighing in who's not who's you know helping drive public opinion you know who's not
+[48:05] and that's the country that we all live in it requires us all to participate but to come full
+[48:10] circle again open data being a tool to incent that participation and interest from uh the many many
+[48:18] people who appear to have lost him oh i think he did but um okay i mean what so what comes next
+[48:29] i mean so like alicia if you were to say you know this california state legislature needs to take
+[48:34] further steps to push the ball even further down the field what do they need to do um that is also
+[48:39] a big question i would say that it's not enough to just put the data out there in a consumable
+[48:44] format it needs to have context around it um and a lot of the times the producers of the
+[48:50] data itself have that context so these are um public servants who you know if you think about
+[48:57] urban planners and gis professionals um they're they're producing this data and they have very
+[49:02] valuable context and that can be communicated through narrative um i just worked on a project
+[49:09] actually uh in the bay area called vital signs which was with a nine county regional
+[49:15] transportation government that published all of its data so this was housing data transportation
+[49:20] data economic data um and the person the project manager on this project was was saying to me um
+[49:28] it's not enough just to dump our data out on the web anymore we have to make it meaningful
+[49:34] and it has to have an end user so i would say if we can get to a point where all data sets that
+[49:40] are published have metadata which basically just says where it comes from and how it was made
+[49:45] and when it was last updated um and then get to another level which is here's what it means to you
+[49:51] and here's how it's being used that would be so what's an example of that from your work at
+[49:56] coat for america an example of someone doing that well well this project that i was just mentioning
+[50:01] vital signs has done that well they have interactive charts maps um an actual new york
+[50:06] time style narrative around the published data so you can still download the raw format but you also
+[50:12] just you know you have that context to actually consume it so i'd say that that's a very good
+[50:17] example deep is that the kind of thing you would like to see or what do you want next from the
+[50:21] government as a constituent so i think is it's it's the exchange as you know we are talking about
+[50:27] what is the value of this data but when you talk about the data coming out and i was thinking you
+[50:34] know you can start publishing this data but with no relevancy on the frequency of the data is the
+[50:39] data getting updated on a daily basis and if you are publishing the data which is still six months
+[50:44] old what value it brings it to the table and it's defining the exchange so when we are talking about
+[50:50] example here the data comes out but what does it means to me i don't know so having those standards
+[50:57] so standard means where anyone can pick this data and say okay when we are saying this column has
+[51:04] this value this means this so that's to me is defining more standards so once we have the
+[51:10] standards where we know the common language where we can get this data and say oh great
+[51:15] this is in this format it is not pdf for sure no images you know i don't know if csv works here or
+[51:21] not but this is where i think technology tends to define those standards and this is one example
+[51:27] which i was giving early 90s when internet came up everyone started building their websites you
+[51:33] know it was in the beginning you know i start writing my own web pages eventually the challenge
+[51:38] what everyone faced was if i'm working here i have my own standard tomorrow i go and work
+[51:45] somewhere else i have my own standards suddenly we started forming groups where we say it's an
+[51:50] html within html these are the standards and now we live in a world where you write one piece of a
+[51:57] code you can render that on google chrome browser you can run on internet explorer you can run
+[52:05] anywhere else so that's that's the level what i think is we need to go into where we define
+[52:10] the common language which can be understand by everyone and then this data can be presented in
+[52:16] a very simple way to the consumer so i think defining those standards and how the data exchange
+[52:22] is happening is going to be the critical phase for this right so that came up earlier with the
+[52:26] transit data so everybody adopts the same standard google can make a thing for the whole country
+[52:30] i mean so ted what what do you see this in the city of alays data that has that same potential
+[52:36] what's the data you could standardize or make easier that 10 years from now is going to make
+[52:40] the city a different place to live and i think often when it ends up actually being is actually
+[52:45] cross-governmental so you know we could make all sorts of changes and improvements in our transit
+[52:50] data our crime data our 311 data etc but i think for the average citizen they really don't care
+[52:56] where the city of los angeles starts and stops versus the county of los angeles versus the city
+[53:01] of santa monica versus the city of beverly hills and so the idea where i say here's my data and
+[53:06] here it's classic government answer my my boundaries stop here you can't expect anything
+[53:11] more from me isn't the right answer so the more we can not just standardize data and come up with
+[53:16] some reasonable standards in a lot of ways conceptually the large cities could help really play a role
+[53:21] in that but to start to have more of a regional approach data in southern california or data in
+[53:26] california should in many ways be standardized if not how do you compare how do you compare
+[53:31] santa monica to los angeles to pasadena unless there's actually some comparability between them
+[53:36] so i think that's a very powerful very powerful mechanism and it goes from you know these infant
+[53:42] stages i think that the the the analogy to websites is a great one uh and in a lot of ways
+[53:47] open data takes kind of a tipping point you know folks get out there in fledgling ways and they
+[53:51] start making data available some of them start with pdfs and then people say not good enough
+[53:56] and so then they move right they move down the spectrum they start to provide more data
+[54:00] better data they start to have conversations with people who are doing civic hacking and they add
+[54:06] new types of data that they didn't even realize was useful i remember a conversation i had with
+[54:11] with sony worked for the federal government who said you would be surprised how much interest
+[54:15] there was in a wild donkey wild mule population in idaho here's a data set that was published that
+[54:22] half of us would think is completely irrelevant but there are some significant environmental
+[54:27] issues in idaho related to this population and only until they publish that type of data that
+[54:32] the average person would think is in many ways useless do they realize levels of interest so
+[54:37] it becomes very iterative it's a term we like to use when it comes to technology and software
+[54:41] development if you tell me to sit down and plan something out in the beginning i'll come up with
+[54:45] a very imperfect plan i'll take a shot at it but once i put something out then i have something
+[54:50] for people to poke holes at i can add changes to it i can modify i can improve it i could refine
+[54:55] it over time i think early on open data is people putting information out there refining it engaging
+[55:01] citizenry realizing that geography shouldn't be the limitations anymore and so i think hopefully
+[55:07] from our perspective is to improve and standardize data break geographical boundaries and really
+[55:13] become a lot more regional in the way we approach it and i think we'll probably uncover all sorts
+[55:18] of new issues as we do that and that's why i think the philosophical change in the conversation
+[55:22] is as powerful as anything if we keep trying to work down this road then we'll start to bring
+[55:27] those along who aren't interested we'll find folks in the region who don't even get it they
+[55:31] have no idea what we're talking about or or for some reason hiding something or whatever it may be
+[55:37] and i think that'll start to actually improve the conversation it'll become in a good way
+[55:41] bullying them in a good way it'll kind of make them it'll put them over on the side and they'll
+[55:46] be represented as a government who truly doesn't want to participate but only until you have
+[55:51] something of a tipping point can you really start to bring other folks along if not then it's just
+[55:55] the santa monica's and the federal government and and city of los angeles and those who are
+[56:00] progressively leading the way and we're just in some ways can still be seen as a minority uh and
+[56:05] one last question i'd add actually something similar to the secretary and then we'll go to
+[56:09] the audience and the questions you guys have sent in i mean share your vision i mean you have more
+[56:13] years in office and maybe you'll run for reelection and be secretary of state for eight years assuming
+[56:18] that happens or however it works out after that period of time uh how will this movement have
+[56:24] changed california or government or made things better and different what will the tangible
+[56:29] outcomes for people be well i i can't speak for governor brown but i think i'm excited about
+[56:34] the opportunities that i have in this in this new position of secretary of state so the most visible
+[56:38] part of my job is overseeing elections right so it's everything from the registration process to
+[56:45] what systems and equipment can be used for voting etc and uh there believe it or not there's a ton
+[56:50] of analytics it's possible in this registration rates turnout rates who's voting by mail who's
+[56:55] voting in person what time people are voting you know where they're voting that can help us
+[57:00] improve the voter experience right if we're starting with the customer uh in mind first
+[57:06] arguably the largest responsibility of my office is what we call the business programs division
+[57:12] anybody who's an entrepreneur here when you start it up you know the first step you needed to do
+[57:17] before you call the irs was to register your business with the state of california it's one
+[57:21] example of the filings that we do embarrassingly only a couple of transactions are possible online
+[57:27] with our office so by the time i'm done i'm hoping a lot of that is automated and not only am i eager
+[57:34] to get away from the dewy decimal system of business filings that we have to an online version
+[57:40] but i'm salivating at the data mining and analytics opportunities there are once we have
+[57:46] that digital and can share that data i mean you look at uh linkedin as an example and their
+[57:52] economic graph when they mine through employers and people looking for work and who's getting
+[57:58] hired educational backgrounds and all that imagine emerging that data with state government data of
+[58:03] businesses that are opening businesses that are closing with which industries and which zip codes
+[58:08] and cross-reference that with our employment development department of who's looking for work
+[58:12] and you know all of that then that can really help inform public policy and economic development
+[58:18] and issues at a statewide level at a regional and at a local level uh one other quick example i
+[58:24] mentioned the public finance piece earlier today but a really fun part of my job and i invite you
+[58:29] all to come to sacramento to visit the state archives the state archives fascinating collection
+[58:36] of official history official records official documents for the last 165 years since california
+[58:43] has been a state in this nation right starting with the original california constitution
+[58:49] unfortunately a very very small percentage of our archival collection is digitized imagine
+[58:56] what more cultural and educational value there would be if we shared things like old prison
+[59:02] records or early census logs or the original california constitution which by the way is in
+[59:08] both english and spanish a lot of people don't recognize things like that but the common theme
+[59:14] whether it's elections or archives or business filings or public campaign finance is this need
+[59:21] to just modernize because i've inherited an office that let's just say it's lacking in the
+[59:27] modernization front okay great okay so we're going to go to your questions from the audience
+[59:32] they're here on the screen i'm going to read them and if you guys really want to jump along
+[59:36] and just take it if not i'll pick somebody okay ready question number one question begins the
+[59:42] questions have surfaced about the accuracy of certain government data reports due to national
+[59:49] security constraints that are not disclosed to the general public how do we open data while also
+[59:55] protecting privacy and security i guess i'd put you well who could we ask that too ted how do you
+[01:00:02] protect people's privacy when you're opening data i can certainly do that i don't manage national
+[01:00:06] security but we do manage public safety and so a good example of is we maintain a lot of information
+[01:00:11] about city vehicles but if you had full access to the city vehicle database then technically you'd
+[01:00:17] have access to the vehicles that undercover police officers use right so here's an example
+[01:00:22] of a data set that i can't make fully available to you and so if not then basically any criminal
+[01:00:28] would have an understanding of that person is an undercover cop right because they know the license
+[01:00:32] plate and the type of car etc and that obviously puts those officers in a terrible position it puts
+[01:00:37] us as a city in a terrible position so i think usually my my my short answer is you know you
+[01:00:43] make all data available as much as possible and you try to restrain or constrain the items in
+[01:00:48] which you have a very valid compelling case and very compelling reason not to and when you do
+[01:00:54] you're simply making a subset of that data so we can make those types of data sets available we'll
+[01:00:59] need to pull them out so i think that's kind of the short answer to it but it also you know it
+[01:01:03] creates some pretty complex conversations and in our early steps to open data we knew we didn't
+[01:01:08] want to screw it up we knew that we could set things back five years if we started publishing
+[01:01:13] citizen social security information or information about undercover police officers or all these
+[01:01:18] kind of things that we would all agree as a terrible idea so it becomes very important to
+[01:01:22] be very good stewards to have multiple review processes and just to make sure ensure that
+[01:01:27] you're very clearly pulling things out that obviously are compelling not to be provided
+[01:01:32] okay question number two what advice would you offer to city and county officials who are
+[01:01:38] starting from scratch in the new world of open data maybe alicia you might be a good one for
+[01:01:42] that if you got sent off to to you know some random town in california then the mayor asked
+[01:01:48] you how do i do it what would you tell him well i think i would provide a few pieces of
+[01:01:54] pieces of advice i would say one is there's a huge community of like-minded municipal innovators out
+[01:02:00] there that you could tap into so find folks like these gentlemen on stage with me and talk to them
+[01:02:07] about how they did it would be one piece of advice but the other is something that i mentioned
+[01:02:12] before which is trace the data back to an end user if you want to open data don't do it just
+[01:02:18] to open data for data's sake only publish data after you've found a downstream audience to make
+[01:02:25] it actually valuable and useful for the public there's a person named mark head who's the former
+[01:02:32] cio of the city of philadelphia and he has a saying about what kinds of data a city should
+[01:02:38] publish first he says bucks buses and bullets and this is information that has real meaning to real
+[01:02:45] people but it's also data that can be used in applications that help people live their lives
+[01:02:51] better as a former city official you know not with my technology hat but my sort of political
+[01:03:00] head on to ask your constituents what information are they interested in right because you can
+[01:03:04] assume and talk to the to your counterparts in other cities and counties but you start releasing
+[01:03:10] data that the constituents aren't interested in there's a disconnect so just start by asking
+[01:03:16] and you know maybe you're able to deliver it first or easily or quickly or maybe not but you got you
+[01:03:21] can't underestimate the value of a public input can i will i'll add on this so i think one simple
+[01:03:28] advice is look into if what data being asked over and over again and how can we automate that
+[01:03:37] process so that we don't have to redo this if i go to office and every day if my manager is coming
+[01:03:43] to me and saying give this data or give me two hours i will get back to you and if i keep on
+[01:03:47] doing my job every day spend two hours i will rather go and find the ways to automate this
+[01:03:54] so always look for the ways how you can improve the efficiencies within an organization do
+[01:03:59] auditing of your past request and are there areas where after the auditing which you can automate
+[01:04:06] so that consumer can be self-serve rather than you serving them every time so that's another
+[01:04:11] advice i would give and and ben i don't mind making the offer if you're in the room feel
+[01:04:14] free to approach me i'll provide for you all the documentation all our policies and all of our
+[01:04:18] approach that we took at the city of la which i think might be able to give you some ideas and
+[01:04:22] if you're not in the room and let's say you're online or you're watching this at a late date
+[01:04:26] feel free to connect with ted ross at linkedin and we can go ahead and provide you all our
+[01:04:30] information you know we're we're strained like any other government but we believe so we believe so
+[01:04:35] much in this area that we're more than willing to make time with any county or state or city
+[01:04:39] who wants to know how we did at the city of los angeles because we just feel that much about it
+[01:04:43] as a national movement okay the next question is will the new laws compel police departments to
+[01:04:51] share crime data with the la times crime database so i'm the guy who built the la times crime
+[01:04:59] database so if you don't like it you can blame me afterwards and i think almost certainly the answer
+[01:05:03] is no to be honest with you the reality is is that crime reports data when you call up the police
+[01:05:09] and say you were robbed and that goes into their system right um are a public record and i can get
+[01:05:15] them or you could get them anyone can get them for the most part depending on what the cop you're
+[01:05:20] talking to by filing a public records request which is the separate set of laws that are i
+[01:05:25] think much more powerful that allow a citizen to request the data however those laws do not require
+[01:05:31] the process of delivery to be automated right or set up in a way that updates with any regular
+[01:05:37] frequency so if i file a public records request here in santa monica they could say they could
+[01:05:41] say well we have uh 14 days to respond and then we can ask for an extension and then at the end of
+[01:05:46] that time we will send you a cd in the mail that will have a spreadsheet on it that you can feel
+[01:05:50] free to put on the web and by the time i get that 30 days have gone by it's no longer as newsworthy
+[01:05:55] or as good and there's nothing in these laws that require data to be updated any more frequently
+[01:06:00] than that what allows our website to exist is that the la pd and the sheriffs department have taken
+[01:06:06] in my view the enlightened position right that they they're going to automate that process and
+[01:06:11] provide a machine readable feed that i can then write code and put into the database i'm sorry i'm
+[01:06:15] sorry let me hear that again you said los angeles la pd and the sheriffs department are doing good
+[01:06:20] job at that that well i have my complaints um so for instance maybe i shouldn't have opened the door
+[01:06:26] well for instance i would point out is that the enlightened approach is what i enlightened
+[01:06:31] approach that's what i heard well it is and it really is you know but they're not required to
+[01:06:35] and you know and and but it was something that we had to negotiate with outside the law and that
+[01:06:39] isn't my right or your right right and in the case of la pd they that in every department's going to
+[01:06:45] have their own reading of how that works currently and so you're going to get different results
+[01:06:49] depending on who you are and who you're talking to the la pd for instance uh has a reading of a
+[01:06:54] previous case law that says they're only allowed to they're only required to provide contemporaneous
+[01:07:00] records based on a 1990s judicial decision which they choose to read as six months so according
+[01:07:05] to the la pd they are only ever required to give you the most recent six months of crime reports
+[01:07:11] everything before is shielded from release and that's based upon a judicial decision
+[01:07:16] that said it's burdensome to go back and pull up those old data those old records well if they're
+[01:07:20] in a filing cabinet it might be but if they're an electronic database it's actually probably harder
+[01:07:25] to write the extra line of code to filter it out than to not right indeed can correct me here if i'm
+[01:07:30] getting you know wrong about that but about the tech part and so there's still a lot of barriers
+[01:07:36] to that stuff happening and i don't think that these laws are going to solve them and i think
+[01:07:40] it's still quite some ways away to be honest okay i'm off my soapbox i promise i won't do
+[01:07:45] that again our students our students someone's students whose students our students did a project
+[01:07:53] on city level garbage recycling and found some interesting results what are typical ways to share
+[01:07:58] these results with the government will the government publish data collected by private citizens
+[01:08:03] alex ted you can post on the mayor's facebook page
+[01:08:15] i think in probably you know the quickest answer is things like garbage collection is related to
+[01:08:18] our bureau of sanitation so i don't want to sound too governmenty but they're the ones who certainly
+[01:08:23] would have a very valid interest i think connecting with let's say a council member collecting with
+[01:08:27] your elected officials a great once again they're great representatives in city government
+[01:08:32] certainly that bureau of sanitation would have an interest and when it comes to the idea of
+[01:08:36] publishing private data well if it's compelling it's of value to other citizens then certainly
+[01:08:40] we would entertain it but we also want to avoid just the idea of just publishing all sorts of
+[01:08:44] things that as we start publishing let's say private citizen data onto a public portal it
+[01:08:50] starts to look as if it's official city of los angeles or official government records and so
+[01:08:54] that's such become you know kind of a dangerous kind of balance there so but i think more than
+[01:08:58] willing it's about sharing of data and making things open and available yeah and the l.a times
+[01:09:02] would if if if it if it meets our standards of course and we actually recently did some illegal
+[01:09:07] dumping analysis with similar data that found that there were disparities throughout the city
+[01:09:11] which has triggered we hope some changes and so data analysis like that is really becoming more
+[01:09:16] and more a part of investigative journalism in the world that i come from and so if you've got
+[01:09:20] students learning that stuff i am thrilled and they should consider a career in journalism i hope
+[01:09:24] so all right is there a question for ted is there a plan for citizens in l.a to be able to report
+[01:09:31] minor crimes online in a uniform format yes and what is that plan so we just recently did a there's
+[01:09:40] been multiple starts and stops when it came to some of these practices and the law issues they
+[01:09:44] ran to but we recently went through what we call an innovation fund effort so we have something
+[01:09:48] called the innovation fund we try to go ahead and invest in some of these projects and so in the last
+[01:09:52] few months they went ahead started that and so it was actually ideas that came in from various
+[01:09:57] city employees and they're very much in the process of being able to do that there's no reason
+[01:10:01] if you have a stolen bicycle or something like that that you need to come into a station to be
+[01:10:05] able to submit those and that's a part of actually a much larger effort we're doing where we're doing
+[01:10:09] digital services units where we're very actively and aggressively identifying ways and areas in
+[01:10:14] which people are filling out paper forms and they're standing in lines when they should be able to do
+[01:10:18] something online and do it on a mobile phone and so that's a very aggressive effort we're taking
+[01:10:23] we're big government so we're certainly trying to tackle all the different areas but yes that is
+[01:10:27] actually specifically an area that we've been working on the last few months and when can
+[01:10:30] people expect to see something like that roll out i'd have to check in with the folks who are
+[01:10:35] working on that that's actually not being done in my shop so so i would hate to commit them to that
+[01:10:40] but i certainly know it's something that has been funded in the last few months and
+[01:10:43] and i don't mind falling up on that but there was at least precursors to it if i recall correctly
+[01:10:49] you can report graffiti or potholes or absolutely things like that with uh taking a picture
+[01:10:54] with the mile a 311 mobile app versus Santa Monica folks you know won't be as useful but if you're
+[01:10:59] ever in the city of Los Angeles and Venice and otherwise you can download that app and you can
+[01:11:02] submit online requests 24 by 7 and they go through a great process i never like to call 311 i'm just
+[01:11:09] not the kind of person get on the phone but i use that app all the time and i can submit at any time
+[01:11:14] any place it's actually even better for the city it's a great example of where technology helps
+[01:11:18] the city because it's geocoded it's a great electronic record i've got an image of it
+[01:11:23] it's actually better than a phone call in when it comes to us and our ability to be able to service
+[01:11:27] the request a mile a 311 mobile app someone's got it right there excellent use it three times today
+[01:11:37] and and it and it begs that question right it's kind of like open data and sometimes we'll have
+[01:11:41] these conversations in government where someone in the room says but do we really want a bunch of
+[01:11:46] requests right do i want a bunch of requests and only in government would that conversation end up
+[01:11:51] happening what if i do what will i do if i get a bunch of requests well it means there's a bunch of
+[01:11:56] need right and and and that's the same conversation when it comes to open data but once again you know
+[01:12:02] it's easy for us from a consumer from a citizen perspective looking and say well that's a crazy
+[01:12:06] thing for them to say but when they're managing a department where every week they're given a
+[01:12:11] hundred units of work and they've got people to do 90 units of solution sometimes after you've been
+[01:12:16] doing that for a few years you may ask that question it's not the right question but i
+[01:12:20] understand why they'll ask that okay our next question is how can open data policy serve the
+[01:12:27] large population of angelenos and other californians who are functionally illiterate which might also
+[01:12:33] mean people who don't speak english i suppose too so how could open data help them does anyone
+[01:12:37] have an answer so i think is the defining the context of the open data is much more meaningful
+[01:12:43] in that context but you know it's rather than the california it's you know this data can be
+[01:12:49] master for example you know we all are expecting a linear year this time and you are illiterate
+[01:12:55] you are living in coastal area and we are predicting the huge rain or hurricane coming
+[01:13:01] towards your side can you use this open data which is collected by the weather
+[01:13:06] systems and make it more colorful and you know red yellow green red means run yellow means packed
+[01:13:16] and green means stay so i think there are ways to be we can do solve those problems because
+[01:13:22] there are people those who don't have cell phones they have no internet access you know so we we
+[01:13:26] need to find the ways and i like you know when there is a travel alert when we are traveling you
+[01:13:32] know this is red yellow so that's why government decided to go with the color scheme so that it's
+[01:13:38] easily understand by anyone rather than you carrying those devices and internet access so
+[01:13:44] i think that's that's the way we can mask the data and make it more meaningful to those people
+[01:13:49] and what i hear in that that to me i think came up a lot in the panel today is the idea of open
+[01:13:53] data being a vehicle for improving design within government even independent of data itself but
+[01:13:58] just designing the service in a more optimal or better way right so i mean alicia in your work
+[01:14:03] has it come up where you were trying to when you were thinking of your user with your human-centered
+[01:14:08] design right in the approach where your target user was someone who was either illiterate or
+[01:14:13] not an english speaker yeah i mean i can't speak to a specific example where that's happened but
+[01:14:18] certainly we've done a lot of work around access to public benefits so the cal fresh program which
+[01:14:25] is food stamps we worked on a project in san francisco where we really traced the process of
+[01:14:32] what a person has to go through to actually enroll in food stamps and they use many languages in
+[01:14:37] terms of the actual form you get that reminds you about the date that you need to have your interview
+[01:14:42] to be enrolled about the various things that you have to do to stay enrolled
+[01:14:48] and what we did by mapping out that process was actually provide data back to the administrator
+[01:14:53] of this benefit so that they could make changes to how they they actually administer their program
+[01:15:00] so one example of that and this was a form that was sent out i believe in cantonese
+[01:15:06] uh was had the date for the interview um that a person was required to be at
+[01:15:13] was after the date that it was actually sent to them and they just had no they just had no idea
+[01:15:19] that they were doing this um and we exposed the data to them and they they've stopped and they've
+[01:15:24] fixed that practice um so to get back to your point which is you can use data yes to consume
+[01:15:31] information but also to actually improve how government does its job uh similar logic um
+[01:15:37] you know there's it's been in the in the news in recent months this public policy proposal known
+[01:15:43] as new motor voter uh so i go back to the original motor voter from a couple decades ago
+[01:15:49] where based on federal law every state's required to offer a voter registration opportunity for
+[01:15:54] people when they're doing their business at dmv why because when you apply for a driver's license
+[01:16:00] or a state id or when you're renewing you're asked to update name address date of birth a signature
+[01:16:08] all the same information for voter registration so i have to go through the duplicate process
+[01:16:12] for people who are otherwise eligible 18 year olds and a citizen let's let's integrate not just a
+[01:16:18] driver's license renewal but a voter registration opportunity for efficiency purposes and the good
+[01:16:23] of democracy and so this new proposal you read about recently i'm proud we sponsored the bill
+[01:16:28] signed by the governor and we'll begin implementing here is now the the data sharing
+[01:16:32] between dmv and secretary of states for purposes of voter registration it's more efficient more
+[01:16:39] effective we're going to save taxpayer dollars okay next question is for deep how does a company
+[01:16:47] like trulia which is already a huge consumer of government data stand to benefit from a
+[01:16:52] comprehensive successful open data policy i would say in a in a huge way you know we've been
+[01:16:59] the biggest consumer of the public data for last 10 years and the more data we just talked about
+[01:17:05] the crime data here right why someone goes to trulia when they are trying to rent a property
+[01:17:12] or buy a home the first thing they look for is how is my neighborhood what's the crime score
+[01:17:18] what what's going on there and i think it is going to make better for us once the more data
+[01:17:24] is available to us more fresh data is there which is frequently updated we can consume this data and
+[01:17:30] reach out to our consumer and give them more information help them to make the right decisions
+[01:17:36] so i think it's going to help us in a big ways and it's we need to define you know i think
+[01:17:41] when i look into it i always look into the school now i i like to look into more drill down into
+[01:17:47] the school how the school has been performing as compared to other school which is just a mile away
+[01:17:52] from my home because that decision making process can help me buy a different home in a different
+[01:17:57] location so i think it's it's for us it's going to be much more meaningful and it's going to at
+[01:18:02] the end impact in a great way to our consumers because they are the one those who are at the end
+[01:18:07] consuming this data okay our next question is should governments and by extension the citizens
+[01:18:14] get something in return for providing open data to private businesses like trulia
+[01:18:19] that are making tons and tons of money off this presumably uh not necessarily dollars the person
+[01:18:24] asks but analytics intelligence new insights shouldn't they get something back yeah definitely
+[01:18:30] i i think it's profit is the side effect of solving a problem that's the way how the silicon
+[01:18:37] valley comes in but as i gave my own example should i rather go and spend my if i have to
+[01:18:44] buy a house should i spend six months doing all the research work finding a house which i want
+[01:18:51] or should technology helps and solve most of the problems for me and give that information for me
+[01:18:58] so rather than spending six months of my valuable time which i can go and spend and do other things
+[01:19:04] and rather spend just 15 days or one month to make that decision so in other way if you see
+[01:19:10] having that time back is the most valuable thing and that's what i look forward to is
+[01:19:16] how can i use technology to save five minutes here 15 minutes here and i think this is what
+[01:19:21] the technology is empowering me on a day-to-day basis when i was driving this morning from erwin
+[01:19:26] to santa monica is it gonna take me two hours or is it gonna take me one hour so not knowing that
+[01:19:32] information i can end up spending more time and the time to me at the end of the day is the money
+[01:19:39] i think philosophically i would first lean towards making the data available to various private
+[01:19:45] sector businesses to be able to facilitate you know economic development you know period so i
+[01:19:50] love that idea because usually what you find is that those companies are delivering real value to
+[01:19:55] you so you know tulia is a great example and there's many others you know when yelp gets
+[01:19:59] information from the county of l.a on health code standards and you check out a restaurant
+[01:20:03] and you see it's got an a a b or c you're getting value out of county data that was made available
+[01:20:08] to yelp and there's a lot of those examples of it but the question is also touching on something
+[01:20:13] which is another great point you know when we provide data to google for let's say way is data
+[01:20:18] related to you know parades and and street enclosures and all these other types of things
+[01:20:23] ways is also providing us what we call an api and interface to their data which means if i want to
+[01:20:28] know that there's an area of road in which maybe a pothole was logged that didn't come through the
+[01:20:32] my la 301 mobile app but it was actually done by a ways user and i've got let's say two thumbs up
+[01:20:37] if you've ever used that i now have basically three people confirming a pothole they're giving
+[01:20:42] us their information so that we could go ahead and consume it and do something off of that
+[01:20:46] information and once again you know these are great opportunities for us to do it so while i don't
+[01:20:52] expect a quid pro quo there's often opportunities that just come out and so as you start sharing
+[01:20:57] data and making data available you start to work with organizations and then do it with you
+[01:21:01] it creates once again that mentality and that mentality is a good one okay and now here's our
+[01:21:06] final question from the audience and then we'll close which is how can we evaluate the progress
+[01:21:11] of open data initiatives what would success look like anyone have an answer what success look like
+[01:21:20] so i think looking into the two bills what have been passed you know it's it's just having those
+[01:21:25] bills is not the success the success is are we publishing those enterprise systems what
+[01:21:31] data we've been storing is this so to me at the end of the day if we say this is the bill
+[01:21:36] are the local agencies standing behind this and publishing those so i will go back six
+[01:21:40] months down the line and go back and see if any data has been published if nothing has been
+[01:21:45] published to me that's not the success it means is going to take us another four years to even
+[01:21:51] publish those enterprise systems so that's the way i will consider at least success for this in
+[01:21:55] the scope of these two bills the way i think and i think it's not just you know which cities have
+[01:22:00] an open data policy which ones know which counties which states etc but you know whether it's five
+[01:22:05] ten years out just being able to quantify the amounts of data quality of the data and consistency
+[01:22:12] of the data because undoubtedly it will be used okay well you want to have something there Ted
+[01:22:19] you know yeah i'm never at a loss for words when it comes to this topic as you can tell
+[01:22:24] in working in city government often there's some pretty prescriptive ways to start to define it
+[01:22:29] and it comes down to some of the key benefits if you're looking at interdepartmental data sharing
+[01:22:33] then there's certainly benefits which you can track and see that various departments are sharing
+[01:22:37] data with each other and the results of that as part of our open data policy and our launch we
+[01:22:42] were able to close out various systems so we had various systems that were just there to create
+[01:22:47] a platform to share data by simply moving on to an open data portal and no extra charge you know
+[01:22:53] we were able to close out a 240 000 a year cost for sharing map layers between departments just
+[01:22:59] by putting it into our open data portal and allow them to share that there so there are areas in
+[01:23:03] which you could start to see return on investment when it comes to transparency that's a very
+[01:23:07] difficult one it's kind of hard to measure that but when it comes to let's say economics and
+[01:23:11] economic development etc sometimes you could start to point to that so you could run down a list it's
+[01:23:16] a pretty extensive one but you could run down a list of identifying key successes and I think
+[01:23:20] ultimately from government perspective it's weighing the cost it is to be able to run an open data
+[01:23:25] initiative both in the time it takes to do it as well as the platforms and the costs associated
+[01:23:30] with that with the benefits and I think quite often you know even if they're hard benefits
+[01:23:35] and soft benefits it truly does outweigh if you do it right open data is something that
+[01:23:40] you get a lot of bang for your buck and that's what we've seen at the city of LA
+[01:23:43] all right great so that's the end of our time here together round of applause for the panel please

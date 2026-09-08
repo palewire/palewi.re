@@ -1,0 +1,175 @@
+[00:00] So, next up is Ben Welsh, who, that's water, right, you're drinking?
+[00:08] So Ben Welsh of the Los Angeles Times is, wow, okay, so movie themes.
+[00:15] There isn't really much of an introduction, so Ben's going to talk about using Django
+[00:18] to make you a better investigative reporter.
+[00:22] Thanks Derek.
+[00:23] I'm Ben.
+[00:24] This is my rant.
+[00:27] So I've had a strange journey in journalism.
+[00:29] I started out in television news in Chicago and through a wonderful thing called Nykar,
+[00:34] sort of went on this odd journey that brought me here today in which I've spent a lot of
+[00:38] time being a web developer and learning a lot of weird geeky web developer things.
+[00:42] I just thought this might be a fun opportunity to kind of trot a few of those out and yell
+[00:47] about them.
+[00:49] So why should you act more like a web developer, right?
+[00:52] One, you can end some drudgery, make your life easier.
+[00:54] Two, you can prevent mistakes and screw ups and, you know, have a happier life.
+[00:59] Three, you can improve teamwork, which I know is hard for reporters to hear, but it's true.
+[01:04] And three, you can command robots.
+[01:05] You can ultimately get good enough at it that you sort of, you make extensions of yourself
+[01:10] that go out there, all right?
+[01:12] So, the talk is called Django Unchained because Django is a Python framework for helping you
+[01:16] build websites.
+[01:17] It's really nice.
+[01:18] It was also the title of a movie the last year, but really it's just symbolic and it's just
+[01:21] meant to stand in for web developer techniques in general and not specifically Django, but
+[01:25] I'm using it because I love it, okay?
+[01:28] Django.
+[01:29] All right.
+[01:30] Number one, your laptop should be disposable, all right?
+[01:34] Your laptop should be disposable.
+[01:36] Never again.
+[01:37] Never again should your laptop crash and you lose everything.
+[01:39] Should your project be fucked?
+[01:40] Should you be up shit quick?
+[01:42] Should not happen.
+[01:43] The worst thing you should do, use version control.
+[01:46] Get on GitHub.
+[01:47] Put your code.
+[01:48] It doesn't have to be on the web.
+[01:50] It can be on a server in your newsroom, but put it someplace else and start sharing it
+[01:54] this way.
+[01:55] All right.
+[01:56] Two, database backups.
+[01:57] Please, just write that ten-line conscript to back up that database every night.
+[02:02] You will thank yourself so much in the future.
+[02:04] All right.
+[02:05] Two, find a religion.
+[02:07] Any religion.
+[02:08] All right.
+[02:09] This.
+[02:10] This is nihilism.
+[02:11] This has to stop.
+[02:14] Exactly.
+[02:15] Exactly.
+[02:16] You know just what I'm talking about, right?
+[02:19] I don't really care what system you pick.
+[02:22] It can be anything.
+[02:23] Okay.
+[02:24] I'm going to say go with Django and just like work everything into a Django project.
+[02:29] You don't have to do that.
+[02:30] Doug Smith in the back.
+[02:31] Doug Smith has a beautiful system that spans six network drives and only he understands,
+[02:36] but it's a freaking system.
+[02:38] All right.
+[02:40] You need one.
+[02:41] All right.
+[02:42] Number three, stop feeding your database crap data, right?
+[02:45] Stop using Excel to clean shit up.
+[02:47] We've all seen this.
+[02:49] We go through an Excel, we add a new column, and we go down and we code it one by one,
+[02:54] and then we run the pivot at the end, and what's it look like?
+[02:57] Garbage.
+[02:58] Right?
+[02:59] All you have to do is just use an admin, Django admin, have a pull down.
+[03:03] Validate the data that goes into your database so you don't come out with crap at the end.
+[03:07] Right?
+[03:08] Simple, really nice.
+[03:09] Right?
+[03:10] Number four, follow the four-fold path of reusable apps.
+[03:13] Now this is one I picked up from my favorite web developer in the world, this guy James
+[03:17] Bennett who worked at the Lawrence Journal World where they built Django, not as famous
+[03:20] as the other ones, works at Mozilla now, and he gave this awesome talk about how if you
+[03:25] follow these four simple principles, you're going to come out with great reusable code.
+[03:29] And I think about this every day.
+[03:30] The talk really changed my life.
+[03:32] One, your code should do one thing and do it well.
+[03:35] It's the Unix philosophy.
+[03:36] When you write a function, a class, a method, an app, anything, just think about it that
+[03:40] way.
+[03:41] How do I keep it simple?
+[03:42] How does the code do one thing and do it well, not become spaghetti code?
+[03:45] Two, don't be afraid of multiple apps.
+[03:47] Your app can have a hundred different apps coming in, each doing one thing, and the hundred
+[03:51] things they do do better is going to be even more awesome.
+[03:54] Right?
+[03:55] Number three, write for flexibility.
+[03:56] You need to take your code and think about it.
+[03:58] How can I abstract this back so it doesn't just work for the thing I'm currently writing
+[04:02] but can work more generally?
+[04:04] And four, my favorite, you've got a package to distribute.
+[04:06] You've got to take that package, you've got to set it up in a way that it can go onto
+[04:11] PyPy or GitHub or wherever and somebody else can use it, right?
+[04:16] Number five, automate yourself out of a job.
+[04:19] This is sort of a probably apocryphal catchphrase at Google where any time you see yourself
+[04:23] doing something repeatedly and it's drudgery, you've got to find a way to automate it.
+[04:27] This is how we act now.
+[04:28] This is how we act in iCar.
+[04:30] We say the story's out there, my computer's my gun and I'm going to hunt it and I'm going
+[04:33] to kill it and shoot it and shoot it and shoot it.
+[04:36] And that's awesome and we get great stories but we can take it to another level, right?
+[04:39] We should be more like minority report.
+[04:41] The code we write should be these spiders that sweep the city and find the story and
+[04:45] bring it back to us.
+[04:47] And that's the next level and that's where we got to go.
+[04:49] We got to think about how do we write apps that are algorithms that find stories, bring
+[04:52] them and then we have a hundred of those out there sweeping the city while we sleep.
+[04:57] Okay, now, or while we drink bourbon, right?
+[05:02] So, okay, now the real reason I gave this talk, the real reason I gave this talk is
+[05:08] to flip the script.
+[05:09] There's five things that you geeks need to learn from reporters so that you can be better
+[05:13] at what you do, right?
+[05:15] Number one, trust no one.
+[05:17] Don't trust your stupid data.
+[05:19] This is a hilarious goddamn map that somebody made at Los Angeles who I will not name that
+[05:23] claims that it is crime hotspots but because the person making it didn't have a freaking
+[05:28] clue what they were putting in, Santa Monica is the reddest place on the goddamn map.
+[05:34] That's on a major website right now, right?
+[05:38] Number two, pick up the goddamn phone.
+[05:41] Make a phone call.
+[05:42] Find out what's going outside the office.
+[05:44] Don't expect all these other people to bring data to you on a silver platter and have it
+[05:48] just work perfectly.
+[05:49] That's on you.
+[05:50] You got to make it work.
+[05:51] All right, number three, seek a rabbi.
+[05:53] When you're on the phone, you got to find the people in the system who make the data,
+[05:57] who know the data and nobody ever asked them how it works and when you do, they're going
+[06:00] to love you and they're going to tell you everything about it and you're going to come
+[06:04] out with a better story that nobody else has that really gets to the heart of it, right?
+[06:08] Number four, once you have that story, just take it and run.
+[06:11] Don't spend the next six months saying, oh, I need an app that does everything and has
+[06:15] all these magic features and runs forever.
+[06:17] If you've got a story, run, tell that, right?
+[06:19] You don't need to sit and wait.
+[06:20] You need to pivot.
+[06:21] You need to cut and you need to take it to the end zone.
+[06:24] And that's why I mean I say finish.
+[06:26] There is nothing a geek likes more than starting a new project.
+[06:30] Am I right?
+[06:35] So that's awesome.
+[06:37] I love that about geeks, but you got to finish every once in a while.
+[06:39] You got to take it to the end zone.
+[06:41] You got to score that A1 story, that awesome app, and you just got to dance with it, all
+[06:45] right?
+[06:46] Now, all that said, rant over.
+[06:48] Just before I finish, I want to say that, you know, we are vast here at Nitecar.
+[06:52] This is the biggest Nitecar ever, which has me totally juiced up and, you know, I remember
+[06:59] the time at Nitecar when there were concerns, oh, we got people to do analysis, people to
+[07:03] do presentation.
+[07:04] I don't know.
+[07:05] That's a little weird, right?
+[07:06] But I really got to give credit to the leadership of the organization and all the people in
+[07:10] this room for not being afraid of that, for not putting up walls, for not dividing us,
+[07:15] but for saying we are together, we are one, we are the future, we can do this.
+[07:21] Yes.
+[07:23] And so with that, I just want to take a drink, a drink to all you who came and made this
+[07:33] the biggest one ever.
+[07:34] Way to go.
+[07:35] Thank you.
+[07:36] Great.
+[07:37] Great.
+[07:38] So.
+[07:39] So how do I break it to my wife that Methodism isn't really working as a religion for me anymore?
+[08:00] Okay.
+[08:01] So Ben gets his own lightning talks next time.

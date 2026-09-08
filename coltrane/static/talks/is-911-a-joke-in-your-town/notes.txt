@@ -1,0 +1,376 @@
+   @bposton
+Ben Poston analyzed police response
+        times in Milwaukee
+@palewire
+ Ben Welsh analyzed ﬁre and
+medical response times in L.A.
+ http://www.latimes.com/lafddata
+WHAT FIREFIGHTERS REALLY DO
+● More than 80% of LAFD       Fire vs. medical responses at LAFD
+  responses are medical
+
+● Media coverage and ﬁre
+  department PR tend to
+  focus on ﬁres
+
+● Extremely long calls get
+  good anecdotal
+  coverage, but full system
+  rarely analyzed                   (This pie contains real data!)
+A layman's deﬁnition
+How long it takes from when you
+dial 911 until a rescuer arrives at the
+scene.
+                     HOW HARD
+                     CAN THIS
+                     BE?
+
+
+ STEVE LOPEZ
+@latimes columnist        Source: http://lat.ms/11DUUNB
+SO HARD
+            WHY
+● Your call is passed between different departments.
+
+● Each can have its own database, analytics, politics.
+
+● Often, nobody responsible for tracking the whole thing.
+
+● People who could have few incentives, little training.
+A SIMPLIFIED VERSION
+
+   HOLD        CALL
+   TIME     PROCESSING
+               TIME
+
+
+
+
+  TURNOUT    TRAVEL
+    TIME      TIME
+              HOLD TIME
+● How long it takes for
+  a dispatcher to pick
+  up the 911 call.
+  CALL-PROCESSING TIME
+● How long it takes the
+  dispatcher to log the
+  incident and send
+  help.
+          TURNOUT TIME
+● How long it takes
+  rescuers to suit up
+  and get ready.
+            TRAVEL TIME
+● How long it takes
+  rescuers to drive to
+  the scene.
+A REAL-LIFE VERSION
+                      POLICE CALL
+    HOLD TIME
+                      PROCESSING
+
+
+
+
+  POLICE           POLICE
+ TURNOUT           TRAVEL
+
+
+
+ FIRE CALL        FIRE        FIRE
+PROCESSING      TURNOUT      TRAVEL
+AT THE CORE, A PUBLIC DATABASE
+INCIDENT TABLE
+● One record per call
+
+● Unique identiﬁer
+
+● Incident type
+
+● Dispatch address
+
+● Lots of timestamps
+RESPONSE TABLE
+● One record per unit
+
+● Many to one with call
+
+● Describes unit type
+
+● More timestamps
+                       WHAT'S
+                       YOUR
+                       STANDARD?
+
+
+BRANT HOUSTON
+Journalism professor         Source: My memory
+CLEAR STANDARDS
+
+
+
+
+BUT THEY ARE OPTIONAL
+              HOLD TIME
+● How long it takes for
+  a dispatcher to pick
+  up the 911 call.
+
+● NENA 56-005 says
+  90% of calls should
+  be answered in
+  under 10 seconds
+  CALL-PROCESSING TIME
+● How long it takes the
+  dispatcher to log the
+  incident and send
+  help.
+
+● NFPA 1221 says 90%
+  of ﬁre and medical
+  calls should be
+  dispatched in under
+  60 seconds
+          TURNOUT TIME
+● How long it takes
+  rescuers to suit up
+  and get ready.
+
+● NFPA 1710 says 90%
+  of medical units
+  should be moving in
+  under 60 seconds.
+            TRAVEL TIME
+● How long it takes
+  rescuers to drive to
+  the scene.
+
+● NFPA 1710 says the
+  ﬁrst ﬁre or medical
+  unit should arrive in
+  under 4 minutes for
+  90% of responses.
+    Do local ﬁreﬁghters
+    meet the standards?
+
+                        Are times getting
+                        faster or slower?
+
+
+
+                        Does everybody get
+                        the same service?
+        You
+Professional observer
+Time isn't everything
+
+
+                     Most calls are not
+                      emergencies
+
+
+                        Grandma gets
+                           lonely
+GENERIC FIRE CHIEF
+    Anytown, USA
+    FOCUS ON CARDIAC ARRESTS
+● Only ~2% of medical
+  calls, but everyone
+  agrees time imperative
+
+● Brain death can begin
+  after as little as four
+  minutes
+
+● Recent push for
+  increased speed from
+  scientists and doctors
+YOU NEED A TEAM
+
+
+
+
+   @LAJourno              @katelinthicum
+Investigative reporter,   City Hall beat writer,
+    nightblogger            fears no deadline
+AND A FEW RABBIS
+
+
+
+
+INSIDER DATA GEEKS           REAL FIREFIGHTERS
+Every database has quirks,   They live where your data
+    they know them                 meets reality
+THE END
+ All materials at palewi.re/talks
+"RESPONSE TIMES
+DON'T MATTER"
+ (And other
+ excuses police will
+ make)
+
+
+By Ben Poston
+- Let's say you get police response time
+data
+- Your PD will likely say response times
+don’t matter.
+- They will say that they are not a good
+measure on which to judge a PD’s
+performance.
+How come?
+Research done in the 1970s and 1980s that
+showed that a rapid police response to
+calls for service only makes a difference
+on crimes in progress and victims often
+don't report crimes right away.
+
+The research suggested that just rushing
+to calls depletes valuable resources that
+could be used for crime prevention.
+Milwaukee PD: A case study
+
+- MPD crime numbers
+had declined for 4
+straight years
+- We heard skepticism
+from every corner of
+the community
+- I wanted to get behind
+the numbers
+Response times lag as strategy shifts
+I reported response times were
+10% slower on average and
+they had gotten slower in 13
+of 15 major categories.
+Examples: Ofﬁcers took more
+than 2 hours to respond to a
+fatal car crash, 45 minutes for
+a fatal stabbing and more
+than a half-hour for an armed
+robbery
+Residents complained that
+cops don’t respond at all to
+minor crimes like theft from
+auto, drug dealing, grafﬁti,
+and loud music.
+Police response: "Meh"
+              The department’s take:
+              Response times don’t matter
+              that much.
+              "Since the average resident of
+              this city is willing to wait four
+              hours for the cable guy and
+              half a day for a furniture
+              delivery, it seems to me a
+              reasonable delay in responding
+              for a call is an acceptable
+              balance," the police chief said.
+That's not all that changed ...
+The department’s entire
+strategy had shifted from a
+reactive strategy to more of a
+proactive one.
+Less focus on rapid response
+and instead quadrupled the
+number of cars stops and
+tripled the number of subject
+stops. They were all about
+“high visibility policing.”
+The police said this
+deployment shift was a key
+driver to their declining crime
+numbers
+Calls are prioritized
+
+
+
+
+Like most big-city PDs, Milwaukee police now prioritize their calls, using
+a system from Priority 1 to 5. For minor calls like loud music and drug
+dealing, police often take reports over the phone or send an ofﬁcer the
+next day to prioritize.
+They called it the differential police response unit.
+In Milwaukee, the number of these had more than doubled in 3 years,
+raising lots of questions.
+Tips for reporting on police
+response times
+               Hit the meetings: go to
+               neighborhood watch block
+               meetings.
+               This is where people complain
+               every week about crime and
+               poor police responses.
+               Residents also complained
+               about feeling harassed by
+               police dispatchers - they
+               claimed they bullied them or
+               talked them out of reporting a
+               crime.
+Spend a night in a hood:
+I had been talking to resident
+Thom Reed, who lived in a
+high-crime neighborhood.
+The things he told me were
+hard to believe, so I went out
+to see it myself.
+In one six-hour period, I
+witnessed shots ﬁred and
+drug dealing. It helped me
+write with authority and add
+color to a follow-up piece.
+Differential police response units
+                   Giving a lower priority to less
+                   serious calls makes sense, but this
+                   policy upset residents more than
+                   anything.
+                   Most people have expectation of
+                   seeing a police cruiser when they
+                   call 911. After a few hours, they get
+                   frustrated and give up and this
+                   colors their view of police.
+                   Skeptics claimed that police used
+                   the DPRs to slough off crime,
+                   though we never could prove that.
+KNOW YOUR DATA
+
+             I initially got police
+             response time data and
+             realized later that it was
+             from time entered to
+             dispatched, but didn’t
+             capture the time to arrive
+             on scene, making the
+             times seem faster.
+GET THE RAW DATA
+
+
+
+
+We got aggregated data for the 2011 stories, but later
+got the raw CAD data that allowed us to dig deeper for
+trends. You can also use that call data to populate an
+interactive maps of calls.
+Track crime
+through the
+criminal justice
+system
+
+CAD data is the very beginning of the process.
+With police CAD data, you can request the associated
+incident report number. This would allow you to see
+how often police create a report by call type and
+overall.
+You can also see how often police ﬂag calls as
+nuisance calls.
+                        LINK 'EM UP!
+
+
+If you were so inclined, you could then link those
+incident reports up with crime data if your police
+department is a NIBRS agency or collects
+incident-level data.
+From there, you merge that data with your District
+Attorney’s case management data (assuming your
+DA is not living in the stone ages, which many are).
