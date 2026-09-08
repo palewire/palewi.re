@@ -289,6 +289,11 @@ talks:
   date: '2022-09-24'
   video_url: https://www.youtube.com/watch?v=2RgPoy05AnA
   slug: fast-first-python-notebook
+  local_video_url: /media/talks/fast-first-python-notebook/video.mp4
+  poster_url: /media/talks/fast-first-python-notebook/poster.jpg
+  captions_url: /static/talks/fast-first-python-notebook/captions.vtt
+  transcript_template: coltrane/talks/fast-first-python-notebook-transcript.html
+  transcript_text_url: /static/talks/fast-first-python-notebook/transcript.txt
 - title: What is Big Local News?
   venue: 17º Congresso Internacional de Journalismo da Abraji
   location: São Paulo
@@ -435,25 +440,31 @@ talks:
   venue: The National High School Journalism Convention
   location: Anaheim
   date: '2019-04-26'
-  slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit
 - title: Statistics, Shoeleather and Storytelling
   venue: Festival of Books
   location: Los Angeles
   date: '2019-04-14'
-  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vQGo3iffr24Coj6BN_Myu4WaOX4Mkni9AdjbCiI9KXe1BGVVB2B8bLkUb7jDvePitviCaEC6NEN0KDA/pub?start=false&loop=false&delayms=3000
 - title: 'Census 2020: Don''t panic! Do data!'
   venue: USC
   location: Los Angeles
   date: '2019-03-22'
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vS4JR3gwFQDxSd5EtBgfjOFBUW8ArqW4vJ3zIsh22r5WjVFLEnH8gg8d-VVQ3Dc9SMmu4KEtSBXhIe5/pub?start=false&loop=false&delayms=3000&slide=id.p
+  slug: census-2020
+  deck_url: /static/talks/census-2020/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/census-2020/census-2020.pdf
+  notes_template: coltrane/talks/census-2020-notes.html
+  notes_text_url: /static/talks/census-2020/notes.txt
 - title: First Graphics App
   venue: NICAR
   location: Newport Beach
   date: '2019-03-09'
+  guide_url: https://palewi.re/docs/first-visual-story/
 - title: First Python Notebook
   venue: NICAR
   location: Newport Beach
   date: '2019-03-08'
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: Archiving digital journalism
   venue: NICAR
   location: Newport Beach
@@ -468,44 +479,97 @@ talks:
   date: '2018-10-23'
   video_url: https://www.youtube.com/watch?v=_73obGWno1c
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit
+  slug: what-is-a-data-desk-pydatala
+  deck_url: /static/talks/what-is-a-data-desk-pydatala/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/what-is-a-data-desk-pydatala/what-is-a-data-desk-pydatala.pdf
+  notes_template: coltrane/talks/what-is-a-data-desk-pydatala-notes.html
+  notes_text_url: /static/talks/what-is-a-data-desk-pydatala/notes.txt
+  local_video_url: /media/talks/what-is-a-data-desk-pydatala/video.mp4
+  transcript_template: coltrane/talks/what-is-a-data-desk-pydatala-transcript.html
+  transcript_text_url: /static/talks/what-is-a-data-desk-pydatala/transcript.txt
+  captions_url: /static/talks/what-is-a-data-desk-pydatala/captions.vtt
+  poster_url: /media/talks/what-is-a-data-desk-pydatala/poster.jpg
 - title: What is a Data Desk?
   venue: BitCurator Users Forum
   location: Los Angeles
   date: '2018-09-14'
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit#slide=id.g17e30fc242_1_90
+  slug: what-is-a-data-desk-bitcurator
+  deck_url: /static/talks/what-is-a-data-desk-pydatala/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/what-is-a-data-desk-pydatala/what-is-a-data-desk-pydatala.pdf
+  notes_template: coltrane/talks/what-is-a-data-desk-pydatala-notes.html
+  notes_text_url: /static/talks/what-is-a-data-desk-pydatala/notes.txt
 - title: Data, data, gimme the news
   venue: USC
   location: Los Angeles
   date: '2018-07-25'
   slides_url: https://docs.google.com/presentation/d/e/2PACX-1vRXf2aCCKmtOWaHQsI9RL2c5K8qzMIoUh6PaCpGaTAAV2aN-afqEhP_7Yt4kuhKVWnpm78EqgJVNZkh/pub?start=false&loop=false&delayms=3000
+  slug: data-data-gimme-news
+  deck_url: /static/talks/data-data-gimme-news/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/data-data-gimme-news/data-data-gimme-news.pdf
+  notes_template: coltrane/talks/data-data-gimme-news-notes.html
+  notes_text_url: /static/talks/data-data-gimme-news/notes.txt
 - title: Archiving data journalism
-  venue: NICAR18
+  venue: NICAR
   location: Chicago
   date: '2018-03-11'
-  slides_url: https://twitter.com/palewire/status/972891703681183744
 - title: First Graphics App
   venue: NICAR
   location: Chicago
   date: '2018-03-10'
+  guide_url: https://palewi.re/docs/first-visual-story/
 - title: First Python Notebook
   venue: NICAR
   location: Chicago
   date: '2018-03-09'
+  guide_url: https://palewi.re/docs/first-python-notebook/
+- title: 'Episode #110: Ben Welsh'
+  venue: PolicyViz Podcast
+  location: Online
+  date: '2018-01-16'
+  audio_url: https://policyviz.com/podcast/episode-110-ben-welsh/
+  audio_download_url: https://policyviz.com/wp-content/uploads/2018/01/PolicyViz_EpisodeNo110.mp3
+  slug: policyviz-podcast-ben-welsh
+  local_audio_url: /media/talks/policyviz-podcast-ben-welsh/audio.mp3
+  captions_url: /static/talks/policyviz-podcast-ben-welsh/captions.vtt
+  transcript_template: coltrane/talks/policyviz-podcast-ben-welsh-transcript.html
+  transcript_text_url: /static/talks/policyviz-podcast-ben-welsh/transcript.txt
 - title: What is a Data Desk?
   venue: CSUN's DataJam
   location: Northridge
   date: '2017-09-29'
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/edit#slide=id.g17e30fc242_1_90
+  slug: what-is-a-data-desk-datajam
+  deck_url: /static/talks/what-is-a-data-desk-pydatala/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/what-is-a-data-desk-pydatala/what-is-a-data-desk-pydatala.pdf
+  notes_template: coltrane/talks/what-is-a-data-desk-pydatala-notes.html
+  notes_text_url: /static/talks/what-is-a-data-desk-pydatala/notes.txt
 - title: What is a Data Desk?
   venue: Big Data Day
   location: Los Angeles
   date: '2017-08-05'
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
+  slug: what-is-a-data-desk-big-data-day
+  deck_url: /static/talks/what-is-a-data-desk-pydatala/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/what-is-a-data-desk-pydatala/what-is-a-data-desk-pydatala.pdf
+  notes_template: coltrane/talks/what-is-a-data-desk-pydatala-notes.html
+  notes_text_url: /static/talks/what-is-a-data-desk-pydatala/notes.txt
 - title: What is a Data Desk?
   venue: Hollywood Data Science
   location: Los Angeles
   date: '2017-06-08'
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
+  slug: what-is-a-data-desk-hollywood-data-science
+  deck_url: /static/talks/what-is-a-data-desk-pydatala/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/what-is-a-data-desk-pydatala/what-is-a-data-desk-pydatala.pdf
+  notes_template: coltrane/talks/what-is-a-data-desk-pydatala-notes.html
+  notes_text_url: /static/talks/what-is-a-data-desk-pydatala/notes.txt
 - title: What I learned
   venue: Union Club
   location: Chicago
@@ -524,23 +588,38 @@ talks:
   venue: NICAR
   location: Jacksonville
   date: '2017-03-04'
+  guide_url: https://github.com/palewire/first-news-app
 - title: First Python Notebook
   venue: NICAR
   location: Jacksonville
   date: '2017-03-03'
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: The Framework Fix
   venue: Dodging the Memory Hole III
   location: Los Angeles
   date: '2016-10-15'
+  slug: the-framework-fix
+  deck_url: /static/talks/the-framework-fix/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/the-framework-fix/the-framework-fix.pdf
+  notes_template: coltrane/talks/the-framework-fix-notes.html
+  notes_text_url: /static/talks/the-framework-fix/notes.txt
 - title: First Python Notebook
   venue: IRE Watchdog Workshop
   location: San Diego
   date: '2016-10-01'
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: How to tell a story with charts in five charts
   venue: IRE Watchdog Workshop
   location: San Diego
   date: '2016-10-01'
   slides_url: https://docs.google.com/presentation/d/1swHnI6r7wsjuQRuSbbYQF8oNnOYPCGNDJmj7DHn8IVs/pub?start=false&loop=false&delayms=3000&slide=id.g1802839634_0_424
+  slug: how-to-tell-story-with-charts-five-charts
+  deck_url: /static/talks/how-to-tell-story-with-charts-five-charts/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/how-to-tell-story-with-charts-five-charts/how-to-tell-story-with-charts-five-charts.pdf
+  notes_template: coltrane/talks/how-to-tell-story-with-charts-five-charts-notes.html
+  notes_text_url: /static/talks/how-to-tell-story-with-charts-five-charts/notes.txt
 - title: 'Data journalists and data teams: Where we are and where we want to go'
   venue: NICAR
   location: Denver
@@ -549,33 +628,47 @@ talks:
   venue: NICAR
   location: Denver
   date: '2016-03-11'
+  guide_url: https://github.com/palewire/first-news-app
 - title: Show and Tell with the L.A. Times Data Desk
   venue: Hacks/Hackers
   location: Los Angeles
   date: '2015-11-19'
-  slides_url: https://docs.google.com/presentation/d/1ybqJBreNfV29zzJyePB9GqHPHqZ9oxezG8adl91rK7k/embed?start=false&loop=false&delayms=3000&slide=id.p
 - title: The Open Data Opportunity
   venue: The Milken Institute
   location: Santa Monica
   date: '2015-11-04'
   video_url: https://www.youtube.com/watch?v=JBeYpuDuHeo
+  slug: open-data-opportunity
+  local_video_url: /media/talks/open-data-opportunity/video.mp4
+  poster_url: /media/talks/open-data-opportunity/poster.jpg
+  captions_url: /static/talks/open-data-opportunity/captions.vtt
+  transcript_template: coltrane/talks/open-data-opportunity-transcript.html
+  transcript_text_url: /static/talks/open-data-opportunity/transcript.txt
 - title: Package data like software and the stories will flow like wine
   venue: Media Party
   location: Buenos Aires
   date: '2015-08-27'
   video_url: https://www.youtube.com/watch?v=yGGLT43sdIY
   slides_url: https://docs.google.com/presentation/d/1BWIyHq3bPAEBhckYRQ_2I5e2AzChFuMN8z9KMOejpQ4/embed?start=false&loop=false&delayms=3000
+  slug: package-data-like-software
+  deck_url: /static/talks/package-data-like-software/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/package-data-like-software/package-data-like-software.pdf
+  notes_template: coltrane/talks/package-data-like-software-notes.html
+  notes_text_url: /static/talks/package-data-like-software/notes.txt
+  local_video_url: /media/talks/package-data-like-software/video.mp4
+  poster_url: /media/talks/package-data-like-software/poster.jpg
+  captions_url: /static/talks/package-data-like-software/captions.vtt
+  transcript_template: coltrane/talks/package-data-like-software-transcript.html
+  transcript_text_url: /static/talks/package-data-like-software/transcript.txt
 - title: California Civic Data Coalition
   venue: Knight News Challenge announcement
   location: Austin
   date: '2015-07-22'
-  video_url: https://www.youtube.com/watch?v=5TC2RXYgPBE
-  slides_url: https://docs.google.com/presentation/d/e/2PACX-1vSD4nosmoc5EoNvfjOKjcyZZHErrGh6MMIvVuDuqaSSU32dVO31naFJR_XmKrztAYjrupK29EV9weFA/pub?start=false&loop=false&delayms=3000
 - title: Django + Memento
   venue: Dodging the Memory Hole II
   location: Charlotte
   date: '2015-05-11'
-  slides_url: https://docs.google.com/presentation/d/1fu4IWbnu3QnYk45eQWtSoB0d4xlYCjQIcZ0S56AfOes/embed?start=false&loop=false&delayms=3000
 - title: 'Just enough Django: Distributed data entry in the newsroom'
   venue: NICAR
   location: Atlanta
@@ -584,34 +677,72 @@ talks:
   venue: NICAR
   location: Atlanta
   date: '2015-03-06'
+  guide_url: https://github.com/palewire/first-news-app
 - title: What is a Data Desk?
   venue: CCCB Lab
   location: Barcelona
   date: '2014-12-10'
   video_url: http://player.vimeo.com/video/114955572?title=0&amp;byline=0&amp;portrait=0
   slides_url: https://docs.google.com/presentation/d/1QdiQvVzUf1N7BkDZyo-XFgIQ8xqYWUR0de-BGaCijVQ/embed?start=false&loop=false&delayms=3000
+  slug: what-is-a-data-desk-cccb-lab
+  deck_url: /static/talks/what-is-a-data-desk-pydatala/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/what-is-a-data-desk-pydatala/what-is-a-data-desk-pydatala.pdf
+  notes_template: coltrane/talks/what-is-a-data-desk-pydatala-notes.html
+  notes_text_url: /static/talks/what-is-a-data-desk-pydatala/notes.txt
+  local_video_url: /media/talks/what-is-a-data-desk-cccb-lab/video.mp4
+  poster_url: /media/talks/what-is-a-data-desk-cccb-lab/poster.jpg
 - title: First Web Scraper
   venue: CCCB Lab
   location: Barcelona
   date: '2014-12-10'
   video_url: http://player.vimeo.com/video/114955600?title=0&amp;byline=0&amp;portrait=0
   slides_url: http://first-web-scraper.readthedocs.io/en/latest/
+  slug: first-web-scraper-cccb-lab
+  local_video_url: /media/talks/first-web-scraper-cccb-lab/video.mp4
+  poster_url: /media/talks/first-web-scraper-cccb-lab/poster.jpg
+  captions_url: /static/talks/first-web-scraper-cccb-lab/captions.vtt
+  transcript_template: coltrane/talks/first-web-scraper-cccb-lab-transcript.html
+  transcript_text_url: /static/talks/first-web-scraper-cccb-lab/transcript.txt
 - title: Introducing Storytracker
   venue: Dodging the Memory Hole
   location: Columbia, Missouri
   date: '2014-11-10'
   video_url: https://www.youtube.com/watch?v=U9TVHr3j0ws
   slides_url: https://docs.google.com/presentation/d/1Yf3YcuCL7Hj6GW_YSWhyIIfvKWaaS4oGFQmQNWqd1fE/embed?start=false&loop=false&delayms=3000
+  slug: introducing-storytracker
+  deck_url: /static/talks/introducing-storytracker/
+  deck_aspect_ratio: 16 / 9
+  pdf_url: /static/talks/introducing-storytracker/introducing-storytracker.pdf
+  notes_template: coltrane/talks/introducing-storytracker-notes.html
+  notes_text_url: /static/talks/introducing-storytracker/notes.txt
+  local_video_url: /media/talks/introducing-storytracker/video.mp4
+  poster_url: /media/talks/introducing-storytracker/poster.jpg
+  captions_url: /static/talks/introducing-storytracker/captions.vtt
+  transcript_template: coltrane/talks/introducing-storytracker-transcript.html
+  transcript_text_url: /static/talks/introducing-storytracker/transcript.txt
 - title: First News App
   venue: NICAR
   location: Baltimore
   date: '2014-03-01'
+  guide_url: https://github.com/palewire/first-news-app
 - title: You Must Learn
   venue: NICAR
   location: Baltimore
   date: '2014-02-28'
   video_url: https://www.youtube.com/watch?v=kMWXhYFlEPY
   slides_url: https://docs.google.com/presentation/d/1f9RJO8-6pxJn1LWvVmWaLPuVzklxiTSJL5PScl3NcPI/embed?start=false&loop=false&delayms=3000
+  slug: you-must-learn
+  deck_url: /static/talks/you-must-learn/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/you-must-learn/you-must-learn.pdf
+  notes_template: coltrane/talks/you-must-learn-notes.html
+  notes_text_url: /static/talks/you-must-learn/notes.txt
+  local_video_url: /media/talks/you-must-learn/video.mp4
+  poster_url: /media/talks/you-must-learn/poster.jpg
+  captions_url: /static/talks/you-must-learn/captions.vtt
+  transcript_template: coltrane/talks/you-must-learn-transcript.html
+  transcript_text_url: /static/talks/you-must-learn/transcript.txt
 - title: Proper workflows for data projects
   venue: NICAR
   location: Baltimore
@@ -620,66 +751,159 @@ talks:
   venue: DataVis LA
   location: Santa Monica
   date: '2014-02-25'
+  slug: what-is-a-data-desk-datavis-la
+  deck_url: /static/talks/what-is-a-data-desk-pydatala/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/what-is-a-data-desk-pydatala/what-is-a-data-desk-pydatala.pdf
+  notes_template: coltrane/talks/what-is-a-data-desk-pydatala-notes.html
+  notes_text_url: /static/talks/what-is-a-data-desk-pydatala/notes.txt
 - title: El Cartografo en su Laberinto
   venue: Data Fest
   location: Buenos Aires
   date: '2013-11-02'
   video_url: https://www.youtube.com/watch?v=1vpYv0KBOTc
   slides_url: https://docs.google.com/presentation/d/1r7xANBupherX9z_FdKTnhkeg1L5pu2oe94eHgGka_-k/embed?start=false&loop=false&delayms=3000
+  slug: el-cartografo-en-su-laberinto
+  deck_url: /static/talks/el-cartografo-en-su-laberinto/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/el-cartografo-en-su-laberinto/el-cartografo-en-su-laberinto.pdf
+  notes_template: coltrane/talks/el-cartografo-en-su-laberinto-notes.html
+  notes_text_url: /static/talks/el-cartografo-en-su-laberinto/notes.txt
+  local_video_url: /media/talks/el-cartografo-en-su-laberinto/video.mp4
+  poster_url: /media/talks/el-cartografo-en-su-laberinto/poster.jpg
+  captions_url: /static/talks/el-cartografo-en-su-laberinto/captions.vtt
+  transcript_template: coltrane/talks/el-cartografo-en-su-laberinto-transcript.html
+  transcript_text_url: /static/talks/el-cartografo-en-su-laberinto/transcript.txt
 - title: L.A.'s Political Calculus
   venue: Festival of Books
   location: Los Angeles
   date: '2013-04-21'
   slides_url: https://docs.google.com/presentation/d/1k1-5i0vQQLIwiid_Ov2d_beiLkbyMXoSviFHtBZC4Kw/embed?start=false&loop=false&delayms=3000
+  slug: las-political-calculus
+  deck_url: /static/talks/las-political-calculus/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/las-political-calculus/las-political-calculus.pdf
+  notes_template: coltrane/talks/las-political-calculus-notes.html
+  notes_text_url: /static/talks/las-political-calculus/notes.txt
 - title: Is 911 a joke in your town?
   venue: NICAR
   location: Louisville
   date: '2013-03-01'
   slides_url: https://docs.google.com/presentation/d/1_1BCtJVJuDQKy99X9tSHc4veSVrX3UX040Gmrn6kL8M/embed?start=false&loop=false&delayms=3000
+  slug: is-911-a-joke-in-your-town
+  deck_url: /static/talks/is-911-a-joke-in-your-town/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/is-911-a-joke-in-your-town/is-911-a-joke-in-your-town.pdf
+  notes_template: coltrane/talks/is-911-a-joke-in-your-town-notes.html
+  notes_text_url: /static/talks/is-911-a-joke-in-your-town/notes.txt
 - title: Django Retrained
   venue: NICAR
   location: Louisville
   date: '2013-03-01'
   video_url: http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0
   slides_url: https://docs.google.com/presentation/d/1mwzJ4494rdSEhex2aPjBH2se3F-UBZjrgoLzfD1tYGc/embed?start=false&loop=false&delayms=3000
+  slug: django-retrained
+  deck_url: /static/talks/django-retrained/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/django-retrained/django-retrained.pdf
+  notes_template: coltrane/talks/django-retrained-notes.html
+  notes_text_url: /static/talks/django-retrained/notes.txt
+  local_video_url: /media/talks/django-retrained/video.mp4
+  poster_url: /media/talks/django-retrained/poster.jpg
+  captions_url: /static/talks/django-retrained/captions.vtt
+  transcript_template: coltrane/talks/django-retrained-transcript.html
+  transcript_text_url: /static/talks/django-retrained/transcript.txt
 - title: How we use DocumentCloud at the Los Angeles Times
   venue: NICAR
   location: Louisville
   date: '2013-02-28'
   slides_url: https://docs.google.com/presentation/d/1ym7axgHp8KddfYsxond9r2t9w9Tzv48z02N1ySPcXOc/embed?start=false&loop=false&delayms=3000
+  slug: documentcloud-at-the-los-angeles-times
+  deck_url: /static/talks/documentcloud-at-the-los-angeles-times/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/documentcloud-at-the-los-angeles-times/documentcloud-at-the-los-angeles-times.pdf
+  notes_template: coltrane/talks/documentcloud-at-the-los-angeles-times-notes.html
+  notes_text_url: /static/talks/documentcloud-at-the-los-angeles-times/notes.txt
 - title: What is a Data Desk?
   venue: ONA LA
   location: Los Angeles
   date: '2012-05-16'
   video_url: https://www.youtube.com/watch?v=S62J6SssxNE
+  slug: what-is-a-data-desk-ona-la
+  local_video_url: /media/talks/what-is-a-data-desk-ona-la/video.mp4
+  poster_url: /media/talks/what-is-a-data-desk-ona-la/poster.jpg
+  captions_url: /static/talks/what-is-a-data-desk-ona-la/captions.vtt
+  transcript_template: coltrane/talks/what-is-a-data-desk-ona-la-transcript.html
+  transcript_text_url: /static/talks/what-is-a-data-desk-ona-la/transcript.txt
 - title: Human-assisted reporting
   venue: ISOJ
   location: Austin
   date: '2012-04-21'
   video_url: https://www.youtube.com/watch?v=iP-On8PzEy8
   slides_url: https://docs.google.com/presentation/d/1sW3iLUDXs7NTdo7EUUxD7X3vnIWYo7G8orMf5FT05Zk/embed?start=false&loop=false&delayms=3000
+  slug: human-assisted-reporting
+  deck_url: /static/talks/human-assisted-reporting/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/human-assisted-reporting/human-assisted-reporting.pdf
+  notes_template: coltrane/talks/human-assisted-reporting-notes.html
+  notes_text_url: /static/talks/human-assisted-reporting/notes.txt
+  local_video_url: /media/talks/human-assisted-reporting/video.mp4
+  poster_url: /media/talks/human-assisted-reporting/poster.jpg
+  captions_url: /static/talks/human-assisted-reporting/captions.vtt
+  transcript_template: coltrane/talks/human-assisted-reporting-transcript.html
+  transcript_text_url: /static/talks/human-assisted-reporting/transcript.txt
 - title: How I learned to stop worrying and love flat files
   venue: NICAR
   location: St. Louis
   date: '2012-02-24'
   slides_url: https://docs.google.com/presentation/d/1IybYcc0eVL-Rchm7lEQNwrM-AHRfr_M8ewfGYYNjeu8/embed?start=false&loop=false&delayms=3000
+  slug: how-i-learned-to-stop-worrying-and-love-flat-files
+  deck_url: /static/talks/how-i-learned-to-stop-worrying-and-love-flat-files/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/how-i-learned-to-stop-worrying-and-love-flat-files/how-i-learned-to-stop-worrying-and-love-flat-files.pdf
+  notes_template: coltrane/talks/how-i-learned-to-stop-worrying-and-love-flat-files-notes.html
+  notes_text_url: /static/talks/how-i-learned-to-stop-worrying-and-love-flat-files/notes.txt
 - title: Locating the story
   venue: NICAR
   location: St. Louis
   date: '2012-02-23'
   slides_url: https://docs.google.com/presentation/d/11_6sSd31mEy7VkQdG-YY_mQtlktKPt0ZuuaFwFy6H3w/embed?start=false&loop=false&delayms=3000
+  slug: locating-the-story
+  deck_url: /static/talks/locating-the-story/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/locating-the-story/locating-the-story.pdf
+  notes_template: coltrane/talks/locating-the-story-notes.html
+  notes_text_url: /static/talks/locating-the-story/notes.txt
 - title: PostGIS is your new bicycle
   venue: NICAR
   location: Raleigh
   date: '2011-02-24'
   slides_url: https://docs.google.com/presentation/d/1uhVAiEKlJWCfOOEldPQUl0_tErm-E-2Xvlv0IURh0CE/embed?start=false&loop=false&delayms=3000
+  slug: postgis-is-your-new-bicycle
+  deck_url: /static/talks/postgis-is-your-new-bicycle/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/postgis-is-your-new-bicycle/postgis-is-your-new-bicycle.pdf
+  notes_template: coltrane/talks/postgis-is-your-new-bicycle-notes.html
+  notes_text_url: /static/talks/postgis-is-your-new-bicycle/notes.txt
 - title: Pluggable Maps
   venue: Hacks/Hackers
   location: Los Angeles
   date: '2010-12-15'
   slides_url: https://docs.google.com/presentation/d/19_cEPdkLJS3Z5POylyEqPH6R9TTEzXcox4KZkclSXUc/embed?start=false&loop=false&delayms=3000
+  slug: pluggable-maps
+  deck_url: /static/talks/pluggable-maps/
+  deck_aspect_ratio: 4 / 3
+  pdf_url: /static/talks/pluggable-maps/pluggable-maps.pdf
+  notes_template: coltrane/talks/pluggable-maps-notes.html
+  notes_text_url: /static/talks/pluggable-maps/notes.txt
 - title: Django in Journalism
   venue: Djangocon
   location: Mountain View
   date: '2008-09-16'
   video_url: https://www.youtube.com/watch?v=eLQ9xc_Dm3g
+  slug: django-in-journalism
+  local_video_url: /media/talks/django-in-journalism/video.mp4
+  poster_url: /media/talks/django-in-journalism/poster.jpg
+  captions_url: /static/talks/django-in-journalism/captions.vtt
+  transcript_template: coltrane/talks/django-in-journalism-transcript.html
+  transcript_text_url: /static/talks/django-in-journalism/transcript.txt

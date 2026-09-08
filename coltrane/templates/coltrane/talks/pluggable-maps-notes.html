@@ -1,0 +1,202 @@
+<section>
+  <h3>Slide 1</h3>
+  <pre>a @LATdatadesk joint</pre>
+</section>
+<section>
+  <h3>Slide 2</h3>
+  <pre>The Data Desk is a team of reporters and web developers in #DTLA.</pre>
+</section>
+<section>
+  <h3>Slide 3</h3>
+  <pre>We make maps.</pre>
+</section>
+<section>
+  <h3>Slide 8</h3>
+  <pre>We do other things, too.</pre>
+</section>
+<section>
+  <h3>Slide 14</h3>
+  <pre>We build things with Django, which is in Python.</pre>
+</section>
+<section>
+  <h3>Slide 15</h3>
+  <pre>Django can play with some great GIS tools. (Thanks, @jbronn!)</pre>
+</section>
+<section>
+  <h3>Slide 16</h3>
+  <pre>from django.contrib.gis.db import models
+class UnemploymentRate(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+rate = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+GeoDjango is great because it makes adding GIS data a snap.</pre>
+</section>
+<section>
+  <h3>Slide 17</h3>
+  <pre>Unemployment
+
+Election results
+
+Census demographics
+
+But what happens when you reuse the same maps?</pre>
+</section>
+<section>
+  <h3>Slide 18</h3>
+  <pre>from django.contrib.gis.db import models
+class UnemploymentRate(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+rate = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+If you use the model we looked at before...</pre>
+</section>
+<section>
+  <h3>Slide 19</h3>
+  <pre>from django.contrib.gis.db import models
+class ElectionResult(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+red_percent = models.FloatField()
+blue_percent = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+...you can end up with...</pre>
+</section>
+<section>
+  <h3>Slide 20</h3>
+  <pre>from django.contrib.gis.db import models
+class Income(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+median_income = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+...nearly identical models scattered all over the place.</pre>
+</section>
+<section>
+  <h3>Slide 21</h3>
+  <pre>THIS IS BAD
+(Or, at least has problems)
+
+You are repeating yourself.
+Three loaders. Three columns. Three islands.
+
+The data can&#x27;t talk to each other.
+How do you mash up the datasets?
+
+Your next app doesn&#x27;t get any easier.
+Get ready to repeat yourself again.</pre>
+</section>
+<section>
+  <h3>Slide 22</h3>
+  <pre>@ubernostrum preaches The Fourfold Path of Reusable Apps
+1. Do one thing, and do it well.
+2. Don&#x27;t be afraid of multiple apps.
+3. Write for flexibility.
+4. Build to distribute.</pre>
+</section>
+<section>
+  <h3>Slide 23</h3>
+  <pre>from django.contrib.gis.db import models
+class County(models.Model):
+fips_code = models.CharField(max_length=5)
+name = models.CharField(max_length=150)
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.name
+
+So if we make a separate app, with just the GIS data...</pre>
+</section>
+<section>
+  <h3>Slide 24</h3>
+  <pre>from django.contrib.gis.db import models
+from us_counties.models import County
+class UnemploymentRate(models.Model):
+rate = models.FloatField()
+county = models.OneToOneField(County)
+def __unicode__(self):
+return self.county
+
+...and then just have each of our data apps link to it...</pre>
+</section>
+<section>
+  <h3>Slide 25</h3>
+  <pre>from django.contrib.gis.db import models
+from us_counties.models import County
+class ElectionResult(models.Model):
+red_percent = models.FloatField()
+blue_percent = models.FloatField()
+county = models.OneToOneField(County)
+def __unicode__(self):
+return self.county
+
+...then all of a sudden...</pre>
+</section>
+<section>
+  <h3>Slide 26</h3>
+  <pre>from django.contrib.gis.db import models
+from us_counties.models import County
+class Income(models.Model):
+median_income = models.FloatField()
+county = models.OneToOneField(County)
+def __unicode__(self):
+return self.county
+
+....everything gets a bit simpler.</pre>
+</section>
+<section>
+  <h3>Slide 27</h3>
+  <pre>THIS IS GOOD
+(Or, at least I think so)
+
+One map to rule them all.
+Load the data once and you&#x27;re set forever.
+
+Your data are interconnected.
+You can easily mash up different data sets.
+
+The next app is easier.
+All you need is a foreign key link.
+
+Your GIS data can be packaged on pip.
+Wait...are you serious...that would mean...</pre>
+</section>
+<section>
+  <h3>Slide 28</h3>
+  <pre>$ pip install latimes-pluggablemaps-uscounties</pre>
+</section>
+<section>
+  <h3>Slide 29</h3>
+  <pre>http://lat.ms/pluggable</pre>
+</section>
+<section>
+  <h3>Slide 30</h3>
+  <pre>FOLLOW US ON TWITTER
+
+@LATdatadesk
+@LATmappingLA
+@schwanksta
+@palewire</pre>
+</section>
+<section>
+  <h3>Slide 31</h3>
+  <pre>Come work with us. Find this man.
+or email him at daniel.gaines@latimes.com</pre>
+</section>

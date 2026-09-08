@@ -1,0 +1,664 @@
+WEBVTT
+
+00:00.000 --> 00:03.880
+Ben la charla de hoy la que esta procera ora is bueno a
+
+00:04.480 --> 00:06.480
+In pagetar los atos como sifaran software
+
+00:06.960 --> 00:10.160
+But our kick us up on Zurgi de a ser facil accessos a todos
+
+00:10.160 --> 00:15.520
+Pero por todado también a in workshop que más traciendo que se chamos california code rush que
+
+00:16.400 --> 00:18.400
+just a naciendo un
+
+00:18.560 --> 00:23.320
+California civic data coalition is un projecto nuevo don de tratan de ser más facil accesso a
+
+00:23.320 --> 00:25.960
+Sierto sata sets que pública el estado california
+
+00:25.960 --> 00:30.240
+I believe you can the chile a con the chile a de que esta al workshop. He wanna
+
+00:30.680 --> 00:33.640
+Enrado como a no datos sabiertos de california
+
+00:33.640 --> 00:38.600
+So que tine por lo a pensago a no que tine con sotros y porque alguieniría esa workshop purpose
+
+00:38.600 --> 00:42.520
+En presente dar que bueno cuando lo esto quie un poco aben y entendique en era
+
+00:42.520 --> 00:47.560
+I think a person in tresante, but baris que el workshop bastar muy bien porque el
+
+00:47.880 --> 00:52.800
+Para bessar pienza pienza estos a todos y pienza projecto muy como eso for liberios a todo una parte
+
+00:52.800 --> 00:55.440
+Bueno intendar como afunciado un projecto eso for libero
+
+00:56.000 --> 00:59.120
+Pero un muy muy tiempo un parce que muchas días de esta projecto que
+
+00:59.520 --> 01:03.720
+Bueno estempezando pero a ralmente tambujo por gente como mucha polenda
+
+01:03.720 --> 01:07.880
+Parse que hacer muy enteresante en tener que puedemos verde eso y ralmente
+
+01:08.560 --> 01:10.560
+chonofu
+
+01:11.160 --> 01:15.720
+Intender in bulucras el workshop entender que lo que estan haciendo ocho para barque
+
+01:15.720 --> 01:20.800
+Lo que nosotros puedemos trigar para ca. Me parce que esta bueno juar air me terce y me terce bueno
+
+01:20.800 --> 01:24.140
+con los a todos de california. Es un trigamuchos tiques para ar asoluar
+
+01:24.640 --> 01:27.960
+¿A cosas grande se piasos de códio, hay documentación. Me parce que esta bueno
+
+01:28.560 --> 01:32.720
+Esta las ocosas esta char la el workshop, muy ralacinales, me parce que despose de barla
+
+01:32.720 --> 01:35.200
+char la, lejos interesar y ral workshop
+
+01:35.200 --> 01:46.800
+All right, thank you. It's hard if I just take this out, walk around like this. Hello. How is everybody?
+
+01:49.320 --> 01:51.320
+Hi
+
+01:51.360 --> 01:58.520
+My name's Ben. That's me. I'm working on my Argentine beard. You know, it can't be too thick, right?
+
+01:58.520 --> 02:02.480
+It's just got to be a little scratchy. That's how I fit in here. Kind of work on that. I
+
+02:03.280 --> 02:09.800
+sometimes go by pale wire online and I'm here visiting you from Los Angeles, California where I work at the Los Angeles Times
+
+02:10.040 --> 02:15.600
+which is a daily newspaper and 24-hour website and I work on a team there called the Data Desk and
+
+02:15.800 --> 02:20.740
+We're a group of nerds that try to take data and turn it into news where what some people now call data
+
+02:20.960 --> 02:27.520
+Journalists other people used to call computer-assisted reporters. Some people might call hacks and or hackers. We are it
+
+02:27.520 --> 02:31.600
+We are you we are the people trying to do this stuff in a real American newsroom
+
+02:31.600 --> 02:38.080
+and I'm gonna talk to you today about how we do things currently and how I think we as a group can maybe do things better and
+
+02:38.480 --> 02:43.320
+The criticism that I've made put out is really self criticism as much as that of anyone else
+
+02:43.320 --> 02:46.560
+All right, but before I begin I want to start with an apology
+
+02:47.240 --> 02:53.520
+I'm sorry. My Spanish is so bad. I don't dare speak it in front of you. All right, I'm married to a Spanish speaker
+
+02:53.520 --> 02:55.920
+She tries to encourage me to use it all the time
+
+02:55.920 --> 03:00.080
+but really I'm about good at this as this guy and so I'm just going to avoid it and
+
+03:00.520 --> 03:02.060
+I'm sorry, right now
+
+03:02.060 --> 03:06.040
+I do live in Los Angeles where many people speak Spanish and most of it that I've picked up
+
+03:06.040 --> 03:11.840
+I got eating lunch right at places like pinches tacos or no hodas
+
+03:12.480 --> 03:18.720
+Cuban kitchen, but my wife has assured me that these terms are not fit for such an august audience as yourself
+
+03:18.720 --> 03:20.720
+So I'm just gonna avoid it
+
+03:20.880 --> 03:27.440
+Alright anyway, so if I'm talking too fast or I move too quickly and there's things you want to catch up with you can find all
+
+03:27.440 --> 03:32.400
+the slides and the links for the things I talk about at this URL and
+
+03:33.120 --> 03:38.560
+You can just hit that in so dub, you know, this is HTTP bitly blah blah blah got it
+
+03:39.480 --> 03:41.040
+We ready?
+
+03:41.040 --> 03:47.000
+Okay, let's go. I don't got much time. All right one. Okay, so how do we do data journalism today in my opinion?
+
+03:47.000 --> 03:51.240
+Not really. Well, right. So where does it begin? It begins oftentimes with the government, right?
+
+03:51.240 --> 03:55.500
+They have some valuable data about something that they're up to that we want to get at
+
+03:56.120 --> 04:00.360
+Understand write about and probably say something nasty about so that they fix it, right?
+
+04:00.360 --> 04:02.400
+So we go to them and we say at least in America
+
+04:02.400 --> 04:05.800
+We can say I can write a letter and I can say dear government
+
+04:05.800 --> 04:09.480
+Please send me every piece of data that you have on this topic and this is a real letter
+
+04:09.480 --> 04:14.280
+I wrote and I send it off in the mail or attached to an email which is really kind of a weird thing a letter attached
+
+04:14.360 --> 04:15.400
+An email. Why do we do that?
+
+04:15.400 --> 04:21.600
+But we do because I don't know and then am I supposed to get the data, but I don't a long period of time goes by
+
+04:21.600 --> 04:24.920
+I have 10 or 20 other emails. These are real ones. There's an extended negotiation
+
+04:25.680 --> 04:29.960
+We what are we really gonna get? Am I gonna have to pay for it? How's it gonna happen? What's gonna do?
+
+04:31.120 --> 04:38.640
+Right then ultimately Wow one day a CD arrives at my desk or in the mail and inside of it is a crazy government database with
+
+04:38.640 --> 04:44.160
+No documentation and dozens of tables and so much data that I can barely understand it
+
+04:44.160 --> 04:46.760
+And then I then spend days or weeks
+
+04:47.120 --> 04:52.400
+Puzzling and trying to figure out what is in this database and how does it work and can I find anything or understand it?
+
+04:52.400 --> 04:54.680
+Or what's going on and in that process?
+
+04:54.680 --> 05:00.360
+I might meet someone like this the government employee responsible for creating that database who no one has ever asked how it works
+
+05:00.360 --> 05:04.720
+And he's so excited to tell me and we have long conversations and I get to learn a little more about it
+
+05:04.720 --> 05:06.960
+And I write really bad computer code
+
+05:06.960 --> 05:07.680
+This is real
+
+05:07.680 --> 05:13.200
+this is by me that just like tries to pull out that data and move it around and try to find what's going on in
+
+05:13.200 --> 05:17.640
+It and I'm still lost and more days and weeks go by and I don't know what's happening
+
+05:17.640 --> 05:23.400
+And then my editor very polite and then I'm totally confused and just lost and my editor calls me into her office
+
+05:23.400 --> 05:25.480
+And she's like, well, you know, why do you work here again?
+
+05:25.480 --> 05:31.720
+And what's really happening and shouldn't you be producing something that we can actually publish at some point at which point I then freak out
+
+05:31.720 --> 05:37.520
+I get out my machete and I start hacking at the data and like trying to find something out of it and then in that
+
+05:37.520 --> 05:42.880
+process I like create something like maybe a graphic and some stories and this thing we're gonna say and then
+
+05:42.960 --> 05:46.960
+Whoo, I get across the finish line and we finish it and it's done and I'm just like, oh my gosh
+
+05:46.960 --> 05:52.080
+we finally got there and I never would ever think about or talk about the state again and all that computer code and
+
+05:52.720 --> 05:54.720
+all that work and
+
+05:55.600 --> 05:59.800
+Everything that I learned in that whole process. Where does it go?
+
+06:01.280 --> 06:02.960
+Right there
+
+06:02.960 --> 06:09.720
+right and I go back to the beginning and I find a new topic and a new government person to pick on and a whole new
+
+06:09.720 --> 06:14.120
+Process to begin again and all that stuff that I learned that was really really valuable
+
+06:14.200 --> 06:17.600
+Most of it ultimately gets lost and this is really dumb
+
+06:17.920 --> 06:24.480
+right and I do this and many of my colleagues do this and I think people in this room do this and it's kind of part of
+
+06:24.480 --> 06:27.240
+our like news culture that
+
+06:27.840 --> 06:34.360
+In when it works fine when you're just doing a story in one day and you can throw it away and starting in the next
+
+06:34.360 --> 06:39.480
+But when you're doing really complex data work on databases that we revisit again and again
+
+06:39.840 --> 06:42.880
+And that everyone uses and we're writing software
+
+06:42.880 --> 06:45.000
+It starts to stop making sense
+
+06:45.000 --> 06:46.180
+And so, you know
+
+06:46.180 --> 06:51.440
+I think we need to as a group start being a little bit less like hacks and a little bit more like hackers, right?
+
+06:51.760 --> 06:53.760
+If we're going to be writing software
+
+06:53.920 --> 06:58.320
+And you know, it's there is some good news people are getting a lot better at it
+
+06:58.560 --> 07:03.080
+Largely, I think thanks to a really great website and technology called git and github
+
+07:03.560 --> 07:07.040
+Who here is using git and version control when they write their code a?
+
+07:08.040 --> 07:11.040
+Lot of people that's good. It should be everybody right?
+
+07:11.040 --> 07:17.160
+It should be unacceptable to work on our field without doing it and more and more people are and like that means as you're doing that
+
+07:17.160 --> 07:20.480
+Story and writing that code every little change you write gets saved
+
+07:20.800 --> 07:26.560
+so that you can walk back and understand everything you did and it all gets recorded permanently and it never gets lost and
+
+07:27.440 --> 07:34.080
+500 straight SQL queries or six Python scripts that got ran and who knows what order at what time and have totally strange names and
+
+07:34.080 --> 07:40.160
+Tucked into some bizarre folder with weird names that have like dates in the file names and all that crap, right?
+
+07:40.160 --> 07:45.680
+This really helps you get past that a lot of people are then also using it to publish the data that they use as their
+
+07:45.680 --> 07:47.560
+Analysis online, which is really great
+
+07:47.560 --> 07:53.600
+And then even some people who are total overachievers are then taking the code that helped create their analysis
+
+07:53.600 --> 07:58.400
+And they're putting it on github so people can kind of walk back and see what they're up to
+
+07:58.640 --> 08:05.160
+And this is great for accuracy. It helps us not make mistakes by being more careful about the code that we write. It's great for
+
+08:05.800 --> 08:07.800
+Transparency because it helps us
+
+08:08.360 --> 08:15.120
+Be held accountable and for our readers to see what we're doing and build our credibility and maybe avoid some mistakes that way and know
+
+08:15.120 --> 08:16.920
+That we're being watched which is also good
+
+08:16.920 --> 08:24.440
+And it's great for reproducibility as well in a scientific sense that someone could take our methodology and our systems and be able to recreate
+
+08:24.480 --> 08:29.480
+We're doing no good and people are doing this now and more and more doing it and that's a good thing and we should
+
+08:29.480 --> 08:30.960
+Be pretty happy with ourselves, right?
+
+08:30.960 --> 08:36.400
+This is like something that the science journals and people in other fields feel like they're behind and journalism is doing good
+
+08:36.560 --> 08:41.600
+But there's like one problem if you go to any of these repositories
+
+08:42.160 --> 08:43.800
+You know not to pick on anyone in particular
+
+08:43.800 --> 08:49.920
+But I looked at a whole bunch of them preparing for this talk where people in our field are posting their code and saying oh
+
+08:49.920 --> 08:53.200
+I'm so open and this is the open source and let's build the community
+
+08:53.360 --> 08:56.720
+What do you see at each one of those when you check them out you see this?
+
+08:57.720 --> 09:00.280
+Right, and if you're not a github user, it might not make sense
+
+09:00.280 --> 09:05.820
+But the website with your code has some very simple metrics. How many people have contributed to this code?
+
+09:06.320 --> 09:08.520
+How many people are interested in it?
+
+09:08.620 --> 09:11.320
+How many have made their own copy and have worked on it?
+
+09:11.320 --> 09:17.160
+And what I think we find with almost all the open source that our news people are putting out related to stories is you're seeing
+
+09:17.160 --> 09:19.080
+very very little
+
+09:19.080 --> 09:20.240
+contributions
+
+09:20.240 --> 09:23.000
+Right or community building around these topics?
+
+09:23.520 --> 09:24.520
+and
+
+09:24.520 --> 09:28.960
+There's some reasons for that right which I think we should we should think about and understand because there's no
+
+09:28.960 --> 09:31.260
+What is the difference between the ghost town?
+
+09:32.000 --> 09:38.880
+That we put online and the trash can that we had before really not much you get some of those scientific benefits of transparency
+
+09:39.560 --> 09:41.560
+and accuracy and
+
+09:42.160 --> 09:42.960
+reproducibility
+
+09:42.960 --> 09:45.640
+But you don't get any kind of benefits of the code
+
+09:45.960 --> 09:49.200
+Contributions and the community building of a true open source project
+
+09:49.360 --> 09:53.160
+Right and so you end up being Atlas working alone. Just like you were before
+
+09:53.840 --> 09:58.840
+So how do we get better we get even nerdier? I think so. Let's like let's look at
+
+09:59.520 --> 10:05.000
+Let's just look at a basic open source project and see how it works. Okay, so let's learn from the nerds
+
+10:05.360 --> 10:09.880
+So if I go to github and I look at a thing called requests, is anyone used requests?
+
+10:09.960 --> 10:11.960
+This is a python library
+
+10:11.960 --> 10:16.760
+Right and it does what does it do so first off I can go to my terminal you could do this right now
+
+10:16.760 --> 10:22.120
+And I can use a tool called pip which installs package software, right?
+
+10:22.120 --> 10:28.520
+So this is a tool on almost all you know, you know computers or can be installed on most computers
+
+10:28.520 --> 10:34.840
+Which will go into the cloud and will install software that's pre-packaged for you to use with one line
+
+10:35.520 --> 10:37.520
+So it's very easy to get
+
+10:38.040 --> 10:42.360
+Right. I don't have to go and read your Python notebook or find some weird thing or whatever
+
+10:42.360 --> 10:47.240
+It's there in a centralized repository and with one command. I can install this piece of software
+
+10:47.920 --> 10:53.800
+Then I can jump down into my Python terminal and I can now import it and use it. I'm now writing Python. I
+
+10:54.640 --> 11:01.120
+Can I can then tell it to to to go get a URL and return it and that's all this library really does is you say
+
+11:01.120 --> 11:04.680
+Hey, here's a URL something on the internet. I want you to go get it
+
+11:04.680 --> 11:10.320
+It can do more than this, but this is the basics and then it returns a response and that's really all this thing does
+
+11:10.800 --> 11:14.600
+That's not as exciting as an investigative story or something more complex
+
+11:14.680 --> 11:19.560
+But guess what? It's what people want and it's what people will collaborate on look at this
+
+11:19.880 --> 11:24.480
+38 million downloads of this one simple library, right?
+
+11:24.480 --> 11:33.200
+And why is that because it does one thing and does it well one of my favorite nerd acronyms ready does one thing and
+
+11:33.680 --> 11:40.040
+Does it well, which is also known as the eunuch eunuch philosophy and it's really a Lego, right?
+
+11:40.040 --> 11:46.820
+It's a component of a work when strung together with ten other open source libraries or other things that another developer
+
+11:46.820 --> 11:48.560
+Not you part of your story
+
+11:48.560 --> 11:54.060
+But maybe future you right can use to build something that they want to do and the code that we're putting out
+
+11:54.200 --> 12:00.440
+Oftentimes related to our stories and work is more like this the Cathedral here in Buenos Aires, right?
+
+12:00.440 --> 12:06.800
+So instead of being a Lego, it's a cathedral, right? And what do you do cathedrals you go to worship and that's about it
+
+12:06.800 --> 12:08.800
+Right, you don't go there to get work done
+
+12:08.800 --> 12:14.120
+Alright, or build anything. So if we're gonna try to do that kind of thing in our field
+
+12:14.720 --> 12:16.680
+What are our Legos, right?
+
+12:16.680 --> 12:23.560
+What are the components of data journalism and the work that we do that might be possible for us to collaborate on?
+
+12:23.560 --> 12:28.320
+And I think there's probably a lot of answers to this question. But one that I think is potentially
+
+12:29.080 --> 12:32.120
+Interesting is data sources, right?
+
+12:32.120 --> 12:37.840
+So there are out there in our world of journalism certain data sources that we return to again
+
+12:37.840 --> 12:43.920
+And again and become almost like beats or topics that we're covering right what's copying the data and that can be
+
+12:44.440 --> 12:47.960
+Election results public opinion polls. Sorry for the clipart guys
+
+12:48.840 --> 12:53.680
+Crime reports, you know what's happening on Wall Street the census school starts
+
+12:53.680 --> 12:58.440
+But you know here in Argentina the blue dollar which is one of my favorite phrases I've learned, right?
+
+12:58.440 --> 13:04.240
+There's actually a Twitter account right that just tweets the blue dollar at me every day, which I started following just very cool
+
+13:05.240 --> 13:12.060
+And each of these are data sources that are consistently updating have some schedule are structured are gigantic and that
+
+13:12.080 --> 13:19.880
+Reporters in different ways to pursue different ends to tell different stories are all mining all the time every day
+
+13:20.240 --> 13:23.360
+Right and for every one of those data sources
+
+13:23.560 --> 13:30.120
+Almost all the reporters have their own little script to do basically this go to the government get the data
+
+13:30.720 --> 13:34.040
+Convert it, you know pull it down and save it and do something with it
+
+13:34.200 --> 13:41.080
+Load it into a database and repeat right and this process is known in computer software as ETL
+
+13:41.480 --> 13:43.880
+Right because they can make anything boring in IT
+
+13:44.520 --> 13:49.880
+ETL stands for extract transform and load and it's a basic component of almost all data
+
+13:50.080 --> 13:54.820
+journalism that all that many many news outlets are writing for all these same sources and
+
+13:55.080 --> 14:02.600
+Everybody's creating their own different competing pipelines to go get that data. There's the Washington Post. There's the New York Times
+
+14:02.640 --> 14:08.320
+There's La Nación, whatever you can you know, let's let's twist this metaphor as far as we can when instead I
+
+14:09.080 --> 14:15.480
+Think it's possible for us as a community to get together and build big pipelines that are bigger better
+
+14:16.120 --> 14:23.560
+Stronger right and then we all collaborate on so that we don't independently all spend all this time doing the exact same thing doing the boring
+
+14:23.560 --> 14:28.640
+Part of our work. Why should we compete at downloading and unzipping database tables, right?
+
+14:28.680 --> 14:34.520
+We should be competing at finding and telling stories and doing ambitious analysis and making a difference
+
+14:34.600 --> 14:42.280
+So this sort of boring component of our work might be the kind of thing we can organize around I think so instead of say PIP
+
+14:42.440 --> 14:43.760
+install requests
+
+14:43.760 --> 14:51.160
+Why can't I do PIP install BA election results or PIP install blue dollar and very quickly have basic data
+
+14:51.200 --> 14:56.040
+Sources and those basic scripts available to me as package software in the same way
+
+14:56.040 --> 15:02.360
+I have all these other components and then those can be well-documented maintained and and and you know grow and get better with time
+
+15:02.800 --> 15:06.800
+Right. There are existing projects that do this and I think they're all awesome and going in the right direction
+
+15:06.800 --> 15:11.360
+And we should do more like them open states Treasury open elections
+
+15:11.680 --> 15:14.960
+The data open knowledge foundation are all kind of moving in this direction
+
+15:14.960 --> 15:21.560
+And it's also the inspiration for a project that I'm here to talk about this conference, which is called the California Civic Data Coalition
+
+15:22.160 --> 15:23.040
+So, you know
+
+15:23.040 --> 15:29.400
+It's a team of the LA Times San Francisco Chronicle Stanford and Center for Investigative Reporting and we're coming together
+
+15:29.800 --> 15:38.560
+Around campaign finance data the state of California released the bulk database of all the money in California state politics
+
+15:38.560 --> 15:40.560
+It's 76 tables
+
+15:41.120 --> 15:44.600
+650 megabytes 35 million records and about about zero
+
+15:45.240 --> 15:49.720
+You know clues on how to use it and no one does really good, California
+
+15:49.720 --> 15:54.080
+Campaign finance analysis because it's too hard to unpack and work with this database
+
+15:54.160 --> 16:00.800
+So why should we all slave separately and fail to work on it when we can come together and write code that will make it easy
+
+16:00.800 --> 16:03.440
+For everyone to do it and broaden the pool that can happen
+
+16:03.440 --> 16:09.400
+And so that's what our projects about you can see it on github and if you just google California civic data coalition
+
+16:09.400 --> 16:13.360
+And I'm here at this conference to promote the project and to try to get people involved
+
+16:13.360 --> 16:15.400
+We have an event. We call the California code rush
+
+16:15.400 --> 16:21.320
+I'm here with hundreds of tickets related to this repository that can help make us improvements and push towards our
+
+16:21.600 --> 16:23.260
+Push towards our next milestones
+
+16:23.260 --> 16:29.640
+I have prizes stickers and t-shirts for people who get things done and there's ways anyone can get involved if you're a hacker looking on
+
+16:29.720 --> 16:33.440
+Saturday for something of medium-sized to work on come talk to me
+
+16:33.440 --> 16:39.840
+We can find something cool if you're someone who's never made a contribution to an open source project or use github before we have lots
+
+16:39.840 --> 16:43.640
+A little itty-bitty ones that'll take you 10 or 15 minutes. I'll walk you through it
+
+16:43.640 --> 16:48.880
+You'll learn how all this process works and get your feet wet and in real open source project
+
+16:48.920 --> 16:55.520
+Okay, so you can find me later today at the media fair the workshops in the hallways anytime and all day at the hackathon
+
+16:56.280 --> 16:58.280
+Alright, and that's basically it
+
+16:59.120 --> 17:03.280
+You can find again more everything from this presentation here at packaged data
+
+17:03.440 --> 17:10.240
+the more about the code rush here and you know, feel free to email me or bug me at any time about anything and
+
+17:10.880 --> 17:12.880
+That's it guys

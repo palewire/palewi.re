@@ -1,0 +1,105 @@
+Locating the story
+
+The latest in online maps
+
+URLs for all examples
+
+http://lat.ms/2012maps
+
+Theme 1
+
+Escape from Google Maps
+
+Google Maps is no longer free. New usage limits will charge users
+who draw a lot of traffic. If you draw a lot of traffic, you
+probably have to pay.
+
+Four options
+1. Stay below the limits
+Stay under 25,000 hits/day, or only use for one-offs that spike and fade.
+
+2. Pay Google
+It will cost lots of money. Could be six figures.
+
+3. Create a copycat
+This is work. But new open-source tools make it easier.
+
+4. Use HTML5 alternatives
+Many maps don't need tiles. A simple HTML5 map is often superior.
+
+A copycat needs three things...
+
+a data source, like
+OpenStreetMap
+
+a tile set, like
+you can make
+with TileMill
+
+a JavaScript
+interface, like
+Leaflet
+
+OSM
+
+Google
+
+OSM
+
+Google
+
+An HTML5 alternative needs two things...
+
+a way to convert data to
+HTML5 formats
+
+an HTML5 interface, like
+Raphael
+
+Theme 2
+
+That said, Google Fusion Tables
+
+This Fusion Table powers...
+
+...Google's Map...
+
+...and this map from WNYC.
+
+Theme 3
+
+Census 2010 goes dotty
+
+Theme 4
+
+Before and after maps go viral
+
+Where can you get them?
+http://groups.google.com/group/google-geo-media
+
+Theme 5
+
+Redistricting
+
+Coda
+
+Other interesting things
+
+THE END
+
+Meet Ben Welsh
+- Native Iowan living in Downtown LA
+- Works for the Data Desk at latimes.com
+- Initiated as NICAR graduate assistant
+- Online handle is palewire
+
+WWW:
+datadesk.latimes.com
+palewire.com
+Twitter:
+@LATdatadesk
+@palewire
+
+URLs for all examples
+
+http://lat.ms/2012maps

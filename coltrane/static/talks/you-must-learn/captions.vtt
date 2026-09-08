@@ -1,0 +1,586 @@
+WEBVTT
+
+00:00.000 --> 00:05.240
+doing these things. I don't know what will happen, but if I self-destruct, I want you
+
+00:05.240 --> 00:16.840
+to do what I would do. Tweet it. Okay, so my talk is called You Must Learn Five Lessons
+
+00:16.840 --> 00:20.880
+from the History of Data Journalism Thank You for Voting. And you know, what I want
+
+00:20.880 --> 00:24.800
+to start with is something that I've heard a lot of talk about, and I bet you have too.
+
+00:24.800 --> 00:32.360
+I bet you've heard a lot about the future. Right? Yes? I've heard a lot about the future.
+
+00:32.360 --> 00:40.240
+Lots going on. Lots going to happen. You know what I mean? Right? And, you know, one of
+
+00:40.240 --> 00:44.560
+the cooler things I've heard in recent years was this. And you guys know who that is? He
+
+00:44.560 --> 00:49.600
+was in Jeremy's talk. That's Tim Berners-Lee, the man who invented the World Wide Web. He
+
+00:49.600 --> 00:56.440
+said this, or he's reported who said it, at least. And I thought to myself, who got
+
+00:56.440 --> 01:03.840
+to him? And whoever in here got to him, you have Natty Bo for the rest of your days, I'll
+
+01:03.840 --> 01:10.040
+make them. Because that's great. Now, that's a good thing, right? But not everything we've
+
+01:10.040 --> 01:13.480
+been hearing about the future is really all that good, right? Because we hear things kind
+
+01:13.480 --> 01:18.480
+of like this. I hear things like this, and I, like, cringe inside. You know what I mean?
+
+01:18.560 --> 01:23.760
+I hear, like, it causes me pain to hear someone who means well and who wants to get on with
+
+01:23.760 --> 01:27.680
+the future, as we've been told, about say things like what we're doing here, and everybody
+
+01:27.680 --> 01:33.120
+hears about this in this room, is brand new. Something that's recently been invented. And
+
+01:33.120 --> 01:37.200
+one of the things that happens is when powerful people think ideas like this, and then they
+
+01:37.200 --> 01:42.080
+act on them, they go out into the world and they have ripple effects. And I think each
+
+01:42.080 --> 01:52.080
+ever one of you in here sees ripple effects. They look like this. Right? These are all
+
+01:52.080 --> 01:56.240
+some job listings and stories about many of the people in this room, and trying to get
+
+01:56.240 --> 02:00.800
+many of the people in this room to apply, right? And they sound like someone whose history
+
+02:00.800 --> 02:07.680
+of journalism comes from, like, a Japanese, like, article. It has, like, a history of the
+
+02:07.680 --> 02:11.840
+world that's, like, totally on board from any reality. Right? And that's just, like,
+
+02:11.840 --> 02:16.080
+bugs me. Right? You know what I mean? Because it bugs me, that's what got me fired up to give
+
+02:16.080 --> 02:20.240
+this talk. And so that's why I'm here. Right? And, you know, I used to live in Washington, D.C.,
+
+02:20.240 --> 02:24.240
+not that far from here. And I lived in a neighborhood called Shaw. And I love living in Shaw. And Shaw
+
+02:24.240 --> 02:28.640
+is a great place. And on 9th Street, Northwestern Shaw, there's this awesome mural for this guy,
+
+02:28.640 --> 02:32.640
+Carter Woodson. You guys know who Carter Woodson was? His house was right across the street. Carter
+
+02:32.640 --> 02:38.320
+Woodson is the man who had the idea that we ought to have something in 1926 called Black History
+
+02:38.320 --> 02:43.440
+Week. Right? Which ultimately became Black History Month, and which is just ending now, here in the
+
+02:43.440 --> 02:47.680
+United States. Right? And I think Black History Month is an awesome thing. And why do I think
+
+02:47.680 --> 02:53.680
+it's awesome? Because it challenges us. It confronts us with an alternative history, which facts in the
+
+02:53.680 --> 02:58.640
+past that we don't normally hear about. And it makes us try to process them. And to think about,
+
+02:58.720 --> 03:03.040
+to think about our own, the stories we tell ourselves about history. I love it. Right? And,
+
+03:03.040 --> 03:08.880
+you know what's good at confrontation, besides that, is hip-hop music. Right? A few things are
+
+03:08.880 --> 03:14.560
+better. In the 1980s, Boogie Down Productions, led by KRS1, released a single known as You Must
+
+03:14.560 --> 03:19.120
+Learn. And You Must Learn is an awesome song that is really just a walk through kind of an
+
+03:19.120 --> 03:23.120
+alternative history of Black people, not just the United States, but in the world. And it's in the
+
+03:23.120 --> 03:28.240
+spirit of this, like, badass song, particularly the Live from the Caucus Mountains remix, which I
+
+03:28.240 --> 03:38.160
+would totally recommend. Right? That got me going on this talk. Right? And so with that, it's kind of
+
+03:38.160 --> 03:43.200
+the outset I want to start in. We've got five lessons. Right? Number one, nothing we are doing
+
+03:43.200 --> 03:47.280
+is new. Okay? And I wanted to do this in the format of, like, say, Jeopardy clues. Do you guys
+
+03:47.280 --> 03:52.400
+watch Jeopardy? My wife and I every night. It's Hebo, and I love it. Battle of the Decades is awesome.
+
+03:53.680 --> 03:58.160
+But so here's the clue. Influenced by academics, this aspiring journalist arrived in New York to
+
+03:58.160 --> 04:05.600
+determine to produce an exact quote, quote, facts of scientific value. No, if you asked me to guess,
+
+04:05.600 --> 04:12.400
+you might say, hey, Nate Silver. Right? Particularly if you were Dave Plott. Right? Or if you were a
+
+04:12.400 --> 04:18.720
+Nicarian, you might say, hey, author of numbers in the newsroom. All right? Recently, New York Times
+
+04:18.720 --> 04:23.200
+hire Sarah Cohen might come to mind. Wouldn't be a bad guess, would actually be pretty close to
+
+04:23.200 --> 04:30.480
+accurate. You know, you might also just go with Xingy. Hey! Dave Xing, AOL's digital prophet being
+
+04:30.480 --> 04:35.920
+monster. Right? He wouldn't be, right? The other two would be okay. But another also correct answer
+
+04:35.920 --> 04:42.320
+from history that I want to challenge you with is Lincoln Steffens. Lincoln Steffens in 1890s arrived
+
+04:42.320 --> 04:46.720
+in New York City, a rich kid from Sacramento who went off to Germany to study philosophy because he
+
+04:46.720 --> 04:53.200
+felt like him. Right? And he didn't feel like him anymore. He felt like making some noise. He felt
+
+04:53.200 --> 04:58.480
+like shaking up the world and he went on to become one of the most famous muckrakers. Right? Teddy
+
+04:58.480 --> 05:03.920
+Roosevelt coined the phrase muckraker because he had to deal with this asshole. Right? And so he
+
+05:03.920 --> 05:09.520
+came to New York in the 1890s and I swear to God he really thought I am going to bring Hegel to
+
+05:09.520 --> 05:16.240
+the police beat. Right? No, that's true. Right? And this is a nerdy room. This is like the nerdiest
+
+05:16.240 --> 05:23.200
+room in the history of journalism. Nobody here is that nerdy. You know what I'm saying? And he
+
+05:23.200 --> 05:27.440
+went on to try to develop like a period of corruption at the city level across the United
+
+05:27.440 --> 05:31.520
+States, letting them write a series of books and magazine articles that made him famous.
+
+05:31.520 --> 05:36.480
+Right? And he also, he had an intern. You know whose intern was? Walter Lippmann. Got his first
+
+05:36.480 --> 05:42.000
+job in journalism with Lincoln Steffens. Went on to popularize the whole idea of public opinion,
+
+05:42.080 --> 05:48.080
+which Nate Silver would later analyze 100 years later and become famous. Right? So just think
+
+05:48.080 --> 05:51.680
+about that. And if you want to learn more about it, read the new biography of Lincoln Steffens.
+
+05:51.680 --> 05:57.600
+I'm like two-thirds the way through it. It's pretty awesome. Right? Lesson two. No. Nothing
+
+05:57.600 --> 06:02.640
+we're doing is new. All right? And you can't count on the internet to tell you that. Okay?
+
+06:02.640 --> 06:08.560
+Here's another clue. This polarizing journalist rattled Washington DC with a selective release
+
+06:08.560 --> 06:15.680
+of provocative documents from a secret cash. Right? Might call some people to mind. Might
+
+06:15.680 --> 06:21.680
+make you think of a certain man in London, Julian Assange. It might force you to pick your favorite
+
+06:21.680 --> 06:26.800
+from the roster of NSA reporters. Right? And all those would be good answers. They wouldn't
+
+06:26.800 --> 06:32.000
+necessarily be wrong. But this answer is also accurate and true if you were to say, who was
+
+06:32.000 --> 06:36.160
+William Randolph first? One of the most famous newspaper barons in the history of the United
+
+06:36.160 --> 06:40.560
+States, so in the whole series across the United States, including New York and San Francisco.
+
+06:41.120 --> 06:48.320
+And in 1908 and in 1912, his publication splashed across their covers a series of leaked,
+
+06:48.320 --> 06:54.320
+allegedly leaked, letters written by a standard oil executive named Archibald, which supposedly
+
+06:54.320 --> 06:59.440
+contained the correspondence between him and elected officials in the United States detailing
+
+06:59.440 --> 07:04.880
+a whole range of political corruption. This was a major scandal which shook two presidential
+
+07:04.880 --> 07:11.120
+elections. Right? Which led to Collier's Magazine trying to debunk it with a very, very intense cover
+
+07:11.120 --> 07:16.160
+story trying to take it down. And even led to Mr. Hearst himself testifying before the United
+
+07:16.160 --> 07:23.040
+States Congress, not unlike the editor of The Guardian last year. And then later in his life,
+
+07:23.040 --> 07:30.800
+the tables returned. Mr. Hearst's telegrams were acquired from a source and published by his rival
+
+07:30.800 --> 07:35.760
+publications, including the Los Angeles Times, where I work, and the orders that he sent be a
+
+07:35.760 --> 07:41.520
+telegram from his home, and believe it or not, West Palm Beach, now home of Rush Limbaugh, right,
+
+07:43.280 --> 07:49.200
+were then splashed across the act. And this might be a potentially a sort of instructive lesson for
+
+07:49.200 --> 07:54.480
+those reporting on leaks today. But regardless, if you were to go to Wikipedia and you were to search
+
+07:54.480 --> 08:02.160
+a phrase like standard oil letters, guess what you get? Nothing. Right? That's because despite
+
+08:02.160 --> 08:06.560
+journalism being the history of the world, the first draft of history, we don't do a very good
+
+08:06.560 --> 08:10.960
+job of telling our own history. Right? And so something like this, which was a major event that
+
+08:10.960 --> 08:16.560
+shaped two presidential elections, doesn't even exist according to the internet. Right? Now, if
+
+08:16.560 --> 08:21.280
+you want to learn about it, you should read this great book, Citizen Hearst. This book was nominated
+
+08:21.360 --> 08:25.840
+to win the Pulitzer Prize, but it's the only book in the history of the Pulitzer Prize that judges
+
+08:25.840 --> 08:30.960
+declined to give the award to, ultimately, because Hearst was such an asshole, they couldn't stand it.
+
+08:32.800 --> 08:37.440
+Right? Which is a lesson I would suggest, the book that I would suggest to our new media
+
+08:37.440 --> 08:43.440
+locals, who I occasionally hear themselves, compare themselves to Hearst. But as you see today,
+
+08:43.440 --> 08:48.960
+it's sort of a very casual way as an icon of being a media titan. However, if you were to read this
+
+08:48.960 --> 08:54.720
+book, you would find out, one, what an asshole he was. Right? And two, what a bad businessman he was.
+
+08:55.280 --> 08:59.920
+You know what I mean? But anyway, read it. It's good. It's a lot of fun. All right. Lesson three,
+
+08:59.920 --> 09:08.720
+it is a wild world out there. Right? Clue number three, this nation was the first, the first to
+
+09:08.720 --> 09:13.920
+enact a law guaranteeing citizens the right to access government records. Right? You know what
+
+09:14.000 --> 09:22.240
+I'm going to say first. You know what I'm going to say? USA. Number one. Right? But you might be
+
+09:22.240 --> 09:26.720
+like a history boxer. You might say, well, Ben, if you go back in history, democracy, I like to
+
+09:26.720 --> 09:31.280
+settle on, you know, you know, Magna Carta, all that stuff. You know what I'm saying? And if you
+
+09:31.280 --> 09:35.520
+read more that way, you might say, I'm going to go even further, Ben. I'm going to go with Athens.
+
+09:36.800 --> 09:41.760
+You know what I mean? Like, Greece had this down. It has to be Greece. It has to. Now,
+
+09:42.560 --> 09:45.760
+it's this guy, this guy whose name is on that notepad, I forgot to walk over.
+
+09:47.440 --> 09:49.360
+His name is, here we go.
+
+09:51.920 --> 09:56.160
+Anders K. Dätten. Anders K. Dätten.
+
+09:57.040 --> 10:01.360
+They answer this. In 1766. Say it.
+
+10:03.360 --> 10:08.160
+Anders K. Dätten. Thank you so much. Thank you so much.
+
+10:10.000 --> 10:15.680
+So in 1766, he led an effort to pass the World's First Freedom of Press Act,
+
+10:15.680 --> 10:19.680
+which included not just something similar to the First Amendment before the First Amendment,
+
+10:19.680 --> 10:25.840
+but also the first law that suggested that the public has a right to inspect government records.
+
+10:25.840 --> 10:29.040
+And where is he? What country was that? It was, of course, Sweden.
+
+10:30.400 --> 10:34.400
+Right? This is a blingy frame that I saw on my recent trip to Sweden.
+
+10:39.200 --> 10:40.640
+This is a real thing from a gift shop.
+
+10:42.720 --> 10:45.040
+And the man in the sunset is the current prime minister.
+
+10:46.080 --> 10:51.680
+Right? That's pretty good. Yeah. But it's a little more complicated because back then,
+
+10:51.680 --> 10:55.840
+you know, Sweden was its own empire. And it was big enough that it included this whole
+
+10:55.840 --> 10:59.920
+little eastern area, which you map heads in here might recognize today as Finland.
+
+10:59.920 --> 11:03.520
+And so if you go there, there's certain Finns will tell you, no, no, no, no, it was Finland.
+
+11:03.520 --> 11:06.000
+We had the first public records law. Right?
+
+11:09.920 --> 11:12.320
+To disagreement, the Swedes do not concede that point, however.
+
+11:12.800 --> 11:14.800
+I'm from Finland.
+
+11:20.240 --> 11:24.560
+Right. Well, the Swedes have put the guy on the highest bill available in Finland,
+
+11:24.560 --> 11:28.480
+I've been told. Is this guy in space? I mean, I look at our money and it's a bunch of conspiracy
+
+11:28.480 --> 11:35.040
+shit. I don't have ceremonies and eyeballs and a bunch of crap. You know what I'm talking about?
+
+11:35.040 --> 11:38.960
+We need to get the First Amendment on the dollar bill. I'm just saying that right here now.
+
+11:42.320 --> 11:48.880
+So anyway, so I've knocked Finland a little bit. If you go to the Reports Without Borders
+
+11:48.880 --> 11:52.640
+was a ranking of countries in the world and Finland makes number one for world press freedom,
+
+11:52.640 --> 11:59.120
+United States 32 and falling. Right? And if you could read that report, if you go to the website,
+
+11:59.120 --> 12:03.120
+and I'd recommend you check it out. It's very informative. It might broaden your worldview.
+
+12:03.120 --> 12:09.520
+Lesson four, you have already been scooped by a computer. Right? So this is a point I like to
+
+12:09.520 --> 12:14.400
+trot out from time to time to poke fun at. This is Christian Hammond. He's the CEO of a really
+
+12:14.400 --> 12:18.720
+awesome company called Narrative Science, who makes really awesome software that gets robots
+
+12:18.720 --> 12:23.360
+to like write stuff, to algorithms, to like churn out paragraphs, to find stuff, to write sports
+
+12:23.360 --> 12:27.360
+stories, to do all kinds of cool stuff at Wall Street. And two and a half years ago, he told the
+
+12:27.360 --> 12:33.360
+New York Times this, in five years your computer program will win a Pulitzer Prize and I will be
+
+12:33.440 --> 12:40.480
+damned if it is not our technology. Right? It sounds good. Sounds good. But unfortunately,
+
+12:40.480 --> 12:45.920
+like many internet entrepreneurs, he has zero sense of history. And I know that in this room,
+
+12:46.560 --> 12:51.600
+people know who really was the first person to win a Pulitzer Prize with their software.
+
+12:51.600 --> 12:54.480
+It was built that way. Right? That dude just got to live with it.
+
+12:58.000 --> 13:01.440
+And I love it. You know what I mean? He's two and a half years in. We'll see how he does.
+
+13:01.680 --> 13:08.560
+Right? And he won the Pulitzer Prize in 1989 before computers were even close to cool.
+
+13:09.520 --> 13:15.280
+Right? If you're doing a story about redlining of housing in Atlanta, it's really good stuff. And I
+
+13:15.280 --> 13:20.240
+gotta tell you, it wasn't just him. Since him, numerous people have won Pulitzer Prizes for
+
+13:20.240 --> 13:25.440
+doing computer work, including many people in this room. And the most recent was just last year,
+
+13:25.920 --> 13:34.640
+my brothers in bankruptcy at the Sun Center. Brothers and sisters. Right? Took home the
+
+13:34.640 --> 13:40.160
+highest Pulitzer Award for an awesome series. And I gotta say, just like an ingenious data analysis,
+
+13:40.160 --> 13:44.480
+just like ingenious thing to figure out how you could prove something that everybody thought was
+
+13:44.480 --> 13:48.720
+true but couldn't prove. And it's really awesome. And you know what? We hear a lot about data
+
+13:48.720 --> 13:52.560
+journalism. We hear that David Plots is the world saying how it's new and how it's all these awesome
+
+13:52.560 --> 13:56.160
+people doing new stuff. But in all that hype, you know, one thing I don't hear is I don't hear
+
+13:56.160 --> 14:00.960
+about this. And that really bugs me. You know what I mean? Because the data person just did it.
+
+14:00.960 --> 14:05.840
+And that person is probably in this room right now. It is John Maynes in the lower left right there.
+
+14:05.840 --> 14:16.800
+John, are you here? Yes!
+
+14:22.880 --> 14:28.800
+I love this picture. The dream is not so bad. I mean, we took this. But anyway, I recommend you
+
+14:28.800 --> 14:33.920
+actually go read the color of money. The whole thing is available for free online at this URL.
+
+14:33.920 --> 14:38.080
+That's really the first one to win. Go check it out. You might not even like certain parts about
+
+14:38.080 --> 14:42.160
+it. You might think certain things are dated. It could be improved or done better in today's world.
+
+14:42.160 --> 14:46.880
+Take that and apply it to your work tomorrow. You know what I mean? Rather than just congratulating
+
+14:46.880 --> 14:54.160
+yourself for having a computer, right? Also, John Maynes tomorrow, John Maynes tomorrow is going to
+
+14:54.160 --> 15:00.080
+explain how he did this. You can go see him at 3 p.m. tomorrow in Salandhi. You have to be just like,
+
+15:00.080 --> 15:04.000
+what? Two rooms over? One room over? I don't even know. You should go. You should go and you should
+
+15:04.000 --> 15:10.320
+listen. Because he deserves it. And you can learn something. All right, lesson five. It's about you
+
+15:11.040 --> 15:17.040
+or it's about the work. This is not actually history. This is from the wire.
+
+15:23.520 --> 15:28.560
+But I think it's a really valuable lesson and I love it. It's not you, it's about the work, right?
+
+15:28.560 --> 15:33.440
+Because we go back to this stuff. What is really going on with this? You know what I mean? What is
+
+15:33.440 --> 15:38.080
+this trying to communicate to us? It's silly in some sense, but even though it's silly, there's
+
+15:38.080 --> 15:42.480
+something deeper. And the deeper thing is narcissistic. It's trying to tell us that we're
+
+15:42.480 --> 15:46.560
+special, that we're something that never existed before, that we're like, I don't even know. We're
+
+15:46.560 --> 15:51.760
+the unicorns, right? And that's just not true. Where people look at history and the future and
+
+15:51.760 --> 15:57.280
+we're part of a really awesome tradition that means something, right? And that is what Nitecar
+
+15:57.280 --> 16:01.040
+is about. You know what I mean? Nitecar wasn't the beginning either, but it's a major factor.
+
+16:01.040 --> 16:05.680
+And it's the people in this room and it's the spirit and the vehicle for keeping that tradition
+
+16:05.680 --> 16:10.320
+alive and getting people inspired and getting people to not just want to win prizes and not
+
+16:10.320 --> 16:14.720
+just want to be the first to be winning, but to do something that matters, to tell stories that matter,
+
+16:14.720 --> 16:18.560
+to tell stories that otherwise would not be told, is what makes Nitecar so special
+
+16:18.560 --> 16:20.240
+and what gets me worked up like right now.
+
+16:20.240 --> 16:38.000
+KRS1. You know what I mean? He said some crazy shit. Yes. You know what I mean? I would not
+
+16:38.000 --> 16:44.000
+endorse everything to come out of this man's house. I really would not. But I still listen to him,
+
+16:44.000 --> 16:47.520
+even to this day. And just like a year or two ago, you put out a song fighting, you know,
+
+16:47.520 --> 16:53.520
+not many people listen to him, not famous anymore, you know. And it was called Show Power. It had
+
+16:53.520 --> 17:01.440
+showbiz from Showbiz and AG. Yeah. And Show Power had a verse in it and the verse was sent out
+
+17:02.160 --> 17:06.400
+to all the young rappers out there, the aspiring rappers, to try to keep them inspired and focused
+
+17:06.400 --> 17:10.720
+on what really matters about hip-hop. You know, as we all know, it's cliche at this point. Hip-hop
+
+17:10.720 --> 17:16.000
+has been called the CNN of the street. We've heard it, right? But there are some similarities.
+
+17:16.000 --> 17:19.920
+You know what I mean? There's a deeper truth to that cliche that's important. And in this verse,
+
+17:19.920 --> 17:23.600
+he said something that even though I'm not a rapper, and trust me, you don't want to hear me rap,
+
+17:24.960 --> 17:28.800
+right? It really, it actually emotionally touched me and I just want to share it with you. And I
+
+17:28.800 --> 17:32.560
+think he captured what I'm trying to get at here and what's really important about what we do and
+
+17:32.560 --> 17:39.520
+why we come to Nykar and what we want our future to be, which we control. You know what I mean? And
+
+17:39.520 --> 17:44.240
+so it's the second verse and, you know, okay, you ready? I'm going to read a hip-hop song. This is
+
+17:44.240 --> 17:53.360
+really going to happen. All right. Excellence in art. We must preserve that. We must improve that.
+
+17:53.360 --> 18:02.000
+I mean, bring the news back. Balance the views that. Truly inspire. Like the day that you were
+
+18:02.000 --> 18:09.360
+hired and bound to take the art much higher. Right? Bring the news back. Thank you.

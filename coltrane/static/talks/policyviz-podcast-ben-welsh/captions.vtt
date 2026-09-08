@@ -1,0 +1,796 @@
+WEBVTT
+
+00:00.000 --> 00:16.680
+Welcome back to the PolicyViz podcast. I'm your host, John Schwabisch. Now we're into 2018. It's
+
+00:16.680 --> 00:22.080
+probably a good time to look ahead, but also to look back a little bit on what happened last year
+
+00:22.080 --> 00:26.640
+with data visualization, what happened in the last several years, and of course, what's going
+
+00:26.640 --> 00:32.400
+to happen in 2018. And to help me do that, I'm very excited to have Ben Welsh, who is the editor
+
+00:32.400 --> 00:37.240
+of the data desk at the LA Times to chat about what's going on over there on the west coast.
+
+00:37.240 --> 00:41.520
+Ben, how are you? Happy New Year. Thanks for coming on the show. Happy New Year, John. Thanks
+
+00:41.520 --> 00:46.760
+for having me. I'm excited to chat about all things LA Times because some of the great stuff
+
+00:46.760 --> 00:51.360
+that you guys do that tends to be west coast doesn't always make it over here to the east
+
+00:51.360 --> 00:54.800
+coast. You know, it's sort of like the little story about the wildfires. And then I get to go
+
+00:54.800 --> 01:01.120
+to the LA Times website, and really see some incredible stuff about wildfires or agriculture
+
+01:01.120 --> 01:05.480
+work that doesn't sort of make the front page over here. So why don't we start with having you talk
+
+01:05.480 --> 01:09.620
+a little bit about yourself and how long you've been at the times and the work that you all do
+
+01:09.620 --> 01:14.880
+there, and how that data desk works in relation to the rest of the newsroom? Yeah, sure, no problem.
+
+01:14.880 --> 01:23.760
+So I've been doing the kind of nerdy thing for, you know, gosh, I guess I have to count now. I
+
+01:24.240 --> 01:30.560
+guess probably about 15 years. And about the last 10 of those have been at the LA Times. And when I
+
+01:30.560 --> 01:36.120
+started in 2007, I was working for la times.com, which was in an entirely different part of the
+
+01:36.120 --> 01:43.120
+building and wasn't even in the editorial quote unquote section of the newspaper. And in the 10
+
+01:43.120 --> 01:47.360
+years since that's changed. And we've kind of gradually integrated and we have one newsroom now.
+
+01:47.360 --> 01:52.800
+And within that one newsroom at actually kind of the center of it physically is where our team,
+
+01:52.800 --> 01:59.040
+the data desk sits. And we're kind of a small squad of reporters and computer programmers who
+
+01:59.040 --> 02:05.600
+use our technical skills to get stuff done, to find and tell stories to solve problems to do
+
+02:05.600 --> 02:12.560
+research to make things happen on the internet. And there's really a lot of different shapes and
+
+02:12.560 --> 02:17.680
+sizes that takes I don't think any of it would really surprise you. You know, one observation I
+
+02:17.680 --> 02:22.560
+would kind of make about our industry is that the types of things people are doing are really
+
+02:22.640 --> 02:28.640
+quite similar from place to place. But the way in which they're done sort of within the organization
+
+02:28.640 --> 02:33.040
+or who does it can vary quite a bit, you know, kind of the mix of different tasks that are done by
+
+02:33.040 --> 02:38.480
+the mix of different teams in newsrooms can vary a bit. And even though our team is called the data
+
+02:38.480 --> 02:44.160
+desk, we do a little more than that, just because of the way things have evolved. And so in addition
+
+02:44.160 --> 02:49.040
+to the kind of, you know, old school computer assisted reporting type stuff where you're
+
+02:49.040 --> 02:56.160
+generating nutgrass from big hairy databases. We also do a lot of systems administration for
+
+02:56.160 --> 03:02.000
+newsroom tools that help us publish custom stuff, and fancy stories and things on the web, we do
+
+03:02.640 --> 03:07.040
+the design for a lot of the long form and fancy packages that come through each year.
+
+03:07.760 --> 03:12.800
+And we do some data visualization and other work as well. And it really can kind of vary
+
+03:12.800 --> 03:17.760
+depending on the project and the people involved and what needs to get done. So I tend to describe
+
+03:17.760 --> 03:22.480
+our team as kind of the nerd Swiss army knife, where we're trying to use our computer skills to
+
+03:22.480 --> 03:27.520
+solve problems and make stuff happen. Right. I mean, I assume there's a big culture shift having,
+
+03:27.520 --> 03:32.640
+you know, move the two newsrooms together. What was the transition like from going from a newsroom
+
+03:32.640 --> 03:39.520
+that was your I would guess a traditional shoe leather newsroom and a separate sort of dot com
+
+03:39.520 --> 03:45.040
+newsroom and then pushing those together? Was there a big culture change, a big effort to try
+
+03:45.040 --> 03:50.640
+to merge those two different I would guess cultures and skill sets together? Yeah, I mean,
+
+03:50.640 --> 03:54.480
+so when I started the la times.com was in a different part of the building with a different
+
+03:54.480 --> 03:59.040
+reporting structure, I was hired there and didn't even work, you know, I guess for the editorial
+
+03:59.040 --> 04:03.440
+department. And now you know, I'm I guess an editor within it and we're all employees under
+
+04:03.440 --> 04:07.840
+that umbrella. So like organizationally, it was all kind of moved under, which was done
+
+04:07.840 --> 04:14.480
+in kind of a big reorganization that went along with some pretty large layoffs. A number of years
+
+04:14.480 --> 04:20.720
+ago, and that was kind of, you know, a big moment for the LA times when all that happened. But,
+
+04:20.720 --> 04:27.200
+you know, just one change like that doesn't sort everything out. These types of changes are really
+
+04:27.200 --> 04:33.120
+long and complicated and evolutionary and uneven depending on, you know, where you are or what
+
+04:33.120 --> 04:39.360
+you're doing. And it's kind of really a struggle that everyone in the industry is facing. And we
+
+04:39.360 --> 04:44.960
+are to just try to, you know, get to where we need to be. I don't think there was ever one moment
+
+04:44.960 --> 04:50.000
+where suddenly, you know, the switch went on and things were different. But there's been milestones
+
+04:50.000 --> 04:54.240
+throughout, you know, that was a big one when the merger happened, like another big one that's very
+
+04:54.240 --> 04:59.760
+procedural that I'm proud our team was involved in was having all of our copy being written in the
+
+04:59.760 --> 05:05.520
+web CMS first and then exported to a print publishing platform, rather than vice versa,
+
+05:05.520 --> 05:10.240
+which might not sound too oppressive for people who work on websites and haven't worked in a print
+
+05:10.240 --> 05:14.960
+newsroom. But the reality is is actually the reverse most places where you're writing in a print CMS
+
+05:14.960 --> 05:20.400
+and then at some boring bureaucratic process has to play out before it is, you know, exported to
+
+05:20.400 --> 05:26.320
+the website. And just even reversing that last year to me was in its own way kind of a major
+
+05:26.320 --> 05:32.800
+milestone in the LA Times history. Yeah, were there certain stories over that time span that
+
+05:33.760 --> 05:38.560
+maybe drew people in even more engaged them to say, Oh, this is something that I can use in my
+
+05:38.560 --> 05:43.360
+reporting to, you know, connect with or communicate better to the audience? Like, were there milestone
+
+05:43.360 --> 05:47.920
+projects that you remember over that time as well? Well, there's definitely been a lot of big projects
+
+05:47.920 --> 05:51.600
+that you know, I'm proud of on our team. I don't know if we can necessarily take credit to having,
+
+05:51.600 --> 05:56.400
+you know, done the big story that that changed the whole thing. I don't know. I don't know if you
+
+05:56.400 --> 06:00.880
+could say there's one story that really flip things here. But I would say, you know, there's
+
+06:00.880 --> 06:05.680
+projects we've been involved on that were that were entirely kind of untraditional, that didn't
+
+06:05.680 --> 06:13.600
+involve creating, like a traditional print story at all. Things like we had a project, you know,
+
+06:13.600 --> 06:19.680
+eight or nine years ago, when I first started called California's war dead, where we compiled
+
+06:19.680 --> 06:24.400
+all the obituaries that had been written about Californians who died or Iraq and Afghanistan,
+
+06:24.400 --> 06:29.200
+made it into a database, then made that database into a website that had a page for each person,
+
+06:29.200 --> 06:34.640
+and then also powered a lot of enterprise pieces. And then on a going forward basis, after that,
+
+06:34.640 --> 06:39.760
+we were publishing to that application before we were even researching and writing the obituaries
+
+06:39.760 --> 06:44.560
+and sort of incrementally updating them as the work continued. And I think that that because the
+
+06:44.560 --> 06:49.600
+obituary writing process was a project that so many people in the newsroom were involved in,
+
+06:49.600 --> 06:55.280
+in the writing and research for, I think it was a way for us to expose a lot of people to doing
+
+06:55.280 --> 07:00.400
+things kind of a different way, and kind of conceiving of what you're creating in a more
+
+07:00.400 --> 07:05.200
+structured but also, you know, less conventional storytelling format. And so I guess in my time
+
+07:05.200 --> 07:10.080
+here, I think that's been a big one. Yeah. Now that you have the newsrooms together, and we've
+
+07:10.080 --> 07:14.640
+seen a big change in technology and the way people are receiving their news, can you talk a little
+
+07:14.640 --> 07:21.440
+bit about the balance between desktop and mobile and how you all think about that as you're creating
+
+07:21.440 --> 07:25.920
+either the small projects or even these big narrative features? Sure. I mean, everything
+
+07:25.920 --> 07:30.080
+has got to work on the phone. If it doesn't work on the phone, it doesn't work, you know. And
+
+07:30.080 --> 07:36.160
+increasingly, you know, a majority of readers are often seeing stories on the small screen. And so
+
+07:36.160 --> 07:42.400
+I think, you know, from the design standpoint, if not start with it, it has to be paramount or equal
+
+07:42.400 --> 07:48.240
+to the desktop. And that's just, you know, now fundamental to kind of the custom web development
+
+07:48.240 --> 07:53.280
+our team does. And I think probably every team like ours does. I think, you know, one symptom of
+
+07:53.280 --> 07:58.160
+that or one outcome of that is, you know, this won't surprise you, I'm sure is, you know, kind
+
+07:58.160 --> 08:04.320
+of a move to more static graphics over interactive graphics, in many cases, because they're oftentimes
+
+08:04.320 --> 08:10.400
+just better suited for mobile and sort of the recalculation of the cost benefit analysis of,
+
+08:10.400 --> 08:14.720
+you know, how much work you put into something. The increasing weight on mobile as an input,
+
+08:14.720 --> 08:20.320
+you know, makes the investment on the interactivity kind of often seem less worth it, you know. And
+
+08:20.320 --> 08:24.000
+so I think you're definitely would see a lot more static graphics at the LA Times and pretty much
+
+08:24.000 --> 08:28.880
+everywhere across the industry. I think that's probably only going to increase, you know, I think
+
+08:28.880 --> 08:33.680
+that trend is going to continue. And I think, you know, you know, really boring, nerdy stuff,
+
+08:33.680 --> 08:39.360
+like you got to make sure the page isn't too heavy, you know, and, and you have to think about also
+
+08:39.360 --> 08:45.200
+how you can maybe output stories from data in an automated way or things that maybe serve that
+
+08:45.200 --> 08:50.160
+mobile audience that maybe wouldn't serve a print or sort of a long reading audience that's putting
+
+08:50.160 --> 08:55.040
+more attention in little bits and bytes of information. Like an example I would give is a
+
+08:55.040 --> 09:01.040
+few years ago, one of my colleagues developed a bot that automatically writes and publishes
+
+09:01.040 --> 09:06.000
+stories about earthquakes within seconds of them happening by converting the sort of pulse of
+
+09:06.000 --> 09:11.760
+information that comes out of the government seismographs into a very simple post, which then
+
+09:11.760 --> 09:16.720
+is sent to the copy desk automatically who review it before sending it live. And that allows us
+
+09:16.720 --> 09:21.520
+almost literally within seconds to have a post with a basic map and a basic summary of the
+
+09:21.520 --> 09:27.040
+earthquake ready to ship. And then if it all worked out publish, and that allows us to get that little
+
+09:27.040 --> 09:31.760
+bit of information that people more often in a mobile space are trying to find kind of like
+
+09:31.760 --> 09:37.120
+immediately, hey, was that a big earthquake here in LA just seconds ago, right? And conceiving of
+
+09:37.120 --> 09:42.160
+kind of the audience's needs, from kind of the mobile point of view can lead you to like put an
+
+09:42.160 --> 09:47.280
+emphasis on creating more things like that. Yeah, that's really interesting. Everyone says mobile
+
+09:47.280 --> 09:51.120
+first, you just said mobile first, are you literally thinking about Oh, we're going to do
+
+09:51.120 --> 09:57.840
+this new story on, I don't know, wildfires, is it the development is literally mobile first? Or is
+
+09:57.840 --> 10:04.000
+it you know, we have an idea for how we want to tell this story. And now let's make sure that it
+
+10:04.000 --> 10:10.880
+works on mobile. So my question is really whether it's thinking initially in a small screen versus
+
+10:10.880 --> 10:15.760
+thinking sort of broader and then modifying elements of the story so that they work on a
+
+10:15.760 --> 10:20.560
+mobile screen. I mean, in the last couple years, our narrow team, the data desk has kind of evolved
+
+10:20.560 --> 10:26.800
+more to projects work, off breaking news work. And so on that particular example you gave hasn't
+
+10:26.800 --> 10:30.800
+come up for us. But you know, our graphics desk, which is, you know, just increasing in strength
+
+10:30.800 --> 10:35.760
+and does a great job on most of the kind of the breaking news work like that, they definitely are
+
+10:35.760 --> 10:40.880
+thinking that way and are taking that approach. When it comes to something more like a long term
+
+10:40.880 --> 10:45.920
+project or something that you that you want to have kind of be special. I don't know if we think
+
+10:45.920 --> 10:50.560
+mobile first, but we're kind of thinking like what you know, at its bare essence, what is the story
+
+10:50.560 --> 10:56.960
+we're trying to tell, right? And then what is the most powerful way to reach, you know, our audience
+
+10:56.960 --> 11:03.120
+as we conceive them, you know, with the tools we have. And I think, you know, as part of like that
+
+11:03.120 --> 11:07.200
+conception and that idea development process, you have to be thinking about people's phones,
+
+11:07.200 --> 11:11.200
+because that is, you know, this gigantic percentage of your audience. And so for me,
+
+11:11.200 --> 11:16.000
+when it comes to like the projects work, I think it really begins with what's the story and how do
+
+11:16.000 --> 11:21.520
+we best tell it? That's really interesting. You sent out this tweet in December about 30 of the
+
+11:21.520 --> 11:27.040
+most viewed pages in 2017 and nine were by apps or designers. Can you talk a little bit more about
+
+11:27.040 --> 11:32.240
+that expand about that? You know, what does that I guess really what does it mean to you as someone
+
+11:32.240 --> 11:39.040
+who has seen this transition to have about a third of the biggest hits be from your team or from the
+
+11:39.040 --> 11:43.680
+development team? To me, it's just a sign that what we're doing is connecting with our audience
+
+11:43.680 --> 11:48.960
+and is kind of at the core of what our newsroom is doing to try to change and survive like in the
+
+11:48.960 --> 11:54.560
+digital space. One of my sort of maybe secret motivations for writing a post like that is that
+
+11:54.560 --> 12:00.320
+one of my kind of pet peeves about particularly about data analysis projects or about sort of the
+
+12:00.320 --> 12:04.160
+card investigative work is sometimes there's an idea out there that you know, they don't draw a
+
+12:04.160 --> 12:10.960
+large audience, you know, or that they're sort of part of an outdated sort of prize winning process
+
+12:10.960 --> 12:15.920
+that happens in newsrooms or something. And I just think that that is at least in our case 100%
+
+12:15.920 --> 12:22.240
+untrue and that our team is contributing to and trying to really move the needle with reaching a
+
+12:22.240 --> 12:27.120
+digital audience and doing new things. And I think that I think that's almost certainly true,
+
+12:27.120 --> 12:32.080
+probably most other teams like ours. And I think it's just an idea that I want to kind of reinforce
+
+12:32.080 --> 12:38.000
+and spread because I don't often see it hammered as hard as I think it should because there's
+
+12:38.000 --> 12:42.960
+really good reasons to invest in the type of work we do that are, you know, to be frank, you know,
+
+12:42.960 --> 12:48.480
+commercial. And I think that's fine with me. You know what I mean? And so that, you know, that's,
+
+12:48.480 --> 12:52.160
+that's one reason I think that that's an important story to tell it to is I'm just really proud of
+
+12:52.160 --> 12:56.960
+the people who work on our team, because I feel like that's a sign of their hard work paying off.
+
+12:56.960 --> 13:00.000
+You know, if you were to look at those nine things, I didn't really elaborate on what they
+
+13:00.000 --> 13:04.800
+were, but you would find kind of a broader array of things than you might think of with our team
+
+13:04.800 --> 13:10.320
+being called the data desk. They're not all just like data stories. The number one most viewed
+
+13:10.320 --> 13:17.280
+thing at the LA Times, at least so far, this year was a series of editorials that our opinion page
+
+13:17.280 --> 13:23.280
+put out early in the year about President Donald Trump, and some problems they had with him. And
+
+13:24.080 --> 13:28.400
+in an effort to make a bigger splash out of the series of a half dozen editorials,
+
+13:29.360 --> 13:34.720
+Andrea Roberson, who's on our data desk team, designed using our data desk custom publishing
+
+13:34.720 --> 13:40.000
+tools, a series of pages outside the content management system that really kind of blew these
+
+13:40.000 --> 13:44.400
+up and made them look special, you know, and improve their presentation. And you know,
+
+13:44.400 --> 13:48.720
+I think obviously, you know, the primary reason that those editorials succeeded is the content
+
+13:48.720 --> 13:52.720
+and the writing and the people not on our team who, you know, did all that. But I do think a
+
+13:52.720 --> 13:57.520
+significant component of it was the excellent work she did in the design of it. And so that's why I
+
+13:57.520 --> 14:01.120
+think, you know, that that would be a case where our team kind of had a hand in in something that
+
+14:01.120 --> 14:07.360
+you might not think of as the narrow data work, but was really important. Right. You know, I've
+
+14:07.360 --> 14:12.400
+noticed over at the New York Times that they've started adding the developer names to the bylines
+
+14:12.400 --> 14:18.240
+of news articles. Have you all started to do that? And if not, is that something that you think,
+
+14:18.240 --> 14:22.720
+I think going in line with what you were just talking about of your team being a crucial part
+
+14:22.720 --> 14:27.120
+and a central part, is that something that your group is looking to do in 2018?
+
+14:27.120 --> 14:30.720
+Oh, totally. Yeah. I mean, it's something we've done for years. Okay, honest. It's something
+
+14:30.720 --> 14:36.480
+we've done for I can't even remember, but at least five years or more long time. You know,
+
+14:36.480 --> 14:40.560
+there's different ways it gets kind of handled depending on the context. And you could I'm sure
+
+14:40.560 --> 14:45.760
+finding consistencies and how it's been applied with zero exceptions, you know, if someone has
+
+14:45.760 --> 14:51.280
+done custom web development work that even if it's strictly cosmetic, they receive a production
+
+14:51.280 --> 14:57.120
+credit at the bottom of the page. If you know that production work is for like sort of a data
+
+14:57.120 --> 15:03.600
+graphic, like say election results, or some sort of standalone visualization, we do traditional
+
+15:03.600 --> 15:09.600
+bylines at the top of the page. And then, you know, in cases where it's like a long form narrative
+
+15:09.600 --> 15:16.080
+where we haven't done just cosmetic design, but we've also contributed data analysis. There's
+
+15:16.080 --> 15:19.920
+sometimes kind of a mix between whether you receive kind of the traditional byline alongside
+
+15:19.920 --> 15:25.040
+the writer, which in many cases you do, or, you know, this sort of print tradition of a
+
+15:25.040 --> 15:30.400
+contribution line at the bottom of the writing, which is based on some judgment call about, you
+
+15:30.400 --> 15:35.360
+know, the significance of the work that's been contributed. And, you know, there's a lot of,
+
+15:35.360 --> 15:39.440
+you know, messiness and give and take and when that happens and how, but, you know, to me,
+
+15:39.440 --> 15:43.520
+I think it's important that people receive their credit. I, you know, it might be better if we had
+
+15:43.520 --> 15:47.280
+kind of stricter rules in a system that everyone was on the same page with. But, you know, these
+
+15:47.280 --> 15:52.240
+things are evolving all the time. And to me, it's just something we're consistently trying to sort
+
+15:52.240 --> 15:58.320
+out. Yeah. Yeah. I mean, it seems like continued evolution. Oh, yeah. I want to get your thoughts
+
+15:58.320 --> 16:04.720
+on what were your favorite stories from 2017? What pieces you all worked on that you thought
+
+16:04.720 --> 16:09.360
+were highlights, not necessarily that may not have been the biggest, you know, page views,
+
+16:09.360 --> 16:15.120
+but which one sort of struck you as both the editor and as a reader? Sure. I mean, so here
+
+16:15.120 --> 16:20.160
+there's a few local or California stories that might not have got all around the world that
+
+16:20.160 --> 16:26.640
+our team participated in that I think were real good. Let's see. So our first example might be
+
+16:26.640 --> 16:31.280
+Ryan Menezes on our team, who's sort of a actually a statistics person who has become
+
+16:31.280 --> 16:37.600
+a journalist on our team partnered with Ivan Penn on our business desk, who's sort of a long time
+
+16:37.600 --> 16:43.120
+energy reporter to use data to help Ivan sort of raises ambitions and write a bigger series of
+
+16:43.120 --> 16:51.040
+stories about some phenomena. Did I get that right? I never know. Yeah, I'll have to look that
+
+16:51.040 --> 16:57.920
+one up. They probably both were wrong. But some stuff. Yeah, so Ivan's an energy reporter on the
+
+16:57.920 --> 17:04.080
+beat, right? Right. He knows lots of stuff. But sometimes in just covering things that happen
+
+17:04.960 --> 17:08.720
+out there in the world, you can't take a step back and kind of get at the bigger issues you want to
+
+17:08.720 --> 17:12.800
+get at with the kind of good enterprise. And that's where data can often help. And in this case,
+
+17:12.880 --> 17:16.720
+I think it did where he had sort of been hearing from people and kind of sort of developing the
+
+17:16.720 --> 17:22.480
+idea that, Hey, maybe California just has too many power plants just has too much power. And
+
+17:22.480 --> 17:26.320
+this is not something that was in any story anywhere or that had really been written about
+
+17:26.320 --> 17:30.560
+at all. It was just kind of this thesis that some people on the fringes were kind of putting out
+
+17:30.560 --> 17:35.120
+there and he wanted to find out if was true and kind of evaluate that. And so we sort of teamed
+
+17:35.120 --> 17:40.400
+Ryan up with them and using a lot of data, some of it publicly available, some of it gathered,
+
+17:41.200 --> 17:48.240
+you know, through records requests and other means, were able to like really dig in and go at
+
+17:48.240 --> 17:54.160
+that question. And the answer they found was that it's true that California actually has a gigantic
+
+17:54.160 --> 17:59.600
+and growing surplus of energy being generated by the power plants out there across the state.
+
+17:59.600 --> 18:05.920
+And we continue to build more. And that's actually one of the reasons why price continues to go up.
+
+18:06.480 --> 18:11.440
+And so we have this kind of broken supply and demand curve of demand is actually decreasing
+
+18:11.440 --> 18:19.440
+due to like energy efficiency, green alternatives, yada, yada, yada. So demand is flat and supply is
+
+18:19.440 --> 18:23.440
+increasing, which, you know, if you remember high school economics, that should result in lower
+
+18:23.440 --> 18:28.720
+prices, but it's not prices are going up. And the system in some kind of fundamental way is broken.
+
+18:28.720 --> 18:35.600
+And they were able to really dig into that through data. We wrote kind of three big kind of stories
+
+18:35.680 --> 18:39.840
+through the year, which we tried to bring to life and take make this boring, complicated concept
+
+18:39.840 --> 18:46.640
+relatable through illustrations, and sort of a mobile first sort of like slider kind of concept
+
+18:46.640 --> 18:51.200
+that was separate from the main stories. And you know, I thought that stuff turned out real good.
+
+18:52.480 --> 18:58.880
+It's resulted in a power plant being canceled, which is pretty cool, you know, as far as impact
+
+18:58.880 --> 19:06.240
+goes. And was to me just a great case of how statistics and data can help you, you know,
+
+19:06.240 --> 19:12.240
+kind of find and tell and prove out stories that otherwise would not be told. And to me,
+
+19:12.240 --> 19:17.520
+that's one of the things I get a real kick out of in data journalism. Yeah, absolutely. I mean,
+
+19:17.520 --> 19:21.120
+having a huge impact. Were there any others that struck a chord with you this year?
+
+19:22.160 --> 19:25.520
+So Ivan's on our business desk, and I am kind of proud this year that we partnered with our
+
+19:25.520 --> 19:29.600
+business desk more than we have in past years. And this is kind of, you know, part of that
+
+19:29.600 --> 19:34.400
+evolutionary process is you have sort of allies that you gradually develop within the organization.
+
+19:34.400 --> 19:38.800
+And then you seek to expand that network, you know, and draw in new people and new sections of the
+
+19:38.800 --> 19:42.880
+paper to kind of, you know, the approach we're trying to take. And so this year, we did a bunch
+
+19:42.880 --> 19:46.800
+of stories with business that I thought turned out okay, there was the ones with Ivan. And then
+
+19:46.800 --> 19:53.600
+there was another set we did with two reporters, Natalie Kitroff and Jeff Mohan, about California's
+
+19:53.600 --> 19:58.720
+agricultural industry and how that has really changed in the last couple years, and how some of
+
+19:58.720 --> 20:04.800
+sort of the received wisdom and potted history of sort of how that industry works is outdated.
+
+20:04.800 --> 20:09.280
+And a lot of things are changing. So like, for instance, due to increased border enforcement,
+
+20:09.280 --> 20:14.560
+there's actually tons and tons of people coming in through legal visa programs for temporary farm
+
+20:14.560 --> 20:19.760
+workers. And this is something that's just just dramatically exploded in the last couple years.
+
+20:19.760 --> 20:25.200
+And we were able to write about that and kind of dig into that issue, problems with housing for the
+
+20:25.200 --> 20:29.840
+workers we were able to get at, I thought real well. And then also kind of an interesting economic
+
+20:29.840 --> 20:35.520
+story about another result of increased border enforcement, which is there are in fact wages
+
+20:35.520 --> 20:43.760
+are going up for people who work in some industries like grape picking. But that even though the wages
+
+20:43.760 --> 20:48.160
+are going up, they still aren't unable to attract Americans to take the jobs. And so, you know,
+
+20:48.160 --> 20:53.360
+this was another case where using data and kind of traditional on the ground reporting, we're able
+
+20:53.360 --> 20:57.920
+to do kind of a much stronger story than we could have done without it. Right, right. Well, it sounds
+
+20:57.920 --> 21:04.320
+great. I'm a huge fan. I actually have a couple of what are now probably older graphs that your team
+
+21:04.320 --> 21:10.000
+did that I use in every class I teach, because I think one of the things that I love most about
+
+21:10.000 --> 21:16.960
+what your team produces is the annotation on the graphs, they're all just, I think, uniquely and
+
+21:16.960 --> 21:22.720
+expertly done to explain, you know, concepts that people may not have any idea about, or even graphs
+
+21:22.720 --> 21:26.720
+that they may not be familiar with. And I think your team just does a, you know, extraordinary
+
+21:26.720 --> 21:33.440
+job of that. So thanks so much for that, for giving me enough material to teach. So anything
+
+21:33.440 --> 21:38.240
+you're looking forward to in 2018, I know we got a lot of news coming up, but any things in general
+
+21:38.240 --> 21:44.000
+that you see in the newsroom that you're looking forward to? Well, this is again, kind of, maybe
+
+21:44.000 --> 21:48.480
+boring to people who don't work at the LA Times, but we're changing over to a new content management
+
+21:48.480 --> 21:55.120
+system, the Washington Post's sort of arc system. And that's going to be sort of a kind of big
+
+21:55.120 --> 21:59.680
+behind the scenes challenge to be pulled off, you know, primarily by the product people who'll be
+
+21:59.680 --> 22:04.960
+responsible for, you know, 99% of the content that will be published out that system. But then it's
+
+22:04.960 --> 22:10.400
+also going to be new opportunities for our team that does special work to try to better integrate
+
+22:10.400 --> 22:17.520
+things with our homepage and section fronts to try to more closely integrate how we publish custom
+
+22:17.520 --> 22:22.880
+outside the CMS work with the CMS, which is kind of one of these challenges I think kind of everybody
+
+22:22.880 --> 22:28.320
+faces, which is, you know, you don't want stuff so far outside that copy editors, regular editors,
+
+22:28.320 --> 22:32.960
+junior developers can't really participate without like, you know, really ramping up their
+
+22:32.960 --> 22:38.080
+technical skills. But you don't want stuff so inside the CMS that it really, you know, limits
+
+22:38.080 --> 22:43.440
+what you can do. And so I this new system is going to allow an opportunity for us to kind of
+
+22:43.440 --> 22:50.240
+try to rebalance how that workflow works and how those tools work. And that's going to be kind of
+
+22:50.240 --> 22:54.320
+a challenge for us to sort out in the coming years, which I think there's definitely some good
+
+22:54.320 --> 22:59.920
+potential for to improve the status quo. Yeah, absolutely. Well, Ben, thanks so much
+
+22:59.920 --> 23:04.240
+for coming on the show and great work in 2017. And I'm looking forward to see what you all come
+
+23:04.240 --> 23:08.960
+up with in 2018. Of course, thank you for having me. And thanks to everyone for tuning into this
+
+23:08.960 --> 23:13.920
+week's episode, I will of course post links to all the stories that Ben talked about. I hope you'll
+
+23:13.920 --> 23:18.720
+take some time to check out the LA Times stories. If you're on the East Coast, we tend to sometimes
+
+23:18.720 --> 23:24.720
+neglect those folks working all the way out three hours behind us. But I'm a big fan. And I'm sure
+
+23:24.720 --> 23:28.960
+you will be too if you take a look at it. So do get in touch if you have comments or questions
+
+23:28.960 --> 23:33.360
+or suggestions for other guests. So until next time, this has been the policy of his podcast.
+
+23:33.360 --> 23:43.680
+Thanks so much for listening.

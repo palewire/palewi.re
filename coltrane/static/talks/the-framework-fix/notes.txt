@@ -1,0 +1,178 @@
+The framework ﬁx
+How to build better archives by helping news nerds help themselves
+My name is Ben
+Sometimes I go by @palewire
+   All my slides are belong to
+
+bit.ly/frameworkﬁx
+I work for @latimes in
+                                  #DTLA
+    Despite what you’ve heard, it’s still standing
+Our team is called the Data Desk
+     We take data and turn it into news
+ Analysis that
+makes an impact
+Apps that serve
+ our audience
+Tools that empower
+  the newsroom
+Experiments that
+push the envelope
+         That means we write code
+And approach problems using the tools of web development
+HOW’D YOU LEARN ALL THAT?
+Can you keep a secret?
+I know you can.
+I’m a fraud.
+At least pretend to be surprised.
+ That’s because of frameworks
+Open-source development systems that simplify common tasks
+THERE ARE A LOT OF THEM
+                 THEY DO THINGS LIKE
+Payment processing            Analytics                      Authentication
+                                            Compression
+   Handling web requests                            Working with a database
+                                          Tasks
+      Security
+                       HTML templating               Performance optimization
+Geospatial analysis
+                                APIs
+             Error handling               Logging        Varied environments
+                                Caching
+User-generated content                        Photo and video management
+
+                  Internationalization                       Testing
+  Sessions                                  Deployment                  Data entry
+We see something missing!
+ARCHIVING!
+We need to meet the nerds where they are
+            And
+            And that’s
+                that’s out
+                       out there
+                           there solving
+                                 solving problems
+                                         problems with
+                                                  with their
+                                                       their frameworks
+                                                             frameworks
+Framework for building websites
+Framework for building websites
+
+
+Created at Kansas newspaper
+Framework for building websites
+
+
+Created at Kansas newspaper
+
+
+Used by Instagram, Pinterest,
+Mozilla, Disqus, Wikileaks,
+Los Angeles Times, many others
+Framework for building websites
+
+
+Created at Kansas newspaper
+
+
+Used by Instagram, Pinterest,
+Mozilla, Disqus, Wikileaks,
+Los Angeles Times, many others
+
+
+Modular design for plugins
+Standard for a time-based Internet
+Standard for a time-based Internet
+
+Rules for how servers, browsers,
+apps can publish and access
+previous versions of a URL
+Standard for a time-based Internet
+
+Rules for how servers, browsers,
+apps can publish and access
+previous versions of a URL
+
+Designed by Los Alamos lab and
+nerds in this room
+Standard for a time-based Internet
+
+Rules for how servers, browsers,
+apps can publish and access
+previous versions of a URL
+
+Designed by Los Alamos lab and
+nerds in this room
+
+Adopted by archive.org, Library of
+Congress, others
+Framework for building websites
+
+
+Created at Kansas newspaper
+
+
+Used by Instagram, Pinterest,
+Mozilla, Disqus, Wikileaks,
+Los Angeles Times, many others
+
+
+Modular design for plugins
+Features shortcuts to make
+implementing Memento easier
+Features shortcuts to make
+implementing Memento easier
+
+
+
+
+And this easy to install...
+$ pip install django-memento-framework
+django-memento-framework.rtfd.org
+http://bit.ly/wordpress-memento
+Integrates archiving tool with
+popular frameworks
+Integrates archiving tool with
+popular frameworks
+
+
+Not too hard to install
+Integrates archiving tool with
+popular frameworks
+
+
+Not too hard to install
+
+
+
+Self-archiving sites will make the
+whole system stronger
+Obscure code lost in the sea of the
+web
+Obscure code lost in the sea of the
+web
+
+
+Developers must seek and
+implement this solution
+Obscure code lost in the sea of the
+web
+
+
+Developers must seek and
+implement this solution
+
+
+Frameworks strongest when they
+silently implement best practices
+     MUST
+
+
+
+
+WE          DO MORE
+THE END
+  All my slides are still belong to
+
+bit.ly/frameworkﬁx

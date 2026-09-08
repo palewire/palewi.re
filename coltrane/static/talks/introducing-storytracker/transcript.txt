@@ -1,0 +1,378 @@
+[00:00] Hi guys, hey Ted. So this has been a fun little trip for me to try to
+[00:07] parachuting into your world and I really had a lot of fun listening and I just
+[00:11] I'm gonna take a few minutes to walk you through something kind of weird in mind
+[00:15] all right we're gonna call it story tracker what is it well first who the
+[00:19] heck am I my name is Ben Welsh I sometimes go by pale wire online I'm
+[00:25] originally from Eastern Iowa and at one point in my life I was a student here at
+[00:30] Mizzou and I've had a real fun time the last couple days coming back to check in
+[00:34] on everything I'm pleased to see Jesse Hall still there the J school's gotten
+[00:38] bigger there's a thing now called alley a that I've learned about which is
+[00:42] pretty exciting and it's been I'm now discovered I've turned into that old
+[00:47] crank who leads his wife around his college campus and it's like you know
+[00:50] things just ain't what they used to be and that's kind of said it's been fun
+[00:54] for me the last couple days to grow in that way and also my day job is in Los
+[01:01] Angeles where I work at the LA Times and I'm one of those nerds in the newsroom
+[01:06] who does a little bit of computer programming a little bit of writing and
+[01:09] tries to take data and flip it around and do stuff with it to make news writer
+[01:14] to make stories happen to make web applications happen to make graphics to
+[01:18] do stuff with data right and so that means that I have to I do a lot of
+[01:23] computer programming which I started to learn here at Mizzou thanks to irie
+[01:27] night car and their program there which I would really recommend and one thing
+[01:31] I've always loved about newspapers since I was a really little kid is big blowout
+[01:35] front pages right who doesn't love them and here's one of the most famous ones
+[01:39] in LA Times history and when you talk about archiving this story you know in
+[01:43] the database that might go into in the metadata and all the things that we're
+[01:47] discussing at this conference right you can easily imagine what would go into
+[01:51] the database there's a headline there's a pub date there's a byline there's the
+[01:55] big blob of text that it is everything that went into the story but one thing
+[02:00] that sometimes isn't captured or that is sort of the the intangible thing or the
+[02:05] thing that isn't always in the metadata that's really powerful about this front
+[02:08] page is the design right it's the layout it's the big block headline it's the
+[02:14] context of knowing that's not normally what the front page looked like which is
+[02:18] sort of an unwritten part of the design that's in there as well and that's
+[02:22] something that's just special about newspapers right and that's why we love
+[02:25] these big front pages like that and you know I work on the website and I'm a
+[02:29] computer nerd and I think sometimes that's often true about news home pages
+[02:33] in the same way that in the home page is embedded a design that is part of the
+[02:40] message right in that layout of how the page is done and I really started
+[02:45] thinking when the Egypt thing was happening a couple years ago and
+[02:47] everybody was doing these big crazy home pages to try to communicate to
+[02:52] Americans what a big deal this thing was that was going on over in Egypt that
+[02:57] wow I don't think that part of news presentation online is necessarily all
+[03:03] that well captured and I started really thinking about it and I took a bunch of
+[03:06] screenshots myself just by hand with a little drag-and-drop just for fun and I
+[03:11] started thinking back to another event which is one of my favorite news home
+[03:14] pages from a couple years before you guys remember balloon boy this was the
+[03:18] hoax news story in Colorado about Falcon had supposedly lifted off air I was
+[03:23] having a bad day at work that day you know I was kind of down and then this
+[03:26] happened and it really rose you know brought my spirits back up and so I'd
+[03:30] taken this screenshot at the time but what then when the Egypt thing happened
+[03:33] and I was really kind of thinking about are we saving this stuff I went to the
+[03:37] Internet Archive which is one of my favorite sites in which I direct every
+[03:41] investigative reporter I work with to to dig stuff up all the time I said I
+[03:45] wonder if they captured balloon boy because it was such a great moment for
+[03:48] me and it wasn't there and you know it's not any fault of theirs they have this
+[03:53] big broad mission the entire goddamn internet you know what I mean they can't
+[03:57] get everything and to catch every little thing especially the fun screw-ups on a
+[04:04] news home page you'd have to be hitting that thing all the time right because
+[04:08] these things are changing more and more and if you any of you working in
+[04:11] newspaper website you know that there's pressure to get that thing just
+[04:14] churning because you want people who come back to feel like they're getting
+[04:18] something fresh you want to trick the search engines into thinking you got you
+[04:21] know fancy fresh news by putting it there because they waited and there's a
+[04:25] whole game that goes on in newsrooms to keep that thing moving I just started
+[04:29] thinking I wonder if we could watch that or track that and since I'm a computer
+[04:32] nerd I decided to try to write some code to do it and I made a website the
+[04:38] websites called past pages org and Edward explained it a little every hour
+[04:42] it goes to about a hundred news home pages all around the world and it just
+[04:47] takes a picture all it does is the server which you know just has a little
+[04:50] web browser inside of it and it fires it up it waits for it to load it takes a
+[04:54] picture and it saves it I said so it can be done even I can do it right in my own
+[04:59] crappy code in my crappy website which I then put all up online and that was
+[05:05] kind of fun that was like a fun weekend I had hacked this thing that did
+[05:08] something that was cool but then the bill came well how am I gonna pay for
+[05:13] this or even should I pay for it and is it worth saving or keeping does anybody
+[05:18] want it like I don't know but I knew I wanted to make the point that we should
+[05:22] be saving these home pages because they carry really important editorial
+[05:25] decisions they reflect the hierarchy and the choices made by news gatekeepers
+[05:30] and I didn't think they were getting saved often enough so I did a
+[05:33] Kickstarter and I really did not think I'd raise any money right I just figured
+[05:38] this is gonna be so I can tweet it out and make a bunch of noise and be like
+[05:41] we should be doing this right and then I was I got shocked to actually raise the
+[05:45] money so I had to figure out what the hell I was gonna do right and so so the
+[05:51] money paid to keep the website up for a little while longer and I tried to start
+[05:55] talking to different people and figuring out well is this something we
+[05:58] should do or not do or what what have I stumbled into and and in that course I
+[06:04] ended up talking to some people here at the Reynolds Journalism Institute Randy
+[06:07] and Edward just about like hey what do you what do you guys think of this you
+[06:11] have this new archiving mission this fit what you want to do and they were like
+[06:15] yeah maybe sure let's try something right you know let's let's yeah and so
+[06:21] what we tried is what I'm here today to unveil which is a new what well in these
+[06:25] backup sorry so the screenshots are good right so when you take a picture when
+[06:29] this is from past pages it looks good right but it's just like a flat stupid
+[06:33] image right it's like a you know and you can't the data inside of it is just all
+[06:38] kind of flat you can't really parse it out very well right but of course inside
+[06:42] the web page is the HTML right which contains all of the layout and code
+[06:48] there's that big headline that big headline right there is that h1 tag
+[06:52] right there right and there's the style files that kind of do all that layout
+[06:55] and make it happen and we you know we quickly realize in our conversations if
+[07:00] we want to get if we really want to analyze what the choices are what's
+[07:03] going on we got to get beyond the image we got to be able to get into that data
+[07:07] that's the HTML like they do at the Internet Archive and start to analyze
+[07:11] that and so we came up with this new idea story tracker which is really kind
+[07:15] of an experiment and it's hitting sort of version 1.0 today where I'm going to
+[07:19] show you some of the features we're going to talk about what it does what
+[07:22] we're trying to do and then you can tell me what sucks about it and how we can
+[07:25] make it better okay so that's going to be the rest of my spiel so as of today
+[07:30] you can go to your terminal and there's going to be code guys just a little and
+[07:34] I think I'm the first one to show code which I always love I'm really proud of
+[07:38] that so if you were to go to your computer terminal this is going to be in
+[07:40] the Python programming language which is not as scary as it sounds and you could
+[07:44] just with one command install our friend story tracker right and then once
+[07:48] you have an install it's just a simple library that takes some of these tasks
+[07:52] and things we want to do and tries to make it easy so the first thing it does
+[07:55] is just a really simple archival system you know before we can analyze the HTML
+[08:00] on the page we got to download it we got to save it we got to put it in the
+[08:02] place we can do so with one little command like this you can download any
+[08:07] page not even a home page really any page right it'll archive it in the
+[08:10] structured way zip it up and say so st. Louis post-dispatch right this is going
+[08:15] to be our example from a couple days ago this was their home page and then it has
+[08:22] code it's then going to fire up HTML inside the system and extract all of the
+[08:27] hyperlinks that appear on the page so you're able to take out of any of the
+[08:31] home page zip out all the hyperlinks and dump those to a spreadsheet but it
+[08:35] doesn't just take the hyperlinks out which really any parser can do that's
+[08:38] really pretty elementary parsing thing like here's the URL here's the headline
+[08:43] that was inside of it right that's pretty easy to do but what we're also
+[08:46] doing is the code is leveraging some browser simulators to actually fire up
+[08:52] and render the page just like the image does right and pull out where it is on
+[08:59] the page so where did this link appear how big was the font what box is around
+[09:05] right is it does it jump to a story or does it jump to a section front or an
+[09:11] advertisement or something the system estimates not to be a story so in
+[09:16] addition to parsing it it's going to pull out all this other metadata about
+[09:19] the layout on the page the treatment and prominence it's given and then whether
+[09:23] it's not not it's a story and then that gives you then structured data that
+[09:28] will allow you to analyze how the page was laid out in a way that's a little
+[09:32] more sophisticated right and so that is kind of the intel inside of the code
+[09:38] that we've made and then what's coming next is the sort of some basic examples
+[09:42] of what you can start doing once you once you get there so the first thing
+[09:46] you could do is you can highlight where the stories are and stories aren't right
+[09:51] and you can overlay on top of a page or really anywhere you wanted where these
+[09:56] stories are and that's what we kind of pulled out and it just will create an
+[09:59] image like this for you on the fly and then you can take multiple screenshots
+[10:04] and start to like automatically make an animated gif just like of cats or of
+[10:08] anything else on the internet right that's showing those changes over time
+[10:13] on the page so one line of code boom you got it right then you can say even track
+[10:20] an individual story over time and see how it moves down across the page and
+[10:26] that's not just something you can spit out as an image you can then also extract
+[10:30] that data and automate analysis of the quantitative data that comes with it
+[10:35] right in addition to visualizing it and that is what really gets me excited it's
+[10:39] you know beyond making a goofy little gift you can start to run this at really
+[10:44] large databases of home pages and ask them interesting questions so I did a
+[10:49] little case study right and our case study today of what you could do with
+[10:53] something like this is one of my favorite websites of course the drudge
+[10:57] report is everybody know the drug report I think you probably do the key thing to
+[11:01] know about it for this example is that it doesn't write very much original news
+[11:05] it's mostly links to other third-party sources but it's such a popular aggregator
+[11:10] homepage that many many people come here and click on it so the selections they
+[11:14] make has a large influence on media stories to get attention right and that
+[11:19] leads me to and so and also past pages archives that every hour not just the
+[11:24] screenshot but now thanks to story tracker for several months it's also
+[11:27] been archiving the HTML and so we can lean on that database that we've
+[11:32] created of archives things over the last couple months and ask and answer a
+[11:36] question right and this is what's gets me it gets me excited because when I was a
+[11:41] graduate student at Mizzou I had to do a content analysis right to earn my
+[11:46] master's degree and that involves studying newspaper coverage of political
+[11:50] candidates and I was so boneheaded at the time I literally went through and
+[11:55] counted them like by hand and it took me a week to do all the bean counting
+[12:00] necessary to run a story to answer a question like who did Matt drudge say
+[12:04] linked to the most and and but when you have that all automated and you're able
+[12:09] to quickly run through it you can answer that question I literally did this case
+[12:13] study in about 30 minutes on Saturday afternoon because the date is there the
+[12:17] codes there that's able to run through and do it she just kind of piece it
+[12:20] together and you slap it out so November 4th was the election right the midterm
+[12:25] election big day for Matt drudge right our study is going to take the previous
+[12:30] seven days of home pages of the drudge report for that period and in there
+[12:35] there's 97 archives that were taken down by the past pages system I fed those in
+[12:39] the story tracker had it extract all of the unique URLs that ever appeared in a
+[12:44] home page because it doesn't necessarily change all that much from hour to hour
+[12:47] but over time you're going to have quite a bit of turnover of the links so 953
+[12:52] distinct links appeared on the page in that period now if you use the drudge
+[12:55] report you know that the bottom half of the page is just a bunch of filler right
+[12:59] it's the same links to the same people that never change doing an analysis you
+[13:03] so for do any meaningful analysis you have to be able to subtract out which
+[13:07] ones are stories in which one aren't guess what story tracker does that for
+[13:11] you right with the estimation we do based on the URL of what's not a story
+[13:14] so of those 953 links 448 are estimated to actually go to new stories distinct
+[13:21] links right and of those there's one hundred and forty two different news
+[13:24] domains so over a seven-day period prior to the election
+[13:27] Matt drudge linked to about a hundred and forty two different news sources but
+[13:31] who got the most links any guesses
+[13:37] okay Washington Post is one guess Fox News okay CNN okay AP I love this this
+[13:48] is like my alright well let's see so let's do the countdown number ten
+[13:52] number nine USA Today right followed by the hill.com believe it or not which
+[13:58] does a lot of coverage of what's happening in Washington there's a tie
+[14:01] there's a followed by a three-way tie between Politico and two British
+[14:06] tabloid newspapers right maybe surprising number four the New York Times
+[14:12] didn't do so hot number three is the Washington Times right-wing paper in DC
+[14:18] and then we actually have a tie for first place between the Washington Post
+[14:22] and believe it or not Breitbart.com which people who if you guys know what
+[14:27] that is Breitbart.com was a new startup founded by a former person who worked at
+[14:30] the drudge report and they have connections and so they get lots of
+[14:34] links which is something you don't you can't really prove or know until you
+[14:38] quantify it in this way so this is not some amazing awesome study that proves
+[14:41] anything but it just shows that when you're able to automate your analysis
+[14:46] of those types of choices you can really quickly start to ask and answer
+[14:50] interesting questions you know what I mean you could you could also ask hey
+[14:53] show me every photo of Michelle Obama Matt Trudges ever run might be a thing
+[14:57] that you could also extract right which I think would be a very interesting
+[15:00] photo gallery or you could compare how often different entities or terms
+[15:05] appeared on different news home pages of different outlets you could say how was
+[15:09] Ferguson covered by certain newspapers or broadcast websites compared to print
+[15:13] ones you could start to really kind of put together a more complex analysis of
+[15:17] what type of media coverage there is right and so this drudge analysis I did
+[15:22] was again about a half-hour work the codes also up on github along with the
+[15:25] rest of the past pages stuff and story tracker if you're interested and back
+[15:31] again to our friends the way back machine so let's say oh my gosh Ben if
+[15:34] I'm going to use this that means I have to be archiving all this stuff right
+[15:37] that's a big bunch of work it's only going to be going forward it's no good
+[15:40] but the way back machine has tons and tons of stuff and with a simple one line
+[15:46] of code you can suck in any URL from the way back machine stick it into story
+[15:51] tracker it will this image came right out of story tracker just then creates
+[15:55] it on the fly and you could it could also then parse out all the URLs and do
+[16:00] the same type of analysis over a lot of older sites so you could say to look
+[16:04] back over time and say how has the design of news home page has changed
+[16:07] there are more links less links do they move faster move slower what type of
+[16:11] things do they cover or don't cover could very easily be done by kind of
+[16:15] taking this and pointing at other archives and that type of thing could
+[16:19] potentially be integrated with other sources as well I just wanted to do this
+[16:22] as a demonstration so you know what's next this is just some basic open source
+[16:27] code it's an experiment that we're doing together to try to create something that
+[16:31] doesn't exist and have good is you know that doesn't exist today but it needs
+[16:36] feedback from people like you who know this stuff and want it to be in want
+[16:39] maybe want or don't want things like this to let me know how we can improve
+[16:43] it if we're going to make these efforts and I think that that's the that's the
+[16:46] approach I'd like to take is how can we grow this type of effort we're making
+[16:51] with our GI to make code that does stuff that isn't currently done and
+[16:55] integrate it with different things in the world and the only way that's going
+[16:58] to be useful is if we find people to link up with you know I mean because I
+[17:02] was really inspired by the media criticism work that I did in graduate
+[17:05] school and that sort of thing that's kind of the natural partnerships I've
+[17:08] had in mind but I'm open to anything I'm here just to kind of talk about it you
+[17:13] know I'm really going to that my next push is to try to integrate this further
+[17:16] into past pages so why can't we be automating the type of analysis we talk
+[17:21] about there so that it happens on the fly on a rolling basis in different
+[17:25] interesting ways and I've got a few ideas how that's going to happen in the
+[17:28] next couple months we could we don't have to just output images we could
+[17:32] output SPG files that would allow more interesting animations or people to do
+[17:35] different stuff the system that detects what story or what isn't a story we've
+[17:41] extracted from the library is actually an independent library that could be
+[17:44] used for a lot of different things and I think there's some really cool machine
+[17:48] learning kind of things we could do to take that to another level and then any
+[17:52] other wild ideas that I hear anybody has I'm totally open to and I think would be
+[17:55] cool so that's it that's story tracker it's online today you can go there
+[18:01] there's full documentation of how to use it as a programmer including numerous
+[18:04] examples of it in use and yeah that's it that's your spiel so you can feel
+[18:20] free to tell me it sucks or what you think it's useless or how it could be
+[18:23] more useful or what you just think I'd love to hear it okay we cannot use the
+[18:31] mic thanks it looks great I wonder if so at the Library of Congress that we
+[18:39] collect like election websites from candidates and you know back to in the
+[18:47] late 90s so I wonder if this could if if the if this could be useful for
+[18:55] analyzing things in those archives not that there's really story elements there
+[19:03] but you know there are different other elements well the way it's built it's
+[19:07] it's agnostic to what type of pages being put in you know I mean just all
+[19:10] the examples and the way I've kind of framed the code have been built around
+[19:13] home pages but the code doesn't care you could feed it any set of pages and it
+[19:18] could do the exact same stuff two questions have you thought about applying
+[19:31] this I know that reporters always ask like how do I like figure out a way to
+[19:34] track whether this campaign website has changed over what period of time have
+[19:38] you thought about applying this to that and the other question was do you have
+[19:44] archives going back to what was going on during Ferguson because I was really
+[19:47] curious about the way that the news broke particularly over like st. Louis
+[19:50] today or any of those sorts of things since there's this like meme that
+[19:54] Twitter is much better at covering like this early breaking news and I actually
+[19:58] thought that the media in st. Louis actually did a pretty good job once
+[20:04] this right became national news sure so the campaign question the first one I
+[20:08] actually hadn't really thought about it so you guys are asking it now I think
+[20:11] it's totally plausible and do it you just would need to set up the system to
+[20:15] begin the archiving or you need to plug in somebody else's archive which would
+[20:19] totally be doable I just hadn't thought about it it would work the Ferguson
+[20:23] thing past pages now has 1.7 million screenshots which is kind of scary and
+[20:29] and it includes the whole Ferguson period the images I didn't have the post
+[20:33] dispatch I have an archive that which is just an oversight of selecting the
+[20:36] hundred sites because of the limited funds I have not expanded the number of
+[20:41] sites that it archives a whole lot because everyone I add is just going to
+[20:45] increase the the long-term cost but the screenshots for all the other major ones
+[20:51] are there HTML archive HTML archival win a long line around that same time but
+[20:56] that's only for a smaller subset of the sites but if you had pages or the things
+[21:01] where they're useful you could very easily do that kind of analysis you know
+[21:04] what I mean you could find you could identify certain terms right or a period
+[21:09] of time and you could analyze what stories were given the most prominence
+[21:13] what terms were used to describe it what photographs were chosen you could begin
+[21:17] to start doing that type of work using this and I'd love to make it more and
+[21:21] more useful for that kind of thing because that's that's that's the thing
+[21:23] I'm really passionate about is how do we automate media criticism so we can ask
+[21:28] bigger and more insightful questions yeah I mean just really quickly I think
+[21:31] this is super cool because essentially like what Google started doing is not
+[21:35] just indexing HTML but actually looking at layout and those sorts of things to
+[21:38] seeing that you've built a framework to start looking at that is actually I
+[21:42] think way more powerful than I had actually assumed that this was and if
+[21:46] you're if people are into the gearhead stuff it's actually using a tool called
+[21:49] Selenium so there's a really awesome software tool that is open source that I
+[21:53] just took which is used to simulate websites for testing it so if you work at
+[21:57] Facebook and you make one minor change you could break a hundred things on the
+[22:01] website so there's this these crazy software systems that fire up the site
+[22:04] and click all the buttons just to see what's broken and we're using that same
+[22:09] software for like an entirely different purpose here of simulating the page and
+[22:13] then pulling out the layout yeah and have you extended this to the mobile
+[22:20] world as well I mean since you're getting the style sheets a lot more
+[22:24] people are getting that info you know on their phone right it's totally possible
+[22:29] so past pages only takes one screenshot per hour per site but the HTML when you
+[22:35] open it up saying the tool Selenium I just described so I'm gonna have a fake
+[22:38] browser open it up and render the page you can set how big the browser is when
+[22:42] it opens so you theoretically could identify a set of viewports I guess
+[22:49] would be the technical term right a set of sizes that you wanted the browser to
+[22:53] open up at and render it and then compare those or just do one versus the
+[22:57] other currently I just use the what supposedly the most common one 13
+[23:01] whatever but you could you could take this into the exact same thing for any
+[23:05] size any size that you wanted just by tweaking the code so one of the one of
+[23:12] the things that I've been thinking about and I you know other people have
+[23:17] thought about this too is when we're talking about archiving websites how
+[23:23] often like if you're just gonna do a you know sort of straightforward stupid
+[23:28] right capturing of it but you know in order to save space you kind of have to
+[23:33] be strategic about that right at the same time if you have a breaking news
+[23:37] story and things are being updated really quickly you don't want to I mean
+[23:41] you kind of have to figure out I don't want to miss something really important
+[23:45] right so how would we that's a research question I think you could use this
+[23:49] and other tools to answer you know what I mean I don't know the answer but I
+[23:53] think if you were harvesting the pages very frequently and they're just doing
+[23:56] some basic comparisons of the changes you could pretty quickly identify what
+[24:00] the rate of change is for different news sites and then use that to sort of one
+[24:06] know that and that's it like an academic finding you could have but you could use
+[24:10] that to try to find an optimal time to change it also you could there's ways
+[24:13] you can do it with computers where you request the page you compare to the
+[24:17] previous one if there's no change just don't save it you know what I mean it
+[24:20] just kind of opts out of saving it I think there's also there's compression
+[24:24] tricks that that I'm not using that I think could probably really reduce the
+[24:29] size where like there's tricks for compressing files where you only compress
+[24:33] the change from file to file you don't compress the entire file itself each
+[24:36] time not to get like real geeky that that some people use and other people
+[24:41] don't that reduces the amount of data necessary to save a series of files
+[24:45] which would be a really cool thing to make easier to do yeah I'm not like that
+[24:55] I'd be interested in this at all yes way to go so I have a suggestion question
+[25:05] first I want to call you out to the rest of the people here this is the kind of
+[25:09] person and the kind of interesting stuff that we love it's in that libraries
+[25:14] another archivist should love and encourage and support and foster and do
+[25:18] whatever we can it's the people who are essentially what we call the middleware
+[25:22] people people who are creating access enhanced access points and doing
+[25:30] something creative with it and more importantly he should opening the door
+[25:34] for other people to take his code and do something creative with so the fact that
+[25:38] you're here with a superb app is great but as a symbol for what many people in
+[25:45] this audience want done with their their their archiving and their material
+[25:50] that's your even better example so I just want to suggest another iteration
+[25:56] not for you but anybody who contacts you to build off of there's increasing
+[26:01] interest in the personalization of the web where right depending upon your
+[26:05] cookie array right and geolocation by IP and other kinds of attributes you see
+[26:10] a different web you see a different news you see different stories and you see
+[26:14] different ads and as you know the Internet archives really interested in
+[26:18] political ads as well as other ads and there's a growing interest it's
+[26:23] certainly nascent at the moment to create essentially kind of a honeypot
+[26:28] botnet where there are simulations of computers with different profiles that
+[26:35] are constantly hitting up a variety of sites right to take these kinds of
+[26:38] snapshots and take a look at assessing quantifying just how different is the
+[26:44] web to what the site perceives you to be into the advert side advertisers perceive
+[26:52] you to be I'm just offering that I think it's a great idea I think it would be a
+[26:57] great research question I don't know the scholarly literature of whether people
+[27:01] have you know done thorough studies of that or not but to me that's the kind of
+[27:04] thing I'm excited about where if there's some partnership where somebody
+[27:07] wants to do a study and they just need a little extra programming to kind of like
+[27:11] make it happen you know what I mean we just need to stick a cookie on this
+[27:14] thing and do a loop that the cookies not there right now you know what I mean if
+[27:17] we could figure that out that's the type of thing that I would really love to do
+[27:20] as like a next-gen or a spin-off of this so we have sort of a practical project
+[27:26] that leads to sort of just enough web development to get it done you know and
+[27:30] in the light of ethical considerations I have to raise the point that the
+[27:34] speculation about doing that comes close to what's already being done in a class
+[27:39] of click fraud where people are intentionally hitting up ads with
+[27:44] different profiles in order to gain the revenue from those ads so like all
+[27:49] interesting creative things there are with great power comes great
+[27:54] responsibility okay we're gonna wrap up we're a little bit over

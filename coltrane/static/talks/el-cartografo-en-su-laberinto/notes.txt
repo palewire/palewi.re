@@ -1,0 +1,306 @@
+EL CARTÓGRAFO
+EN SU LABERINTO
+How hack journalists managed to map out
+a local crime database — and how you can too.
+
+
+
+
+                                A remembrance by @palewire
+¡Perdón!
+I can’t speak Spanish, but I am a fan.
+My name is Ben.
+  I sometimes go by @palewire.
+I work in
+#DTLA.
+Our team is called the Data Desk.
+       We turn databases into news.
+That means we write code.
+But we still remember English.
+We make things like...
+TIMELINES
+YOU GET THE POINT
+  (Now back to the lecture at hand.)
+CHECK IT OUT
+http://maps.latimes.com/crime
+LET’S REWIND
+Hey. You.
+Build us a
+crime site.
+
+
+
+                Meredith Artley
+              latimes.com boss, circa 2008
+WHAT WE WANTED
+● Consolidate across departments
+
+   ○ 15 PDs cover 88 cities in LA County
+
+● Be more than a zillion points on a map
+
+   ○ By spotting short term trends
+
+   ○ Giving long-term context
+
+   ○ And grouping crimes into geographic areas
+     people can relate with. (Neighborhoods!)
+WHAT WE WANTED
+● Consolidate across departments
+
+   ○ 15 PDs cover 88 cities in L.A. County
+
+● Be more than a zillion points on a map
+
+   ○ By spotting short term trends
+
+   ○ Giving long-term context
+
+   ○ And grouping crimes into geographic areas
+     people can relate with. (Neighborhoods!)
+WHAT WE WANTED
+● Consolidate across departments
+
+   ○ 15 PDs cover 88 cities in L.A. County
+
+● Be more than a zillion points on a map
+
+   ○ By spotting short term trends
+
+   ○ Giving long-term context
+
+   ○ And grouping crimes into geographic areas
+     people can relate with. (Neighborhoods!)
+WHAT WE WANTED
+● Consolidate across departments
+
+   ○ 15 PDs cover 88 cities in L.A. County
+
+● Be more than a zillion points on a map
+
+   ○ By spotting short term trends
+
+   ○ Giving long-term context
+
+   ○ And grouping crimes into geographic areas
+     people can relate with. (Neighborhoods!)
+WHAT WE WANTED
+● Consolidate across departments
+
+   ○ 15 PDs cover 88 cities in L.A. County
+
+● Be more than a zillion points on a map
+
+   ○ By spotting short term trends
+
+   ○ Giving long-term context
+
+   ○ And grouping crimes into geographic areas
+     people can relate with. (Neighborhoods!)
+WHAT WE WANTED
+● Consolidate across departments
+
+   ○ 15 PDs cover 88 cities in L.A. County
+
+● Be more than a zillion points on a map
+
+   ○ By spotting short term trends
+
+   ○ Giving long-term context
+
+   ○ And grouping crimes into geographic areas
+     people can relate with. (Neighborhoods!)
+You have a right to the
+data.
+
+
+
+
+                          THE LAW
+You have a right to the
+data.
+
+
+
+But the police don’t
+have to automate a
+feed for you.
+
+
+
+                          THE LAW
+That put us here.
+These two departments
+
+
+
+
+Cover 69% of population and
+      89% of territory
+We’ll give a secured FTP
+ﬁle to you, and only you,
+becase you’re the
+newspaper, you asked
+nicely and you won’t go
+away.
+
+
+
+
+                            Los Angeles (city)
+                            Police Department
+We’ll post a ﬁle on the
+WWW, for anybody, because
+then we can point anybody
+who asks for this data at it.
+
+
+
+
+                                 Los Angeles County
+                                Sheriff’s Department
+UH OH
+
+
+ !=
+PLEASE STAND BY
+Back here again.
+Set up server to do the math.
+Per capita for broad context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 6 months
+
+● Divided into neighborhood population
+
+● Results in crime rate per 10,000 people
+
+● Repeat with property crimes
+Per capita for broad context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 6 months
+
+● Divided into neighborhood population
+
+● Results in crime rate per 10,000 people
+
+● Repeat with property crimes
+Per capita for broad context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 6 months
+
+● Divided into neighborhood population
+
+● Results in crime rate per 10,000 people
+
+● Repeat with property crimes
+Per capita for broad context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 6 months
+
+● Divided into neighborhood population
+
+● Results in crime rate per 10,000 people
+
+● Repeat with property crimes
+Per capita for broad context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 6 months
+
+● Divided into neighborhood population
+
+● Results in crime rate per 10,000 people
+
+● Repeat with property crimes
+Per capita for broad context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 6 months
+
+● Divided into neighborhood population
+
+● Results in crime rate per 10,000 people
+
+● Repeat with property crimes
+ Spikes for narrow context
+● All violent crimes
+ Spikes for narrow context
+● All violent crimes
+
+● In each neighborhood
+ Spikes for narrow context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 7 days
+ Spikes for narrow context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 7 days
+
+● Calculate deviation from that neighborhood’s
+  weekly average over last 3 months
+ Spikes for narrow context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 7 days
+
+● Calculate deviation from that neighborhood’s
+  weekly average over last 3 months
+
+● Measure against our editorial standard for alert
+ Spikes for narrow context
+● All violent crimes
+
+● In each neighborhood
+
+● Over the past 7 days
+
+● Calculate deviation from that neighborhood’s
+  weekly average over last 3 months
+
+● Measure against our editorial standard for alert
+
+● Repeat with property crimes
+Wired it up to the web.
+The app stack, roughly
+Every morning.
+THAT’S NICE,
+AMERICANO.
+But we can’t get data.
+We turn databases into news.
+      (You remember this bit.)
+We turn news into databases.
+        (Try reversing it.)
+CHECK IT OUT
+http://projects.latimes.com/homicide
+THE
+END
+Follow us.
+datadesk.latimes.com
+
+@LATdatadesk
+
+
+github.com/datadesk
