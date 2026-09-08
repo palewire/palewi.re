@@ -2274,23 +2274,6 @@
       "snapshot_at": "20260906131347",
       "url": "https://palewi.re/docs/coding-the-news/scripts/week-2/"
     },
-    "https://palewi.re/docs/coding-the-news/scripts/week-3": {
-      "archive_status": "unknown",
-      "archive_url": "",
-      "attempts": 1,
-      "last_check_at": "2026-09-05T19:34:07.970452Z",
-      "last_check_status": "error",
-      "last_error": "Wayback snapshot trailing-slash alias cannot be proven by live canonical links",
-      "last_submit_at": "",
-      "last_verified_at": "",
-      "live_checked_at": "2026-09-08T09:10:15.643217Z",
-      "live_error": "",
-      "live_status": "redirect",
-      "next_retry_at": "2026-09-05T19:39:07.970471Z",
-      "pending_archive_url": "",
-      "snapshot_at": "",
-      "url": "https://palewi.re/docs/coding-the-news/scripts/week-3"
-    },
     "https://palewi.re/docs/coding-the-news/scripts/week-3/": {
       "archive_status": "archived",
       "archive_url": "https://web.archive.org/web/20260516173045/https://palewi.re/docs/coding-the-news/scripts/week-3/",
