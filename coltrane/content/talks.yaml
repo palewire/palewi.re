@@ -302,6 +302,7 @@ talks:
   venue: JSK Connect Master Class
   location: Zoom
   date: '2022-07-22'
+  guide_url: https://palewi.re/docs/first-python-notebook/
 - title: Data Journalism Workshop
   venue: 14East Magazine
   location: Zoom
@@ -383,6 +384,7 @@ talks:
   venue: NICAR21 After Party
   location: Zoom
   date: '2021-03-06'
+  guide_url: https://palewi.re/docs/first-python-notebook/
   video_url: https://www.youtube.com/watch?v=paVSRMTitLQ
   slug: first-python-notebook-nicar21
   local_video_url: /media/talks/first-python-notebook-nicar21/video.webm
