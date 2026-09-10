@@ -736,8 +736,24 @@ def test_talk_list_links_to_archived_external_talk_pages(client):
 def test_talk_list_links_to_related_guides(client):
     content = client.get("/talks/").content.decode()
 
-    assert 'href="https://palewi.re/docs/first-pmtiles-map/"' not in content
-    assert "“First PMTiles Map”</a>" not in content
+    assert 'href="https://palewi.re/docs/first-pmtiles-map/">“First PMTiles Map”</a>' in content
+    assert 'href="https://palewi.re/docs/first-llm-classifier/">“First LLM Classifier”</a>' in content
+    assert 'href="https://palewi.re/docs/first-athena-query/">“First Athena Query”</a>' in content
+    assert 'href="https://palewi.re/docs/go-big-with-github-actions/">“Go big with GitHub Actions”</a>' in content
+    assert 'href="https://palewi.re/docs/first-automated-chart/">“First Automated Chart”</a>' in content
+    assert 'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook”</a>' in content
+    assert (
+        'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook: Data Analysis on Deadline”</a>'
+        in content
+    )
+    assert 'href="https://palewi.re/docs/first-visual-story/">“First Visual Story”</a>' in content
+    assert (
+        content.count(
+            'href="https://observablehq.com/collection/@palewire/first-observable-notebook-2020">“First Observable Notebook”</a>'
+        )
+        == 2
+    )
+    assert 'href="/talks/first-python-notebook-nicar21/">“First Python Notebook”</a>' in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
