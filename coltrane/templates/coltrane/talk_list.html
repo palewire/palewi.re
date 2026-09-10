@@ -66,7 +66,7 @@
             <li class="row">
                 <article class="listitem twelvecol last">
                     <time datetime="{{ object.date|date:"Y-m-d" }}">{{ object.date|date:"N" }}</time> •
-                    {% if object.slug %}<a href="{{ object.get_absolute_url }}">{% endif %}“{{ object.title }}”{% if object.slug %}</a>{% endif %} at {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}
+                    {% if object.slug %}<a href="{{ object.get_absolute_url }}">{% elif object.guide_url %}<a href="{{ object.guide_url }}">{% endif %}“{{ object.title }}”{% if object.slug or object.guide_url %}</a>{% endif %} at {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}
                 </article>
             </li>
         {% endfor %}

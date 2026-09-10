@@ -736,8 +736,9 @@ def test_talk_list_links_to_archived_external_talk_pages(client):
 def test_talk_list_links_to_related_guides(client):
     content = client.get("/talks/").content.decode()
 
-    assert 'href="https://palewi.re/docs/first-pmtiles-map/"' not in content
-    assert "“First PMTiles Map”</a>" not in content
+    assert 'href="https://palewi.re/docs/first-pmtiles-map/"' in content
+    assert 'href="https://palewi.re/docs/first-llm-classifier/"' in content
+    assert "“First PMTiles Map”</a>" in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
