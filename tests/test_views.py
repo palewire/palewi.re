@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "e68e63b83db587a66dc18b1f7d07584dbb38f6bc9ab45d92a25089d7c02b52e7"),
         ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "5cf2b7c52ececf092dfcb87aa609173b37ef95c60863ad28aaff063bdf127b07"),
+        ("/talks/", "840a828c1f939713f05c2e9dac68f970692208dd6f075ecc5310664cf1e8d798"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -648,6 +648,7 @@ def test_nicar21_first_python_notebook_talk_has_hosted_recording_and_transcript(
     talk = next(talk for talk in load_talks() if talk.slug == "first-python-notebook-nicar21")
 
     assert response.status_code == 200
+    assert talk.guide_url == "https://palewi.re/docs/first-python-notebook/"
     assert talk.video_url == "https://www.youtube.com/watch?v=paVSRMTitLQ"
     content = response.content.decode()
     assert "<h1>First Python Notebook</h1>" in content
@@ -736,8 +737,27 @@ def test_talk_list_links_to_archived_external_talk_pages(client):
 def test_talk_list_links_to_related_guides(client):
     content = client.get("/talks/").content.decode()
 
-    assert 'href="https://palewi.re/docs/first-pmtiles-map/"' not in content
-    assert "“First PMTiles Map”</a>" not in content
+    assert 'href="https://palewi.re/docs/first-pmtiles-map/">“First PMTiles Map”</a>' in content
+    assert 'href="https://palewi.re/docs/first-llm-classifier/">“First LLM Classifier”</a>' in content
+    assert 'href="https://palewi.re/docs/first-athena-query/">“First Athena Query”</a>' in content
+    assert 'href="https://palewi.re/docs/go-big-with-github-actions/">“Go big with GitHub Actions”</a>' in content
+    assert 'href="https://palewi.re/docs/first-automated-chart/">“First Automated Chart”</a>' in content
+    assert (
+        'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook”</a> at JSK Connect Master Class'
+        in content
+    )
+    assert (
+        'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook: Data Analysis on Deadline”</a>'
+        in content
+    )
+    assert 'href="https://palewi.re/docs/first-visual-story/">“First Visual Story”</a>' in content
+    assert (
+        content.count(
+            'href="https://observablehq.com/collection/@palewire/first-observable-notebook-2020">“First Observable Notebook”</a>'
+        )
+        == 2
+    )
+    assert 'href="/talks/first-python-notebook-nicar21/">“First Python Notebook”</a> at NICAR21 After Party' in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
