@@ -648,6 +648,7 @@ def test_nicar21_first_python_notebook_talk_has_hosted_recording_and_transcript(
     talk = next(talk for talk in load_talks() if talk.slug == "first-python-notebook-nicar21")
 
     assert response.status_code == 200
+    assert talk.guide_url == "https://palewi.re/docs/first-python-notebook/"
     assert talk.video_url == "https://www.youtube.com/watch?v=paVSRMTitLQ"
     content = response.content.decode()
     assert "<h1>First Python Notebook</h1>" in content
@@ -741,7 +742,10 @@ def test_talk_list_links_to_related_guides(client):
     assert 'href="https://palewi.re/docs/first-athena-query/">“First Athena Query”</a>' in content
     assert 'href="https://palewi.re/docs/go-big-with-github-actions/">“Go big with GitHub Actions”</a>' in content
     assert 'href="https://palewi.re/docs/first-automated-chart/">“First Automated Chart”</a>' in content
-    assert 'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook”</a>' in content
+    assert (
+        'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook”</a> at JSK Connect Master Class'
+        in content
+    )
     assert (
         'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook: Data Analysis on Deadline”</a>'
         in content
@@ -753,7 +757,7 @@ def test_talk_list_links_to_related_guides(client):
         )
         == 2
     )
-    assert 'href="/talks/first-python-notebook-nicar21/">“First Python Notebook”</a>' in content
+    assert 'href="/talks/first-python-notebook-nicar21/">“First Python Notebook”</a> at NICAR21 After Party' in content
 
 
 def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
