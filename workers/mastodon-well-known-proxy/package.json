@@ -14,9 +14,9 @@
     "validate": "npm run types:check && npm run typecheck && npm run config:check"
   },
   "devDependencies": {
-    "@types/node": "26.4.1",
+    "@types/node": "26.6.1",
     "typescript": "7.0.2",
-    "vitest": "5.0.0",
-    "wrangler": "4.131.0"
+    "vitest": "5.0.1",
+    "wrangler": "4.135.0"
   }
 }
