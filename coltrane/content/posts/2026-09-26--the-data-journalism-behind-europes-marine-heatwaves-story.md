@@ -1,12 +1,12 @@
 ---
-title: The data journalism behind Europe's marine heatwaves story
+title: Why marine heatwaves matter
 slug: the-data-journalism-behind-europes-marine-heatwaves-story
 published_at: '2026-09-26T03:00:00-07:00'
 repr_image: https://palewi.re/static/img/european-marine-heatwaves.png
 ---
 <img src="/static/img/european-marine-heatwaves.png" alt="Map of European marine heatwaves made with deck.gl.">
 
-<p>Check out my new story, published today, about how intensifying marine heatwaves are threatening the future of local fisheries across Europe.</p>
+<p>Check out my new <a href="https://www.reuters.com/world/europe/how-europes-intensifying-marine-heatwaves-threaten-its-fisheries-2026-09-26/">story</a>, published today, about how intensifying marine heatwaves are threatening the future of local fisheries across Europe.</p>
 
 <p>It's the weekend's feature from <a href="https://www.reuters.com/world/europe/how-europes-intensifying-marine-heatwaves-threaten-its-fisheries-2026-09-26/">Reuters</a>, assembled by a global team of reporters and editors, and based on my analysis of the rising tide of sea-surface temperatures.</p>
 
@@ -16,7 +16,7 @@ repr_image: https://palewi.re/static/img/european-marine-heatwaves.png
 
 <p>It's the kind of sweep that wouldn't be possible without my many talented colleagues. I'm grateful to Simon Jessop, Kate Abnett, Alexandra Zavis and Rachel Armstrong for dragooning me into their platoon. Maria Alejandra Cardona did intrepid work following the leads pulled out of my spreadsheets along the Cantabrian coastline.</p>
 
-<p>Putting together stories like this isn't my full-time job here in the New York newsroom, where my group's primary focus is on the automation efforts I've written about in previous posts.</p>
+<p>Putting together stories like this isn't my full-time job here in the New York newsroom, where my group's primary focus is on the automation efforts I've written about in <a href="https://palewi.re/posts/2026/05/27/how-we-automate-the-news/">previous posts</a>.</p>
 
 <p>But it's an example of the data journalism that first got me excited about pursuing our craft, where charts and graphs alone aren't enough to make the story, they're just the start. When we follow numbers out into the world, to test their accuracy and discover their stakes, that's when things can really get interesting.</p>
 
