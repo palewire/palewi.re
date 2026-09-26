@@ -454,6 +454,10 @@ code:
   url: https://github.com/palewire/everytractcount
   description: Statistics about every U.S. Census tract mapped by @everytract
   type: inactive
+- title: european-marine-heatwave-analysis
+  url: https://github.com/palewire/european-marine-heatwave-analysis
+  description: Data and code supporting a Reuters analysis of European sea-surface temperatures in summer 2026
+  type: data
 - title: faa-drone-license-analysis
   url: https://github.com/palewire/faa-drone-license-analysis
   description: Who can fly commercially?
