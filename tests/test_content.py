@@ -141,7 +141,7 @@ def test_apps_empty_list_ok(tmp_path):
 
 def test_code_yaml_loads_as_one_alphabetical_catalog():
     projects = load_code()
-    assert len(projects) == 294
+    assert len(projects) == 295
     assert [project.title.casefold() for project in projects] == sorted(
         project.title.casefold() for project in projects
     )
