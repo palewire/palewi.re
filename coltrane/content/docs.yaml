@@ -71,6 +71,11 @@ docs:
   url: https://palewi.re/docs/go-big-with-github-actions/
   repository_url: https://github.com/palewire/go-big-with-github-actions
   description: Scale up your data pipelines using GitHub’s powerful Actions framework
+- title: Truth-Telling 101
+  type: lesson-plan
+  url: https://palewi.re/docs/truth-telling-101/
+  repository_url: https://github.com/palewire/sva-dvc-3342a-truth-telling-101
+  description: A continuing education syllabus for data journalism at the School of Visual Arts
 - title: air-quality-index
   type: software
   url: https://palewi.re/docs/air-quality-index/
@@ -249,6 +254,11 @@ docs:
   url: https://palewi.re/docs/storysniffer/
   repository_url: https://github.com/palewire/storysniffer
   description: Inspect a URL and estimate if it links to news story
+- title: Truth-Telling 101 slide-deck starter
+  type: software
+  url: https://github.com/palewire/sva-dvc-3342a-slide-deck
+  repository_url: https://github.com/palewire/sva-dvc-3342a-slide-deck
+  description: Reusable SVA lecture deck starter built with SvelteKit and Reveal.js
 - title: upload-data-to-biglocalnews-org
   type: software
   url: https://github.com/marketplace/actions/upload-data-to-biglocalnews-org

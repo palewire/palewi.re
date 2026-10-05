@@ -66,6 +66,7 @@ WORKER_ASSET_PATHS = frozenset(
         "/docs/reuters-style/",
         "/docs/savepagenow/",
         "/docs/storysniffer/",
+        "/docs/truth-telling-101/",
     }
 )
 
