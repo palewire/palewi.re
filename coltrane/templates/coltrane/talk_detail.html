@@ -99,6 +99,13 @@
     </section>
     {% endif %}
 
+    {% if object.guide_url %}
+    <section aria-labelledby="related-guide">
+        <h2 id="related-guide">Related guide</h2>
+        <p><a href="{{ object.guide_url }}">Read the related guide</a></p>
+    </section>
+    {% endif %}
+
     {% if not object.deck_url %}
     {% if object.pdf_url or object.notes_url %}
     <section aria-labelledby="slide-materials">
