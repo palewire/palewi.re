@@ -68,7 +68,9 @@ WORKER_ASSET_PATHS = frozenset(
         "/docs/reuters-style/",
         "/docs/savepagenow/",
         "/docs/storysniffer/",
+        "/docs/sva-dvc-3342a-slide-deck/lectures/social-science-in-a-hurry/",
         "/docs/truth-telling-101/",
+        "/docs/truth-telling-101/weeks/week-1/",
     }
 )
 WORKER_RUNTIME_PATH_PREFIXES = ("/media/talks/",)

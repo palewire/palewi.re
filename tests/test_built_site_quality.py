@@ -120,7 +120,9 @@ def test_checker_allows_exact_worker_routes_without_allowing_unknown_paths(build
         """
         <a href="/">Home</a>
         <a href="/docs/first-python-notebook/">Notebook</a>
+        <a href="/docs/sva-dvc-3342a-slide-deck/lectures/social-science-in-a-hurry/">SVA lecture slides</a>
         <a href="/docs/truth-telling-101/">Truth-Telling 101</a>
+        <a href="/docs/truth-telling-101/weeks/week-1/">Week 1 guide</a>
         <a href="/colophon/">Colophon</a>
         <a href="/applications/twitter-style-infinite-scroll-with-django-demo/">Demo</a>
         <a href="/media/talks/bare-facts-first-datawrapper/video.mp4">Talk video</a>
