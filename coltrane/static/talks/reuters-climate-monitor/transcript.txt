@@ -1,0 +1,256 @@
+This is what my wife calls my Bible salesman photo.
+Yeah.
+Accurate, yes?
+Yeah.
+No lies detected.
+So I've got a little presentation here I want to walk you through
+that I think I'm able to click my way to.
+No, wait.
+I'm clicking the wrong slides.
+My friend's in the back.
+Can we flip?
+Anyone else take the Acela up this morning?
+I was on the 5 o'clock from Penn Station.
+So if I get a little delirious, that's why.
+All right.
+We're waiting for the deck.
+We're going to take questions at the end.
+And you can ask me about my presentation, really,
+anything you want to know about Reuters News.
+I work in Times Square every single day, five days a week.
+And there you find the New York newsroom of Reuters News,
+which I think you probably have some familiarity with,
+one of the world's largest news organizations with people all around it.
+And I'm here to introduce you to a new project that we are,
+I think, publicly speaking about for the first time today at this event.
+And we'll launch in the coming weeks.
+This is kind of a sneak peek.
+And we call it the Reuters Climate Monitor.
+So what is that?
+I'm going to talk you through who I am,
+kind of what my team does,
+and then this new approach we're taking towards climate data as we go.
+Please put your questions in.
+All right.
+So I'm Ben Welsh.
+I'm from Iowa.
+Any other Hawkeyes here?
+All right.
+Any other Caitlin Clark fans here?
+Can I go for that?
+Yeah, okay.
+And I've been working at Reuters in New York for three years now,
+and I'm one of these nerds in the newsroom.
+I'm a reporter, an editor, and a computer programmer.
+And I lead a specialized team that works on automating data
+to cover breaking news for our service.
+What does that mean?
+Well, I'll give you an example.
+So our goal is really to build off these types of data applications
+that have become part of news,
+but you might not always think of as software.
+These are the live election results we look at on election night, right?
+I bet people in this room spent a lot of time
+refreshing their local coronavirus tracker, you know,
+when we were in the middle of the pandemic.
+And those data apps have become kind of almost by accident
+some of the most successful things that news organizations publish
+on their dot-com websites and in their apps.
+And what teams like mine at all the different news organizations
+really around the world have tried to do in the last few years
+is kind of retool and create miniature assembly lines
+inside of our information factories
+that kind of manufacture these types of products, right?
+And they're really just automated software systems,
+data pipelines that go to your local election office, right?
+Gather the results, bring them back, clean them up,
+and then put them up on a beautiful map
+before your eyes, right?
+You're familiar with this.
+And that approach works not just for elections,
+but really for all kinds of different stuff.
+And so my group is this new little assembly line inside Reuters
+trying to manufacture as many of those widgets as we can.
+And so like an example that is on our homepage
+like five or six times a week
+is we have all these automations
+that go get the latest economics and financial data
+from like a kind of business terminal type situation
+or a government website.
+And it doesn't just bring them down
+and allow us to analyze them.
+It goes all the way through out into live charts
+that go up onto our website, right?
+So we've got hundreds and hundreds
+of these breaking news automations
+that help us cover markets, economics, public opinion,
+other things.
+And that's been a success for us.
+And so we're trying to,
+and so we try to aim for the biggest stories
+so that when we invest in these automations,
+we can get continual use of them
+and really cover the top stuff.
+So the last few weeks, a lot of oil prices charts, right?
+I've been sitting on our homepage
+coming out of these automations.
+And we're looking to expand that approach
+beyond just stuff having to do with money
+and markets and that kind of thing
+into other major breaking news events,
+which of course extreme weather is a great example of, right?
+And so last year we rolled out a new hurricane tracking system
+that allows us to watch cyclones
+not just around Florida in the United States
+but really in Asia and elsewhere in the world
+so that we're able to cover those events
+kind of as they happen in this same style.
+And our next goal and what we've been working on
+is bringing that approach to climate
+and to the stuff this conference is about.
+So this guy right here, this is my boss.
+This is Simon Robinson.
+Don't tell him I'm doing this.
+And he's the executive editor of Reuters in London.
+And he came to me with a challenge
+which was could our newsroom use data
+and this approach I've been telling you about
+to cover the day-to-day kind of impact of climate change
+because he really saw a kind of gap in our coverage.
+If you think about you have a major heat wave
+in the Mediterranean last summer
+and for us at Reuters that's a big story
+that's going to dominate the top of the file,
+the homepage every day for maybe even a week, right?
+But in that coverage we only have
+the kind of traditional weather and temperature data
+and it just seemed to him that there's this kind of gap
+where the context of climate
+is kind of missing from those major storylines.
+And so his challenge was how could we try to address that
+or could we try to address that?
+And it was the first time I really thought about it
+and, you know, I definitely want feedback from you all
+on how we're doing as we go through this
+because you know more about it than me.
+But it seemed to me that one of the problems was
+is that unlike the stock market data
+or the oil prices data,
+which updates every second, right,
+almost around the clock, right,
+a lot of climate data is a little slower moving, right,
+where it might tell you,
+well, the Earth's temperature was this last month
+or last year, not today or tomorrow, right?
+And a lot of climate data,
+for very good scientific reasons,
+is measured in these kind of arcane statistics
+that aren't how the average person thinks about the weather.
+The average temperature is a great example, right,
+where the most climate goals, as I understand it,
+are set using the average temperature,
+but if I asked any of you,
+what's the average temperature in Boston today,
+you probably never even thought about it, right?
+People think in highs and lows.
+And so my feeling was that if we're going to address this,
+we had to take those things on.
+And so I went out to kind of,
+on a little reporting trip to see,
+could we get faster climate data
+that is in more relatable statistics
+and that isn't just entirely global either,
+but maybe can relate to people like where they live,
+like the weather report does.
+And so we surveyed what everybody else did,
+I interviewed a bunch of nerdy nerds,
+and we found the answer is yes,
+it actually might be possible to pull off such a thing.
+And if you guys want to get into all the details
+of the era five data set and all that stuff,
+I'm happy to go down the road,
+but we kind of came up with a rough methodology
+that we think will allow us just getting started
+in our first steps into this coverage
+to create a daily dashboard
+that automatically compares today's temperature,
+tomorrow's temperature,
+against the historic record,
+against what used to be normal
+before widespread global climate change
+for Boston, for Swisher, Iowa,
+where I grew up,
+for anywhere on earth, right?
+And then deliver a comprehensive view
+of today's, how weird today's temperature is, right?
+The thing we all ask ourselves
+when we're close to one of these events
+by measuring what people call an anomaly,
+just the difference between today
+and what used to be normal.
+And we've created and we're preparing to launch
+a color-coded world map
+that will update each day and highlight right now
+where the most significant temperature anomalies are on earth,
+the interactive controls will allow you
+to search your hometown, where your mom lives,
+wherever you'd like to go,
+whatever you're interested in,
+and find out the differences there
+in the same way that the weather report can.
+We're calling it the Reuters Climate Monitor,
+and we have a prototype
+that this is the screenshot of
+that we're preparing to launch.
+And we were going to try maybe
+to open up the webpage in the back,
+and this is just a quick look at the demo page,
+you know, where you're able to see
+today's kind of forecast,
+the red areas are higher,
+the blue are lower,
+and you'd be able to search anywhere you wanted
+and zoom in and get a report, right?
+We can jump back.
+And that's just the beginning, right?
+So after we get this up and out,
+we have immediate plans to follow on
+with stuff that we hope will make it more newsy.
+We're going to try to calculate the number of people
+living in extreme conditions every day,
+today, tomorrow, the day after,
+so that we're able to roll up
+those summaries of how many million people, etc.,
+into our coverage.
+And that, to me, is delivering that type of context
+that Simon thought was missing from those reports.
+So on the very day that we're writing about,
+an unusual temperature event somewhere,
+we're able to get that context automatically in, right?
+We're going to try to forecast it out
+further into the future,
+and we're going to use this analysis,
+we actually currently are using this analysis
+to kind of fling correspondence around the world
+to areas where we've seen significant climate change
+already bubbling up out of this data
+over the last 30, 40 years,
+and report on the impacts of that.
+And so it's going to serve as a reporting tool
+for enterprise as well.
+I want to hear from you.
+So this is just the very beginning.
+It might seem kind of basic to you guys.
+I don't know.
+I'm curious to learn.
+But in this room with experts,
+I would love to know answers to questions like these
+and how you think a news organization like Reuters
+could and should or ought to better use data
+to cover climate change.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.

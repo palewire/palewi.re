@@ -1,0 +1,854 @@
+Next up, we have our second panel of the day.
+The panel is on journalism with Django, which is obviously where Django came from.
+So please introduce our panelists, who I believe will then be introducing themselves.
+Hello, everybody, once again.
+Because Django came out of a journalism environment, probably for that reason, it's had some uptake
+in the journalism world, and we thought it would be interesting to get the perspective
+of that one type of Django user and how they use it, how they think it can be improved,
+and just any other thoughts they have.
+So we have a number of illustrious journalists who use Django here, and they're all going
+to introduce themselves.
+First, Ben.
+Hi, my name is Ben Welsh, and I work at the Los Angeles Times, where we do some database
+projects for the web, and before that, I worked in D.C. at the Center for Public Integrity
+and kind of came into it through the investigative journalism world like Matt here.
+I guess that's my introduction.
+I'm Matt Waite.
+My title is News Technologist at the St. Petersburg Times, which is to say, if anybody
+knows what the hell I do, I'd love to know, you can tell me later.
+I've used Django for a little over a year now, I've launched two sites.
+My first project, still online, is a project called PolitiFact, which fat checks presidential
+candidates.
+What's the second?
+I'm sorry?
+What's the second project you've done?
+Oh, it was a, we just launched it, it was a real estate, neighborhood-based real estate
+site, where you can, if you live in the Tampa Bay area, you can get a somewhat ridiculous
+amount of detail about how houses are selling and for how much in your very small micro
+neighborhood.
+Cool.
+And Ben, you didn't mention any projects that you'd worked on, so could you just, really
+quickly?
+We've only been doing Django at the LA Times for, since I think about Memorial Day, and
+we've put out three apps since then.
+The first was, we ripped off one of yours, we did a Memorial Day thing about California
+servicemen and women who died in Iraq and Afghanistan.
+We also did dog registrations in Los Angeles, so you could see the most common dogs or look
+up your name and see where they're at and what the most common breeds are, goofy stuff
+like that.
+And then this week, we put out, on a very tight deadline, I'm proud to report, the
+new school scores here in the state of California, so you could see how your local school's doing
+or compare them across the state.
+Cool.
+My name is Maura Chase, and I work at the Atlanta Journal of Constitution, which, if
+you don't know, that was actually where Adrian worked first, but that's another story.
+I've worked there for about a year, and I've been using Django for about two years.
+We don't have, we have a kind of a separate CMS, we don't have Ellington or anything,
+so we build more kind of like site enhancements and special projects in Django.
+Probably our biggest thing is we do all the photo galleries on the site, they get lots
+of traffic, people love to look at photos.
+And I'm Matt Croydon, I'm development manager at Media for Media, which is the shiny new
+name for World Online.
+You know, obviously we're associated with the journal World, birthplace of Django, and
+I've been involved a lot with both the development of Ellington, our content management system,
+and also a lot of database journalism, data visualization projects for and with the newsroom.
+All right, so as I mentioned at the beginning, we're putting this together, putting this
+panel together because Django came out of this journalism environment.
+I wanted to get your thoughts.
+Are you using Django because it came out of a journalism environment, or would you have
+found it otherwise?
+Do we have like extra cred in that world, in your opinion?
+Does it matter?
+How does it help us?
+How does it hurt us?
+What do you think?
+I don't think I should be answering this, so I'm going to pass it off.
+Yeah, Matt doesn't really have a choice.
+I think that I actually used Django before I worked at the paper.
+So I came from Django from a non kind of paper background.
+I think that, I mean, kind of both.
+It definitely has extra credit, because it came out of newspapers, and everyone knows
+about Django and they know about the Lawrence Journal world, so there's obviously great
+reasons to use Django besides that fact, but I think that's definitely a big deal.
+I agree.
+I think it's evolving.
+I think it is both.
+I think it started out as, hey, some other newspaper made this, let's check it out.
+I joke that the reason that the newspaper people use Django is slug fields, because
+it harkens back to hot type.
+I mean, when people set type and put it there were slugs that they use, so that's like comfort
+food to us.
+Oh, look, slug's weed.
+I have seen, just to interrupt, I have seen an uptake in usage and awareness of the term
+slug, like since Django has been released in random blogs, but...
+It's like home cooking.
+Can we swap in TK for null at some point?
+That one's before my time.
+Long story.
+But I would say that the answer to that is a resounding yes, and it may not necessarily
+always be for the best reasons.
+How do ideas spread?
+How do memes happen?
+I mean, there's a degree to which that there's, it's kind of a bad phrase to use, but almost
+a cult of personality that kind of happens to a certain degree, where within the journalism
+world there's this knowledge among managers and among people who run the organizations
+that they need to change, but a lot of them don't really know how, or what that change
+should look like, or how it should take shape.
+And I think when there are people within the journalism community who are at least attempting
+to articulate some version of an alternative or a future, I think that it has more credibility
+than it would comes for outside.
+So I think when Adrian or Rob Curley or whoever shows up on Romanesco saying, this is one
+version of the future, or what I think a possibility for the future could be, I think that that
+carries a lot more credibility than, or it just has a greater chance of propagating itself.
+Another thing that I would mention, and we'll probably talk about this more in a little
+bit, the admin, the auto admin, is just a killer feature for a newsroom because of deadlines
+and it's there, and you get people putting in data right away for free.
+So that's a, yeah, go ahead.
+Deadlines in a matter of hours.
+I mean, yeah, the admin makes that, what I was going to say, when they get the reels
+that go into Ben's point, is that newspaper editors tend to be more fad conscious than
+a gang of tweens at a mall.
+So one person makes something work, they're going to chase it like a herd of kids.
+I saw an amazing slide at a presentation at another conference where it was a picture
+of six year olds playing soccer, and they all bunched around the ball and they just
+chased the ball around like this little mass of kids just chasing the ball around the field.
+Journalism.
+Yeah.
+It's pretty much right there.
+But I mean, and that's flip, and I in a sense agree with it, but I mean that also is an
+opportunity for everybody in this room to do something because you have an audience
+of potential customers who will give you money to do things for them and to come up
+with cool stuff and also be able to put that on a platform where a lot of people will see
+it, which is, I mean, that's a lot of fun.
+And so there's opportunities for, I think, products made out of Django or made from Django
+or I don't know what, to be sold to the newspaper audience because there's competitor products
+that are being sold now that suck and you guys could kick them, you guys could take
+over.
+Like Caspio.
+So, Matt, what was the quickest turnaround ever for a journalism Django project that
+you'd made?
+Four hours.
+When Hurricane Fay looked like it was going to come straight up our tailpipe, I noticed
+that what the newsroom was doing was taking all of this structured information and just
+dumping it in a blog and they were doing it at such a volume that important information
+like which hurricane evacuation shelters were open was rocketing down the list.
+I mean, this is a chronological order blog.
+These shelters are opening.
+That's a life or death thing and in half an hour, an hour, it's six posts down the line
+and it's gone and you can't find it anymore.
+So that bothered me, so I sat down and just quick banged out an app in Geojango actually
+that mapped out where the hurricane evacuation shelters were so you could see where they
+were and which one was the closest one to you and the admin allowed the clerks to just
+start punching in the data and turned out that Fay turned away from us and we never
+got to use it.
+So, yeah, I built one in four hours that nobody ever saw.
+The other Matt?
+I mean, for the longest time, we had the sort of running gag at work of, you know, we'd
+talk about an idea over lunch and by the end of the day, it was launched and, I mean,
+that's pretty common for both the, you know, short turnaround stuff staying up all night
+to get something done for the next day's paper or the next day's news cycle but also just,
+you know, trivial little things, hey, this would be fantastic, let's do it, oh, it's
+done by the end of the day.
+Any particular examples?
+Sorry, I'm blanking.
+No problem at all.
+Have you guys generally found that the workflow is create your models, stick some reporters
+loose on the admin and then they're putting in data while you're working on the views
+and the templates?
+Yeah, definitely.
+It seems like at the general world, we're sort of shifting from, you know, here's my
+data, let's model it in Django apps and, you know, unleash the reporter in the admin.
+These days, we're doing a lot more, you know, looking at the structured data ahead of time,
+you know, get it in a Google Docs or, you know, so that we can get to it via CSV and
+then doing, you know, automated imports or, you know, providing tools for if it's just
+a real simple, you know, tabular or, you know, one thing over time, you know, we have tools
+that don't necessarily require as much programmer intervention as it used to.
+Right, right.
+Ben, how are things at the LA Times?
+Well, I think the admin came in really handy when we did the Memorial Day project about
+casualties in the war where we hadn't done any Django projects before and it was sort
+of I had to sell people on letting us do this and one of the things that made me comfortable
+that we could do it on a tight deadline in a couple of maybe three weeks when it required
+a lot of additional entry and modification of the source data was that I knew that on
+day one, once I had the models up, I could have someone totally independent of me doing
+all that work while the web development was happening and that is, I mean, just a huge
+advantage.
+I mean, I'm sure people here in other circumstances are familiar with that advantage but, I mean,
+it's something that is just peculiarly suited to a newsroom, you know, when things just
+come up quickly and you have to do it, you know, if there was just umpteen examples of
+how you could work with it but I agree.
+So journalists are probably some of the stupidest people technologically who use Django admins.
+Are they taping this?
+So I'm wondering what your experience has been in showing journalists and reporters
+the admin just in general.
+How does it go?
+We'll go over with them.
+On that note, one of my favorite jokes is both Matt and I come out of the investigative
+journalism world where computers were adopted in like the late 70s and early 80s by some
+forward thinking guys who just wanted to do more sophisticated analysis.
+So you want to do like some social science, like heavy duty, like let's get at the data
+from the local courthouse or whatever.
+They learned how to do it and both of us kind of came up trained in that world which kind
+of naturally bridged into this.
+And the really awkward phrase for people to do that which just sounds very antiquated
+today but is a computer assisted reporting which is you know, and I always make the joke
+that it's still around today and it's still used very frequently in our world and it's
+almost kind of embarrassing for us, at least for me it is, because I always think you never
+hear today of a computer assisted photographer or a computer assisted architect.
+You know, it's only in the field of journalism where you still manage to distinguish yourself
+by using Excel but Django has made inroads just in the short period of time we've used
+it with people who aren't necessarily that savvy.
+I mean, it's easier to use as an admin than our CMS or for people who approve comments
+on our sites they use it and they all seem to like it.
+And one of my things I'm most proud of or is just so great is one of the Metro editor
+who I worked with on the Worded thing is not someone who is not very webby but who's open
+to change and who wants to do things and who really has been I think rewarded by the process
+of this project.
+And she came up to me the other day and she said, you know, I'm really looking for something
+else for us to jangify, you know?
+And to me that just felt like a huge victory.
+Yeah, I think the admin feels sort of immediately at home for anyone who's spent any time on
+the internet and so that at our organization the only time that we run into trouble with,
+you know, this is the admin, this is what it does as someone who's just completely unfamiliar
+with computers or has a very limited experience with them.
+So anybody else, it's just like riding a bike.
+When it comes to the admin, I mean, the greatest thing that ever happened for users of the
+admin is like Hotmail.
+I tell people if you've used a web-based email account, you can use the admin.
+You will survive.
+It's just a couple of boxes and you hit save and you're done.
+I have never, I haven't had a single problem with anybody who went, oh, I don't know what
+I'm doing.
+I don't know what I'm doing.
+I mean, the web is so permutated society now that just a simple form, you know, people
+run into them all the time and that's pretty much what the admin is, is a simple form.
+And you actually, as far as how it could be improved, you actually find people asking
+for improvements similar to things they see on more advanced web applications like they'll
+say, gee, could I moderate all these comments in a batch like from the main screen or, you
+know, when you're dealing with the inline changes and all that which I haven't had a
+chance to work with 1.0 much yet but I'm told that there's improvements there.
+I think we have, you know, a CMS and the Django admin is a lot easier to use than our
+paper CMS.
+So people generally like it.
+One of the things that I think that Django developers don't always do is even before
+new forms admin, there's a lot of customizations that you can do to make it easier for people
+to enter things, just grouping fields, help text, things like that.
+So Maura, before we got on stage, you were talking about how you did some training of
+the admin?
+Oh, no.
+I actually haven't done this yet but my idea was to do a screencast or some training and
+just basically talk about the Django admin fields apart from any particular app, just,
+you know, these are the different fields that you'll encounter, you know, a foreign key,
+you know, many to many.
+If it's bold, then it means it's required, if it's not bold, it's not required, that
+kind of thing.
+Right.
+I'm wondering whether we should somehow package that up in a generic fashion, like the, here's
+this, like a, you know, walk through one page at a time, here is a required field that's
+in bold.
+Boom.
+And maybe it's like customized for your data.
+Right.
+Do you think that would be useful?
+I think that would be incredibly useful.
+I think that because I'm so familiar with the Django admin, I just, there's probably
+a lot of things that you kind of take for granted that you already know when you look
+at it that maybe someone new to it, it's not as obvious to them.
+If you teach them, it's like teaching them to fish, kind of, instead of, you know, giving
+them food.
+What are the top admin features that you'd like to see?
+Other than multiple deletion.
+Oh, damn it.
+It's perfect.
+All right.
+Next question.
+Well, I kind of bumbled on this in our earlier conversations, but I don't really know how
+to articulate it either.
+I mean, one of the problems of dealing with data that is in some senses peculiar to journalism
+or is just very commonly found within journalism, if not unique to it, is that you're almost
+always starting with some sort of third party data as like your beginning point, like you're
+starting with the school scores data that's released by the state of California.
+And so there's a series of like cleanup and migration and transformation stuff that you
+almost always have to do when you're dealing with government data just to do the analysis
+to write the story, let alone to build a new web application based on the data.
+And those things just recur and happen in virtually every project.
+And now since Django is so easy, I actually spend much more time preparing the data than
+I actually do developing it for the website.
+And those tasks are things I'm sure people are familiar with, which is just very simple
+things often standardization of mutations and parent-child relationships where you
+still want to maintain the initial relationship that was in the data as you got it from the
+source.
+But for the purposes of, say, a web application or analysis, you want to combine two nominative
+categories, say, like where in the school's data there's a city field in the address that
+the state provides and is commonly filled with misspellings and other problems that
+you don't necessarily want to eliminate because you need to maintain the integrity of the
+data should you ever need to go back to it.
+But you'd like to be able to easily and to be able to do things like that in the admin
+where that could be deputized to someone else while the programmer gets to do the programming
+stuff rather than going through 60,000 dog breed names like I had to do and get all the
+combinations of the things handwritten in the form by the guy who filled it out, you
+know, would be a huge boon.
+What's the data model like for the dog names thing?
+It's actually very simple, the ultimate, what I did is I, since Los Angeles, every
+block having just launched in LA, I'm sure you're familiar with some of the problems
+of gathering public data in LA and one of them is that the bureaucratic topography,
+I guess that you would call it, is just very fragmented.
+It's like, so if you're doing every block San Francisco, I mean, there's essentially
+one city authority that maintains and centralizes all the stuff.
+It's, you know, not unlike a small European country, say, like Sweden or France or something
+where you just go to the government office for each thing and get it, but in Los Angeles
+you have LA City and you have LA County and you have Santa Monica and you have West Hollywood
+and you have Pasadena and you have Long Beach and you have all these places and they all
+have their own police departments and they all have their own, like public health is
+something that was more centralized.
+I think you guys probably had an easier time with that for like restaurant inspection,
+but it varies from source to source and so, say, for the dog's data, it was, like when
+I first moved to LA, I knew I was going to have to learn all this fragmented bureaucracy,
+so let's just start putting in public information requests and try to learn LA County.
+And I think that that set ended up being maybe 10 different public information requests that
+came back in different CSV files, which I then combined into one large table, which
+I did sort of the cleaning and the standardization process on, which then once that was complete,
+was migrated into a Django app afterward, but if all that stuff, the standardization
+that I ended up having to do through SQL and could have been done within the admin
+by someone else, it would have saved a ton of time and labor.
+That would be a cool feature, like it's sort of along the same lines as multiple deletion.
+It's like multiple changing, like if you have John and Johnny and you want to combine those,
+like filter, show me all the John and Johnny and just like, okay, change them all definitively
+to John, boom, that would be really, really cool.
+That's just welcome.
+So Matt, wait, you've on Twitter and on your blog in various places always made self-deprecating.
+I'm just a journalist, you know, I'm not a programmer, but Django helps me be productive.
+Why do you think Django lets you be productive?
+A couple of reasons, first of which being Python, being the first language that I actually
+started to learn and actually learned it.
+You know, I'm a knuckle-dragging, mouth-breathing, land-grant graduate from the Midwest, liberal
+arts major, who, you know, the toughest class I took in college was like, you know, 18th
+century English literature.
+So I had no experience with programming, got into database journalism like Ben was describing
+and I realized, you know, maybe I ought to learn a scripting language.
+So people around me that I respected were all talking about Perl, you could do all kinds
+of crazy stuff in Perl and I'm like, okay, I'll give Perl a shot and about three days
+later I'm like, oh, hell with that.
+So then a couple other guys I knew, they were like, yeah, we use PHP to do stuff.
+I'm like, okay, I'll try PHP, again, three days later, oh, hell with that.
+I'll never get that.
+Python was the first language I actually tried and it was like, okay, I want to do this.
+And very early on it was like, well, I don't know how to express that.
+Maybe it should be like this.
+Oh, my God, it worked.
+It just, for some reason, kind of the Python syntax is kind of the way I thought it should
+be.
+And it just did.
+A lot of times it was just, I was a little bit off and it was just a process of learning.
+But the learning curve for me on Python was a lot, lot less steep than it was for any
+of the half a dozen other things I've tried.
+Which made Django a lot easier for me because, you know, I know SQL pretty well.
+So I could look at view syntax and go, okay, I know what this is doing.
+And it just kind of was like, it just kind of went from there.
+The discussion earlier, somebody finally put a name to the way that I learned Django, which
+was the Z-shaped learning curve, where I ran right up against that wall and bounced off
+it hard, kind of went backwards and then started going up again.
+And I've described it to other people who are trying to learn Django as kind of a rollercoaster
+of learning curves.
+You get going up, up, up, up, up, and then you hit the top and you're like, holy crap,
+I can do something!
+And then you go back up again and you just repeat over and over again until one day you
+wake up and you say, oh, I'm going to implement this.
+And you implement it and it works just that fast.
+Just like that.
+It works as you thought about it in your head and you realize, holy crap, the world has
+just opened up to me.
+That was kind of the process of me learning Django, which is just, I think it should do
+this and I think it should be this way and oh my god, it worked that way.
+So I don't know, dumb luck, I guess.
+I think it's really significant that we've got people on this panel that sort of come
+from both sides.
+We have journalists that happen to program because of Django and we have programmers
+that happen to be into journalism and have learned a lot about journalism because of
+Django.
+I don't know what it is, but I think it's significant that sort of we've got Django
+in the middle bridging these two very, very different sides of what's going on.
+Anything else on that topic?
+What do you guys absolutely hate about working with Django or at least dislike?
+I hate the feeds framework.
+The syndication feeds?
+Yes.
+And we are using 096 at work and we'll upgrade to 1.02 and I know there's been some improvements,
+I haven't used it very much, but I mean, have you ever thought of making it more like a
+generic view or just, I don't know, more?
+It's kind of, I don't know, I hate in the URL comp feed, you kind of like, you kind
+of...
+Feed dicked.
+Feed dicked, yeah.
+You don't have to call it that.
+You can call it flower dicked.
+Well, that's true, but still, nonetheless, it is still the feed dicked.
+Okay.
+I would say one of the most exciting things that, if I paid closer attention, I probably
+already would have known about, but that I saw here this weekend was, I believe it was
+called demigrations yesterday, the ability to change your model without eliminating the
+data was just something that I constantly ran into.
+And if you're learning Django and even learning web development as you kind of do this, as
+you go along, I mean, I think both Matt and I come to Django with a very large data set
+that you want to get online, you know what I mean?
+It's not like a green grass thing where you're going to be building it from scratch.
+And so, as you're learning it, you're making mistakes and you're having to mess around
+with your models and get things straight.
+Having to always like rebuild the data set every time you made that change was something
+that was pretty burdensome.
+PolitiFact was my first project and I was kind of developing it with the Washington
+bureau chief and we were doing a very iterative process, although we didn't know what that
+was at the time.
+We weren't smart enough to know what it was.
+So, he'd call me up and say, okay, hey, I want to capture this information.
+So, I'd sketch out a model or a series of models and related tables and I'd send them,
+you know, go to the admin and try it out now.
+And he'd enter in, actually, he'd report it out, a fact check of something that I believe
+Mitt Romney had said and he'd go, okay, well, I really would, I really think we ought to
+store this information.
+I think we ought to do it or I think we ought to do this other thing and I'm like, okay,
+wipe it away.
+Start all over again.
+And that was fine when it was just one, but then he got kind of excited and started doing
+4, 5, 6, and 10 and then asked me to change something else.
+And I'm like, you know what's going to happen, right?
+He's like, oh.
+And I do it anyway.
+And you know, I've now reached the stage where the editors are coming in like, can we do
+this or that or the other thing?
+I'm like, you realize we have like over seven, we have almost 700 statements in the database
+right now.
+I'm going to mess with it.
+I just don't.
+I'm too scared.
+Just leave it alone.
+It works.
+Don't jinx it.
+All right.
+So, yes.
+Database migrations, okay.
+We actually have a group of Rails developers at the Atlanta Jordan Constitution as well
+and as you know, Rails has migrations.
+And so, you know, I get to hear that all the time.
+So we, we, one of the things I'm actually really interested to look at that I haven't
+yet is Simon's thing about migrations because I think it's kind of grown similar to the
+way we do.
+We have kind of, we do a lot of migrations and they're very, they're just very scary
+when you're doing it on a live production database.
+And so, you know, we kind of store them or for reference in a Railsian way, like I don't
+know if you're familiar, there's like 001 and 002 for your order.
+And then, and then we kind of run them and pray.
+How many people here have written their own migration stuff for Django?
+Impressive.
+Matt, what do you hate about that?
+I hate to beat a dead horse but, yeah, migrations suck and we need to change them.
+What other than migrations?
+I think probably the biggest thing that sucks about working with Django is when you have
+to work outside of Django, that kind of makes everything else that much more sucky.
+Explain that.
+Well, you know, so if you spend all day writing Django and then you have to work within, maintain
+some old Perl code or maintain something that's not Django, it kind of spoils you for everything
+else you have to do.
+I got one, aggregate.
+Something that Ben and I have done a lot with database journalism is aggregates.
+That's pretty much all that you do, is your grouping and counting and summing and sorting
+and averaging and all that stuff.
+And that was a, you know, a stopping point for me was I got in there and I'm like, okay,
+now I want to count all these things and I'm like, where's, you know, where's sales.objects.count?
+Or group by this thing, then count them.
+And yes, you can drop into SQL and do it.
+But boy do I wish there was that one line, group it by this field, count up a number
+of unique things within that.
+I'm definitely encouraged by the fact that a lot of these things that we're griping about
+are things that, you know, if they're not in progress, they're things that we're thinking
+about as a community.
+So that makes me happy.
+Right.
+One of the things, maybe some of you feel my pain, but we only work on releases at work.
+So we only work on Django 1.6 and now we're going to work on Django 1.0.
+And I understand why that wasn't a Django 0.97, but please do not wait so long for your next
+version of Django.
+Okay.
+So that was going to be my very next question.
+You mentioned you're on 0.96.
+Matt, you guys are on 0.91?
+Yeah.
+So we're actually not on 0.91.
+We've got our internal version of Ellington that isn't commercial, that we just use internally.
+It's on revision 12.90 from November 2005.
+But we do, we were six failing tests away from being 100% on 1.0 and launching stuff
+later this month internally and should have commercial offerings by the end of the next
+month or so.
+So yeah, that's been, you know, sort of a situation in particular to us that, you know,
+I have shiny things in new versions of Django that I can't use yet or have to back port.
+That's something that we on the core developer team, you know, just like always run trunk
+and everything.
+I always run trunk on my little work stuff and projects.
+How much of a pain is it?
+I mean, you've already kind of talked about it, maybe the other two guys talk about is
+it really a huge pain to run on trunk?
+In terms of the pointy haired bosses requiring that you run on a release, any experiences
+with that?
+Yeah, when we set up PolitiFact for the first time, they were scared to death of something
+that wasn't 1.0.
+And then I said, well, I'd like to run trunk and they went, oh, hell no, oh, hell no.
+So PolitiFact runs on 9.6.
+Since that actually succeeded and nobody died, you know, the neighborhood watch is actually
+running on the GeoJango branch prior to 1.0 and that was actually the SVN version of that.
+So we've kind of broken through some barriers here at the times where they were extremely
+uncomfortable with things and now it works.
+So they're like, as long as you've got a good reason to do it, we can do it.
+Let's give it a shot.
+So it's, we've, for whatever reason, become more agile when we do that and we're now moving
+every, because we have one app running 9.6, we have one app running a branch.
+We have to have them on separate servers and we want to put them all together, which 1.0
+with the GeoJango Contrib app is a huge deal for us.
+So maybe that's one argument for fewer releases is it encourages work environments to be more
+agile and run Trunk.
+I got to say the last couple of weeks on Trunk have been kind of rough with a really big
+code base and, you know, kind of, you're just recovering from the last big backwards incompatible
+change when, you know, new comments drops or, you know, old forms goes away and you
+realize there's a whole bunch of stuff that you're not actually using but it's still in
+your code base and, oh, yeah, you can't load modules anymore.
+But yeah, overall, I think Trunk has been pretty stable in the last couple of weeks
+withstanding.
+Go ahead.
+I would say that between 0.096 and 1.0, to answer your original question, yes, it would
+have been kind of a painful to run on Trunk at work with, you know, multiple developers.
+Even just for me, and this was a little while ago, even just on my personal blog code, I
+didn't look at it for a while and I pulled it up and was hacking on it and all of a sudden
+form for model was deprecated, you know, that kind of stuff was happening all of the
+time recently.
+So, yeah, it would have been kind of painful.
+I would just say that we're running on 9.6 but our little Django Republic is a guerilla
+republic.
+I mean, in addition to being the only developer, I guess, it being my education and web development,
+it's also been my education server administration where we're working over at Media Temple and
+so we haven't had the same problems in that sense, okay.
+Time for Q&A.
+Any?
+Yeah, Russ.
+Certainly do.
+First one, sort of partial comments.
+One, the aggregation is on its way if you've got use cases of interesting type queries.
+I want so seriously to get this into 1.1.
+God bless you, sir.
+The patch is pretty much ready to go minus a couple of little bit of edits and whatnot.
+If you have interesting use cases of types of aggregate queries you want to do, please
+let us know so we can make sure that we're covering those sort of problems with the
+syntax and there aren't any bugs in those sort of areas.
+The other one, a quick comment was about evolution.
+Again, there's a panelist afternoon.
+We're all going to be talking about it.
+I'm also a little bit amazed that Simon, both by sheer force of personality and the people
+he knows, can release a product three days ago and still get more press than Django Evolution
+which has been around for nine months.
+The question I wanted to ask was about the Web 2.0, Waves Arms Wildly, and journalism
+and the attitude of the organisations you work with and the less enlightened who haven't
+quite drunkled the Kool-Aid yet in terms of mash-ups and pulling information together
+and whatnot.
+You're all with traditional media organisations doing traditional newspapers and that sort
+of thing and you have got journalists presumably not going out and individually interviewing
+dog owners to find out what type of dog they've got, they're scraping.
+There are still newspapers out there that are very much just printing and putting ink
+on paper and you end up with things like the AP coming out and saying, no, you can't quote
+more than four words on your website without paying a licence fee.
+What's the best way to educate the, I mean, it's interesting to me because I work for
+a company that is doing this sort of mash-up integration and doing search, passing links
+back to traditional media organisations who aren't necessarily down with what we're doing
+with their content.
+How do we as a community and just as individuals convince them that this is in their benefit
+and it's in their interest to be into this mass linking, mass building value by putting
+the links between data?
+Here and simply, the economic terms, particularly here in the United States, newspapers are
+hurting bad and if you can go into a newspaper manager and say, if you let us do this, you'll
+make money, done.
+You don't have to say anything else after that.
+I may be slightly oversimplifying it but Ben and I would probably agree with this, not
+that much.
+The newspaper business model online right now is selling advertisers the most possible
+eyeballs in a given day.
+They're selling advertising per thousand page views.
+So if you can show them what you're doing is going to increase the number of page views,
+they're not going to care at all.
+It means money in their pocket and right now, every newspaper company in America could use
+every dollar in their pocket they can get.
+So that's the approach I would take.
+Crass, yes, not very idealistic, obviously, but it will work.
+It will work very quickly.
+And a lot of particularly senior newspaper executives, that's what they'll understand.
+This whole idea of sharing information and extracting more meaning out of disparate data
+and somehow coming to some greater understanding, it goes right over their head.
+Say you're going to make more money if you let us do this, done.
+Any ideas on how to get their ears in the first place?
+Well, Adrian, you just had some success getting every block on the Chicago Tribune's website
+and the Chicago Sun-Times website, right?
+How did that happen?
+So it's sort of a special case because I knew some people there and they're interested in
+the project.
+There was some knowledge of the fact that the project existed.
+In my own experience, it's frustrating and it's difficult, and I've just had some lucky
+chances to work in places where there's been some clued in people.
+All right, Jason.
+You want to go first?
+You're first.
+All right.
+So just backing up what Adrian was saying earlier about journalists being some of the
+most technologically backwards people you can possibly work with.
+I work at a school of journalism and you want to sell them on this Django thing and they're
+going to come in and say they have to type in an href equals blah, blah, blah, and they're
+going to run screaming back to WordPress.
+So implementing without TinyMCE is kind of not an option.
+If you want to do these four-hour projects and you sort of got to go get the project
+and get it all installed, the way I'd love to see things work would be one line in the
+settings file would pull out a contrib thing and every text field would just have it.
+But part two to that is not just kind of a TinyMCE that we see, but a toggleable field
+so you can toggle between visual and HTML for when it screws up and have it nice and
+clean.
+So, you know, look to recent versions of WordPress, they do that really cleanly.
+Yeah, I don't let people use HTML because they know a little bit of HTML would be just
+enough to be dangerous.
+Yeah, I think that the right place to put that would be in the new admin classes.
+Use MCE equals true or, you know, whatever in order to automatically do it for every
+text field.
+Oh, yeah.
+I mean, I've done TinyMCE in Django, it's pretty easy.
+And doesn't TinyMCE have a thing where it can toggle itself, like within its...
+The default version, if you switch out to HTML mode, it brings up a separate window
+and you get this tangle of spaghetti code.
+If you look at the equivalent thing in WordPress, you just get nice clean text with just the
+minimal amount of formatting.
+Wishlist.
+Cool.
+Yeah, over there.
+This isn't really a Django thing, it's more content type inside of a content management
+system inside of a traditional newspaper, something I've been obsessed with since probably
+my second year of college.
+How do you take categories like front section, local, national, sports, and then push that
+onto a better situation on the web?
+So you have items like stories, multimedia, video, and then you have categories tagging
+and everything like that.
+How do you end up keeping everything flat enough so that way it makes sense to the traditional
+editors but yet makes sense inside the database as well?
+I think the honest answer is no one's really figured that out yet.
+I mean, pull up any newspaper.com and ask yourself, did they really figure that one
+out?
+And I think the answer is no.
+I heard somebody describe newspaper websites as being a giant ball of mud that we're just
+packing on more stuff and it's just accumulating over time until it just grows and grows and
+grows.
+So maybe Matt has a better answer than I do, but from what I can see, no one's answered
+that question satisfactorily yet.
+If they do, they're going to make a shitload of money.
+Yeah, I mean, on the technical side, categorize everything, tag everything, do it in a generic
+way, and then build some utilities that help you pull stuff out.
+I mean, we've got some stuff in Ellington that makes it easy to sort of bring up, show
+me all of the content for this section, show all of the content for this category.
+And it really only works that way because everything's categorized and once you talk
+about user-generated tagging, everything's tagged, aggregate that stuff and do good visualizations
+on that.
+I just quickly want to say thanks to Ben and his team for the best internet black hole
+of the last two weeks in the dog project.
+What's your dog's name?
+Scruffy.
+Scruffy.
+And how popular is Scruffy?
+I didn't put him in because you guys just included LA County dogs.
+We're unfortunately just south of the border by like 300 yards.
+You're an OC?
+Yeah.
+Okay.
+Well, thanks for using the site.
+I appreciate it.
+It was fabulous.
+I have a real quick thing to talk a little bit about the syndication framework.
+Actually, if you dig into it just a little bit, you'll notice there's a views.py file
+and it literally is just a generic view.
+So outside of any problem with regards to how you deal with the like data and making
+nicer feeds and whatever, if you're frustrated with how it forces you to deal with like
+where data's coming through in my projects, personally, I've just ripped out that view
+and I wrap it in other views and just throw it around anywhere.
+Yeah.
+I guess my beef is really that the way, the default way that you're supposed to use it
+that's presented as a bit and ideal.
+Right.
+Default way is just totally broken.
+One more question.
+This isn't necessarily Django related, but I was wondering if the four people on the
+panel could talk a little bit more about kind of the newspaper's decline that we're reading
+a lot about and how you guys see just technology and, I mean, you guys are kind of on the front
+lines of that.
+So what do you see it and how do you see it and I'd love to hear about that.
+I think-
+In 15 words or less.
+In 15 words or less.
+I think that Matt kind of really touched on what it's all about right now is page views
+equals dollars, which is unfortunate.
+I think that has some negative effects on journalism because what people want to see
+or read is maybe not the most, you know, high-brow journalism.
+I mean, people love pictures of celebrities.
+We have lots of pictures of celebrities and they get lots of page views, which is dollars,
+but I don't really consider that journalism.
+Yeah.
+If you would have found us at the bar last night, Ben and I were drinking and talking
+about this in that particular order.
+I think what Ben and I want to believe and what I think some of the things that we're
+doing and the things that Adrian are doing is that we are hoping against hope that a
+new model, a new business model for journalism can arise from some of the things that we're
+thinking about and doing and trying out and experimenting with that gets away from this.
+The more eyeballs wins idea that if you can sell an advertiser a specific piece of geography
+that they happen to that, you know, 80, 90% of their customer base is in, that should
+have value to them beyond just a thousand random page views that could come from anywhere
+in the world.
+So while as journalists, there's this Chinese wall between the business side and the
+journalism side, so I can't just walk into the advertising side and go, hey, let's tell
+me how to make money and let's just start doing it.
+But I can talk to my bosses and they can talk to their counterparts and we can start trying
+to push these ideas.
+It's way too early to know if that's actually going to succeed, if the bottom won't fall
+out long before it does, but that's not to say that there aren't people trying to work
+on it, that there are good and useful and not involving Lindsay Lohan things that we
+can do to inform our citizenry, inform democracy, not to get too high headed here about it,
+but that should have value and we need to build a business model around that.
+The problem is it's not there yet.
+It's not close.
+Yeah, I think working within the existing page views equals dollars framework that while
+potentially broken is what we've got right now.
+I think one thing you can really do is if you're doing those investigative journalism,
+data visualization projects, make it freaking compelling and make it really relevant to
+your audience.
+I mean, you can take something from a national data set and put a local spin on it and another
+thing you can do is get something that is continually updated, something that people
+will come back to and that'll let you sustain the financial side of it and so hopefully
+do enough of those and people will stop asking you how your journalism is making money.
+Is that a problem?
+One other thing to that that I learned particularly with doing PolitiFact and kind of increasing
+the amount of traffic that you get to your site is, you know, PolitiFact is my first
+project.
+I never had to worry about, you know, Google search engine optimization, but I learned
+and I put it in there and that's now paying off hugely and that 80 plus percent of the
+traffic that we get comes in sideways, it doesn't come through the main page.
+I learned how to make widgets, embeddable widgets that other people can embed on their blogs
+and their sites and you can put our content any old place you want because the links come
+back to us.
+A Twitter feed, what else have we done?
+Google custom homepage gadgets, any, I just did an iPhone, a quick and dirty iPhone thing
+because we found out that PolitiFact gets like 40 percent of all of the mobile traffic
+that any of my newspaper company sites get and 85 percent of that traffic is iPhones.
+So hell with it, I'm making me an iPhone app, took me a couple of hours of the, by the way,
+if anybody's trying to do this, IUI, which is a JavaScript and CSS library is awesome.
+That's my short commercial because I used it.
+One of the interesting things about, I'm totally ripping this off from my boss, Chris Heisel,
+thank you, about online journalism versus print journalism is in print, when you bought
+the paper, you would get, you know, X number of stories.
+You might read some of them, you might not, but all the stories were subsidized by the
+fact that you bought the paper.
+It's like a package deal.
+It's like buying an album.
+But now with online journalism, we can see what the stories that readers are actually
+interested in and so we can no longer subsidize all the stories in that way.
+It's like buying a single track off iTunes.
+Just to dovetail on that, I mean, if people in here are in the situation where they want
+to pitch something to news managers or to people in these organizations, I think one
+of the things he touched on will get you a lot of traction, which is that of search engine
+optimization, which is, I think, is something that Django can actually deliver on and that
+will provide something greatly superior to virtually any newspaper CMS that's sort
+of on the market.
+Because if you just go to the LA Times site right now and click on maybe the main story
+and look what that role looks like and then ask yourself how well that's going to do in
+a search engine and compare that to what you can say to them and you can give them the
+buzz word and you can then actually, I think, deliver the results.
+From the people, the managers I work with, I think that's a pitch that will resonate
+and that will click.
+Designing your own URLs is Google search engine observation out of the box.
+Clean semantic URLs is one of the things you can do and it's just, it's baked in.
+You just have to do it.
+Yeah, I like to say that Django is SEO friendly by default for free.
+How much time do we have, by the way?
+I have one quick question that that reminded me of.
+On our Django project.com homepage, we have, you know, the things that we advertise quote
+unquote.
+We come with an admin framework, we come with internationalization, we come with a template
+language.
+It sounds as if you guys are saying we should advertise some slightly different things or
+additional things.
+Do you think that advertising the SEO is something I've never even thought of?
+Do you think that it's worth advertising that at that level or is there anything else
+that we should advertise at that level?
+It's kind of amazing to me that people make a bunch of money doing SEO consulting.
+Not that people don't need it, but the fact of the matter is you just need a good URL
+and a good title tag and Django encourages that.
+So, I mean, I think that, you know, like I said, I think Django encourages you to be
+SEO friendly.
+I think it's also ultimately dependent on the audience that you're aiming at.
+If the Django project page is aimed at developers as a whole, maybe, maybe not.
+If it's aimed at IT executives who are debating whether or not they want to buy in and deploy
+Django in their shop, yeah, I definitely would put it on there.
+And if I was trying to sell Ellington, I definitely would mention that.
+I think we go.
+Okay.
+One more.
+I'm wondering whether anyone thinks that newspapers really care about the, like, dead
+tree archives that they've got the last 150 years because I've written a, you know, newspaper
+viewer that just, you stick in microfilm images and out comes sort of a dirty OCR newspaper
+site.
+But all the stuff that I've seen is just like, oh, you can pay for access.
+And, you know, nobody looks at that because they don't know what's in there in the first
+place.
+Well, you know, you'd be surprised.
+At the AJC, we have that you can pay for old access to the old archives.
+And the only reason it's still pay is because people pay for it.
+So it does happen.
+So they care deeply about their archives because they try to make money off of them.
+Unfortunately, well, fortunately, the company I work for actually, the archives are open
+going back to the 80s.
+The unfortunate side of that is that it's in the world's most hideous search interface
+that makes it impossibly ugly to deal with.
+Newspaper archives are actually big money.
+Newspapers sell their content to, like, LexisNexis to make a commercial aggregation company
+that other researchers use around the company or country.
+So what I love to see us doing a hell of a lot more with our archives, absolutely,
+because if you think about it, your local newspaper is the best, most consistent archive
+of the history of your community going.
+No matter what you think of your hometown newspaper, there's nothing better when looking
+at the history of your community than your newspaper, good or bad as it may be.
+So I think there's incredible value, incredible long tail value in the archives going way,
+way back.
+The problem is that a lot of newspapers are just trying to stay above water right now
+and keep up with things going on the web.
+They're not looking backwards at the stuff they've got.
+We're too busy going forward to know where we've been.
+One thing I'll note, we don't have all of our print archives going back, you know, till
+the dawn of time, though we probably should.
+We notice that we get a lot of search traffic and a lot of eyeballs because our archives
+are open.
+And so from a sort of a business standpoint, I think we make more money on advertisement
+because we have, you know, you can go back to the early 90s and everything we've published
+online is there and it's not behind a registration wall or a paywall, it's just there, take it.
+And I think we get more page views coming in via Google because of that.
+Sure.
+And I think there's also a search for monetization out of those as well.
+I mean, the New York Times has been a leader in doing this where they've put up a large
+portion of their archives and some, even the front pages and things like that.
+And I think it's just a matter of the technology being in place for a service like ProQuest,
+if you've ever seen ProQuest where you can go and I think on our site you can find an
+article in the archives and then purchase it, but you never actually get to see a preview
+of it.
+So like you're paying five bucks without even seeing what the page looks like.
+And I think that the modernization of that technology where you could maybe have just
+the printed text in, you know, HTML of say an old story, but maybe you throw down five
+bucks to get an image file of what that page looked like or that editorial cartoon that
+ran that day or that obituary for your grandfather or any of that stuff, I think that there probably
+is a good deal of long tail potential for that.
+It's just old photos even, you know, it's just a matter of getting it out online.
+But I think that, especially the New York Times leadership and I think the general sort
+of maximum page view sort of world view has led people to see that there's at least some
+value in people coming in through search and I hope that it starts that way and leads to
+something more.
+Thanks.
+Okay.
+Thanks, guys.
+Give it up for the panelists.
+Yep.
+All right.
+Thank you.

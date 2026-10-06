@@ -1,5 +1,5 @@
 ---
-title: CUNY Critique
+title: CUNY critique
 slug: cuny-critique
 published_at: '2026-05-20T06:51:35-07:00'
 repr_image: https://palewi.re/static/img/cuny-critique.gif

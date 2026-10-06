@@ -25,6 +25,9 @@ nothing is ever written under a repo static path. See issue #176.
 - Every run is idempotent and resumable. Re-running `backup` skips anything
   already marked `success` in the manifest, and the manifest is rewritten
   after every single item, so an interrupted run loses no progress.
+- Preserve the full-size source file. Do not make a smaller playback copy for
+  a talk page; the talk-publishing workflow uploads the original to R2 with
+  multipart upload when it exceeds Wrangler's 300 MiB limit.
 
 ## Commands
 
@@ -99,6 +102,14 @@ later, so the manifest is a durable history.
    or previously failed.
 5. `uv run python -m scripts.media_archive verify --archive-root /path/to/archive`
    periodically to confirm nothing has bit-rotted or gone missing.
+
+## Publishing a recorded talk
+
+When the preserved recording will appear on a talk page, follow the
+`publish-talk` skill after the backup succeeds. Every recorded talk needs a
+timestamped transcript. Reuse public captions when available; otherwise,
+create one with Whisper. If Whisper's Apple GPU backend fails, retry on CPU
+rather than publishing without a transcript.
 
 ## Do not
 

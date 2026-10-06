@@ -1,0 +1,115 @@
+How to tell a story with charts in
+ﬁve charts: A newsroom taxonomy
+
+
+
+
+                             https://en.wikipedia.org/wiki/Man%27s_Place_in_Nature
+My name is Ben
+ I sometimes go by @palewire
+My name is Ingrid
+My nickname is Yeye. My handle: @yeyelobet
+         Find our slides here
+bit.ly/ire-sandiego-2016
+NAME THIS MAN   http://www.ucmp.berkeley.edu/history/linnaeus.html
+http://www.ucmp.berkeley.edu/history/linnaeus.html
+http://www.visual-literacy.org/periodic_table/periodic_table.html
+IF THEY CAN DO IT, WHY NOT US?
+Five graphics
+Five categories
+Five toolsets
+Five tutorials
+Five changes
+One:
+Reporters
+Two:
+Miners
+Three:
+Sculptors
+Four:
+Debaters
+Five:
+Tailors
+One:
+Reporters
+re·port·er, noun. 1. a stack of
+maps, charts and other
+diagrams that summarize and
+retell a breaking-news event in
+chronological order.
+http://www.univision.com/noticias/masacre-en-orlando/nuevos-detalles-de-la-masacre-en-orlando-reconstruccion-graﬁca
+Google Earth
+               https://www.google.com/earth/
+SketchUp
+           http://www.sketchup.com/products/sketchup-pro
+HTML
+       https://en.wikipedia.org/wiki/HTML
+http://designerhacks.com/sketchupgooglemaps/
+http://usatoday30.usatoday.com/weather/wildﬁres/2007-10-23-california_ﬁres_N.htm
+Two:
+Miners
+min·er, noun. 1. an interactive
+graphic that gradually reveals a
+series of concepts by digging
+through a data set.
+https://www.theguardian.com/us-news/ng-interactive/2015/oct/19/homan-square-chicago-police-detainees
+JavaScript
+             https://en.wikipedia.org/wiki/HTML
+http://vallandingham.me/scroller.html
+http://www.nytimes.com/interactive/2008/09/19/nyregion/20080920_LIRR_GRAPHIC.html
+Three:
+Sculptors
+sculp·tor, noun. 1. a single
+graphic that stands alone and
+reveals more to the reader as
+they careful study its detail.
+http://qz.com/677833/the-languages-the-world-is-trying-to-learn-according-to-duolingo/
+Static chart generators
+                          https://quartz.github.io/Chartbuilder/
+https://en.wikipedia.org/wiki/Charles_Joseph_Minard
+Four:
+Debaters
+de·bat·er, noun. 1. a pointed
+argument made by interweaving
+a series of charts within a
+larger text.
+http://www.vox.com/2016/8/31/12368246/charts-explain-obesity
+Static chart generators
+                          https://quartz.github.io/Chartbuilder/
+Adobe Illustrator
+                    https://quartz.github.io/Chartbuilder/
+https://www.coursera.org/learn/infographic-design
+http://www.vox.com/2016/8/31/12368246/charts-explain-obesity
+Five:
+Tailors
+tai·lor, noun. 1. a graphic that
+encourages users to explore
+and personalize a dataset using
+searches, ﬁlters, quizzes and
+other interactive tools
+http://inewsource.org/2016/09/12/opioid-san-diego-county/
+Tableau
+          http://www.tableau.com/
+http://www.tableau.com/learn/training
+THE END
+   OUR STORYTELLERS
+Mariano Zafra @mariano_zafra        Nikhil Sonnad @nkl
+
+A. Verde                            Eliza Barclay @elizabarclay
+Javier Figueroa @ﬁgueroaledon       Julia Belluz @juliaoftoronto
+Luis Melgar @asincopado             Javier Zarracina @JZarracina
+Spencer Ackerman @attackerman       Leo Castañeda @LeoMCastaneda
+
+Zach Stafford @zachstafford
+
+Guardian Visuals @guardianvisuals
+    YOUR HOSTS
+Ben Welsh             Ingrid Lobet
+
+ben.welsh@gmail.com   yeyelobet@gmail.com
+
+@palewire             @yeyelobet
+
+213-473-2624          310-930-6738
+         Find our slides here
+bit.ly/ire-sandiego-2016

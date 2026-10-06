@@ -1,6 +1,11 @@
 """Tests for public-facing pages and redirects."""
 
+import hashlib
+import json
+import re
+from html.parser import HTMLParser
 from unittest.mock import patch
+from xml.etree import ElementTree
 
 import pytest
 from django.templatetags.static import static
@@ -8,6 +13,7 @@ from django.test import Client
 from django.test.utils import override_settings
 from django.urls import include, path
 
+from coltrane.content_loaders import load_clips, load_posts, load_talks
 from project.redirect_manifest import RULES
 
 
@@ -18,9 +24,39 @@ def failing_view(_request):
 urlpatterns = [path("", include("project.urls")), path("failing/", failing_view)]
 
 
+class MainTextParser(HTMLParser):
+    """Collect authored text inside the page's main content."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.in_main = False
+        self.text: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "main" and dict(attrs).get("id") == "bd":
+            self.in_main = True
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "main":
+            self.in_main = False
+
+    def handle_data(self, data: str) -> None:
+        if self.in_main:
+            self.text.append(data)
+
+
 @pytest.fixture
 def client():
     return Client()
+
+
+def main_text_digest(content: str) -> str:
+    """Return a stable checksum of user-visible main content."""
+    parser = MainTextParser()
+    parser.feed(content)
+    parser.close()
+    text = " ".join(" ".join(parser.text).split())
+    return hashlib.sha256(text.encode()).hexdigest()
 
 
 def test_root_redirects_to_bio(client):
@@ -47,6 +83,703 @@ def test_bio_page_uses_canonical_domain(client):
     assert '"url": "https://palewi.re/who-is-ben-welsh/"' in content
 
 
+def test_bio_page_uses_factual_metadata_description(client):
+    content = client.get("/who-is-ben-welsh/").content.decode()
+    description = "Ben Welsh is a reporter, editor and computer programmer."
+
+    assert content.count(f'content="{description}"') == 3
+    assert f'"description": "{description}"' in content
+    assert '"@id": "https://palewi.re/who-is-ben-welsh/"' in content
+
+
+@pytest.mark.parametrize(
+    ("page", "expected_description"),
+    [
+        ("/posts/", "A complete list of articles written for this site."),
+        ("/clips/", "My bylines at Reuters, the Los Angeles Times and elsewhere on the World Wide Web."),
+        ("/apps/", "My independent network of Internet publications."),
+        ("/code/", "Open-source computer programming packages and projects."),
+        ("/guides/", "Practical guides for data journalists."),
+        ("/docs/", "Documentation for my open-source software and teaching guides."),
+        ("/talks/", "Recordings, slides and other materials from my public-speaking appearances."),
+        ("/bots/", "My fleet of automated accounts."),
+    ],
+)
+def test_list_pages_use_page_specific_metadata_descriptions(client, page, expected_description):
+    content = client.get(page).content.decode()
+
+    assert f'<meta name="description" content="{expected_description}" />' in content
+
+
+@pytest.mark.parametrize(
+    ("page", "expected_digest"),
+    [
+        ("/posts/", "ff1d8b539e18b0bc5abf5b7320ac7b6f561a1f2fb1a3e09139f23ea0d2d083da"),
+        ("/clips/", "93e1b675376d543834974deee0e5c5828919385169d5eb77c1b6bccbbae4e6d8"),
+        ("/apps/", "bb938e968fc7a05c6adb5bf151b896f84a80fad31e0313c3b294b4d6eb9e38bd"),
+        ("/code/", "3f8398d2a8c3bf454490506ce79fbf04a1bbc8e582a369eb9181f99e19e9ae1b"),
+        ("/guides/", "d0ce6e3ca42af59d07b3fa71e04ef5051de41202012b6fdc9b9ac535216b06b3"),
+        ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
+        ("/talks/", "840a828c1f939713f05c2e9dac68f970692208dd6f075ecc5310664cf1e8d798"),
+        ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
+    ],
+)
+def test_list_page_visible_text_is_preserved(client, page, expected_digest):
+    assert main_text_digest(client.get(page).content.decode()) == expected_digest
+
+
+@pytest.mark.parametrize("page", ["/posts/", "/clips/", "/apps/", "/code/", "/guides/", "/docs/", "/talks/", "/bots/"])
+def test_list_pages_use_semantic_lists(client, page):
+    content = client.get(page).content.decode()
+
+    assert '<ul class="catalog-list">' in content
+    assert '<li class="row">' in content
+
+
+def test_catalog_and_chronological_pages_use_heading_hierarchy(client):
+    catalog = client.get("/apps/").content.decode()
+    chronological = client.get("/posts/").content.decode()
+
+    assert '<h2 class="section-hed twelvecol last">' in catalog
+    assert '<h2 class="section-hed twelvecol last">' in chronological
+    assert '<div class="section-hed twelvecol last">' not in catalog
+    assert '<div class="section-hed twelvecol last">' not in chronological
+
+
+def test_clip_and_talk_dates_have_machine_readable_values(client):
+    clips = [clip for clip in load_clips() if clip.type in {"app", "story"}]
+    clip_content = client.get("/clips/").content.decode()
+    talk_content = client.get("/talks/").content.decode()
+
+    assert clip_content.count("<time datetime=") == len(clips)
+    assert talk_content.count("<time datetime=") == len(load_talks())
+    assert all(f'<time datetime="{clip.date:%Y-%m-%d}">' in clip_content for clip in clips)
+    assert all(f'<time datetime="{talk.date:%Y-%m-%d}">' in talk_content for talk in load_talks())
+
+
+def test_talk_detail_page_is_available(client):
+    response = client.get("/talks/bare-facts-first-datawrapper/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "Bare Facts First" in content
+    assert 'rel="author" href="/who-is-ben-welsh/">Ben Welsh</a>' in content
+    assert 'src="/static/talks/bare-facts-first-datawrapper/"' in content
+    assert "Show the extracted slide text" in content
+    assert 'kind="captions" src="/static/talks/bare-facts-first-datawrapper/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
+    assert ">00:05</time>" in content
+    assert ">00:05.160</time>" not in content
+
+
+def test_las_political_calculus_talk_page_uses_local_deck(client):
+    response = client.get("/talks/las-political-calculus/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>L.A.&#x27;s Political Calculus</h1>" in content
+    assert 'src="/static/talks/las-political-calculus/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 4 / 3;"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+
+
+def test_data_journalism_on_deadline_talk_page_uses_local_deck(client):
+    response = client.get("/talks/data-journalism-on-deadline/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Data journalism on deadline</h1>" in content
+    assert 'src="/static/talks/data-journalism-on-deadline/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 16 / 9;"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+
+
+def test_talk_detail_page_uses_configured_byline_and_deck_ratio(client):
+    content = client.get("/talks/good-trouble-ai/").content.decode()
+
+    assert "Ben Welsh and Scott Klein" in content
+    assert 'style="--talk-deck-aspect-ratio: 16 / 9;"' in content
+    assert ">Downloads<" in content
+    assert "Original sources" not in content
+
+
+def test_harnessing_ai_talk_page_is_video_only(client):
+    response = client.get("/talks/harnessing-ai/")
+    talk = next(talk for talk in load_talks() if talk.slug == "harnessing-ai")
+
+    assert response.status_code == 200
+    assert talk.slides_url == ""
+    content = response.content.decode()
+    assert "<h1>Harnessing AI</h1>" in content
+    assert '<source src="/media/talks/harnessing-ai/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/harnessing-ai/poster.jpg"' in content
+    assert 'aria-labelledby="slides"' not in content
+
+
+def test_what_i_learned_talk_page_has_hosted_vimeo_recording_and_transcript(client):
+    response = client.get("/talks/what-i-learned/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>What I learned</h1>" in content
+    assert '<source src="/media/talks/what-i-learned/video.mp4" type="video/mp4">' in content
+    assert 'kind="captions" src="/static/talks/what-i-learned/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_first_pull_request_talk_page_has_hosted_recording(client):
+    response = client.get("/talks/first-pull-request/")
+    talk = next(talk for talk in load_talks() if talk.slug == "first-pull-request")
+
+    assert response.status_code == 200
+    assert talk.guide_url == ""
+    content = response.content.decode()
+    assert 'src="/media/talks/first-pull-request/video.mp4"' in content
+    assert 'poster="/media/talks/first-pull-request/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/first-pull-request/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert 'aria-labelledby="slides"' not in content
+
+
+def test_open_data_opportunity_talk_page_has_hosted_recording(client):
+    response = client.get("/talks/open-data-opportunity/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>The Open Data Opportunity</h1>" in content
+    assert '<source src="/media/talks/open-data-opportunity/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/open-data-opportunity/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/open-data-opportunity/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "Ladies and gentlemen, thank you very much for coming today" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert 'aria-labelledby="slides"' not in content
+
+
+def test_first_web_scraper_talk_page_has_hosted_recording(client):
+    response = client.get("/talks/first-web-scraper-cccb-lab/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>First Web Scraper</h1>" in content
+    assert '<source src="/media/talks/first-web-scraper-cccb-lab/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/first-web-scraper-cccb-lab/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/first-web-scraper-cccb-lab/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert '<ol class="talk-transcript">' in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert 'aria-labelledby="slides"' not in content
+    assert ">Slides PDF<" not in content
+
+
+def test_introducing_storytracker_talk_page_has_local_assets(client):
+    response = client.get("/talks/introducing-storytracker/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Introducing Storytracker</h1>" in content
+    assert 'src="/static/talks/introducing-storytracker/"' in content
+    assert '<source src="/media/talks/introducing-storytracker/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/introducing-storytracker/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/introducing-storytracker/captions.vtt"' in content
+    assert "Show the extracted slide text" in content
+    assert "Show the timestamped transcript" in content
+    assert "Hi guys, hey Ted." in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_you_must_learn_talk_page_has_local_assets(client):
+    response = client.get("/talks/you-must-learn/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>You Must Learn</h1>" in content
+    assert 'src="/static/talks/you-must-learn/"' in content
+    assert '<source src="/media/talks/you-must-learn/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/you-must-learn/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/you-must-learn/captions.vtt"' in content
+    assert "Show the extracted slide text" in content
+    assert "Show the timestamped transcript" in content
+    assert "Tweet it." in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_el_cartografo_en_su_laberinto_talk_page_has_local_assets(client):
+    response = client.get("/talks/el-cartografo-en-su-laberinto/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>El Cartografo en su Laberinto</h1>" in content
+    assert 'src="/static/talks/el-cartografo-en-su-laberinto/"' in content
+    assert '<source src="/media/talks/el-cartografo-en-su-laberinto/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/el-cartografo-en-su-laberinto/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/el-cartografo-en-su-laberinto/captions.vtt"' in content
+    assert "Show the extracted slide text" in content
+    assert "Show the timestamped transcript" in content
+    assert "Bueno, les quiero presentar a Ben" in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_is_911_a_joke_in_your_town_talk_page_has_local_deck(client):
+    response = client.get("/talks/is-911-a-joke-in-your-town/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Is 911 a joke in your town?</h1>" in content
+    assert 'src="/static/talks/is-911-a-joke-in-your-town/"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+    assert 'aria-labelledby="recording"' not in content
+
+
+def test_django_retrained_talk_page_has_local_assets(client):
+    response = client.get("/talks/django-retrained/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Django Retrained</h1>" in content
+    assert 'src="/static/talks/django-retrained/"' in content
+    assert '<source src="/media/talks/django-retrained/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/django-retrained/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/django-retrained/captions.vtt"' in content
+    assert "Show the extracted slide text" in content
+    assert "Show the timestamped transcript" in content
+    assert "So, next up is Ben Welsh" in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_documentcloud_at_the_los_angeles_times_talk_page_has_local_deck(client):
+    response = client.get("/talks/documentcloud-at-the-los-angeles-times/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>How we use DocumentCloud at the Los Angeles Times</h1>" in content
+    assert 'src="/static/talks/documentcloud-at-the-los-angeles-times/"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+    assert 'aria-labelledby="recording"' not in content
+
+
+def test_package_data_like_software_talk_page_has_local_assets(client):
+    response = client.get("/talks/package-data-like-software/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Package data like software and the stories will flow like wine</h1>" in content
+    assert 'src="/static/talks/package-data-like-software/"' in content
+    assert '<source src="/media/talks/package-data-like-software/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/package-data-like-software/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/package-data-like-software/captions.vtt"' in content
+    assert "Show the extracted slide text" in content
+    assert "Show the timestamped transcript" in content
+    assert "All right, thank you." in content
+    assert ">Slides PDF<" in content
+    assert ">Recording video<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_beyond_jms_talk_page_has_recording_captions_and_transcript(client: Client) -> None:
+    """Render the recording and folded transcript without the dead materials link.
+
+    Args:
+        client: Django test client.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_views.py -k beyond_jms``.
+    """
+    response = client.get("/talks/beyond-jms-the-power-of-python/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Beyond JMS: The power of Python</h1>" in content
+    assert "Ben Welsh and Iris Lee" in content
+    assert '<source src="/media/talks/beyond-jms-the-power-of-python/video.webm" type="video/webm">' in content
+    assert 'poster="/media/talks/beyond-jms-the-power-of-python/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/beyond-jms-the-power-of-python/captions.vtt"' in content
+    assert '<details class="talk-detail-text">' in content
+    assert "Show the timestamped transcript" in content
+    assert '<ol class="talk-transcript">' in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert 'aria-labelledby="slides"' not in content
+    assert ">Slides PDF<" not in content
+
+    catalog = client.get("/talks/").content.decode()
+    assert 'href="/talks/beyond-jms-the-power-of-python/"' in catalog
+    assert 'href="https://www.youtube.com/watch?v=QYCTVZLbbCU"' not in catalog
+    assert "1_sC3bFYbg4CD7TmlS9g1hPDD3_oIhcHsqECtzSx34XE" not in catalog
+
+
+def test_local_data_journalism_podcast_has_hosted_audio_and_transcript(client):
+    response = client.get("/talks/local-data-journalism-podcast/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>The state of local data journalism</h1>" in content
+    assert '<source src="/media/talks/local-data-journalism-podcast/audio.m4a">' in content
+    assert 'kind="captions" src="/static/talks/local-data-journalism-podcast/captions.vtt"' in content
+    assert "Listen on the original podcast site" in content
+    assert "Show the timestamped transcript" in content
+    assert "Hello, and welcome to the Data Journalism Podcast." in content
+    assert ">Recording audio<" in content
+    assert ">Timestamped transcript<" in content
+    assert ">00:21</time>" in content
+
+
+def test_policyviz_podcast_has_hosted_audio_and_transcript(client):
+    response = client.get("/talks/policyviz-podcast-ben-welsh/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "<h1>Episode #110: Ben Welsh</h1>" in content
+    assert '<source src="/media/talks/policyviz-podcast-ben-welsh/audio.mp3">' in content
+    assert 'kind="captions" src="/static/talks/policyviz-podcast-ben-welsh/captions.vtt"' in content
+    assert "Listen on the original podcast site" in content
+    assert "Show the timestamped transcript" in content
+    assert "Welcome back to the PolicyViz podcast." in content
+    assert ">Recording audio<" in content
+    assert ">Timestamped transcript<" in content
+    assert ">00:00</time>" in content
+
+
+@pytest.mark.parametrize(
+    ("slug", "title"),
+    [
+        ("human-assisted-reporting", "Human-assisted reporting"),
+        ("how-i-learned-to-stop-worrying-and-love-flat-files", "How I learned to stop worrying and love flat files"),
+        ("locating-the-story", "Locating the story"),
+        ("postgis-is-your-new-bicycle", "PostGIS is your new bicycle"),
+        ("pluggable-maps", "Pluggable Maps"),
+    ],
+)
+def test_historical_talk_pages_have_local_decks(client, slug, title):
+    response = client.get(f"/talks/{slug}/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert f"<h1>{title}</h1>" in content
+    assert f'src="/static/talks/{slug}/"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+
+
+@pytest.mark.parametrize(
+    ("slug", "title"),
+    [
+        ("what-is-a-data-desk-ona-la", "What is a Data Desk?"),
+        ("human-assisted-reporting", "Human-assisted reporting"),
+        ("django-in-journalism", "Django in Journalism"),
+    ],
+)
+def test_historical_talk_pages_have_hosted_recordings(client, slug, title):
+    response = client.get(f"/talks/{slug}/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert f"<h1>{title}</h1>" in content
+    assert f'<source src="/media/talks/{slug}/video.mp4" type="video/mp4">' in content
+    assert f'poster="/media/talks/{slug}/poster.jpg"' in content
+    assert f'kind="captions" src="/static/talks/{slug}/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+
+
+@pytest.mark.parametrize(
+    ("slug", "title", "recording_url", "recording_type", "transcript_text", "first_timestamp"),
+    [
+        (
+            "showing-your-work-with-ben-welsh",
+            "Showing Your Work with Ben Welsh",
+            "/media/talks/showing-your-work-with-ben-welsh/audio.m4a",
+            "",
+            "Hello, and welcome to the Data Journalism Podcast.",
+            "00:00",
+        ),
+        (
+            "a-conversation-with-ben-welsh",
+            "A conversation with Ben Welsh",
+            "/media/talks/a-conversation-with-ben-welsh/audio.m4a",
+            "",
+            "Data journalism is a collaborative field",
+            "00:00",
+        ),
+        (
+            "unspun-data-journalism",
+            "Episode 20: Data journalism (feat. Ben Welsh)",
+            "/media/talks/unspun-data-journalism/audio.mp3",
+            "",
+            "Do you seek adventure and want to serve your country?",
+            "00:00",
+        ),
+        (
+            "understanding-europes-heatwave",
+            "Understanding Europe’s heatwave",
+            "/media/talks/understanding-europes-heatwave/video.webm",
+            ' type="video/webm"',
+            "Europe is absolutely boiling.",
+            "00:00",
+        ),
+        (
+            "data-and-graphics-an-introduction",
+            "DATA AND GRAPHICS: An introduction",
+            "/media/talks/data-and-graphics-an-introduction/video.mp4",
+            ' type="video/mp4"',
+            "zooming you from my phone",
+            "00:00",
+        ),
+        (
+            "what-is-a-data-desk-pydatala",
+            "What is a Data Desk?",
+            "/media/talks/what-is-a-data-desk-pydatala/video.mp4",
+            ' type="video/mp4"',
+            "okay welcome to everybody",
+            "00:06",
+        ),
+    ],
+)
+def test_new_appearance_talk_pages_have_local_recordings_and_transcripts(
+    client, slug, title, recording_url, recording_type, transcript_text, first_timestamp
+):
+    content = client.get(f"/talks/{slug}/").content.decode()
+    download_label = "Recording video" if recording_type else "Recording audio"
+
+    assert f"<h1>{title}</h1>" in content
+    assert f'<source src="{recording_url}"{recording_type}>' in content
+    if slug == "data-and-graphics-an-introduction":
+        assert 'poster="/media/talks/data-and-graphics-an-introduction/presentation.jpg"' in content
+    assert f'kind="captions" src="/static/talks/{slug}/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert transcript_text in content
+    assert f">{download_label}<" in content
+    assert ">Timestamped transcript<" in content
+    assert f">{first_timestamp}" in content
+
+
+def test_talk_list_keeps_new_appearance_detail_links_without_source_links(client):
+    content = client.get("/talks/").content.decode()
+
+    expected_links = (
+        (
+            "/talks/what-i-learned/",
+            "https://vimeo.com/214875675#t=407s",
+        ),
+        (
+            "/talks/showing-your-work-with-ben-welsh/",
+            "https://creators.spotify.com/pod/profile/ddjpodcast/episodes/Showing-Your-Work-with-Ben-Welsh-e3jusc0",
+        ),
+        (
+            "/talks/a-conversation-with-ben-welsh/",
+            "https://soundcloud.com/ire-nicar/a-conversation-with-ben-welsh",
+        ),
+        (
+            "/talks/unspun-data-journalism/",
+            "https://pocketcasts.com/podcast/unspun/34ea4330-2b54-013c-f664-0acc26574db2/episode-20-data-journalism-feat-ben-welsh/5ae8fd71-6fdc-4b46-bd0c-53d0accb80e2",
+        ),
+        (
+            "/talks/understanding-europes-heatwave/",
+            "https://www.youtube.com/watch?v=me0DlYHkJKE&amp;t=28s",
+        ),
+        (
+            "/talks/data-and-graphics-an-introduction/",
+            "https://www.youtube.com/watch?v=sSEiBF_RAMc&amp;feature=emb_title",
+        ),
+    )
+
+    for detail_url, source_url in expected_links:
+        assert f'href="{detail_url}"' in content
+        assert f'href="{source_url}"' not in content
+
+    assert "Video &raquo;" not in content
+    assert "Audio &raquo;" not in content
+    assert "Materials &raquo;" not in content
+
+
+def test_fast_first_python_notebook_talk_uses_local_recording_and_transcript(client):
+    response = client.get("/talks/fast-first-python-notebook/")
+    talk = next(talk for talk in load_talks() if talk.slug == "fast-first-python-notebook")
+
+    assert response.status_code == 200
+    assert talk.guide_url == ""
+    content = response.content.decode()
+    assert "<h1>Fast First Python Notebook</h1>" in content
+    assert '<source src="/media/talks/fast-first-python-notebook/video.mp4" type="video/mp4">' in content
+    assert 'poster="/media/talks/fast-first-python-notebook/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/fast-first-python-notebook/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "Welcome to First Python Notebook." in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_nicar21_first_python_notebook_talk_has_hosted_recording_and_transcript(client):
+    response = client.get("/talks/first-python-notebook-nicar21/")
+    talk = next(talk for talk in load_talks() if talk.slug == "first-python-notebook-nicar21")
+
+    assert response.status_code == 200
+    assert talk.guide_url == "https://palewi.re/docs/first-python-notebook/"
+    assert talk.video_url == "https://www.youtube.com/watch?v=paVSRMTitLQ"
+    content = response.content.decode()
+    assert "<h1>First Python Notebook</h1>" in content
+    assert '<source src="/media/talks/first-python-notebook-nicar21/video.webm" type="video/webm">' in content
+    assert 'poster="/media/talks/first-python-notebook-nicar21/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/first-python-notebook-nicar21/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "kicking off" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_ire_resource_center_talk_page_has_local_deck_and_downloads(client):
+    response = client.get("/talks/ire-resource-center/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert 'src="/static/talks/ire-resource-center/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 48 / 35;"' in content
+    assert "Show the extracted slide text" in content
+    assert "Semantic search" in content
+    assert ">Slides PDF<" in content
+    assert 'src="/media/talks/ire-resource-center/video.mp4"' in content
+    assert 'poster="/media/talks/ire-resource-center/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/ire-resource-center/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "Welcome everybody here." in content
+    assert ">Extracted slide text<" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+
+
+def test_nicar_ire_resource_center_talk_reuses_the_deck_without_a_recording(client):
+    response = client.get("/talks/ire-resource-center-nicar/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert 'src="/static/talks/ire-resource-center/"' in content
+    assert 'style="--talk-deck-aspect-ratio: 48 / 35;"' in content
+    assert "Show the extracted slide text" in content
+    assert ">Slides PDF<" in content
+    assert ">Extracted slide text<" in content
+    assert ">Recording video<" not in content
+    assert "Show the timestamped transcript" not in content
+
+
+def test_storytelling_with_graphics_talk_has_a_local_recording_and_transcript(client):
+    response = client.get("/talks/storytelling-with-graphics/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "Storytelling with graphics: From raw data to reader impact" in content
+    assert 'src="/media/talks/storytelling-with-graphics/video.mp4"' in content
+    assert 'poster="/media/talks/storytelling-with-graphics/poster.jpg"' in content
+    assert 'kind="captions" src="/static/talks/storytelling-with-graphics/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "All right. Hello, everybody, and welcome." in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert '<h2 id="slides">Slides</h2>' not in content
+
+
+def test_scaling_scrapers_talk_has_a_local_recording_and_transcript(client):
+    response = client.get("/talks/scaling-up-scrapers-prefect-google-cloud/")
+
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert 'src="/media/talks/scaling-up-scrapers-prefect-google-cloud/video.mp4"' in content
+    assert 'kind="captions" src="/static/talks/scaling-up-scrapers-prefect-google-cloud/captions.vtt"' in content
+    assert "Show the timestamped transcript" in content
+    assert "hey everybody welcome back to another" in content
+    assert ">Recording video<" in content
+    assert ">Timestamped transcript<" in content
+    assert '<h2 id="slides">Slides</h2>' not in content
+
+
+def test_talk_list_links_to_archived_external_talk_pages(client):
+    content = client.get("/talks/").content.decode()
+
+    assert 'href="https://www.poynter.org/shop/reporting-editing/todays-news-for-tomorrow/"' not in content
+    assert 'href="https://svatheatre.com/events/dvc-presents-signal-in-the-noise/"' not in content
+    assert "“Today’s News For Tomorrow”</a>" not in content
+    assert "“DV&amp;C Presents: Signal in the Noise”</a>" not in content
+
+
+def test_talk_list_links_to_related_guides(client):
+    content = client.get("/talks/").content.decode()
+
+    assert 'href="https://palewi.re/docs/first-pmtiles-map/">“First PMTiles Map”</a>' in content
+    assert 'href="https://palewi.re/docs/first-llm-classifier/">“First LLM Classifier”</a>' in content
+    assert 'href="https://palewi.re/docs/first-athena-query/">“First Athena Query”</a>' in content
+    assert 'href="https://palewi.re/docs/go-big-with-github-actions/">“Go big with GitHub Actions”</a>' in content
+    assert 'href="https://palewi.re/docs/first-automated-chart/">“First Automated Chart”</a>' in content
+    assert (
+        'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook”</a> at JSK Connect Master Class'
+        in content
+    )
+    assert (
+        'href="https://palewi.re/docs/first-python-notebook/">“First Python Notebook: Data Analysis on Deadline”</a>'
+        in content
+    )
+    assert 'href="https://palewi.re/docs/first-visual-story/">“First Visual Story”</a>' in content
+    assert (
+        content.count(
+            'href="https://observablehq.com/collection/@palewire/first-observable-notebook-2020">“First Observable Notebook”</a>'
+        )
+        == 2
+    )
+    assert 'href="/talks/first-python-notebook-nicar21/">“First Python Notebook”</a> at NICAR21 After Party' in content
+
+
+def test_post_schema_is_a_blog_post_with_a_canonical_main_entity(client):
+    post = load_posts()[0]
+    canonical_url = f"https://palewi.re{post.get_absolute_url()}"
+    content = client.get(post.get_absolute_url()).content.decode()
+    json_ld_blocks = [
+        json.loads(block)
+        for block in re.findall(
+            r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
+            content,
+            flags=re.DOTALL,
+        )
+    ]
+    metadata = next(block for block in json_ld_blocks if block["@type"] == "BlogPosting")
+
+    assert metadata["@id"] == canonical_url
+    assert metadata["url"] == canonical_url
+    assert metadata["mainEntityOfPage"] == {"@type": "WebPage", "@id": canonical_url}
+    assert "dateModified" not in metadata
+
+
 def test_bio_page_footer_links_to_main_commit(client):
     commit = "0123456789abcdef0123456789abcdef01234567"
 
@@ -59,9 +792,120 @@ def test_bio_page_footer_links_to_main_commit(client):
     assert ">0123456</a>" in content
 
 
-@pytest.mark.parametrize("page", ["/work/", "/talks/", "/posts/", "/docs/", "/bots/"])
+@pytest.mark.parametrize(
+    "page",
+    ["/posts/", "/clips/", "/apps/", "/code/", "/guides/", "/talks/", "/bots/"],
+)
 def test_public_list_pages_are_available_without_database(client, page):
     assert client.get(page).status_code == 200
+
+
+def test_mobile_navigation_has_menu_disclosure(client):
+    content = client.get("/apps/").content.decode()
+    assert content.count("<nav") == 1
+    assert '<nav aria-label="Primary">' in content
+    assert '<div class="nav-menu">' in content
+    assert 'popovertarget="mobile-nav-links"' in content
+    assert '<div id="mobile-nav-links" class="nav-drawer" popover>' in content
+    assert 'aria-label="Close menu"' in content
+    assert '<span class="hamburger" aria-hidden="true">' in content
+
+
+def test_bots_omit_empty_twitter_link(client):
+    content = client.get("/bots/").content.decode()
+
+    assert (
+        '@RandomPigeonGPT (<a target="_blank" href="https://mastodon.palewi.re/@RandomPigeonGPT">Mastodon &raquo;</a>)'
+        in content
+    )
+    assert 'href="">Twitter' not in content
+    assert 'href="https://twitter.com/divineanndvorak">Twitter &raquo;</a>' in content
+
+
+@pytest.mark.parametrize(("old_path", "new_path"), [("/work/", "/clips/")])
+def test_replaced_list_pages_redirect(client, old_path, new_path):
+    response = client.get(old_path)
+    assert response.status_code == 302
+    assert response["Location"] == new_path
+
+
+def test_docs_page_points_to_separate_catalogs(client):
+    content = client.get("/docs/").content.decode()
+    assert 'href="/code/"' in content
+    assert 'href="/guides/"' in content
+
+
+def test_work_records_route_to_their_new_sections(client):
+    content = client.get("/clips/").content.decode()
+    assert "Journalism lost its culture of sharing" in content
+    assert "How to deploy a Prefect agent to Google Kubernetes Engine" in content
+    assert "How to push tagged Docker releases" in content
+    assert "Tracking Trump" in content
+    assert "Reuters Climate Monitor" in content
+    assert "geodataframe-to-pmtiles" not in content
+    assert "RandomPigeonGPT" not in content
+    assert "The decline of open-source news" not in content
+    assert "Min-Max Rescaling Calculator" not in content
+    assert "Data loader to generate PNG from canvas" not in content
+    assert "How Reuters uses Datawrapper" not in content
+    assert "Ipsos credibility interval calculator" not in content
+    assert "is 5" not in content
+    assert "@DivineAnnDvorak" not in content
+
+    apps = client.get("/apps/").content.decode()
+    assert "Services" not in apps
+    assert "Archiving" in apps
+    assert "Databases" in apps
+    assert "Social media bots" in apps
+    assert "Personal websites" in apps
+    assert "Wheel of Feedback" not in apps
+    assert "Datawrapper MCP" not in apps
+    assert "palewi.re data" not in apps
+    assert "fivethirtyeightindex" in apps
+    assert "AMSAT Satellite Index" in apps
+    assert "Random Pigeon GPT" not in apps
+    assert "Reuters Jobs" not in apps
+    assert "Save My News" not in apps
+    assert "NYC Data Bot" not in apps
+    assert "IRE Resource Center" in apps
+    assert "the e.e. cummings free poetry archive" in apps
+    assert "The News Homepages Archive" in apps
+    assert "The Studs Terkel Archive Podcast" in apps
+    assert "PastPages" not in apps
+    assert "The Studs Terkel Archive Podcast: Season 2" not in apps
+
+    code = client.get("/code/").content.decode()
+    assert "air-quality-index" in code
+    assert "cummings.ee" in code
+    assert "datawrapper-mcp" in code
+    assert "datasette" in code
+    assert "metar-weather-bot" in code
+    assert "moneyinpolitics.wtf" in code
+    assert "muckrockbot" in code
+    assert "news-homepages" in code
+    assert "news-homepages-runner" in code
+    assert "nyc-open-data-monitor" in code
+    assert "old-la-photos" in code
+    assert "palewi.re" in code
+    assert "Wheel of Feedback" in code
+    assert "Min-Max Rescaling Calculator" in code
+    assert "Data loader to generate PNG from canvas" in code
+    assert "Ipsos credibility interval calculator" in code
+    assert "random-pigeon-gpt" in code
+    assert "reuters-jobs" in code
+    assert "sanbornmaps" in code
+    assert "Save My News" in code
+    assert "studs-terkel-podcast" in code
+    assert "Updates" not in code
+    assert all(section in code for section in ["Data", "Python", "JavaScript", "Other", "Inactive"])
+
+    guides = client.get("/guides/").content.decode()
+    assert "First Python Notebook" in guides
+    assert 'href="https://palewi.re/docs/first-python-notebook/"' in guides
+    assert "First Observable Notebook" in guides
+    assert "Lessons" not in guides
+    assert "Updates" not in guides
+    assert "First LLM Classifier at Hugging Face" not in guides
 
 
 @pytest.mark.parametrize("page", ["/scrape/albums/2006.html", "/openlayers-proportional-symbols/"])
@@ -82,14 +926,21 @@ def test_django_no_longer_serves_mastodon_discovery_endpoints(client, page):
 
 
 @pytest.mark.parametrize(
-    "path",
+    ("path", "status_code"),
     [
-        *(f"/{rule.source}" for rule in RULES if not rule.is_dynamic),
-        *(example for rule in RULES if rule.is_dynamic for example in rule.examples),
+        *(
+            (
+                f"/{rule.source}",
+                200 if rule.source in {"apps/", "clips/"} else 302 if rule.source == "work/" else 404,
+            )
+            for rule in RULES
+            if not rule.is_dynamic
+        ),
+        *((example, 404) for rule in RULES if rule.is_dynamic for example in rule.examples),
     ],
 )
-def test_legacy_manifest_paths_return_not_found_at_django_origin(client, path):
-    assert client.get(f"{path}?source=test").status_code == 404
+def test_legacy_manifest_paths_have_expected_django_status(client, path, status_code):
+    assert client.get(f"{path}?source=test").status_code == status_code
 
 
 @pytest.mark.parametrize("source", ["/1/02/03/post/", "/2024/2/03/post/", "/2024/02/3/post/"])
@@ -171,3 +1022,23 @@ def test_robots_txt_ok(client):
 
 def test_sitemap_index_ok(client):
     assert client.get("/sitemap.xml").status_code == 200
+
+
+def test_static_sitemap_lists_every_public_list_page(client):
+    response = client.get("/sitemap-static.xml")
+
+    assert response.status_code == 200
+    root = ElementTree.fromstring(response.content)
+    namespace = {"sitemap": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    urls = {entry.findtext("sitemap:loc", namespaces=namespace) for entry in root.findall("sitemap:url", namespace)}
+    assert urls == {
+        "http://testserver/who-is-ben-welsh/",
+        "http://testserver/posts/",
+        "http://testserver/clips/",
+        "http://testserver/apps/",
+        "http://testserver/code/",
+        "http://testserver/docs/",
+        "http://testserver/guides/",
+        "http://testserver/talks/",
+        "http://testserver/bots/",
+    }

@@ -1,0 +1,2608 @@
+All right, well, we've reached our start time.
+Thank you, everybody, for your patience.
+Welcome to First Python Notebook.
+Thank you so much for signing up and coming.
+This is going to be a course that introduces you
+to the basics, the beginnings of data analysis.
+For news using the Python computer programming language,
+the Jupyter Notebook,
+and the Pandas Data Analysis Toolkit,
+these are pieces of nerdy jargon that we will explain,
+that we will demystify,
+and that we will answer all of your questions about.
+Over the next, I hope, kind of two to maybe three hours.
+I don't know, maybe we'll be quick.
+I don't know, we'll find out.
+But over the next chunk of time,
+we're all gonna work through an example of those tools
+being put to use to do a story.
+In fact, a story I worked on myself
+that we'll talk more about in a bit.
+And we're gonna go through it step by step.
+And along the way, learn a lot of the fundamentals
+that are used in all kinds of different stories,
+not just this one.
+And that hopefully can serve you in the future
+if you're interested in using them.
+And the things we're covering also are useful
+for a lot of things besides kind of investigative stories
+or whatever, the skills we'll cover could be used
+for analytics work, engagement work,
+all kinds of very important things
+that happen in newsrooms as well.
+And really, the tools weren't invented
+for what our example used them for either.
+So there's a lot of different stuff
+that can be done with it.
+And we're really gonna try to cover the fundamentals
+of what is really the goal.
+So that's the deal.
+Oh, by the way, my name's Ben Welsh.
+I'm coming to you live from Little Tokyo
+in downtown Los Angeles at the corner of 2nd and Central
+in the office that my wife and I worked from.
+I have been a data journalist for about, gosh,
+getting close to 20 years.
+I'm currently a visiting Los Angeles Times reporter
+at a project at Stanford University called Big Local News,
+which is a nonprofit university-based effort
+to try to help local newsrooms do more with data
+by gathering and refining big records and databases
+that people might not have time to do on their own.
+Doing that at scale so we can have it for the whole country
+or as much of it as possible,
+so it can be useful to reporters
+in a lot of different places.
+And then coming up with tools
+that make it easier for them to do that.
+And so you can learn more about it
+if you go to biglocalnews.org, that's me.
+Ryan, you wanna introduce yourself?
+Yeah, hey all, I'm Ryan,
+and I am joining you from my office in Spokane, Washington,
+which is also in my house.
+But I've lived here in Spokane for quite a while
+and was in local news at the paper here
+for much of my journalism career.
+And that's kinda where I first started getting into Python.
+We used it to both, to develop the website
+that we use to publish our news online,
+but also to start doing data analysis and mapping projects
+and a lot of the really cool stuff
+that you get to work on in data journalism.
+I left that role to work on a project
+called Census Reporter, where we also use Python.
+It's a website that is designed to make census data
+easier for journalists to use.
+So if you wanna check out censusreporter.org, that's us.
+You can poke around with ACS data.
+I think we'll get the new stuff,
+the new data release in there sometime
+in the next couple of weeks, which will be fun.
+So yeah, yeah, thanks Ben.
+So yeah, that's a little bit about
+where I live here in Spokane.
+So I've been using Python for journalism for a long time.
+Census Reporter is a project, a labor of love at this point.
+We're all volunteers maintaining it.
+And my full-time role is with a program called Open News.
+And we exist to support people who kind of work
+at that intersection of journalism and technology.
+We help connect them with resources they need.
+If you work in a smaller newsroom
+and you don't have access to professional development
+or colleagues to help like double-check your work,
+there are a lot of programs that we have
+particularly designed to help people who work
+in journalism and tech connect with resources they need
+and also to connect with other people.
+So that's one of the reasons why getting to jump on board
+for a workshop like this one, I think is really fun
+because we got a bunch of people in here
+who are learning together
+and maybe we'll get to know each other a little bit
+and hopefully have a chance to figure out
+why you all are really interested in picking up
+Python skills for journalism because it's awesome.
+I'm super excited that we're gonna get
+to learn this stuff together today.
+Great, thank you, Ryan.
+I really appreciate you coming to help.
+All right, so we're ready to begin after that prologue.
+So everybody needs to open their web browser
+and go to the URL that I've highlighted here on the screen.
+That is at bit.ly slash FPN lite, L-I-T-E.
+FPN stands for first Python notebook,
+which is the name of the class and lite
+because we're gonna use it in a tool called Jupyter lite.
+I'm gonna talk about more in a minute.
+So everybody go to bit.ly slash FPN lite
+and that should take you to a page that looks like this one.
+Is this what everybody sees?
+If you don't see this, please speak up and let us know.
+I'm gonna try to bump up the font size on mine
+just to maybe make it more legible.
+You think that would help, Ryan?
+Yeah, I think so.
+And I'll just say if Ben is gonna be driving
+this Python bus and I am gonna pitch in where I can,
+but one of the things that I can do is if you are,
+if you're running into any trouble
+and you throw something into chat,
+then I will ping you back and can hopefully help folks
+work through any hurdles they're running into.
+So yeah, throw something in there
+if there's a question that you have
+and I'll be happy to help out.
+Okay, great.
+Is this getting better, Ryan?
+Is that legible?
+Yeah, I think so.
+Love it.
+All right, so what we have here is,
+believe it or not, your first Jupyter notebook.
+This is it.
+The class is gonna teach you Jupyter notebooks
+and the class itself is a Jupyter notebook.
+Oh my God, it's so meta, right?
+So what we have here from top to bottom
+is the entire script for our class,
+everything we're gonna learn
+that we're gonna work through together slowly,
+cell by cell or step by step as we go.
+All right, and this class is sort of a streamlined version
+of something of a longer bootcamp,
+also called first Python notebook
+that I've been teaching for about five or six years
+that usually takes about six hours
+and it's one of these things at a conference
+where you get a bunch of people in a room
+and you just keep coding until you're done, until you drop,
+and also teaches a few things we won't cover today
+like how to make some charts
+and a lot of the fundamentals of campaign finance analysis.
+So if you're interested in learning more
+after we finish today or you really are curious
+about how to do campaign finance analysis,
+I would encourage you to, on your own time,
+just check out the longer version.
+The streamlined version here today
+is really intended to cover the essentials of data analysis
+and working with Jupyter taking as little time as possible
+and so we're gonna move a little more quickly.
+All the code we're gonna write has already been written.
+There'll be opportunities for you to write more
+and to modify it as we go,
+but we're gonna move a little faster
+than we do in that longer take, all right?
+And so that's why I call this fast Python notebook.
+Ha ha ha, all right?
+And so let's settle all the jargon stuff
+before we start, right?
+Because there's a lot of dumb terms in computer programming
+that get thrown around without getting defined.
+I just wanna make sure we're clear
+about what these things are.
+So Python, what's Python?
+I'm guessing you all already know, but just to be clear,
+it's a computer programming language, right?
+It's a way for you to write instructions
+to tell your computer what to do, right?
+And to tell it how to manipulate data,
+to tell it how to do different things.
+And Python can do all kinds of stuff.
+It can make music, it can send a rocket ship into space,
+it can build a website, and it can analyze data, right?
+Among many other things.
+And it's called Python
+because some nerds decided to call it that
+about 30 years ago,
+because they really liked Monty Python.
+That's the reason, you know?
+And there's other programming languages
+you may have heard of like Node.js or Ruby
+or what's another one?
+Gee, go, right?
+And these are all sort of competitors
+that are just trying to develop ways
+to help programmers make computers do things, right?
+And so where Python's the library we're using today,
+that's piece of jargon one.
+Number two is the Jupyter Notebook, right?
+The Jupyter Notebook is a browser-based interface.
+You're looking at it right now,
+which just tries to make it easier
+for you to write your Python code.
+It has a whole set of windows and boxes and buttons
+that just try to make it possible
+for you to quickly write, run, remix,
+but also then share the code that you write as you go, right?
+And it's a free and open source piece of software
+that was developed by a guy named Fernando Perez
+that's now used by people all around the world,
+scientists, scholars, financial tech bros,
+and you know, anyone else you could think of
+to kind of document and share their programming work,
+particularly when it comes to data analysis.
+It was initially designed to try to help scientists
+write white papers, you know,
+to write scientific papers that were reproducible.
+So your physics paper, you know,
+you have all this math in it,
+and it might get published in a journal,
+but how do you know the math actually works or is right,
+right?
+The Notebook is intended to make it reproducible by anyone.
+And so that's why a lot of the interface
+looks like a scientific paper at times,
+and especially when you look at the examples.
+Newsrooms use it quite a bit.
+I've linked to some examples here
+that you can find on the web to read.
+If you're interested,
+cases of Buzzfeed, the BBC, ProPublica,
+the LA Times where I work,
+many, many outlets will publish on the web,
+the notebooks that demonstrate and reproduce
+the data analysis that, you know, underlies their stories.
+And this one sort of shows their work
+and can help to demonstrate to the audience
+that they know what they're doing.
+And, you know, is it a really awesome form of transparency?
+But it's also, I think, whether you publish it or not,
+you know, a lot of notebooks probably just stay private.
+It's a way for you to kind of have something
+that's reproducible and auditable and like clear
+so that, you know, when you're finishing your story
+and bulletproofing your work,
+it's a lot easier to go back and see everything you did
+and make sure you didn't make any mistakes, right?
+And it's super valuable for that.
+Anytime I do a story that's based on analysis,
+I try to do a notebook,
+and anytime I can, I try to put it on the web.
+So if you're interested in seeing
+how other journalists use this tool,
+the best way to do it is click some of these links
+and just start looking at the notebooks
+that journalists have published on GitHub,
+which is a website where people share their code.
+So that's the Jupyter notebook.
+It's like the planet Jupyter with P-Y
+because the Y is Python, right?
+Though it actually does support other programming languages
+now beyond Python, like R, for instance.
+So that's the Jupyter notebook.
+And then I think our third big piece of jargon
+I just want to cover before we start is pandas.
+Pandas is a big, gigantic hunk of Python code
+that just makes it easier to do data analysis.
+You really should think about it as sort of like a tool belt.
+It's like a Python tool belt
+that allows you to read in data files,
+write out data files, sort and filter and group,
+and create new columns and all the stuff
+that you might do in a spreadsheet tool, for instance,
+you're able to do in computer programming code
+so that you can work on gigantic large data sets,
+but that also so that you could automate
+and rerun and reproduce your work more easily
+rather than every time you would do something in Excel,
+of course you have to point and click and do it, right?
+But in a way it's sort of like an invisible spreadsheet
+that's inside your computer
+that you're manipulating using Python, right?
+I think those are all the pieces of jargon,
+but occasionally I will just spit one out and not realize it.
+And I apologize if I do that.
+Just feel free to interrupt and ask
+if you don't know what it means, right?
+So that's the spiel on what the jargon is
+and we'll start coding here in a minute,
+but I just wanna throw it out to the audience
+in case anybody has any questions about one, the jargon,
+but two, just more broadly about these big tools,
+Python, Jupyter or pandas, or really anything like that.
+Is there anything you wanna know
+or any questions you have before we begin?
+Feel free to unmute and speak up.
+Thank you.
+Hearing none, I will continue.
+It doesn't hurt my feelings, I promise.
+But as I get going, I can kind of get on a roll
+and if I'm going off track
+or you wanna hear something back
+or something doesn't make sense,
+just feel free to speak up and interrupt me.
+You know what I mean?
+I actually would like it.
+I think I wanna interact with you guys.
+I wanna help you understand things.
+I wanna get you where you wanna go.
+And so honestly, I welcome interruptions.
+So feel free at any time to do so, all right?
+Okay, so I think we can start, I guess.
+I think I'd like to quickly start
+with just the tour of the Jupyter notebook itself,
+which we are inside.
+We are actually inside it in our browser
+thanks to a modified version of Jupyter called Jupyter Lite.
+Jupyter Lite is a sort of brand new, easy way
+to get one of these notebooks up and running in your browser
+without having to install anything on your computer.
+One of the most frustrating things
+about computer programming is getting started,
+just getting everything working.
+And Python is pretty bad about this for new people
+in terms of just getting it up and going
+often requires getting into your terminal,
+installing strange tools you may not have experience with.
+And it's just kind of a hassle.
+So a cool thing about Jupyter Lite
+is that it lets you just like, boom,
+get it going in your browser with nothing else happening.
+However, because it runs in your browser,
+it's not as powerful as it might be
+if it were installed in your computer
+because it doesn't have access to all the gears
+that are inside your laptop or whatever computer you have
+that are sometimes necessary
+when you're working on large data streams.
+So I would say if you try out Jupyter today in Jupyter Lite
+and you like it and you want to do more with it
+or try a story, I'd recommend that you try to install
+the full version to do at that point
+to really get serious about doing the work
+because Lite is, I think at this stage,
+more for experimentation, okay?
+There's links right here in the full edition
+of First Bite, the notebook,
+that can show you how to do that.
+I would really recommend for someone
+who's just getting started a tool called Jupyter Desktop,
+which you can find explained in that documentation.
+And it's a really easy kind of like executable thing
+you can quickly install on your computer
+and it's just up and running
+without having to use the terminal or do anything too nerdy.
+So Jupyter Desktop is what I would recommend in that case.
+And regardless of whether you have Lite or desktop
+or whatever, the interface is gonna look the same, right?
+It just will or won't be in kind of on the web, right?
+Where if you use desktop, it'll be on your computer
+and it won't be on the web, right?
+But once you're in here, it'll look about the same.
+And the interface I think is probably pretty self-explanatory
+to people who have experience with computers,
+which I suspect you all do.
+But just to kind of go over quickly,
+we see here on the left is sort of a file directory.
+This is just as you might have in a text editor,
+just a space where it says,
+this is the folder in your computer
+where the environment is currently based.
+And here's the files that it sees there.
+And there's three files that I've prepared
+for today's class.
+There's the notebook file, which is what we'll be working in.
+And this is the interface where we actually write the code.
+And then there's two data files,
+CSV files that we're gonna read in spreadsheets
+in the next few minutes
+to do our analysis that I've prepared.
+I'll tell you more about those in a minute,
+but that's what we're looking at.
+And here, as you create more notebooks or files or folders,
+they'll show up here.
+And you can make a new folder.
+You can import files, you can rename files,
+all the sort of things you might expect
+from a file explorer elsewhere on your computer.
+That's on the left.
+You're able to hide that by clicking the folder button,
+which might be nice if you have a smaller screen.
+I tend to leave mine open.
+I don't know why, just my habit.
+There's also a table of contents option
+and an outline option there,
+but we won't use those in class.
+Those are a little more,
+they're not essential to what we're covering today.
+On the top bars, of course, like any program,
+pull down menus that have a variety
+of actions available to you.
+We won't necessarily need to use these today,
+but it's the sort of things you might imagine
+like saving your notebook is a key one.
+The ability to copy and paste your code
+in what are called cells,
+which we'll get to in a minute, is very useful.
+And then the ability to run maybe the whole notebook
+in one big swoop, which we'll try later,
+or other things, restart it if it's having trouble.
+That kind of thing is up there.
+Then finally, there's sort of the main stage,
+which is where your notebook is based here
+on the right in the middle.
+And that's where you write your code and your annotations.
+It has a key toolbar at the top
+that has a number of actions
+that we're gonna get to in a second
+that allow you to create new cells,
+put stuff in them, run them, that kind of thing.
+Did I miss anything there, Ryan?
+No, I feel like I'm learning stuff as we go.
+Oh, here we got a question maybe.
+Hi, is it okay to ask a very quick question?
+Of course.
+I tried to save us on the computer
+and I'm wondering if this is a bothering for you.
+If so, I'll delete my saved file as soon as possible.
+Please feel free to save it.
+You know what I mean?
+This notebook is free and public for anyone who wants it.
+It's actually available on GitHub
+if you know where to look, you know what I mean?
+And once this class is over,
+I plan to share it on social media
+so as many people as possible can see.
+The whole point of putting it together
+is to share it, so feel free.
+Thank you, thank you.
+Thank you for coming.
+Okay, so that's the basic tour.
+We'll get into more details as we go, right?
+And the key thing in your notebook space are the cells,
+right, the cells are little boxes, little chunks
+where you can type in your Python code
+and then run it piece by piece
+as you kind of build up your notebook
+and build up your analysis.
+And right here, I've written kind of the first cell
+of our notebook and it has some really, really intense
+computer programming going on here, right?
+It has a math, it has math, all right?
+And the math is basically just two plus two,
+which believe it or not is Python code.
+Python can do all kinds of things, including math, right?
+And so just by typing in two plus two
+and writing a little Python, I've written my first code cell.
+I know it's a code cell because up here at the top,
+so I select it with my mouse
+and it's now blue on the left, right?
+That means that this cell has been selected for use
+by the user and you type in whatever you wanna do,
+we'll do one in a second.
+And then if you hit the play button up on the toolbar,
+do you guys see that, the play button?
+It's a little triangle.
+Or if you hit shift enter as a hotkey,
+that cell will be executed, right?
+And you can see that the blue bar moved down one
+because it's executed the cell
+and moved down to the next cell.
+And then the result of what is in the cell
+has been printed as an output just below it.
+So two plus two equals four, right?
+And if I were to edit that cell,
+if I were to say two plus two, two plus three
+and hit play again, it now outputs five, right?
+So I'm able to write the cell and run it,
+edit it and rerun it, right?
+And that's just the very basics of the notebook.
+I've left an empty cell just below that.
+And now my challenge to all of you
+is just to click into that cell and write a math problem.
+Really any problem you want, pick your favorite numbers.
+I don't know, just try something.
+All right, Ryan, what's your favorite number?
+What's the best number, Ryan?
+2015, because that's the last time
+the Royals won the World Series.
+That definitely is it.
+And how many times have the Royals won the World Series?
+They have won it twice.
+So I'm gonna take it times two, right?
+So if I want to do 2015 and then multiplication
+in Python is a star or an asterisk.
+So if I just type 2015 times two and then hit play,
+I get the result, which is the next time
+the Royals will win the World Series in the year 4030.
+Yeah, that's actually accurate.
+Does anyone else have a math problem
+they'd like to share?
+No, okay.
+So that's like the very simple basics.
+I like the hot keys.
+You may see me hitting shift enter or not clicking play.
+I just kind of got in the habit of doing that.
+I'll do go there.
+Yeah, so the code cells aren't the only kind of cell.
+You may have noticed I have all this text through here
+that is the actual course materials.
+If I double click on the next cell,
+you'll see it turns into a box with just text in it.
+But if you look carefully up at the toolbar,
+you see it doesn't say code, it says markdown, right?
+Markdown is a simplified version of HTML.
+And so by telling Jupiter that this is not a code cell,
+this is a markdown cell and writing in here
+what I want to write, when I run it,
+it prints it out like text.
+And so stacking your code and text is the way
+that people kind of annotate their code and explain it
+and create their little scientific paper, right?
+And mixing those two cell types
+is really a big part of the art.
+If we go back up to my like larger box here about Jupiter
+with an image and hyperlinks and just click on it,
+you can see that it opens, it's a markdown cell.
+And this is how markdown does image tags.
+And this is how markdown does hyperlinks, right?
+And so I just went here before our class
+and typed all this out, hit play and there it is, right?
+All right, now not every cell runs smoothly.
+In fact, you'll probably before too long
+start having errors.
+I know I have them every day, all day.
+And when a piece of, the computer only does
+what you tell it to exactly what you tell it to.
+And oftentimes we don't give exactly the right instructions.
+We make a typo, we don't do something exactly right.
+And the computer will kind of puke out a complaint at you
+called an error message or a trace back.
+And so you can see here in this next cell,
+I've intentionally created an error
+where I've done two plus two plus
+and nothing else after my cell.
+And when I run it, I get this red box, right?
+And the red box is the computer, it's scary at first.
+You're like, what's going on, what's wrong?
+It's also like really kind of hard to read and odd.
+And it's just because Python hasn't done a very good job
+of making its error messages legible.
+But if you really stop and kind of listen
+to what it's trying to tell you,
+you can usually figure it out.
+And here it's a pretty simple error.
+It's saying there's a syntax error,
+which in programming means the code
+that you've written for me just doesn't really work.
+It has like something kind of fundamentally wrong
+about how you put the code together.
+And the case here is, is Python doesn't know what to add,
+because there's nothing after the second plus operator.
+It's just saying, I don't know how to do this math.
+There's no number on the other side of plus.
+And so solving that is really just as simple
+as sort of spotting the error,
+figuring out what you kind of typed wrong,
+correcting it and running your cell again.
+And you can see here just below that,
+I've done that with two plus two plus two,
+or now if I hit play on that one, it'll work.
+I should probably clear my outputs
+so that we don't have spoilers as we go down here, right?
+So if I had two plus two plus two, now it's six, right?
+Two plus two is right there, okay?
+Now those cells, when you do it like this,
+they kind of just exist independently.
+You know, you write some code, that's the input,
+you run play, it spits the output.
+But putting together an analysis and building something
+as you go down the notebook requires carrying over
+pieces of information between your cells.
+So that once something is sort of defined,
+it's reusable as you go.
+Like for instance, your data table, right?
+Very simple example of that is just programming variables.
+So that's really just like saving a piece of information
+in like a name so that you can reuse it
+over and over again as you go.
+And the Jupyter cells, once you define something
+in one cell, it's reusable in another cell, right?
+So here's a very simple example where I've decided
+to name my variable number.
+I could have named it anything.
+I could have named it Ryan.
+I could have, you know, named it Ben,
+but now I decided to name it number
+because that's what I intended to define it as.
+So right, the variable that I've called number,
+I'm using the assignment variable, the equal sign,
+to set to the number two.
+So if I click on this cell, which I've written
+and hit play, you see, we know that it's run
+because this little box fills in,
+but you'll notice there's no output, right?
+Unlike two plus two, there's nothing under the cell.
+That's because rather than just spit out its result
+into the notebook, we've said, hey, take the result
+and save it into this variable, right?
+And that variable is now reusable in subsequent cells.
+So in the next cell, I've done number plus three.
+So instead of two plus three, I'm doing number plus three,
+right?
+And if I play that cell, it spits out the output five,
+right?
+Because number was defined as two, it's reused here
+in the simple math, and then I get the output.
+Now, if I were to redefine number, instead of two,
+I want number to be three and put that in this cell,
+and then run the same thing again, the result is six, right?
+So number plus three here was five,
+number plus three here was six.
+And that's because I changed what number means, right?
+I redefined number as something else.
+And your variables can definitely change
+as you move down the page, that's a common technique.
+You gotta be careful about it though,
+because you might lose track of what it is as you go,
+or you might run your cells out of order,
+which could introduce some mismatches
+between your expectations
+and what code has actually been run, right?
+So you gotta be careful about that,
+but that's just part of it comes with the territory.
+All right, so before we move on into pandas,
+I just wanna challenge everybody again
+to try to come up with another math problem,
+maybe defining a variable as they go.
+So let's see, I'm gonna do,
+the last time the Chicago Cubs won the World Series.
+So I'm gonna say Cubs win.
+Notice I have an underscore,
+your variables can have underscores.
+It's gonna equal 2016, right?
+That's the last time the Cubs won the World Series.
+Now if I hit play,
+now that just saved it didn't go anywhere.
+One thing I haven't covered is how you can add new cells.
+So let's say I wanna use Cubs win for math
+and a cell just below this.
+If I click on the cell
+and then I hit this plus button in the toolbar,
+it's gonna add a new blank cell,
+which is a really common technique.
+You just wanna have that and save it.
+Okay, so Cubs win is 2016.
+I'm gonna do Royals win is 2015.
+I'm gonna run that with shift enter.
+I'm gonna add another cell.
+And then I'm gonna ask a really clear question
+that is science, science.
+Is Cubs win greater than Royals win, right?
+Are the Cubs better than the Royals?
+Let's get the answer mathematically, right?
+Greater than is another operator.
+There's a less than.
+And the answer is of course true.
+The Cubs are better than the Royals.
+Did you know that, Ryan?
+I'm sad to admit that I did know that, man.
+All right.
+Was everybody able to experiment with their cells,
+maybe make a variable, do a little math?
+Any errors encountered?
+I always love hearing about errors.
+I collect them like a zoologist.
+Okay, you guys are sharp.
+You're sharp or you're bored with me.
+I'm gonna keep rolling.
+We're gonna get into the exciting stuff soon.
+Our next section is introducing pandas.
+I've already explained it.
+Pandas is really a fancy spreadsheet
+that you're running Python that can do all kinds of stuff.
+And we're gonna get into what that stuff is pretty quick.
+But to use it, you have to import it.
+Pandas isn't available.
+The plus sign, the minus sign, those are just there.
+Python has them.
+They're in the standard library.
+When you install Python, you got that stuff.
+But a lot of people used Python
+to create other Python tools,
+which they then give away to the world for free,
+but you have to install them before you can use them, right?
+And they're in something called the Python package index,
+which you can read more about if you link.
+And one that's used by lots and lots of people is pandas.
+And once you have pandas installed,
+which Jupyter Lite, gratefully,
+we're grateful for, does for us, right?
+You need to import it.
+So anytime there's a Python library
+you wanna bring into your notebook for use,
+you have to use this little import command that's built in
+and then the name of the package.
+And if all these packages have websites or they're on GitHub
+and you can usually see there in some documentation
+or goof around a little bit
+and figure out what the right thing to import is.
+In the case of pandas, it's import pandas.
+So I want everybody to click on this cell and hit play.
+Boom, we can see nothing happened
+and the number filled in here on the left.
+That's good news.
+That means our browser is able to bring in pandas.
+It's available.
+It's already installed.
+If you try to import a package
+that isn't installed on your computer,
+you're gonna get an import error, which is really common.
+It just means you gotta get the tool installed,
+which usually means using something called pip
+or other Python tools that are capable of downloading
+and putting extra Python packages on your computer, right?
+Hey, Ben, what does it mean when a little asterisk
+shows up inside the cell number next to the cell I'm running?
+Great question.
+So when I hit play here, keep your eye where it says 17
+and you'll see, it went to 18.
+Okay, well, between 17 and 18,
+there's often a little asterisk that you'll see pop in
+and that means the computer is working, right?
+So sometimes your computer code takes more than a second
+to like finish and while you're waiting
+for the computer to finish, inside that box,
+you're gonna see an asterisk.
+In the upper right-hand corner where it says Python up here
+and there's this little empty circle,
+that will also fill in
+and it just means your computer's working, right?
+And since pandas is a lot of code, it's a big library,
+sometimes it can take a while to import it,
+especially if you're running it in a lightweight tool
+like Jupyter Lite.
+So don't stress, just be patient, right?
+And let it finish.
+Those are moments of drama though, will it work?
+You know, the tension rises.
+Okay, so we have in pandas imported
+and now just to demonstrate like you don't have to do this,
+I'll make another cell and now pandas the variable,
+if I hit, if I type pandas, do a dot,
+which we'll learn more about later and hit tab,
+we'll see this auto complete opens
+and this is Jupyter showing us
+the hundreds of utilities on the pandas tool belt.
+So the pandas tool belt can do lots
+and lots of different things
+and they're all available via this pandas variable
+that we're gonna use later
+to sort of take them off the tool belt
+and put them to use, right?
+I wanna delete this cell,
+like one handy way to delete it is just to cut it.
+So I'll click right there and I'll hit the scissors,
+boom, the cell's gone, right?
+You can also hit X on your hotkeys
+and that will delete the cell as well after.
+Hey Ben, I think Catherine maybe has a question.
+Yeah, let's hear it.
+No, no, I'm okay.
+Oh, awesome, right?
+I'm just here, okay, thank you.
+Love it.
+So now this next cell, I'm gonna import pandas,
+but I'm gonna do it a different way.
+If you've ever seen pandas code before,
+you've probably noticed that the variable PD
+is all over the place.
+So it's PD this and PD.that, not pandas.
+And all that is is a shortcut, right?
+So the people who invented pandas,
+even though they decided to call it pandas,
+they felt it was too long
+and it was just a hassle to have to type pandas all the time.
+They wanted to make their code more compact
+and be able to write it faster.
+And so they introduced kind of a,
+a really a style convention, you know,
+which is abbreviating pandas as PD.
+So when you import a library in Python,
+you have to have the full name of it here,
+but if you put as and then a new variable after as,
+you can redefine it as an alias or something shorter.
+And so in almost all of pandas documentation
+and examples you'll find in Google searches,
+you're gonna see PD used, right?
+And that's because they've done an import in this style.
+You're technically not required to do that.
+It's entirely optional.
+It's just sort of a matter of art, right?
+And we're gonna do that in this class
+just to kind of fit in, you know, peer pressure.
+Okay.
+And so to do that, I'm gonna click on this cell
+and I'm gonna hit play.
+And you're gonna need to do that too,
+because this PD variable is gonna be really important to us
+as we go down the page,
+cause we're gonna be using it again and again to do things.
+So go ahead and run that cell and hit play.
+Once we've done that, we have our tool belt
+and we're ready to start working with math
+and doing stuff with pandas.
+Before we get into the data from the story,
+like the real world stuff,
+I wanna use a simplified dataset
+just to demonstrate some of the principles of pandas
+in a way that's really easy to keep track of
+and kind of introduces you to some of its functionality,
+right, before we get into something more complicated.
+And that's just gonna be calculating
+basic descriptive statistics.
+One thing pandas is really good at
+is taking a list of numbers and doing stuff with them,
+not just adding them or subtracting them,
+but calculating all the statistics
+that we use to do stories like mean and median
+or min and max or all those kinds of things.
+And you're able to do that in Python.
+Python can do those stats,
+but you often have to write quite a bit of code to do it,
+or you have to be kind of good at Python to figure it out.
+You have to write the math formula, right?
+Well, pandas has all the math formulas
+already worked out for you,
+so you don't even have to know them.
+And it could do them with a very small amount of code
+and it could do it really quickly over gigantic datasets,
+which is why people like it, right?
+So a simple example just to start with
+is here this next cell
+where I've created a sort of example dataset.
+It is the even numbers between zero and 10, right?
+And so here I have a variable, I've called it my list,
+just cause like I couldn't think up a more creative name,
+right?
+We'll say my list, right?
+And we're gonna say equals.
+So the variable will be equal to,
+and here's something we haven't seen yet.
+This is just a list.
+So Python has a data type called a list,
+which is kind of like a column and a spreadsheet,
+if you think about it, right?
+And it has all of the values between two flat brackets
+and everything in that flat bracket
+is in a list that you can then run
+sort of special operations against.
+And so we're gonna start with this very simple list
+that I've pre-written two, four, six, and eight.
+Hit play.
+My list has now been saved to equal that.
+If I were to add a new cell
+and I were to just run my list,
+you would see that there in the output,
+it spits out the result, right?
+So we took our list, we saved it as the variable.
+If I just run the variable in another cell,
+it spits it out, it's there, right?
+For instance, if I were to change this to seven,
+rerun it again, two, four, six, seven, right?
+I think you guys are getting the hang of it, I bet.
+Okay, great.
+So that's the standard Python list.
+That's the vanilla list.
+We wanna upgrade this list to be a pandas list
+so we can take advantage
+of all pandas grade statistical functions.
+Panda's term for a list is a series.
+And again, that's just a term of art
+that the pandas developers came up with
+for a list of things, right?
+They couldn't call it a list
+because Python already calls it a list.
+So they had to call it something else.
+They decided to call it a series, okay?
+And you can see here in this next cell
+that I begin with the PD variable, which is pandas, right?
+A period, which is how we begin to access
+the many different tools on the pandas tool belt.
+And then the name of the tool I want.
+The name of the tool I want is capital S series.
+I know this because it's in the pandas documentation
+and I read about it elsewhere.
+There's hundreds of other things in pandas
+I know nothing about, right?
+We only need to know five or 10 of these pandas terms
+to like do stuff in this class,
+but you will kind of gradually have to learn them, right?
+And so here I'm saying so pandas,
+I want you to make a new series.
+I wanted to find a series, capital S.
+And then there's an open parenthesis and a close parenthesis,
+which is a common computer programming way
+of calling a function or of kick-starting a process,
+which requires an input,
+something to be, you know, submitted to be created.
+And so here I'm saying pandas,
+I want you to make a new series
+and the input into that series is my list variable
+of two, four, six, and eight.
+And the result of that, I'd like you to name my series,
+right?
+So we're gonna make a new variable based on the list
+that will be the series.
+And so I'm gonna run that cell
+just to get into demonstrate what's going on.
+I'm gonna, you don't have to do this.
+I'm gonna make another cell and spit it out.
+And we can see here, yes,
+it no longer prints a little list.
+It now has this sort of other like ugly thing,
+which is pandas sort of representation
+of what a series is, right?
+A series is a list of things.
+There they are two, four, six, and eight.
+And then pandas has sort of what they call an index
+or, you know, just like an incrementer on the left
+that counts the rows.
+So row zero, computers like to start with zero
+when they count.
+No one's ever explained that to me.
+The first row, row zero is two.
+The second row, row one is four, et cetera, et cetera, right?
+So we now have a series.
+And now that our list is a series,
+it has the superpowers of pandas, right?
+So in the same way that we could do PD dot
+and access all kinds of stuff, my series dot,
+if I hit tab, I get the auto complete, right?
+We can see your series has dozens and dozens
+of special things it can do, right?
+And again, you only probably ever need to learn
+a couple of these, but they are just different
+math operations, different stuff.
+And we're gonna go through a few as we continue.
+And some really valuable ones are the runs
+that do descriptive statistics.
+So in that long list were things that calculate,
+say the sum, right?
+So my series dot sum, if I hit play,
+there's the open parenthesis, close parenthesis,
+which is again, sort of calling something,
+issuing a command for the computer to do something for you.
+But there's no input in this case.
+And the input isn't needed
+because the data is already in the variable, right?
+So Python doesn't need you to give it the list
+to do the sum, it already has it in the variable.
+And so just by naming your series
+and running dot sum, open parent, close parent,
+boom, it spits out the answer 20, right?
+And if we go do the math ourselves too,
+plus four is six, plus six is 12, plus eight is 20,
+that checks out, right?
+So we've been able to total that right there.
+You can also do the maximum value,
+my series dot max, right, is eight,
+that's the highest value, my series dot min
+is of course two, mean is the average, right?
+You can really quickly calculate the average.
+The median, which is not fun to calculate on your own,
+right, you can just boom right there,
+get the median is also five.
+The unfortunately named STD function
+does the standard deviation.
+And then there's one sort of mother of all functions
+called describe that will just take your series
+and it'll run a whole set of descriptive statistics
+for you automatically,
+tell you how many items there are in the list
+for the average standard deviation min max.
+And all you statistical folks on this call know
+that the 50th percentile is of course the median, right?
+Right there in the middle,
+get a couple other cuts too.
+And this is pretty simple math, of course, or whatever,
+but it's important to keep in mind the principle
+that if my list contained one number
+or if my list contained 1 million numbers,
+the computer programming code that you wrote
+would be exactly the same, right?
+You're able to run some of these stats
+and without any more code than you just saw right here
+in this notebook.
+And it's pretty easy, right?
+And just to demonstrate a little bit of the notebook
+and how that's possible,
+if I were to go in here and change this to the odd numbers,
+one, three, five, and seven,
+and then I were just to go quickly
+and just run all my cells, boom, boom, boom, boom, boom.
+We can see that all of the outputs have modified
+and changed to reflect that we're now running
+the same statistics on a different series of odd numbers,
+right?
+So Ben, I know that you're using this as an opportunity
+just to kind of introduce some of what panels can do.
+To me, it looks like describe and median
+and some of these functions
+that you're walking us through
+are pretty useful in exploring a dataset
+that you don't know anything about,
+kind of coming into a project
+where you don't know what the outcome is gonna be.
+And it seems like the notebook,
+I'm putting this on a tee for you, Ben.
+Do you use notebooks to just kind of explore things
+before you know what you're doing
+like we do in our class today?
+Yeah, that's usually how it starts for me
+in a journalism project,
+is I have a dataset that,
+I've been seeking out that I want,
+but I don't know exactly what's in it.
+And I'm often using the notebook
+to kind of ask questions of the data.
+How many rows are there in this darn thing?
+What are all the columns?
+We'll get to that in a bit.
+What's the distribution of the values?
+And just exploring the data is definitely where I think
+almost all a data journalism project start
+unless you really have already mastered the dataset
+and fully understand everything about it,
+which is for me is never.
+That's usually where it begins.
+And my process from like beginning exploration
+to a published story usually involves
+like at least three drafts of the notebook,
+with the first one being full of all kinds of doodles
+and questions and like mess
+as I try to figure out what's in there,
+ultimately honing that down to the findings
+that I want to like share with the audience.
+And the final version,
+I usually limit to just sort of the findings
+and the shortest line from the data to the end
+just to sort of spare the reader.
+You know what I mean?
+Of all my missteps and sort of things.
+So that is to say, when you first begin,
+it is totally normal for your notebook to be a mess.
+You know what I mean?
+As you kind of sort out what the heck you're doing,
+but I really would encourage you to go back to it
+and revise it and work over it.
+And to be honest with you,
+that's really the power of this
+is that you're able to like incrementally strengthen
+your analysis and your process by returning to it,
+editing it and going back over and over again.
+Where if you're just always exploring
+or you're goofing around in a spreadsheet,
+it can be tough to like, you know,
+put one foot in front of the other
+and really get stronger and stronger as you go.
+That's, I'll just throw in one of the things
+that I think is so cool about notebooks like this is
+you're just, you're documenting that exploration as you go.
+Like it's, I find it so annoying to like,
+all right, I gotta take time from the thing
+that I'm working on to go like write my notes,
+but like this is just kind of doing that automatically
+as you go, you're kind of keeping notes
+that you can throw a markdown cell in there
+to kind of give yourself some text notes,
+but you're seeing the process that you use
+to get where you ended up.
+And like being able to reproduce your process
+is super helpful when it comes time
+to double check your work, like all those things.
+So working in a notebook,
+you're just kind of getting all those notes for free
+in a way that you don't necessarily have
+if you're just writing code in another system.
+Totally, that's why I love it.
+So that's how series works,
+which you can also think of as columns
+and some of the basic stats.
+Do we have any questions about that
+before we move on to tables and some real data?
+Excuse me, speaking about averages,
+how can I get the mode of the series?
+How can you get the mode?
+That's a great question, I didn't cover that.
+And it's not in the describe function.
+So it's just something they maybe overlooked
+or didn't include for some reason when they created this.
+Just to kind of demonstrate the process,
+I have questions like that all the time.
+How do I get pandas to do this?
+How do I get pandas to do that?
+You know what I mean?
+You're gonna be in that position all the time
+when you're doing that.
+And the number one way, it seems like simplistic
+not to like whatever be whatever about it
+overly simplistic, but Googling it
+is like the way to almost always do it.
+So like, honestly, like figuring out
+how to write the Google searches
+that get you where you wanna go with pandas is part of it.
+And it's not that hard.
+You just kind of have to struggle
+to get what you're looking for.
+So like, to me it would be like,
+get mode or you know, mode of pandas column.
+See right there, get mode of pandas column.
+It's like, you know, one already there.
+And you can see the first result
+is actually the documentation for pandas itself, right?
+Which is not always the easiest to read
+but can be pretty helpful.
+And we can see here that it's saying
+that there's a dot mode, right?
+Here it's saying the mode is on the data frame
+which we haven't got to yet
+but I bet you it's gonna work, right?
+And so if I go back here, I add another cell.
+I'm gonna do my underscore series dot mode.
+I'm experimenting.
+I'm not even sure, right?
+I hit play.
+That doesn't look like it's it, does it?
+1, 3, 5, 7, no, that didn't work.
+That's exactly what I tried.
+I Googled it in the, tried that method
+and I give that same result.
+Yeah, so like, you know,
+I honestly don't know the answer to this off my head.
+So let's struggle through it together.
+Another website you'll commonly run into is Stack Overflow
+which is where people go with their questions like this
+and then other users like help them.
+And so this guy is saying there's a data frame dot mode.
+This person is, and that's not what we want.
+We tried that, right?
+This person is saying,
+oh, I import a different library to calculate the mode.
+I'm using a different Python thing, right?
+We actually don't have a mode in this dataset though, right?
+Cause there's no duplicate numbers, right?
+Cause they're all there equally.
+Let's add a number that's there more than once, right?
+The mode is the most common number in the dataset
+in terms of frequency for folks who may not know.
+So I'm going to add the number one in there
+like a bunch of times, right?
+Yes, you're right, yeah, you're right, right.
+And then I update the series.
+So I updated my list and I reran the series
+and then I go down and you can often do this in your notebook
+just run the cells you're most interested in.
+Ah, now that worked, right?
+Once we had introduced that there was more than,
+there wasn't a tie, right?
+We kind of created a winner of the mode contest.
+Then the number one came up first.
+So now for instance,
+if I go and change these all to twos, right?
+I rerun my list.
+I have to rerun my series to update the series, right?
+And then I rerun the mode.
+Now it's two, right?
+Thank you, thank you.
+I understand.
+Yes, yes, I tried the same thing.
+No, no, thank you.
+Excellent, and that process you just saw.
+So the method is kind enough to show all the tie,
+all the tie items, not arbitrary one,
+but if there's any ties, the method shows all the ties.
+It does appear to do that.
+I didn't know that, I just learned that, you know?
+But that does seem to be true.
+And like that process that you just saw me stumble through,
+how do I do this thing?
+Google it.
+I think I know what this is telling me,
+but I really don't, right?
+I don't want to import another library, that seems dumb.
+What?
+And then ultimately it came back to me thinking like,
+oh, my dataset doesn't really have a mode, right?
+And then I've got to tweak something,
+only rerun two or three cells,
+and then I get it like that cycle of like,
+I have a question, I'm confused, I experiment,
+I find something I didn't expect, a bug or everything.
+And then I target, I update just the cells I need to.
+That is the cycle.
+That's it right there, guys.
+You know, it was like a really simple example of it.
+So thank you for sharing it.
+But you're going to be doing that all the time
+as you do this work.
+You know, just solve different types of problems.
+Thank you.
+Well, I can see the good point
+of the reproducible notebook, thanks.
+Exactly.
+Because if you were just writing Python code in a text file,
+you'd have to rerun all the code from the start.
+But here we were able to just, in a targeted way,
+rerun just the cells we needed to, right?
+Which, you know, sometimes cells take a long time to run,
+that could be really useful to not have to rerun at all.
+Yeah.
+Okay, great.
+Thank you so much.
+So we're going to move into our next section,
+which we're going to talk about data frames.
+And just like series is sort of like
+the pandas brand name for a list.
+Data frame is just like the brand name for a table
+or a spreadsheet, right?
+It actually isn't invented by pandas.
+Data frame is like a more general computer programming term.
+I don't actually know the origin.
+If anybody knows the origin, I would love to hear it.
+But all it really is,
+it's just another name for a spreadsheet,
+except it's one that computer programming languages
+can muck around with, right?
+So if you ever get introduced to the R programming language,
+which is used for a lot of statistics,
+they call tables data frames too, right?
+And I think there's probably other libraries
+that call them other things.
+And it's just what people have decided to call a table.
+And what is, of course, a table?
+It's a collection of columns and rows.
+Instead of just like one series or list,
+it's a bunch of them, you know, side by side.
+And then they tend to have a name at the top
+that tells you what is in that column,
+which is often called the header, right?
+And so we're gonna use two tables,
+two sets of data in this class.
+And we're gonna get into the real world stuff here.
+So we're using two manicured kind of cleaned up data sets
+from this story that I worked on that published in 2018,
+which is about the Robinson R44 helicopter.
+It's an investigation I did with Kim Christensen
+at the LA Times.
+And our finding based on the data analysis
+was that the R44,
+the world's best selling civilian helicopter,
+is actually also has the highest accident rate
+of any helicopter.
+So, you know, is that the fault of the pilots?
+Is that the fault of the helicopter?
+The storage gets into all that, right?
+But the statistics are, and it's disputed.
+The statistics are undisputed.
+The Robinson helicopter has the highest accident rate.
+And the data that is in this notebook
+that we're gonna go through is how I established that
+so that we could report it in the story, right?
+And the way I did that, I calculated the rate
+is on the one hand,
+I had the database of all helicopter accidents,
+which came from the National Transportation Safety Board.
+We can see that right here in the left in the finder,
+that's our NTSB accidents,
+National Transportation Safety Board accidents.
+If I double click on it over there on the left,
+look at that, in a new tab here,
+Jupiter opens the spreadsheet, you know,
+you can't really edit it, but you could preview it.
+And we see here in this spreadsheet,
+this is the data that I've kind of put together for class.
+And, you know, one thing I always ask myself
+when I'm inspecting data is what is a row?
+What is a row equal?
+And here, if we look at this,
+we can see that each row is a helicopter accident, right?
+And I've put into, and this is the unique idea of the event.
+And then we have here the make and model
+of the helicopter from the NTSB, the year of the accident,
+the date of the accident, the location,
+how many people died.
+And then we have here this LA times make
+and LA times model, which we'll get to,
+which is the standardized cleaned up version
+of the government data,
+which had a lot of variations and noise in it.
+And we'll get to it as we go, right?
+And so this is the columns in the data.
+And so in Panda's terminology, this is a data frame,
+and each column is a series, right?
+And so that's dataset one,
+which has all the helicopter accidents.
+Dataset two is from the Federal Aviation Administration,
+and it's survey data that tells us
+how many total flight hours each
+of the major helicopter models had
+over the period of time that we're studying.
+And this is data that is actually derived
+from a long and winding FOIA request
+that I had with the agency, we won't get into,
+that I've tidied and cleaned up here
+to try to make this class a little more like a cooking show
+and to move along a little quicker.
+But basically we can see here that each row
+is an LA times make and model,
+a cleaned up helicopter, right?
+There's the Robinson R44 right there in row 10.
+And on the right is the total number of hours
+based on survey data that it's estimated
+that helicopter was in the air,
+that pilots were flying that helicopter during the period.
+And if you think about it,
+you're trying to adjust, right?
+The accidents versus how often then they're in the air
+to try to make fair comparisons for different helicopters.
+And this is one technique for doing that.
+And so as we go, we're gonna combine these two data sets
+and calculate that rate using data frames, right?
+Any questions about the data sets
+before we get into how to use them with pandas?
+No, all right, let's keep going.
+So in our next cell, we have here our friend PD again.
+PD just as a reminder is the shortcut for pandas.
+So PD dot is what gives us access to all of pandas,
+many, many, many tools.
+One of those tools that you'll use a lot is read underscore CSV.
+This will read in a CSV file.
+A CSV file is a file of comma separated values.
+It's a spreadsheet, right?
+It's, you know, you've all seen them, right?
+And so a CSV file, we just opened them and looked at them.
+A CSV file can be parsed and read in by pandas
+as a data frame using the read CSV function.
+Again, the parenthesis to sort of call it.
+And then it wants you to give the name or path to the file
+inside of quotes, so it knows where to find it.
+That's the input in this case.
+So I do pandas dot read underscore CSV.
+And I've typed in the name of the file,
+which matches what's in our finder over here.
+And I hit play.
+And boom, you can see right there below it,
+it spits out the result of that function.
+And the result is a table that looks a little bit
+like that spreadsheet we were just looking at, right?
+This is the sort of pandas representation of the data frame.
+The notebooks puts it out in a way
+that we can kind of scan it, look around at it.
+And this is what's also what's nice about the notebook
+is you can inspect your things as you move along
+to kind of look at them
+without having to rerun all your code, you know?
+And so we could see here, there's the table
+as we saw in the preview, but now it's in Python.
+It's been read in by pandas, but it's just being spit out.
+So we can't reuse it.
+In our next cell, we're gonna save it
+so that we can use it in subsequent cells
+and start to do analysis.
+And it's the same thing as we did with those numbers earlier
+on, exact same concept.
+We name a variable.
+We can name it whatever we want.
+I'm doing accident underscore list, right?
+Then equal to define it.
+And that exact same code from above.
+So the same code from up here with read CSV is down here.
+It's now being saved to a variable.
+If I run play, nothing happens.
+The number shows up.
+That means the data frame has been saved
+in the same way that we saved our series, right?
+And in the same way that we ran statistics on our series,
+we can do all sorts of things with our data frame, right?
+So again, just to make a new cell,
+if I type in accident underscore list, hit dot,
+and then tab, we get the preview.
+And there are the many, many, many, many, many, many things
+a data frame can do, right?
+You'll never learn most of them.
+It's fine.
+But there's a few that you're gonna use all the time.
+And one is called head.
+So your data frame variable, whatever you might call it,
+dot head, open parenthesis, close parenthesis,
+will print the first five rows of your data frame.
+And that's just a really easy way to get a look at it
+and see what's in there.
+Take a sniff, right?
+Head does the top of the data frame.
+There's another one called tail.
+That'll give you the bottom of the data frame.
+Ha ha.
+Head and tail, right?
+It's five by default, right?
+But if you were to pass a number into head as an input,
+you would override that default
+and you would tell the computer,
+no, I don't want five.
+I just need one.
+Or maybe I want 100, right?
+It's really up to you.
+So head is really useful.
+I would encourage you to run it on every data frame
+that you work on.
+Another one that I would encourage you to always run
+is dot info.
+Dot info, like dot describe, prints a little report card.
+And so we have here a report card about what's in our table.
+It's gonna be really helpful.
+It tells you how many rows there are.
+It's 163 rows, right?
+So 163 helicopter accidents, right, in our dataset.
+And then we have here a list of our columns,
+which were the same ones we previewed,
+but we have, it's all spelled out
+so we can refer back to it later if we need to, right?
+And then like any good database or data frame,
+every column has a type, a data type,
+which tells the computer
+what type of things they can do with it.
+Like if you wanna do math, right,
+you have to have numbers.
+And numbers, right, are integers,
+is another term for number.
+And you can see here that this column, aircraft ID,
+this column, total fatalities,
+float is another term for numbers.
+That's a number with a decimal, right?
+You can see that pandas has guessed the data type
+of a lot of our different columns,
+which is here on the right.
+And it's just not very human readable
+because the pandas people have done a bad job.
+But basically it's telling you
+that the computer has guessed
+that these are integer fields,
+which are numbers without decimals.
+These are floating fields,
+which are numbers with decimals.
+And so these columns could do math.
+They could do .sum.
+They could do .min.max, right?
+The other columns pandas says are objects.
+This is another poorly named thing,
+but objects just means it's characters or strings.
+It's words, right?
+Like the name of the helicopter, right?
+Or the name of the state where something is based.
+And words can't do math, right?
+And that's because,
+and the data type of the computer kind of regulates that.
+And so it's very important to make sure
+that your columns have the data types
+that you expect or that you want.
+A really nice thing about pandas
+is it guesses them for you and it's almost always right,
+which is less work for you, right?
+You're really just reviewing the computer's work.
+But sometimes it's wrong
+and you need to override that.
+And there's ways to do that with read CSV
+that we won't cover here.
+Was there a question?
+No, okay.
+So that is the introduction to the data frame, right?
+And we know from looking at it,
+we've made our first conclusion, our first finding.
+There were 163 fatal accidents, right?
+And I know that because that's how many records
+there are in the table.
+Analysis.
+Now to work with your data frame,
+you often need to access your columns, right?
+So there's all these different columns in the data frame.
+How do you get your hands on them, right?
+And we saw here in the info,
+it printed out their names right there, right?
+And there's this one we've seen a couple of times,
+LA Times Make and Model.
+So what kind of helicopter it was
+after Ben has cleaned it up
+and fixed the government's data, right?
+So that's the column that will have the name
+of the helicopter in each accident.
+And because its name is LA Times Makes and Model,
+if you do accident list dot
+followed by any of your column names,
+it's gonna spit them out, right?
+So there's that column, LA Times Make and Model,
+spit out as guess what, a series, right?
+And if I were to go up here
+and I were to take state instead,
+and I were just to paste state over it and run it again,
+there's all the states, right?
+And so any column that is in your data frame
+is accessible via the dot,
+which is called dot notation and they're there.
+Now, if your column name has spaces in it,
+which is pretty common, the dot won't work
+because the computer won't know how to read the code.
+It'll think that you're writing two different things
+and it'll throw an error like that.
+But don't worry, there's a way around it.
+If instead you do a flat bracket,
+flat bracket like that,
+the exact same thing happens.
+And if your column had a space in it,
+it would work fine, right?
+I like to use the dot
+because it's just easier to read, it's less code.
+That's why I often give my headers underscores
+rather than spaces.
+But that's really just a matter of personal preference.
+It's not right or wrong.
+Shouldn't put you like it, don't like.
+Some people don't wanna deal
+with having to do two different ways.
+And so they always do it with the flat bracket,
+which is also fine, you know?
+Now, that series has its own, you know, dot tab
+where we can see the many, many things we can do with it.
+And because this column is not an integer or a float,
+it's a string or object column,
+we can't do min and max because it's not math.
+They're not numbers, they're words, they're strings, right?
+But they have their own set of very interesting
+dot things that numbers don't have.
+One that's super helpful and we use all the time
+is called value underscore counts.
+So if you do the name of your data frame,
+a dot, the name of your string column, a dot,
+and then this fun function value counts,
+open print, close print, and hit play,
+boom, you get printed out a group and count on that column,
+a frequency table or what Excel calls a pivot table
+instantly, wasn't that easy?
+And we see here that of our, what was the total again?
+Of our 163 helicopter accidents,
+38 were the Robinson, R44, right?
+30 were the Bell 206.
+We have an accident ranking just like that, right?
+So just with that one little line of code,
+we've answered an interesting question,
+which helicopter make and model
+had the most helicopter accidents?
+Congratulations, right?
+Now you might see the series,
+this doesn't look like a data frame.
+It doesn't have like the nice clean column headers
+and rows and things.
+And that's because this is technically a series
+that has some numbers annotate on it in pandas world.
+If you wanna tidy this up and make it look like a data frame
+a little more legible, there's this weird pandas function
+that you'll have to use from time to time
+to do that called reset index.
+What that really does is it takes the thing that you have
+and it converts it into a data frame.
+Why is it called reset index?
+I don't know, it's a bad decision.
+It's what the pandas nerds did.
+And one thing about working with open source software
+is you're just kind of stuck oftentimes
+with how things were designed by the people who designed it.
+I mean, it is free after all
+and who are we to complain?
+And so I think just as a beginner,
+it's good to just adapt, learn the quirks, live with them.
+So I hit play there.
+You can see it's now a nice legible data frame.
+If you get more advanced at Python
+and these things irritate you, it's all open source.
+Everything's on GitHub.
+You can go and suggest a change to the people who run it
+and maybe they'll listen.
+I've tried on this one, they didn't listen.
+All right, so now we're gonna do a little bit
+of an exercise together using only techniques
+we've learned here in class,
+nothing that hasn't been covered.
+And we're gonna answer some journalistic questions
+in the cells below.
+It's gonna be fun, it's gonna be a little challenging.
+And then once we finish that,
+I think we might take a short break, okay?
+Just to give everybody a minute
+and to give me a chance to get some water.
+All right, so here we go.
+I'm gonna need some help from the crowd, guys.
+Here's the questions from your annoying editor, right?
+Okay, so I know how many accidents there were, right?
+Hey, there were 163 accidents.
+But how many people died?
+Because more than one person can die
+in a helicopter crash, right?
+How using only the data we have
+and only techniques we've learned so far,
+could we answer the question of what was the total number
+of fatalities in the 163 accidents?
+It's gonna require a little creativity, a little stretch.
+Anybody have a thought?
+Even if you don't know how to write the code,
+you have an idea of how we might calculate it from the data.
+Well, we have to sum the total fatalities column.
+You got it, that's exactly right.
+You know, I went over it really quickly,
+so I'd forgive you if you missed it,
+but there was a total fatalities column
+that for each accident, like if I look at it here,
+had how many people died in that accident?
+Where is it?
+Hold on, my Zoom toolbar is getting in the way.
+Here, so one person died in this one,
+two people died in this one,
+three people died in this one.
+So if we sum this whole column,
+we'll know the total number of fatalities.
+You're exactly right.
+You have an idea about how we might write that code?
+Only things we've done so far.
+Maybe value sum.
+Yeah, we're gonna use the sum.
+We're gonna use the sum first,
+but we have to access our column, right?
+So we know our data, what's the name of our data frame?
+Do you remember?
+Accident list.
+Accident list.
+So if I type accident underscore list,
+like if I just run that cell, it just prints it out, right?
+Now you told me that we got,
+we know the column that we wanna deal with, right?
+It's total fatalities.
+So if I do dot, and now if I do total fatalities,
+like that, now if I just hit play there,
+there it's just spitting out the numbers as a series, right?
+Which is what we see here in the spreadsheet, right?
+So now we've accessed our series.
+Now what do we do next to get the sum?
+Do you remember?
+Dot sum.
+Dot sum, I know.
+Exactly, boom, dot sum, hit it.
+There's the answer, 336 people died, right?
+And so that's where we used the exact same technique
+that we used with our list of two, four, six, and eight.
+We used on this data frames column,
+and no different code,
+but we got an answer
+to a pretty interesting journalistic question along the way.
+Very good.
+Okay, so the next question I have is,
+which helicopter maker had the most accidents, right?
+So we did the helicopter make and model
+with the most accidents.
+How would we get the maker, the company?
+And how would we know which one had the most?
+So let's look at our columns again.
+We had this LA times make and model column, right?
+Which we used before, but look,
+there's another column called LA times make, right?
+And that has not the maker and the model,
+it has just the maker, right?
+So these are the Bell helicopter company, Airbus,
+this is Robinson.
+So remember, we can access our columns
+by typing in our data frame name,
+accident underscore list dot followed by the column name.
+So dot LA times make, there it is.
+And just as we did before,
+we can get a frequency or a group and count of the values
+with the value underscore counts method.
+So LA times make value counts, boom,
+we see Robinson has had 58, Bell has had 43.
+And just to quickly review,
+that's the exact same thing we did here
+with make and model, right?
+And the only thing that's different in the code
+is it's a different column, right?
+And so by using the exact same technique
+with a different column name substituted in the middle,
+we get the answer to a different question, right?
+But the exact same code really.
+The sort of mix and match of your data and the techniques
+is really a big part of how this works, okay?
+So we can do the same thing
+for the total number of helicopter accidents by year.
+Can somebody tell me what to type to get that calculation?
+You could look at the info report above
+or preview the data table would probably help.
+Don't make me call on you, somebody.
+Let me try, can we use these value counts method again?
+Yes.
+By the column name of the year.
+Yeah, so just tell me what to type and I'll try it.
+Okay, first we need the name of the list accident
+underscore list and dot year
+and then dot value counts, right?
+That's exactly right, you got it, man.
+So there we have a really,
+you'll notice that it's not in chronological order, right?
+It's ranked by which year's had the most, right?
+But we see that the year 2008
+had the most accidents of 22, right?
+And we also here kind of get a look at the range of values
+in this column.
+This gets to what Ryan was talking about earlier,
+exploring your data.
+This is where value counts can be really useful
+to just quickly get a sense of like in this column,
+what the heck is even in there, right?
+What options are there,
+especially when there's like categorical codes
+or something like that, like the maker is an example.
+It's nice to just kind of get a look at it.
+And so there's another one.
+All right, so if I wanted to do that now
+for which state had the most helicopter accidents,
+what would I type?
+Yoshido, I bet you know the answer.
+You wanna tell me what to type?
+Maybe we can imply max.
+Ah, nope.
+And I don't think it will
+because max will only run on number columns.
+It might give us, what will it do?
+Yeah, so it says, look at this crazy long error.
+Oh my God, I hate computers, I quit, right?
+You can see at the very end,
+oftentimes the clues on your errors
+are at the very, very bottom of this trace back,
+which is frustrating, but that's how they do it.
+And we can see here, it's saying there's a type error,
+which means the data type is like not happy.
+And it's saying, hey, I expected a float
+and you gave me a string, right?
+And so max, isn't it?
+So do we have to use the value counts again?
+We use value counts again, you got it.
+I know, I wasn't very creative with these challenges guys,
+but there you go, you see it.
+California, America's most populous state had the most,
+which is 16.
+So here's where a rate might be helpful too, right?
+But we see there it is, California number one.
+All right, so that gets us to the end of that section.
+We're now gonna move on to more advanced things
+to do with your data frame,
+things like filtering it to get down
+to just records you're interested in.
+Things like grouping it to group and count
+and calculate more interesting statistics
+than just frequency counts.
+Things like merging it to other data sets
+and calculating new columns,
+which is gonna be a lot of fun.
+It's probably about another hour worth of stuff
+for us to go through, maybe a little less than that.
+But I wanna just take it this moment now
+and then maybe take a break.
+We've been going, we're probably a little past the midpoint.
+You can look here at my scroll bar.
+You can see we're actually a little more like 75%
+maybe of the way there, but it's been a lot.
+And so I just wanna give everybody a chance
+to go to the restroom if they need to
+or refill their coffee cup.
+And we can meet back here, let's say at 1132,
+just to pick a weird number, at 1132,
+we will resume and be right back.
+In the meantime, I'm just gonna hang out here.
+And so if you have any questions really about anything,
+feel free to speak up.
+All right, so 1132, I'll see you guys.
+Ryan, how we doing?
+Good.
+Feeling good.
+There's a good question from Cooper in chat.
+I don't know if we wanna come back
+and talk about how you might explore something like that.
+Yeah, I haven't seen it.
+Let me, I kind of lost my Zoom toolbar here.
+Would you mind just, I hate,
+would you mind reading the question?
+Yeah, what's going on in Arizona?
+What's going on in Arizona?
+Yeah, exactly.
+And that's what's kind of fun about,
+just listening to the statistics, right?
+Which is why I often think of it's,
+to me, there's a sort of spiritual aspect of that sometimes,
+but I'll restrain myself.
+Yeah, what is going on in Arizona?
+You know, we'll explore that when we get into filtering.
+You know what I mean?
+We might be able to dig into the records.
+Like, you know, I often approach it exactly
+like you are here.
+It's like, I ask one question of the data,
+I get an answer back,
+and then I have a follow-up question, right?
+And so then I write another piece of code
+that helps me with the follow-up question.
+In this case, I might wanna say,
+what's going on with Arizona?
+Let's look at the Arizona records, right?
+So maybe in our next filter section,
+we'll filter down to the records in Arizona
+just trying to answer that.
+Cause I'm paranoid, I don't know about you.
+I'd be like, Arizona seems like the rate's kind of high.
+Maybe there's some duplicates in there.
+Ooh, you know what I mean?
+Maybe Ben screwed it up, you know?
+And like, the one way to prove that
+is to actually look at the records, you know?
+And so, I don't know.
+I think, you know, just having written this story,
+speaking from all I learned in my reporting,
+I would just generally say there's certain parts of America
+where helicopters are more common than others.
+You know what I mean?
+They're more commonly used as working helicopters
+in some places than others.
+Like, but then I think there's also places
+where they're more popular recreationally, you know?
+And California is definitely a place
+where helicopters are popular.
+In general, the West is a place
+where helicopters are popular,
+wide open spaces and all of that.
+But I don't, mm-hmm.
+I was just gonna say, I think this is a really good example
+of kind of, like you said, listening to the data,
+letting it tell you where to look for interesting stories.
+Because I mean, I think the subtext here is,
+yeah, California, Texas, those are like heavily popular.
+Those are like some of the most populated states there are.
+You probably would expect to see numbers be high there.
+And then like Arizona, maybe just kind of your gut sense is,
+that might be an outlier.
+Like, to me, this is a good example of like,
+I found something interesting in the data
+and like my next step is probably picking up the phone.
+Like, who could I call?
+And ask like, why is Arizona,
+I feel like an outlier here.
+So, just a cool example, good question from Cooper,
+like example of how to listen to the data
+and find like interesting things
+that might turn into stories.
+Totally, that's it right there, that's it.
+Picking up the phone is a great way to go.
+Lot of phone calls on this story, man.
+To clean up that make and model column,
+I had to like learn so much about helicopters
+because like the raw data from the NTSB
+had like every odd variation of every helicopter model.
+You know, like there, you know,
+you call it the 106 Bell or whatever,
+but there's the 106A and the 106B
+and there's all these like little variations
+or they would spell it different
+or the companies would change names over time.
+And so like, you know,
+there aren't that many helicopters to be honest,
+like compared to planes or cars,
+they're pretty, you know, small amount of variety,
+but I had to learn all of them to kind of to do the story.
+And that was me just in a spreadsheet, you know,
+like that spreadsheet we saw, that's me in the database,
+just like going through,
+doing a values count on the raw, ugly ones,
+seeing what they are, spitting that out in a spreadsheet
+and then going through row by row
+and just being like, this is the R44,
+this is the R2D and just like categorizing it.
+And that like slow refinement of the data
+was the real work here.
+Yeah, I know you have taught classes
+with political contributions data,
+like that's just such a great example of like data
+that has to have so much cleanup.
+When we were talking before the class,
+I pulled up some PDC stuff from here in Washington state
+and just like looked at a local candidate
+and there's like 18 different ways
+that my town is spelled in the data.
+Cause it's people entering stuff in a form
+and like they don't care about getting it right,
+it's not necessarily a drop down
+and there's, you know, different capitalizations
+and like all that cleanup work is so much of
+then what lets you do stuff like this
+as quickly as you're able to, you know.
+And we're definitely, we're glossing that over today
+in this presentation that in reality,
+that just getting the data,
+basically understanding what it is and isn't
+and then cleaning up its problems is like in most cases
+and very much so in this case are like 90% of the work,
+you know, and then like 1% was doing the analysis
+and then the last nine were bulletproofing
+and making sure I didn't screw it up.
+Yeah.
+Yeah.
+Has anyone here flown in a Robinson helicopter?
+I'm always curious to know.
+I've never been in a helicopter.
+Neither have I.
+I do have my like news copter fantasies, Ryan.
+I just got a, it's got a drone license
+and that's the closest I'm gonna get I think,
+but like my news fantasy for 2023 is that like,
+I shoot some random local news event
+and like get it on the 10 o'clock news.
+You think I can do that?
+We just got to get two drones that are big enough
+for you to put one foot on each and then you're off.
+All right, I'm gonna mute.
+We're at alumni.
+All right, we're at our restart time.
+Thank you for your patience, everybody.
+We're gonna now pick it back up
+and we're gonna follow this through all the way to the end.
+So our next step is filtering the dataset.
+How do I take my table and how do I narrow it down
+to just the records I'm more interested in
+or that I wanna analyze and look at?
+And pandas has its own technique for doing this,
+which is it's called indexing or filtering
+that we're gonna cover next.
+This is if you've ever done database software like SQL,
+this is really very similar, right?
+And to the where statement in SQL,
+you have to make what's called an expression that's a test
+and that test is then applied to every row in the data frame
+and things that are true are kept after the filter
+and things that are false are let go, right?
+And the result is that you just keep all the things
+that are kept and that's the filter, right?
+And every expression has sort of the column
+or the series that you're gonna evaluate,
+the test that you're gonna run against it.
+Does it equal this?
+Is it greater than this or less than this?
+There's these different kinds of tests.
+And then there's the value you're gonna test it against.
+And so a really common filter on a string field
+is I wanna filter down the data frame
+to only the records where a certain column
+equals a certain value, right?
+And that's the example we're gonna look at here.
+The example I wrote is for the state of Iowa,
+but because Cooper had this great question about Arizona,
+I'm gonna change it to Arizona, right?
+And so we see I've created a variable,
+it equals AZ for Arizona, I'm gonna run it
+and now that's saved right there, right?
+That's easy, that's the easy part.
+That's just saving the variable, my state equals Arizona,
+right?
+Now here in the next cell is the hard part.
+This is how you actually do a filter in pandas.
+You start off by naming the data frame, right?
+That's the data frame I wanna filter.
+And then you do these flat bracket.
+The flat bracket is saying, I'm about to do some indexing.
+I'm about to do some filtering, right?
+That's how you tell that to the data frame.
+And then inside of the flat bracket
+is that expression I was talking about.
+And it's a little overwhelming at first,
+but if you just stop and read it slowly,
+you'll get it pretty quick,
+which is you have your first thing,
+which is the column that you wanna evaluate.
+So you have to repeat the name of the data frame
+to access the column, right?
+So the column is state, right?
+So I have to do data frame.state to get the column.
+I know it's dumb, you have to repeat it.
+That's just how pandas works, I'm sorry, right?
+Second is the operator that you wanna run.
+In this case, you wanna test
+whether something equals something else.
+And the way you do that in Python
+is two equal signs in a row.
+That's because one equal sign is used to assign variables.
+So they can't use it here.
+The computer's strict, it's dumb.
+Expressions can only do one thing, right?
+So one equal sign is for assignment.
+Two equal signs is for evaluation of an operator.
+Is one thing equal to the next thing, right?
+So our thing we're testing is the state column.
+Then we're saying, is it equal to the variable state?
+Is it Arizona, right?
+So if I run that, boom, we've got our narrowed list
+that now is only the records in the state of Arizona, right?
+If I look at the state column, it's AZ, AZ, AZ, right?
+And if I were to change that back to Iowa,
+where I grew up, and I were to run those two cells again,
+we'd see the list got a lot shorter, right?
+It only has three now, and it's IA, IA, IA, makes sense.
+Pick another state, run it for yourself.
+Go back to AZ, get it, run it again.
+Now to save that for use later,
+of course you can save the result
+of your filter to a variable, right?
+And so if I named it, I was going to call it myaccidents,
+but I'm going to call it AZaccidents.
+I'm going to change the name of that variable.
+I'm riffing, I'm off-roading, right?
+And I'm going to say AZaccidents
+equals the result of the filter.
+And now that is now a new data frame, right?
+With fewer records, and I can take a look at it
+using those same things we did before,
+which are head and info.
+Remember those guys?
+There they are.
+And we can now see when we look at the row count
+in the info report, there's only 14 rows, right?
+And that 14 rows matches the data frame.
+And that 14 rows matches what we got
+with our value counts up here, right?
+Because we filtered down to see just those 14.
+Now you could write that out to a spreadsheet
+and you could look at it in Excel if you wanted to study it,
+like look for problems, like I was saying.
+You can just sniff around here,
+but you've got something you can kind of play with now.
+That's filtering.
+There's other expressions, greater than, less than,
+which are often useful when you're evaluating number columns, right?
+I only want campaign contributions greater than $1,000
+or something, right?
+Would just be like amount greater than 1,000, right?
+If I had a column called amount, which I don't in this case,
+but you get my point.
+But we can say total fatalities greater than one.
+So we can say we want, you know,
+we want all helicopter accidents
+where someone other than the pilot died, right?
+This might give us that if we think about it, right?
+Because anything has more than one fatality.
+Well, I guess the pilot could survive and the passenger could die.
+So that's not true.
+But like, you know, we want,
+if we wanted all helicopter crashes with more than one death,
+this is what would do it, right?
+And that's me struggling through it.
+I want to answer this question.
+How do I like, and then it helps you think about it.
+Well, I didn't ask the question, right?
+You know, and then I had to loop back.
+That's filtering.
+Any questions about filtering?
+So I'm just going to throw out the fact that you renamed that
+variable as the accidents.
+I offer.
+Yeah, no.
+But I just want to throw out that that means that you still have
+access to that original, like the original filter.
+Also, like something that I do to myself all the time is
+overwrite a variable that I was going to use again.
+And like my debugging process,
+often I run into things that I just, I was just really dumb and,
+and it's got moving too fast and by and I just reused a variable name.
+Yeah.
+You know, a few different places in my code.
+And all of a sudden I'm ending up with different results that I'm
+expecting. And so renaming variables,
+like AZ accidents like that is just a really helpful way.
+Like it may feel like I'm getting cluttered.
+I got too many variables.
+Your computer doesn't care.
+And it's just a really nice way to make sure that I'm not accidentally
+overriding something that I might want to use and rely on later on.
+That's totally true.
+It's totally true.
+Yes.
+And that's where, you know, if I,
+especially if I no longer need a variable,
+I like to delete the cell too.
+You know what I mean?
+Just to like get it out of there.
+So I'm not accidentally using it.
+It's kind of, it's pretty easy,
+especially when you're doodling and you start to kind of get a little
+confused about what's where it's normal.
+It happens to everybody.
+It's part of the process.
+That's filtering.
+All right.
+We're going to move on to grouping.
+So grouping is when you take a column and you,
+you reduce it to like the number of unique values in it to groups.
+You know what I mean?
+And items.
+And then you do something with those groups.
+We already did this with value counts, right?
+And value counts.
+We were able to take our make and model column.
+And with that nice shortcut,
+we were able to group up how many there are.
+Right.
+And that's because value counts is designed to be a shortcut.
+Right.
+But let's say you want to do something that's a little more custom or
+isn't just counting frequency,
+but maybe is calculating statistics.
+Right.
+To do that,
+you have to write your own group functions that have a little more
+going on.
+And that is just another dot method that's hooked on to every data
+frame.
+Every data frame has dot group by right there available.
+And you could pass into the parenthesis,
+the name of the column you've won a group.
+And so LA times make and model is what we did to count accidents by
+model.
+And so I'm going to group on that, which does nothing.
+It's just, it's just grouped it,
+but you haven't given it an aggregation function,
+something to actually do with each group.
+Right.
+So to start, it just spits out.
+Here's groups.
+It doesn't do anything yet.
+It's expecting you to change something else on the end,
+which is a whole other set of dot functions.
+So if I do dot tab again for autocomplete,
+it's not working for some reason.
+Yeah.
+Okay.
+Um,
+there's a whole bunch of them there.
+So dot size is the equivalent of value counts.
+So if you do a group and you do dot size,
+it's actually the same thing as value counts.
+It doesn't rank it because, you know,
+but value counts is kind of a shortcut for basically this, right?
+Which is just count the frequency of items,
+the number, right?
+But let's say we want to do something more statistical,
+like we want to sum the number of fatalities per model.
+So I know the R 44 had the most accidents with 38 accidents.
+But did it have the most deaths, right?
+To do that,
+we would need to do something we did earlier,
+which is sum the fatalities,
+but we don't just want to sum the whole set.
+We want to do a different sum for each one of these groups.
+Right.
+And so that's just as simple as chaining onto the end,
+a technique that we already used elsewhere, right?
+Which is do dot the name of the column,
+followed by dot and the name of the mathematical function,
+which was some.
+So it's just the accident list dot group by dot column name dot sum.
+And we get back, boom,
+the total number of fatalities for each make and model.
+And we see that the Robinson R 44 had 38 fatal accidents
+for a total of 71 fatalities, right?
+And we see here that the Airbus actually had more fatalities.
+That's interesting.
+It's a bigger helicopter, guys, right?
+Mm-hmm.
+Now, you know, that same thing gets spit out as this ugly series.
+Again, reset index is our friend.
+Just packing that up the end can give you a nice data frame, right?
+So I've grouped the size,
+which is just the count for each one,
+and I've reset the index.
+And so that's now created a data frame
+that has each of our models, right?
+Oops.
+And the frequency count.
+But we can see that there's kind of a gnarly thing about pandas
+that it names that size column zero,
+which is just a dumb thing about pandas.
+So we're going to want to clean that up in a minute.
+Because if we think about our ultimate bowl of calculating the accident rate,
+the number of accidents per make and model
+is going to be one of our inputs to calculating that rate, right?
+So we want to kind of polish up this table
+that's like our sort of finished finding
+about the total number of make and model for each.
+And so what I'm going to do here is just try to turn this like rough cut
+into like a finished data frame
+that's like the result of this stage of the analysis.
+And so I've got my group by, I've got my size, I've got my resize index.
+This is basically what I'm going to want to keep
+to take over to the survey data.
+I take that same code, I now save it to a new data frame,
+which I call accident counts, right?
+So now accident counts is what we see right here,
+but it's got that ugly column name, right? Zero, you know?
+So I want to rename that something a little more readable for later.
+And you can do that with a function called rename.
+So every data frame has a function called rename.
+It expects you to give it a keyword argument, which we haven't done yet,
+but these are basically options that you pass into functions that have names.
+And you can do them in whatever order you want, which is kind of nice.
+And most of them you never even need to know about.
+They're really only there when you want to override something.
+But when you want to rename a column in pandas,
+there's a couple of ways to do it.
+And this is one of them is you do the rename function on the data frame.
+You say the columns input is equal to a dictionary,
+which we haven't seen yet either,
+which is a way Python sort of pairs together two different values.
+There's a key and then there's a value and those two things are linked.
+And you can have a lot of them in a dictionary, you know?
+And so here zero, which is the name of the column that already exists,
+I want to rename zero.
+So I'm saying, hey, zero, I want to rename you to accidents.
+And then in place is a pandas function that's in many, many, many of the pandas functions.
+You're going to see it all over the place.
+And it basically says, make this edit to the data frame in place
+so that we don't have to rename or reassign the variable.
+This can be dangerous,
+but I just wanted to show it to you because it's very common in pandas is to say,
+I want you to do this operation and do it in place
+so that the edit to the data frame is saved immediately, right?
+So if I run that and then I run my friend head again,
+you can see that that column has now been renamed accidents.
+It's no longer named zero, right?
+And accident counts is kind of our finished analysis
+of the total number of accidents per make and model
+that we now want to take to our survey data,
+which has how many hours in the air each helicopter spent
+to then adjust and normalize to calculate our rate.
+Any questions about group by?
+You can group by more than one column,
+which is done by just passing a list into the group by function.
+Like so, and then you could give it a second column here, right?
+Very common.
+Okay, now we're going to move on to another fundamental operation
+on databases, which is merging.
+Merging is where you take two different tables
+and you link them together using a common column.
+This is a great example of where getting into computer programming
+can be really valuable because while you can do this
+in spreadsheet software like Excel or Google Sheets,
+it's not that easy.
+It's kind of a hassle, right?
+This is now we're getting into this is where coding can really help.
+And a lot of larger databases are often intentionally structured
+to have many tables, right?
+Now, in this case, we have two tables that we're bringing.
+We have on the one hand, the make and model
+and the accident counts, which we've just generated with our group by.
+And then we have on the other, the FAA survey,
+which I've tidied up and prepared for class
+based on a Freedom of Information Act request
+and a lot of documents I got back from the FAA.
+But we can see here that this also has a column
+called LA Times make and model and total hours.
+And so for us to calculate our rate,
+we need to merge or join these two tables together
+so that one number can be divided into the other, right?
+And that's what we're going to do in this next section.
+We're going to read in FAA survey as a new variable
+using our friend from earlier, read CSV.
+So read CSV, which we use to read in the accidents table,
+can be used to read in the survey table, right?
+And all the differences is just the file or name right there.
+It's the same thing all over again, just a different file,
+which is the name of the file here in the system.
+And hit that and play.
+And now, if I were to run survey.info, which is below,
+we can see here's the info report on that,
+which is there's 12 rows, there's two columns.
+One is a string or object, the other is an integer.
+And accident counts, which we created before, very similar,
+also has 12 rows, right?
+Has make and model and accidents.
+And what we want to do is we want to merge these two together
+or what in other tools is called join them using their common column,
+which is make and model.
+So all is really good to look careful at your tables before you join,
+so you know which columns need to match.
+You know how many rows are in each one.
+It's often common for there to be more rows in one table than the other.
+And you have to work out what you want to do with the ones that don't match,
+right?
+But in this case, we don't have that issue.
+I took care of it ahead of time.
+But you can think that through by just looking at it there.
+So to do the merge, there's another one of pandas tool belt functions,
+dot merge, right?
+So PD, which is pandas, right, dot merge.
+And then we do our parenthesis because we're calling a function.
+Now merge can take multiple inputs because it's a little more complicated.
+It wants two data frames to put together separated by commas.
+So our first data frame, which is often called the left table in the join,
+is accident counts.
+And our second data frame, which we just input imported right here, right,
+is called survey is our second table.
+That's our right data frame is what it's known.
+And then those two things need to be merged.
+And you can give the instructions to merge on which column to use to join the
+tables with the on argument.
+So on equals and then in quotes the name of the column,
+which we see right here.
+All right.
+And then I'm going to save the result of that to a variable merged list.
+Boom.
+Just it's also important to inspect your table after every merge to make sure
+rows didn't get dropped due to joins being missed or anything unexpected
+happened.
+And so I will usually run ahead and info immediately afterwards just to make
+sure things are what I expect.
+So we see here we now have for the make and model.
+We have both the accident count and the total hours sitting side by side in
+a new connected table.
+Right.
+And we can see that there are 12 rows in it, which is exactly what I would
+expect.
+Commonly, if there was an error or something you didn't want, this number
+would be less than 12 or more than 12,
+which might be in the joint that some of the values appeared more than once or
+didn't appear on one side of the joint or the other.
+That's it.
+That's merging.
+Any questions about that?
+No.
+OK, we're going to move on to computing a new column.
+Remember, our mission is to calculate a rate.
+Right.
+And so that means to adjust the number of accidents for the number of hours
+that each helicopter was in the air to try to make it fair to compare
+helicopters that were flown more than others.
+Right.
+Now, that's just generally a good practice when it comes to comparing things
+of different sizes or different frequencies.
+Right.
+But in this case, it also was to vet a claim being made by John Robinson,
+CEO of the Robinson Helicopter Company,
+who told me and Kim Christensen that, yeah,
+we have the most accidents in our helicopters,
+but we also have the most pilots in the air, dude.
+So your story is crap.
+You know, don't even try running that.
+I got lawyers, you know, that kind of thing.
+That's one exact quote.
+But, you know, that was the kind of vibe of it.
+He definitely explicitly said that the reason they have more accidents is they
+have more helicopters in the air, which is true.
+But to evaluate whether his claim was true,
+we could calculate a rate.
+Right.
+And it wasn't just that I invented this idea of coming up with the rate.
+One, he had made a claim and I was checking it.
+Right.
+And two, there actually previously had been an FAA study done in the
+1990s, about 20 years before they use this exact same methodology.
+The FAA study took the accident numbers.
+They took the flight hours from this exact same survey and they calculated
+rates.
+So I was able to basically replicate a method that the government itself had
+already endorsed as a safety check,
+which is really great way to approach designing a data story because it
+takes a little bit of the it takes away the factor of like you're just in
+the LA times or your outlet is just kind of inventing a standard.
+It's holding people to write in this case.
+This was a standard that the government itself had established and had used
+in formal safety tests in the past, though it had been a long time.
+And to the CEO of the helicopter company had made a claim along these same
+lines.
+And so for that reason, the analysis was sort of support,
+you know, had more contextual support that maybe is boring.
+I should stop talking about, but FYI,
+I think that type of design is really important to crafting effective
+investigative stories.
+All right.
+So how do we actually calculate it, which is probably more what you want to know?
+You just get back to a lot of the basics that we've already covered so far,
+just returning in a slightly different way.
+Right.
+So we know that we have this new table that has these three columns,
+LA times make and model accidents and total hours and calculating a rate is
+as simple as dividing the accidents into the hours.
+Right.
+And we know we can access the columns as series.
+Right.
+So it's calculating the over calculating the rate for each column.
+Each row is as simple as taking the accident series and the hour series and
+putting the math operator in between the two.
+It's that easy.
+Right.
+And then you run that cell and you can see there.
+Boom is a series that's calculated the rate for every row in our table.
+Right.
+And this is the same thing that we've done for one million rows.
+Right.
+Because pandas is cool.
+But we want to save that as a new column on our data frame.
+We want to calculate a new column and stick it on there at the end and save it
+in the same way that you might calculate a column and Excel with the formula.
+Right.
+And the way you do that is just with the same assignment trick that we had
+before.
+When you add a new column and pandas,
+it's good practice to use this flat bracket approach.
+Right.
+So that we showed earlier.
+So if you do your data frame, a flat bracket, quote,
+and whatever you want to name it,
+this will create a new column on your data frame that will be the result of
+whatever is on the other side of the equal side.
+And so here I'm taking that exact same math operation.
+I've just pasted it down here and I'm saving it to a new column that I'm
+going to call per hour.
+Right.
+So that's accidents per hour in the air flight hour.
+And if I run that nothing comes out because it's been saved.
+And now if I do head boom per hour.
+There it is.
+Right.
+We've now calculated a new column tacked straight on the end.
+Now you can notice that this has this, this stuff at the end.
+Ryan, do you know what that is?
+E equals oh seven.
+Uh, I can't tell you what the number is, but it looks like a scientific
+notation to me.
+Pop quiz, pop quiz, Ryan.
+Yeah, exactly.
+It is scientific notation,
+which is just a fancy way of taking zeros off the front end of a number and
+kind of moving the, the, the most,
+the first significant value to the front, right?
+Is kind of what that does.
+It's not very easy for us humans to read unless we're super nerdy.
+Uh, especially me, I should speak for myself.
+It's not easy for me to read.
+Maybe you guys have an easy time with it.
+And so one common way of dealing with this issue when calculating rates,
+you see this with homicides.
+You see this with all kinds of rare events is to just take it times.
+Uh, a number that starts with 10 and ends with zeros, right?
+Depending on what's kind of appropriate.
+You see this all the time with per capita statistics about things per
+million people or a hundred thousand people or 10,000 people calculating
+rates really commonly to do this.
+And it has no effect on the actual number.
+It's just a way of, um,
+of framing it that makes it a little easier for our human brains to parse.
+Right.
+And, um, and so we want to do per a hundred thousand hours is how we
+decided to do it,
+but there's really no difference between that and 10,000 or a million.
+It's just kind of what works for the data and makes sense for them,
+how you're going to frame it.
+And that is as simple as what you see here.
+So we have the exact same mathematical operation that they created the per,
+uh, hours column.
+I've put parenthesis around it just so that those will run together first,
+just like in elementary school math class.
+Right.
+And then after the parenthesis, I've done the asterisks,
+which is multiplication.
+And I've just put the number 100,000 right there.
+One underrated Python thing is you can put an underscore there to make the
+number more readable. And it still works.
+I like secretly love that trick.
+Um, and so it's just going to take the result of it times 100,000.
+And I'm going to save it to a different column,
+which I'm calling per 100 K hours.
+And I run that.
+I should put a head in here, which I didn't do.
+So I'm going to add a new cell, do a head.
+And we can now see that there is this new column.
+Right.
+And so we can say for the Augusta one Oh nine, make it model.
+There were two accidents in 360,000 hours,
+which works out to a half an accident per 100,000 hours,
+which still isn't that readable. You know what I mean? Honestly,
+like per million hours might be more readable for the average person,
+maybe.
+But I kind of felt that because a lot of these didn't have a million
+hours,
+it wouldn't be appropriate to do that adjustment is kind of what I felt
+because it would be sort of inflating it, not inflating it,
+but it would, you know,
+it would be a step of the scale a little further than what the data is
+at, you know, but again, all that is subjective.
+That worked for everybody.
+Any questions about calculating new columns or computing new columns?
+I never know what to call this.
+Is computing the right word, Ryan?
+What do you call this when you do this?
+Yeah, that's, I think that's a fair term to use.
+You're running a computation and saving results into a column.
+There you go.
+So congratulations, everyone. You are now computational.
+You can put that on your resume.
+Okay. Now we're getting to our last section, believe it or not.
+Right. And this is about sorting.
+This is another really common practice, you know,
+and spreadsheets with data is to use one of your columns and to just
+resort the data frame according to that column in one direction or the
+other.
+And in our case, you know,
+our goal is to calculate which helicopter make and model has the
+highest accident rate, right?
+And our per hundred cake hours column is going to be a way to approach
+that.
+And all it is, is taking your data frame,
+which against merged list,
+the dot operator that we've been using all day,
+and then this new function we haven't used before,
+which has a really verbose and annoying name.
+It is sort underscore values.
+I've always thought, why not just dot sort?
+Well, I don't know.
+They just decided some nerd years ago,
+decided to write it long and now we're all stuck with it.
+So it's dot sort underscore values,
+and then it needs the input.
+What column to sort by, right?
+Again, you put that in quotes.
+And if I run that, we'll see there's the result, right?
+So here's our table that has been resorted according to this column.
+And if we look at it, it's getting higher as we go down.
+And that's because by default,
+things are sorted in ascending order,
+which is from lowest to highest when it's a number
+or from A to Z when it's a object or string, right?
+And so there's just another technique for reversing this
+to sort in descending order, which I'd like to do here.
+This is also very verbose, which I find annoying,
+but you have to do comma ascending,
+which is the option that was defined by the pandas developer equals.
+And we haven't seen this yet,
+but in Python there are these things called Boolean operators,
+whether something is true or false.
+So it's a data type, right?
+Something can be true or false or not exist,
+which is called null or none in Python is what it's actually called.
+And so if you say ascending equals false,
+which is a little bit of a brain bender,
+you're basically saying do it in descending order, right?
+Ascending isn't false.
+And that will reverse the sort so that now the highest values come first.
+We've sorted by scandalous is what I call this in the newsroom, Ryan.
+Sort by scandalous.
+Right.
+And we see that they're number one,
+a one with a bullet is the Robinson R44 helicopter,
+which is at 38 accidents in 2.3 million hours,
+which comes out to 1.6 accidents per a hundred thousand hours.
+Number one of all make and model over a long period of time,
+contrary to what the CEO of the company says.
+And in line with estimates done in the 1990s,
+20 years ago showing there's been little improvement in the Robinson's
+performance in this metric, which is the subject of our story and blah,
+blah, blah.
+You can read it.
+That's it.
+And so we have now,
+I guess at almost exactly the two hour mark since we began completed this
+tutorial.
+This is the first time that this has been taught with this dataset and in this
+way.
+So I'm sure I screwed up all kinds of stuff.
+And my hope is now maybe we could have a brief conversation that can answer
+any questions that you all have.
+And also you can give me maybe some feedback and criticism about what I've
+messed up.
+But before we do that,
+I guess I think I would ask Ryan to maybe stop the recording so that people
+could feel free to speak frankly,
+without knowing they're going to end up on YouTube, you know?
+Yep, you bet.
+I'm going to push stop.
+Thanks Ryan.

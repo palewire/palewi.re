@@ -11,7 +11,7 @@ published_at: '2010-11-07T12:36:59-08:00'
 
 <h2>01. A view that pulls the first page of data</h2>
 
-<p>Mine passes out the <a href="/tracks/page/1/">latest tracks</a> logged by palewire.com's robot massive.</p>
+<p>Mine passes out the latest tracks logged by palewire.com's robot massive.</p>
 
 <pre lang="python">from django.views.generic.simple import direct_to_template
 from django.core.paginator import Paginator, InvalidPage

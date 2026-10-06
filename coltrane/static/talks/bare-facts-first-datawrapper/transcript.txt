@@ -1,0 +1,303 @@
+our next two speakers. We are going to be hearing from John McClure and Ben Welsh, both
+from Reuters. John is the EMEA editor for graphics at Reuters in London, and he also
+works on their custom built pipelines that publish hundreds of data wrapper charts each
+week to a global readership. And Ben is the news applications editor at Reuters in New
+York City. He has led the creation of an entirely new system for automating charts with the
+data wrapper API. So they're here to speak on the automation framework that they use.
+It's the very first time that they're revealing this process. And in the interest of not delaying
+our peek behind the curtain, I will turn it over to John and Ben.
+Hey, thanks for having us. Thanks for coming, everybody. It's a real honor to speak at this
+excellent conference. I've been tuning in as much as I can over the last couple of days,
+and it's been super impressive and inspirational to hear. Should we get into it, John?
+Let's do it, Ben.
+All right. I think they already have the intros. They know who we are. We can buzz those. John,
+you want to tell people what Reuters is? Reuters is a newswire service founded in 1851. We're
+big place. So there's about 2,500 journalists in around 200 locations. What other factoids
+do you want me to pull out from all of that, Ben? What are you telling me?
+I mean, it's a huge place. I've only been here a year, and I've learned so much. And I think
+really maybe no one knows everything that happens at Reuters. But there's three kind of big pieces
+to the company that the outsider might not know. One is that service that John talked about
+that's so famous that sends photos and breaking news to more than 2,000 newsrooms around the world
+in all different languages. That's thing one. Thing two, which shouldn't be overlooked,
+is that Reuters is the exclusive news provider to one of the world's major financial terminal
+businesses, which has recently been rebranded as LSEG. It used to be known as Refinitiv.
+And that is, in many ways, kind of the Pepsi to the Coca-Cola of the Bloomberg terminal,
+if you're familiar with that. And then, of course, there's Reuters.com, which is where anyone can go
+in for free, read a selection of our breaking news, and our excellent investigative special reports.
+So those are kind of the three big pieces and arms of the company to keep in mind as we move through
+this. And at the core of all of it is really the lifeblood of the Reuters business, as it has been
+since the very beginning, which is breaking news, right? You know, literally, there are hundreds,
+if not thousands, of little itty-bitty stories that are flying out from our offices around the world
+every day. And it's been that way for more than a century. One of my favorite illustrations at this
+point is this very, very real 1883 memo sent out from the London office where John now works
+to the correspondents in the field, urging them to deliver more breaking news. I won't read the
+whole thing to you, though it is an entertaining read in general. One thing to keep in mind is back
+then the telegram was how breaking news was submitted. And the author of this memo is really pushing down
+on the troops to deliver more breaking news. Near the end, they actually give an enumerated list of
+the type of news that they would like to hear more of. My favorite little bit here, if you slow down
+and squint and read, is a call for all disturbances arising from strikes, duels between and suicides of
+persons of great note, social or political, and murders of a sensational or atrocious character,
+which maybe gives you a sense of how editors saw the news back then. It's still true to some degree
+today. But the key line in this memo that is quoted around the office quite frequently comes
+in that last paragraph where it is requested that the bare fact be first telegraphed with the utmost
+promptitude. And we say the line with a little bit of irony today, given the sort of elevated,
+you know, British diction, the king's English in there. But it really is still true and really the
+essence of our business. Being fast, being first, being simple and clear is really the primary
+imperative of the company. It's the company, we do so much more than that, but it really is at the
+heart and soul. And it's that kind of mission that we're going to talk about today and how Data
+Wrapper helps us serve it better. And we're going to do that one by John giving an overview of how,
+you know, he and his team built this, I think, truly wonderful system for distributing Data Wrapper
+charts across all those different arms we talked about. And then how I came in and tried to do a
+little, tried to do even more with it. So, John, you want to do part one? You want to take it, man?
+I'll take it. If you don't mind driving.
+So, like a lot of places, Data Wrapper filled a pretty predictable need for us in our newsroom.
+We are, I suppose, one of the larger graphics teams by comparison to folks who aren't working
+in some of the mainstay newsrooms, but still compared to the number of journalists that we
+work with, we're actually quite small. And so, for Data Wrapper, we had all the same problems,
+so I'm sure you've heard Echo Gravel's conference about, you know, being very thinly spread. It always
+seemed like we couldn't quite keep up with the reporting that the newsroom was doing and really
+sort of failing that first rung of our own company ethos to really be there for the big breaking news.
+And behind the scenes, the reporters and editors that we work with would often reach out if they
+couldn't get us to these really terrible kind of charting tools that would be sort of scattered
+throughout dark corners of Reuters infrastructure. I then found a very nice copy down there.
+I believe that is a real chart that's come out of one of the terrible systems. I think Icon is that one.
+And so, in a lot of ways, Data Wrapper was going to fill exactly the need that we all have in situations
+that we really need to scale out the number of people who can create charts in the newsroom for the next one.
+If you would, Ben, I think you're driving or am I, or can I drive, actually? Okay, cool.
+So, as Ben mentioned, though, we're a little bit different because of our wire service business.
+And one of the main tenets of that is that we have to service other media clients.
+And so, in addition to parking charts on a website, we actually also have to distribute them in a number
+of ways to other media who will then publish them on in their websites, papers, television segments,
+whatever, go ahead and pull, I guess I'll say. Or can I?
+I think you're going to have to drive, Ben. Sorry about that.
+So, at Reuters, we publish charts in a lot of different flavors for our media clients in particular.
+And so, we call these different additions, some of which you'll be very familiar with coming straight out of Data Wrapper.
+So, embeddable HTML pages. So, the chart that you can just embed with embed code.
+We also make those so that our media clients can host them on their own servers.
+But we also make static and editable images. So, PNGs, PDFs.
+We also make our source code for all of our graphics available to clients.
+We have clients who have developers in-house who like to customize things themselves.
+And then we do the usual kind of light, dark mode charts, little variations like that pull.
+But what that all means for us is that that little publish now button is not the end for us.
+Basically, that's just the start of a process by which we have to take our charts and make them ready for media clients.
+And to do that, we use Data Wrapper's publishing hooks in the API.
+Basically, what that does is it gives us the ability to, you know, suck out those charts and the various flavors and formats that we need.
+We can break open the HTML, CSS, and JS to do various things in them, repackage them the way that we need them to be packaged for our clients and ship them out.
+And that may sound like it's very specific to us, but I think it opens up a ton of options for anybody to do really, really cool things with Data Wrapper charts.
+We use AWS Lambdas so that this can really scale.
+We'll talk about how big it scales here in a second with Ben.
+But that post-processing step is really key to us being able to service our clients.
+You can go ahead and get your answer.
+We also use custom fields in the chart editor.
+It's a really easy way for us to attach some of the vital metadata.
+You'll see these roots and wild slugs.
+These are some of the weirdest nomenclature hats.
+I think these are basically little pieces of metadata that allow us to categorize and make it easier for the clients.
+And then once we've done all that, we've tagged our things, we've repackaged them, we've pushed them all up.
+We can ship them out to the world through a platform that we call Reuters Connect, which is where clients can come and purchase our charts in any one of the formats that I mentioned.
+As part of all that process, while we're doing all this repackaging, we take the moment to go ahead and flag charts that are coming, that our newsroom has made or that our team has made or that our bots have made.
+And especially in the context of our newsroom, it's actually a really great moment.
+And I think I've heard several people mention this and deal with Slack or whatever.
+It's a really great moment for us to coach our newsroom and really have sort of a feedback cycle about the charts as people are making.
+And this is one such example from some of the newsroom.
+And if you are, so at the end of the day, what that means is in the last 18 months, we've onboarded something north of 800 reporters, editors, and producers across our newsroom.
+They're publishing dozens of charts every day.
+And what that means is that the load is off of our, by comparison, small graphics, so we can focus on certain bigger things that we're known for, where we start to come back graphics.
+That also means that reporters can do more niche work in their individual beats.
+And our producers have actually become some of the most important chart makers we have.
+The first one is getting out maps, quick charts on the news as it's happening.
+So once we have that sort of pipeline in place, one of the things that we started to try to do was do some of the sort of maybe chart building that you've heard some of the others here talking about.
+This is our first example is done by Trebs Hartman in our graphics team.
+It's called Tremolo, which I think is a good name for it.
+It's a USGS powered earthquake monitor.
+So the, one of my favorite examples of this was last year, the Morocco quiz struck, we had the shape maps out within minutes, and we continued to pivot on those throughout the day, had more invitations to them, stuff like that.
+So we've now had this really great system by which we can, you know, either by hand from the newsroom or through an automated process, create a chart, and then publish it out into the world in all these various ways.
+And so we are ready to try scaling this thing way, way up.
+And that's where Ben comes in.
+Ben?
+Yeah, that's right.
+So, I mean, all this work was, you know, kind of ready and waiting for me when I started at Reuters, and I was trying to figure out what the heck am I going to do?
+Let's find something ambitious, a project to take on, something to chew on.
+And I found inspiration immediately from two places.
+One is a system that was invented here at the company a few years ago called Insight.
+And so this system is basically templated text stories.
+So when new data comes in on the feeds, they're sort of fit like a Madlib into a templated story and then sent directly out into the wire.
+And this is a type of system that exists not just at Reuters but at other news wires and has been very effective at increasing kind of the speed and scale of the text operation.
+The graphics editor, Matt Weber, you know, approached me and he said that he and others had had the longstanding idea of why can't we do the same thing for graphics, right?
+So if we can automate these Madlib text stories, why can't we automate the graphics that would go with the same thing as well?
+And I thought, man, he's really got a point.
+So let's look at it.
+Let's see if we can make it happen.
+And then at that point, I learned all about John's system, you know, which he just, I think, covered very well.
+And it kind of blew my mind.
+It's really just a powerful, you know, end-to-end kind of assembly line that's just waiting for widgets to kind of be pushed down it.
+Someone who can claim to have worked for the entire tenure of the Tronk company, it reminded me in some ways in my lighter moments of the funnel,
+which is one of the more hilarious, unintentionally hilarious metaphors in journalism history.
+If you haven't seen the video, the link's right there.
+Give it a look.
+And I just needed to figure out how I could get the data in there.
+So, you know, on the one end is the Data Wrapper API.
+If we could put charts into the Data Wrapper API, the top of the funnel, so to speak, we know they'll flow entirely down through John's system.
+And as has been covered by other speakers in this panel, that's totally doable, right?
+And then I'm a Python guy, not an R guy.
+I found, wow, there's this cool Python wrapper for the Data Wrapper API that makes it easy with a couple lines of Python code to pass in whatever chart you might want.
+Oh, okay, that's great.
+Started checking that out, started working with that.
+Sergio Sanchez-Zavala is the inventor of that, by the way.
+Cool guy.
+And then I saw on the other end, well, where are we going to get the data to put into the charts, right?
+Well, we've got this terminal, okay?
+So this LSEG terminal system really is this kind of incredible database that has limited access to a very small number of financial professionals who pay for it.
+But it updates literally within seconds of new market data being posted or macroeconomic indicators appearing on government websites.
+And learning about it has really been eye-opening and interesting to me as someone who's never worked at a terminal business before.
+The truth of it is, is behind a system like this is literally hundreds, if not thousands, of web scrapers that are crawling government data sites and putting in new figures instantly when they arrive.
+And then a whole quality control layer of people who make sure they flow through.
+So we had this great delivery system for graphics on the other.
+And we had this great data source, you know, on the other end.
+We just needed to connect them.
+Well, it turns out there's a Python API for the terminal as well, which would allow anyone with access to write code to download the data from the terminal.
+And all we needed to do was to kind of close the missing link between the data source, the terminal, and data wrapper, our delivery device.
+And that really was the work that needed to be done and was kind of the job for me if we were going to make it happen.
+And, you know, one way of thinking about a process like that, that kind of ferries data from one to the other, is what, you know, really gnarly, boring computer programmers call an ETL pipeline, right?
+I think it's good we're just calling them pipelines now.
+It's a little more human.
+But that's an acronym for extract, transform, and load, right?
+And what those typically do is the extractor, you know, downloads the source data from wherever it comes from, in this case, our terminal, right?
+There's some sort of computer programming layer that is going to transform, clean, summarize, reformat that data so that it's ready for delivery to kind of its target.
+And then the loading step is that process of then delivering it out, in this case, to, say, data wrapper.
+And so I set out to write something like that.
+In real life, the actual pipeline is a little more complicated, but that's really the essence of it.
+We're extracting from the terminal, we're transforming it into the format for data wrapper, and then we're posting to the API.
+The main sort of additional thing is sort of configuring each of your chart templates to behave in a certain way based on what the data source is, what type of chart you want, how you want to manage the layout, which we call the generation or the configuration of the template.
+Here is an example of one from real life.
+This is a screenshot from our code base.
+At the end of the day, we basically have kind of a Python framework of classes designed for each of those stages in the ETL pipeline that we then configure based on the template or chart.
+So this example, without belaboring it, is the unemployment chart that ran last Friday morning when the Bureau of Labor Statistics posted the new report.
+And again, if you were to squint and look carefully, you would see that it's really only about 20 lines of code.
+And most of it is really just the specific stuff related to what data file, what data series should I go get from the terminal, what should the headline be, you know, and what the date range should be and some of the specifics of how the chart ought to be, you know, collected and rendered.
+And that's really all it takes to do to do to do to do an individual chart.
+Those the system that executes that sort of pipeline process is run entirely in GitHub Actions.
+If you haven't checked out GitHub Actions yet, you should.
+This is a free task running system within the GitHub sort of repository universe where your code repository has access for free to task running jobs in data centers that will do on a schedule or based on triggers you set, run computer programming tasks.
+And so for each of our kind of we have our we have our templates sort of organized into groups around, say, revenue or jobs or inflation.
+And those groups of templates are then executed on a schedule very frequently.
+And when they detect that new data has been found in our source, the terminal, they make the chart and send it out to Data Wrapper.
+And it's that is it is the production environment.
+It works flawlessly.
+I recommend exploring things like this in your own work.
+Once they then deliver that to the Data Wrapper API, John's system takes over.
+And so this is the chart that got pushed out just one minute after the new numbers were posted to the BLS website last Friday morning.
+It flowed into this is the graphics pool where an editor could find, select the graphic and then embed it into a piece.
+It was there and ready.
+We're seeing these charts get delivered through the system faster than even the text, the text stories get written and edited.
+And they're often they're ahead of when the reporters and editors are even thinking about looking for art.
+So these are obviously speed wins.
+That chart is then put right into the story, which was on the homepage of Reuters.com and out on the wire in the next few minutes, as were several other charts in the jobs report, because we have a whole kind of package of four or five.
+But it's not just for speed.
+Indeed, you also begin to benefit from scale.
+So that same that same class that I showed earlier, you may have noticed that had two entries, one for the United States and the other for Canada.
+So that same template can be adapted to a different data series with a slightly different configuration.
+And boom, you now are doing two instead of one with the same amount of labor.
+And that can multiply to really, really large numbers in the right circumstance.
+So, for instance, we have a template for a bar chart of corporate earnings.
+So every quarter, a public corporation will report to its shareholders how much money it made in the previous period.
+We can make the same bar chart.
+We are making the same bar chart for every single publicly listed company we choose to track, which allows us to make literally thousands of these charts within seconds or minutes after the data being discovered in the system.
+And that's where you begin to get to scale that no human is going to be able to do on their own.
+So it's not just faster.
+It can do quite a bit more.
+And the result of that is that the staff on John's team is freed up to do much higher value, higher skill work, which can also have much, much higher impact as well.
+So in real life, you know, that once a month, every Friday morning, Allie Levine here in the New York office would have to wake up early and make that same batch of jobs reports every single time unless she missed her alarm clock, I suppose.
+But now the robot does.
+But now the robot does that for her and she gets to sleep in and do things like this beautiful Walt Disney graphic they recently published instead.
+And of, you know, all the people and writers that I've talked to about this project, no one has been more excited about it than Allie, who sees it as really something that allows her to work on more rewarding and challenging work.
+We have kind of an internal system that we've built for monitoring the output thus far, we have close to 60 templates that we've deployed,
+including even a few that branch out to different inputs and outputs.
+So for instance, we have some custom web scrapers that power charts that don't use the terminal.
+And we actually are publishing some static images generated not via data wrapper that get embedded into a morning email newsletter series.
+So the pipeline system can also kind of horizontally scale, if you will, in that way.
+Thus far, we've we've pushed through about 20,000 charts to data wrapper in the system.
+That's according to my little profile row in our our team, our team page and data wrapper.
+My hope is if we aren't already, we will we will have published more charts than anyone else on the platform using using this system.
+Beyond the actual work here privately inside of Reuters, I partnered with Sergio, the the maintainer of the Python data wrapper library.
+And we recently have released a new version, which I think maybe we're announcing for the first time here today now covers 100 percent of the API endpoints on the data wrapper API.
+So anything that's documented in the data wrapper API, we from creating folders and moving folders, organizing teams, creating maps, all of it should be possible in the system.
+If something isn't, tell me and I'll make sure we get it in.
+And Sergio has been really great to work with on that for anyone who's really into API stuff.
+Here's this like a quick example of of how the Python wrapper could make a really basic chart.
+For those familiar with the API, you'll see that that metadata variable is queuing very closely to the sort of the JSON structure that the that the data wrapper prefers to be posted in.
+The result of that is that it's a little it's just a little verbose and and maybe not as friendly to beginners as it could be.
+So, you know, one of my personal kind of dreams or goals and I would love to get feedback and collaborators on this on anyone is interesting interested would be to maybe pursue an upgrade to the data wrapper API that is more say declarative.
+This this is pseudo code that does not exist.
+But to me, this is maybe how I think the API to accept Python code where all of the attributes are sort of keyword inputs that they all would be fully documented and listed out somewhere, which I'm not sure that they are currently.
+And just generally trying to move towards something that makes automation easier and easier over time.
+So if anyone has thoughts or or interest in that, I would I would love to hear what people think.
+This is kind of my little, you know, attempted dreaming it.
+And then finally, Sergio and I recently prepared a tutorial on how any beginner could pick up Python and begin automating data wrapper charts with with zero experience.
+We presented that one week ago today at the the night car conference, the large data journalism conference in Baltimore.
+It was standing room only there was there was so much enthusiasm from the data journalists we met to do more with data wrapper and to do more with automation.
+I'll share the link to this in that once I finished talking here, it is free to anyone.
+And every step in the class is explained and all of the code is included as well.
+I think that's what we have.
+I just want to thank you all for tuning in.
+It's it's really appreciated, Ed, and we'd be happy to answer any and all questions.
+All right.
+Thank you so much, Ben and John.
+It was a fantastic speech.
+Very informative.
+Great to see behind the curtain and learn so much about the intricacies of what goes into pushing out 20,000 charts.
+20,000 charts in about six months.
+That turnaround time that you mentioned is really remarkable and very impressive.
+I have a couple of questions while we wait for other questions to come through in the chat.
+Things that came to me while I was listening to this presentation.
+You mentioned a team's integration as a kind of plaxton to make sure that things were being reviewed or make sure that nothing was going wrong.
+So was that an idea for this project from the get go?
+Or was that implemented after the core pipeline was sort of built and created?
+Yeah, no, that was part of the original project.
+I mean, we needed to feed back some information to reporters about where their charts went into the graphic system.
+And just decided that was a really great point to go ahead and pop an image of the chart since we had that in hand already.
+And that gave us a chance to see what people were making very easily throughout our day.
+And we could pop in some comments and stuff like that.
+So yeah, it's actually been one of the funnest things about the whole process for me because you never know what kind of data you're going to see on any given day come through.
+And it's nice to talk back to the newsroom about what charts are breaking.
+Really true.
+It's also one of my favorite parts about this job is the not knowing what kind of charts are going to come through on any given day.
+It's very exciting and agree with you there and great foresight on that.
+We do have a question from Nora Gully.
+How do you byline automated charts?
+We don't put a byline in the data wrapper field.
+We list the source.
+If, you know, if the data comes from the terminal, we list LSEG as the source, of course.
+But, you know, no chart is published without a human editor reviewing it and what in the language of Reuters packaging it with the story.
+And so and so, you know, we kind of view that as the editorial oversight on the piece.
+If you're interested in how the quality control aspect further, I mean, we do have a committee of people that I review all the templates with before they're implemented.
+And so these are people who are experts in the domain that we're trying to make the chart for.
+And so they're involved in kind of a review process prior to that.
+Okay.
+That makes sense.
+Okay.
+I do have one other question that came to me.
+You mentioned that a lot of your data comes from one data source.
+Is that always in the same consistent format or is that ever cleaning that and preparing it for data wrapper?
+I can imagine that would be a sticking point.
+Is that always the same cleaning process?
+It's mostly consistent.
+You know, it's a truly massive database with a really wide array of data.
+And so it is definitely not a hundred percent consistent.
+And there can be, and across domains, there can be a little bit of quirks.
+Like for instance, commodities data is sort of, that is handled a little different from stock market data, which is handled a little different from the macroeconomic data in terms of what the columns are called or how you query it from the source API.
+And so that's where the Python pipeline kind of comes in.
+And the approach we've taken is to try to write kind of generic Python classes that handle the most common kind of variations.
+Hey, here's our monthly macroeconomic extractor and transformer, right?
+And that's going to handle most of the macroeconomic data, but then you can always kind of override or tweak, you know, the individual implementations based on what the quirks might be.
+Yeah, makes sense.
+Having that kind of room to adjust things with human eyes if needed.
+Fantastic.
+Okay.
+I think that we are done with any questions that might come through in the chat.
+I want to say thank you again so much for the time.
+It was an excellent speech.
+Great to hear about it.
+And now we can move on to our five.
+Bye.
+Bye.

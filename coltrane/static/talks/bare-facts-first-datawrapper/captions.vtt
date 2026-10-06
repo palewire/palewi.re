@@ -1,0 +1,910 @@
+WEBVTT
+
+00:00.000 --> 00:05.160
+our next two speakers. We are going to be hearing from John McClure and Ben Welsh, both
+
+00:05.160 --> 00:11.480
+from Reuters. John is the EMEA editor for graphics at Reuters in London, and he also
+
+00:11.480 --> 00:15.240
+works on their custom built pipelines that publish hundreds of data wrapper charts each
+
+00:15.240 --> 00:21.680
+week to a global readership. And Ben is the news applications editor at Reuters in New
+
+00:21.680 --> 00:27.800
+York City. He has led the creation of an entirely new system for automating charts with the
+
+00:27.800 --> 00:33.580
+data wrapper API. So they're here to speak on the automation framework that they use.
+
+00:33.580 --> 00:38.060
+It's the very first time that they're revealing this process. And in the interest of not delaying
+
+00:38.060 --> 00:42.160
+our peek behind the curtain, I will turn it over to John and Ben.
+
+00:42.160 --> 00:49.280
+Hey, thanks for having us. Thanks for coming, everybody. It's a real honor to speak at this
+
+00:49.280 --> 00:52.980
+excellent conference. I've been tuning in as much as I can over the last couple of days,
+
+00:52.980 --> 00:58.860
+and it's been super impressive and inspirational to hear. Should we get into it, John?
+
+00:58.860 --> 01:00.540
+Let's do it, Ben.
+
+01:00.540 --> 01:06.060
+All right. I think they already have the intros. They know who we are. We can buzz those. John,
+
+01:06.060 --> 01:16.920
+you want to tell people what Reuters is? Reuters is a newswire service founded in 1851. We're
+
+01:16.920 --> 01:23.680
+big place. So there's about 2,500 journalists in around 200 locations. What other factoids
+
+01:23.680 --> 01:26.520
+do you want me to pull out from all of that, Ben? What are you telling me?
+
+01:26.520 --> 01:30.180
+I mean, it's a huge place. I've only been here a year, and I've learned so much. And I think
+
+01:30.180 --> 01:34.740
+really maybe no one knows everything that happens at Reuters. But there's three kind of big pieces
+
+01:34.740 --> 01:39.540
+to the company that the outsider might not know. One is that service that John talked about
+
+01:39.540 --> 01:44.500
+that's so famous that sends photos and breaking news to more than 2,000 newsrooms around the world
+
+01:44.500 --> 01:49.740
+in all different languages. That's thing one. Thing two, which shouldn't be overlooked,
+
+01:49.740 --> 01:55.540
+is that Reuters is the exclusive news provider to one of the world's major financial terminal
+
+01:55.540 --> 02:00.560
+businesses, which has recently been rebranded as LSEG. It used to be known as Refinitiv.
+
+02:01.000 --> 02:05.060
+And that is, in many ways, kind of the Pepsi to the Coca-Cola of the Bloomberg terminal,
+
+02:05.060 --> 02:10.220
+if you're familiar with that. And then, of course, there's Reuters.com, which is where anyone can go
+
+02:10.220 --> 02:15.660
+in for free, read a selection of our breaking news, and our excellent investigative special reports.
+
+02:16.060 --> 02:20.480
+So those are kind of the three big pieces and arms of the company to keep in mind as we move through
+
+02:20.480 --> 02:26.740
+this. And at the core of all of it is really the lifeblood of the Reuters business, as it has been
+
+02:26.740 --> 02:31.220
+since the very beginning, which is breaking news, right? You know, literally, there are hundreds,
+
+02:31.460 --> 02:36.680
+if not thousands, of little itty-bitty stories that are flying out from our offices around the world
+
+02:36.680 --> 02:41.660
+every day. And it's been that way for more than a century. One of my favorite illustrations at this
+
+02:41.660 --> 02:47.940
+point is this very, very real 1883 memo sent out from the London office where John now works
+
+02:47.940 --> 02:53.640
+to the correspondents in the field, urging them to deliver more breaking news. I won't read the
+
+02:53.640 --> 02:58.440
+whole thing to you, though it is an entertaining read in general. One thing to keep in mind is back
+
+02:58.440 --> 03:04.100
+then the telegram was how breaking news was submitted. And the author of this memo is really pushing down
+
+03:04.100 --> 03:09.880
+on the troops to deliver more breaking news. Near the end, they actually give an enumerated list of
+
+03:09.880 --> 03:15.280
+the type of news that they would like to hear more of. My favorite little bit here, if you slow down
+
+03:15.280 --> 03:23.580
+and squint and read, is a call for all disturbances arising from strikes, duels between and suicides of
+
+03:23.580 --> 03:29.740
+persons of great note, social or political, and murders of a sensational or atrocious character,
+
+03:29.740 --> 03:34.480
+which maybe gives you a sense of how editors saw the news back then. It's still true to some degree
+
+03:34.480 --> 03:41.160
+today. But the key line in this memo that is quoted around the office quite frequently comes
+
+03:41.160 --> 03:47.500
+in that last paragraph where it is requested that the bare fact be first telegraphed with the utmost
+
+03:47.500 --> 03:53.460
+promptitude. And we say the line with a little bit of irony today, given the sort of elevated,
+
+03:53.460 --> 03:59.860
+you know, British diction, the king's English in there. But it really is still true and really the
+
+03:59.860 --> 04:07.040
+essence of our business. Being fast, being first, being simple and clear is really the primary
+
+04:07.040 --> 04:11.620
+imperative of the company. It's the company, we do so much more than that, but it really is at the
+
+04:11.620 --> 04:17.560
+heart and soul. And it's that kind of mission that we're going to talk about today and how Data
+
+04:17.560 --> 04:24.180
+Wrapper helps us serve it better. And we're going to do that one by John giving an overview of how,
+
+04:24.180 --> 04:29.500
+you know, he and his team built this, I think, truly wonderful system for distributing Data Wrapper
+
+04:29.500 --> 04:35.260
+charts across all those different arms we talked about. And then how I came in and tried to do a
+
+04:35.260 --> 04:39.640
+little, tried to do even more with it. So, John, you want to do part one? You want to take it, man?
+
+04:40.080 --> 04:42.280
+I'll take it. If you don't mind driving.
+
+04:42.280 --> 04:51.500
+So, like a lot of places, Data Wrapper filled a pretty predictable need for us in our newsroom.
+
+04:51.660 --> 04:58.840
+We are, I suppose, one of the larger graphics teams by comparison to folks who aren't working
+
+04:58.840 --> 05:04.340
+in some of the mainstay newsrooms, but still compared to the number of journalists that we
+
+05:04.340 --> 05:09.200
+work with, we're actually quite small. And so, for Data Wrapper, we had all the same problems,
+
+05:09.200 --> 05:15.160
+so I'm sure you've heard Echo Gravel's conference about, you know, being very thinly spread. It always
+
+05:15.160 --> 05:20.620
+seemed like we couldn't quite keep up with the reporting that the newsroom was doing and really
+
+05:20.620 --> 05:27.060
+sort of failing that first rung of our own company ethos to really be there for the big breaking news.
+
+05:27.780 --> 05:34.140
+And behind the scenes, the reporters and editors that we work with would often reach out if they
+
+05:34.140 --> 05:40.760
+couldn't get us to these really terrible kind of charting tools that would be sort of scattered
+
+05:40.760 --> 05:47.680
+throughout dark corners of Reuters infrastructure. I then found a very nice copy down there.
+
+05:47.980 --> 05:53.540
+I believe that is a real chart that's come out of one of the terrible systems. I think Icon is that one.
+
+05:53.540 --> 06:02.200
+And so, in a lot of ways, Data Wrapper was going to fill exactly the need that we all have in situations
+
+06:02.200 --> 06:08.260
+that we really need to scale out the number of people who can create charts in the newsroom for the next one.
+
+06:10.160 --> 06:15.060
+If you would, Ben, I think you're driving or am I, or can I drive, actually? Okay, cool.
+
+06:15.060 --> 06:21.800
+So, as Ben mentioned, though, we're a little bit different because of our wire service business.
+
+06:21.980 --> 06:27.320
+And one of the main tenets of that is that we have to service other media clients.
+
+06:28.560 --> 06:33.980
+And so, in addition to parking charts on a website, we actually also have to distribute them in a number
+
+06:33.980 --> 06:40.680
+of ways to other media who will then publish them on in their websites, papers, television segments,
+
+06:40.680 --> 06:47.580
+whatever, go ahead and pull, I guess I'll say. Or can I?
+
+06:54.220 --> 06:56.180
+I think you're going to have to drive, Ben. Sorry about that.
+
+06:56.780 --> 07:07.380
+So, at Reuters, we publish charts in a lot of different flavors for our media clients in particular.
+
+07:07.380 --> 07:13.680
+And so, we call these different additions, some of which you'll be very familiar with coming straight out of Data Wrapper.
+
+07:13.860 --> 07:18.440
+So, embeddable HTML pages. So, the chart that you can just embed with embed code.
+
+07:18.800 --> 07:22.580
+We also make those so that our media clients can host them on their own servers.
+
+07:23.040 --> 07:27.720
+But we also make static and editable images. So, PNGs, PDFs.
+
+07:27.980 --> 07:32.400
+We also make our source code for all of our graphics available to clients.
+
+07:32.400 --> 07:37.760
+We have clients who have developers in-house who like to customize things themselves.
+
+07:38.120 --> 07:43.900
+And then we do the usual kind of light, dark mode charts, little variations like that pull.
+
+07:44.540 --> 07:52.920
+But what that all means for us is that that little publish now button is not the end for us.
+
+07:52.920 --> 08:02.300
+Basically, that's just the start of a process by which we have to take our charts and make them ready for media clients.
+
+08:02.520 --> 08:07.760
+And to do that, we use Data Wrapper's publishing hooks in the API.
+
+08:08.520 --> 08:15.340
+Basically, what that does is it gives us the ability to, you know, suck out those charts and the various flavors and formats that we need.
+
+08:15.340 --> 08:24.420
+We can break open the HTML, CSS, and JS to do various things in them, repackage them the way that we need them to be packaged for our clients and ship them out.
+
+08:24.840 --> 08:33.400
+And that may sound like it's very specific to us, but I think it opens up a ton of options for anybody to do really, really cool things with Data Wrapper charts.
+
+08:34.120 --> 08:37.880
+We use AWS Lambdas so that this can really scale.
+
+08:37.980 --> 08:41.120
+We'll talk about how big it scales here in a second with Ben.
+
+08:41.120 --> 08:48.600
+But that post-processing step is really key to us being able to service our clients.
+
+08:49.460 --> 08:50.820
+You can go ahead and get your answer.
+
+08:51.200 --> 08:54.160
+We also use custom fields in the chart editor.
+
+08:54.340 --> 08:59.220
+It's a really easy way for us to attach some of the vital metadata.
+
+08:59.960 --> 09:01.960
+You'll see these roots and wild slugs.
+
+09:02.100 --> 09:04.200
+These are some of the weirdest nomenclature hats.
+
+09:04.560 --> 09:10.980
+I think these are basically little pieces of metadata that allow us to categorize and make it easier for the clients.
+
+09:11.120 --> 09:15.940
+And then once we've done all that, we've tagged our things, we've repackaged them, we've pushed them all up.
+
+09:16.020 --> 09:24.940
+We can ship them out to the world through a platform that we call Reuters Connect, which is where clients can come and purchase our charts in any one of the formats that I mentioned.
+
+09:24.940 --> 09:37.160
+As part of all that process, while we're doing all this repackaging, we take the moment to go ahead and flag charts that are coming, that our newsroom has made or that our team has made or that our bots have made.
+
+09:37.160 --> 09:42.060
+And especially in the context of our newsroom, it's actually a really great moment.
+
+09:42.320 --> 09:45.560
+And I think I've heard several people mention this and deal with Slack or whatever.
+
+09:46.200 --> 09:53.780
+It's a really great moment for us to coach our newsroom and really have sort of a feedback cycle about the charts as people are making.
+
+09:53.780 --> 09:57.380
+And this is one such example from some of the newsroom.
+
+09:58.220 --> 10:08.300
+And if you are, so at the end of the day, what that means is in the last 18 months, we've onboarded something north of 800 reporters, editors, and producers across our newsroom.
+
+10:08.900 --> 10:10.900
+They're publishing dozens of charts every day.
+
+10:10.900 --> 10:19.580
+And what that means is that the load is off of our, by comparison, small graphics, so we can focus on certain bigger things that we're known for, where we start to come back graphics.
+
+10:20.140 --> 10:25.100
+That also means that reporters can do more niche work in their individual beats.
+
+10:25.580 --> 10:29.760
+And our producers have actually become some of the most important chart makers we have.
+
+10:29.860 --> 10:34.640
+The first one is getting out maps, quick charts on the news as it's happening.
+
+10:34.640 --> 10:47.140
+So once we have that sort of pipeline in place, one of the things that we started to try to do was do some of the sort of maybe chart building that you've heard some of the others here talking about.
+
+10:47.220 --> 10:52.400
+This is our first example is done by Trebs Hartman in our graphics team.
+
+10:52.500 --> 10:54.380
+It's called Tremolo, which I think is a good name for it.
+
+10:54.380 --> 10:56.780
+It's a USGS powered earthquake monitor.
+
+10:56.780 --> 11:13.800
+So the, one of my favorite examples of this was last year, the Morocco quiz struck, we had the shape maps out within minutes, and we continued to pivot on those throughout the day, had more invitations to them, stuff like that.
+
+11:15.020 --> 11:26.640
+So we've now had this really great system by which we can, you know, either by hand from the newsroom or through an automated process, create a chart, and then publish it out into the world in all these various ways.
+
+11:27.220 --> 11:30.000
+And so we are ready to try scaling this thing way, way up.
+
+11:30.100 --> 11:31.160
+And that's where Ben comes in.
+
+11:31.400 --> 11:31.540
+Ben?
+
+11:32.580 --> 11:33.340
+Yeah, that's right.
+
+11:33.420 --> 11:39.980
+So, I mean, all this work was, you know, kind of ready and waiting for me when I started at Reuters, and I was trying to figure out what the heck am I going to do?
+
+11:40.040 --> 11:43.580
+Let's find something ambitious, a project to take on, something to chew on.
+
+11:43.980 --> 11:47.740
+And I found inspiration immediately from two places.
+
+11:48.400 --> 11:53.580
+One is a system that was invented here at the company a few years ago called Insight.
+
+11:53.580 --> 11:58.360
+And so this system is basically templated text stories.
+
+11:58.840 --> 12:08.160
+So when new data comes in on the feeds, they're sort of fit like a Madlib into a templated story and then sent directly out into the wire.
+
+12:08.160 --> 12:18.420
+And this is a type of system that exists not just at Reuters but at other news wires and has been very effective at increasing kind of the speed and scale of the text operation.
+
+12:18.420 --> 12:29.040
+The graphics editor, Matt Weber, you know, approached me and he said that he and others had had the longstanding idea of why can't we do the same thing for graphics, right?
+
+12:29.120 --> 12:36.760
+So if we can automate these Madlib text stories, why can't we automate the graphics that would go with the same thing as well?
+
+12:36.760 --> 12:40.020
+And I thought, man, he's really got a point.
+
+12:40.380 --> 12:42.040
+So let's look at it.
+
+12:42.080 --> 12:43.180
+Let's see if we can make it happen.
+
+12:43.900 --> 12:49.540
+And then at that point, I learned all about John's system, you know, which he just, I think, covered very well.
+
+12:49.760 --> 12:51.080
+And it kind of blew my mind.
+
+12:51.080 --> 13:01.820
+It's really just a powerful, you know, end-to-end kind of assembly line that's just waiting for widgets to kind of be pushed down it.
+
+13:02.220 --> 13:10.720
+Someone who can claim to have worked for the entire tenure of the Tronk company, it reminded me in some ways in my lighter moments of the funnel,
+
+13:11.280 --> 13:16.360
+which is one of the more hilarious, unintentionally hilarious metaphors in journalism history.
+
+13:16.920 --> 13:19.120
+If you haven't seen the video, the link's right there.
+
+13:19.340 --> 13:19.900
+Give it a look.
+
+13:19.900 --> 13:25.340
+And I just needed to figure out how I could get the data in there.
+
+13:25.560 --> 13:28.520
+So, you know, on the one end is the Data Wrapper API.
+
+13:29.320 --> 13:37.760
+If we could put charts into the Data Wrapper API, the top of the funnel, so to speak, we know they'll flow entirely down through John's system.
+
+13:38.300 --> 13:42.840
+And as has been covered by other speakers in this panel, that's totally doable, right?
+
+13:44.080 --> 13:46.720
+And then I'm a Python guy, not an R guy.
+
+13:46.720 --> 13:57.080
+I found, wow, there's this cool Python wrapper for the Data Wrapper API that makes it easy with a couple lines of Python code to pass in whatever chart you might want.
+
+13:57.380 --> 13:58.300
+Oh, okay, that's great.
+
+13:58.780 --> 14:00.720
+Started checking that out, started working with that.
+
+14:00.980 --> 14:03.660
+Sergio Sanchez-Zavala is the inventor of that, by the way.
+
+14:03.920 --> 14:04.360
+Cool guy.
+
+14:04.360 --> 14:10.360
+And then I saw on the other end, well, where are we going to get the data to put into the charts, right?
+
+14:10.360 --> 14:12.680
+Well, we've got this terminal, okay?
+
+14:12.780 --> 14:23.200
+So this LSEG terminal system really is this kind of incredible database that has limited access to a very small number of financial professionals who pay for it.
+
+14:23.200 --> 14:32.580
+But it updates literally within seconds of new market data being posted or macroeconomic indicators appearing on government websites.
+
+14:33.360 --> 14:39.300
+And learning about it has really been eye-opening and interesting to me as someone who's never worked at a terminal business before.
+
+14:39.300 --> 14:51.620
+The truth of it is, is behind a system like this is literally hundreds, if not thousands, of web scrapers that are crawling government data sites and putting in new figures instantly when they arrive.
+
+14:51.820 --> 14:55.820
+And then a whole quality control layer of people who make sure they flow through.
+
+14:56.080 --> 14:59.420
+So we had this great delivery system for graphics on the other.
+
+14:59.540 --> 15:03.060
+And we had this great data source, you know, on the other end.
+
+15:03.120 --> 15:04.240
+We just needed to connect them.
+
+15:04.240 --> 15:14.200
+Well, it turns out there's a Python API for the terminal as well, which would allow anyone with access to write code to download the data from the terminal.
+
+15:14.720 --> 15:22.260
+And all we needed to do was to kind of close the missing link between the data source, the terminal, and data wrapper, our delivery device.
+
+15:22.380 --> 15:27.940
+And that really was the work that needed to be done and was kind of the job for me if we were going to make it happen.
+
+15:27.940 --> 15:39.540
+And, you know, one way of thinking about a process like that, that kind of ferries data from one to the other, is what, you know, really gnarly, boring computer programmers call an ETL pipeline, right?
+
+15:39.880 --> 15:41.920
+I think it's good we're just calling them pipelines now.
+
+15:42.000 --> 15:42.840
+It's a little more human.
+
+15:43.260 --> 15:47.260
+But that's an acronym for extract, transform, and load, right?
+
+15:47.360 --> 15:55.220
+And what those typically do is the extractor, you know, downloads the source data from wherever it comes from, in this case, our terminal, right?
+
+15:55.220 --> 16:06.740
+There's some sort of computer programming layer that is going to transform, clean, summarize, reformat that data so that it's ready for delivery to kind of its target.
+
+16:07.340 --> 16:12.420
+And then the loading step is that process of then delivering it out, in this case, to, say, data wrapper.
+
+16:13.120 --> 16:16.500
+And so I set out to write something like that.
+
+16:16.580 --> 16:22.280
+In real life, the actual pipeline is a little more complicated, but that's really the essence of it.
+
+16:22.280 --> 16:29.860
+We're extracting from the terminal, we're transforming it into the format for data wrapper, and then we're posting to the API.
+
+16:30.460 --> 16:47.120
+The main sort of additional thing is sort of configuring each of your chart templates to behave in a certain way based on what the data source is, what type of chart you want, how you want to manage the layout, which we call the generation or the configuration of the template.
+
+16:47.120 --> 16:51.180
+Here is an example of one from real life.
+
+16:51.300 --> 16:53.100
+This is a screenshot from our code base.
+
+16:53.440 --> 17:05.820
+At the end of the day, we basically have kind of a Python framework of classes designed for each of those stages in the ETL pipeline that we then configure based on the template or chart.
+
+17:05.820 --> 17:15.460
+So this example, without belaboring it, is the unemployment chart that ran last Friday morning when the Bureau of Labor Statistics posted the new report.
+
+17:15.920 --> 17:21.180
+And again, if you were to squint and look carefully, you would see that it's really only about 20 lines of code.
+
+17:21.180 --> 17:40.240
+And most of it is really just the specific stuff related to what data file, what data series should I go get from the terminal, what should the headline be, you know, and what the date range should be and some of the specifics of how the chart ought to be, you know, collected and rendered.
+
+17:40.240 --> 17:44.000
+And that's really all it takes to do to do to do to do an individual chart.
+
+17:44.500 --> 17:51.580
+Those the system that executes that sort of pipeline process is run entirely in GitHub Actions.
+
+17:51.820 --> 17:54.560
+If you haven't checked out GitHub Actions yet, you should.
+
+17:54.560 --> 18:14.540
+This is a free task running system within the GitHub sort of repository universe where your code repository has access for free to task running jobs in data centers that will do on a schedule or based on triggers you set, run computer programming tasks.
+
+18:14.540 --> 18:24.160
+And so for each of our kind of we have our we have our templates sort of organized into groups around, say, revenue or jobs or inflation.
+
+18:24.280 --> 18:28.980
+And those groups of templates are then executed on a schedule very frequently.
+
+18:29.340 --> 18:36.280
+And when they detect that new data has been found in our source, the terminal, they make the chart and send it out to Data Wrapper.
+
+18:37.560 --> 18:40.100
+And it's that is it is the production environment.
+
+18:40.100 --> 18:41.320
+It works flawlessly.
+
+18:41.320 --> 18:44.880
+I recommend exploring things like this in your own work.
+
+18:45.640 --> 18:50.640
+Once they then deliver that to the Data Wrapper API, John's system takes over.
+
+18:50.880 --> 18:58.180
+And so this is the chart that got pushed out just one minute after the new numbers were posted to the BLS website last Friday morning.
+
+18:58.380 --> 19:04.420
+It flowed into this is the graphics pool where an editor could find, select the graphic and then embed it into a piece.
+
+19:04.680 --> 19:05.920
+It was there and ready.
+
+19:05.920 --> 19:12.660
+We're seeing these charts get delivered through the system faster than even the text, the text stories get written and edited.
+
+19:12.900 --> 19:19.240
+And they're often they're ahead of when the reporters and editors are even thinking about looking for art.
+
+19:19.240 --> 19:22.920
+So these are obviously speed wins.
+
+19:22.920 --> 19:34.760
+That chart is then put right into the story, which was on the homepage of Reuters.com and out on the wire in the next few minutes, as were several other charts in the jobs report, because we have a whole kind of package of four or five.
+
+19:35.380 --> 19:36.580
+But it's not just for speed.
+
+19:36.580 --> 19:38.620
+Indeed, you also begin to benefit from scale.
+
+19:39.200 --> 19:46.280
+So that same that same class that I showed earlier, you may have noticed that had two entries, one for the United States and the other for Canada.
+
+19:46.280 --> 19:51.680
+So that same template can be adapted to a different data series with a slightly different configuration.
+
+19:52.420 --> 19:55.980
+And boom, you now are doing two instead of one with the same amount of labor.
+
+19:56.540 --> 20:01.340
+And that can multiply to really, really large numbers in the right circumstance.
+
+20:01.920 --> 20:05.580
+So, for instance, we have a template for a bar chart of corporate earnings.
+
+20:05.580 --> 20:12.620
+So every quarter, a public corporation will report to its shareholders how much money it made in the previous period.
+
+20:13.000 --> 20:14.460
+We can make the same bar chart.
+
+20:14.540 --> 20:27.180
+We are making the same bar chart for every single publicly listed company we choose to track, which allows us to make literally thousands of these charts within seconds or minutes after the data being discovered in the system.
+
+20:27.560 --> 20:31.840
+And that's where you begin to get to scale that no human is going to be able to do on their own.
+
+20:31.900 --> 20:32.920
+So it's not just faster.
+
+20:33.100 --> 20:35.500
+It can do quite a bit more.
+
+20:35.580 --> 20:46.960
+And the result of that is that the staff on John's team is freed up to do much higher value, higher skill work, which can also have much, much higher impact as well.
+
+20:46.960 --> 21:02.020
+So in real life, you know, that once a month, every Friday morning, Allie Levine here in the New York office would have to wake up early and make that same batch of jobs reports every single time unless she missed her alarm clock, I suppose.
+
+21:02.020 --> 21:03.020
+But now the robot does.
+
+21:03.020 --> 21:11.160
+But now the robot does that for her and she gets to sleep in and do things like this beautiful Walt Disney graphic they recently published instead.
+
+21:11.160 --> 21:23.560
+And of, you know, all the people and writers that I've talked to about this project, no one has been more excited about it than Allie, who sees it as really something that allows her to work on more rewarding and challenging work.
+
+21:23.560 --> 21:34.940
+We have kind of an internal system that we've built for monitoring the output thus far, we have close to 60 templates that we've deployed,
+
+21:34.940 --> 21:39.020
+including even a few that branch out to different inputs and outputs.
+
+21:39.020 --> 21:43.940
+So for instance, we have some custom web scrapers that power charts that don't use the terminal.
+
+21:43.940 --> 21:52.820
+And we actually are publishing some static images generated not via data wrapper that get embedded into a morning email newsletter series.
+
+21:52.820 --> 21:57.320
+So the pipeline system can also kind of horizontally scale, if you will, in that way.
+
+21:58.320 --> 22:04.340
+Thus far, we've we've pushed through about 20,000 charts to data wrapper in the system.
+
+22:04.840 --> 22:09.540
+That's according to my little profile row in our our team, our team page and data wrapper.
+
+22:11.000 --> 22:18.680
+My hope is if we aren't already, we will we will have published more charts than anyone else on the platform using using this system.
+
+22:18.680 --> 22:27.680
+Beyond the actual work here privately inside of Reuters, I partnered with Sergio, the the maintainer of the Python data wrapper library.
+
+22:27.680 --> 22:39.680
+And we recently have released a new version, which I think maybe we're announcing for the first time here today now covers 100 percent of the API endpoints on the data wrapper API.
+
+22:39.680 --> 22:49.680
+So anything that's documented in the data wrapper API, we from creating folders and moving folders, organizing teams, creating maps, all of it should be possible in the system.
+
+22:49.680 --> 22:52.680
+If something isn't, tell me and I'll make sure we get it in.
+
+22:52.680 --> 22:59.680
+And Sergio has been really great to work with on that for anyone who's really into API stuff.
+
+22:59.680 --> 23:04.680
+Here's this like a quick example of of how the Python wrapper could make a really basic chart.
+
+23:04.680 --> 23:19.680
+For those familiar with the API, you'll see that that metadata variable is queuing very closely to the sort of the JSON structure that the that the data wrapper prefers to be posted in.
+
+23:19.680 --> 23:28.680
+The result of that is that it's a little it's just a little verbose and and maybe not as friendly to beginners as it could be.
+
+23:28.680 --> 23:43.680
+So, you know, one of my personal kind of dreams or goals and I would love to get feedback and collaborators on this on anyone is interesting interested would be to maybe pursue an upgrade to the data wrapper API that is more say declarative.
+
+23:43.680 --> 23:46.680
+This this is pseudo code that does not exist.
+
+23:46.680 --> 24:02.680
+But to me, this is maybe how I think the API to accept Python code where all of the attributes are sort of keyword inputs that they all would be fully documented and listed out somewhere, which I'm not sure that they are currently.
+
+24:02.680 --> 24:08.680
+And just generally trying to move towards something that makes automation easier and easier over time.
+
+24:08.680 --> 24:13.680
+So if anyone has thoughts or or interest in that, I would I would love to hear what people think.
+
+24:13.680 --> 24:16.680
+This is kind of my little, you know, attempted dreaming it.
+
+24:16.680 --> 24:31.680
+And then finally, Sergio and I recently prepared a tutorial on how any beginner could pick up Python and begin automating data wrapper charts with with zero experience.
+
+24:31.680 --> 24:38.680
+We presented that one week ago today at the the night car conference, the large data journalism conference in Baltimore.
+
+24:38.680 --> 24:47.680
+It was standing room only there was there was so much enthusiasm from the data journalists we met to do more with data wrapper and to do more with automation.
+
+24:47.680 --> 24:52.680
+I'll share the link to this in that once I finished talking here, it is free to anyone.
+
+24:52.680 --> 24:58.680
+And every step in the class is explained and all of the code is included as well.
+
+24:58.680 --> 25:01.680
+I think that's what we have.
+
+25:01.680 --> 25:03.680
+I just want to thank you all for tuning in.
+
+25:03.680 --> 25:10.680
+It's it's really appreciated, Ed, and we'd be happy to answer any and all questions.
+
+25:18.680 --> 25:19.680
+All right.
+
+25:19.680 --> 25:21.680
+Thank you so much, Ben and John.
+
+25:21.680 --> 25:23.680
+It was a fantastic speech.
+
+25:23.680 --> 25:24.680
+Very informative.
+
+25:24.680 --> 25:32.680
+Great to see behind the curtain and learn so much about the intricacies of what goes into pushing out 20,000 charts.
+
+25:32.680 --> 25:35.680
+20,000 charts in about six months.
+
+25:35.680 --> 25:41.680
+That turnaround time that you mentioned is really remarkable and very impressive.
+
+25:41.680 --> 25:47.680
+I have a couple of questions while we wait for other questions to come through in the chat.
+
+25:47.680 --> 25:50.680
+Things that came to me while I was listening to this presentation.
+
+25:50.680 --> 25:59.680
+You mentioned a team's integration as a kind of plaxton to make sure that things were being reviewed or make sure that nothing was going wrong.
+
+25:59.680 --> 26:03.680
+So was that an idea for this project from the get go?
+
+26:03.680 --> 26:11.680
+Or was that implemented after the core pipeline was sort of built and created?
+
+26:11.680 --> 26:13.680
+Yeah, no, that was part of the original project.
+
+26:13.680 --> 26:20.680
+I mean, we needed to feed back some information to reporters about where their charts went into the graphic system.
+
+26:20.680 --> 26:26.680
+And just decided that was a really great point to go ahead and pop an image of the chart since we had that in hand already.
+
+26:26.680 --> 26:31.680
+And that gave us a chance to see what people were making very easily throughout our day.
+
+26:31.680 --> 26:33.680
+And we could pop in some comments and stuff like that.
+
+26:33.680 --> 26:45.680
+So yeah, it's actually been one of the funnest things about the whole process for me because you never know what kind of data you're going to see on any given day come through.
+
+26:45.680 --> 26:51.680
+And it's nice to talk back to the newsroom about what charts are breaking.
+
+26:51.680 --> 26:55.680
+Really true.
+
+26:55.680 --> 27:00.680
+It's also one of my favorite parts about this job is the not knowing what kind of charts are going to come through on any given day.
+
+27:00.680 --> 27:04.680
+It's very exciting and agree with you there and great foresight on that.
+
+27:04.680 --> 27:08.680
+We do have a question from Nora Gully.
+
+27:08.680 --> 27:11.680
+How do you byline automated charts?
+
+27:11.680 --> 27:15.680
+We don't put a byline in the data wrapper field.
+
+27:15.680 --> 27:16.680
+We list the source.
+
+27:16.680 --> 27:20.680
+If, you know, if the data comes from the terminal, we list LSEG as the source, of course.
+
+27:20.680 --> 27:29.680
+But, you know, no chart is published without a human editor reviewing it and what in the language of Reuters packaging it with the story.
+
+27:29.680 --> 27:35.680
+And so and so, you know, we kind of view that as the editorial oversight on the piece.
+
+27:35.680 --> 27:45.680
+If you're interested in how the quality control aspect further, I mean, we do have a committee of people that I review all the templates with before they're implemented.
+
+27:45.680 --> 27:50.680
+And so these are people who are experts in the domain that we're trying to make the chart for.
+
+27:50.680 --> 27:56.680
+And so they're involved in kind of a review process prior to that.
+
+27:56.680 --> 27:57.680
+Okay.
+
+27:57.680 --> 27:59.680
+That makes sense.
+
+27:59.680 --> 28:00.680
+Okay.
+
+28:00.680 --> 28:03.680
+I do have one other question that came to me.
+
+28:03.680 --> 28:07.680
+You mentioned that a lot of your data comes from one data source.
+
+28:07.680 --> 28:15.680
+Is that always in the same consistent format or is that ever cleaning that and preparing it for data wrapper?
+
+28:15.680 --> 28:17.680
+I can imagine that would be a sticking point.
+
+28:17.680 --> 28:20.680
+Is that always the same cleaning process?
+
+28:20.680 --> 28:22.680
+It's mostly consistent.
+
+28:22.680 --> 28:27.680
+You know, it's a truly massive database with a really wide array of data.
+
+28:27.680 --> 28:30.680
+And so it is definitely not a hundred percent consistent.
+
+28:30.680 --> 28:35.680
+And there can be, and across domains, there can be a little bit of quirks.
+
+28:35.680 --> 28:49.680
+Like for instance, commodities data is sort of, that is handled a little different from stock market data, which is handled a little different from the macroeconomic data in terms of what the columns are called or how you query it from the source API.
+
+28:49.680 --> 28:53.680
+And so that's where the Python pipeline kind of comes in.
+
+28:53.680 --> 29:00.680
+And the approach we've taken is to try to write kind of generic Python classes that handle the most common kind of variations.
+
+29:00.680 --> 29:06.680
+Hey, here's our monthly macroeconomic extractor and transformer, right?
+
+29:06.680 --> 29:19.680
+And that's going to handle most of the macroeconomic data, but then you can always kind of override or tweak, you know, the individual implementations based on what the quirks might be.
+
+29:19.680 --> 29:21.680
+Yeah, makes sense.
+
+29:21.680 --> 29:26.680
+Having that kind of room to adjust things with human eyes if needed.
+
+29:26.680 --> 29:27.680
+Fantastic.
+
+29:27.680 --> 29:28.680
+Okay.
+
+29:28.680 --> 29:33.680
+I think that we are done with any questions that might come through in the chat.
+
+29:33.680 --> 29:36.680
+I want to say thank you again so much for the time.
+
+29:36.680 --> 29:38.680
+It was an excellent speech.
+
+29:38.680 --> 29:39.680
+Great to hear about it.
+
+29:39.680 --> 29:44.680
+And now we can move on to our five.
+
+29:44.680 --> 29:45.680
+Bye.
+
+29:45.680 --> 29:46.680
+Bye.

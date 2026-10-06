@@ -1,0 +1,42 @@
+archive.ire.org
+The next generation of investigative knowledge sharing
+
+33,449 resources
+Now available in a new searchable database
+
+What you'll find
+Thousands of contest entries, tipsheets and training materials
+
+What we've got
+Some fields are better than others
+
+Semantic search
+AI helps find matches based on the meaning of your words
+
+Tune the results
+Controls allow you to filter and sort
+
+Discover new things
+AI recommends related documents
+
+Members only
+Restricted to active members with an ire.org account
+
+The software stack
+Vercel frontend: SvelteKit static single-page application consumes JSON data.
+Fly.io backend: FastAPI supplies JSON data; Redis caching enforces the ire.org membership wall; Qdrant indexes semantic embeddings.
+
+Work in progress
+Report problems to help@ire.org
+
+What's next
+1. Create staff tools: Empower IRE staffers to update the database.
+2. Complete the migration: Upload the 10% of resources that are not indexed yet.
+3. Tidy up: Reconcile imperfections in the metadata.
+4. Add audio transcripts: Integrate text from thousands of recordings transcribed by AI.
+
+Your humble servants
+Tell us what stinks so we can make it better.
+Ben Welsh, b@palewi.re
+Derek Willis, dwillis@gmail.com
+Cody Winchester, cody@ire.org

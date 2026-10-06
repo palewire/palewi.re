@@ -26,11 +26,13 @@ LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
 LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
 STATIC_WORKER_DIR := workers/static-site
 STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
+TALK_ASSET_DIR := talks
 
 .PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks dotenv bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 
 .PHONY: preservation-inventory report-built-site-quality
+.PHONY: site-archive-discover site-archive-verify site-archive-capture site-archive-sync site-archive-report
 
 # Use uv's parser instead of sourcing a dotenv file in the shell.
 define run-with-dotenv
@@ -70,6 +72,11 @@ help:
 	@echo "  fmt        Auto-format with Ruff"
 	@echo "  archive-clips  Archive clip URLs missing Wayback metadata"
 	@echo "  check-clip-archives  Confirm every clip has Wayback metadata"
+	@echo "  site-archive-discover  Discover public pages from dist/ and live site links"
+	@echo "  site-archive-verify  Look up existing Wayback snapshots without captures"
+	@echo "  site-archive-capture  Request captures for pages confirmed missing"
+	@echo "  site-archive-sync  Discover, check, and capture a resumable page batch"
+	@echo "  site-archive-report  Show saved page archive coverage without network access"
 	@echo "  preservation-inventory  Report page and media preservation state without network access"
 	@echo "  preservation-review  Reject new unreviewed external preservation gaps"
 	@echo "  media-archive-inventory  List discovered talk/post media without downloading anything"
@@ -109,6 +116,7 @@ help:
 
 install:
 	@"$$(command -v uv)" sync --locked --group dev
+	npm --prefix "$(TALK_ASSET_DIR)" ci --ignore-scripts --no-audit --no-fund
 
 hooks:
 	@"$$(command -v uv)" run pre-commit install
@@ -139,6 +147,7 @@ dotenv:
 	fi
 
 bake:
+	npm --prefix "$(TALK_ASSET_DIR)" run build
 	@"$$(command -v uv)" run python manage.py build
 	@$(MAKE) --no-print-directory check-built-site
 
@@ -187,6 +196,21 @@ archive-clips:
 check-clip-archives:
 	@"$$(command -v uv)" run python -m scripts.archive_clips check
 
+site-archive-discover:
+	@"$$(command -v uv)" run python -m scripts.site_archive discover
+
+site-archive-verify:
+	@"$$(command -v uv)" run python -m scripts.site_archive verify
+
+site-archive-capture:
+	@"$$(command -v uv)" run python -m scripts.site_archive capture
+
+site-archive-sync:
+	@"$$(command -v uv)" run python -m scripts.site_archive sync
+
+site-archive-report:
+	@"$$(command -v uv)" run python -m scripts.site_archive report
+
 preservation-inventory:
 	@"$$(command -v uv)" run python -m scripts.preservation_inventory $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",)
 
@@ -194,7 +218,7 @@ preservation-review:
 	@set -e; \
 	inventory="$$(mktemp)"; \
 	trap 'rm -f "$$inventory"' EXIT; \
-	"$$(command -v uv)" run python -m scripts.preservation_inventory --json-output "$$inventory" --max-gaps 0; \
+	env -u MEDIA_ARCHIVE_PATH UV_NO_ENV_FILE=1 "$$(command -v uv)" run python -m scripts.preservation_inventory --json-output "$$inventory" --max-gaps 0; \
 	"$$(command -v uv)" run python -m scripts.preservation_review --inventory "$$inventory"
 
 media-archive-inventory:

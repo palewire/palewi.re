@@ -1,0 +1,196 @@
+name: Site archive
+run-name: Site archive
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      lookup_only:
+        description: "Only verify existing snapshots; do not request captures"
+        required: false
+        default: false
+        type: boolean
+      capture_only:
+        description: "Request captures only; skip discovery and archive lookups"
+        required: false
+        default: false
+        type: boolean
+      max_captures:
+        description: "Maximum capture requests for a manual run (1-100)"
+        required: false
+        default: 10
+        type: number
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-archive-data-writer
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    name: Discover and archive
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    outputs:
+      ready: ${{ steps.fetch.outputs.ready }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SAVEPAGENOW_ACCESS_KEY: ${{ secrets.SAVEPAGENOW_ACCESS_KEY }}
+      SAVEPAGENOW_SECRET_KEY: ${{ secrets.SAVEPAGENOW_SECRET_KEY }}
+      UV_NO_ENV_FILE: "1"
+      MANIFEST: .site-archive/manifest.json
+      STATE_TOKEN: .site-archive/state-token.json
+      SUMMARY: .site-archive/report.md
+      LOOKUP_ONLY: ${{ inputs.lookup_only || false }}
+      CAPTURE_ONLY: ${{ inputs.capture_only || false }}
+      MAX_CAPTURES: ${{ inputs.max_captures || '10' }}
+    steps:
+      - name: Check out production source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Guard production-only checkout
+        run: |
+          if test "$GITHUB_EVENT_NAME" = workflow_dispatch && test "$GITHUB_REF" != refs/heads/main; then
+            echo "Site archive must run from main, not $GITHUB_REF." >&2
+            exit 1
+          fi
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+
+      - name: Bootstrap and build
+        run: |
+          make ci-bootstrap
+          make bake
+
+      - name: Fetch archive state
+        id: fetch
+        run: |
+          mkdir -p .site-archive
+          uv run python -m scripts.site_archive.branch fetch \
+            --path "$MANIFEST" --state-token "$STATE_TOKEN"
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Synchronize archive inventory
+        id: sync
+        continue-on-error: true
+        run: |
+          if test "$LOOKUP_ONLY" = "true" && test "$CAPTURE_ONLY" = "true"; then
+            echo "lookup_only and capture_only cannot both be enabled." >&2
+            exit 1
+          fi
+          if ! [[ "$MAX_CAPTURES" =~ ^[1-9][0-9]*$ ]] || test "$MAX_CAPTURES" -gt 100; then
+            echo "max_captures must be a whole number from 1 through 100." >&2
+            exit 1
+          fi
+          if test "$CAPTURE_ONLY" = "true"; then
+            uv run python -m scripts.site_archive capture \
+              --manifest "$MANIFEST" \
+              --max-captures "$MAX_CAPTURES" \
+              --max-seconds 900 \
+              --summary "$SUMMARY"
+            exit 0
+          fi
+          args=(
+            sync
+            --build-dir dist
+            --manifest "$MANIFEST"
+            --max-pages 100
+            --max-checks 100
+            --max-captures "$MAX_CAPTURES"
+            --max-seconds 900
+            --summary "$SUMMARY"
+          )
+          if test "$LOOKUP_ONLY" = "true"; then
+            args+=(--lookup-only)
+          fi
+          uv run python -m scripts.site_archive "${args[@]}"
+
+      - name: Ensure a report exists
+        if: always() && steps.fetch.outputs.ready == 'true'
+        run: |
+          if test ! -s "$SUMMARY"; then
+            uv run python -m scripts.site_archive report --manifest "$MANIFEST" > "$SUMMARY"
+          fi
+
+      - name: Publish archive summary
+        if: always() && steps.fetch.outputs.ready == 'true'
+        run: cat "$SUMMARY" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload recovery checkpoint
+        if: always() && steps.fetch.outputs.ready == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: site-archive-checkpoint
+          path: |
+            .site-archive/manifest.json
+            .site-archive/state-token.json
+            .site-archive/report.md
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Surface synchronization failure
+        if: steps.sync.outcome == 'failure'
+        run: |
+          echo "Archive synchronization reported errors; checkpoint was uploaded." >&2
+          exit 1
+
+  persist:
+    name: Persist archive state
+    needs: archive
+    if: always() && needs.archive.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: write
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      UV_NO_ENV_FILE: "1"
+    steps:
+      - name: Check out production source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+
+      - name: Bootstrap persistence command
+        run: make ci-bootstrap
+
+      - name: Download recovery checkpoint
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: site-archive-checkpoint
+          path: .site-archive
+
+      - name: Persist checkpoint
+        run: |
+          uv run python -m scripts.site_archive.branch push \
+            --path .site-archive/manifest.json \
+            --state-token .site-archive/state-token.json

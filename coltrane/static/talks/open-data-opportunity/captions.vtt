@@ -1,0 +1,2839 @@
+WEBVTT
+
+00:00.000 --> 00:13.960
+Ladies and gentlemen, thank you very much for coming today and being willing to brave
+
+00:13.960 --> 00:17.980
+the mid-afternoon trap that is Santa Monica for our forum.
+
+00:17.980 --> 00:22.680
+My name is Kevin Cloud and I'm managing director of the California Center here at the Milken
+
+00:22.680 --> 00:28.400
+Institute and I want to welcome you today on a forum we're doing in partnership with
+
+00:28.400 --> 00:32.440
+Los Angeles Times on the key topic of open data.
+
+00:32.440 --> 00:37.520
+So thank you everyone for coming, I'm sure it's going to be a very enlightening and insightful
+
+00:37.520 --> 00:44.440
+conference on a topic that on the surface sounds somewhat simple but is in fact very
+
+00:44.440 --> 00:50.000
+important and to discuss for a minute what makes this topic so significant, I'm going
+
+00:50.000 --> 00:56.320
+to hand over the microphone to my colleague Jason Barrett.
+
+00:56.320 --> 01:00.920
+Thank you Kevin, my name is Jason Barrett, I am a policy analyst with the Milken Institute.
+
+01:00.920 --> 01:06.160
+I just want to say a quick word or two about the importance of open data to the Institute
+
+01:06.160 --> 01:07.680
+and also to the state of California.
+
+01:07.680 --> 01:12.180
+There are three main issues that the Institute has examined when it comes to open data.
+
+01:12.180 --> 01:14.760
+The first is government transparency.
+
+01:14.760 --> 01:18.840
+It's a very important issue, voters want to know where their money is going and they feel
+
+01:18.840 --> 01:20.960
+that they have a right to know.
+
+01:20.960 --> 01:22.680
+The second is government effectiveness.
+
+01:22.680 --> 01:27.840
+It's not just a matter of helping Californians understand their government, it's about helping
+
+01:27.840 --> 01:30.840
+the California government understand itself.
+
+01:30.840 --> 01:36.880
+Interagency cooperation is very important from any number of issues regarding permitting,
+
+01:36.880 --> 01:42.800
+secret reform, there are a lot of needless delays that come from an overarching bureaucracy
+
+01:42.800 --> 01:46.000
+within a government that is the size of Californians.
+
+01:46.000 --> 01:50.600
+And the third topic is economic development opportunities.
+
+01:50.600 --> 01:56.840
+One of our panelists today is from Trulia which is a real estate company that has really
+
+01:56.840 --> 02:03.280
+kind of led the way in terms of using open data to create a software platform and create
+
+02:03.280 --> 02:06.200
+a huge company out of it and that's just one example.
+
+02:06.200 --> 02:10.080
+So without further ado I will hand it over to our moderator.
+
+02:10.080 --> 02:13.320
+He is the editor of the LA Times data desk.
+
+02:13.320 --> 02:17.940
+He is one of the leading journalists in open data in California and he's written several
+
+02:17.940 --> 02:20.780
+articles about the need for open data in California.
+
+02:20.780 --> 02:21.780
+Ben Welsh.
+
+02:21.780 --> 02:22.780
+Ben.
+
+02:22.780 --> 02:23.780
+Hello.
+
+02:23.780 --> 02:24.780
+Hi everybody.
+
+02:24.780 --> 02:29.820
+Thank you for coming out on a Wednesday afternoon, we really appreciate it.
+
+02:29.820 --> 02:33.820
+I think we're going to be talking here as a group as a discussion for about one hour
+
+02:33.820 --> 02:38.060
+and then you'll have the opportunity to send in your questions to the address they post
+
+02:38.060 --> 02:42.220
+up and we'll read those, I'll read those off to the panel when that time comes too.
+
+02:42.220 --> 02:43.220
+Okay.
+
+02:43.220 --> 02:46.340
+So to kick things off I just want to introduce the four guests here.
+
+02:46.340 --> 02:48.060
+The first is Deep Varma.
+
+02:48.060 --> 02:52.380
+He is a vice president of data engineering at Trulia which is a real estate website I
+
+02:52.380 --> 02:55.180
+bet it's pretty popular here in Santa Monica.
+
+02:55.180 --> 02:58.900
+You can go on there and click around on a map to oversimplify things maybe to the point
+
+02:58.900 --> 02:59.900
+of insult.
+
+02:59.900 --> 03:04.300
+Click around on a map and look up the recent real estate sales and listings and kind of
+
+03:04.300 --> 03:11.260
+track the Southern California's greatest spectator sport and he's an expert in the field of how
+
+03:11.260 --> 03:15.660
+you take government data and you turn it into something useful and that people love to interact
+
+03:15.660 --> 03:18.820
+with and that ultimately makes money.
+
+03:18.820 --> 03:24.300
+Sitting next to him is Secretary of State Alex Padilla who if I can still read a calendar
+
+03:24.300 --> 03:27.620
+was elected to office one year ago today.
+
+03:27.620 --> 03:32.780
+This is the anniversary of his election to that office.
+
+03:32.780 --> 03:36.420
+Obviously as Secretary of State he oversees elections here in the state of California
+
+03:36.420 --> 03:40.940
+as well as a number of important data systems which might be called open data relating to
+
+03:40.940 --> 03:47.500
+voter registration, the registration of corporations and LLCs and a number of other things.
+
+03:47.500 --> 03:50.900
+Prior to being the Secretary of State he was in the California State Senate for I believe
+
+03:50.900 --> 03:51.900
+two terms.
+
+03:51.900 --> 03:56.140
+He can correct me here and before that was elected city councilman here to represent
+
+03:56.140 --> 04:02.380
+the San Fernando Valley at the very young age of 26 where you grew up.
+
+04:02.380 --> 04:03.380
+Is that correct?
+
+04:03.380 --> 04:04.380
+Is it Angelino?
+
+04:04.380 --> 04:05.380
+Born and raised.
+
+04:05.380 --> 04:06.380
+Great.
+
+04:06.380 --> 04:11.780
+Next up is Alicia Ruo who is a senior advisor to the president of a group called Code for
+
+04:11.780 --> 04:12.780
+America.
+
+04:12.780 --> 04:15.260
+Does everybody here know what Code for America is?
+
+04:15.260 --> 04:16.260
+No.
+
+04:16.260 --> 04:22.180
+Okay it's a very cool non-profit organization that partners with local governments and state
+
+04:22.180 --> 04:27.500
+and larger governments too all across America to bring in young bright techie people into
+
+04:27.500 --> 04:32.500
+government offices and help them kind of do things a different way, introduce talent,
+
+04:32.500 --> 04:36.100
+introduce new techniques for making software both by bringing in the talent and at the
+
+04:36.100 --> 04:39.020
+higher level advising people on how to get stuff done.
+
+04:39.020 --> 04:42.340
+And so she's a very important person there.
+
+04:42.340 --> 04:47.180
+And then next to her is Ted Ross another very important person who is the chief information
+
+04:47.180 --> 04:52.220
+officer for the city of Los Angeles which means he's the general manager and department
+
+04:52.220 --> 04:57.780
+head of a whole big section of city government that runs tons and tons of software that can
+
+04:57.780 --> 05:04.060
+range from boring stuff like email and payroll all the way to really exciting cutting edge
+
+05:04.060 --> 05:10.660
+stuff like open data portals and the body cameras that are going to go on all the LAPD
+
+05:10.660 --> 05:12.180
+officers as well.
+
+05:12.180 --> 05:16.460
+And so these four are you know going to be the stars of the show here and I'm just going
+
+05:16.460 --> 05:20.020
+to ask them a bunch of questions and hopefully we'll have a great conversation.
+
+05:20.020 --> 05:22.420
+Does that sound good?
+
+05:22.420 --> 05:23.420
+Love it.
+
+05:23.420 --> 05:26.780
+Okay so even though I'm a nerd and I work at this nerdy thing called the data desk and
+
+05:26.780 --> 05:32.500
+write code all day I still am kind of a reporter at heart right and so I have my little notes
+
+05:32.500 --> 05:34.980
+here and I want to open with the news.
+
+05:34.980 --> 05:40.020
+So I don't know if you all heard but Governor Jerry Brown signed two new open data bills
+
+05:40.020 --> 05:41.020
+last month.
+
+05:41.020 --> 05:48.860
+One AB 169 which is now law requires that all data published online by California state
+
+05:48.860 --> 05:53.580
+by California governments has to be published in something called an open format that's
+
+05:53.580 --> 06:00.440
+easily downloadable can be picked up and parsed and reused by humans and by the computer programming
+
+06:00.440 --> 06:03.320
+scripts that humans write to do things for them.
+
+06:03.320 --> 06:10.240
+The second bill SB 272 getting this right I hope requires all the agencies in addition
+
+06:10.240 --> 06:16.200
+to that to create a list an index they call it of all the different data systems that
+
+06:16.200 --> 06:21.760
+the particular agency runs and then publish that list online right and so these two bills
+
+06:21.760 --> 06:27.480
+which are now law as of about a little less than a month ago are being hailed by the activists
+
+06:27.480 --> 06:33.040
+and people who are pushing open data as an idea as landmark legislation you know open
+
+06:33.040 --> 06:36.040
+formats for the data and a list of databases.
+
+06:36.040 --> 06:39.960
+Now if you're not a techie person in this world this might not sound like that big a deal
+
+06:39.960 --> 06:45.960
+right well how big a deal is a list of databases but it really is and I want to first off ask
+
+06:45.960 --> 06:50.320
+the secretary to explain it like why is this legislation quote unquote landmark why does
+
+06:50.320 --> 06:53.600
+it matter what are what what's the big deal.
+
+06:53.600 --> 07:00.800
+What's the big deal I guess for technologists it may seem pretty straightforward simple
+
+07:00.800 --> 07:06.640
+kind of common sense but it's certainly significant culture change I think on behalf of government
+
+07:06.640 --> 07:16.200
+you know we can debate what the expectations were pre Nixon post Nixon information sharing
+
+07:16.200 --> 07:21.320
+you know what led to things like the Freedom of Information Act and Public Records Act
+
+07:21.320 --> 07:26.600
+and those sorts of things but the bottom line is government by and large got into the mindset
+
+07:26.600 --> 07:31.000
+of you know everything you don't want to make a mistake so don't share information that
+
+07:31.000 --> 07:36.120
+you're not compelled to for fear of making a mistake all right there's certain there
+
+07:36.120 --> 07:42.440
+is reason for some things to not be shared privacy protection security protections etc.
+
+07:42.440 --> 07:47.480
+But I think where government law side of the fundamental premise that public information
+
+07:47.480 --> 07:56.280
+is public information and it ought to be easily available and usable by the public and with
+
+07:56.280 --> 08:00.960
+the advances in technology it was no longer or will fulfill your request and now sends
+
+08:00.960 --> 08:07.360
+us 10 cents per page so we can make photocopies of stuff right we can now share electronically
+
+08:07.360 --> 08:14.200
+post electronically and the fundamental mindset shift is wait a minute let's not the default
+
+08:14.200 --> 08:18.400
+be we're going to hold on to data unless we're compelled to share if there if there isn't
+
+08:18.400 --> 08:23.440
+a reason to want to hold on to let's make it readily available that seems kind of obvious
+
+08:23.440 --> 08:29.840
+why is that why is a law necessary I think a law was necessary a because the culture
+
+08:30.160 --> 08:37.600
+shift hasn't completely played out and so sometimes you need that directive or or that
+
+08:37.600 --> 08:44.720
+requirement on the part of city department city county state departments and agencies
+
+08:45.360 --> 08:51.680
+to share that information otherwise they were choosing not to but I think you know we can have
+
+08:51.680 --> 08:56.880
+a longer conversation about what the upside is of having that data more readily available both for
+
+08:56.880 --> 09:03.840
+other government users for individuals for app developers and everybody in between okay I mean
+
+09:03.840 --> 09:09.120
+now deep you are you work at a company that takes government data and is a raw raw material and
+
+09:09.120 --> 09:13.600
+turns it into kind of like a finished product yeah right would something there's a law that
+
+09:13.600 --> 09:18.160
+requires an open format help you with that and explain what an open format is and how it would
+
+09:18.160 --> 09:23.120
+impact the kind of work that you guys are doing yeah so definitely truly a lead by an example on
+
+09:23.120 --> 09:29.920
+this and we saw a challenge from a consumer point of view I still remember 1999 when I bought my
+
+09:29.920 --> 09:36.080
+first house it is you know I spent months and months going through the documents and looking
+
+09:36.080 --> 09:41.840
+into you know neighborhood looking into the crime score looking into the past transactions and you
+
+09:41.840 --> 09:46.880
+know collecting all the pieces of the documents sitting with my wife going over all the things
+
+09:46.880 --> 09:51.520
+and it the journey was a meaningful journey but at the end it is a time which I could have spent
+
+09:51.520 --> 09:57.920
+better with my family we saw that how we can use all this data which is lying around because if
+
+09:57.920 --> 10:03.360
+the data is an information information is the power what we all need so if the data is lying
+
+10:03.360 --> 10:10.800
+there on the pages I have to read the pages but can technology help us use these documents
+
+10:10.800 --> 10:17.280
+transform into a more structured information make it in the way that it is searchable so when we
+
+10:17.280 --> 10:22.320
+thought we thought from a consumer point of view when consumer comes to Trulia consumer comes and
+
+10:22.320 --> 10:28.800
+says you know this is what I'm looking for and we provide this data which is which is you know
+
+10:28.800 --> 10:34.480
+when I sit with my engineers on a day-to-day basis it is a millions of the rows of the data which is
+
+10:34.480 --> 10:40.240
+coming into our database it's not that simple so we have to run the pipelines and the hours of
+
+10:40.240 --> 10:46.880
+processing to make it meaningful meaningful to us so too I think overall for the industry this
+
+10:46.880 --> 10:54.960
+open format or the open data allows us to focus on where we want to focus on so rather than
+
+10:55.600 --> 11:02.880
+focusing on getting this 20 files and making them into one format and then spending all our time I
+
+11:02.880 --> 11:08.880
+will rather if I know all this data coming to Trulia is it in a consistent format it is a quality
+
+11:08.880 --> 11:15.040
+of a data it is a fresh data then I would rather focus more towards consumer and make this
+
+11:15.040 --> 11:21.360
+information the crime data the neighborhood data the school information the transit information
+
+11:21.360 --> 11:28.560
+make it more easily accessible to the consumers so that's what I feel those two you know bills
+
+11:28.560 --> 11:33.840
+are the step in the right direction but it's still we are scratching the surface we have to go way
+
+11:33.840 --> 11:39.040
+more than that before even we see the benefits out of that and we'll get to that now Alicia now if
+
+11:39.040 --> 11:46.080
+governments aren't publishing data in open formats now what are they doing well many governments
+
+11:46.080 --> 11:52.960
+love the pdf and while that seems like does everybody know what a pdf is okay so it's it's
+
+11:52.960 --> 12:02.080
+a step better than paper that I honestly need to boo go ahead you know releasing pdfs is a great
+
+12:02.080 --> 12:07.760
+gesture toward opening and releasing information but when you're a programmer and if we think about
+
+12:07.760 --> 12:14.240
+the way that data is actually used it's used in applications it's used in queries if it's not
+
+12:14.240 --> 12:22.560
+actually readable by a machine it's not useful so part of the law that was passed is a part in it
+
+12:22.560 --> 12:27.040
+that says it needs to be machine readable which means that computers can actually parse it
+
+12:27.760 --> 12:33.840
+there's a great example in the city of portland one of the the first ways data was really made
+
+12:33.840 --> 12:40.320
+open in the united states was around transit data there's a transit and i deep kind of just
+
+12:40.320 --> 12:45.920
+referred to transit data as being an important data set portland's transportation commission
+
+12:45.920 --> 12:52.160
+called trimet released their data and they did so under a specification which simply just means
+
+12:52.160 --> 12:58.000
+it's standardized it has specific columns field names and they're consistent and this was sort
+
+12:58.000 --> 13:04.000
+of the format that the rest of the united states through google actually started publishing their
+
+13:04.000 --> 13:09.360
+transit data so when we talk about the word standard that's what we mean is it's produced
+
+13:09.360 --> 13:14.160
+consistently and published consistently so that machines can actually process it yeah so that's
+
+13:14.160 --> 13:19.600
+why i can use my google maps to find out the bus schedule and the and the traffic anywhere in
+
+13:19.600 --> 13:24.800
+america but i can't do the same thing for crime or for other things that deep mention that's right
+
+13:25.760 --> 13:30.960
+now ted at the city of la you guys have already taken a lot of steps along the road that these
+
+13:30.960 --> 13:35.920
+laws kind of point to right uh why don't you share with the audience what what the city's done
+
+13:35.920 --> 13:42.000
+certainly so i have the honor of serving mayor eric garcetti and so uh the fact that probably
+
+13:42.000 --> 13:45.920
+most of the folks in the room don't know while he was a then council member running for the mayor's
+
+13:45.920 --> 13:50.480
+office he was actually as a council member pushing a council motion through council to
+
+13:50.560 --> 13:55.120
+try to be able to launch an open data portal and to do a lot more when it came to providing open
+
+13:55.120 --> 14:01.360
+government i think the reason why is he you know philosophically completely agrees it's the citizens
+
+14:01.360 --> 14:07.520
+government and it truly is citizens data and there's the ability of capturing so much opportunity
+
+14:07.520 --> 14:11.040
+because there's things that government does well and there's things that obviously private
+
+14:11.040 --> 14:16.080
+sector non-profits do well so why not let government which has a monopoly in many ways on
+
+14:16.080 --> 14:21.040
+the data there's truly data that only government has why not partner that data so long as it's
+
+14:21.040 --> 14:25.600
+responsible and doesn't it doesn't violate any security issues or personal individual rights
+
+14:25.600 --> 14:30.880
+etc social security numbers those types of things why not partner government's greatest asset in its
+
+14:30.880 --> 14:35.600
+data partner that with private sector which is innovating and non-profits which are researching
+
+14:35.600 --> 14:40.800
+and then you can get a very powerful a very powerful force a nexus of forces if you will
+
+14:40.800 --> 14:45.040
+in which you can get a lot more services delivered to the citizen i think it's a great example here
+
+14:45.040 --> 14:50.320
+with real estate information with other aspects it allows government to deliver a service not
+
+14:50.320 --> 14:55.120
+directly i kind of liken it to a point guard in basketball you know the point guard doesn't do all
+
+14:55.120 --> 14:59.600
+the scoring but they often push the ball around they feed it to other people so they can score
+
+14:59.600 --> 15:04.320
+they do assist this is a way for government to assist others and at the city of los angeles
+
+15:04.320 --> 15:08.880
+we did a lot when it came to getting across our city government all sorts of different data sets
+
+15:08.880 --> 15:13.360
+and making them available and more than just publishing them in a portal really seeking ways
+
+15:13.360 --> 15:18.720
+to engage people so partnering with folks like google so that ways data would have city information
+
+15:18.720 --> 15:23.600
+regarding street closures and all sorts of things that improve the users for that app or partnering
+
+15:23.600 --> 15:27.840
+with others to be able to deliver that information going to hackathons right where programmers will
+
+15:27.840 --> 15:32.240
+get together and they'll hack on certain topics we have huge issues around things like a drought
+
+15:32.240 --> 15:36.560
+in southern california so let's bring a group together and let's get data from our department
+
+15:36.560 --> 15:40.960
+of water and power and others to be able to start hacking on that and so it's trying to identify
+
+15:41.040 --> 15:46.400
+ways to really engage universities around traffic and traffic collision information we did that
+
+15:46.400 --> 15:51.120
+recently and all sorts of other developers so it's more than just making data available in which that
+
+15:51.120 --> 15:56.000
+will capture one group of people but is actually making data available consumable and finding those
+
+15:56.000 --> 16:03.440
+who are interested to do really good things with that uh so now that this law is passed people who
+
+16:03.440 --> 16:07.200
+aren't as up to speed as you that need a law to get them to do it are going to be challenged to
+
+16:07.200 --> 16:11.360
+kind of like make it happen right so lisha you've seen the inside of a lot of different governments
+
+16:11.360 --> 16:16.800
+in your work with code for america right that's right so what is it that stops governments from
+
+16:16.800 --> 16:24.880
+making progress on this front um i think there's a lot of reasons why open data is is hard to get
+
+16:24.880 --> 16:31.120
+started with um if you think about top-down leadership um that's not always present there's
+
+16:31.120 --> 16:38.080
+not always the case to open data um luckily l.a has leadership that is you know very much in
+
+16:38.080 --> 16:44.080
+support of opening data as does santa monica so why would it in all fairness yes so no so why
+
+16:44.080 --> 16:48.560
+would a government be against that doesn't open data sound good guys how could you oppose that
+
+16:48.560 --> 16:54.640
+well i think it's sometimes hard to trace sort of the the roi the immediate return on opening this
+
+16:54.640 --> 17:01.040
+information um and i think opening data to open for opening data's sake is not necessarily the
+
+17:01.040 --> 17:07.920
+right way to go um we did some work in alba kirky uh and and there one of the um the folks that
+
+17:07.920 --> 17:13.280
+worked in the it department um really had to struggle to make the case to his leadership
+
+17:13.280 --> 17:19.680
+that um opening data would be a good thing for the city his criteria was that if you can't trace it
+
+17:19.680 --> 17:24.640
+down to an actual consumer or an end user that will benefit from it it's not worth opening
+
+17:25.440 --> 17:30.160
+and i think that that sort of criteria is a way to help governments open information when
+
+17:30.160 --> 17:36.480
+transparency isn't necessarily working so what would an example of that be so he worked on
+
+17:36.480 --> 17:42.320
+reducing the number of 311 calls into the city so it was an efficiency play um he said you know if
+
+17:42.320 --> 17:48.320
+you open the 311 data and we can see where the complaints are coming time after time spatially
+
+17:48.320 --> 17:53.120
+geographically um we can actually reduce the number of complaints that we get to the city
+
+17:53.120 --> 17:57.520
+and it worked it actually reduced the number of complaints that came in and so then he got
+
+17:57.520 --> 18:03.520
+promoted and he's the general manager like ted no no oh go ahead i don't know i have an interesting
+
+18:03.520 --> 18:09.280
+example that you referenced 311 and trying to create a more efficient 311 because the very
+
+18:09.280 --> 18:16.160
+existence of 311 systems was trying to take the the load and inefficiencies out of a 911 system
+
+18:16.240 --> 18:19.760
+and so i just can't help but recognize how far we actually have come
+
+18:19.760 --> 18:24.000
+government is not perfect we have a long way to go but in the last 20 years alone
+
+18:24.000 --> 18:29.520
+we had uh you know 911 overburdened you know thank baltimore for really pioneering
+
+18:29.520 --> 18:35.840
+but the 311 system former police chief bill bratton here in la who's back in new york is
+
+18:35.840 --> 18:41.200
+a police commissioner there really sort of uh thinking more more more digitally analytically
+
+18:41.280 --> 18:48.640
+developing a comp step model right using data to drive decisions on how you deploy resources to try
+
+18:48.640 --> 18:55.600
+to both minimize crime prevent crime etc which then sponsor the city stats and more comprehensive
+
+18:55.600 --> 19:00.080
+governments uh in general conversations about using data you know internally so there's just
+
+19:00.080 --> 19:06.080
+been this evolution you know government internally using data to make better decisions and investments
+
+19:06.080 --> 19:11.120
+and i think given where technology is now the ability to share that data with other partners
+
+19:12.000 --> 19:17.680
+to tap the innovative juices that we have not just in california but to utilize this data in in ways
+
+19:17.680 --> 19:23.360
+that you know no one person in government knows it all but we've come a long way i think the last 20
+
+19:23.360 --> 19:29.040
+years and you know i think the curve is exponentially increasing and how much more we're
+
+19:29.040 --> 19:36.560
+going to see at all i'm going to pass this i think so open data is mind shift that's the
+
+19:36.560 --> 19:41.200
+most important thing we just cannot go just with the bills and say okay we have passed the two
+
+19:41.200 --> 19:46.240
+bills but there's a mind shift and on top of the mind shift i think so it's it's we just cannot
+
+19:46.240 --> 19:50.560
+leave the open data and say it's always for the betterment of the transparency i think so it's an
+
+19:50.560 --> 19:56.400
+effectiveness what is the effectiveness for the government for the states for the counties how
+
+19:56.400 --> 20:04.400
+can we serve our consumers or our people better and faster i think is that the what i feel is it's
+
+20:04.400 --> 20:09.200
+the the bottleneck here is the bill's been passed but what's the driving value what's who's going
+
+20:09.200 --> 20:16.160
+to drive this forward certainly i local agency go and publish all my enterprise systems so i think
+
+20:16.160 --> 20:22.400
+is that mind shift needs to happen and to me is bill is a step in that direction where i think
+
+20:22.400 --> 20:27.200
+california is doing an amazing job by passing the bill but i think is we need to have the
+
+20:27.200 --> 20:34.400
+leaders those who help us like you know ted is doing in this shift the mindset and say that why
+
+20:34.400 --> 20:39.360
+this is important so that's the critical piece too and i mean that's really one of the goals of
+
+20:39.360 --> 20:42.880
+code for america right is to introduce those different types of thinking and people who think
+
+20:42.880 --> 20:48.480
+that way and come from this silicon valley world into government but i guess ted ted why is that
+
+20:48.480 --> 20:54.080
+necessary do you guys have is is you know if the city of l.a when they open up job applications
+
+20:54.080 --> 20:57.920
+for to be a firefighter i love to write about the fire department it's one of my hobby horses
+
+20:57.920 --> 21:03.840
+there'll be 70 jobs and 10 000 people will apply right oh the vast majority of whom are probably
+
+21:03.840 --> 21:10.960
+well qualified for the job and very eager to take it why does government struggle to attract talent
+
+21:10.960 --> 21:15.760
+to kind of help it build capacity to bring in new blood and need something like code for america
+
+21:16.400 --> 21:20.800
+well it some of it comes down philosophically to where government often sees itself
+
+21:20.800 --> 21:26.960
+so you find that governments get very busy doing things and as you start reducing staff you start
+
+21:26.960 --> 21:32.080
+reducing budget i i serve in department i manage a department that's lost 40 of staff in the last
+
+21:32.080 --> 21:36.720
+six years so since the great recession we're a very much smaller department which makes us
+
+21:36.720 --> 21:42.640
+reprioritize also a lot of things and when open data becomes in as a conversation all too often
+
+21:42.640 --> 21:47.120
+it gets interpreted it shows up on the radar is look here's another thing we're being required
+
+21:47.120 --> 21:51.280
+to do when i've got all these other systems and all these you know police or fire department
+
+21:51.280 --> 21:55.280
+systems i'm maintaining and now i've got this one more thing put on my plate and so i think
+
+21:55.280 --> 22:00.160
+sometimes it gets misunderstood and misinterpreted so at the city of los angeles it becomes really
+
+22:00.160 --> 22:05.040
+critical to have that philosophical shift to have that change honestly and this is someone coming
+
+22:05.040 --> 22:09.920
+from inside government one of the greatest benefits of open data i'm a firm believer in
+
+22:09.920 --> 22:14.480
+transparency i'm an angelina i'm a firm believer in transparency i'm a firm believer in open
+
+22:14.480 --> 22:19.600
+government but the application of everything you do with open data inside of government is also
+
+22:19.600 --> 22:25.360
+beneficial so you'd be surprised how much data is not being shared between departments let alone
+
+22:25.360 --> 22:31.120
+with the public right you know i i implemented a financial system in which quite often you were
+
+22:31.120 --> 22:35.920
+figuring out we were instructed from all these different department managers on ways to keep
+
+22:35.920 --> 22:39.680
+other departments from seeing your budget and so they're trying to figure out ways of building all
+
+22:39.680 --> 22:44.800
+these modifications so we can't see each other's data when the reality is obviously we should be
+
+22:44.800 --> 22:49.040
+sharing it even with others so it becomes something fundamentally important for us to
+
+22:49.040 --> 22:54.880
+share data across departments to create what they call apis interfaces between data so that
+
+22:54.880 --> 22:59.440
+systems and machines can go ahead and integrate data between each other so open data is a very
+
+22:59.440 --> 23:04.640
+powerful movement and a very powerful concept that you can apply across so many different areas
+
+23:04.640 --> 23:09.760
+we get all sorts of requests for information if that's saying if i identify the types of requests
+
+23:09.760 --> 23:14.960
+for information i get and put it as self-service you don't have to ask me anymore right so there's
+
+23:14.960 --> 23:19.600
+all these ways of making government more efficient by putting it out there and and really to address
+
+23:19.600 --> 23:24.640
+ben's question often at the city of los angeles and often in government we get too stuck in the
+
+23:24.640 --> 23:28.560
+day-to-day we get too stuck in what we were delivering last week and and a very large
+
+23:28.560 --> 23:32.880
+workload and when we really need to be stepping out of it and thinking more strategically
+
+23:32.880 --> 23:38.080
+if i'm busy processing public records requests i really need to maybe take a step back and say
+
+23:38.080 --> 23:43.120
+what's a mechanism or a method so i don't have to be processing these and that you could go get
+
+23:43.120 --> 23:49.680
+them in a very easy to understand a reasonable format and i think one of the other uh under
+
+23:49.680 --> 23:55.840
+appreciated upsides of open data and the movement for it is based on the assumption that government
+
+23:55.840 --> 24:01.760
+has good quality data clean data organized data that's right right and so the expectations we'll
+
+24:01.760 --> 24:06.640
+just share it just share it just share it because we want to unleash you know innovation and
+
+24:06.640 --> 24:12.240
+all the brilliant ideas that will come as a result so so don't overestimate the quality
+
+24:12.240 --> 24:17.040
+or organization of our data but on the other hand keep the pressure on because that is pushing all
+
+24:17.040 --> 24:22.880
+areas of government and all levels of government to to upgrade and modernize and and improve the
+
+24:22.880 --> 24:27.840
+secretary hit the nail on the head once i have to start publishing data i'll take a step and look
+
+24:27.840 --> 24:32.720
+at it and say and i i don't really mean me but a department will take a look at it and say
+
+24:32.720 --> 24:36.880
+boy the quality of this data really isn't quite right which begs the question why do you have data
+
+24:36.880 --> 24:42.640
+that is of poor quality are you running your operation off of poor quality data so i like
+
+24:42.640 --> 24:46.960
+just about every question involved with open data i like the idea that if you have to publish it
+
+24:46.960 --> 24:52.240
+it needs to be good and if it's not good let's make it good and that just improves everything
+
+24:52.240 --> 24:56.560
+it's true you know i don't use the expression very often i truly do see a lot of win-win when it
+
+24:56.560 --> 25:04.720
+comes to an open government open data type of conversation you know the whole idea of open data
+
+25:04.720 --> 25:08.880
+it all sounds great and it sounds new maybe to people who haven't heard it before but it's really
+
+25:08.880 --> 25:13.920
+not new right you know this is an initiative that president obama came into office trumpeting and
+
+25:13.920 --> 25:20.800
+gosh that was nearly eight years ago now and he's preparing to leave office and you know i'm kind of
+
+25:20.800 --> 25:25.600
+you know how much progress can we really claim when i really when you think about it in that
+
+25:25.600 --> 25:31.200
+time period we've had a lot of panel discussions like this we've had a lot of little laws we've
+
+25:31.200 --> 25:37.680
+had a lot of fellows go out right but we've also we've also had healthcare.gov happen
+
+25:37.680 --> 25:44.080
+right we've had uh the state's unemployment check system fail to the point that it can't send them
+
+25:44.080 --> 25:49.360
+out we have the secretary state's office still struggling with many large it projects to push
+
+25:49.360 --> 25:55.040
+through that you inherited when you came into office is this stuff like really moving the needle
+
+25:56.080 --> 26:03.520
+or is it or is it is it is it still more rhetoric than results mr secretary okay it's probably a
+
+26:03.520 --> 26:11.680
+combination right it's um so let's understand one dynamic intention here uh to oversimplify
+
+26:12.320 --> 26:16.640
+we have silicon valley right i mean innovation is happening on a daily basis
+
+26:17.280 --> 26:20.240
+stuff is advancing stuff is progressing stuff is constantly getting better
+
+26:20.240 --> 26:30.320
+public policy right how a bill becomes a law goes a little bit slower uh so whether it's policy
+
+26:30.320 --> 26:37.600
+law statute regulation etc it doesn't move nearly as fast as the pace of innovation so it comes
+
+26:37.600 --> 26:42.160
+so there's always going to be this this tension and this trouble i'd like to point out at least one
+
+26:42.160 --> 26:51.440
+i think a quick win uh in my first year in office and it was part a public finance transparency
+
+26:51.440 --> 26:58.640
+accountability win and part not so much a technological advance but you know i think
+
+26:58.640 --> 27:06.160
+a huge win in sort of bypassing the traditional it procurement process in the state of california
+
+27:06.160 --> 27:11.840
+others would call it the traditional it procurement quagmire in the state of california
+
+27:11.920 --> 27:19.280
+when we were willing to share data which opened to everybody on campaign finance who's raising
+
+27:19.280 --> 27:26.720
+money from who map light the organization map light through found private foundation funding
+
+27:27.360 --> 27:34.240
+was able to put together a much better search engine for who's raising money from who developed
+
+27:34.240 --> 27:40.240
+this tool called power search which they were willing to you know gift to the state of california
+
+27:40.240 --> 27:44.080
+we integrated into our secretary of state's website so think about that in the course of
+
+27:44.080 --> 27:51.840
+months not years at no cost of taxpayer dollars there's all of a sudden an open source based much
+
+27:51.840 --> 27:58.000
+you know new and improved search function for the public and the press to track those campaign
+
+27:58.000 --> 28:04.240
+dollars but unfortunately it's the exception to the rule because if you google state of california
+
+28:04.240 --> 28:11.120
+it project and hit news you know not a lifetime of 100 it's a bad news story not a good news
+
+28:11.120 --> 28:15.440
+right but in that case you essentially solved it by giving up right and having someone else do it
+
+28:15.440 --> 28:20.480
+for you i mean can the government not build the capacity to build a website that works we didn't
+
+28:20.480 --> 28:24.800
+give up we we found a third way we partnered with somebody and you know during the course of my
+
+28:24.800 --> 28:31.520
+campaign people uh proposed y'all ought to get out of that business of you know sharing uh or
+
+28:31.520 --> 28:35.920
+posting campaign finance data just let somebody who knows what they're doing kind of take it over
+
+28:35.920 --> 28:41.760
+but shouldn't the state know how to do these things yeah we we do and and we can again my first year
+
+28:41.760 --> 28:46.400
+in office state of california was the first state in the nation to have a public website with all
+
+28:46.400 --> 28:50.720
+this information available that was a good news the bad news we hadn't really upgraded it or updated
+
+28:50.720 --> 28:56.880
+it since uh so you know we're on it now but at least in the short term we can do these piecemeal
+
+28:56.880 --> 29:02.400
+things that being data driven you know calaxas makes a lot of things possible but the vast
+
+29:02.400 --> 29:07.040
+majority of what people go to it for is this campaign contribution tracking so let's focus
+
+29:07.040 --> 29:12.720
+on that let's at least upgrade that piece first quickly while we buy time and tackle the rest of
+
+29:12.720 --> 29:17.200
+the pieces uh in the coming years i mean alicia you've worked with a lot of governments what do
+
+29:17.200 --> 29:21.920
+you think of that model the idea that the government lets kind of somebody else manage a lot of it and
+
+29:22.080 --> 29:27.600
+they just lay they put the date on the porch and see who runs off with it well so code for america
+
+29:27.600 --> 29:33.120
+is probably an example of in a third party partnering with government to make it better
+
+29:33.120 --> 29:37.520
+and so i would say that that model definitely works particularly in a situation where
+
+29:37.520 --> 29:43.760
+government is not quite ready to change or do it itself um code for america has this model where
+
+29:43.760 --> 29:50.240
+we bring in that silicon valley talent for a year of public service and that year of public service
+
+29:50.240 --> 29:55.440
+is really the only amount of time that somebody making six figures at google would actually want
+
+29:55.440 --> 30:00.640
+to spend working in government but they come and they do their public service it's a little bit
+
+30:00.640 --> 30:08.320
+what we call peace corps for geeks um and we embed uh engineers and designers and product people
+
+30:08.320 --> 30:14.560
+into government itself and so they build technology and they process math and they
+
+30:14.640 --> 30:21.120
+ultimately pursue a model called user-centered design what's that user-centered design is making
+
+30:21.120 --> 30:26.960
+the citizen the customer at the center of every choice that's made so if you think about this
+
+30:26.960 --> 30:31.600
+from a service delivery perspective let's say that you want to start a new business
+
+30:32.400 --> 30:38.080
+and you go to get a permit filed that's a customer transaction that you have with your government
+
+30:38.080 --> 30:43.440
+and so what we do is we take different business transactions in government we map them out and
+
+30:43.440 --> 30:48.560
+then we try to solve some of the clunkier paper-based processes through technology
+
+30:50.000 --> 30:54.000
+and so that it's interesting there's a couple interesting things i heard there one
+
+30:54.560 --> 30:58.080
+obviously was the the six figure thing she quoted did you guys hear that
+
+30:58.080 --> 31:03.440
+so um you know um deep i just out of curiosity i'm going to probe here so you oversee a large
+
+31:03.440 --> 31:08.800
+engineering team of people who basically and i'm going to oversimplify i'm a reporter they pay me
+
+31:08.800 --> 31:14.240
+to oversimplify right who basically take the government data from all the different county
+
+31:14.240 --> 31:19.120
+governments who keep those assessor databases and merge them together into one big fancy system and
+
+31:19.120 --> 31:23.760
+do it and they're doing that ugly work of working with the data how much do how many people does it
+
+31:23.760 --> 31:28.800
+take to do that at trulia and how much does someone who does that work like a frontline person get
+
+31:28.800 --> 31:35.280
+paid yeah so i think it's uh we all know silicon valley is silicon valley for a reason right and
+
+31:35.280 --> 31:41.040
+this is where the problems comes and we come together and we solve problem and we move fast
+
+31:41.040 --> 31:46.960
+and think about the scale right so the scale is there and before i go to this it'll be tough for
+
+31:46.960 --> 31:52.720
+me to answer the numbers like who how much people make there but it's you know being in i think is
+
+31:52.720 --> 31:58.720
+the how much it's it's all about the problem when you think about google you go back 12 years back
+
+31:58.720 --> 32:05.120
+it's all the websites were there all the websites were there standing as a siloed version where
+
+32:05.120 --> 32:11.680
+you as a consumer have to go and know about this but google came and changed the mindset
+
+32:11.680 --> 32:18.320
+where it started building the indexes started crawling indexing making it searchable and now
+
+32:18.320 --> 32:24.240
+guess what even my 11 year old son and my 16 year old son their life goes with the google if they
+
+32:24.240 --> 32:29.920
+don't find from dad and mom they go to google it right so this is a great example of why silicon
+
+32:29.920 --> 32:35.200
+valley is this and why silicon valley people paid high because you know they solve the problem they
+
+32:35.200 --> 32:41.040
+scale it now what it takes to get the data it's all about the scale when we look into
+
+32:42.000 --> 32:48.560
+trulia has millions of consumers coming to trulia we have 33 counties across us where we collect
+
+32:48.560 --> 32:54.880
+the data on a daily basis someone selling home someone buying home it's all this data is scattered
+
+32:54.880 --> 33:00.400
+in a very different formats so what does it mean it means someone needs to understand this data
+
+33:00.960 --> 33:06.720
+there are times we are lucky enough to say oh this data means this you know a means this b means
+
+33:06.720 --> 33:13.200
+this and there are times you don't know so once we understand the data this is where technology
+
+33:13.200 --> 33:19.280
+and the computer are helpful where human beings don't need to sit and do manually we tell computers
+
+33:19.280 --> 33:25.920
+when you see this you do that so within the data engineering organization within trulia we have
+
+33:26.880 --> 33:34.640
+close to 50 engineers and their job is acquisition of the 50 five zero okay yeah and this is but still
+
+33:34.640 --> 33:42.000
+when you look into five zero 50 engineers serving millions of consumers so it is not that we are
+
+33:42.000 --> 33:48.800
+talking about 500 just 50 engineers came together and they took all the data where we are serving
+
+33:48.880 --> 33:54.880
+and solving that problem for millions and millions of consumers and paying it's basically you know
+
+33:55.440 --> 33:59.920
+silicon agriculture has always been risk and reward right i've been in two of my own startups
+
+33:59.920 --> 34:05.440
+you go you find a problem you solve a problem and if you solve a problem in a right way you
+
+34:05.440 --> 34:10.240
+get rewarded sure but i mean these government the government budgets and systems are as big or bigger
+
+34:10.240 --> 34:15.360
+than trulia what prevents the state of california from solving the problem from building the 50
+
+34:15.360 --> 34:20.720
+person team from making it happen i think it's so first is which i said clearly is is the mind
+
+34:20.720 --> 34:26.240
+shift i think is the mind shift and there has to be more partnership between private and the public
+
+34:26.240 --> 34:32.880
+sectors and when i am in silicon valley for so many years traffic is not bad as la but the traffic
+
+34:32.880 --> 34:38.880
+in the silicon valley roads are crazy and every time i hear oh the president of this country is
+
+34:38.880 --> 34:43.360
+visiting silicon valley to go to google the president of this country is going to facebook
+
+34:44.080 --> 34:49.840
+when there are people coming from the outside of us coming to the silicon valley to get the help
+
+34:49.840 --> 34:57.360
+that partnership needs to evolve more that how come silicon valley is solving those problems much
+
+34:57.360 --> 35:02.960
+faster as compared to and it's i'm not saying there is no desire from public sector not to
+
+35:02.960 --> 35:08.320
+solve that it is the partnership needs to come together where we need to come this is where
+
+35:08.320 --> 35:14.560
+court for america is helping a lot and i think is defining that partnership is critical and at
+
+35:14.560 --> 35:23.840
+the same time this laws are going to help mind shift and then government officials needs to stand
+
+35:23.840 --> 35:29.680
+up and say guys the open data defining what the open data means so it's not just a one simple
+
+35:29.680 --> 35:34.880
+solution we need to bring all the forces together to solve that so that's where i think is collaboration
+
+35:34.880 --> 35:40.000
+between the two silicon valley and the government officials coming together and saying this is how
+
+35:40.000 --> 35:47.760
+we're going to scale it and how we're going to solve it hmm that's a point of a key feature
+
+35:47.760 --> 35:52.480
+of truly most people will think oh we're going to develop this there's this great new real estate app
+
+35:52.480 --> 35:57.840
+and all the information that would sort of support that of course it's land value you know interest
+
+35:57.840 --> 36:03.280
+rates you know projected mortgage costs when was the last time it sold yeah what's the price history
+
+36:03.280 --> 36:07.520
+on a property i don't know what your analytics tell you but from my experience and a lot of my
+
+36:07.520 --> 36:12.480
+friends you know when you find a listing that catches your eye if it's not the second thing
+
+36:12.480 --> 36:18.560
+you click on it's the first how do the schools in that area rank yeah right but that's not based on
+
+36:18.560 --> 36:25.360
+real estate data that's based on school district information that once upon a time probably wasn't
+
+36:25.360 --> 36:30.000
+shared you know and once upon a time was probably only begrudgingly shared with parents that really
+
+36:30.000 --> 36:37.680
+insisted right because you know the or newspapers that sued i would point out right but now you know
+
+36:37.680 --> 36:43.920
+through a real estate app all of a sudden it's it's readily available and very useful context
+
+36:43.920 --> 36:49.360
+maybe i'm wrong no no you know that's a no that's i think that's a fair point you know this is
+
+36:49.360 --> 36:54.320
+having this data like commute data the park data there are consumer comes to our side they're
+
+36:54.320 --> 37:00.320
+looking for what's the closest park to my home right and this is the data once it becomes public
+
+37:00.320 --> 37:06.720
+we are using the technology and empowering our consumer with this data so yeah there was a time
+
+37:06.720 --> 37:12.880
+in 90s when this data was not publicly there now being it is there it is much easier for us to
+
+37:12.880 --> 37:17.200
+consume this data but for the value what it brings it to the consumer that's a fair point
+
+37:17.200 --> 37:26.160
+okay so silicon valley has the solution this is an answer we think we hear pretty frequently
+
+37:26.160 --> 37:30.560
+right and one solution i love from silicon valley this is one of the quirky ones is that we could
+
+37:30.560 --> 37:35.200
+we could set up some a new country out in the ocean on like a floating platform which would
+
+37:35.200 --> 37:40.960
+be free of many of the existing regulations and problems and i mean so let's say ted that that
+
+37:40.960 --> 37:46.240
+the deep here financed your effort to build a new new city off the coast of california
+
+37:46.240 --> 37:52.880
+right and you had to begin again would have a problem begin again from the start and you
+
+37:52.880 --> 37:57.360
+didn't have to remake and you could start a city from scratch and get all this stuff right
+
+37:57.920 --> 38:02.720
+what would you do how would it happen different wow that's a that's a fundamental question
+
+38:03.520 --> 38:07.760
+you know one i think one thing that's interesting about it and you know i did an mba and so i can't
+
+38:07.760 --> 38:11.760
+help but looking at things that way is often you've got different companies in the industry you've
+
+38:11.760 --> 38:17.600
+got competitive advantages and so silicon valley has a very powerful competitive advantage and i
+
+38:17.600 --> 38:22.880
+and might i say silicon beach in downtown la right technology is occurring as much in many
+
+38:22.880 --> 38:29.200
+ways in southern california as it is up there but the reality is tech the tech sector is great in
+
+38:29.200 --> 38:33.760
+the sense that they're highly innovative they put their skin in the game and if the product doesn't
+
+38:33.760 --> 38:38.960
+sell and it doesn't truly add value you're out of business right and so that is a very powerful
+
+38:38.960 --> 38:44.080
+capitalist model that is churning out tremendous innovations and we're one of the finest countries
+
+38:44.080 --> 38:48.560
+in the world to be able to make that happen but if you apply that model to government government
+
+38:48.560 --> 38:53.040
+does in many ways have a very different model a very different perspective we are expecting our
+
+38:53.040 --> 38:59.040
+civil servants to be responsible and ethical to not accept bribes to not be corruptible to be able
+
+38:59.040 --> 39:03.440
+to treat people fairly and equally to be able to consider people who often don't have a voice in
+
+39:03.440 --> 39:08.480
+government and so we often see a very different model and i think really what works very well
+
+39:08.480 --> 39:13.920
+from my perspective is taking a lot of that powerful civil service ethics and integrity
+
+39:13.920 --> 39:19.440
+and loyalty and they deliver that where we are to really truly represent the citizens and businesses
+
+39:19.440 --> 39:24.400
+and tourists who come to our city and to match that with the innovation so it's identifying the
+
+39:24.400 --> 39:29.680
+right partnerships to open everything up to a tech sector and this is coming from a tech guy
+
+39:29.680 --> 39:34.960
+to open everything up to a tech sector is just finding one side of the coin to open everything
+
+39:34.960 --> 39:38.560
+up to government say government you just do everything yourself it's just another side of a
+
+39:38.560 --> 39:42.800
+coin and we could probably run down various different areas where you truly need to have
+
+39:42.800 --> 39:46.880
+an integration you need a facilitation you have to have people who start to play their roles
+
+39:46.880 --> 39:51.200
+appropriately government needs to know what it does well a private sector does a lot of things
+
+39:51.200 --> 39:55.840
+well non-profits do things well i think the best government is one that facilitates all these
+
+39:55.840 --> 40:01.840
+different players to truly take into account the needs of the citizens if i were to if i were to
+
+40:01.840 --> 40:06.160
+manage that that you know make believe city you know it's funny coming from someone who's
+
+40:06.160 --> 40:10.000
+been in government for some time in the private sector before that that's a very difficult
+
+40:10.000 --> 40:14.800
+question i would really have to defer to an elected official i'd have to defer to someone
+
+40:14.800 --> 40:20.240
+who helps represent the people and and and that's even the other side of it right when we were
+
+40:20.240 --> 40:26.240
+implementing open data at the city of la we very quickly saw the roles people played as an it
+
+40:26.240 --> 40:31.360
+manager we know the data but don't put us in charge of open data because we're going to see
+
+40:31.360 --> 40:36.000
+things from our narrow focus we think they're elected officials are the people who are out in
+
+40:36.000 --> 40:39.920
+the streets the people who should have a much better feeling and an understanding of what the
+
+40:39.920 --> 40:44.480
+citizens want and what people are asking for so when we kind of looked at the cycle we started to
+
+40:44.480 --> 40:48.560
+see elected officials who could represent the people best the people who want the data and then
+
+40:48.560 --> 40:53.520
+we could look at technologists who the best people to provide the data in formats that the people who
+
+40:53.520 --> 40:57.760
+the elected officials are hearing from should have provided in and then we could also pull in private
+
+40:57.760 --> 41:02.320
+sector who had the greatest platforms to make that data available and so we saw very much a
+
+41:02.320 --> 41:07.280
+very powerful triad if our elected officials don't participate i don't really hear the will of the
+
+41:07.280 --> 41:12.320
+people if the technologists don't participate you're not getting data and if private sector
+
+41:12.320 --> 41:18.080
+doesn't participate you're probably getting it in an antiquated useless platform so we often find in
+
+41:18.080 --> 41:22.400
+governments about taking the different pieces putting them into their proper roles and really
+
+41:22.400 --> 41:28.160
+implementing it that's just my perspective i think that's a great way to describe it because
+
+41:28.160 --> 41:33.040
+you describe this potential to create utopia you know and so what would we envision well
+
+41:33.760 --> 41:37.440
+you know my background's in engineering i didn't study political science i didn't you know
+
+41:38.640 --> 41:42.960
+major in government or anything but that's not my career and so i can tell you if you're going to
+
+41:42.960 --> 41:49.120
+start a new society it's going to be a reflection of okay well who's there right and some sort of
+
+41:49.120 --> 41:54.080
+process to collectively go through the conversation of okay how are we going to govern ourselves
+
+41:55.040 --> 41:59.600
+and once you have some semblance of an institution then what are we going to do what are we going to
+
+41:59.600 --> 42:05.360
+contract out for right or we're going to what are we going to partner on and making those deliberate
+
+42:05.360 --> 42:11.840
+decisions and different different cities are governed differently whether it's fire and
+
+42:11.840 --> 42:17.360
+police protection or technology and everything in between here's a man who's interacted with
+
+42:17.360 --> 42:22.960
+citizens you know a thousand times more ten thousand times more than i have and so i'm very
+
+42:22.960 --> 42:27.920
+quick to say listen here's a person who's done it and done it well for many years and so i'm
+
+42:27.920 --> 42:31.840
+humble and intelligent enough to know that i'd look to him to be able to understand the interactions
+
+42:31.840 --> 42:35.840
+with the people and i would expect the same for an elected officials for people who have ten
+
+42:35.840 --> 42:40.480
+thousand times the experience on the technology side to be able to bring us in as subject matter
+
+42:40.480 --> 42:45.200
+experts when it comes to technology you know i think one of the greatest assets of america is
+
+42:45.200 --> 42:48.640
+the fact it was such a diverse group especially here in southern california we're extremely
+
+42:48.640 --> 42:53.520
+diverse and we get great power out of that diversity because we've got engineers and we've
+
+42:53.520 --> 42:58.080
+got social scientists we've got philosophers and we've got psychologists and we're all really
+
+42:58.080 --> 43:02.080
+coming together and we're contributing quite a bit in our own area and i'd like to think that a
+
+43:02.080 --> 43:08.400
+utopian city would have a lot of that so maybe for some of the folks watching at home you know
+
+43:08.400 --> 43:15.200
+we can talk about open data and open source and quality format of data not pdf but is it
+
+43:19.280 --> 43:23.120
+and you said you know that the open data conversation is not a new one when president
+
+43:23.120 --> 43:29.280
+obama was elected it was an executive order that was 2009 but raise your hand if you've ever heard
+
+43:29.280 --> 43:36.960
+or wondered about police response time everybody has for a long long time that's like a very simple
+
+43:37.760 --> 43:42.320
+way of describing what open data is all about imagine the city that wouldn't shovel police
+
+43:42.320 --> 43:47.120
+response time was whether it's had a concern for your community there probably are quite a few to
+
+43:47.120 --> 43:52.400
+be great or you're looking to buy a house yes probably not so much anymore because of public
+
+43:52.400 --> 43:57.600
+demand for that kind of information but i can tell you not police response time but things like
+
+43:57.600 --> 44:03.840
+graffiti removal uh or you know firefighter ambulance response and trash pickup you know
+
+44:03.840 --> 44:08.560
+statistics when i was at the city i won't name names but there were folks who didn't want to
+
+44:08.560 --> 44:13.360
+share that information because it's going to make us look bad right and so this goes back to the
+
+44:13.360 --> 44:19.440
+cultural shift no mayor verdon was a leader on this train the whole charter uh reform debate
+
+44:19.440 --> 44:24.720
+and the charter reform commissions and your charter being adopted information is good you know you may
+
+44:24.720 --> 44:29.040
+not like what it says initially but that's how you create the dynamics where the pressure points come
+
+44:29.040 --> 44:34.720
+back to improve i think open data is just a state-of-the-art technology version of that
+
+44:34.720 --> 44:39.920
+government accountability and improving government services dynamic with an economic development
+
+44:39.920 --> 44:44.000
+opportunity don't we need more for like some of the entrenched interests that do not want data to be
+
+44:44.000 --> 44:48.080
+released to be forced to i mean you know just list last year in the united states we've had a
+
+44:48.080 --> 44:52.960
+a nationwide outcry over police brutality and shootings across the country and i don't know
+
+44:52.960 --> 44:57.520
+if you guys would follow this but there actually are no statistics the numbers are not compiled
+
+44:57.520 --> 45:02.240
+or collected about how many people are killed by police across america systematically so the
+
+45:02.240 --> 45:08.240
+reality is we just don't know right and the reason we don't know that or we don't know a lot of data
+
+45:08.240 --> 45:13.200
+about spree shootings is that there are interest groups in congress and in state governments and
+
+45:13.200 --> 45:18.400
+in local governments that oftentimes can prevent certain pieces of information from being released
+
+45:18.400 --> 45:22.320
+so for instance i would point out in this inventory law that was just passed if you look
+
+45:22.320 --> 45:26.800
+very carefully between the commas like i was trying to do earlier you can see that the local
+
+45:26.800 --> 45:31.280
+school districts have been exempted from this law for some reason i don't know but you know that
+
+45:31.280 --> 45:36.400
+happened and you can find things like that all across government and in my experience as a reporter
+
+45:36.400 --> 45:41.600
+has been and i'm on my soapbox here so forgive me guys my experience as a reporter has been that the
+
+45:41.600 --> 45:47.040
+most valuable most sensitive oftentimes most important data is the hardest to get because
+
+45:47.040 --> 45:51.920
+there's people who don't want you to have it and so what i hear in a lot of this discussion which i
+
+45:51.920 --> 45:56.640
+love and is music to my ears as a nerd is like enlightened smart government people who are saying
+
+45:56.640 --> 46:01.440
+we want to make things better and are technocratic in this sort of old school way where they're going
+
+46:01.440 --> 46:05.920
+to be good managers who make it happen but can they really control these interest group infections
+
+46:05.920 --> 46:10.160
+within the government you know before we talked about open data i'm really going here there was
+
+46:10.160 --> 46:14.960
+a thing called the california public records act which really allowed anyone in the public and still
+
+46:14.960 --> 46:20.400
+does to request information and the government doesn't have a choice they have to give it right
+
+46:20.400 --> 46:26.080
+but at the same time the state government was passing the laws to to loosen this open data
+
+46:26.080 --> 46:30.320
+there also was an effort in the legislature i think when you were still there to gut the
+
+46:30.320 --> 46:35.280
+california public records act and and not no longer require local governments to meet those
+
+46:35.280 --> 46:41.120
+demands directly from the citizens as opposed to ted and the people at the city government getting
+
+46:41.120 --> 46:45.840
+to decide what they released and like how do you square that why are how are these two why are these
+
+46:45.840 --> 46:52.480
+two winds almost blowing in opposite directions at the same time president obama open data executive
+
+46:52.480 --> 46:57.680
+order edward snowden has to go to russia and people who talk to reporters all go to jail
+
+46:57.680 --> 47:02.720
+how is it those those two things are happening at the same time that's a great debate there's a
+
+47:02.720 --> 47:08.000
+one-man debate right my question for yes i know uh you know the just a quick side note on you know
+
+47:08.000 --> 47:15.280
+state uh pra you know statute change of what that was much more a budget issue than not uh
+
+47:15.280 --> 47:21.680
+counties that were no longer required there's they're still fulfilling uh the the requirements
+
+47:21.760 --> 47:26.800
+at least the spirit and intent but it was a change in language as part of being able to score a
+
+47:26.800 --> 47:31.760
+saving in balancing the budget in very very tough tough economic times i don't think jerry brown or
+
+47:31.760 --> 47:36.320
+any member of the legislature that voted for the budget you know truly believed we had to go
+
+47:36.320 --> 47:42.560
+backwards on uh pra that's that's just you know my side bar there uh but you know the frustration
+
+47:42.560 --> 47:49.200
+that you have with while you have some jurisdictions going forward others not wanting to and you know
+
+47:49.200 --> 47:54.800
+the exceptions that you may uncover and this and that that's not a technology process that's a
+
+47:54.800 --> 48:00.800
+democratic process right that's a that's the result of who's participating who's not who's
+
+48:00.800 --> 48:05.520
+what who's weighing in who's not who's you know helping drive public opinion you know who's not
+
+48:05.520 --> 48:10.480
+and that's the country that we all live in it requires us all to participate but to come full
+
+48:10.480 --> 48:18.800
+circle again open data being a tool to incent that participation and interest from uh the many many
+
+48:18.800 --> 48:29.520
+people who appear to have lost him oh i think he did but um okay i mean what so what comes next
+
+48:29.520 --> 48:34.320
+i mean so like alicia if you were to say you know this california state legislature needs to take
+
+48:34.320 --> 48:39.200
+further steps to push the ball even further down the field what do they need to do um that is also
+
+48:39.200 --> 48:44.160
+a big question i would say that it's not enough to just put the data out there in a consumable
+
+48:44.160 --> 48:50.240
+format it needs to have context around it um and a lot of the times the producers of the
+
+48:50.240 --> 48:57.520
+data itself have that context so these are um public servants who you know if you think about
+
+48:57.520 --> 49:02.880
+urban planners and gis professionals um they're they're producing this data and they have very
+
+49:02.880 --> 49:09.040
+valuable context and that can be communicated through narrative um i just worked on a project
+
+49:09.040 --> 49:15.120
+actually uh in the bay area called vital signs which was with a nine county regional
+
+49:15.120 --> 49:20.800
+transportation government that published all of its data so this was housing data transportation
+
+49:20.800 --> 49:28.880
+data economic data um and the person the project manager on this project was was saying to me um
+
+49:28.880 --> 49:34.320
+it's not enough just to dump our data out on the web anymore we have to make it meaningful
+
+49:34.320 --> 49:40.160
+and it has to have an end user so i would say if we can get to a point where all data sets that
+
+49:40.160 --> 49:45.520
+are published have metadata which basically just says where it comes from and how it was made
+
+49:45.520 --> 49:51.680
+and when it was last updated um and then get to another level which is here's what it means to you
+
+49:51.680 --> 49:56.160
+and here's how it's being used that would be so what's an example of that from your work at
+
+49:56.160 --> 50:01.040
+coat for america an example of someone doing that well well this project that i was just mentioning
+
+50:01.040 --> 50:06.960
+vital signs has done that well they have interactive charts maps um an actual new york
+
+50:06.960 --> 50:12.720
+time style narrative around the published data so you can still download the raw format but you also
+
+50:12.720 --> 50:17.360
+just you know you have that context to actually consume it so i'd say that that's a very good
+
+50:17.360 --> 50:21.600
+example deep is that the kind of thing you would like to see or what do you want next from the
+
+50:21.600 --> 50:27.760
+government as a constituent so i think is it's it's the exchange as you know we are talking about
+
+50:27.760 --> 50:34.000
+what is the value of this data but when you talk about the data coming out and i was thinking you
+
+50:34.000 --> 50:39.360
+know you can start publishing this data but with no relevancy on the frequency of the data is the
+
+50:39.360 --> 50:44.240
+data getting updated on a daily basis and if you are publishing the data which is still six months
+
+50:44.240 --> 50:50.960
+old what value it brings it to the table and it's defining the exchange so when we are talking about
+
+50:50.960 --> 50:57.040
+example here the data comes out but what does it means to me i don't know so having those standards
+
+50:57.760 --> 51:04.320
+so standard means where anyone can pick this data and say okay when we are saying this column has
+
+51:04.320 --> 51:10.240
+this value this means this so that's to me is defining more standards so once we have the
+
+51:10.240 --> 51:15.680
+standards where we know the common language where we can get this data and say oh great
+
+51:15.680 --> 51:21.600
+this is in this format it is not pdf for sure no images you know i don't know if csv works here or
+
+51:21.600 --> 51:27.440
+not but this is where i think technology tends to define those standards and this is one example
+
+51:27.440 --> 51:33.360
+which i was giving early 90s when internet came up everyone started building their websites you
+
+51:33.360 --> 51:38.880
+know it was in the beginning you know i start writing my own web pages eventually the challenge
+
+51:38.880 --> 51:45.600
+what everyone faced was if i'm working here i have my own standard tomorrow i go and work
+
+51:45.600 --> 51:50.720
+somewhere else i have my own standards suddenly we started forming groups where we say it's an
+
+51:50.720 --> 51:57.760
+html within html these are the standards and now we live in a world where you write one piece of a
+
+51:57.760 --> 52:05.040
+code you can render that on google chrome browser you can run on internet explorer you can run
+
+52:05.040 --> 52:10.480
+anywhere else so that's that's the level what i think is we need to go into where we define
+
+52:10.480 --> 52:16.640
+the common language which can be understand by everyone and then this data can be presented in
+
+52:16.640 --> 52:22.240
+a very simple way to the consumer so i think defining those standards and how the data exchange
+
+52:22.240 --> 52:26.080
+is happening is going to be the critical phase for this right so that came up earlier with the
+
+52:26.080 --> 52:30.720
+transit data so everybody adopts the same standard google can make a thing for the whole country
+
+52:30.720 --> 52:36.720
+i mean so ted what what do you see this in the city of alays data that has that same potential
+
+52:36.720 --> 52:40.400
+what's the data you could standardize or make easier that 10 years from now is going to make
+
+52:40.400 --> 52:45.600
+the city a different place to live and i think often when it ends up actually being is actually
+
+52:45.680 --> 52:50.720
+cross-governmental so you know we could make all sorts of changes and improvements in our transit
+
+52:50.720 --> 52:56.000
+data our crime data our 311 data etc but i think for the average citizen they really don't care
+
+52:56.000 --> 53:01.040
+where the city of los angeles starts and stops versus the county of los angeles versus the city
+
+53:01.040 --> 53:06.480
+of santa monica versus the city of beverly hills and so the idea where i say here's my data and
+
+53:06.480 --> 53:11.920
+here it's classic government answer my my boundaries stop here you can't expect anything
+
+53:11.920 --> 53:16.960
+more from me isn't the right answer so the more we can not just standardize data and come up with
+
+53:16.960 --> 53:21.200
+some reasonable standards in a lot of ways conceptually the large cities could help really play a role
+
+53:21.200 --> 53:26.000
+in that but to start to have more of a regional approach data in southern california or data in
+
+53:26.000 --> 53:31.040
+california should in many ways be standardized if not how do you compare how do you compare
+
+53:31.040 --> 53:36.960
+santa monica to los angeles to pasadena unless there's actually some comparability between them
+
+53:36.960 --> 53:42.320
+so i think that's a very powerful very powerful mechanism and it goes from you know these infant
+
+53:42.320 --> 53:47.840
+stages i think that the the the analogy to websites is a great one uh and in a lot of ways
+
+53:47.840 --> 53:51.840
+open data takes kind of a tipping point you know folks get out there in fledgling ways and they
+
+53:51.840 --> 53:56.640
+start making data available some of them start with pdfs and then people say not good enough
+
+53:56.640 --> 54:00.960
+and so then they move right they move down the spectrum they start to provide more data
+
+54:00.960 --> 54:06.160
+better data they start to have conversations with people who are doing civic hacking and they add
+
+54:06.160 --> 54:11.200
+new types of data that they didn't even realize was useful i remember a conversation i had with
+
+54:11.200 --> 54:15.840
+with sony worked for the federal government who said you would be surprised how much interest
+
+54:15.840 --> 54:22.720
+there was in a wild donkey wild mule population in idaho here's a data set that was published that
+
+54:22.720 --> 54:27.120
+half of us would think is completely irrelevant but there are some significant environmental
+
+54:27.120 --> 54:32.080
+issues in idaho related to this population and only until they publish that type of data that
+
+54:32.080 --> 54:36.720
+the average person would think is in many ways useless do they realize levels of interest so
+
+54:37.360 --> 54:41.120
+it becomes very iterative it's a term we like to use when it comes to technology and software
+
+54:41.120 --> 54:45.680
+development if you tell me to sit down and plan something out in the beginning i'll come up with
+
+54:45.680 --> 54:50.240
+a very imperfect plan i'll take a shot at it but once i put something out then i have something
+
+54:50.240 --> 54:55.840
+for people to poke holes at i can add changes to it i can modify i can improve it i could refine
+
+54:55.840 --> 55:01.440
+it over time i think early on open data is people putting information out there refining it engaging
+
+55:01.520 --> 55:07.200
+citizenry realizing that geography shouldn't be the limitations anymore and so i think hopefully
+
+55:07.200 --> 55:13.280
+from our perspective is to improve and standardize data break geographical boundaries and really
+
+55:13.280 --> 55:18.160
+become a lot more regional in the way we approach it and i think we'll probably uncover all sorts
+
+55:18.160 --> 55:22.800
+of new issues as we do that and that's why i think the philosophical change in the conversation
+
+55:22.800 --> 55:27.680
+is as powerful as anything if we keep trying to work down this road then we'll start to bring
+
+55:27.680 --> 55:31.920
+those along who aren't interested we'll find folks in the region who don't even get it they
+
+55:31.920 --> 55:37.440
+have no idea what we're talking about or or for some reason hiding something or whatever it may be
+
+55:37.440 --> 55:41.440
+and i think that'll start to actually improve the conversation it'll become in a good way
+
+55:41.440 --> 55:46.640
+bullying them in a good way it'll kind of make them it'll put them over on the side and they'll
+
+55:46.640 --> 55:51.040
+be represented as a government who truly doesn't want to participate but only until you have
+
+55:51.040 --> 55:55.280
+something of a tipping point can you really start to bring other folks along if not then it's just
+
+55:55.280 --> 56:00.320
+the santa monica's and the federal government and and city of los angeles and those who are
+
+56:00.320 --> 56:05.840
+progressively leading the way and we're just in some ways can still be seen as a minority uh and
+
+56:05.840 --> 56:09.040
+one last question i'd add actually something similar to the secretary and then we'll go to
+
+56:09.040 --> 56:13.600
+the audience and the questions you guys have sent in i mean share your vision i mean you have more
+
+56:13.600 --> 56:18.320
+years in office and maybe you'll run for reelection and be secretary of state for eight years assuming
+
+56:18.320 --> 56:24.640
+that happens or however it works out after that period of time uh how will this movement have
+
+56:24.640 --> 56:29.040
+changed california or government or made things better and different what will the tangible
+
+56:29.040 --> 56:34.400
+outcomes for people be well i i can't speak for governor brown but i think i'm excited about
+
+56:34.400 --> 56:38.960
+the opportunities that i have in this in this new position of secretary of state so the most visible
+
+56:38.960 --> 56:45.120
+part of my job is overseeing elections right so it's everything from the registration process to
+
+56:45.120 --> 56:50.640
+what systems and equipment can be used for voting etc and uh there believe it or not there's a ton
+
+56:50.640 --> 56:55.360
+of analytics it's possible in this registration rates turnout rates who's voting by mail who's
+
+56:55.360 --> 57:00.960
+voting in person what time people are voting you know where they're voting that can help us
+
+57:00.960 --> 57:05.920
+improve the voter experience right if we're starting with the customer uh in mind first
+
+57:06.880 --> 57:12.240
+arguably the largest responsibility of my office is what we call the business programs division
+
+57:12.240 --> 57:17.120
+anybody who's an entrepreneur here when you start it up you know the first step you needed to do
+
+57:17.120 --> 57:21.920
+before you call the irs was to register your business with the state of california it's one
+
+57:21.920 --> 57:27.840
+example of the filings that we do embarrassingly only a couple of transactions are possible online
+
+57:27.840 --> 57:34.000
+with our office so by the time i'm done i'm hoping a lot of that is automated and not only am i eager
+
+57:34.000 --> 57:40.080
+to get away from the dewy decimal system of business filings that we have to an online version
+
+57:40.640 --> 57:46.400
+but i'm salivating at the data mining and analytics opportunities there are once we have
+
+57:46.480 --> 57:52.880
+that digital and can share that data i mean you look at uh linkedin as an example and their
+
+57:52.880 --> 57:58.000
+economic graph when they mine through employers and people looking for work and who's getting
+
+57:58.000 --> 58:03.920
+hired educational backgrounds and all that imagine emerging that data with state government data of
+
+58:03.920 --> 58:08.480
+businesses that are opening businesses that are closing with which industries and which zip codes
+
+58:08.480 --> 58:12.720
+and cross-reference that with our employment development department of who's looking for work
+
+58:12.720 --> 58:18.320
+and you know all of that then that can really help inform public policy and economic development
+
+58:18.320 --> 58:24.240
+and issues at a statewide level at a regional and at a local level uh one other quick example i
+
+58:24.240 --> 58:29.280
+mentioned the public finance piece earlier today but a really fun part of my job and i invite you
+
+58:29.280 --> 58:36.960
+all to come to sacramento to visit the state archives the state archives fascinating collection
+
+58:36.960 --> 58:43.200
+of official history official records official documents for the last 165 years since california
+
+58:43.200 --> 58:49.040
+has been a state in this nation right starting with the original california constitution
+
+58:49.680 --> 58:56.160
+unfortunately a very very small percentage of our archival collection is digitized imagine
+
+58:56.160 --> 59:02.320
+what more cultural and educational value there would be if we shared things like old prison
+
+59:02.320 --> 59:08.240
+records or early census logs or the original california constitution which by the way is in
+
+59:08.240 --> 59:14.640
+both english and spanish a lot of people don't recognize things like that but the common theme
+
+59:14.640 --> 59:21.600
+whether it's elections or archives or business filings or public campaign finance is this need
+
+59:21.600 --> 59:27.680
+to just modernize because i've inherited an office that let's just say it's lacking in the
+
+59:27.680 --> 59:32.640
+modernization front okay great okay so we're going to go to your questions from the audience
+
+59:32.640 --> 59:36.320
+they're here on the screen i'm going to read them and if you guys really want to jump along
+
+59:36.320 --> 59:42.720
+and just take it if not i'll pick somebody okay ready question number one question begins the
+
+59:42.720 --> 59:49.280
+questions have surfaced about the accuracy of certain government data reports due to national
+
+59:49.280 --> 59:55.200
+security constraints that are not disclosed to the general public how do we open data while also
+
+59:55.200 --> 01:00:02.720
+protecting privacy and security i guess i'd put you well who could we ask that too ted how do you
+
+01:00:02.720 --> 01:00:06.800
+protect people's privacy when you're opening data i can certainly do that i don't manage national
+
+01:00:06.800 --> 01:00:11.600
+security but we do manage public safety and so a good example of is we maintain a lot of information
+
+01:00:11.600 --> 01:00:17.200
+about city vehicles but if you had full access to the city vehicle database then technically you'd
+
+01:00:17.200 --> 01:00:22.400
+have access to the vehicles that undercover police officers use right so here's an example
+
+01:00:22.400 --> 01:00:28.080
+of a data set that i can't make fully available to you and so if not then basically any criminal
+
+01:00:28.080 --> 01:00:32.400
+would have an understanding of that person is an undercover cop right because they know the license
+
+01:00:32.400 --> 01:00:37.360
+plate and the type of car etc and that obviously puts those officers in a terrible position it puts
+
+01:00:37.360 --> 01:00:43.120
+us as a city in a terrible position so i think usually my my my short answer is you know you
+
+01:00:43.120 --> 01:00:48.800
+make all data available as much as possible and you try to restrain or constrain the items in
+
+01:00:48.800 --> 01:00:54.240
+which you have a very valid compelling case and very compelling reason not to and when you do
+
+01:00:54.240 --> 01:00:59.360
+you're simply making a subset of that data so we can make those types of data sets available we'll
+
+01:00:59.360 --> 01:01:03.840
+need to pull them out so i think that's kind of the short answer to it but it also you know it
+
+01:01:03.840 --> 01:01:08.720
+creates some pretty complex conversations and in our early steps to open data we knew we didn't
+
+01:01:08.720 --> 01:01:13.520
+want to screw it up we knew that we could set things back five years if we started publishing
+
+01:01:13.520 --> 01:01:18.560
+citizen social security information or information about undercover police officers or all these
+
+01:01:18.560 --> 01:01:22.960
+kind of things that we would all agree as a terrible idea so it becomes very important to
+
+01:01:22.960 --> 01:01:27.360
+be very good stewards to have multiple review processes and just to make sure ensure that
+
+01:01:27.360 --> 01:01:31.680
+you're very clearly pulling things out that obviously are compelling not to be provided
+
+01:01:32.880 --> 01:01:38.320
+okay question number two what advice would you offer to city and county officials who are
+
+01:01:38.320 --> 01:01:42.640
+starting from scratch in the new world of open data maybe alicia you might be a good one for
+
+01:01:42.640 --> 01:01:48.960
+that if you got sent off to to you know some random town in california then the mayor asked
+
+01:01:48.960 --> 01:01:54.000
+you how do i do it what would you tell him well i think i would provide a few pieces of
+
+01:01:54.000 --> 01:02:00.560
+pieces of advice i would say one is there's a huge community of like-minded municipal innovators out
+
+01:02:00.560 --> 01:02:07.760
+there that you could tap into so find folks like these gentlemen on stage with me and talk to them
+
+01:02:07.760 --> 01:02:12.800
+about how they did it would be one piece of advice but the other is something that i mentioned
+
+01:02:12.800 --> 01:02:18.880
+before which is trace the data back to an end user if you want to open data don't do it just
+
+01:02:18.880 --> 01:02:25.440
+to open data for data's sake only publish data after you've found a downstream audience to make
+
+01:02:25.440 --> 01:02:32.400
+it actually valuable and useful for the public there's a person named mark head who's the former
+
+01:02:32.400 --> 01:02:38.720
+cio of the city of philadelphia and he has a saying about what kinds of data a city should
+
+01:02:38.720 --> 01:02:45.920
+publish first he says bucks buses and bullets and this is information that has real meaning to real
+
+01:02:45.920 --> 01:02:51.280
+people but it's also data that can be used in applications that help people live their lives
+
+01:02:51.280 --> 01:03:00.000
+better as a former city official you know not with my technology hat but my sort of political
+
+01:03:00.000 --> 01:03:04.960
+head on to ask your constituents what information are they interested in right because you can
+
+01:03:04.960 --> 01:03:10.480
+assume and talk to the to your counterparts in other cities and counties but you start releasing
+
+01:03:10.480 --> 01:03:15.680
+data that the constituents aren't interested in there's a disconnect so just start by asking
+
+01:03:16.640 --> 01:03:21.840
+and you know maybe you're able to deliver it first or easily or quickly or maybe not but you got you
+
+01:03:21.840 --> 01:03:28.160
+can't underestimate the value of a public input can i will i'll add on this so i think one simple
+
+01:03:28.160 --> 01:03:37.120
+advice is look into if what data being asked over and over again and how can we automate that
+
+01:03:37.120 --> 01:03:43.280
+process so that we don't have to redo this if i go to office and every day if my manager is coming
+
+01:03:43.280 --> 01:03:47.680
+to me and saying give this data or give me two hours i will get back to you and if i keep on
+
+01:03:47.680 --> 01:03:54.240
+doing my job every day spend two hours i will rather go and find the ways to automate this
+
+01:03:54.240 --> 01:03:59.680
+so always look for the ways how you can improve the efficiencies within an organization do
+
+01:03:59.680 --> 01:04:06.400
+auditing of your past request and are there areas where after the auditing which you can automate
+
+01:04:06.400 --> 01:04:11.120
+so that consumer can be self-serve rather than you serving them every time so that's another
+
+01:04:11.120 --> 01:04:14.960
+advice i would give and and ben i don't mind making the offer if you're in the room feel
+
+01:04:14.960 --> 01:04:18.960
+free to approach me i'll provide for you all the documentation all our policies and all of our
+
+01:04:18.960 --> 01:04:22.880
+approach that we took at the city of la which i think might be able to give you some ideas and
+
+01:04:22.880 --> 01:04:26.480
+if you're not in the room and let's say you're online or you're watching this at a late date
+
+01:04:26.480 --> 01:04:30.320
+feel free to connect with ted ross at linkedin and we can go ahead and provide you all our
+
+01:04:30.320 --> 01:04:35.280
+information you know we're we're strained like any other government but we believe so we believe so
+
+01:04:35.280 --> 01:04:39.920
+much in this area that we're more than willing to make time with any county or state or city
+
+01:04:39.920 --> 01:04:43.840
+who wants to know how we did at the city of los angeles because we just feel that much about it
+
+01:04:43.840 --> 01:04:51.280
+as a national movement okay the next question is will the new laws compel police departments to
+
+01:04:51.280 --> 01:04:59.280
+share crime data with the la times crime database so i'm the guy who built the la times crime
+
+01:04:59.280 --> 01:05:03.760
+database so if you don't like it you can blame me afterwards and i think almost certainly the answer
+
+01:05:03.760 --> 01:05:09.360
+is no to be honest with you the reality is is that crime reports data when you call up the police
+
+01:05:09.360 --> 01:05:15.120
+and say you were robbed and that goes into their system right um are a public record and i can get
+
+01:05:15.120 --> 01:05:20.240
+them or you could get them anyone can get them for the most part depending on what the cop you're
+
+01:05:20.240 --> 01:05:25.200
+talking to by filing a public records request which is the separate set of laws that are i
+
+01:05:25.200 --> 01:05:31.520
+think much more powerful that allow a citizen to request the data however those laws do not require
+
+01:05:31.520 --> 01:05:37.120
+the process of delivery to be automated right or set up in a way that updates with any regular
+
+01:05:37.120 --> 01:05:41.600
+frequency so if i file a public records request here in santa monica they could say they could
+
+01:05:41.600 --> 01:05:46.000
+say well we have uh 14 days to respond and then we can ask for an extension and then at the end of
+
+01:05:46.000 --> 01:05:50.560
+that time we will send you a cd in the mail that will have a spreadsheet on it that you can feel
+
+01:05:50.560 --> 01:05:55.440
+free to put on the web and by the time i get that 30 days have gone by it's no longer as newsworthy
+
+01:05:55.440 --> 01:06:00.240
+or as good and there's nothing in these laws that require data to be updated any more frequently
+
+01:06:00.240 --> 01:06:06.000
+than that what allows our website to exist is that the la pd and the sheriffs department have taken
+
+01:06:06.000 --> 01:06:11.040
+in my view the enlightened position right that they they're going to automate that process and
+
+01:06:11.040 --> 01:06:15.840
+provide a machine readable feed that i can then write code and put into the database i'm sorry i'm
+
+01:06:15.840 --> 01:06:20.640
+sorry let me hear that again you said los angeles la pd and the sheriffs department are doing good
+
+01:06:20.640 --> 01:06:25.920
+job at that that well i have my complaints um so for instance maybe i shouldn't have opened the door
+
+01:06:26.880 --> 01:06:31.040
+well for instance i would point out is that the enlightened approach is what i enlightened
+
+01:06:31.040 --> 01:06:35.680
+approach that's what i heard well it is and it really is you know but they're not required to
+
+01:06:35.680 --> 01:06:39.920
+and you know and and but it was something that we had to negotiate with outside the law and that
+
+01:06:39.920 --> 01:06:45.440
+isn't my right or your right right and in the case of la pd they that in every department's going to
+
+01:06:45.440 --> 01:06:49.040
+have their own reading of how that works currently and so you're going to get different results
+
+01:06:49.040 --> 01:06:54.960
+depending on who you are and who you're talking to the la pd for instance uh has a reading of a
+
+01:06:54.960 --> 01:07:00.000
+previous case law that says they're only allowed to they're only required to provide contemporaneous
+
+01:07:00.000 --> 01:07:05.760
+records based on a 1990s judicial decision which they choose to read as six months so according
+
+01:07:05.760 --> 01:07:11.040
+to the la pd they are only ever required to give you the most recent six months of crime reports
+
+01:07:11.040 --> 01:07:16.000
+everything before is shielded from release and that's based upon a judicial decision
+
+01:07:16.000 --> 01:07:20.640
+that said it's burdensome to go back and pull up those old data those old records well if they're
+
+01:07:20.640 --> 01:07:25.280
+in a filing cabinet it might be but if they're an electronic database it's actually probably harder
+
+01:07:25.280 --> 01:07:30.560
+to write the extra line of code to filter it out than to not right indeed can correct me here if i'm
+
+01:07:30.560 --> 01:07:36.480
+getting you know wrong about that but about the tech part and so there's still a lot of barriers
+
+01:07:36.480 --> 01:07:40.880
+to that stuff happening and i don't think that these laws are going to solve them and i think
+
+01:07:40.880 --> 01:07:45.680
+it's still quite some ways away to be honest okay i'm off my soapbox i promise i won't do
+
+01:07:45.680 --> 01:07:53.120
+that again our students our students someone's students whose students our students did a project
+
+01:07:53.120 --> 01:07:58.480
+on city level garbage recycling and found some interesting results what are typical ways to share
+
+01:07:58.480 --> 01:08:03.920
+these results with the government will the government publish data collected by private citizens
+
+01:08:03.920 --> 01:08:09.360
+alex ted you can post on the mayor's facebook page
+
+01:08:15.040 --> 01:08:18.960
+i think in probably you know the quickest answer is things like garbage collection is related to
+
+01:08:18.960 --> 01:08:23.200
+our bureau of sanitation so i don't want to sound too governmenty but they're the ones who certainly
+
+01:08:23.200 --> 01:08:27.520
+would have a very valid interest i think connecting with let's say a council member collecting with
+
+01:08:27.520 --> 01:08:32.400
+your elected officials a great once again they're great representatives in city government
+
+01:08:32.400 --> 01:08:36.160
+certainly that bureau of sanitation would have an interest and when it comes to the idea of
+
+01:08:36.160 --> 01:08:40.320
+publishing private data well if it's compelling it's of value to other citizens then certainly
+
+01:08:40.320 --> 01:08:44.960
+we would entertain it but we also want to avoid just the idea of just publishing all sorts of
+
+01:08:44.960 --> 01:08:50.800
+things that as we start publishing let's say private citizen data onto a public portal it
+
+01:08:50.800 --> 01:08:54.800
+starts to look as if it's official city of los angeles or official government records and so
+
+01:08:54.800 --> 01:08:58.720
+that's such become you know kind of a dangerous kind of balance there so but i think more than
+
+01:08:58.720 --> 01:09:02.800
+willing it's about sharing of data and making things open and available yeah and the l.a times
+
+01:09:02.800 --> 01:09:07.680
+would if if if it if it meets our standards of course and we actually recently did some illegal
+
+01:09:07.680 --> 01:09:11.600
+dumping analysis with similar data that found that there were disparities throughout the city
+
+01:09:11.600 --> 01:09:16.160
+which has triggered we hope some changes and so data analysis like that is really becoming more
+
+01:09:16.160 --> 01:09:20.080
+and more a part of investigative journalism in the world that i come from and so if you've got
+
+01:09:20.080 --> 01:09:24.080
+students learning that stuff i am thrilled and they should consider a career in journalism i hope
+
+01:09:24.240 --> 01:09:31.840
+so all right is there a question for ted is there a plan for citizens in l.a to be able to report
+
+01:09:31.840 --> 01:09:40.320
+minor crimes online in a uniform format yes and what is that plan so we just recently did a there's
+
+01:09:40.320 --> 01:09:44.800
+been multiple starts and stops when it came to some of these practices and the law issues they
+
+01:09:44.800 --> 01:09:48.560
+ran to but we recently went through what we call an innovation fund effort so we have something
+
+01:09:48.560 --> 01:09:52.960
+called the innovation fund we try to go ahead and invest in some of these projects and so in the last
+
+01:09:52.960 --> 01:09:57.040
+few months they went ahead started that and so it was actually ideas that came in from various
+
+01:09:57.040 --> 01:10:01.280
+city employees and they're very much in the process of being able to do that there's no reason
+
+01:10:01.280 --> 01:10:05.360
+if you have a stolen bicycle or something like that that you need to come into a station to be
+
+01:10:05.360 --> 01:10:09.520
+able to submit those and that's a part of actually a much larger effort we're doing where we're doing
+
+01:10:09.520 --> 01:10:14.960
+digital services units where we're very actively and aggressively identifying ways and areas in
+
+01:10:14.960 --> 01:10:18.880
+which people are filling out paper forms and they're standing in lines when they should be able to do
+
+01:10:18.880 --> 01:10:23.120
+something online and do it on a mobile phone and so that's a very aggressive effort we're taking
+
+01:10:23.120 --> 01:10:27.120
+we're big government so we're certainly trying to tackle all the different areas but yes that is
+
+01:10:27.120 --> 01:10:30.800
+actually specifically an area that we've been working on the last few months and when can
+
+01:10:30.800 --> 01:10:35.360
+people expect to see something like that roll out i'd have to check in with the folks who are
+
+01:10:35.360 --> 01:10:39.680
+working on that that's actually not being done in my shop so so i would hate to commit them to that
+
+01:10:40.320 --> 01:10:43.680
+but i certainly know it's something that has been funded in the last few months and
+
+01:10:43.680 --> 01:10:49.520
+and i don't mind falling up on that but there was at least precursors to it if i recall correctly
+
+01:10:49.520 --> 01:10:54.240
+you can report graffiti or potholes or absolutely things like that with uh taking a picture
+
+01:10:54.240 --> 01:10:59.280
+with the mile a 311 mobile app versus Santa Monica folks you know won't be as useful but if you're
+
+01:10:59.280 --> 01:11:02.960
+ever in the city of Los Angeles and Venice and otherwise you can download that app and you can
+
+01:11:02.960 --> 01:11:09.680
+submit online requests 24 by 7 and they go through a great process i never like to call 311 i'm just
+
+01:11:09.680 --> 01:11:14.000
+not the kind of person get on the phone but i use that app all the time and i can submit at any time
+
+01:11:14.000 --> 01:11:18.480
+any place it's actually even better for the city it's a great example of where technology helps
+
+01:11:18.480 --> 01:11:23.200
+the city because it's geocoded it's a great electronic record i've got an image of it
+
+01:11:23.200 --> 01:11:27.120
+it's actually better than a phone call in when it comes to us and our ability to be able to service
+
+01:11:27.120 --> 01:11:36.640
+the request a mile a 311 mobile app someone's got it right there excellent use it three times today
+
+01:11:37.520 --> 01:11:41.840
+and and it and it begs that question right it's kind of like open data and sometimes we'll have
+
+01:11:41.840 --> 01:11:46.080
+these conversations in government where someone in the room says but do we really want a bunch of
+
+01:11:46.080 --> 01:11:51.600
+requests right do i want a bunch of requests and only in government would that conversation end up
+
+01:11:51.600 --> 01:11:56.400
+happening what if i do what will i do if i get a bunch of requests well it means there's a bunch of
+
+01:11:56.400 --> 01:12:02.400
+need right and and and that's the same conversation when it comes to open data but once again you know
+
+01:12:02.400 --> 01:12:06.320
+it's easy for us from a consumer from a citizen perspective looking and say well that's a crazy
+
+01:12:06.320 --> 01:12:11.120
+thing for them to say but when they're managing a department where every week they're given a
+
+01:12:11.120 --> 01:12:16.640
+hundred units of work and they've got people to do 90 units of solution sometimes after you've been
+
+01:12:16.640 --> 01:12:20.720
+doing that for a few years you may ask that question it's not the right question but i
+
+01:12:20.720 --> 01:12:27.520
+understand why they'll ask that okay our next question is how can open data policy serve the
+
+01:12:27.520 --> 01:12:33.520
+large population of angelenos and other californians who are functionally illiterate which might also
+
+01:12:33.520 --> 01:12:37.600
+mean people who don't speak english i suppose too so how could open data help them does anyone
+
+01:12:37.600 --> 01:12:43.600
+have an answer so i think is the defining the context of the open data is much more meaningful
+
+01:12:43.600 --> 01:12:49.840
+in that context but you know it's rather than the california it's you know this data can be
+
+01:12:49.840 --> 01:12:55.760
+master for example you know we all are expecting a linear year this time and you are illiterate
+
+01:12:55.760 --> 01:13:00.960
+you are living in coastal area and we are predicting the huge rain or hurricane coming
+
+01:13:01.040 --> 01:13:05.360
+towards your side can you use this open data which is collected by the weather
+
+01:13:06.160 --> 01:13:16.160
+systems and make it more colorful and you know red yellow green red means run yellow means packed
+
+01:13:16.160 --> 01:13:21.200
+and green means stay so i think there are ways to be we can do solve those problems because
+
+01:13:22.080 --> 01:13:26.160
+there are people those who don't have cell phones they have no internet access you know so we we
+
+01:13:26.160 --> 01:13:32.240
+need to find the ways and i like you know when there is a travel alert when we are traveling you
+
+01:13:32.240 --> 01:13:38.880
+know this is red yellow so that's why government decided to go with the color scheme so that it's
+
+01:13:38.880 --> 01:13:44.320
+easily understand by anyone rather than you carrying those devices and internet access so
+
+01:13:44.320 --> 01:13:49.520
+i think that's that's the way we can mask the data and make it more meaningful to those people
+
+01:13:49.520 --> 01:13:53.440
+and what i hear in that that to me i think came up a lot in the panel today is the idea of open
+
+01:13:53.520 --> 01:13:58.240
+data being a vehicle for improving design within government even independent of data itself but
+
+01:13:58.240 --> 01:14:03.840
+just designing the service in a more optimal or better way right so i mean alicia in your work
+
+01:14:03.840 --> 01:14:08.080
+has it come up where you were trying to when you were thinking of your user with your human-centered
+
+01:14:08.080 --> 01:14:13.040
+design right in the approach where your target user was someone who was either illiterate or
+
+01:14:13.040 --> 01:14:18.640
+not an english speaker yeah i mean i can't speak to a specific example where that's happened but
+
+01:14:18.640 --> 01:14:25.600
+certainly we've done a lot of work around access to public benefits so the cal fresh program which
+
+01:14:25.600 --> 01:14:31.360
+is food stamps we worked on a project in san francisco where we really traced the process of
+
+01:14:32.000 --> 01:14:37.360
+what a person has to go through to actually enroll in food stamps and they use many languages in
+
+01:14:37.360 --> 01:14:42.800
+terms of the actual form you get that reminds you about the date that you need to have your interview
+
+01:14:42.800 --> 01:14:47.040
+to be enrolled about the various things that you have to do to stay enrolled
+
+01:14:48.000 --> 01:14:53.840
+and what we did by mapping out that process was actually provide data back to the administrator
+
+01:14:53.840 --> 01:15:00.160
+of this benefit so that they could make changes to how they they actually administer their program
+
+01:15:00.160 --> 01:15:06.000
+so one example of that and this was a form that was sent out i believe in cantonese
+
+01:15:06.560 --> 01:15:13.920
+uh was had the date for the interview um that a person was required to be at
+
+01:15:13.920 --> 01:15:19.520
+was after the date that it was actually sent to them and they just had no they just had no idea
+
+01:15:19.520 --> 01:15:24.320
+that they were doing this um and we exposed the data to them and they they've stopped and they've
+
+01:15:24.320 --> 01:15:31.280
+fixed that practice um so to get back to your point which is you can use data yes to consume
+
+01:15:31.280 --> 01:15:36.960
+information but also to actually improve how government does its job uh similar logic um
+
+01:15:37.920 --> 01:15:43.280
+you know there's it's been in the in the news in recent months this public policy proposal known
+
+01:15:43.280 --> 01:15:48.720
+as new motor voter uh so i go back to the original motor voter from a couple decades ago
+
+01:15:49.360 --> 01:15:54.320
+where based on federal law every state's required to offer a voter registration opportunity for
+
+01:15:54.320 --> 01:16:00.880
+people when they're doing their business at dmv why because when you apply for a driver's license
+
+01:16:00.960 --> 01:16:07.520
+or a state id or when you're renewing you're asked to update name address date of birth a signature
+
+01:16:08.240 --> 01:16:12.480
+all the same information for voter registration so i have to go through the duplicate process
+
+01:16:12.480 --> 01:16:18.480
+for people who are otherwise eligible 18 year olds and a citizen let's let's integrate not just a
+
+01:16:18.480 --> 01:16:23.200
+driver's license renewal but a voter registration opportunity for efficiency purposes and the good
+
+01:16:23.200 --> 01:16:28.240
+of democracy and so this new proposal you read about recently i'm proud we sponsored the bill
+
+01:16:28.240 --> 01:16:32.960
+signed by the governor and we'll begin implementing here is now the the data sharing
+
+01:16:32.960 --> 01:16:39.040
+between dmv and secretary of states for purposes of voter registration it's more efficient more
+
+01:16:39.040 --> 01:16:47.040
+effective we're going to save taxpayer dollars okay next question is for deep how does a company
+
+01:16:47.040 --> 01:16:52.400
+like trulia which is already a huge consumer of government data stand to benefit from a
+
+01:16:52.400 --> 01:16:58.400
+comprehensive successful open data policy i would say in a in a huge way you know we've been
+
+01:16:59.280 --> 01:17:05.040
+the biggest consumer of the public data for last 10 years and the more data we just talked about
+
+01:17:05.040 --> 01:17:12.160
+the crime data here right why someone goes to trulia when they are trying to rent a property
+
+01:17:12.160 --> 01:17:18.480
+or buy a home the first thing they look for is how is my neighborhood what's the crime score
+
+01:17:18.480 --> 01:17:24.320
+what what's going on there and i think it is going to make better for us once the more data
+
+01:17:24.320 --> 01:17:30.400
+is available to us more fresh data is there which is frequently updated we can consume this data and
+
+01:17:30.400 --> 01:17:36.240
+reach out to our consumer and give them more information help them to make the right decisions
+
+01:17:36.240 --> 01:17:40.640
+so i think it's going to help us in a big ways and it's we need to define you know i think
+
+01:17:41.200 --> 01:17:47.040
+when i look into it i always look into the school now i i like to look into more drill down into
+
+01:17:47.040 --> 01:17:52.400
+the school how the school has been performing as compared to other school which is just a mile away
+
+01:17:52.400 --> 01:17:57.440
+from my home because that decision making process can help me buy a different home in a different
+
+01:17:57.440 --> 01:18:02.640
+location so i think it's it's for us it's going to be much more meaningful and it's going to at
+
+01:18:02.640 --> 01:18:07.920
+the end impact in a great way to our consumers because they are the one those who are at the end
+
+01:18:07.920 --> 01:18:14.320
+consuming this data okay our next question is should governments and by extension the citizens
+
+01:18:14.320 --> 01:18:19.120
+get something in return for providing open data to private businesses like trulia
+
+01:18:19.120 --> 01:18:24.160
+that are making tons and tons of money off this presumably uh not necessarily dollars the person
+
+01:18:24.160 --> 01:18:30.400
+asks but analytics intelligence new insights shouldn't they get something back yeah definitely
+
+01:18:30.400 --> 01:18:37.200
+i i think it's profit is the side effect of solving a problem that's the way how the silicon
+
+01:18:37.200 --> 01:18:44.960
+valley comes in but as i gave my own example should i rather go and spend my if i have to
+
+01:18:44.960 --> 01:18:51.040
+buy a house should i spend six months doing all the research work finding a house which i want
+
+01:18:51.760 --> 01:18:58.560
+or should technology helps and solve most of the problems for me and give that information for me
+
+01:18:58.560 --> 01:19:04.640
+so rather than spending six months of my valuable time which i can go and spend and do other things
+
+01:19:04.720 --> 01:19:10.080
+and rather spend just 15 days or one month to make that decision so in other way if you see
+
+01:19:10.720 --> 01:19:16.080
+having that time back is the most valuable thing and that's what i look forward to is
+
+01:19:16.080 --> 01:19:21.920
+how can i use technology to save five minutes here 15 minutes here and i think this is what
+
+01:19:21.920 --> 01:19:26.960
+the technology is empowering me on a day-to-day basis when i was driving this morning from erwin
+
+01:19:26.960 --> 01:19:32.640
+to santa monica is it gonna take me two hours or is it gonna take me one hour so not knowing that
+
+01:19:32.640 --> 01:19:38.160
+information i can end up spending more time and the time to me at the end of the day is the money
+
+01:19:39.680 --> 01:19:45.040
+i think philosophically i would first lean towards making the data available to various private
+
+01:19:45.040 --> 01:19:50.880
+sector businesses to be able to facilitate you know economic development you know period so i
+
+01:19:50.880 --> 01:19:55.040
+love that idea because usually what you find is that those companies are delivering real value to
+
+01:19:55.040 --> 01:19:59.520
+you so you know tulia is a great example and there's many others you know when yelp gets
+
+01:19:59.520 --> 01:20:03.760
+information from the county of l.a on health code standards and you check out a restaurant
+
+01:20:03.760 --> 01:20:08.640
+and you see it's got an a a b or c you're getting value out of county data that was made available
+
+01:20:08.640 --> 01:20:13.120
+to yelp and there's a lot of those examples of it but the question is also touching on something
+
+01:20:13.120 --> 01:20:18.320
+which is another great point you know when we provide data to google for let's say way is data
+
+01:20:18.320 --> 01:20:23.280
+related to you know parades and and street enclosures and all these other types of things
+
+01:20:23.280 --> 01:20:28.240
+ways is also providing us what we call an api and interface to their data which means if i want to
+
+01:20:28.240 --> 01:20:32.320
+know that there's an area of road in which maybe a pothole was logged that didn't come through the
+
+01:20:32.320 --> 01:20:37.600
+my la 301 mobile app but it was actually done by a ways user and i've got let's say two thumbs up
+
+01:20:37.600 --> 01:20:42.400
+if you've ever used that i now have basically three people confirming a pothole they're giving
+
+01:20:42.400 --> 01:20:46.560
+us their information so that we could go ahead and consume it and do something off of that
+
+01:20:46.560 --> 01:20:52.000
+information and once again you know these are great opportunities for us to do it so while i don't
+
+01:20:52.000 --> 01:20:56.960
+expect a quid pro quo there's often opportunities that just come out and so as you start sharing
+
+01:20:57.040 --> 01:21:01.200
+data and making data available you start to work with organizations and then do it with you
+
+01:21:01.200 --> 01:21:06.800
+it creates once again that mentality and that mentality is a good one okay and now here's our
+
+01:21:06.800 --> 01:21:11.680
+final question from the audience and then we'll close which is how can we evaluate the progress
+
+01:21:11.680 --> 01:21:20.000
+of open data initiatives what would success look like anyone have an answer what success look like
+
+01:21:20.000 --> 01:21:25.200
+so i think looking into the two bills what have been passed you know it's it's just having those
+
+01:21:25.200 --> 01:21:31.280
+bills is not the success the success is are we publishing those enterprise systems what
+
+01:21:31.280 --> 01:21:36.240
+data we've been storing is this so to me at the end of the day if we say this is the bill
+
+01:21:36.240 --> 01:21:40.880
+are the local agencies standing behind this and publishing those so i will go back six
+
+01:21:40.880 --> 01:21:45.200
+months down the line and go back and see if any data has been published if nothing has been
+
+01:21:45.200 --> 01:21:51.040
+published to me that's not the success it means is going to take us another four years to even
+
+01:21:51.040 --> 01:21:55.360
+publish those enterprise systems so that's the way i will consider at least success for this in
+
+01:21:55.360 --> 01:22:00.960
+the scope of these two bills the way i think and i think it's not just you know which cities have
+
+01:22:00.960 --> 01:22:05.760
+an open data policy which ones know which counties which states etc but you know whether it's five
+
+01:22:05.760 --> 01:22:12.800
+ten years out just being able to quantify the amounts of data quality of the data and consistency
+
+01:22:12.800 --> 01:22:19.840
+of the data because undoubtedly it will be used okay well you want to have something there Ted
+
+01:22:19.840 --> 01:22:23.920
+you know yeah i'm never at a loss for words when it comes to this topic as you can tell
+
+01:22:24.800 --> 01:22:29.840
+in working in city government often there's some pretty prescriptive ways to start to define it
+
+01:22:29.840 --> 01:22:33.920
+and it comes down to some of the key benefits if you're looking at interdepartmental data sharing
+
+01:22:33.920 --> 01:22:37.680
+then there's certainly benefits which you can track and see that various departments are sharing
+
+01:22:37.680 --> 01:22:42.720
+data with each other and the results of that as part of our open data policy and our launch we
+
+01:22:42.720 --> 01:22:47.920
+were able to close out various systems so we had various systems that were just there to create
+
+01:22:47.920 --> 01:22:53.200
+a platform to share data by simply moving on to an open data portal and no extra charge you know
+
+01:22:53.200 --> 01:22:59.120
+we were able to close out a 240 000 a year cost for sharing map layers between departments just
+
+01:22:59.120 --> 01:23:03.360
+by putting it into our open data portal and allow them to share that there so there are areas in
+
+01:23:03.360 --> 01:23:07.120
+which you could start to see return on investment when it comes to transparency that's a very
+
+01:23:07.120 --> 01:23:11.360
+difficult one it's kind of hard to measure that but when it comes to let's say economics and
+
+01:23:11.360 --> 01:23:16.160
+economic development etc sometimes you could start to point to that so you could run down a list it's
+
+01:23:16.160 --> 01:23:20.880
+a pretty extensive one but you could run down a list of identifying key successes and I think
+
+01:23:20.880 --> 01:23:25.920
+ultimately from government perspective it's weighing the cost it is to be able to run an open data
+
+01:23:25.920 --> 01:23:30.480
+initiative both in the time it takes to do it as well as the platforms and the costs associated
+
+01:23:30.480 --> 01:23:35.440
+with that with the benefits and I think quite often you know even if they're hard benefits
+
+01:23:35.440 --> 01:23:40.400
+and soft benefits it truly does outweigh if you do it right open data is something that
+
+01:23:40.400 --> 01:23:43.280
+you get a lot of bang for your buck and that's what we've seen at the city of LA
+
+01:23:43.280 --> 01:23:49.760
+all right great so that's the end of our time here together round of applause for the panel please

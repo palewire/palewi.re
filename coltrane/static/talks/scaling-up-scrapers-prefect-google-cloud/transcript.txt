@@ -1,0 +1,1675 @@
+[Music]
+[Music]
+[Music]
+[Music]
+[Music]
+[Music]
+[Music]
+[Music]
+[Music]
+hey everybody welcome back to another
+hey everybody welcome back to another
+hey everybody welcome back to another prefect live i'm chris reuter and today
+prefect live i'm chris reuter and today
+prefect live i'm chris reuter and today i'm here with ben welsh so hey ben how's
+i'm here with ben welsh so hey ben how's
+i'm here with ben welsh so hey ben how's it going
+it going
+it going good thanks for having me absolutely so
+good thanks for having me absolutely so
+good thanks for having me absolutely so ben is an l.a times journalist and this
+ben is an l.a times journalist and this
+ben is an l.a times journalist and this is really cool john s knight journalism
+is really cool john s knight journalism
+is really cool john s knight journalism fellow at stanford i see you've got the
+fellow at stanford i see you've got the
+fellow at stanford i see you've got the hat on today he's been spending they're
+hat on today he's been spending they're
+hat on today he's been spending they're spending the year working on the big
+spending the year working on the big
+spending the year working on the big look local news project so first thing
+look local news project so first thing
+look local news project so first thing i'd love to hear what is the big local
+i'd love to hear what is the big local
+i'd love to hear what is the big local news project what are you working on
+news project what are you working on
+news project what are you working on sure big local news is a program at the
+sure big local news is a program at the
+sure big local news is a program at the stanford university journalism school
+stanford university journalism school
+stanford university journalism school that's looking to kind of become
+that's looking to kind of become
+that's looking to kind of become a hub
+a hub
+a hub for
+for
+for gathering uh analyzing organizing uh
+gathering uh analyzing organizing uh
+gathering uh analyzing organizing uh large data sets for use in local news
+large data sets for use in local news
+large data sets for use in local news so you know
+so you know
+so you know whether you know it or not there are
+whether you know it or not there are
+whether you know it or not there are computer programmers in newsrooms all
+computer programmers in newsrooms all
+computer programmers in newsrooms all across america who are using their kind
+across america who are using their kind
+across america who are using their kind of skills to grab data wrestle it down
+of skills to grab data wrestle it down
+of skills to grab data wrestle it down make sense of it and turn it into
+make sense of it and turn it into
+make sense of it and turn it into stories to find and tell stories and the
+stories to find and tell stories and the
+stories to find and tell stories and the goal of the program at stanford is to to
+goal of the program at stanford is to to
+goal of the program at stanford is to to help newsrooms make that happen
+help newsrooms make that happen
+help newsrooms make that happen that uh data journalism concept i think
+that uh data journalism concept i think
+that uh data journalism concept i think one was definitely new to me and you you
+one was definitely new to me and you you
+one was definitely new to me and you you joined the slack you started asking
+joined the slack you started asking
+joined the slack you started asking questions and i really appreciate your
+questions and i really appreciate your
+questions and i really appreciate your asking some some interesting questions
+asking some some interesting questions
+asking some some interesting questions that i think will help other people get
+that i think will help other people get
+that i think will help other people get started too so you've already been a
+started too so you've already been a
+started too so you've already been a really helpful valuable member of the
+really helpful valuable member of the
+really helpful valuable member of the community i really want to thank you for
+community i really want to thank you for
+community i really want to thank you for that too
+that too
+that too ben was telling me before he came on
+ben was telling me before he came on
+ben was telling me before he came on he's originally from iowa so hard
+he's originally from iowa so hard
+he's originally from iowa so hard question today
+question today
+question today uh this is the i to me the i o question
+uh this is the i to me the i o question
+uh this is the i to me the i o question uh cyclones or hawkeyes oh it's
+uh cyclones or hawkeyes oh it's
+uh cyclones or hawkeyes oh it's definitely the iowa hawkeyes i grew up
+definitely the iowa hawkeyes i grew up
+definitely the iowa hawkeyes i grew up near iowa city iowa and a big hawkeye
+near iowa city iowa and a big hawkeye
+near iowa city iowa and a big hawkeye football fan and i go back for a game
+football fan and i go back for a game
+football fan and i go back for a game every year i was there for penn state
+every year i was there for penn state
+every year i was there for penn state last fall that's awesome
+last fall that's awesome
+last fall that's awesome so today we're talking about the work
+so today we're talking about the work
+so today we're talking about the work you've been doing has been around web
+you've been doing has been around web
+you've been doing has been around web scraping i think was really probably
+scraping i think was really probably
+scraping i think was really probably more relevant to a lot of the data
+more relevant to a lot of the data
+more relevant to a lot of the data journalists out there but i think some
+journalists out there but i think some
+journalists out there but i think some of our other community members could
+of our other community members could
+of our other community members could definitely learn a little bit from your
+definitely learn a little bit from your
+definitely learn a little bit from your use case so i know you're on gcp um do
+use case so i know you're on gcp um do
+use case so i know you're on gcp um do you want to give a brief overview of
+you want to give a brief overview of
+you want to give a brief overview of what we're going to talk about today and
+what we're going to talk about today and
+what we're going to talk about today and then we can get right into it
+then we can get right into it
+then we can get right into it yeah i was thinking i could give some
+yeah i was thinking i could give some
+yeah i was thinking i could give some examples of the type of work that our
+examples of the type of work that our
+examples of the type of work that our team does to turn data into stories into
+team does to turn data into stories into
+team does to turn data into stories into news and then we can really dig into one
+news and then we can really dig into one
+news and then we can really dig into one of kind of our
+of kind of our
+of kind of our new projects still at an early stage
+new projects still at an early stage
+new projects still at an early stage that's trying to take advantage of
+that's trying to take advantage of
+that's trying to take advantage of prefect to really scale up what we can
+prefect to really scale up what we can
+prefect to really scale up what we can pull off that sounds awesome cool so if
+pull off that sounds awesome cool so if
+pull off that sounds awesome cool so if you're ready i'll switch over to your
+you're ready i'll switch over to your
+you're ready i'll switch over to your screen
+screen
+screen yeah sure can you see it yep it's all
+yeah sure can you see it yep it's all
+yeah sure can you see it yep it's all good
+good
+good great so we're starting off here right
+great so we're starting off here right
+great so we're starting off here right now
+now
+now with a story that our team put out just
+with a story that our team put out just
+with a story that our team put out just this morning so today in the central
+this morning so today in the central
+this morning so today in the central valley here in california lisa pick off
+valley here in california lisa pick off
+valley here in california lisa pick off white who's on our big local news team
+white who's on our big local news team
+white who's on our big local news team teamed up with some public radio
+teamed up with some public radio
+teamed up with some public radio reporters in the area to do an
+reporters in the area to do an
+reporters in the area to do an investigation into shootings by the
+investigation into shootings by the
+investigation into shootings by the bakersfield police department
+bakersfield police department
+bakersfield police department the local department had been under some
+the local department had been under some
+the local department had been under some pressure to improve how it handles
+pressure to improve how it handles
+pressure to improve how it handles interacting with people who have mental
+interacting with people who have mental
+interacting with people who have mental health issues
+health issues
+health issues though the department's official
+though the department's official
+though the department's official position has continued to be in years
+position has continued to be in years
+position has continued to be in years that that's not really a problem when it
+that that's not really a problem when it
+that that's not really a problem when it comes to police shootings well what lisa
+comes to police shootings well what lisa
+comes to police shootings well what lisa and her partners molly and sorith found
+and her partners molly and sorith found
+and her partners molly and sorith found out did is they built a database where
+out did is they built a database where
+out did is they built a database where one didn't exist is by filing public
+one didn't exist is by filing public
+one didn't exist is by filing public records requests that are
+records requests that are
+records requests that are allow us to access records thanks to a
+allow us to access records thanks to a
+allow us to access records thanks to a new state law that kind of opened up
+new state law that kind of opened up
+new state law that kind of opened up what you can get they built a database
+what you can get they built a database
+what you can get they built a database of every police shooting by the
+of every police shooting by the
+of every police shooting by the bakersfield police department over a
+bakersfield police department over a
+bakersfield police department over a five or six year period
+five or six year period
+five or six year period and then they went through and read them
+and then they went through and read them
+and then they went through and read them all and so that's a process of like
+all and so that's a process of like
+all and so that's a process of like gathering big stacks of paper and pdfs
+gathering big stacks of paper and pdfs
+gathering big stacks of paper and pdfs uh that you get back from your records
+uh that you get back from your records
+uh that you get back from your records request and then using a sort of
+request and then using a sort of
+request and then using a sort of database frame of mind to kind of
+database frame of mind to kind of
+database frame of mind to kind of convert those raw records into a
+convert those raw records into a
+convert those raw records into a spreadsheet and into something that you
+spreadsheet and into something that you
+spreadsheet and into something that you can analyze
+can analyze
+can analyze so that you can say something a little
+so that you can say something a little
+so that you can say something a little more authoritative than just talk about
+more authoritative than just talk about
+more authoritative than just talk about one or two cases and if you were to
+one or two cases and if you were to
+one or two cases and if you were to check out the story which i encourage
+check out the story which i encourage
+check out the story which i encourage you to do you would see that they found
+you to do you would see that they found
+you to do you would see that they found that about 40
+that about 40
+that about 40 of
+of
+of uses of force during that period were
+uses of force during that period were
+uses of force during that period were linked to or were against a person who
+linked to or were against a person who
+linked to or were against a person who who you could say had some sort of
+who you could say had some sort of
+who you could say had some sort of mental health or sobriety issue at the
+mental health or sobriety issue at the
+mental health or sobriety issue at the time of the event which is much much
+time of the event which is much much
+time of the event which is much much larger than the official police estimate
+larger than the official police estimate
+larger than the official police estimate which was only about three percent so
+which was only about three percent so
+which was only about three percent so the story unpacks all those issues and
+the story unpacks all those issues and
+the story unpacks all those issues and talks about how the police department is
+talks about how the police department is
+talks about how the police department is facing the challenge of really stepping
+facing the challenge of really stepping
+facing the challenge of really stepping up to take that on and to me this is one
+up to take that on and to me this is one
+up to take that on and to me this is one one example among many of the type of
+one example among many of the type of
+one example among many of the type of work that our team tries to do
+work that our team tries to do
+work that our team tries to do to kind of convert public records and
+to kind of convert public records and
+to kind of convert public records and sort of the raw information that's out
+sort of the raw information that's out
+sort of the raw information that's out there in the world and on the internet
+there in the world and on the internet
+there in the world and on the internet into structured information that we can
+into structured information that we can
+into structured information that we can interrogate analyze and report on um our
+interrogate analyze and report on um our
+interrogate analyze and report on um our project big local news is like a website
+project big local news is like a website
+project big local news is like a website at big local news.org
+at big local news.org
+at big local news.org and it's also a github profile where
+and it's also a github profile where
+and it's also a github profile where we're posting you know dozens of open
+we're posting you know dozens of open
+we're posting you know dozens of open source code repositories that power kind
+source code repositories that power kind
+source code repositories that power kind of the work that we do and in some cases
+of the work that we do and in some cases
+of the work that we do and in some cases it's like lisa it's a little more uh ad
+it's like lisa it's a little more uh ad
+it's like lisa it's a little more uh ad hoc where you're converting
+hoc where you're converting
+hoc where you're converting semi-structured data into structured
+semi-structured data into structured
+semi-structured data into structured data but in other cases
+data but in other cases
+data but in other cases the process is quite a bit more
+the process is quite a bit more
+the process is quite a bit more automated in our world of data
+automated in our world of data
+automated in our world of data journalism a really common challenge is
+journalism a really common challenge is
+journalism a really common challenge is what is you know i think everyone on
+what is you know i think everyone on
+what is you know i think everyone on this call probably knows about but it's
+this call probably knows about but it's
+this call probably knows about but it's called web scraping which is really
+called web scraping which is really
+called web scraping which is really writing a sort of computer script or
+writing a sort of computer script or
+writing a sort of computer script or spider that can walk across the web pull
+spider that can walk across the web pull
+spider that can walk across the web pull down pages and then extract kind of
+down pages and then extract kind of
+down pages and then extract kind of useful information out of those pages
+useful information out of those pages
+useful information out of those pages into some kind of structured form and
+into some kind of structured form and
+into some kind of structured form and you know obviously in the case of the
+you know obviously in the case of the
+you know obviously in the case of the google spider
+google spider
+google spider that's done in service of creating a
+that's done in service of creating a
+that's done in service of creating a great search engine
+great search engine
+great search engine in the case of journalists it's often uh
+in the case of journalists it's often uh
+in the case of journalists it's often uh about getting databases out of the
+about getting databases out of the
+about getting databases out of the government that they might not otherwise
+government that they might not otherwise
+government that they might not otherwise want to get give you or it might be hard
+want to get give you or it might be hard
+want to get give you or it might be hard to get at
+to get at
+to get at and so
+and so
+and so a lot of our projects on our team are
+a lot of our projects on our team are
+a lot of our projects on our team are going to try to scale up large scale
+going to try to scale up large scale
+going to try to scale up large scale scrapers that we think will be useful to
+scrapers that we think will be useful to
+scrapers that we think will be useful to many many news organizations across the
+many many news organizations across the
+many many news organizations across the country through the power of scale but
+country through the power of scale but
+country through the power of scale but that the individual news organizations
+that the individual news organizations
+that the individual news organizations really struggle to pull off on their own
+really struggle to pull off on their own
+really struggle to pull off on their own and so if you check our github profile
+and so if you check our github profile
+and so if you check our github profile at big local news you'll see quite a few
+at big local news you'll see quite a few
+at big local news you'll see quite a few examples of those one that i've been
+examples of those one that i've been
+examples of those one that i've been working on on recent weeks that doesn't
+working on on recent weeks that doesn't
+working on on recent weeks that doesn't involve prefect but is sort of more a
+involve prefect but is sort of more a
+involve prefect but is sort of more a finished product is related to scraping
+finished product is related to scraping
+finished product is related to scraping layoff notices under something called
+layoff notices under something called
+layoff notices under something called the warn act and so the warn act is a
+the warn act and so the warn act is a
+the warn act and so the warn act is a federal law that requires companies to
+federal law that requires companies to
+federal law that requires companies to to disclose when they lay off a lot of
+to disclose when they lay off a lot of
+to disclose when they lay off a lot of people at their factory or company
+people at their factory or company
+people at their factory or company but that data is not consolidated into a
+but that data is not consolidated into a
+but that data is not consolidated into a single database anywhere each state
+single database anywhere each state
+single database anywhere each state collects it separately via different
+collects it separately via different
+collects it separately via different means and so with stanford graduate
+means and so with stanford graduate
+means and so with stanford graduate students and partners in journalism
+students and partners in journalism
+students and partners in journalism we've written web scrapers from about 40
+we've written web scrapers from about 40
+we've written web scrapers from about 40 state websites that flow those all into
+state websites that flow those all into
+state websites that flow those all into a single database and then allow us to
+a single database and then allow us to
+a single database and then allow us to write say a slack bot that will notify
+write say a slack bot that will notify
+write say a slack bot that will notify reporters when a new listing has come in
+reporters when a new listing has come in
+reporters when a new listing has come in so that's an example of like a scraper
+so that's an example of like a scraper
+so that's an example of like a scraper in motion just if you're interested in
+in motion just if you're interested in
+in motion just if you're interested in other big local news projects just
+other big local news projects just
+other big local news projects just yesterday on our blog at
+yesterday on our blog at
+yesterday on our blog at biglobalnews.org posts we put up this
+biglobalnews.org posts we put up this
+biglobalnews.org posts we put up this story by dilsey mercedes mercedes which
+story by dilsey mercedes mercedes which
+story by dilsey mercedes mercedes which rounds up
+rounds up
+rounds up um about a dozen different stories from
+um about a dozen different stories from
+um about a dozen different stories from around the world that our team worked on
+around the world that our team worked on
+around the world that our team worked on partnering with news organizations to
+partnering with news organizations to
+partnering with news organizations to turn data into news about covid and so
+turn data into news about covid and so
+turn data into news about covid and so that includes
+that includes
+that includes helping journalists in peru build a
+helping journalists in peru build a
+helping journalists in peru build a database of covet among indigenous
+database of covet among indigenous
+database of covet among indigenous people in the amazon who weren't being
+people in the amazon who weren't being
+people in the amazon who weren't being well tracked by the government there it
+well tracked by the government there it
+well tracked by the government there it also includes working with
+also includes working with
+also includes working with people in the bay area in california to
+people in the bay area in california to
+people in the bay area in california to analyze the billions of dollars of
+analyze the billions of dollars of
+analyze the billions of dollars of emergency loans sent out by the u.s
+emergency loans sent out by the u.s
+emergency loans sent out by the u.s government under the paycheck protection
+government under the paycheck protection
+government under the paycheck protection program
+program
+program and which found pretty wide disparities
+and which found pretty wide disparities
+and which found pretty wide disparities in where those went and lots and lots of
+in where those went and lots and lots of
+in where those went and lots and lots of other examples here for different news
+other examples here for different news
+other examples here for different news organizations across the country and
+organizations across the country and
+organizations across the country and kind of making those stories happen
+kind of making those stories happen
+kind of making those stories happen through um software that we write
+through um software that we write
+through um software that we write through records requests that we file
+through records requests that we file
+through records requests that we file through partnerships with news orgs and
+through partnerships with news orgs and
+through partnerships with news orgs and through like tools we put together for
+through like tools we put together for
+through like tools we put together for reporters kind of the mission of big
+reporters kind of the mission of big
+reporters kind of the mission of big local news is to make a lot of these
+local news is to make a lot of these
+local news is to make a lot of these stories happen that wouldn't otherwise
+stories happen that wouldn't otherwise
+stories happen that wouldn't otherwise you know be stories that are told so
+you know be stories that are told so
+you know be stories that are told so that's kind of the broad overview of
+that's kind of the broad overview of
+that's kind of the broad overview of what we do if anybody's interested in
+what we do if anybody's interested in
+what we do if anybody's interested in learning more about it i would say check
+learning more about it i would say check
+learning more about it i would say check out the website big local news dot org
+out the website big local news dot org
+out the website big local news dot org or github.com
+or github.com
+or github.com big local news
+big local news
+big local news awesome i think purpose why you guys are
+awesome i think purpose why you guys are
+awesome i think purpose why you guys are doing this i think but also
+doing this i think but also
+doing this i think but also one of the reasons why you're talking
+one of the reasons why you're talking
+one of the reasons why you're talking about it a lot of overlap with potential
+about it a lot of overlap with potential
+about it a lot of overlap with potential use cases for some of our communities so
+use cases for some of our communities so
+use cases for some of our communities so i think really great to see the work
+i think really great to see the work
+i think really great to see the work that you guys are doing and also
+that you guys are doing and also
+that you guys are doing and also interested i think it's just really
+interested i think it's just really
+interested i think it's just really interesting a lot of people are doing
+interesting a lot of people are doing
+interesting a lot of people are doing screen scraping believe it or not um all
+screen scraping believe it or not um all
+screen scraping believe it or not um all throughout our community and we've seen
+throughout our community and we've seen
+throughout our community and we've seen it screen scraping and pdf scraping we
+it screen scraping and pdf scraping we
+it screen scraping and pdf scraping we just had a blog that came out actually
+just had a blog that came out actually
+just had a blog that came out actually on a pdf called pdf to snowflake by john
+on a pdf called pdf to snowflake by john
+on a pdf called pdf to snowflake by john luciano on our team which did something
+luciano on our team which did something
+luciano on our team which did something very very similar
+very very similar
+very very similar that's awesome i mean parsing pdfs is
+that's awesome i mean parsing pdfs is
+that's awesome i mean parsing pdfs is really a big challenge for us in the
+really a big challenge for us in the
+really a big challenge for us in the police accountability work you know you
+police accountability work you know you
+police accountability work you know you file a records request
+file a records request
+file a records request and you often get back hundreds or
+and you often get back hundreds or
+and you often get back hundreds or thousands of pages of pdfs that are in
+thousands of pages of pdfs that are in
+thousands of pages of pdfs that are in really unusual shapes and sizes you also
+really unusual shapes and sizes you also
+really unusual shapes and sizes you also we're also getting a lot of unstructured
+we're also getting a lot of unstructured
+we're also getting a lot of unstructured video as well from those requests like
+video as well from those requests like
+video as well from those requests like uh
+uh
+uh body cam footage and so one of our major
+body cam footage and so one of our major
+body cam footage and so one of our major projects over the next year i won't get
+projects over the next year i won't get
+projects over the next year i won't get too in-depth about here today but we're
+too in-depth about here today but we're
+too in-depth about here today but we're definitely looking for tech people to
+definitely looking for tech people to
+definitely looking for tech people to help on
+help on
+help on is how can we
+is how can we
+is how can we build kind of a big database of pdfs and
+build kind of a big database of pdfs and
+build kind of a big database of pdfs and video
+video
+video and get some entity extraction going on
+and get some entity extraction going on
+and get some entity extraction going on so that we can search and find stories
+so that we can search and find stories
+so that we can search and find stories in that haystack of information
+in that haystack of information
+in that haystack of information without it costing a ton of money right
+without it costing a ton of money right
+without it costing a ton of money right and in a way that ultimately yields kind
+and in a way that ultimately yields kind
+and in a way that ultimately yields kind of stories
+of stories
+of stories um so where's prefect come in though
+um so where's prefect come in though
+um so where's prefect come in though right should we get to get to that yeah
+right should we get to get to that yeah
+right should we get to get to that yeah let's do it okay cool so like one of the
+let's do it okay cool so like one of the
+let's do it okay cool so like one of the big projects i worked on the last couple
+big projects i worked on the last couple
+big projects i worked on the last couple years was obviously covering the
+years was obviously covering the
+years was obviously covering the coronavirus
+coronavirus
+coronavirus at the los angeles times i was until
+at the los angeles times i was until
+at the los angeles times i was until recently the editor of the data and
+recently the editor of the data and
+recently the editor of the data and graphics department and one of our major
+graphics department and one of our major
+graphics department and one of our major initiatives was to track coronavirus in
+initiatives was to track coronavirus in
+initiatives was to track coronavirus in the state of california he was starting
+the state of california he was starting
+the state of california he was starting um in march 2020 we began writing web
+um in march 2020 we began writing web
+um in march 2020 we began writing web scrapers for all kinds of uh state
+scrapers for all kinds of uh state
+scrapers for all kinds of uh state websites but also for the 58 counties
+websites but also for the 58 counties
+websites but also for the 58 counties across the state to try to get as much
+across the state to try to get as much
+across the state to try to get as much information about covet as possible and
+information about covet as possible and
+information about covet as possible and we ultimately were able to create a web
+we ultimately were able to create a web
+we ultimately were able to create a web scraping system that runs open source on
+scraping system that runs open source on
+scraping system that runs open source on github at california coronavirus
+github at california coronavirus
+github at california coronavirus scrapers that runs something like 50 to
+scrapers that runs something like 50 to
+scrapers that runs something like 50 to 100 web scrapers you know all throughout
+100 web scrapers you know all throughout
+100 web scrapers you know all throughout the day and night to pull down data that
+the day and night to pull down data that
+the day and night to pull down data that then goes on to um
+then goes on to um
+then goes on to um the
+the
+the the
+the
+the you know the the data portal that is
+you know the the data portal that is
+you know the the data portal that is kind of the most popular page on the
+kind of the most popular page on the
+kind of the most popular page on the last website where the numbers are then
+last website where the numbers are then
+last website where the numbers are then surfaced for the general public and in
+surfaced for the general public and in
+surfaced for the general public and in this case we were able to get by just
+this case we were able to get by just
+this case we were able to get by just using kind of github actions and little
+using kind of github actions and little
+using kind of github actions and little itty bitty python scripts because none
+itty bitty python scripts because none
+itty bitty python scripts because none of them were especially that complicated
+of them were especially that complicated
+of them were especially that complicated and the data that we were gathering was
+and the data that we were gathering was
+and the data that we were gathering was pretty
+pretty
+pretty um you know by silicon valley standards
+um you know by silicon valley standards
+um you know by silicon valley standards pretty small or simple right a few
+pretty small or simple right a few
+pretty small or simple right a few hundred or a few thousand records a
+hundred or a few thousand records a
+hundred or a few thousand records a single file and it really was just
+single file and it really was just
+single file and it really was just writing about a lot of little scrapers
+writing about a lot of little scrapers
+writing about a lot of little scrapers doing that we were able to pull it off
+doing that we were able to pull it off
+doing that we were able to pull it off entirely for free using this kind of
+entirely for free using this kind of
+entirely for free using this kind of system but that's not you know there's
+system but that's not you know there's
+system but that's not you know there's often challenges that are bigger than
+often challenges that are bigger than
+often challenges that are bigger than that where we need bigger and better
+that where we need bigger and better
+that where we need bigger and better tools which is where prefix comes in and
+tools which is where prefix comes in and
+tools which is where prefix comes in and you know part of the goal of big local
+you know part of the goal of big local
+you know part of the goal of big local news is to do scrapers that are bigger
+news is to do scrapers that are bigger
+news is to do scrapers that are bigger than news organizations can really pull
+than news organizations can really pull
+than news organizations can really pull off on their own right and there's a
+off on their own right and there's a
+off on their own right and there's a couple classic examples of this
+couple classic examples of this
+couple classic examples of this that news organizations across the
+that news organizations across the
+that news organizations across the country have all kind of tried and
+country have all kind of tried and
+country have all kind of tried and mostly failed to come up with a
+mostly failed to come up with a
+mostly failed to come up with a sustainable solution
+sustainable solution
+sustainable solution and that's really to monitor your local
+and that's really to monitor your local
+and that's really to monitor your local government and analyze it better through
+government and analyze it better through
+government and analyze it better through gathering data one would be you know
+gathering data one would be you know
+gathering data one would be you know your city council everyone has a county
+your city council everyone has a county
+your city council everyone has a county government or a city government that has
+government or a city government that has
+government or a city government that has some kind
+some kind
+some kind of website that is just churning through
+of website that is just churning through
+of website that is just churning through documents about agendas meetings votes
+documents about agendas meetings votes
+documents about agendas meetings votes decisions happening in local government
+decisions happening in local government
+decisions happening in local government and the other is your county courthouse
+and the other is your county courthouse
+and the other is your county courthouse which is where local judges are making
+which is where local judges are making
+which is where local judges are making decisions about who goes to jail who
+decisions about who goes to jail who
+decisions about who goes to jail who doesn't juries as well
+doesn't juries as well
+doesn't juries as well and a lot of power is being exercised
+and a lot of power is being exercised
+and a lot of power is being exercised and in pretty much every newsroom in the
+and in pretty much every newsroom in the
+and in pretty much every newsroom in the united states of a certain size at one
+united states of a certain size at one
+united states of a certain size at one time or another your local uh newsroom
+time or another your local uh newsroom
+time or another your local uh newsroom has had a nerd who's tried to write the
+has had a nerd who's tried to write the
+has had a nerd who's tried to write the scraper for that system
+scraper for that system
+scraper for that system and and many and it's some fraction of
+and and many and it's some fraction of
+and and many and it's some fraction of those cases they've actually succeeded
+those cases they've actually succeeded
+those cases they've actually succeeded hooray right and maybe you came up with
+hooray right and maybe you came up with
+hooray right and maybe you came up with like a little private search that ran
+like a little private search that ran
+like a little private search that ran under their desk at the office right or
+under their desk at the office right or
+under their desk at the office right or maybe you did like a couple good
+maybe you did like a couple good
+maybe you did like a couple good investigative stories where you analyzed
+investigative stories where you analyzed
+investigative stories where you analyzed evictions by landlords or
+evictions by landlords or
+evictions by landlords or racial disparities and sentencing or who
+racial disparities and sentencing or who
+racial disparities and sentencing or who knows what
+knows what
+knows what um but you know ultimately that nerd got
+um but you know ultimately that nerd got
+um but you know ultimately that nerd got another job
+another job
+another job or
+or
+or the county website changed and just like
+the county website changed and just like
+the county website changed and just like keeping those kinds of systems up and
+keeping those kinds of systems up and
+keeping those kinds of systems up and sustainable there just really hasn't
+sustainable there just really hasn't
+sustainable there just really hasn't been a solution for that and so that's
+been a solution for that and so that's
+been a solution for that and so that's that's a like space to use the tech word
+that's a like space to use the tech word
+that's a like space to use the tech word where big local news is looking to kind
+where big local news is looking to kind
+where big local news is looking to kind of enter and see if we can we can come
+of enter and see if we can we can come
+of enter and see if we can we can come up with something that's a little
+up with something that's a little
+up with something that's a little sturdier and so we have two open source
+sturdier and so we have two open source
+sturdier and so we have two open source repositories
+repositories
+repositories you can find on the big local news site
+you can find on the big local news site
+you can find on the big local news site one is called civic scraper and the
+one is called civic scraper and the
+one is called civic scraper and the other is called uh court scraper let me
+other is called uh court scraper let me
+other is called uh court scraper let me call that up real quick and they're you
+call that up real quick and they're you
+call that up real quick and they're you know just free and open python
+know just free and open python
+know just free and open python libraries like you've seen before that
+libraries like you've seen before that
+libraries like you've seen before that have kind of class-based systems
+have kind of class-based systems
+have kind of class-based systems for
+for
+for um scraping kind of the major
+um scraping kind of the major
+um scraping kind of the major platforms or vendors that serve hundreds
+platforms or vendors that serve hundreds
+platforms or vendors that serve hundreds of local governments across the country
+of local governments across the country
+of local governments across the country so there's really five or six companies
+so there's really five or six companies
+so there's really five or six companies that create kind of products they sell
+that create kind of products they sell
+that create kind of products they sell to local governments to do court records
+to local governments to do court records
+to local governments to do court records or to do city council records and if you
+or to do city council records and if you
+or to do city council records and if you can write a scraper
+can write a scraper
+can write a scraper that extracts the data
+that extracts the data
+that extracts the data from those vendors sites you get a lot
+from those vendors sites you get a lot
+from those vendors sites you get a lot of bang for your buck you know there's
+of bang for your buck you know there's
+of bang for your buck you know there's one vendor called civic plus
+one vendor called civic plus
+one vendor called civic plus uh who you can find inside this
+uh who you can find inside this
+uh who you can find inside this repository and if you scrape all the
+repository and if you scrape all the
+repository and if you scrape all the civic plus websites or all the granicus
+civic plus websites or all the granicus
+civic plus websites or all the granicus websites that's another one you're
+websites that's another one you're
+websites that's another one you're you're suddenly gathering
+you're suddenly gathering
+you're suddenly gathering city council records or capable of
+city council records or capable of
+city council records or capable of gathering city council records from
+gathering city council records from
+gathering city council records from literally hundreds of governments across
+literally hundreds of governments across
+literally hundreds of governments across the country and so our goal is to to try
+the country and so our goal is to to try
+the country and so our goal is to to try to get as much bang for the buck as
+to get as much bang for the buck as
+to get as much bang for the buck as possible to write scrapers that really
+possible to write scrapers that really
+possible to write scrapers that really target the large vendors that serve lots
+target the large vendors that serve lots
+target the large vendors that serve lots of areas and then to run
+of areas and then to run
+of areas and then to run spiders that then
+spiders that then
+spiders that then jump across as many local venues as
+jump across as many local venues as
+jump across as many local venues as possible and try to build one big
+possible and try to build one big
+possible and try to build one big national database of
+national database of
+national database of city council agendas and county court
+city council agendas and county court
+city council agendas and county court decisions
+decisions
+decisions and so
+and so
+and so we're at a stage of these projects where
+we're at a stage of these projects where
+we're at a stage of these projects where we've got kind of the draft python
+we've got kind of the draft python
+we've got kind of the draft python applications we've got some of these
+applications we've got some of these
+applications we've got some of these scrapers ready to go but now we actually
+scrapers ready to go but now we actually
+scrapers ready to go but now we actually need to run the damn things right and
+need to run the damn things right and
+need to run the damn things right and github actions is great but if you're
+github actions is great but if you're
+github actions is great but if you're going to scrape
+going to scrape
+going to scrape 500 county court websites or whatever it
+500 county court websites or whatever it
+500 county court websites or whatever it ends up being and each one of those
+ends up being and each one of those
+ends up being and each one of those scrapers is going to take a really
+scrapers is going to take a really
+scrapers is going to take a really extended amount of time
+extended amount of time
+extended amount of time and if they're going to need to store
+and if they're going to need to store
+and if they're going to need to store data a lot of data in a pretty big data
+data a lot of data in a pretty big data
+data a lot of data in a pretty big data pool somewhere you know then that kind
+pool somewhere you know then that kind
+pool somewhere you know then that kind of free tool you're using on github
+of free tool you're using on github
+of free tool you're using on github actions doesn't look so great anymore
+actions doesn't look so great anymore
+actions doesn't look so great anymore right and you really need to find a way
+right and you really need to find a way
+right and you really need to find a way to scale up and i'll be honest with you
+to scale up and i'll be honest with you
+to scale up and i'll be honest with you within the sort of like hacker world of
+within the sort of like hacker world of
+within the sort of like hacker world of journalism where there isn't a lot of
+journalism where there isn't a lot of
+journalism where there isn't a lot of money to be made
+money to be made
+money to be made and we're all kind of like people like
+and we're all kind of like people like
+and we're all kind of like people like me people who went to journalism school
+me people who went to journalism school
+me people who went to journalism school and are like faker coders
+and are like faker coders
+and are like faker coders you know there really hasn't this
+you know there really hasn't this
+you know there really hasn't this problem like really hasn't been solved
+problem like really hasn't been solved
+problem like really hasn't been solved within our little like niche and so
+within our little like niche and so
+within our little like niche and so this is part of where we're getting
+this is part of where we're getting
+this is part of where we're getting stanford behind it we're trying out a
+stanford behind it we're trying out a
+stanford behind it we're trying out a tool like prefect our goal is to kind of
+tool like prefect our goal is to kind of
+tool like prefect our goal is to kind of go a little further than you than the
+go a little further than you than the
+go a little further than you than the news organizations have really gone
+news organizations have really gone
+news organizations have really gone before i suspect some of these problems
+before i suspect some of these problems
+before i suspect some of these problems might seem small to people who work at
+might seem small to people who work at
+might seem small to people who work at big tech but they're
+big tech but they're
+big tech but they're you know we're trying to get over a
+you know we're trying to get over a
+you know we're trying to get over a pretty big hump for journalism to try to
+pretty big hump for journalism to try to
+pretty big hump for journalism to try to step it up to another level and so
+step it up to another level and so
+step it up to another level and so what i've been working on the last
+what i've been working on the last
+what i've been working on the last couple months isn't really these
+couple months isn't really these
+couple months isn't really these scrapers it's the prefect integration
+scrapers it's the prefect integration
+scrapers it's the prefect integration and so
+and so
+and so um you can see here here's here this is
+um you can see here here's here this is
+um you can see here here's here this is the private repository now and so this
+the private repository now and so this
+the private repository now and so this is a private repository called the civic
+is a private repository called the civic
+is a private repository called the civic prefect flow
+prefect flow
+prefect flow and this is my kind of current effort to
+and this is my kind of current effort to
+and this is my kind of current effort to take that open source civic scraper code
+take that open source civic scraper code
+take that open source civic scraper code we were just looking at from pi pi and
+we were just looking at from pi pi and
+we were just looking at from pi pi and the open source world of python and
+the open source world of python and
+the open source world of python and install it so that it's ready to be
+install it so that it's ready to be
+install it so that it's ready to be plugged into a kubernetes cluster
+plugged into a kubernetes cluster
+plugged into a kubernetes cluster running in google cloud
+running in google cloud
+running in google cloud a sort of whole prefect kit so that
+a sort of whole prefect kit so that
+a sort of whole prefect kit so that we'll be able to schedule tasks that
+we'll be able to schedule tasks that
+we'll be able to schedule tasks that will run across hundreds or maybe even
+will run across hundreds or maybe even
+will run across hundreds or maybe even thousands of sites before we're done and
+thousands of sites before we're done and
+thousands of sites before we're done and so
+so
+so this is um
+this is um
+this is um this is you know pretty basic prefix
+this is you know pretty basic prefix
+this is you know pretty basic prefix stuff but you can see that it's based on
+stuff but you can see that it's based on
+stuff but you can see that it's based on a github template which is also open
+a github template which is also open
+a github template which is also open source so we've created an open source
+source so we've created an open source
+source so we've created an open source template called prefect flow template
+template called prefect flow template
+template called prefect flow template which is kind of my the current like
+which is kind of my the current like
+which is kind of my the current like best knowledge that i've been able to
+best knowledge that i've been able to
+best knowledge that i've been able to assemble for myself personally by
+assemble for myself personally by
+assemble for myself personally by bugging chris and his colleagues at
+bugging chris and his colleagues at
+bugging chris and his colleagues at slack by doing a lot of hacking
+slack by doing a lot of hacking
+slack by doing a lot of hacking uh on my own time at work is this is
+uh on my own time at work is this is
+uh on my own time at work is this is kind of the bare bones for how you would
+kind of the bare bones for how you would
+kind of the bare bones for how you would take a prefect flow and plug it into
+take a prefect flow and plug it into
+take a prefect flow and plug it into kubernetes and um
+kubernetes and um
+kubernetes and um and google google cloud and so you can
+and google google cloud and so you can
+and google google cloud and so you can see it here some pretty basic like hacks
+see it here some pretty basic like hacks
+see it here some pretty basic like hacks i've come up with for managing
+i've come up with for managing
+i've come up with for managing development versus production
+development versus production
+development versus production environments
+environments
+environments where the code itself is going to be
+where the code itself is going to be
+where the code itself is going to be stuffed up into docker inside the google
+stuffed up into docker inside the google
+stuffed up into docker inside the google artifact registry
+artifact registry
+artifact registry and
+and
+and the uh run is going to be done by a
+the uh run is going to be done by a
+the uh run is going to be done by a kubernetes agent the size of which is
+kubernetes agent the size of which is
+kubernetes agent the size of which is kind of dictated by some of this config
+kind of dictated by some of this config
+kind of dictated by some of this config here
+here
+here and this code
+and this code
+and this code is pretty much ready to go for anyone
+is pretty much ready to go for anyone
+is pretty much ready to go for anyone who would want to experiment with it or
+who would want to experiment with it or
+who would want to experiment with it or try to use it
+try to use it
+try to use it besides just kind of figuring out how to
+besides just kind of figuring out how to
+besides just kind of figuring out how to manage the toggle between the two
+manage the toggle between the two
+manage the toggle between the two environments i'm pretty proud of what
+environments i'm pretty proud of what
+environments i'm pretty proud of what we've been able to do here with uh
+we've been able to do here with uh
+we've been able to do here with uh github actions integration where we have
+github actions integration where we have
+github actions integration where we have a workflow that's included with this
+a workflow that's included with this
+a workflow that's included with this that has kind of a continuous deployment
+that has kind of a continuous deployment
+that has kind of a continuous deployment so that every time you you've ever done
+so that every time you you've ever done
+so that every time you you've ever done a github release every time you do a
+a github release every time you do a
+a github release every time you do a release on github or you kick out a new
+release on github or you kick out a new
+release on github or you kick out a new version this will actually trigger a
+version this will actually trigger a
+version this will actually trigger a deployment into google cloud
+deployment into google cloud
+deployment into google cloud um automatically
+um automatically
+um automatically where um
+where um
+where um the docker in image with the code that's
+the docker in image with the code that's
+the docker in image with the code that's going to be run will be re-uploaded and
+going to be run will be re-uploaded and
+going to be run will be re-uploaded and versioned
+versioned
+versioned into google artifact registry and the
+into google artifact registry and the
+into google artifact registry and the prefect flow will be re-registered with
+prefect flow will be re-registered with
+prefect flow will be re-registered with our prefect account kind of
+our prefect account kind of
+our prefect account kind of automatically and so just through a
+automatically and so just through a
+automatically and so just through a little bit of kind of configuration of
+little bit of kind of configuration of
+little bit of kind of configuration of some of these goofy tools you can make
+some of these goofy tools you can make
+some of these goofy tools you can make it so that you're able to push out
+it so that you're able to push out
+it so that you're able to push out new iterations of
+new iterations of
+new iterations of the kind of flow um without it being a
+the kind of flow um without it being a
+the kind of flow um without it being a big
+big
+big goddamn hassle to like
+goddamn hassle to like
+goddamn hassle to like shove shove the vcr tape into the google
+shove shove the vcr tape into the google
+shove shove the vcr tape into the google um you know vcr
+um you know vcr
+um you know vcr and so that all kind of ends up inside a
+and so that all kind of ends up inside a
+and so that all kind of ends up inside a kubernetes cluster which you can see
+kubernetes cluster which you can see
+kubernetes cluster which you can see here where right now the only thing
+here where right now the only thing
+here where right now the only thing running is currently our prefect agent
+running is currently our prefect agent
+running is currently our prefect agent which is sort of you know the all was on
+which is sort of you know the all was on
+which is sort of you know the all was on watcher that's waiting to be told to do
+watcher that's waiting to be told to do
+watcher that's waiting to be told to do something
+something
+something and uh that's configured through a
+and uh that's configured through a
+and uh that's configured through a separate private repository by the way
+separate private repository by the way
+separate private repository by the way which if people are interested in how to
+which if people are interested in how to
+which if people are interested in how to do a prefect agent which is a little
+do a prefect agent which is a little
+do a prefect agent which is a little different from doing a prefect flow and
+different from doing a prefect flow and
+different from doing a prefect flow and it's kind of part of learning how to how
+it's kind of part of learning how to how
+it's kind of part of learning how to how to uh learning how to dougie within this
+to uh learning how to dougie within this
+to uh learning how to dougie within this kind of system we've got a private um
+kind of system we've got a private um
+kind of system we've got a private um repo there i'd be happy to share some of
+repo there i'd be happy to share some of
+repo there i'd be happy to share some of the stuff i've learned on and we
+the stuff i've learned on and we
+the stuff i've learned on and we actually did a post on our blog
+actually did a post on our blog
+actually did a post on our blog which walks through all the steps on how
+which walks through all the steps on how
+which walks through all the steps on how to deploy your prefect agent to google
+to deploy your prefect agent to google
+to deploy your prefect agent to google kubernetes engine
+kubernetes engine
+kubernetes engine um which is just a lot of really
+um which is just a lot of really
+um which is just a lot of really annoying g cloud commands um which i'd
+annoying g cloud commands um which i'd
+annoying g cloud commands um which i'd be happy to talk about but i don't want
+be happy to talk about but i don't want
+be happy to talk about but i don't want to bore you but the result is is that
+to bore you but the result is is that
+to bore you but the result is is that when the prefix scheduled task is
+when the prefix scheduled task is
+when the prefix scheduled task is kickstarted within prefect it's able the
+kickstarted within prefect it's able the
+kickstarted within prefect it's able the agent will pick it up and then we'll
+agent will pick it up and then we'll
+agent will pick it up and then we'll just create workers here
+just create workers here
+just create workers here as dictated in the flow
+as dictated in the flow
+as dictated in the flow uh and they'll do the thing and keep
+uh and they'll do the thing and keep
+uh and they'll do the thing and keep moving and so
+moving and so
+moving and so we're at a stage now where we've kind of
+we're at a stage now where we've kind of
+we're at a stage now where we've kind of like learned enough prefect to get all
+like learned enough prefect to get all
+like learned enough prefect to get all the kind of ducks in a row and the
+the kind of ducks in a row and the
+the kind of ducks in a row and the pieces in place and over the next few
+pieces in place and over the next few
+pieces in place and over the next few weeks we're going to look to really
+weeks we're going to look to really
+weeks we're going to look to really start slotting in the scraper and
+start slotting in the scraper and
+start slotting in the scraper and scaling up how much data we're gathering
+scaling up how much data we're gathering
+scaling up how much data we're gathering that's something that's that's still
+that's something that's that's still
+that's something that's that's still actually ahead of us but my hope is is
+actually ahead of us but my hope is is
+actually ahead of us but my hope is is that by the end of this month we'll
+that by the end of this month we'll
+that by the end of this month we'll really be skate we'll be running one of
+really be skate we'll be running one of
+really be skate we'll be running one of the biggest scrapers in journalism i
+the biggest scrapers in journalism i
+the biggest scrapers in journalism i think by the end of the month which is
+think by the end of the month which is
+think by the end of the month which is pretty exciting then we got to figure
+pretty exciting then we got to figure
+pretty exciting then we got to figure out what we're going to do with all that
+out what we're going to do with all that
+out what we're going to do with all that data which is a whole other challenge of
+data which is a whole other challenge of
+data which is a whole other challenge of analysis and
+data science but that's a separate kind
+data science but that's a separate kind
+data science but that's a separate kind of question entirely i suppose that's
+of question entirely i suppose that's
+of question entirely i suppose that's awesome it's really funny i think two
+awesome it's really funny i think two
+awesome it's really funny i think two weeks in a row we've had community
+weeks in a row we've had community
+weeks in a row we've had community members on predict live in two weeks in
+members on predict live in two weeks in
+members on predict live in two weeks in a row it's been the same pattern of
+a row it's been the same pattern of
+a row it's been the same pattern of deploying a docker agent via github
+deploying a docker agent via github
+deploying a docker agent via github actions um or so it's it's it's
+actions um or so it's it's it's
+actions um or so it's it's it's interesting to see you're doing it in
+interesting to see you're doing it in
+interesting to see you're doing it in google cloud i think that henning who
+google cloud i think that henning who
+google cloud i think that henning who was on last week was doing a picture but
+was on last week was doing a picture but
+was on last week was doing a picture but it's an interesting pattern that that
+it's an interesting pattern that that
+it's an interesting pattern that that we're seeing out there and i think will
+we're seeing out there and i think will
+we're seeing out there and i think will be really really helpful um if other
+be really really helpful um if other
+be really really helpful um if other people were to see it so i will
+people were to see it so i will
+people were to see it so i will highlight this blog post when we when we
+highlight this blog post when we when we
+highlight this blog post when we when we post it on youtube too
+post it on youtube too
+post it on youtube too the trick is really getting into this
+the trick is really getting into this
+the trick is really getting into this thing called the google artifact
+thing called the google artifact
+thing called the google artifact registry which is really like their
+registry which is really like their
+registry which is really like their private version of pi pi in some ways
+private version of pi pi in some ways
+private version of pi pi in some ways right it's a place where you can like
+right it's a place where you can like
+right it's a place where you can like ship private python packages private
+ship private python packages private
+ship private python packages private docker images
+docker images
+docker images and then um version them so they can
+and then um version them so they can
+and then um version them so they can kind of get kicked out so here's the
+kind of get kicked out so here's the
+kind of get kicked out so here's the docker image for our agent and here's
+docker image for our agent and here's
+docker image for our agent and here's the docker image for that prefect flow
+the docker image for that prefect flow
+the docker image for that prefect flow and every time we do a github release it
+and every time we do a github release it
+and every time we do a github release it just stuffs another version of it kind
+just stuffs another version of it kind
+just stuffs another version of it kind of in here right
+of in here right
+of in here right um so you can see this one's been
+um so you can see this one's been
+um so you can see this one's been versioned a few times and
+versioned a few times and
+versioned a few times and um and so like learning that is kind of
+um and so like learning that is kind of
+um and so like learning that is kind of the trick uh on the google cloud side
+the trick uh on the google cloud side
+the trick uh on the google cloud side and then the github action side we have
+and then the github action side we have
+and then the github action side we have another post that kind of shows this too
+another post that kind of shows this too
+another post that kind of shows this too which is um
+which is um
+which is um how to push tagged release to google
+how to push tagged release to google
+how to push tagged release to google artifact registry with github action
+artifact registry with github action
+artifact registry with github action this really gets at the challenge of
+this really gets at the challenge of
+this really gets at the challenge of integration with github which is not
+integration with github which is not
+integration with github which is not especially hard but it requires you to
+especially hard but it requires you to
+especially hard but it requires you to create you create this thing called a
+create you create this thing called a
+create you create this thing called a service worker or a workload identity
+service worker or a workload identity
+service worker or a workload identity federation which is really just a bunch
+federation which is really just a bunch
+federation which is really just a bunch of gobbledygook for like how do you
+of gobbledygook for like how do you
+of gobbledygook for like how do you create a special user that github is
+create a special user that github is
+create a special user that github is allowed to use to muck around with your
+allowed to use to muck around with your
+allowed to use to muck around with your google cloud right
+google cloud right
+google cloud right but like just like creating the user for
+but like just like creating the user for
+but like just like creating the user for the action to talk to google cloud
+the action to talk to google cloud
+the action to talk to google cloud requires like six or seven like crazy g
+requires like six or seven like crazy g
+requires like six or seven like crazy g cloud commands and like permissions and
+cloud commands and like permissions and
+cloud commands and like permissions and so the first time you do it it's kind of
+so the first time you do it it's kind of
+so the first time you do it it's kind of wild and crazy but once you once you're
+wild and crazy but once you once you're
+wild and crazy but once you once you're done with it it's pretty simple to just
+done with it it's pretty simple to just
+done with it it's pretty simple to just like plug it in
+like plug it in
+like plug it in you you have a talent for synthesizing
+you you have a talent for synthesizing
+you you have a talent for synthesizing things in a really i think
+things in a really i think
+things in a really i think interesting way and i i would agree with
+interesting way and i i would agree with
+interesting way and i i would agree with you it is just a bunch of gobbledygook
+you it is just a bunch of gobbledygook
+you it is just a bunch of gobbledygook in order to to create a essential oh my
+in order to to create a essential oh my
+in order to to create a essential oh my god a workload identity pool versus like
+god a workload identity pool versus like
+god a workload identity pool versus like a workload identity provider like you
+a workload identity provider like you
+a workload identity provider like you know come on yeah
+know come on yeah
+know come on yeah um so we you and i were talking before
+um so we you and i were talking before
+um so we you and i were talking before we went live a little bit about your
+we went live a little bit about your
+we went live a little bit about your experience we started started with
+experience we started started with
+experience we started started with prefect 2 and i think that a lot of a
+prefect 2 and i think that a lot of a
+prefect 2 and i think that a lot of a lot of users
+lot of users
+lot of users experienced maybe some of the same
+experienced maybe some of the same
+experienced maybe some of the same challenges you may have if you i'd love
+challenges you may have if you i'd love
+challenges you may have if you i'd love for you to talk about those a little bit
+for you to talk about those a little bit
+for you to talk about those a little bit briefly and then maybe we can help to
+briefly and then maybe we can help to
+briefly and then maybe we can help to push you yeah in the right direction and
+push you yeah in the right direction and
+push you yeah in the right direction and then secondly if you have any any
+then secondly if you have any any
+then secondly if you have any any thoughts or experience on prefect 2
+thoughts or experience on prefect 2
+thoughts or experience on prefect 2 which is or orion yeah i mean so i'm a
+which is or orion yeah i mean so i'm a
+which is or orion yeah i mean so i'm a python guy i've been doing python for 15
+python guy i've been doing python for 15
+python guy i've been doing python for 15 years or whatever i wouldn't say i'm an
+years or whatever i wouldn't say i'm an
+years or whatever i wouldn't say i'm an expert i'm more of like a journalist
+expert i'm more of like a journalist
+expert i'm more of like a journalist hacker type but i'm comfortable with
+hacker type but i'm comfortable with
+hacker type but i'm comfortable with python it's what i like
+python it's what i like
+python it's what i like i have opinions about it you know what i
+i have opinions about it you know what i
+i have opinions about it you know what i mean i've gotten to that stage but like
+mean i've gotten to that stage but like
+mean i've gotten to that stage but like um and so prefect i think is a really
+um and so prefect i think is a really
+um and so prefect i think is a really great thing for a python person to get
+great thing for a python person to get
+great thing for a python person to get started because it's really
+started because it's really
+started because it's really well put together python code i think
+well put together python code i think
+well put together python code i think anyone who's a veteran at it will kind
+anyone who's a veteran at it will kind
+anyone who's a veteran at it will kind of recognize that pretty quickly they
+of recognize that pretty quickly they
+of recognize that pretty quickly they have a lot of really good examples of
+have a lot of really good examples of
+have a lot of really good examples of how they made flows happen to me the
+how they made flows happen to me the
+how they made flows happen to me the real challenge wasn't the prefect code
+real challenge wasn't the prefect code
+real challenge wasn't the prefect code or the python which i thought came
+or the python which i thought came
+or the python which i thought came pretty quick to me the challenge was
+pretty quick to me the challenge was
+pretty quick to me the challenge was figuring out how to integrate it with
+figuring out how to integrate it with
+figuring out how to integrate it with google cloud and my hosting provider
+google cloud and my hosting provider
+google cloud and my hosting provider right where it's like okay so i've got
+right where it's like okay so i've got
+right where it's like okay so i've got this flow
+this flow
+this flow like how do i get it up somewhere so
+like how do i get it up somewhere so
+like how do i get it up somewhere so it's like running and like what exactly
+it's like running and like what exactly
+it's like running and like what exactly is an agent as opposed to my flow and
+is an agent as opposed to my flow and
+is an agent as opposed to my flow and how do i make all those kind of things
+how do i make all those kind of things
+how do i make all those kind of things like run within the provider
+like run within the provider
+like run within the provider was really the challenge and the way i
+was really the challenge and the way i
+was really the challenge and the way i got there was just like through you know
+got there was just like through you know
+got there was just like through you know embarrassing questions and kind of
+embarrassing questions and kind of
+embarrassing questions and kind of stumbling my way in the prefect slack so
+stumbling my way in the prefect slack so
+stumbling my way in the prefect slack so i really wouldn't i mean it worked great
+i really wouldn't i mean it worked great
+i really wouldn't i mean it worked great for me i would really say anyone who's
+for me i would really say anyone who's
+for me i would really say anyone who's getting started get into the prefect
+getting started get into the prefect
+getting started get into the prefect slack and just like just ask the
+slack and just like just ask the
+slack and just like just ask the questions like how do i do this
+questions like how do i do this
+questions like how do i do this and you know you might be that you know
+and you know you might be that you know
+and you know you might be that you know it could be that you're the first person
+it could be that you're the first person
+it could be that you're the first person to ask this or that but you probably
+to ask this or that but you probably
+to ask this or that but you probably aren't and the folks in there can kind
+aren't and the folks in there can kind
+aren't and the folks in there can kind of point you to some other resources
+of point you to some other resources
+of point you to some other resources that's a big reason i wrote these blog
+that's a big reason i wrote these blog
+that's a big reason i wrote these blog posts as well myself and put together
+posts as well myself and put together
+posts as well myself and put together the open source flow template is one i
+the open source flow template is one i
+the open source flow template is one i want our team and other people on my
+want our team and other people on my
+want our team and other people on my team to be able to learn this because
+team to be able to learn this because
+team to be able to learn this because i'm like our kind of explorer on this
+i'm like our kind of explorer on this
+i'm like our kind of explorer on this but i also just want to make it so other
+but i also just want to make it so other
+but i also just want to make it so other folks can pick up the tech without it
+folks can pick up the tech without it
+folks can pick up the tech without it being a big hassle too absolutely
+being a big hassle too absolutely
+being a big hassle too absolutely have you you thought have you read about
+have you you thought have you read about
+have you you thought have you read about 2.0 at all or have you thought about i
+2.0 at all or have you thought about i
+2.0 at all or have you thought about i know it's like a thing and it's it's
+know it's like a thing and it's it's
+know it's like a thing and it's it's it's pitched to be better but i to be
+it's pitched to be better but i to be
+it's pitched to be better but i to be honest with you i haven't even looked at
+honest with you i haven't even looked at
+honest with you i haven't even looked at it yep yet no worries um and then
+it yep yet no worries um and then
+it yep yet no worries um and then scaling is one thing i wanted to touch
+scaling is one thing i wanted to touch
+scaling is one thing i wanted to touch on too that we did talk about earlier a
+on too that we did talk about earlier a
+on too that we did talk about earlier a little bit i know you probably really
+little bit i know you probably really
+little bit i know you probably really have no like no idea what like what the
+have no like no idea what like what the
+have no like no idea what like what the core usage will be right but um how much
+core usage will be right but um how much
+core usage will be right but um how much how much data are you looking to scrape
+how much data are you looking to scrape
+how much data are you looking to scrape broadly if you can say that maybe number
+broadly if you can say that maybe number
+broadly if you can say that maybe number of pages yeah i mean we haven't really
+of pages yeah i mean we haven't really
+of pages yeah i mean we haven't really done the estimate which we should
+done the estimate which we should
+done the estimate which we should you know um but i think it's gonna be
+you know um but i think it's gonna be
+you know um but i think it's gonna be millions of artifacts you know what i
+millions of artifacts you know what i
+millions of artifacts you know what i mean it's gonna be
+mean it's gonna be
+mean it's gonna be because if you think about it like
+because if you think about it like
+because if you think about it like you know if you go through the major
+you know if you go through the major
+you know if you go through the major courthouses in the state of california
+courthouses in the state of california
+courthouses in the state of california you know the five or ten biggest
+you know the five or ten biggest
+you know the five or ten biggest counties are doing tens of thousands of
+counties are doing tens of thousands of
+counties are doing tens of thousands of cases every year you know in their local
+cases every year you know in their local
+cases every year you know in their local county courthouses and then every one of
+county courthouses and then every one of
+county courthouses and then every one of those cases may have multiple records
+those cases may have multiple records
+those cases may have multiple records depending on how the website's set up
+depending on how the website's set up
+depending on how the website's set up and so i think that stuff's going to
+and so i think that stuff's going to
+and so i think that stuff's going to multiply pretty quickly so i think we'll
+multiply pretty quickly so i think we'll
+multiply pretty quickly so i think we'll probably end up in the millions or tens
+probably end up in the millions or tens
+probably end up in the millions or tens of millions of records
+of millions of records
+of millions of records without much trouble without before we
+without much trouble without before we
+without much trouble without before we get too far
+get too far
+get too far you know um so i think it's it's going
+you know um so i think it's it's going
+you know um so i think it's it's going to be in that ballpark which for
+to be in that ballpark which for
+to be in that ballpark which for journalism is big you know
+journalism is big you know
+journalism is big you know yeah and we i mean we're really
+yeah and we i mean we're really
+yeah and we i mean we're really interested to follow the
+interested to follow the
+interested to follow the failing story and i think it'll be
+failing story and i think it'll be
+failing story and i think it'll be really really cool to i mean you have to
+really really cool to i mean you have to
+really really cool to i mean you have to have you back on here at least to see uh
+have you back on here at least to see uh
+have you back on here at least to see uh how fast how much you've scaled and how
+how fast how much you've scaled and how
+how fast how much you've scaled and how totally yeah and i think because there's
+totally yeah and i think because there's
+totally yeah and i think because there's going to be two things to it there's the
+going to be two things to it there's the
+going to be two things to it there's the workers to just go get it but then
+workers to just go get it but then
+workers to just go get it but then there's just like the static files which
+there's just like the static files which
+there's just like the static files which is like where do we stick them and then
+is like where do we stick them and then
+is like where do we stick them and then how do we do anything with them
+how do we do anything with them
+how do we do anything with them efficiently this is one thing that you
+efficiently this is one thing that you
+efficiently this is one thing that you know you know some of my good friends
+know you know some of my good friends
+know you know some of my good friends work on
+work on
+work on the panama papers or the pandora papers
+the panama papers or the pandora papers
+the panama papers or the pandora papers which are projects i bet people on
+which are projects i bet people on
+which are projects i bet people on you've heard about which are these huge
+you've heard about which are these huge
+you've heard about which are these huge leaks from central american law firms
+leaks from central american law firms
+leaks from central american law firms um
+um
+um that you know that hold offshore
+that you know that hold offshore
+that you know that hold offshore accounts for the world's wealthy and
+accounts for the world's wealthy and
+accounts for the world's wealthy and they have to deal with you know millions
+they have to deal with you know millions
+they have to deal with you know millions of pdfs and records for their stories
+of pdfs and records for their stories
+of pdfs and records for their stories and they find
+and they find
+and they find that um it's so costly to run like a
+that um it's so costly to run like a
+that um it's so costly to run like a data science operation across the entire
+data science operation across the entire
+data science operation across the entire set that they tend not just to do it you
+set that they tend not just to do it you
+set that they tend not just to do it you know there's a way in which i think
+know there's a way in which i think
+know there's a way in which i think there's a lot of potential
+there's a lot of potential
+there's a lot of potential to take what people have you know
+to take what people have you know
+to take what people have you know developed in machine learning and and ai
+developed in machine learning and and ai
+developed in machine learning and and ai techniques to
+techniques to
+techniques to to try to to bring more out of these
+to try to to bring more out of these
+to try to to bring more out of these like data sets that have a high public
+like data sets that have a high public
+like data sets that have a high public interest value but the cost is is really
+interest value but the cost is is really
+interest value but the cost is is really sometimes an issue and then you know
+sometimes an issue and then you know
+sometimes an issue and then you know even though we are hackers and coders
+even though we are hackers and coders
+even though we are hackers and coders you know we're not ai specialists right
+you know we're not ai specialists right
+you know we're not ai specialists right you know and so
+you know and so
+you know and so knowing the right thing to do is often
+knowing the right thing to do is often
+knowing the right thing to do is often kind of a trick absolutely so if if
+kind of a trick absolutely so if if
+kind of a trick absolutely so if if people want to know how to support you
+people want to know how to support you
+people want to know how to support you or big local news how can they do so
+or big local news how can they do so
+or big local news how can they do so well i mean we got all this code that's
+well i mean we got all this code that's
+well i mean we got all this code that's open source you know the warren project
+open source you know the warren project
+open source you know the warren project i just talked about briefly has more
+i just talked about briefly has more
+i just talked about briefly has more than a dozen outside contributors and so
+than a dozen outside contributors and so
+than a dozen outside contributors and so if you're interested in writing a web
+if you're interested in writing a web
+if you're interested in writing a web scraper that's part of one of our
+scraper that's part of one of our
+scraper that's part of one of our projects or just getting involved and
+projects or just getting involved and
+projects or just getting involved and improving some of our open source code
+improving some of our open source code
+improving some of our open source code there's a lot of opportunities on the
+there's a lot of opportunities on the
+there's a lot of opportunities on the github page just to jump in and grab a
+github page just to jump in and grab a
+github page just to jump in and grab a ticket and do it um also like you can
+ticket and do it um also like you can
+ticket and do it um also like you can always just reach out to me and i'd be
+always just reach out to me and i'd be
+always just reach out to me and i'd be happy to plug in this way or that way um
+happy to plug in this way or that way um
+happy to plug in this way or that way um in terms of some of our more the bigger
+in terms of some of our more the bigger
+in terms of some of our more the bigger projects that i was talking about if
+projects that i was talking about if
+projects that i was talking about if people want to are interested more in
+people want to are interested more in
+people want to are interested more in the big think of it or how we go about
+the big think of it or how we go about
+the big think of it or how we go about the bigger issues just go ahead and
+the bigger issues just go ahead and
+the bigger issues just go ahead and reach out you know i know that there's a
+reach out you know i know that there's a
+reach out you know i know that there's a lot of interest in the tech world and
+lot of interest in the tech world and
+lot of interest in the tech world and police accountability and some of these
+police accountability and some of these
+police accountability and some of these other stories and you know your talent
+other stories and you know your talent
+other stories and you know your talent and your knowledge is something that we
+and your knowledge is something that we
+and your knowledge is something that we could probably learn from so would be
+could probably learn from so would be
+could probably learn from so would be happy to really talk with anybody
+happy to really talk with anybody
+happy to really talk with anybody awesome
+awesome
+awesome then unless you have anything else you
+then unless you have anything else you
+then unless you have anything else you want to share i really really appreciate
+want to share i really really appreciate
+want to share i really really appreciate you coming on uh prefix live and
+you coming on uh prefix live and
+you coming on uh prefix live and anything else for for the crew out there
+anything else for for the crew out there
+anything else for for the crew out there no i mean thanks for having me um thanks
+no i mean thanks for having me um thanks
+no i mean thanks for having me um thanks for creating kind of a positive
+for creating kind of a positive
+for creating kind of a positive community thanks for putting up with my
+community thanks for putting up with my
+community thanks for putting up with my coughing i had i had a non-covered flu
+coughing i had i had a non-covered flu
+coughing i had i had a non-covered flu last week which i think i'm mostly over
+last week which i think i'm mostly over
+last week which i think i'm mostly over but i'm not quite there yet absolutely
+but i'm not quite there yet absolutely
+but i'm not quite there yet absolutely well thanks for being a part of the
+well thanks for being a part of the
+well thanks for being a part of the community and i think you
+community and i think you
+community and i think you along with everyone else but you have
+along with everyone else but you have
+along with everyone else but you have helped to contribute to that positive
+helped to contribute to that positive
+helped to contribute to that positive community so that's that's you for sure
+community so that's that's you for sure
+community so that's that's you for sure too so thanks everyone for watching um
+too so thanks everyone for watching um
+too so thanks everyone for watching um and we'll see you soon see you ben
+and we'll see you soon see you ben
+and we'll see you soon see you ben thank you

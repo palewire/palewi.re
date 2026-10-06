@@ -1,5 +1,5 @@
 ---
-title: 'Python Recipe: Grab page, scrape table, download file'
+title: 'Python recipe: Grab page, scrape table, download file'
 slug: python-recipe-grab-a-page-scrape-a-table-download-a-file
 published_at: '2008-04-20T13:43:13-07:00'
 wordpress_id: 107
@@ -484,4 +484,4 @@ outfile.close()</pre>
 
 
 
-<img src="http://www.palewire.com/images/oreilly_lat.gif" alt="The Reporter's Python Cookbook" border=1/>
+<img src="https://palewire.s3.amazonaws.com/img/oreilly_lat.gif" alt="The Reporter's Python Cookbook" border=1/>

@@ -1,0 +1,1681 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.640
+ [MUSIC]
+
+00:00:01.640 --> 00:00:05.120
+ >> Hello, and welcome to the Data Journalism Podcast.
+
+00:00:05.120 --> 00:00:06.460
+ I'm Scott Klein.
+
+00:00:06.460 --> 00:00:07.920
+ >> I'm Alberto Cairo.
+
+00:00:07.920 --> 00:00:09.940
+ >> And I'm Simon Rogers.
+
+00:00:09.940 --> 00:00:16.340
+ >> This week, we're joined by a returning guest, Ben Welsh from Reuters.
+
+00:00:16.340 --> 00:00:20.480
+ Ben is a long time proponent of open source and
+
+00:00:20.480 --> 00:00:23.880
+ published lots of great open source projects.
+
+00:00:23.880 --> 00:00:28.660
+ And so he and I paired up a couple of months ago to take a look at
+
+00:00:28.660 --> 00:00:35.040
+ open source activity and news and came out with a piece on the source blog from Open News.
+
+00:00:35.040 --> 00:00:39.220
+ Since then, I have been tracking open source activity in news and
+
+00:00:39.220 --> 00:00:44.160
+ I've actually launched a newsletter at openjournalism.news.
+
+00:00:44.160 --> 00:00:49.840
+ And frankly, I've been watching open source activity in news a lot since then.
+
+00:00:49.840 --> 00:00:54.280
+ And there's a lot to be happy about, a lot of encouraging activity.
+
+00:00:54.280 --> 00:00:57.280
+ A lot of really good repos coming out, a lot of good open source activity.
+
+00:00:57.280 --> 00:01:00.640
+ And I've gotten a lot of great feedback from the community on the work.
+
+00:01:00.640 --> 00:01:08.280
+ So this interview, we talk kind of much more generally about open source activity in news.
+
+00:01:08.280 --> 00:01:12.800
+ >> Amazing, and the thing about Ben is that I don't think modern data journalism
+
+00:01:12.800 --> 00:01:14.800
+ would look the same without him.
+
+00:01:14.800 --> 00:01:19.400
+ He does such incredible work around opening up data and making it more available.
+
+00:01:19.400 --> 00:01:21.720
+ And it was a real pleasure to spend time with him.
+
+00:01:21.720 --> 00:01:27.520
+ He is actually a kind of regular fixture at Nycar where we recorded this interview.
+
+00:01:27.520 --> 00:01:31.200
+ And he often does this thing like the full Nycar where he basically presents every
+
+00:01:31.200 --> 00:01:32.680
+ day constantly.
+
+00:01:32.680 --> 00:01:33.680
+ So he's a bit of powerhouse.
+
+00:01:33.680 --> 00:01:35.920
+ We were kind of lucky to have some time with him.
+
+00:01:35.920 --> 00:01:37.680
+ >> Ben is also a returning guest.
+
+00:01:37.680 --> 00:01:40.000
+ >> Yeah. >> He visited the, yeah,
+
+00:01:40.000 --> 00:01:43.440
+ the podcast more than four years ago.
+
+00:01:43.440 --> 00:01:48.600
+ So it was great to hear what he's been up to since then.
+
+00:01:48.600 --> 00:01:50.600
+ He has a new job.
+
+00:01:50.600 --> 00:01:54.520
+ And as always, I found his observations about where the industry is going,
+
+00:01:54.520 --> 00:01:56.400
+ where we are, and where we are heading.
+
+00:01:56.400 --> 00:01:58.920
+ I think that they are spot on.
+
+00:01:58.920 --> 00:02:00.920
+ >> Okay, let's get into it.
+
+00:02:00.920 --> 00:02:10.600
+ [MUSIC]
+
+00:02:10.600 --> 00:02:13.400
+ All right, we are live from Nycar in Indianapolis.
+
+00:02:13.400 --> 00:02:17.640
+ First time ever, and we're so glad to be here with Ben Welch.
+
+00:02:17.640 --> 00:02:19.840
+ You've got a new job since we last spoke.
+
+00:02:19.840 --> 00:02:21.760
+ Tell us what you've been up to at Reuters.
+
+00:02:21.760 --> 00:02:22.860
+ >> Thank you for having me.
+
+00:02:22.860 --> 00:02:26.600
+ It's a pleasure to be back here at Nycar and talking to you guys again.
+
+00:02:26.600 --> 00:02:29.200
+ I now live in New York City, money making Manhattan,
+
+00:02:29.200 --> 00:02:32.560
+ where I walk to work every day at Three Times Square and
+
+00:02:32.560 --> 00:02:34.840
+ work at the Reuters Newsroom.
+
+00:02:34.840 --> 00:02:39.720
+ Reuters is an international news agency with more than 2,700 journalists
+
+00:02:39.720 --> 00:02:44.040
+ all around the planet, and one node in that big network is right there in New York,
+
+00:02:44.040 --> 00:02:49.160
+ where we cover markets, economics, business, and really anything else.
+
+00:02:49.160 --> 00:02:53.880
+ And I lead a small team who are working on automating data for breaking news.
+
+00:02:53.880 --> 00:02:54.960
+ >> Tell us a little bit more about that.
+
+00:02:54.960 --> 00:02:57.520
+ What does that actually entail day to day for you?
+
+00:02:57.520 --> 00:03:00.640
+ >> Sure, if you think about what's going on on Wall Street,
+
+00:03:00.640 --> 00:03:04.640
+ as the charts move up or down, there's an opportunity to cover that with data.
+
+00:03:04.640 --> 00:03:08.520
+ And a traditional approach would have been to assign somebody to go and
+
+00:03:08.520 --> 00:03:13.280
+ download a spreadsheet and reformat it and stick it into a charting tool.
+
+00:03:13.280 --> 00:03:16.640
+ And then get an editor to look at it and push it through.
+
+00:03:16.640 --> 00:03:20.480
+ And that worked great, it just wasn't necessarily the quickest thing and
+
+00:03:20.480 --> 00:03:25.120
+ can only cover so many topics at one time, your throughput was limited.
+
+00:03:25.120 --> 00:03:29.760
+ And what we really see is an opportunity for automation to really attack that type
+
+00:03:29.760 --> 00:03:34.560
+ of breaking news coverage of market moving information in a way that gives us
+
+00:03:34.560 --> 00:03:38.320
+ greater speed and scale to talk like the corporate denizen that I am.
+
+00:03:38.320 --> 00:03:43.640
+ And so if you think about it, that data that's coming out of the Korean stock
+
+00:03:43.640 --> 00:03:48.600
+ market, the oil prices, the whatever else, the futures market is updating minute by
+
+00:03:48.600 --> 00:03:53.160
+ minute and what our team has done is set up hundreds of automated pipelines that
+
+00:03:53.160 --> 00:03:56.960
+ are drawing from all these different data feeds identifying when new records are
+
+00:03:56.960 --> 00:04:01.440
+ available and automatically publishing charts that are ready to go within seconds.
+
+00:04:01.440 --> 00:04:06.920
+ And so when the oil prices ran wild on Sunday night after the attack on Iran,
+
+00:04:06.920 --> 00:04:11.000
+ we had the live chart up on the homepage within minutes before the tech story
+
+00:04:11.000 --> 00:04:13.960
+ about the increase was even ready to show that and
+
+00:04:13.960 --> 00:04:17.720
+ then it can develop live as the new numbers come in.
+
+00:04:17.720 --> 00:04:20.640
+ We're trying to take that approach to as many different topics as we can,
+
+00:04:20.640 --> 00:04:24.200
+ not just commodities and markets, but also public opinion polls.
+
+00:04:24.200 --> 00:04:28.840
+ We routinely publish one of the broadest American public opinion polls.
+
+00:04:28.840 --> 00:04:31.000
+ And by automating the charts in coverage,
+
+00:04:31.000 --> 00:04:33.080
+ we're able to just get it out quicker and faster.
+
+00:04:33.080 --> 00:04:37.840
+ So on that Sunday, we had the first public opinion poll of what Americans thought
+
+00:04:37.840 --> 00:04:41.600
+ of the attack on Iran and again, the chart was ready before the tech story
+
+00:04:41.600 --> 00:04:43.480
+ because we had it all wired up.
+
+00:04:43.480 --> 00:04:47.240
+ >> So there are two really exciting things about it, at least.
+
+00:04:47.240 --> 00:04:51.440
+ One is that you didn't create your own graphics stack,
+
+00:04:51.440 --> 00:04:54.280
+ you didn't kind of invent the entire thing.
+
+00:04:54.280 --> 00:04:57.040
+ But you're in fact wrapping it around data wrapper,
+
+00:04:57.040 --> 00:05:02.080
+ which is something that really lots and lots of newsrooms are now using.
+
+00:05:02.080 --> 00:05:06.960
+ I know the New York Times has switched back to if they're still using that code.
+
+00:05:06.960 --> 00:05:11.440
+ And it's become one of maybe two with Flourish data wrappers become one of
+
+00:05:11.440 --> 00:05:15.200
+ the two sort of main graphics engines that newsrooms are using.
+
+00:05:15.200 --> 00:05:19.240
+ Which leads me to the second thing that's exciting is that you actually also
+
+00:05:19.240 --> 00:05:22.280
+ publish these pipelines as open source code, right?
+
+00:05:22.280 --> 00:05:25.640
+ So newsrooms could adopt this and be able to, I mean,
+
+00:05:25.640 --> 00:05:29.240
+ not that many newsrooms need to be as quick as Reuters.
+
+00:05:29.240 --> 00:05:32.280
+ But newsrooms could adopt these to be useful for
+
+00:05:32.280 --> 00:05:35.000
+ their communities in different ways, right?
+
+00:05:35.000 --> 00:05:38.720
+ So one thing we released last year that has been super useful to us, and
+
+00:05:38.720 --> 00:05:43.880
+ I suspect will be to others, is a Python library that kind of acts as a wrapper or
+
+00:05:43.880 --> 00:05:47.200
+ a helper for automatically making charts with data wrapper.
+
+00:05:47.200 --> 00:05:50.120
+ So most of us encounter data wrapper in our browser as a point and
+
+00:05:50.120 --> 00:05:54.600
+ click interface where with relative ease you can make a really great chart, right?
+
+00:05:54.600 --> 00:05:57.880
+ But it also has an API that allows a computer or
+
+00:05:57.880 --> 00:06:02.040
+ a machine to make a chart by posting into that system the instructions for
+
+00:06:02.040 --> 00:06:03.240
+ how to make it.
+
+00:06:03.240 --> 00:06:06.600
+ But to do that requires a good amount of technical know how and
+
+00:06:06.600 --> 00:06:11.240
+ you kind of have to decode the kind of dozens of little options that configure,
+
+00:06:11.240 --> 00:06:14.840
+ make the bar this color, set the axis this format.
+
+00:06:14.840 --> 00:06:16.560
+ And most of that's undocumented.
+
+00:06:16.560 --> 00:06:20.840
+ So what we've done is written a Python library that fully maps out all of those
+
+00:06:20.840 --> 00:06:23.560
+ options for eight or ten of the data wrapper chart types and
+
+00:06:23.560 --> 00:06:25.560
+ fully documents how they all work.
+
+00:06:25.560 --> 00:06:29.200
+ And so now with a very small amount of Python code, you can really easily
+
+00:06:29.200 --> 00:06:32.640
+ configure and automate a line chart, a bar chart, a column chart.
+
+00:06:32.640 --> 00:06:35.280
+ And that's now open source and available for anyone.
+
+00:06:35.280 --> 00:06:39.240
+ And we also took it one step further, not to get too nerdy here,
+
+00:06:39.240 --> 00:06:41.240
+ but I feel like this might be the venue.
+
+00:06:42.240 --> 00:06:43.680
+ >> This is the venue for this.
+
+00:06:43.680 --> 00:06:49.080
+ >> Yeah, we connected that to what's now called a model context protocol server,
+
+00:06:49.080 --> 00:06:54.080
+ which is kind of an emerging standard for making a kind of pluggable system for
+
+00:06:54.080 --> 00:07:00.680
+ connecting outside data sources and tools into an AI chat bot like OpenAI or Claude.
+
+00:07:00.680 --> 00:07:03.480
+ And because of the way the Python code is written,
+
+00:07:03.480 --> 00:07:08.440
+ it's actually kind of perfectly suited to kind of connect with the chat bot.
+
+00:07:08.440 --> 00:07:11.960
+ I don't know if folks have done this, but there's an emerging standard as well for
+
+00:07:11.960 --> 00:07:16.160
+ sort of teaching the bot how to deal with different data structures.
+
+00:07:16.160 --> 00:07:20.000
+ And the system that we use to help ourselves make the chart is the same
+
+00:07:20.000 --> 00:07:24.040
+ system that the AI use, so we've released an MCP server.
+
+00:07:24.040 --> 00:07:28.880
+ It's still experimental, but it can be plugged into any chat bot.
+
+00:07:28.880 --> 00:07:31.600
+ And you can then say, hey, chat bot, here's a spreadsheet.
+
+00:07:31.600 --> 00:07:32.920
+ Could you make me a bar chart?
+
+00:07:32.920 --> 00:07:36.000
+ And boom, it'll talk to DataRapper and bring it right back.
+
+00:07:36.000 --> 00:07:37.320
+ >> That's so helpful.
+
+00:07:37.320 --> 00:07:42.520
+ I mean, the charts that AI tends to make have not been great.
+
+00:07:42.520 --> 00:07:45.640
+ Certainly nothing to the level of what DataRapper is capable of.
+
+00:07:45.640 --> 00:07:47.400
+ So that's exciting, I'm gonna try that.
+
+00:07:47.400 --> 00:07:49.760
+ >> Yeah, I just talked to the Politico crew here at the conference, and
+
+00:07:49.760 --> 00:07:53.080
+ they're installing it in their local newsroom too, which is pretty exciting.
+
+00:07:53.080 --> 00:07:55.360
+ >> This is gonna lead into what we're really here to talk about.
+
+00:07:55.360 --> 00:07:56.640
+ But why do you make Open?
+
+00:07:56.640 --> 00:07:58.240
+ Why make it available to everybody?
+
+00:07:58.240 --> 00:08:02.480
+ Why isn't it like secret, commercial, confidential information?
+
+00:08:02.480 --> 00:08:06.160
+ >> Well, I think we have a lot to benefit from making it open.
+
+00:08:06.160 --> 00:08:11.080
+ Within days of me releasing it, I received a contribution from a developer
+
+00:08:11.080 --> 00:08:15.560
+ in a newsroom in Germany who I've never met, who contributed support for
+
+00:08:15.560 --> 00:08:19.840
+ a DataRapper map and automating how to configure that that we hadn't done yet.
+
+00:08:19.840 --> 00:08:22.440
+ And so by inviting other people into the project,
+
+00:08:22.440 --> 00:08:25.160
+ we got something back out of it, right?
+
+00:08:25.160 --> 00:08:28.520
+ And so to me, there's definitely the reciprocal part of it.
+
+00:08:28.520 --> 00:08:32.980
+ For me, I think open source really demands a higher standard of coding and
+
+00:08:32.980 --> 00:08:36.040
+ quality, just even knowing it's gonna be public.
+
+00:08:36.040 --> 00:08:38.560
+ Sometimes it pressures you to make it a little better.
+
+00:08:38.560 --> 00:08:44.200
+ And I think that that's what an editor I used to have liked to call good pressure.
+
+00:08:44.200 --> 00:08:47.280
+ And so I think that it puts a little good pressure on it there.
+
+00:08:47.280 --> 00:08:52.040
+ And I just think it's also the right thing to do, not to sound too corny.
+
+00:08:52.040 --> 00:08:56.440
+ We're not releasing the stuff that really makes our system break news and
+
+00:08:56.440 --> 00:08:57.520
+ beat everybody else.
+
+00:08:57.520 --> 00:09:02.160
+ We're releasing one component of it that I think is kinda shared across the field.
+
+00:09:02.160 --> 00:09:06.240
+ And then I think I don't really see much of a downside for us in doing it.
+
+00:09:06.240 --> 00:09:11.000
+ >> So what Ben is talking about and Simon is talking about is a piece that Ben and
+
+00:09:11.000 --> 00:09:15.040
+ I published earlier this year that came out of some of the research that I've been
+
+00:09:15.040 --> 00:09:19.480
+ doing for years and Ben joined and was doing some physical analysis over the last
+
+00:09:19.480 --> 00:09:25.160
+ year that was really looking at the prevalence of open source activity
+
+00:09:25.160 --> 00:09:30.360
+ in newsrooms in America, and really kind of chasing a hunch that we had.
+
+00:09:30.360 --> 00:09:35.000
+ A sort of feeling we had that the activity has really tailed off in recent years.
+
+00:09:35.000 --> 00:09:39.120
+ And it actually turned out that I had a data set that was ready to go on this
+
+00:09:39.120 --> 00:09:44.520
+ because I had, back when X was called Twitter, I had a data set of all of
+
+00:09:44.520 --> 00:09:49.640
+ the newsrooms open source repository, their open source accounts on GitHub.
+
+00:09:49.640 --> 00:09:53.120
+ And I was chatting with Ben one day and we decided to take a look at the,
+
+00:09:53.120 --> 00:09:55.800
+ use this data set to take a look at the activity to see if it really had
+
+00:09:55.800 --> 00:09:57.000
+ tailed off.
+
+00:09:57.000 --> 00:09:59.660
+ Ben, do you wanna talk just for a second about kind of what we found and
+
+00:09:59.660 --> 00:10:00.920
+ what the piece is about?
+
+00:10:00.920 --> 00:10:05.640
+ >> Yeah, so we took Scott's list of I think about 350 news organizations on
+
+00:10:05.640 --> 00:10:10.200
+ GitHub and wrote a little Python code to go download all the repositories that
+
+00:10:10.200 --> 00:10:12.200
+ have been made by those organizations ever.
+
+00:10:12.200 --> 00:10:15.720
+ Just to kind of build a data set of all open source activity,
+
+00:10:15.720 --> 00:10:20.360
+ at least on GitHub, by this kind of very large broad set of news orgs.
+
+00:10:20.360 --> 00:10:23.520
+ And then when we started analyzing and looking at it, we found that not only
+
+00:10:23.520 --> 00:10:27.080
+ was Scott's hunch that activity was going down right.
+
+00:10:27.080 --> 00:10:31.520
+ It was, the trend was much more dramatic than we had expected.
+
+00:10:31.520 --> 00:10:34.840
+ If you just take a look at something like the number of new open source
+
+00:10:34.840 --> 00:10:39.480
+ repositories, that number peaked at 2,000 new repositories or
+
+00:10:39.480 --> 00:10:44.880
+ more than that in the year 2016, and it has just been in a consistent and
+
+00:10:44.880 --> 00:10:48.120
+ really quite dramatic decline since then.
+
+00:10:48.120 --> 00:10:52.680
+ Each year stepping down to fewer and fewer with a kind of a low point reached
+
+00:10:52.680 --> 00:10:56.520
+ in 2024, I think of around only 400.
+
+00:10:56.520 --> 00:11:02.720
+ So we've seen just in less than a decade, an 80% drop in the number of open source
+
+00:11:02.720 --> 00:11:05.000
+ repositories published by news organizations.
+
+00:11:05.000 --> 00:11:08.400
+ Which is a, as a long time data journalist, I said, wow,
+
+00:11:08.400 --> 00:11:10.360
+ that sounds like a nut graft to me.
+
+00:11:10.360 --> 00:11:13.240
+ >> Yeah, yeah, and it wasn't just open source repositories.
+
+00:11:13.240 --> 00:11:16.400
+ We wanted to, that's an easy thing to count.
+
+00:11:16.400 --> 00:11:21.160
+ And so it was a good proxy in that sense, if not an imperfect proxy like all
+
+00:11:21.160 --> 00:11:22.400
+ proxies are.
+
+00:11:22.400 --> 00:11:27.480
+ But we also looked at posts to the nikar-l mailing list, so we're at nikar.
+
+00:11:27.480 --> 00:11:30.640
+ So I think it's just natural for us to talk about the nikar-l list.
+
+00:11:30.640 --> 00:11:36.800
+ And there was a time when the nikar-l listserv was the must read email list for
+
+00:11:36.800 --> 00:11:38.120
+ data journalists.
+
+00:11:38.120 --> 00:11:42.760
+ I remember when I let it buzz my phone when a new nikar-l post would come.
+
+00:11:42.760 --> 00:11:45.920
+ I would get a notification on my phone cuz I wanted to read it as soon as it came
+
+00:11:45.920 --> 00:11:51.880
+ out, and we found that there was a similar decline on the nikar-l mailing list.
+
+00:11:51.880 --> 00:11:55.680
+ I think that was down 89% from its peak at around the same time.
+
+00:11:55.680 --> 00:12:01.680
+ So really a culture of sharing that really peaked in 2016 has tailed off
+
+00:12:01.680 --> 00:12:05.280
+ considerably, not just in the stuff that's easy to see, but
+
+00:12:05.280 --> 00:12:08.480
+ I think in the stuff that's kind of harder to measure as well.
+
+00:12:08.480 --> 00:12:11.960
+ >> Definitely, I think one of the things that always attracted me to data
+
+00:12:11.960 --> 00:12:14.640
+ journalists originally was this culture of sharing.
+
+00:12:14.640 --> 00:12:17.200
+ Because often data journalists, you're kind of isolated where you are.
+
+00:12:17.200 --> 00:12:21.520
+ This idea you're part of a bigger community, but actually also that it can
+
+00:12:21.520 --> 00:12:24.160
+ make your work better because people are gonna come back to you and
+
+00:12:24.160 --> 00:12:27.160
+ improve what you do, just like the example you gave.
+
+00:12:27.160 --> 00:12:29.520
+ So obviously, the peak is 2016.
+
+00:12:29.520 --> 00:12:32.480
+ That is a different world now in terms of data journalism.
+
+00:12:32.480 --> 00:12:34.200
+ Do you wanna talk about how different that was?
+
+00:12:34.200 --> 00:12:36.000
+ How data journalism's changed since then?
+
+00:12:36.000 --> 00:12:40.020
+ >> Well, how different was in terms of just number of outlets?
+
+00:12:40.020 --> 00:12:42.240
+ We have BuzzFeed doing a ton of data journalism.
+
+00:12:42.240 --> 00:12:47.000
+ 538 were incredibly prolific contributors to GitHub.
+
+00:12:47.000 --> 00:12:49.240
+ >> Without a doubt, the first thing that came to our mind,
+
+00:12:49.240 --> 00:12:51.160
+ we're asking the question, what could explain this?
+
+00:12:51.160 --> 00:12:52.400
+ Why has this gone down so much?
+
+00:12:52.400 --> 00:12:54.320
+ And I think if you compare today to then,
+
+00:12:54.320 --> 00:12:58.160
+ the thing everybody who's paying attention thinks of first is economics, right?
+
+00:12:58.160 --> 00:13:00.520
+ We just have all these places that were large contributors.
+
+00:13:00.520 --> 00:13:01.880
+ You just listed them.
+
+00:13:01.880 --> 00:13:04.620
+ And if they go out of business, they can't keep contributing, right?
+
+00:13:04.620 --> 00:13:07.240
+ It's kind of a pretty basic explanation.
+
+00:13:07.240 --> 00:13:09.000
+ And I think that's just true, you know what I mean?
+
+00:13:09.000 --> 00:13:12.160
+ You definitely see in our data set that there's a strong cohort of places.
+
+00:13:12.160 --> 00:13:17.080
+ They're just gone, and that accounts for some, but not all of the decline.
+
+00:13:17.080 --> 00:13:18.900
+ And that's where it started to get interesting for
+
+00:13:18.900 --> 00:13:22.680
+ us in kind of reporting out the data set.
+
+00:13:22.680 --> 00:13:25.480
+ Cuz what we saw is that there were other cohorts or
+
+00:13:25.480 --> 00:13:29.240
+ other groups of news organizations within the data who are also declining,
+
+00:13:29.240 --> 00:13:31.280
+ who didn't have those economic problems.
+
+00:13:31.280 --> 00:13:33.800
+ You know, I'm not here to name names or call anybody out, but
+
+00:13:33.800 --> 00:13:37.840
+ we can all think of the very successful news organizations of the Internet era.
+
+00:13:37.840 --> 00:13:41.360
+ And if you look for them in our data set, you're gonna see they're dropping too.
+
+00:13:41.360 --> 00:13:43.520
+ So it can't all be the money, right?
+
+00:13:43.520 --> 00:13:45.200
+ So something else must explain it.
+
+00:13:45.200 --> 00:13:49.280
+ And that's what set Scott and I off on a little bit of a reporting expedition.
+
+00:13:49.280 --> 00:13:51.080
+ You wanna share what we did, Scott?
+
+00:13:51.080 --> 00:13:54.640
+ >> Yeah, so as journalists, as data journalists, we didn't just stop at
+
+00:13:54.640 --> 00:13:56.760
+ looking at the data and publishing what the data findings were.
+
+00:13:56.760 --> 00:14:01.240
+ We wanted to talk to people to see if they had a hunch about what changed and
+
+00:14:01.240 --> 00:14:02.720
+ why the numbers had gone down.
+
+00:14:02.720 --> 00:14:04.880
+ So we talked to more than a dozen people.
+
+00:14:04.880 --> 00:14:09.120
+ These were practitioners, people who we felt were big advocates for
+
+00:14:09.120 --> 00:14:13.120
+ open source or just big open source releasers back in the day.
+
+00:14:13.120 --> 00:14:16.120
+ And talk to them about, first of all, did they agree with the hunch?
+
+00:14:16.120 --> 00:14:17.920
+ We let them know what the data showed.
+
+00:14:17.920 --> 00:14:21.040
+ And asked them to help us understand what changed in their newsrooms.
+
+00:14:21.040 --> 00:14:23.680
+ What were their motivations for open sourcing in the first place?
+
+00:14:23.680 --> 00:14:25.560
+ And did those motivations go away?
+
+00:14:25.560 --> 00:14:30.200
+ What changed about their workplaces that might have led to a decline,
+
+00:14:30.200 --> 00:14:32.240
+ a sort of zeal to open source everything.
+
+00:14:32.240 --> 00:14:36.520
+ >> And in addition to economics, we really heard two other major themes kind of come
+
+00:14:36.520 --> 00:14:39.960
+ up in different ways from different perspectives as we went through it.
+
+00:14:39.960 --> 00:14:44.160
+ One was the idea of technological maturity, you might say, or
+
+00:14:44.160 --> 00:14:46.440
+ like the we fixed it theory.
+
+00:14:46.440 --> 00:14:51.000
+ And several people we interviewed said one reason you might see less open source
+
+00:14:51.000 --> 00:14:52.440
+ is we just don't need it as much.
+
+00:14:52.440 --> 00:14:54.000
+ Some of the problems have been solved.
+
+00:14:54.000 --> 00:14:57.760
+ You look at the explosion of open source in that period is associated with
+
+00:14:57.760 --> 00:15:02.120
+ the development a lot of web frameworks for publishing data on the web.
+
+00:15:02.120 --> 00:15:06.120
+ Be it Django or Sveltekit or what you name it, D3.
+
+00:15:06.120 --> 00:15:09.080
+ And now that those problems are quote unquote solved,
+
+00:15:09.080 --> 00:15:11.560
+ maybe there's less need, right?
+
+00:15:11.560 --> 00:15:13.600
+ So that was one theory we heard from folks.
+
+00:15:13.600 --> 00:15:16.200
+ And I've heard that concurred by others.
+
+00:15:16.200 --> 00:15:17.920
+ And then a third theory we heard, and
+
+00:15:17.920 --> 00:15:22.400
+ this especially came from the people in the large successful newsrooms, I would say,
+
+00:15:22.400 --> 00:15:26.560
+ is the idea of kind of a cultural change that's happened in the winners of
+
+00:15:26.560 --> 00:15:28.200
+ the internet era.
+
+00:15:28.200 --> 00:15:32.440
+ It's articulated by one person we interviewed as saying when your team has
+
+00:15:32.440 --> 00:15:36.480
+ moved to the center of the newsroom, it's no longer the boutique
+
+00:15:36.480 --> 00:15:39.880
+ kind of experimental R and D nerds in the corner.
+
+00:15:39.880 --> 00:15:45.360
+ But they're now part of the capital P product and the quote unquote main thing,
+
+00:15:45.360 --> 00:15:46.040
+ right?
+
+00:15:46.040 --> 00:15:49.120
+ Your bosses are different people with different outlooks, right?
+
+00:15:49.120 --> 00:15:50.480
+ Your incentives are different.
+
+00:15:50.480 --> 00:15:52.600
+ You're focused on meeting the OKRs and
+
+00:15:52.600 --> 00:15:57.400
+ the quarterly goals, not kicking up something cool to see if the Internet is
+
+00:15:57.400 --> 00:15:58.880
+ a real thing or not, right?
+
+00:15:58.880 --> 00:16:04.800
+ And that that cultural change accounts for why, in their theory,
+
+00:16:04.800 --> 00:16:07.240
+ why some of these large newsrooms have dropped.
+
+00:16:07.240 --> 00:16:08.280
+ >> But while that's happened,
+
+00:16:08.280 --> 00:16:11.280
+ there have also been like really interesting startups,
+
+00:16:11.280 --> 00:16:14.400
+ things like The Pudding or City Bureau, Bellingcat,
+
+00:16:14.400 --> 00:16:17.920
+ which are kind of pioneering new types of reporting.
+
+00:16:17.920 --> 00:16:19.840
+ Do you think that's making a difference, Scott?
+
+00:16:19.840 --> 00:16:24.360
+ >> Yeah, I mean, there definitely are newsrooms, especially places that are
+
+00:16:24.360 --> 00:16:28.120
+ startups like The Pudding, Bellingcat, there are a few others that
+
+00:16:28.120 --> 00:16:31.920
+ are really punching above their weight when it comes to sharing.
+
+00:16:31.920 --> 00:16:35.320
+ So The Pudding puts a lot of things open source.
+
+00:16:35.320 --> 00:16:40.520
+ There's a terrific newsroom in Harrisburg, Pennsylvania called Spotlight PA.
+
+00:16:40.520 --> 00:16:42.200
+ I think they put their entire everything.
+
+00:16:42.200 --> 00:16:44.600
+ I think they put things up on their GitHub before they publish it.
+
+00:16:44.600 --> 00:16:50.120
+ I mean, they are really, really doing kind of keeping the old ways, in a way,
+
+00:16:50.120 --> 00:16:51.440
+ doing really terrific work.
+
+00:16:51.440 --> 00:16:54.520
+ >> Yeah, I think that's right, cuz our findings are really just in the aggregate,
+
+00:16:54.520 --> 00:16:55.680
+ right, we're talking about news at all.
+
+00:16:55.680 --> 00:17:00.080
+ But there are some real good news stories inside the data set when you dig down.
+
+00:17:00.080 --> 00:17:03.280
+ And I just think we really can't say, in my opinion,
+
+00:17:03.280 --> 00:17:06.920
+ enough good stuff about the success of the open source intelligence movement,
+
+00:17:06.920 --> 00:17:11.920
+ as it's known, who I think are one, modeling excellence in journalism and
+
+00:17:11.920 --> 00:17:17.280
+ hard work and creativity and inclusiveness, but also sharing.
+
+00:17:17.280 --> 00:17:23.160
+ And I think that in data, my little niche, my little corner of that big curve,
+
+00:17:23.160 --> 00:17:26.760
+ we would do well to pay attention to how they've been succeeding and
+
+00:17:26.760 --> 00:17:27.920
+ try to emulate them.
+
+00:17:27.920 --> 00:17:32.620
+ >> Yeah, I mean, data journalism was hardly new in the early 2010s, but
+
+00:17:32.620 --> 00:17:37.080
+ it sort of felt like we were bringing something new to newsrooms.
+
+00:17:37.080 --> 00:17:40.600
+ It was a lot of people coming from tech or from outside news were coming in,
+
+00:17:40.600 --> 00:17:44.360
+ bringing some of the sort of open source fervor.
+
+00:17:44.360 --> 00:17:48.120
+ These are people who worked at places that open sourced without even,
+
+00:17:48.120 --> 00:17:52.240
+ you didn't need a recent open source, of course you open sourced everything.
+
+00:17:52.240 --> 00:17:55.800
+ So I think there was a lot of energy coming in, it was a fairly new,
+
+00:17:55.800 --> 00:17:58.880
+ at least the way we were practicing it, and thinking about it was fairly new and
+
+00:17:58.880 --> 00:17:59.960
+ growing.
+
+00:17:59.960 --> 00:18:02.280
+ And I think on some level, that's what OSINT is now,
+
+00:18:02.280 --> 00:18:04.080
+ what open source intelligence is now.
+
+00:18:04.080 --> 00:18:08.840
+ And I think, in a way, Ben talked about maturity.
+
+00:18:08.840 --> 00:18:13.280
+ It's almost, it's a good thing that data journalists would have to come to
+
+00:18:13.280 --> 00:18:16.960
+ a conference like NYCART to see people who really understood what they did.
+
+00:18:16.960 --> 00:18:21.080
+ And to sort of gather meaning and standards and sort of edit each other in
+
+00:18:21.080 --> 00:18:23.800
+ a way that they didn't necessarily get from their newsrooms.
+
+00:18:23.800 --> 00:18:28.160
+ Where we all sort of worked in places where we had bosses that were very bright and
+
+00:18:28.160 --> 00:18:31.160
+ very good journalists, but not necessarily people could help us with our Python
+
+00:18:31.160 --> 00:18:36.360
+ problems or decide between pandas or R or whatever, right?
+
+00:18:36.360 --> 00:18:39.160
+ And so we kind of turned to each other for that, and in a way,
+
+00:18:39.160 --> 00:18:41.800
+ that's what created the culture of sharing.
+
+00:18:41.800 --> 00:18:45.600
+ And now a lot of our newsrooms have become much more sophisticated,
+
+00:18:45.600 --> 00:18:47.200
+ much more data literate.
+
+00:18:47.200 --> 00:18:51.720
+ And we are turning inward, and we talk all about the inward shift in the story.
+
+00:18:51.720 --> 00:18:55.400
+ Where there are actually people in our newsrooms that we can turn to,
+
+00:18:55.400 --> 00:18:59.920
+ to get the answers to our Python questions and to edit our math,
+
+00:18:59.920 --> 00:19:01.920
+ as Amanda Cox used to put it.
+
+00:19:01.920 --> 00:19:05.900
+ And in a way, we kind of didn't, we didn't need each other quite as urgently.
+
+00:19:05.900 --> 00:19:10.940
+ And so the culture of sharing became more of a conscious effort than the default.
+
+00:19:10.940 --> 00:19:15.120
+ >> I love that you also included a piece about Django, because Django is so
+
+00:19:15.120 --> 00:19:18.360
+ important and something that a lot of people perhaps don't know about now.
+
+00:19:18.360 --> 00:19:20.800
+ But without it, the web would not look how it looks.
+
+00:19:20.800 --> 00:19:22.320
+ Do you want to explain what Django is for people?
+
+00:19:22.320 --> 00:19:25.560
+ >> Yeah, I mean, we've all used Instagram, unfortunately, right?
+
+00:19:25.560 --> 00:19:30.480
+ And believe it or not, the first edition of Instagram when it was launched as
+
+00:19:30.480 --> 00:19:35.880
+ a startup was built using an open source web development toolkit called Django.
+
+00:19:35.880 --> 00:19:38.960
+ And that toolkit, which launched this billion dollar business that now
+
+00:19:38.960 --> 00:19:42.480
+ dominates the attention of many Americans,
+
+00:19:42.480 --> 00:19:46.320
+ was invented at a small local newspaper in Lawrence, Kansas.
+
+00:19:46.320 --> 00:19:51.240
+ Where at the Lawrence Journal World, a team of ragtag nerds decided to build
+
+00:19:51.240 --> 00:19:56.080
+ a better newspaper website, and in doing so, created a set of tools for
+
+00:19:56.080 --> 00:20:01.560
+ building websites out of databases that then grew into one of the most popular
+
+00:20:01.560 --> 00:20:04.080
+ ways to make a website of any kind.
+
+00:20:04.080 --> 00:20:08.440
+ And it's just one of, I think, a whole list of stories and
+
+00:20:08.440 --> 00:20:11.500
+ examples of where really significant and
+
+00:20:11.500 --> 00:20:16.200
+ world changing kind of technology was developed in newsrooms.
+
+00:20:16.200 --> 00:20:19.860
+ And these are stories, I think, that we know in our little world, but
+
+00:20:19.860 --> 00:20:21.680
+ might not be more broadly known.
+
+00:20:21.680 --> 00:20:26.040
+ >> Yeah, you sort of think about news as a legacy business, but
+
+00:20:26.040 --> 00:20:28.320
+ Django is far from the only example.
+
+00:20:28.320 --> 00:20:33.160
+ D3, the JavaScript framework that helps create graphics was incubated,
+
+00:20:33.160 --> 00:20:36.880
+ I would say in a newsroom was sort of invented before Mike Bostock got to
+
+00:20:36.880 --> 00:20:39.760
+ The New York Times, it was really incubated there.
+
+00:20:39.760 --> 00:20:44.200
+ Backbone underscore sort of a lot of JavaScript behavior frameworks.
+
+00:20:44.200 --> 00:20:45.080
+ >> Svelte.
+
+00:20:45.080 --> 00:20:48.240
+ >> Svelte, speaking of JavaScript frameworks,
+
+00:20:48.240 --> 00:20:52.440
+ very much came out of Rich Harris's work at The New York Times and elsewhere.
+
+00:20:52.440 --> 00:20:57.120
+ And I found out in writing this piece that the varnish proxy
+
+00:20:57.120 --> 00:21:01.920
+ write through cache was written on behalf of a newsroom in Europe.
+
+00:21:01.920 --> 00:21:06.220
+ So there was a time, and in many ways, it can still be here,
+
+00:21:06.220 --> 00:21:10.440
+ where newsrooms were not just open sourcing code for other newsrooms to use,
+
+00:21:10.440 --> 00:21:14.800
+ but open sourcing code that people far outside news were using.
+
+00:21:14.800 --> 00:21:17.800
+ >> And Django, named after the Jazz guitarist Django Reinhardt.
+
+00:21:17.800 --> 00:21:19.120
+ >> Yes. >> Cuz Adrian Hollabarty,
+
+00:21:19.120 --> 00:21:20.840
+ massive Jazz fan.
+
+00:21:20.840 --> 00:21:25.400
+ I always felt that when you put data sets online or put anything online,
+
+00:21:25.400 --> 00:21:28.520
+ the numbers of people it would attract would be very small,
+
+00:21:28.520 --> 00:21:30.960
+ often like 10 people, one person even.
+
+00:21:30.960 --> 00:21:34.560
+ But to me, that didn't matter because it was a sign of transparency and
+
+00:21:34.560 --> 00:21:36.360
+ the sign of kind of openness, which is important,
+
+00:21:36.360 --> 00:21:40.040
+ especially in this age of trust deficit that we see.
+
+00:21:40.040 --> 00:21:43.160
+ How important is it, do you think, like emotionally almost,
+
+00:21:43.160 --> 00:21:46.080
+ for news to be part of this open kind of culture?
+
+00:21:46.080 --> 00:21:49.240
+ >> Well, I think it's important to do just for its own sake, as you said, for
+
+00:21:49.240 --> 00:21:54.640
+ transparency in the scientific spirit of Phil Meyer that really launched
+
+00:21:54.640 --> 00:21:55.480
+ this whole movement.
+
+00:21:55.480 --> 00:21:59.520
+ I think it's part of being credible and convincing to your audience.
+
+00:21:59.520 --> 00:22:02.720
+ But I wouldn't write off its appeal as a product either.
+
+00:22:02.720 --> 00:22:07.440
+ I think we can point to a number of data products that are incredibly
+
+00:22:07.440 --> 00:22:10.760
+ successful in the commercial marketplace and with readers.
+
+00:22:10.760 --> 00:22:14.520
+ If you look, for instance, this week we had the first midterm elections of the year
+
+00:22:14.520 --> 00:22:17.720
+ in the United States, in Texas, and elsewhere.
+
+00:22:17.720 --> 00:22:22.840
+ And the live election result pages on all the different news sites that night were,
+
+00:22:22.840 --> 00:22:26.600
+ I'm sure, drawing absolutely stupendous readership.
+
+00:22:26.600 --> 00:22:28.840
+ And those are data products, just like anything else.
+
+00:22:28.840 --> 00:22:32.800
+ And they are made by data journalists, including ones at this conference.
+
+00:22:32.800 --> 00:22:34.760
+ We can look at the coronavirus story.
+
+00:22:34.760 --> 00:22:38.400
+ We can look at, this one might be a little controversial to some.
+
+00:22:38.400 --> 00:22:41.520
+ We can look at the WikiLeaks story and many others, and
+
+00:22:41.520 --> 00:22:47.240
+ see cases where publishing data on the web has had really dramatic readership.
+
+00:22:47.240 --> 00:22:49.720
+ >> Yeah, Simon, you bring up a really good point,
+
+00:22:49.720 --> 00:22:52.600
+ which is the idea of sort of reproducible research.
+
+00:22:52.600 --> 00:22:57.200
+ And when I was at ProPublica, one of the things that we really paid attention to
+
+00:22:57.200 --> 00:23:00.720
+ was the rise of the reproducible research movement within academia.
+
+00:23:01.800 --> 00:23:05.280
+ And the idea that it was incumbent upon us,
+
+00:23:05.280 --> 00:23:10.640
+ if we were doing a sophisticated data analysis, to publish, initially,
+
+00:23:10.640 --> 00:23:14.760
+ white papers where we explained, we're sure, a very sort of academic light,
+
+00:23:14.760 --> 00:23:18.520
+ although never peer reviewed, sort of research papers to help people understand
+
+00:23:18.520 --> 00:23:19.760
+ our analysis.
+
+00:23:19.760 --> 00:23:24.280
+ And then later, when Jupiter Notebooks, then called IPython Notebooks,
+
+00:23:24.280 --> 00:23:28.120
+ came out to actually publish or reproduce what you could run.
+
+00:23:28.120 --> 00:23:32.360
+ Now you could do it right within GitHub, but you could rerun our analysis and
+
+00:23:32.360 --> 00:23:34.760
+ see where we might have screwed up.
+
+00:23:34.760 --> 00:23:37.520
+ We did that very much in the spirit of journalism,
+
+00:23:37.520 --> 00:23:40.160
+ where we said, here's our methodology down to a T.
+
+00:23:40.160 --> 00:23:43.880
+ You could reproduce it and do the exact same thing if you have the same data set
+
+00:23:43.880 --> 00:23:46.360
+ that we do, which often we published as well.
+
+00:23:46.360 --> 00:23:49.320
+ And you could do it, and if we did our math wrong, we want to know.
+
+00:23:49.320 --> 00:23:52.280
+ Just like every journalist wants to know if they get it wrong, and
+
+00:23:52.280 --> 00:23:53.640
+ then want an opportunity to get it right.
+
+00:23:53.640 --> 00:23:57.680
+ And so that was very much part of our impetus for
+
+00:23:57.680 --> 00:24:00.400
+ open sourcing all of our data stuff.
+
+00:24:00.400 --> 00:24:02.640
+ And on some level, that is still happening.
+
+00:24:02.640 --> 00:24:06.120
+ We're going to be talking at this conference with the Myre Award winners.
+
+00:24:06.120 --> 00:24:10.360
+ And in both of the cases of the folks we're talking to, ProPublica and
+
+00:24:10.360 --> 00:24:14.560
+ the Baltimore Banner, they published very detailed methodologies,
+
+00:24:14.560 --> 00:24:18.120
+ explaining all of the decisions that they had to make, because the data's imperfect.
+
+00:24:18.120 --> 00:24:21.720
+ And the code out there that's available to do this work is imperfect.
+
+00:24:21.720 --> 00:24:25.520
+ And all of the decisions that they had to make that brought them to the analysis.
+
+00:24:25.520 --> 00:24:32.320
+ So that too, it's not just creating Svelte and D3 and open source products.
+
+00:24:32.320 --> 00:24:36.880
+ But also simply as part of, it's how we are transparent as data journalists.
+
+00:24:36.880 --> 00:24:40.960
+ We have an opportunity to be very transparent about
+
+00:24:40.960 --> 00:24:43.560
+ our methodology down to the line of code.
+
+00:24:43.560 --> 00:24:46.280
+ And why would we not take advantage of that?
+
+00:24:46.280 --> 00:24:47.880
+ >> But how do we fix this?
+
+00:24:47.880 --> 00:24:51.080
+ Because I know you guys actually spent a lot of time talking to people about
+
+00:24:51.080 --> 00:24:52.200
+ how to make things better.
+
+00:24:52.200 --> 00:24:53.800
+ So what are your recommendations?
+
+00:24:53.800 --> 00:24:56.480
+ >> Well, we asked everyone, we interviewed that same question.
+
+00:24:56.480 --> 00:25:01.200
+ We also convened a panel at the News Product Alliance conference last fall in
+
+00:25:01.200 --> 00:25:04.520
+ Chicago and asked the whole room full of journalists the same question.
+
+00:25:04.520 --> 00:25:06.640
+ And we've had, I have to tell you, dozens and
+
+00:25:06.640 --> 00:25:10.880
+ dozens of conversations with different data journalists since the story's come out.
+
+00:25:10.880 --> 00:25:12.720
+ And we've asked all of them, how do we fix it?
+
+00:25:12.720 --> 00:25:13.760
+ Same question.
+
+00:25:13.760 --> 00:25:15.600
+ I don't think anybody knows the perfect answer.
+
+00:25:15.600 --> 00:25:16.840
+ And I don't think there's one answer.
+
+00:25:16.840 --> 00:25:19.640
+ There's probably a lot of different things that need to happen.
+
+00:25:19.640 --> 00:25:23.280
+ But ideas that came up, I would be happy to share.
+
+00:25:23.280 --> 00:25:29.520
+ One is the idea of trying to make open source more of a norm within the project
+
+00:25:29.520 --> 00:25:30.640
+ cycle.
+
+00:25:30.640 --> 00:25:34.800
+ One big reason a lot of projects were open in the past, we heard from people,
+
+00:25:34.800 --> 00:25:36.720
+ is that was how you started a project.
+
+00:25:36.720 --> 00:25:40.760
+ If your project started open, it was easier to keep it open rather than
+
+00:25:40.760 --> 00:25:42.480
+ waiting till the day before you published and
+
+00:25:42.480 --> 00:25:45.160
+ having to mop everything up and shove it out.
+
+00:25:45.160 --> 00:25:49.120
+ So kind of better defaults was one idea that they'd come up.
+
+00:25:49.120 --> 00:25:52.680
+ Another is trying to create in these sort of growing and
+
+00:25:52.680 --> 00:25:55.840
+ strong institutions that are succeeding right now.
+
+00:25:55.840 --> 00:25:58.440
+ Maybe a position is focused on this.
+
+00:25:58.440 --> 00:26:00.720
+ And open source editors, is that what they called it, Scott?
+
+00:26:00.720 --> 00:26:02.280
+ >> Mm-hm, mm-hm.
+
+00:26:02.280 --> 00:26:03.520
+ >> What other ideas did we hear?
+
+00:26:03.520 --> 00:26:04.840
+ Hm.
+
+00:26:04.840 --> 00:26:08.240
+ >> Well, one of them, I mean, one of them was just like, give it the office.
+
+00:26:08.240 --> 00:26:11.520
+ Like, if you want open source to come back, open source your stuff, right?
+
+00:26:11.520 --> 00:26:15.000
+ Start with you, was one of the- >> Pull up your pants.
+
+00:26:15.000 --> 00:26:16.400
+ >> Yeah, just do it.
+
+00:26:16.400 --> 00:26:18.080
+ So that was definitely one of them.
+
+00:26:18.080 --> 00:26:22.440
+ Assigned somebody to coordinate, we heard, make an open source award.
+
+00:26:22.440 --> 00:26:25.000
+ So sort of best open source project of the year.
+
+00:26:25.000 --> 00:26:29.360
+ We also heard from people who were talking about, really among the people who
+
+00:26:29.360 --> 00:26:33.680
+ said, you know, what changed in my newsroom is that we matured not just as
+
+00:26:33.680 --> 00:26:36.000
+ journalists, but as product managers.
+
+00:26:36.000 --> 00:26:41.080
+ So as product development became more sophisticated and
+
+00:26:41.080 --> 00:26:47.240
+ more formalized in newsrooms, you needed an OKR, you needed a goal.
+
+00:26:47.240 --> 00:26:51.680
+ You know, it had to link to some corporate strategy to open source things.
+
+00:26:51.680 --> 00:26:54.000
+ And so you just could never prioritize it.
+
+00:26:54.000 --> 00:26:55.720
+ So one of the things we heard is, you know,
+
+00:26:55.720 --> 00:26:58.960
+ the bosses should make it one of the goals that we should try to open source for
+
+00:26:58.960 --> 00:27:00.360
+ projects this year.
+
+00:27:00.360 --> 00:27:03.640
+ Or we should try to document, you know, five projects this year so
+
+00:27:03.640 --> 00:27:04.800
+ that we can't open source it.
+
+00:27:04.800 --> 00:27:09.280
+ So we also heard from people that if one of the reasons that this might have slowed
+
+00:27:09.280 --> 00:27:14.720
+ down is that formal product management kind of methodologies came in and
+
+00:27:14.720 --> 00:27:16.760
+ dissuaded people from spending time on this.
+
+00:27:16.760 --> 00:27:20.320
+ How do we then use that to help persuade people to do this?
+
+00:27:20.320 --> 00:27:22.680
+ I think we need to welcome in the vibe coders.
+
+00:27:22.680 --> 00:27:23.680
+ What do you guys think about this?
+
+00:27:23.680 --> 00:27:24.680
+ 100 percent.
+
+00:27:24.680 --> 00:27:25.680
+ No question about it.
+
+00:27:25.680 --> 00:27:29.560
+ There's just this growing group of people who are able to participate in coding in
+
+00:27:29.560 --> 00:27:31.880
+ this dawning era of AI assistance.
+
+00:27:31.880 --> 00:27:35.400
+ And these are people that have kind of been locked out up until now.
+
+00:27:35.400 --> 00:27:40.760
+ And I see in them the ones I meet so much hunger and curiosity and desire.
+
+00:27:40.760 --> 00:27:45.080
+ And also as a numbers person, I see a growing denominator, just like more
+
+00:27:45.080 --> 00:27:48.640
+ potential participants, more people to collaborate with.
+
+00:27:48.640 --> 00:27:51.720
+ And I just kind of wonder how can we capitalize on this moment?
+
+00:27:51.720 --> 00:27:56.680
+ And I'm I feel like I don't know what it will look like, but I sense that there
+
+00:27:56.680 --> 00:28:02.560
+ must be the GitHub moment coming for vibe coders where they all are able to not
+
+00:28:02.560 --> 00:28:07.720
+ just make something in private on their computer with Claude, but share and
+
+00:28:07.720 --> 00:28:09.460
+ collaborate with each other.
+
+00:28:09.460 --> 00:28:13.600
+ There's a moment of connection that's happening that must happen, I think, or
+
+00:28:13.600 --> 00:28:15.720
+ logically follows.
+
+00:28:15.720 --> 00:28:19.920
+ And I think that there's a way in which GitHub is part of why we had our peak and
+
+00:28:19.920 --> 00:28:20.920
+ this smaller niche.
+
+00:28:20.920 --> 00:28:25.000
+ And I think that's why I'm thinking of it as the GitHub moment for vibe coders.
+
+00:28:25.000 --> 00:28:27.040
+ And I can't wait for it to get here.
+
+00:28:27.040 --> 00:28:28.760
+ No, I couldn't agree more.
+
+00:28:28.760 --> 00:28:32.880
+ I mean, how many projects have I looked at where I said, oh, gee, I wish it did
+
+00:28:32.880 --> 00:28:36.000
+ this thing a little bit differently, or I wish it supported the CMS that I use, or
+
+00:28:36.000 --> 00:28:39.720
+ I wish it could do this, but I don't have the time or the inclination or I don't
+
+00:28:39.720 --> 00:28:43.800
+ know this programming language, or I don't feel like I've got the chops to do a
+
+00:28:43.800 --> 00:28:46.960
+ pull request for this from GitHub, so I'll just live without it, or I'll do
+
+00:28:46.960 --> 00:28:50.040
+ something else, or worse, I'll make my own.
+
+00:28:50.040 --> 00:28:54.360
+ And so what vibe coding can do, I mean, vibe coding is, it gets better every
+
+00:28:54.360 --> 00:28:55.120
+ couple of days.
+
+00:28:55.120 --> 00:28:59.080
+ I mean, it is already a spectacular at doing software development.
+
+00:28:59.080 --> 00:29:04.440
+ And one of the things it's particularly good at is reading an existing kind of
+
+00:29:04.440 --> 00:29:10.640
+ code repository and making changes, including making security changes, you
+
+00:29:10.640 --> 00:29:14.080
+ know, making speed changes, just sort of looking at it and looking to look at the
+
+00:29:14.080 --> 00:29:17.560
+ Git history and understand why things were the way they were so it can be
+
+00:29:17.560 --> 00:29:18.600
+ careful about what it does.
+
+00:29:18.600 --> 00:29:23.680
+ And so the idea of, you know, fixing a repo that's out there so that it works
+
+00:29:23.680 --> 00:29:27.840
+ better for your newsroom, or let's say somebody takes a look at your, at Ben at
+
+00:29:27.840 --> 00:29:32.480
+ your code for, you know, that wraps data wrapper and says, well, how do I do this
+
+00:29:32.480 --> 00:29:37.160
+ with flourish? Well, you can vibe code, you can have cloud code change so that it
+
+00:29:37.160 --> 00:29:40.240
+ works with the flourish API instead of the data wrapper API, or let's say that
+
+00:29:40.240 --> 00:29:43.200
+ data wrapper changes this API, because if it's undocumented, that means I'll be
+
+00:29:43.200 --> 00:29:44.320
+ going to change it without telling you.
+
+00:29:44.840 --> 00:29:49.000
+ And then when that happens, it's something that really probably you can vibe
+
+00:29:49.000 --> 00:29:56.560
+ code. Now, interestingly, there is some concern about this in the open source
+
+00:29:56.560 --> 00:30:03.400
+ community. So there's a developer who created a system called vouching, where
+
+00:30:03.840 --> 00:30:10.200
+ they are so concerned about vibe coded pull requests on GitHub, that there's now
+
+00:30:10.200 --> 00:30:14.560
+ a system where you can vouch for other developers. So you can say, well, I know
+
+00:30:14.560 --> 00:30:19.480
+ that Simon is a real developer, he didn't vibe code this, so you should let him do a
+
+00:30:19.480 --> 00:30:24.360
+ pull request to your code base. Whereas no one knows Scott, so don't take his
+
+00:30:24.360 --> 00:30:27.920
+ code because he probably does vibe coded that. So it's kind of interesting that
+
+00:30:27.920 --> 00:30:32.440
+ there's sort of, you know, antibodies being deployed to stop this. But I agree
+
+00:30:32.440 --> 00:30:37.240
+ with you, Ben, I think that it's going to open it up to all sorts of really smart
+
+00:30:37.280 --> 00:30:41.200
+ technical journalists who may not be able to code at the level that you would need
+
+00:30:41.200 --> 00:30:45.680
+ to do a real pull request, who can add really critical features that you just
+
+00:30:45.680 --> 00:30:48.760
+ don't need or you don't see, but but actually make your stuff better.
+
+00:30:49.360 --> 00:30:53.080
+ It's like back in the day, back when we all started, there was a kind of opening
+
+00:30:53.080 --> 00:30:56.920
+ up almost democratization of day journalism because anybody can make a
+
+00:30:56.920 --> 00:31:00.880
+ chart. And now you've kind of got the same thing happening again, right?
+
+00:31:00.880 --> 00:31:06.040
+ There's a new technology, it's opening it up. Anybody can do it. It does change how
+
+00:31:06.040 --> 00:31:08.600
+ we do what we do, but it's an incredible moment, I think.
+
+00:31:08.960 --> 00:31:12.880
+ Without a doubt, they'll be good and bad, but you know, who cares, you know?
+
+00:31:13.240 --> 00:31:16.600
+ Yeah, I guess I'm still the hopeful one. You know what I mean? To me, I find
+
+00:31:16.600 --> 00:31:21.480
+ myself at this AI moment, feeling, using the language of my new employer, feeling
+
+00:31:21.480 --> 00:31:25.680
+ kind of bullish. You know, I feel kind of up about this. And my hope is, is that
+
+00:31:25.680 --> 00:31:30.960
+ this next AI chapter is going to turn that curve back around that we made in
+
+00:31:30.960 --> 00:31:34.200
+ our story. And we're going to see more people sharing in the years to come.
+
+00:31:35.040 --> 00:31:38.800
+ Ben, thank you so much for joining us. Great to have you.
+
+00:31:39.040 --> 00:31:40.040
+ Thank you for having me.
+
+00:31:46.720 --> 00:31:51.640
+ Thanks for listening to the Data Journalism podcast. We're hosted by Alberto Cairo,
+
+00:31:51.960 --> 00:31:57.720
+ Scott Klein and me, Simon Rodgers. Special thanks to Lauren, Chris and the whole
+
+00:31:57.720 --> 00:32:00.760
+ NikeR team for all of their support with this episode.
+
+00:32:01.240 --> 00:32:03.360
+ Our producer is Aussie Linus Goodman.
+
+00:32:03.840 --> 00:32:08.400
+ The music you can hear is the sound of data made with two-tone, an app that turns
+
+00:32:08.400 --> 00:32:13.400
+ numbers into tunes. This week, we used Google searches for the term "data
+
+00:32:13.400 --> 00:32:19.320
+ journalism" since 2004. Do you have a new data driven story or project coming up?
+
+00:32:19.680 --> 00:32:25.640
+ Tell us about it at dayjournalismpodcast@gmail.com and we might even feature it
+
+00:32:25.640 --> 00:32:29.400
+ on the show. Subscribe to make sure you never miss an episode.

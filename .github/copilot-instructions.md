@@ -29,6 +29,16 @@ make check
 
 This runs Ruff lint + format check, **ty static type analysis**, and pytest with coverage.
 
+## Releases
+
+Apply exactly one changelog category to every pull request: `feature`,
+`improvement`, `fix`, `maintenance`, or `skip-changelog`. The required Lint
+check enforces this. `enhancement` counts as an improvement; Dependabot's
+`dependencies` and `github_actions` labels count as maintenance. Read
+`RELEASING.md` before creating a release. GitHub Releases are the site's
+public changelog. Use semantic versions, create a draft from the deployed
+`main` commit, and publish only after the production smoke test passes.
+
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.
@@ -43,10 +53,10 @@ This runs Ruff lint + format check, **ty static type analysis**, and pytest with
 
 ## Deployment
 
-The `deploy-static-site` CI job builds Django's static site and deploys the
-`workers/static-site` Worker after Lint and Test pass on `main`. It serves
-`palewi.re` and `www.palewi.re`; the legacy redirect Worker serves
-`palewire.com` and `www.palewire.com`.
+The `deploy-static-site` CI job builds Django's static site, deploys the
+`workers/static-site` Worker, and deploys the validated legacy redirect route
+plan after Lint and Test pass on `main`. It serves `palewi.re` and
+`www.palewi.re`; the legacy redirect Worker serves the retired paths.
 
 ## Post-deployment smoke checks
 

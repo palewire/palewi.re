@@ -31,10 +31,14 @@ node_modules/
 
 # Local agent state
 .goals/
+.lead-art/
+.impeccable/
+.site-archive/
 *.cpuprofile
 
 # Collected static
 collected_static/
+coltrane/static/talks/reveal/
 
 # Build / packaging
 dist/

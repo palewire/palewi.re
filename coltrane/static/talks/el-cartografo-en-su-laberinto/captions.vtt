@@ -1,0 +1,2410 @@
+WEBVTT
+
+00:00.000 --> 00:08.080
+Bueno, les quiero presentar a Ben, que si no lo conocen, se van a ser fans a partir
+
+00:08.080 --> 00:10.960
+de ahora también, así como ya hicieron de Ryan.
+
+00:10.960 --> 00:18.120
+Ben Welch es periodista y programador, es data producer en Los Angeles Times, ya lo venimos
+
+00:18.120 --> 00:28.080
+siguiendo hace un par de años, somos sus fans y bueno, este año fueron finalistas
+
+00:28.080 --> 00:34.600
+también con nosotros de los Data Journalism Awards, los venimos siendo desde el 2009 más
+
+00:34.600 --> 00:41.000
+o menos los que están haciendo con datos, van mucho a la conferencia de NICAR, donde
+
+00:41.000 --> 00:49.120
+es un activo participante y es un gran referente en Estados Unidos por supuesto y bueno, la
+
+00:49.120 --> 00:54.200
+Comunidad Internacional que no es muy grande, así que es un lujo tenerlo a él acá en
+
+00:54.200 --> 00:55.200
+la universidad.
+
+00:55.200 --> 01:01.840
+Así que bueno, Ben, muchas gracias por haber viajado 2 huelos de 7 horas, o sea, 14 horas
+
+01:01.840 --> 01:03.120
+para estar acá con nosotros.
+
+01:25.360 --> 01:29.720
+Pero quiero comenzar mi expresión con una apología a todos los de ustedes en la audiencia,
+
+01:29.720 --> 01:40.640
+muy rápido, vamos a poner esto fuera de la cara, o puedo hacer esto, oh, no, no, no,
+
+01:40.640 --> 01:45.200
+oh, mi garganta, me ha arruinado mi garganta, quiero decir que no puedo hablar español
+
+01:45.200 --> 01:50.200
+y me disculpe por eso hoy, así que voy a dar la conversa en inglés, lo adoro español
+
+01:50.200 --> 01:55.160
+y lo adoro mucho, así que me he marcado a un idioma español, así que tengo mucho
+
+01:55.160 --> 02:01.560
+respeto por eso y me disculpo que no puedo hacer eso muy efectivamente hoy.
+
+02:01.560 --> 02:04.680
+Y me dio la conversa, lo que me esperaba, fue un idioma español en español, no sé
+
+02:04.680 --> 02:10.040
+si ha funcionado o no, pero bueno, mi nombre es Ben Welsch y estoy aquí desde Los Angeles,
+
+02:10.040 --> 02:13.680
+voy a ir por Pailwire online, y eso es donde puedes encontrarme en Twitter y GitHub y todo
+
+02:13.680 --> 02:19.960
+ese tipo de cosas, y estoy aquí desde downtown Los Angeles, donde trabajo en Los Angeles Times,
+
+02:19.960 --> 02:24.280
+que es un newspaper de daily print que puedes ver aluminado ahí en el centro, debajo de la
+
+02:24.280 --> 02:30.880
+skyline, y también un website de 24 horas que incluye un equipo que trabajo, que se llama
+
+02:30.880 --> 02:32.880
+el Data Desk.
+
+02:32.880 --> 02:34.360
+Y puedes preguntar, ¿qué es el Data Desk?
+
+02:34.360 --> 02:38.560
+El Data Desk es un equipo de reportadores y programas que están informadamente arreglados
+
+02:38.560 --> 02:43.880
+en el informe, no es ningún tipo de esfuerzo masivo, es gente que hace data analysis para
+
+02:43.880 --> 02:49.880
+nuevas historias offline, usando programas de computador, es gente que hace mapas y interactivas
+
+02:49.880 --> 02:54.560
+cosas, y websites como Ryan ha hablado conmigo, es gente que trabaja en nuestro departamento de
+
+02:54.560 --> 02:58.680
+graficas, y que son los producentes de web, y que todos vienen juntos, bajo la bantería
+
+02:58.680 --> 03:02.480
+de lo que llamamos el Data Desk, para hacer lo que voy a decir de manera general, es
+
+03:02.480 --> 03:08.280
+tomar databases, más frecuentemente, de publicas, y los tipos de cosas de open data, van a ver
+
+03:08.280 --> 03:12.280
+mucho en esta conferencia, pero no siempre, y intentar convertirlos en los materiales de
+
+03:12.280 --> 03:23.200
+raw materiales, en, oh, thank you, this work, whoa, and try to convert those raw materials
+
+03:23.200 --> 03:27.880
+of the open data, the public data, the data that we create into a finished product of
+
+03:27.880 --> 03:32.600
+news, and in some cases those can be front page stories and others, it can be, take other
+
+03:32.600 --> 03:36.920
+forms, but that largely means that we write code, we're a group of people in a newsroom
+
+03:36.920 --> 03:41.240
+surrounded by editors and reporters and page designers, who sit there and write computer
+
+03:41.240 --> 03:45.640
+code all day, right, I like to call us the house cats, because we sort of, we hang out
+
+03:45.640 --> 03:49.200
+in the office, we don't move outside the building as much as others, but we're still all part
+
+03:49.200 --> 03:53.680
+of the broader team of making news, and just because we know how to write in Python or
+
+03:53.680 --> 03:58.040
+JavaScript or HTML or all of those other things that you're all familiar with, that doesn't
+
+03:58.040 --> 04:03.200
+mean we forgot how to write English or we don't work on news stories or write them directly,
+
+04:03.200 --> 04:07.880
+for instance this is a story that appeared I think three Sundays ago in the Los Angeles
+
+04:07.880 --> 04:11.360
+Times here on the right, written by one of my colleagues Doug Smith, in partnership
+
+04:11.360 --> 04:16.520
+with two reporters, which is a data analysis that found that there's a list of probably
+
+04:16.520 --> 04:21.040
+hundreds of buildings in Los Angeles made out of a certain type of non-ductile concrete
+
+04:21.040 --> 04:25.080
+it's called, that are likely to collapse if a major earthquake ever hits the center of
+
+04:25.080 --> 04:30.640
+the city, you know, larger than the earthquake of 20 years ago in Northridge, and that series,
+
+04:30.640 --> 04:35.360
+which has sparked a lot of controversy and pushes to reform the building regulations in
+
+04:35.360 --> 04:40.080
+the city over the last few weeks, really all started with a nerd in his cubicle and
+
+04:40.080 --> 04:46.240
+a list and a database that they once acquired, cleaned up, put a lot of love and attention
+
+04:46.240 --> 04:50.680
+into, and then went out and verified out in the world that all sorts of truth checking
+
+04:50.680 --> 04:57.120
+and then converted into this finished product, which was, you know, a page news story, right?
+
+04:57.120 --> 05:00.960
+And I'm going to show you a bunch of other examples just very quickly of things like that
+
+05:00.960 --> 05:05.800
+that we do, not all of them news stories, and then I'm going to focus in on one of those
+
+05:05.800 --> 05:09.920
+projects, which was a crime database site that we made, that I was asked to talk to
+
+05:09.920 --> 05:14.520
+about you guys, for you guys, and we're going to kind of walk through that in depth, sort
+
+05:14.520 --> 05:19.960
+of how that site came up with and was built, and talk about it in detail, and then when
+
+05:19.960 --> 05:25.760
+I finish that, we'll be open to questions for anything you might want to ask regarding
+
+05:25.760 --> 05:28.560
+that or anything more broadly as well, okay?
+
+05:28.560 --> 05:32.200
+So that's kind of what you're in for, hope it doesn't sound too bad, right?
+
+05:32.200 --> 05:36.200
+So just real quickly, sort of a tour of the data desk, just like that front page story
+
+05:36.200 --> 05:42.320
+I showed you, we put a lot of effort into big projects, into investigative work based
+
+05:42.320 --> 05:46.160
+on data that doesn't always even look like data when it comes out.
+
+05:46.160 --> 05:51.320
+So here's a story that ran about a year ago in the Los Angeles Times, and it's about
+
+05:51.320 --> 05:57.320
+the toll of prescription drugs in America, prescription drugs now kill more people overdoses
+
+05:57.320 --> 06:03.240
+in the United States than do cars, car fatalities, because there's been a huge uptick in the number
+
+06:03.240 --> 06:08.760
+of people who are addicted and overdose and take too many, and what our data analysis found
+
+06:08.760 --> 06:14.240
+was getting a small sample of several large counties in Southern California, analyzing
+
+06:14.240 --> 06:19.880
+it very closely, we were able to find that a very small number of doctors account for
+
+06:19.880 --> 06:24.520
+a very outsized number of overdose deaths, so you have a small number of irresponsible
+
+06:24.520 --> 06:27.960
+doctors and they don't account for all of the deaths, but they account for a very large
+
+06:27.960 --> 06:33.720
+proportion, and that was a statistical finding that came out of really closely analyzing this
+
+06:33.720 --> 06:38.840
+public database that we found that then ultimately was converted into a photography project in
+
+06:38.840 --> 06:44.880
+some sense in profiles of the people who died, and a very sort of humanized story, but at
+
+06:44.880 --> 06:47.920
+its core, and if you were to read the whole thing, you would see that there's a really
+
+06:47.920 --> 06:52.920
+kind of hard nutted data analysis in there as well, and that's what we're trying to do
+
+06:52.920 --> 06:57.200
+a lot of times, is bridge those two things, and a story like that had some great impact,
+
+06:57.200 --> 07:01.760
+you can see here on the right, our governor just a few weeks ago signed several new bills
+
+07:01.760 --> 07:07.080
+that will tighten the oversight of prescription drugs in California, and to hopefully identify
+
+07:07.080 --> 07:12.640
+these doctors who are irresponsible sooner before it goes too bad.
+
+07:12.640 --> 07:17.080
+Another recent example would be a big issue in sports in the United States is the long
+
+07:17.080 --> 07:23.920
+lasting toll of playing our national pastime, professional football, where the number of
+
+07:23.920 --> 07:27.920
+brain injuries that people accrue is part of playing that sport that lasts them their
+
+07:27.920 --> 07:32.200
+whole life and often lead to early death, they're getting lots of attention in the media, there's
+
+07:32.200 --> 07:38.440
+lots of anecdotal and emotional and sort of first hand coverage of this issue, and it's
+
+07:38.440 --> 07:42.800
+being pushed across almost all of major American media, and what we decided was to take a more
+
+07:42.800 --> 07:46.880
+data driven look at that, we know that in the state of California there was sort of a
+
+07:46.880 --> 07:52.760
+loophole in the workers compensation law that allowed NFL players to make their injury
+
+07:52.760 --> 07:57.320
+claims there even if they didn't play for a California team, and we were able to acquire
+
+07:57.320 --> 08:02.720
+that database via public records request, analyze it, and try to find something more insightful
+
+08:02.720 --> 08:07.120
+to tell our readers on the front page of the paper like you'd see here, but it's not all
+
+08:07.120 --> 08:11.440
+just stories like that, here's another recent story that was an analysis of the street quality
+
+08:11.440 --> 08:15.880
+in Los Angeles that took the form of a front page story by my colleague Ben Poston, but
+
+08:15.880 --> 08:20.280
+also of an interactive online map I worked on where people could zoom and click and check
+
+08:20.280 --> 08:24.000
+out the letter grades of the streets all across the city.
+
+08:24.000 --> 08:28.720
+Another big data thing we did in recent years was an analysis of teachers and how effective
+
+08:28.720 --> 08:33.320
+they are at raising their students test scores, which took the form of front page stories,
+
+08:33.320 --> 08:37.520
+but also an online database that has a page for every teacher in the district allowing
+
+08:37.520 --> 08:44.240
+parents, students, other teachers, administrators, really anyone in the public to access teacher
+
+08:44.240 --> 08:50.800
+by teacher, the data that formed the basis for making those major claims that we made
+
+08:50.800 --> 08:53.280
+on the front page.
+
+08:53.280 --> 08:58.400
+Another example is one I worked on, which is analyzing 911 response times in the city.
+
+08:58.400 --> 09:03.880
+Our fire department made an embarrassing admission that their statistics were all wrong and they
+
+09:03.880 --> 09:09.400
+didn't really know what they were, so we set out to analyze it ourselves, got the data,
+
+09:09.400 --> 09:14.200
+developed our own method, wrote a large series of stories which resulted in front page stories
+
+09:14.200 --> 09:20.160
+like this, but also online maps that allow people to interact with the data, and that series
+
+09:20.160 --> 09:26.480
+resultably just now resulted in the fire chief being put out of office.
+
+09:26.480 --> 09:30.760
+But there's other things that aren't even stories, like election results maps for the presidential
+
+09:30.760 --> 09:35.520
+election recently in the United States, county by county, in my home state, Iowa, the most
+
+09:35.520 --> 09:42.000
+important state, and D3 graphics like this, which you can learn here later at the conference
+
+09:42.080 --> 09:46.840
+where you make interactive graphics that run as a part of a story, things that aren't even
+
+09:46.840 --> 09:52.640
+necessarily hard news stories, a list of the 101 best restaurants in Los Angeles, which
+
+09:52.640 --> 09:57.480
+is the sort of thing in the United States every city's publication is going to run, typically
+
+09:57.480 --> 10:01.400
+not thought of as a database, but really kind of is a database at its core.
+
+10:01.400 --> 10:06.680
+There's 101 entries, they all have a certain amount of set of things, a name, a location,
+
+10:06.680 --> 10:11.600
+a type of food that they serve, a photo associated with them, and so the process of assembling
+
+10:11.640 --> 10:16.880
+that data and building it into a website is something one of my colleagues, Anthony Pesci,
+
+10:16.880 --> 10:18.880
+put a lot of work into.
+
+10:18.880 --> 10:22.840
+And also just sort of the standard interactive graphics that you see more and more of, they're
+
+10:22.840 --> 10:28.720
+intended to stand alone, independent of any story, as sort of a shareable, interesting
+
+10:28.720 --> 10:30.800
+of the moment kind of graphic.
+
+10:30.800 --> 10:37.240
+This is how much money we pay Major League Baseball players in the United States by team.
+
+10:37.320 --> 10:42.840
+And also things like a Snow Folly, like long scrolling, pretty photo, like type things
+
+10:42.840 --> 10:46.440
+that are the current vogue, here's one we did over the last week.
+
+10:46.440 --> 10:48.720
+We also falls on our team to do things like that.
+
+10:48.720 --> 10:53.800
+So the type of work can range from that sort of deep dive investigative analysis I told
+
+10:53.800 --> 11:00.280
+you to sort of the cherry on top of a web presentation that requires a little more technical
+
+11:00.280 --> 11:07.640
+skill and freedom of movement with code than the base CMS, the base publishing system
+
+11:07.640 --> 11:11.360
+of our site allows, right?
+
+11:11.360 --> 11:15.680
+And we also do things like we build little publishing tools outside the CMS.
+
+11:15.680 --> 11:19.320
+Let's say we want to quickly publish a document via document cloud and have it hosted on our
+
+11:19.320 --> 11:20.320
+site.
+
+11:20.320 --> 11:24.160
+We have little systems that allow you to do that, to make timelines, to make sortable
+
+11:24.160 --> 11:28.280
+tables, and that's the sort of process of software development where we're making little
+
+11:28.280 --> 11:35.120
+in-house tools to make quickly publishing something based on data easier to do.
+
+11:35.120 --> 11:39.000
+And a lot of that open source code that we developed as part of that process is on GitHub,
+
+11:39.000 --> 11:42.560
+which is a really great website, I'm assuming most people here know it.
+
+11:42.560 --> 11:46.440
+I also describe it as sort of Facebook for Nerds, right, it's where you can go and be
+
+11:46.440 --> 11:52.520
+part of a social network that's built around a code and the code that people are publishing
+
+11:52.520 --> 11:56.880
+as open source, or even the private projects that you publish in-house, you can host that
+
+11:56.880 --> 11:57.880
+way.
+
+11:57.880 --> 12:03.720
+It's a great way to discover and contribute to open source projects.
+
+12:03.720 --> 12:05.320
+But you get the point, right?
+
+12:05.320 --> 12:10.280
+So that's kind of basically what we do more broadly in all those range of things, and I'm
+
+12:10.280 --> 12:14.960
+happy to talk about any of those things individually or any questions you might have later.
+
+12:14.960 --> 12:19.720
+But when they set up the event, I was told that crime is an interesting topic and crime
+
+12:19.720 --> 12:24.920
+data is an interesting topic here in Buenos Aires and Argentina at large, and so they
+
+12:25.000 --> 12:29.320
+was asked to talk a little bit about a website that we had developed a few years ago, which
+
+12:29.320 --> 12:35.480
+we call Crime LA, and what it is, it's a crime mapping database system that takes the
+
+12:35.480 --> 12:42.320
+daily crime reports processed by our local police departments and maps them, analyzes
+
+12:42.320 --> 12:45.360
+them, and publishes them on the web for the public.
+
+12:45.360 --> 12:49.000
+And you can check it out right now if you have your computer up or later if you want
+
+12:49.000 --> 13:01.040
+to or at any time at this URL, which is just maps.lax.com, slash crime, right?
+
+13:01.040 --> 13:03.760
+And it has a bunch of different types of pages you might see.
+
+13:03.760 --> 13:05.440
+Here's a page about a crime.
+
+13:05.440 --> 13:09.040
+So over the last three years, there's been several hundred thousand crimes recorded,
+
+13:09.040 --> 13:13.800
+and every one of them is in a database and comes out on a page not like this, which tells
+
+13:13.800 --> 13:18.120
+you where it was, what happened, or what was reported to have happened, who reported it,
+
+13:18.240 --> 13:19.240
+etc., etc.
+
+13:20.400 --> 13:25.480
+There's a page for more than 200 neighborhoods in the county of Los Angeles, so we've decided
+
+13:25.480 --> 13:31.440
+to kind of slice and dice the data and present it to our readers in sort of geographically
+
+13:31.440 --> 13:34.960
+recognizable areas that they know rather than just throwing them on the map.
+
+13:34.960 --> 13:40.240
+So here's crimes in Highland Park, and you can slide that slider and go back in time,
+
+13:40.240 --> 13:42.960
+and the crimes will come on and go off, and you can see what's happening.
+
+13:44.640 --> 13:46.520
+Here's it has like the most recent crimes.
+
+13:46.520 --> 13:50.720
+So here's like a list of the most recent crimes that would appear just below that map.
+
+13:50.720 --> 13:57.320
+But in addition to the list, it also provides some automated analysis that tells you here's
+
+13:57.320 --> 14:03.440
+the total, here's how it compares to the recent history, here's how it compares to the nearby
+
+14:03.440 --> 14:05.320
+neighbors of that neighborhood.
+
+14:05.320 --> 14:13.680
+And then in that analysis, it figures out, are there an unusual amount of crimes statistically
+
+14:13.680 --> 14:16.680
+in this neighborhood compared to what it typically sees?
+
+14:16.680 --> 14:20.400
+And if so, that could trigger something like an alert, and then we automatically publish
+
+14:20.400 --> 14:23.200
+with each data update a blog post.
+
+14:23.200 --> 14:28.800
+This is written entirely by a computer that says, hey Los Angeles, here are all the neighborhoods
+
+14:28.800 --> 14:34.960
+that in the latest crime reports are experiencing an uptick for their history in crime with a
+
+14:34.960 --> 14:37.320
+little map and tables, etc., etc.
+
+14:37.320 --> 14:40.360
+And those are kind of the short-term analysis it does.
+
+14:40.360 --> 14:44.480
+There's long-term analysis as well for each neighborhood, where over a longer period of
+
+14:44.480 --> 14:49.520
+time the crimes are totaled, they're ranked against other neighborhoods, it's split out
+
+14:49.520 --> 14:52.000
+by what types and shown over months.
+
+14:52.000 --> 14:56.960
+And that gives you a little broader context, which you could then say map the neighborhoods,
+
+14:56.960 --> 14:59.320
+the gray ones are what we still don't have data.
+
+14:59.320 --> 15:04.800
+You could map the neighborhoods based on their level of crime per capita.
+
+15:04.800 --> 15:09.720
+And you could rank them just like this and see which neighborhoods have the most violent
+
+15:09.720 --> 15:10.720
+crime.
+
+15:10.720 --> 15:13.320
+Okay, but so how did all this happen?
+
+15:13.320 --> 15:15.680
+How does a site like this come together?
+
+15:15.680 --> 15:18.040
+How could you yourself make something like it?
+
+15:18.040 --> 15:22.440
+And that's what I'm going to start to try to tell the story of now by rewinding back
+
+15:22.440 --> 15:25.480
+to how a site like that all got started.
+
+15:25.480 --> 15:30.960
+And it all started really when Meredith Artley, who used to be my boss, she now works at CNN,
+
+15:30.960 --> 15:39.200
+had hired a couple of us geeks onto the website, and she said, hey geeks, I want a crime map.
+
+15:39.200 --> 15:42.960
+And that's the sort of broad instruction you might get from an editor who's not particularly
+
+15:42.960 --> 15:48.440
+technical, but who's smart enough to hire technical people, which is I know this is possible,
+
+15:48.440 --> 15:53.200
+other places do it, let's do it for our local area, and let's maybe do something better
+
+15:53.200 --> 15:56.960
+or different than what other people have already done, right?
+
+15:56.960 --> 15:59.640
+And so the instruction starts out broad like that.
+
+15:59.640 --> 16:03.800
+And we went through a process where we started figuring out, like, well, okay, what would
+
+16:03.800 --> 16:07.760
+that take, and what form do we want to shape it into, right?
+
+16:07.760 --> 16:12.640
+And so a big structural problem that you have in Los Angeles is what I call kind of the
+
+16:12.640 --> 16:17.800
+bureaucratic terrain, which is LA County has like 10 million people, right?
+
+16:17.800 --> 16:23.520
+But in that big county of Los Angeles, there are 88 cities, the largest of which is Los
+
+16:23.520 --> 16:28.360
+Angeles City, which you've probably heard of, policed by the Los Angeles Police Department.
+
+16:28.360 --> 16:32.400
+But there's many other police departments that are independent, the police smaller cities,
+
+16:32.400 --> 16:37.480
+and there's also a county sheriff's department, the police's, lots and lots of others, right?
+
+16:37.480 --> 16:42.600
+And so we knew that was going to be our big problem, is each of them is each individually
+
+16:42.600 --> 16:45.120
+collecting data and publishing data.
+
+16:45.120 --> 16:48.640
+If they're going to be our source, we're going to have to go to them, right?
+
+16:48.640 --> 16:53.480
+Each individually, which is difficult and is probably not unlike an issue you might face
+
+16:53.480 --> 16:58.760
+with your regional estates as well, right?
+
+16:58.760 --> 17:02.200
+And maybe your cities too, it depends, you know, they're our source.
+
+17:02.200 --> 17:06.120
+And we also knew that our big goal for what we wanted to make, and I would encourage anyone
+
+17:06.120 --> 17:11.360
+making a crime map to set this as a goal, which is to be more than just like a million
+
+17:11.360 --> 17:12.360
+points on the map.
+
+17:12.360 --> 17:16.560
+In particular, at the time we were working on this, but even still so today, most crime
+
+17:16.560 --> 17:18.280
+mapping software, that's really what it is.
+
+17:18.280 --> 17:21.920
+As you get all the data from the police, you come up with a goofy icon for each of the
+
+17:21.920 --> 17:25.920
+different crime types, you know, here's a picture of somebody with a ski mask on, on
+
+17:25.920 --> 17:29.880
+an icon, and here's a picture of a knife on an icon, maybe with some little blood coming
+
+17:29.880 --> 17:33.360
+off it, or something silly like that.
+
+17:33.360 --> 17:37.000
+And then you just throw them on the map and you say, hey, you're welcome, you know, go
+
+17:37.000 --> 17:38.560
+make sense of it world.
+
+17:38.560 --> 17:42.320
+And I think that, you know, as journalists, we should aspire to do more than just kind
+
+17:42.320 --> 17:43.320
+of throw it out there.
+
+17:43.320 --> 17:49.040
+We should aspire to throw it out there and shape it into something that, you know, somebody
+
+17:49.040 --> 17:53.400
+who doesn't have as much time and isn't paid to do this, right, can just like quickly kind
+
+17:53.400 --> 17:56.000
+of learn things from it and see insights.
+
+17:56.000 --> 17:59.560
+And you know, one thing we wanted to do, like you saw in those examples, was to spot short
+
+17:59.560 --> 18:00.560
+term trends.
+
+18:00.560 --> 18:05.400
+I mean, that's something people want to know about crime, is, is in the recent past, is
+
+18:05.400 --> 18:10.640
+there some unusual crime activity that I should know about if I live in this place or I know
+
+18:10.640 --> 18:14.480
+someone who lives there or I'm interested in it, right?
+
+18:14.480 --> 18:18.200
+And the second thing is long term context, which is, okay, so let's say there have been
+
+18:18.200 --> 18:21.960
+a lot of crimes recently or not in this neighborhood, but is that usual?
+
+18:21.960 --> 18:27.200
+What is the typical level of crime over a long period of time in an area?
+
+18:27.200 --> 18:30.080
+And that's the sort of thing people want to know, want about the area they live, but
+
+18:30.080 --> 18:34.640
+maybe two about places they're considering moving, right, or places that they're interested
+
+18:34.640 --> 18:40.280
+in being active about the level of police protection about, right?
+
+18:40.280 --> 18:43.160
+And then the other thing we wanted to do is besides just throwing them on the map was
+
+18:43.160 --> 18:49.520
+to shape them into geographic areas that people can relate to, right?
+
+18:49.520 --> 18:51.360
+And that's why we love the neighborhood's data.
+
+18:51.360 --> 18:56.480
+So where we have developed through a crowdsourcing process with our readers because there are
+
+18:56.480 --> 18:59.080
+no oficial neighborhoods for the city of Los Angeles.
+
+18:59.080 --> 19:03.760
+We've developed our own set of neighborhoods that are cross mapped with census data that
+
+19:03.760 --> 19:08.720
+allows us to take any data that's a point, cross reference those two things, and then
+
+19:08.720 --> 19:12.880
+add it up and analyze it, and be able then to dish it out to our readers as well in that
+
+19:12.880 --> 19:18.800
+form so that something like the number of aggravated assaults can not just be city wide, it can
+
+19:18.800 --> 19:23.880
+not just be, oh, in police district six, which is what the cops might shape it as, right,
+
+19:23.880 --> 19:29.240
+no human, who's not a cop, would recognize, but can be presented as no, aggravated assaults
+
+19:29.240 --> 19:35.560
+downtown, right, in a geographic unit of analysis that's more recognizable to people.
+
+19:35.560 --> 19:37.080
+And we do that not just for crime.
+
+19:37.080 --> 19:40.200
+We did it for the pavement story that I showed you earlier.
+
+19:40.200 --> 19:41.760
+We did it for the fire department thing.
+
+19:41.760 --> 19:43.360
+We do it for the census data.
+
+19:43.360 --> 19:45.040
+We do it for all kinds of stuff.
+
+19:45.040 --> 19:48.640
+And there's probably something like that that you can use as well, too, and using some of
+
+19:48.640 --> 19:54.680
+the GIS tools that'll be discussed at the conference, like CardoDB, or PostGIS, or whatever
+
+19:54.680 --> 20:00.560
+you like, Google Fusion Tables, you can actually start to achieve that kind of point in polygon
+
+20:00.560 --> 20:08.760
+analysis that's necessary to aggregate point data into something that's more relatable.
+
+20:08.760 --> 20:12.240
+But okay, so those are our goals, and we know that we got all these departments, but how
+
+20:12.240 --> 20:15.280
+do we actually, like, start on that road to get it?
+
+20:15.280 --> 20:21.360
+In the state of California, which is where Los Angeles is, there's a law, and it's a
+
+20:21.360 --> 20:22.360
+pretty good law.
+
+20:22.360 --> 20:26.600
+It's not a great law, but it's a pretty good law, and it's called the California Public
+
+20:26.600 --> 20:27.600
+Records Act.
+
+20:27.600 --> 20:33.080
+And it's sort of like, you've probably heard of FOIA, right, which is the federal United
+
+20:33.080 --> 20:38.120
+States law governing the United States federal government on the records it has to release
+
+20:38.120 --> 20:40.040
+to the public on request.
+
+20:40.040 --> 20:45.440
+Every U.S. state also has its own, like, similar law, which governs the state government
+
+20:45.440 --> 20:50.080
+and local governments in the state, and ours is the California Public Records Law.
+
+20:50.080 --> 20:54.760
+And according to that law, and according to legal decisions that have happened afterwards
+
+20:54.760 --> 20:58.680
+after it was passed, we have the right to the crime data.
+
+20:58.680 --> 21:00.280
+Yeah, right?
+
+21:00.280 --> 21:04.680
+So the cops, they gotta give it to us, they gotta give it to us, I can just write an email
+
+21:04.680 --> 21:08.800
+or a letter, and I can say, hey coppers, give me the data, right, and then they're gonna
+
+21:08.800 --> 21:13.240
+give me the data, and then I'm gonna make a great map, and it's gonna be awesome, right?
+
+21:13.240 --> 21:15.640
+But there's one problem.
+
+21:15.640 --> 21:20.840
+They have to give me the data after I make a request, and after they have 10 days to
+
+21:20.840 --> 21:25.320
+respond to that request, which is written into the law, and then if 10 days wasn't enough,
+
+21:25.320 --> 21:29.920
+they're allowed to file for a 14-day extension, and say, well, you know, we're really busy,
+
+21:29.920 --> 21:33.640
+or your request is very difficult, so it's gonna take us a little longer than 10 days,
+
+21:33.640 --> 21:37.920
+we need another 14, then the 14 will go by, and I'll say, well, I'm counting weekends,
+
+21:37.920 --> 21:41.360
+and they'll say, no, no, we're not counting weekends, and I'll say, yeah, but the law says
+
+21:41.360 --> 21:46.360
+calendar days, calendar days are weekends, and they'll say, huh, or they won't respond,
+
+21:46.360 --> 21:49.880
+and then several more days they'll go by, and then I'll have to call somebody, and then
+
+21:49.880 --> 21:55.320
+it'll, you know, go on and on, and then I'll CC, like, 8 people on email, including their
+
+21:55.320 --> 21:59.840
+boss, and I'll be like, yeah, where's my request, and all that'll happen, and then,
+
+21:59.840 --> 22:04.600
+hey, I'll get the data, and it'll have been like 2 months, right, and oh gosh, I asked
+
+22:04.640 --> 22:11.640
+for the last 6 months of data, but that was 2 months ago, oh, gosh, and oh, what if I want
+
+22:11.640 --> 22:16.840
+another dump tomorrow, do I have to file another request, right, and so that's where the law
+
+22:16.840 --> 22:22.040
+really falls down for making something like a crime map, where you want to update every
+
+22:22.040 --> 22:27.280
+single day with the latest crimes, is the law does not require the government to publish
+
+22:27.280 --> 22:33.040
+the data in an open format that regularly updates, that anyone can regularly access,
+
+22:33.040 --> 22:37.600
+which is the kind of thing you guys are all looking for when we say open data. The law
+
+22:37.600 --> 22:42.840
+just requires them to respond to my request within those, within the rules and regulations
+
+22:42.840 --> 22:48.360
+that are set up, and so that was the big hurdle we face, is that the police departments we
+
+22:48.360 --> 22:53.800
+were going for didn't have to give it to us in a way that we needed to build the site
+
+22:53.800 --> 22:57.360
+we wanted to build, they just had to give it to us in a way that the law required, which
+
+22:57.360 --> 23:03.600
+wasn't good enough, right, so that's where we were, you know, we needed something that
+
+23:03.600 --> 23:08.720
+they didn't have to give us, so we sort of turned into beggars, and you think, well okay,
+
+23:08.720 --> 23:12.840
+if there's 15 police departments, we go to all 15, that's going to take forever, right,
+
+23:12.840 --> 23:17.640
+and some of them are like really behind the times, so how can we get the most bang for
+
+23:17.640 --> 23:23.960
+the buck, and the tactic that we kind of adopted to do that was we went to the 2 biggest ones,
+
+23:23.960 --> 23:29.120
+which is the Los Angeles Police Department, you know, Joe Friday and all that, and the Los
+
+23:29.120 --> 23:33.840
+Angeles County Sheriff's Department, who are the two largest in the county, they're the
+
+23:33.840 --> 23:38.360
+two most advanced, they're the two biggest, they have LAPD, is actually famous for its
+
+23:38.360 --> 23:44.040
+crime mapping that it uses for its own internal analysis, we're told, and they cover, you know,
+
+23:44.040 --> 23:49.120
+a huge section of the population and of the territory, and so we kind of decided, you know,
+
+23:49.160 --> 23:54.920
+the outset, let's just go after those two guys, and let's try to get them on board,
+
+23:54.920 --> 23:59.160
+and so what that meant was like setting up meetings with people who work there, the people
+
+23:59.160 --> 24:05.120
+who run their data, and sort of like saying, hey, let's like make this happen, it'll be
+
+24:05.120 --> 24:11.320
+a good thing for your goals, for our goals, let's, you know, collaborate and kind of have
+
+24:11.320 --> 24:16.480
+it happen, and the Los Angeles Police Department responded this way, you know, they said, well
+
+24:16.480 --> 24:20.560
+we don't really trust everybody to give this data, you know what I mean, to put it out open,
+
+24:20.560 --> 24:25.320
+but you guys are the newspaper, and you're asking really nice, and like, you know, your editor
+
+24:25.320 --> 24:30.840
+came, and like, you know, it's really friendly, and you know, we like data, we're into it,
+
+24:30.840 --> 24:34.840
+and we want to look like we're really advanced, and pushing the envelope, and all that stuff,
+
+24:34.840 --> 24:40.360
+so we'll do it, but only you can have the data, right, not in the words of our former chief,
+
+24:40.360 --> 24:45.360
+not someone in their underwear, right, which in the United States is our image for a blogger,
+
+24:45.360 --> 24:49.160
+for some reason, the blogger is always described as being in his underwear, or her underwear,
+
+24:49.160 --> 24:54.640
+you know, in the basement, right, alone, but that was the actual image he used, and so
+
+24:54.640 --> 24:58.760
+they said, yeah, we'll give it to you, and it'll come like this, and it'll only be for
+
+24:58.760 --> 25:03.920
+the last six months, because we have our own Los Angeles Police Department interpretation
+
+25:03.920 --> 25:09.120
+of the California Public Records Act, which says, it only applies to contemporaneous records,
+
+25:09.120 --> 25:13.200
+which we define as the last six months, so even though you think you get all the data,
+
+25:13.200 --> 25:16.280
+we actually say, no, it's probably just the last six months, but we'll give it to you
+
+25:16.280 --> 25:21.080
+in this feed that you like, so you're going to complain, and we said, no, we won't complain,
+
+25:21.080 --> 25:25.640
+we'll take it, and they set up the feed, and I wrote the code that goes in every night,
+
+25:25.640 --> 25:27.520
+and starts pulling it out.
+
+25:27.520 --> 25:31.920
+The Sheriff's Department, not as technically advanced or famous about their data analysis
+
+25:31.920 --> 25:36.360
+at the LAPD, took what I think was a more enlightened position, and they said, you know
+
+25:36.360 --> 25:40.320
+what, this is going to take us a few months to like, make this happen, it can't happen
+
+25:40.320 --> 25:44.440
+right away, but if we're going to do the work, why should we do the work just for you?
+
+25:44.440 --> 25:47.600
+We get requests for this kind of thing all the time.
+
+25:47.600 --> 25:53.520
+Let's instead write the code that'll publish our file up to our Sheriff's Department website
+
+25:53.520 --> 25:58.680
+as a CSV, you know, a simple spreadsheet format that anybody can go get, and then Ben, you
+
+25:58.680 --> 26:03.080
+can go write your code to put that in, and then the next person who shows up and asks
+
+26:03.080 --> 26:06.960
+me for the data, I can just point them to that link and not do any work, and take a
+
+26:06.960 --> 26:07.960
+long lunch.
+
+26:08.240 --> 26:10.040
+I said, hey, you know, that's a pretty good idea.
+
+26:10.040 --> 26:13.160
+And so the Sheriff's Department took that different approach, right?
+
+26:13.160 --> 26:20.280
+And then my job became, as the nerd, as the house cat, was to sit in my little cubicle
+
+26:20.280 --> 26:24.680
+and write the code that sucks in those data files every day and starts looking at them,
+
+26:24.680 --> 26:25.680
+right?
+
+26:25.680 --> 26:30.000
+But like a really important thing to remember is, you know, you don't want to be, when you're
+
+26:30.000 --> 26:34.600
+working with government data, you don't want to be, you know, we all want to be data journalists,
+
+26:34.600 --> 26:35.600
+right?
+
+26:35.600 --> 26:39.720
+Big term, it's now in vogue, I love it, you know, we're data journalists.
+
+26:39.720 --> 26:43.080
+Be a data journalist, don't be a data stenographer, right?
+
+26:43.080 --> 26:46.600
+So you guys know what that's, so a stenographer is the person who sits in court and just like
+
+26:46.600 --> 26:51.040
+retypes everything everybody says, no matter how stupid it is, right?
+
+26:51.040 --> 26:52.920
+And don't be that type of person.
+
+26:52.920 --> 26:57.200
+When you get those data feeds from the government, you got to look at them skeptically, critically,
+
+26:57.200 --> 27:02.160
+analyze them before you choose to publish them, otherwise you'll just be a stenographer
+
+27:02.160 --> 27:05.800
+to what, you know, what that data is saying, good, bad, or ugly.
+
+27:05.800 --> 27:11.960
+And what I discovered looking at those files, much to my surprise, and actually my frustration
+
+27:11.960 --> 27:18.800
+because I wanted to make a website, was that the LAPD's data, that file from the big experts,
+
+27:18.800 --> 27:23.960
+right, that was published in the FTP for just for me, when I took all those rows and rows
+
+27:23.960 --> 27:30.240
+of data, and I did a really complex data mining operation, which is called, you know, addition,
+
+27:30.240 --> 27:31.240
+right?
+
+27:31.240 --> 27:36.000
+I just added them all up, and I said, okay, so they say there's been this many over the
+
+27:36.000 --> 27:40.040
+last six months, and this is where they say it's happened, and this is how many they were,
+
+27:40.040 --> 27:44.000
+and I can really drill down, and ooh, I can map and do all this analysis, but I just added
+
+27:44.000 --> 27:45.760
+it up.
+
+27:45.760 --> 27:53.160
+I saw that, hey, this isn't the same numbers that they report to the FBI, so under our
+
+27:53.160 --> 27:59.080
+federal system, the LAPD is reported, is required to give big aggregate totals to the federal
+
+27:59.080 --> 28:04.080
+government, to our federal law enforcement agency, which is called the FBI, and that
+
+28:04.080 --> 28:09.680
+is under this goofy system that's called UCR for Uniform Crime Reports, right, you maybe
+
+28:09.680 --> 28:14.360
+heard of J. Edgar Hoover, he was sort of like a, the tyrant-like figure that ran the FBI,
+
+28:14.360 --> 28:19.040
+but one good thing that came out of that was data standards, and so all the local police
+
+28:19.040 --> 28:23.120
+departments are required to report their totals up to the federal government in what's called
+
+28:23.120 --> 28:28.360
+UCR, and I just found that they didn't equal each other, man, that was really weird, right?
+
+28:28.360 --> 28:33.560
+And what I also found is that in the same time I'm racing to do this, build this website,
+
+28:33.560 --> 28:40.520
+the LAPD has hired a private contractor to build their own website, and they use the same
+
+28:40.520 --> 28:41.520
+file.
+
+28:41.520 --> 28:46.600
+Gee, that's weird, so what that then resulted in was a front page story in the Los Angeles
+
+28:46.600 --> 28:52.720
+Times, which told people what that weird situation ended up being, which is that the LAPD is one,
+
+28:52.800 --> 28:58.040
+giving us a file, two, paying someone else to make a map for you to read, right, that's
+
+28:58.040 --> 29:03.000
+missing nearly half of all the crimes that actually occurred in that year, right, and
+
+29:03.000 --> 29:07.240
+so this was something that just sort of accidentally came out of building the website, it wasn't
+
+29:07.240 --> 29:12.200
+an investigation we set out to do, but just by taking that government data release and
+
+29:12.200 --> 29:16.880
+just doing basic integrity checks on it, we found a new story, and then when you know
+
+29:16.880 --> 29:21.040
+it's front page, wow, that's fun, you know, my name's in the paper, my mom's really proud,
+
+29:21.200 --> 29:26.000
+my mom doesn't want to look at the websites, she doesn't care, but when your name's in
+
+29:26.000 --> 29:31.920
+the paper, oh, you know, mom's proud, but unfortunately, that kind of short circuited this like longer
+
+29:31.920 --> 29:35.280
+journey we had been on to build the website, you know, we can't just like, now that we
+
+29:35.280 --> 29:39.720
+know it's wrong, which geez Christ, we can't like turn it into a website, that would be
+
+29:39.720 --> 29:46.320
+irresponsible, and the LAPD police chief, he was a very smooth operator, thanked us for
+
+29:46.320 --> 29:50.840
+our investigation, said, of course, this is a problem, we will pull down the site, which
+
+29:50.840 --> 29:55.760
+was the right thing to do, and we will fix the data file to the LA Times, and obviously
+
+29:55.760 --> 30:00.520
+they couldn't do that overnight, they fired the contractors, some time went by, I worked
+
+30:00.520 --> 30:04.800
+on other projects, this thing stood around, and we're talking, we're over a year past
+
+30:04.800 --> 30:09.680
+that first slide when Meredith Artley said, we want a crime map, right, just in the acquisition
+
+30:09.680 --> 30:17.520
+phrase, but ultimately we do, we get a file again from the LAPD, and I'm back in my cubicle,
+
+30:17.520 --> 30:23.160
+you know, taking the files from both the departments, and they each have their own data standards,
+
+30:23.160 --> 30:27.880
+their own like column names, their own things they'll give me or won't give me, and I'm
+
+30:27.880 --> 30:31.600
+thinking, well how am I going to build one map for everybody out of these different data
+
+30:31.600 --> 30:37.160
+sources, well there's this FBI system, which can be our standard, so part of the code and
+
+30:37.160 --> 30:42.800
+the database that you build, sucks in these two files every day, standardizes them according
+
+30:42.800 --> 30:49.840
+to this federal thing of the eight major crime types, they call them in the US, and then
+
+30:49.840 --> 30:55.840
+puts that into like a consolidated LA Times kind of like data table of all the crimes,
+
+30:55.840 --> 31:00.520
+right, and then you sort of set up a little web server connected to that, and you're writing
+
+31:00.520 --> 31:05.080
+even more code, and then you start writing a lot of math, so we have all the, we have
+
+31:05.080 --> 31:09.320
+the big table that has all the crime reports, but man, we want to slice them and dice them
+
+31:09.320 --> 31:14.280
+by neighborhood, we want to do these long-term, short-term statistics, and what that requires
+
+31:14.280 --> 31:19.800
+is, is in your code, as each day's data file gets loaded, having it calculate, and then
+
+31:19.800 --> 31:25.160
+ultimately publish, but first calculate those statistics that we use on the pages I showed
+
+31:25.160 --> 31:31.040
+you earlier, right, and so just to walk through what those stats are really shortly, it's
+
+31:31.040 --> 31:37.720
+like, so our broad goal is to give you this broad context about, you know, what is violent
+
+31:37.720 --> 31:45.480
+crime like in Hollywood, in Echo Park, in Venice, in downtown, for all the neighborhoods
+
+31:45.480 --> 31:51.120
+as a whole, where we have crime data, and so one, you have these four of the eight major
+
+31:51.120 --> 31:57.880
+crimes by the FBI, four of them are violent, homicide, aggravated assault, robbery, and rape,
+
+31:57.880 --> 32:01.600
+and you sort of bundle them up into what we call our sort of violent crimes group or
+
+32:01.600 --> 32:06.160
+basket, which is the same thing the FBI does, so again, we're using their federal standard,
+
+32:06.160 --> 32:11.560
+we're not out there inventing anything crazy, right, you then map all of those, so each
+
+32:11.560 --> 32:17.800
+crime has a point related to it, and you have the computer using, you know, geometry basically,
+
+32:17.800 --> 32:24.280
+just sort of pull out of the database all the violent crimes over, say, six months for each
+
+32:24.280 --> 32:28.960
+of the 200 plus neighborhoods, and now you have a number, right, for each one, you could
+
+32:28.960 --> 32:33.200
+rank that and just do the counts, but you have an issue, which is not all neighborhoods
+
+32:33.200 --> 32:38.520
+are created equal, some are bigger than others, so like a very simple per capita statistic
+
+32:38.520 --> 32:43.920
+allows us to give you the violent crime rate in each of those neighborhoods, and we're able
+
+32:43.920 --> 32:48.200
+to do that because those neighborhoods that I told you about earlier, the intel inside
+
+32:48.200 --> 32:51.840
+of the neighborhoods, isn't that we drew the lines just right so everybody agrees and they're
+
+32:51.880 --> 32:56.000
+beautiful, and there's no contention about the borders, no, what the great thing about the
+
+32:56.000 --> 33:02.080
+neighborhoods is, is it's connected to our US census data, so we actually know for these
+
+33:02.080 --> 33:07.080
+sub-city areas that we've defined what their populations are, or if you just go out and
+
+33:07.080 --> 33:11.660
+start drawing neighborhoods, it could be totally disconnected from your census information, so
+
+33:11.660 --> 33:17.220
+we sort of use the census blocks, is what they're called in the United States, these areas defined
+
+33:17.220 --> 33:21.780
+by the census, they're very small, we sort of use them like Legos, right, to sort of put
+
+33:21.780 --> 33:26.380
+together the neighborhoods and then maybe cut them in half and split the population between
+
+33:26.380 --> 33:33.060
+two, and then at the end, that geographic boundary of the neighborhood we have has all this rich
+
+33:33.060 --> 33:38.100
+metadata that comes from our census associated with us, and a really simple but powerful
+
+33:38.100 --> 33:42.140
+thing that allows you to do is something like this, which is just to say, for this neighborhood
+
+33:42.140 --> 33:48.180
+for downtown LA, this thing that you recognize and can talk about and makes total sense,
+
+33:48.180 --> 33:52.740
+here's the violent crime rate, and that gives you a really powerful way to one show and talk
+
+33:52.740 --> 33:59.340
+about lots of things, like in the LAFD, in the fire department 911 thing I showed you earlier,
+
+33:59.340 --> 34:05.020
+it turned out the slowest neighborhood, the last neighborhood, Bel Air, has the highest
+
+34:05.020 --> 34:09.500
+income neighborhood, and so that allows you to not just show something interesting to people,
+
+34:09.500 --> 34:13.900
+but to say it to them in a way that anybody can understand, or that you can write on the
+
+34:13.900 --> 34:19.220
+front page of the newspaper, the richest neighborhoods have the slowest 911 response, you know what
+
+34:19.220 --> 34:24.500
+I mean, and that, and it's because you've built up this foundation of geographic data
+
+34:24.500 --> 34:30.260
+linked to rich metadata that you're able to ultimately make that synthesis, and say something
+
+34:30.260 --> 34:34.660
+that your mom can understand, or that the guy two beers in at the bar can understand, or
+
+34:34.660 --> 34:39.860
+you know, whatever, or even your graphics editor, no, but, and so, and then we essentially
+
+34:39.860 --> 34:45.620
+repeated the exact same thing with property crimes as well, and that's how we've got the
+
+34:45.620 --> 34:50.060
+sort of broad context, and that also allows you to make maps like this and those rankings
+
+34:50.060 --> 34:54.900
+I showed you and whatever, but then we also wanted to get at the newsiness of short term
+
+34:54.900 --> 34:58.780
+crime and things that have happened recently, but we wanted to do it in a statistically
+
+34:58.780 --> 35:04.500
+sound way, so again, let's say I want to know what neighborhoods are having an unusual amount
+
+35:04.500 --> 35:09.740
+of violent crime like now, or like in the last week, cause that's news, right, that's
+
+35:09.740 --> 35:13.100
+a lot of work though, we don't have enough reporters to like go out to all the neighborhoods
+
+35:13.100 --> 35:16.380
+and talk to people and figure that out, but the crime can, this can help, so again you
+
+35:16.380 --> 35:20.660
+take all the violent crimes, you slice them up by the neighborhood, but this time instead
+
+35:20.660 --> 35:25.900
+of over the last six months, you look over the most recent seven days that you have available,
+
+35:25.900 --> 35:31.140
+which we defined as our recent period, which is just the statistical decision we made, it's
+
+35:31.140 --> 35:38.100
+totally debatible, we then calculated, we compared that most recent week to the weekly
+
+35:38.100 --> 35:42.900
+average in that neighborhood over the last three months, so in, you know, in downtown
+
+35:42.900 --> 35:47.060
+there's been this many crimes per week over the last three months, and here's how many
+
+35:47.060 --> 35:53.260
+have been in the last seven days, you know, what is the most recent week's deviation from
+
+35:53.260 --> 35:58.700
+that weekly average, right, as a statistic you can calculate, we calculated that, so
+
+35:59.060 --> 36:05.220
+that gives you another number, and then we editorially defined a certain standard deviation
+
+36:05.220 --> 36:10.020
+and a certain absolute number of crimes, it has to deviate this much from the mean, it
+
+36:10.020 --> 36:16.620
+has to be at least three crimes for it to qualify for what we call our alerts, right,
+
+36:16.620 --> 36:21.460
+and so if the neighborhood has relative to its own past, experienced a standard deviation
+
+36:21.460 --> 36:26.940
+above this or that, and met the standard alert into the blog post, up and out, so there's
+
+36:26.980 --> 36:31.580
+a little alert flag that will appear on the page, you know, you can see it explained in
+
+36:31.580 --> 36:37.220
+here, and then it goes into the blog post, well, and the end product is something we hope
+
+36:37.220 --> 36:41.620
+is really simple for people to get, which is like, hey, check it out, here's a neighborhood
+
+36:41.620 --> 36:45.420
+that's having more crime than usual, right, and maybe if it's really crazy a reporter
+
+36:45.420 --> 36:51.060
+would look into it or whatever, but behind that thing that we're trying to make that's
+
+36:51.060 --> 36:56.540
+easy to understand is just sort of a basic statistical algorithm or, you know, equation
+
+36:56.580 --> 37:01.540
+or whatever you want to call it, where we've defined strictly the rules of what we're going
+
+37:01.540 --> 37:05.980
+to call news, so we're taking that kind of news judgment and we're converting it into
+
+37:05.980 --> 37:11.500
+computer code and then running it over the moving data stream that comes in every day
+
+37:11.500 --> 37:18.380
+from these police departments, right, and so that all then happens, so, you know, every
+
+37:18.380 --> 37:24.300
+night there's a cron script, not, you know, to pull the two files, standardize them, stuff
+
+37:24.460 --> 37:28.940
+them in one database, get them in the web server, then the web server does all this math
+
+37:28.940 --> 37:33.420
+down here that I was telling you about, and then that happens, and then, finally, you actually
+
+37:33.420 --> 37:37.620
+have to make something for people to use out on the internet, right, after you've done all
+
+37:37.620 --> 37:44.620
+that, and do all that development in House 2, and we use kind of a common stack of tools
+
+37:45.500 --> 37:49.660
+very similar, I think, to the ones they use at the Texas Tribune, that includes at its
+
+37:49.740 --> 37:56.500
+core a post-GIS database, which is, you guys familiar with it, it's a modification of the
+
+37:56.500 --> 38:03.100
+common open source Postgres database that allows you to do geometry on it, so, you know, you
+
+38:03.100 --> 38:08.420
+can ask a database, give me all the records where the name field equals ben, right, but
+
+38:08.420 --> 38:12.780
+with a post-GIS database, you can say give me all the records that are near or within
+
+38:12.780 --> 38:17.340
+a certain boundary of this point, or who fall within this neighborhood, so it allows you
+
+38:17.380 --> 38:24.380
+to write that kind of SQL database interactions with a geometric questions, as opposed to
+
+38:24.820 --> 38:29.660
+strict semantic questions, and it's very popular, you know, if you've used Instagram, you've
+
+38:29.660 --> 38:35.100
+used post-GIS, right, so the same tools that we use to make news was used to make those
+
+38:35.100 --> 38:40.340
+people billionaires, and exact same software, exact same tools, they just used it for, you
+
+38:40.340 --> 38:45.380
+know, a different purpose, and it's used on a lot of things, and then on top of that
+
+38:45.380 --> 38:49.500
+is the application layer, where all the rules of what gets pulled out where, to put on what
+
+38:49.500 --> 38:54.460
+pages get written, and that we also do in Python and Django, there's sort of the web
+
+38:54.460 --> 38:58.980
+server and all the caching, like that's the part where all my stress is, it's like right
+
+38:58.980 --> 39:02.900
+there, in that third layer where you sort of make sure that it can manage all the web
+
+39:02.900 --> 39:07.900
+traffic you're gonna get in a way that doesn't crash, and then finally there's the actual
+
+39:07.900 --> 39:12.540
+user interface for the people, which we just use basic common stuff that you all familiar
+
+39:12.540 --> 39:17.700
+with HTML, JavaScript, and a number of JavaScript libraries for mapping and other things that make
+
+39:17.700 --> 39:22.900
+it easier, I'd really recommend Leaflet, which is just sort of blown out the field in the
+
+39:22.900 --> 39:27.540
+last couple of years as a JavaScript mapping tool, and so that's how we get it from the
+
+39:27.540 --> 39:32.140
+server to the user, and that's how you end up on a page like this, which again is the
+
+39:32.140 --> 39:38.860
+home page that we started of at maps.lax.com slash crime, where you can go, and the basic
+
+39:38.860 --> 39:43.100
+thing on the page is guess what, the neighborhoods that have most recently had an alert, but if
+
+39:43.100 --> 39:46.420
+you hover on a neighborhood, click it, you'll get that neighborhoods report, you can search
+
+39:46.420 --> 39:50.540
+your address, it'll jump you to that neighborhoods page, where you'll get all the information
+
+39:50.540 --> 39:56.620
+that we talked about and showed earlier, and so, also results in a front page story where
+
+39:56.620 --> 40:00.660
+we say, yeah, we now have a crime map, here's a big long term thing, you should go check
+
+40:00.660 --> 40:05.860
+it out, right, here's the email I get every morning that tells me that yes, everything
+
+40:05.860 --> 40:11.060
+went A-OK, and the crime data has published and come in, there's a number of diagnostic
+
+40:11.060 --> 40:14.780
+screens that kind of give me a little more information about what exactly got loaded
+
+40:14.780 --> 40:19.620
+and what happened, or if something went wrong, that I need to go work on it, but that's
+
+40:19.620 --> 40:24.740
+kind of part of the process as you get these little reports, and then those automated blog
+
+40:24.740 --> 40:31.740
+posts get written, and then my favorite thing is then using this database to not just allow
+
+40:31.900 --> 40:36.620
+someone to go look up data because they're curious, or to provide kind of a little more
+
+40:36.620 --> 40:43.140
+contextual analysis for somebody who's house hunting, but to also really try to better
+
+40:43.140 --> 40:49.260
+inform the day-to-day crime coverage that we do in the paper. I mean, I'm not an expert
+
+40:49.260 --> 40:54.140
+on Argentine media, but I would bet that you have some of the same things happen that happen
+
+40:54.140 --> 41:00.900
+in the United States, which is that a small number of spectacular crimes tend to get exponentially
+
+41:00.900 --> 41:05.460
+more attention than the run-of-the-mill things that happen that'll be in a database like
+
+41:05.460 --> 41:11.580
+this, and people like to attach their own storylines to what those crimes mean and what
+
+41:11.580 --> 41:17.260
+they tell you about the places where they are that are based on folklore and previous big
+
+41:17.260 --> 41:21.940
+things like this that have happened, or whatever, and often aren't supported by a lot of empirical
+
+41:21.940 --> 41:27.020
+evidence, right, and so what really gets me excited is when a crime happens and we're
+
+41:27.020 --> 41:33.220
+able to using the database the same day that the crime happens, or very shortly thereafter
+
+41:33.220 --> 41:37.980
+provide more context to our readers about what that means, so if you're familiar with
+
+41:37.980 --> 41:42.260
+the neighborhood of Hollywood, which is where the Hollywood Walk of Fame is, right, there's
+
+41:42.260 --> 41:48.020
+a, you know, if you've ever been there, it's not really that nice, and it is, act, there's
+
+41:48.020 --> 41:52.780
+a stabbing there and a killing in recent times that got tons and tons of attention, and what
+
+41:52.780 --> 41:56.500
+we were able to do, they're gonna write this front page story anyway, you know what I mean,
+
+41:56.500 --> 41:59.780
+they're editors and reporters, they're gonna write it, but you can then insert yourself
+
+41:59.780 --> 42:04.620
+into that process and contribute a couple of paragraphs that say, well, here's the actual
+
+42:04.620 --> 42:08.620
+long-term rates, which in this case it actually was high, right, this crime does represent
+
+42:08.620 --> 42:11.980
+a significant amount of violent crime that happens in that neighborhood, or you can try
+
+42:11.980 --> 42:16.940
+to challenge that internally, and we've done that on a couple other occasions as well, where
+
+42:16.940 --> 42:22.860
+the police like to flood the zone and kind of tell people that either this neighborhood,
+
+42:22.940 --> 42:28.020
+that they're sort of, they try to tell their own story using the statistics, right, so statistics
+
+42:28.020 --> 42:32.700
+are things that the government uses to tell stories, and you can, one, validate or maybe
+
+42:32.700 --> 42:36.660
+challenge those stories when you're able to do your own independent analysis, and crime
+
+42:36.660 --> 42:41.060
+is a really great example of that, that I don't think it's done enough, that we don't
+
+42:41.060 --> 42:45.820
+use the data to really step into those really changing stories, and I think that we could
+
+42:45.820 --> 42:50.340
+definitely do a better job of it, but to me, that's what's really exciting, is being able
+
+42:50.660 --> 42:55.460
+to get beyond just putting it out there, and to really challenge those top-line narratives
+
+42:55.460 --> 43:02.460
+in the media, okay, yeah, blah, blah, blah, right, so all this was based on, and started
+
+43:02.860 --> 43:08.260
+with my friend the California Public Records Act, and our ability and the goodwill of our
+
+43:08.260 --> 43:13.740
+police departments to ultimately participate, right, now I know not everybody has that,
+
+43:13.740 --> 43:18.660
+and I personally don't know the situation in Buenos Aires, I mean, please someone tell
+
+43:18.740 --> 43:23.180
+me afterwards, or we can talk about it, I'd be happy, but I know in many places, that's
+
+43:23.180 --> 43:27.500
+not the case, one, you don't have the law on your side, two, you don't have the administrators
+
+43:27.500 --> 43:32.060
+on your side, or either or, and you're kind of screwed, right, so, I mean, remember I
+
+43:32.060 --> 43:35.980
+started with this, we take these databases and turn them into news, and that's primarily
+
+43:35.980 --> 43:40.060
+what we do, and what people like us do, but it's not all we do, right, there's a different
+
+43:40.060 --> 43:45.260
+approach you can take in more difficult situations, and this is kind of flip, but it's true, instead
+
+43:45.340 --> 43:51.700
+of turning databases into news, you turn the news into a database, right, like starting
+
+43:51.700 --> 43:55.820
+from scratch, and if you think about it, there's lots of projects that you see like that,
+
+43:55.820 --> 44:00.140
+and one that we do that's related to crime, that is exactly that, is a separate crime site
+
+44:00.140 --> 44:04.020
+that we keep, and actually a blog, that's called the Homicide Report, and it's been around
+
+44:04.020 --> 44:09.860
+about five years, and it records each and every person who is killed by another person in
+
+44:09.860 --> 44:13.420
+Los Angeles County, and here's, you know, you can check it out if you want to see it
+
+44:13.420 --> 44:18.860
+at projects.laxtimes.com slash homicide, that map looked a little old, I do admit, but
+
+44:18.860 --> 44:24.180
+I promise you the site will, in the next month, have a total facelift and be a lot cooler,
+
+44:24.180 --> 44:27.420
+but this is what it currently is, is right there, and it's still a really great and very
+
+44:27.420 --> 44:34.020
+informative site, and it includes, you know, a page, a blog post, for each and every person
+
+44:34.020 --> 44:38.780
+who's died, but a blog post is really just a blob of text, and what you can do when you
+
+44:38.780 --> 44:43.060
+stop approaching news is a blob of text, and start thinking about everything critically
+
+44:43.060 --> 44:47.980
+more as data, as you can say, in that death, Michael Jackson, right, which happened in the
+
+44:47.980 --> 44:52.500
+city, right, there's more than just the blob of text, there's the name of the person who
+
+44:52.500 --> 44:58.140
+died, there's the photograph of that person, there's their date of birth and their age,
+
+44:58.140 --> 45:02.900
+there's the date that they died, we can take that point of the address, and we can convert
+
+45:02.900 --> 45:07.620
+that into our neighborhood using the system, there's his gender, there's how he died, there's
+
+45:07.620 --> 45:11.100
+the police involved, there's his ethnicity, there's where he died, and there's other things
+
+45:11.100 --> 45:16.700
+we actually collect, too, and so you could take that, and you could structure the story,
+
+45:16.700 --> 45:20.180
+right, and you can see you can do the same thing, not just for celebrities and front-page
+
+45:20.180 --> 45:24.620
+deaths, but for, you know, here's someone who died recently for people, for, you know,
+
+45:24.620 --> 45:28.980
+someone few people are familiar with, and you know, really anyone, and you can start taking
+
+45:28.980 --> 45:34.980
+that same structured approach to a lot of different people, and we take that to really everyone,
+
+45:34.980 --> 45:40.180
+and so we have a database that we build, we built from really nothing, right, from the
+
+45:40.180 --> 45:44.500
+scraps of public records and things that go out, that we're able to assemble, that go
+
+45:44.500 --> 45:50.100
+into a database system that's behind the website, where all of that structured information
+
+45:50.100 --> 45:55.980
+is sort of put in and refined and grown and nurtured over time, and then once you have
+
+45:55.980 --> 46:00.460
+a database like that, you're able to, one, quickly build through a templating system,
+
+46:00.460 --> 46:04.900
+a blog and a page for every person, right, which we just saw, but also do all kinds
+
+46:04.900 --> 46:09.300
+of analysis, so here's the neighborhood where I live, like, so I live like, see this is
+
+46:09.300 --> 46:16.420
+the best house shopping website, right there, and so, you know, so you can see over the
+
+46:16.420 --> 46:19.780
+last five years or whatever, here's all the people that have died, we can do the same
+
+46:19.780 --> 46:24.020
+per capita rates, you can see the most recent, you can, when you're writing the blog post
+
+46:24.020 --> 46:27.700
+about someone who died, say, this person died in downtown, and this neighborhood has had
+
+46:27.700 --> 46:32.020
+this many, can be written right into the newspaper, the most recent one was here or there, there
+
+46:32.020 --> 46:35.580
+hasn't been a, there hasn't been a homicide in the neighborhood where this one occurred
+
+46:35.580 --> 46:39.700
+in the last, you know, six years, you can provide that kind of context instantly to
+
+46:39.700 --> 46:45.500
+new crimes, and you can provide a lot of really broad, long-term context to readers about
+
+46:45.500 --> 46:50.780
+the shape of something over a long period of time, which we were able to do here using
+
+46:50.780 --> 46:56.260
+some data from a previous project to show the long-term decline in homicides in Los Angeles,
+
+46:56.260 --> 47:01.580
+which results in a front page story, right, and another example of this, this isn't just
+
+47:01.580 --> 47:06.980
+us, and we were talking about this yesterday, is, you know, is the drug war in Mexico.
+
+47:06.980 --> 47:10.740
+So I really think that, you know, one of the things that's helped reframe the drug war
+
+47:10.740 --> 47:19.700
+in Mexico as strictly a law enforcement story, or as a story about who's the coolest narco
+
+47:19.700 --> 47:26.340
+or whatever, has been the effort by the media primarily in Mexico to document the toll, the
+
+47:26.340 --> 47:30.380
+regular people, you know, people involved, people not involved, all the people who are
+
+47:30.380 --> 47:35.740
+dying as part of this, and that's really a database-building project, right, where data
+
+47:35.740 --> 47:40.860
+wasn't available, that a lot of different people in the media and in the government there
+
+47:40.860 --> 47:45.020
+have done, particularly Law Reforma, and so this is a map that's several years old, the
+
+47:45.020 --> 47:49.620
+actual number now is much, much higher than this, this is a map from 09, but this is where
+
+47:49.620 --> 47:55.460
+we were able to take that structured data of all the deaths related to the drug war that
+
+47:55.460 --> 47:59.940
+Law Reforma had collected via the Transborder Institute, which is a great group, and we
+
+47:59.940 --> 48:06.020
+were able to map over time and geographically and give a big number for people about the human
+
+48:06.020 --> 48:12.180
+toll of this war, right, and we were only able to do that because somebody made a database
+
+48:12.180 --> 48:17.100
+where there wasn't one, right, and they took the news and they built it slowly over time
+
+48:17.100 --> 48:21.140
+and that became the raw materials, not just, I mean, for, you know, everyone in the media
+
+48:21.140 --> 48:26.980
+and in the government to have real data, and so I guess the point of telling this little
+
+48:27.060 --> 48:32.180
+fable is just to get at, you know, if you don't have the open data, it can really limit
+
+48:32.180 --> 48:37.020
+you a lot, but there's ways to work around it, and what's necessary is one, you know,
+
+48:37.020 --> 48:42.500
+focus and drive to get at something that's important and lots and lots of wherewithal
+
+48:42.500 --> 48:46.420
+to make it happen and to build those systems, and you know, if that's the situation you're
+
+48:46.420 --> 48:51.980
+in, I think that the model in America of the homicide database, which not just we do, but
+
+48:51.980 --> 48:57.260
+it's done in Washington D.C., in Chicago, in many other cities, is something that could
+
+48:57.260 --> 49:01.660
+be effective or you are too, and there's actually some people who try to sell software
+
+49:01.660 --> 49:04.980
+that does this, you know, I won't get into that whole thing, but I think that if it's
+
+49:04.980 --> 49:10.100
+not being done here and you're concerned about homicides, I think that's one thing that's
+
+49:10.100 --> 49:14.860
+happening in the United States that I would encourage you to think about, okay, and so
+
+49:14.860 --> 49:22.860
+I mean, that's the end of my little spiel, right, and I'm happy to talk about this, about
+
+49:22.860 --> 49:27.460
+anything else, about any other questions you got, just want to say quick off, you can
+
+49:27.460 --> 49:34.740
+find our major projects at datadesk.lattimes.com, you can follow all the crap we put out at
+
+49:34.740 --> 49:40.780
+LAT Datodesk on Twitter, and you can check out our code and point out all our bugs,
+
+49:40.860 --> 49:46.780
+please, on GitHub, okay, and so, that's it.
+
+49:53.780 --> 49:59.620
+My main fear when I'm using databases is that you miss out on the difficulties that you
+
+49:59.620 --> 50:04.500
+have finding that information, when you split the person that's collecting the information,
+
+50:04.500 --> 50:09.980
+the subjectivity to it, what difficulties you had in encountering that information, and
+
+50:10.940 --> 50:15.340
+you kind of lose the contact between the person using it and the person collecting it.
+
+50:15.340 --> 50:22.580
+How do you work to avoid that happening, to make numbers, absolute numbers, to see what's
+
+50:22.580 --> 50:23.740
+the exception to the...
+
+50:23.740 --> 50:28.220
+How do you keep from dehumanizing them, turning them into just another number kind of thing?
+
+50:28.220 --> 50:33.020
+Well, with numbers, you just don't get the feel if that information is absolutely accurate,
+
+50:33.020 --> 50:37.460
+or it's just almost accurate, or if there was an exception or something funny you found
+
+50:37.460 --> 50:39.460
+when you were doing the numbers, but it's really not...
+
+50:39.540 --> 50:43.540
+We would leave it out, so our kind of policy is if it's not verified, it's not from an
+
+50:43.540 --> 50:48.740
+official source, or the people directly involved with the person or something that's verifiable,
+
+50:48.740 --> 50:53.220
+we'll just omit it, right, and so there's some cases where you don't have complete data
+
+50:53.220 --> 50:58.340
+about a lot of the people, right, and so it's sort of us, hodgepodge, assembling the official
+
+50:58.340 --> 51:03.060
+sources that do exist, and from our own work in the field, to build the database, and so
+
+51:03.060 --> 51:07.860
+there's a good number of people about which there's very sketchy information, right, but
+
+51:07.860 --> 51:12.580
+we also have a full-time reporter who works on the homicide report, and her job is to go out
+
+51:12.580 --> 51:17.620
+and interview people and talk to people and get the photographs and then write stories about
+
+51:18.580 --> 51:22.980
+a smaller number that we're able to do that amount of research, and so the reality is,
+
+51:22.980 --> 51:28.500
+is that for most people who are killed or die in these circumstances, they don't get all that
+
+51:28.500 --> 51:32.740
+attention because we don't have all the resources, right, but we try to direct it where we can
+
+51:32.740 --> 51:36.900
+to, one, make sure that there's a bare minimum amount of information about everybody, which
+
+51:36.900 --> 51:40.900
+otherwise does not exist, right, you know what I mean, they're not counted, they really aren't,
+
+51:40.900 --> 51:44.500
+right, they're not, particularly in Los Angeles, which is a really big city,
+
+51:44.500 --> 51:47.780
+which even though it's down, there's still a lot of homicides, only a small number
+
+51:47.780 --> 51:51.620
+are ever going to be a brief in the newspaper or make the local news, right, they would otherwise
+
+51:51.620 --> 51:55.620
+go unmentioned, and so even in the cases where you have very little, many of the people close
+
+51:55.620 --> 52:00.500
+to the victim are often very appreciative just that there's something, right, we also provide
+
+52:00.500 --> 52:06.100
+comments associated with each post that's generated so that people are able to have conversations,
+
+52:06.180 --> 52:12.100
+many of them, very frank, on those pages, and so it's, I wish we could do more,
+
+52:12.100 --> 52:17.140
+and I wish we could get more, but we can't, and with the resources we have, we really have
+
+52:17.140 --> 52:22.420
+the database developer who does, does the coding that, you know, is a big capital investment that
+
+52:22.420 --> 52:26.420
+builds a system that can work for, you know, a while without them working on it every day,
+
+52:26.420 --> 52:31.620
+and then that reporter who kind of also is inputting things, collecting things,
+
+52:31.620 --> 52:36.980
+writing stories for the paper, for, you know, for the web as well that are more narrative,
+
+52:36.980 --> 52:40.820
+you know, more traditional stories, right, that someone who's not in the numbers could relate to.
+
+52:49.300 --> 52:56.020
+Bueno, mi pregunta tiene que ver con hace un par de años un político argentino presentó un mapa
+
+52:56.180 --> 53:02.260
+del delito, pero no tuvo mucha repercusión porque la gente no cooperaba en el aporte de datos.
+
+53:04.900 --> 53:11.540
+En la otra parte del aspecto que tiene que ver con este planteo, lo que quiero, a lo que quiero
+
+53:11.540 --> 53:18.020
+llegar es sobre toda la exposición que hizo es que hay de la parte de los ciudadanos en el aporte
+
+53:18.020 --> 53:23.860
+o si hay algún aplicativo donde desde los teléfonos celulares se pueda dar más reportes,
+
+53:23.940 --> 53:27.540
+si hay alguna investigación en eso o cómo es la cultura en todo caso.
+
+53:43.540 --> 53:50.180
+No, me refiero a toda esta investigación que le está mostrando es lo que se hace como reporte
+
+53:51.140 --> 53:54.180
+Pero ellos lo están tomando de información de la policía,
+
+53:54.180 --> 53:57.060
+they are getting the information from the police department.
+
+54:09.940 --> 54:11.140
+Okay, understand.
+
+54:12.660 --> 54:18.820
+Here in Argentina some crimes are not reporting to the police.
+
+54:18.900 --> 54:26.500
+So he's asking if you have another way of getting information besides police reports
+
+54:26.500 --> 54:27.460
+to add to your map.
+
+54:28.420 --> 54:32.580
+We don't have any sophisticated whiz-bang technology that makes that easier,
+
+54:32.580 --> 54:36.820
+but I think that that's a really really good thing to keep in mind when you're analyzing crime data
+
+54:36.820 --> 54:41.380
+is no matter where you are there's an under count because of the people who don't report,
+
+54:41.380 --> 54:46.900
+right, which is probably a very very large number of crimes and there's also what I call
+
+54:46.980 --> 54:52.500
+politely attrition, the number of people who are frustrated in their process to make a crime report
+
+54:52.500 --> 54:57.060
+and ultimately just don't, you know what I mean, they're making a call to the police department
+
+54:57.060 --> 55:01.300
+and they get frustrated with dealing with someone and it just never comes together.
+
+55:01.300 --> 55:06.980
+And so I think it's important to keep in mind that there's a really big number of uncounted crimes
+
+55:06.980 --> 55:13.700
+out there and I don't have the solution to that problem. I think that making a system
+
+55:13.780 --> 55:17.300
+where people can anonymously report crime perhaps or where they can,
+
+55:19.380 --> 55:23.620
+where it's easier for them to report it than it currently is with the police are potential fixes
+
+55:23.620 --> 55:29.380
+for that. I think that, you know, police IT in a place where police want to get those reports,
+
+55:29.380 --> 55:33.380
+information technology for the police department is a potential fix for that.
+
+55:33.380 --> 55:37.860
+Why do you have to get on the phone and go through an interview over the phone to make this report
+
+55:37.860 --> 55:43.140
+to the police? Couldn't you yourself enter basic information into a form and then be contacted
+
+55:43.220 --> 55:46.740
+as a verification and speed up that process to reduce the attrition?
+
+55:47.460 --> 55:50.980
+But, you know, this is a huge problem, particularly with crimes against women. I mean,
+
+55:50.980 --> 55:56.420
+we know this with domestic abuse and rapes that there's one women are, you know, in an abusive
+
+55:56.420 --> 56:00.100
+relationship and they're afraid to report because the consequences are for many other reasons.
+
+56:00.100 --> 56:03.860
+But, you know, I don't need to explain it. And I don't have the solution. I don't.
+
+56:03.860 --> 56:08.260
+But we should all recognize, particularly when we're describing these statistics,
+
+56:08.260 --> 56:11.780
+that that's a reality and we shouldn't present them as something they aren't.
+
+56:11.780 --> 56:14.660
+Homicides are a little different. It's more difficult to hide the body. You know,
+
+56:14.660 --> 56:17.860
+those sort of things tend to get counted, though it depends where you live, I suppose.
+
+56:18.900 --> 56:21.380
+But it's a huge problem.
+
+56:42.740 --> 56:48.340
+¿Qué tal? Mi pregunta es sencilla. ¿Cómo es la evolución de los datos? Supongamos que hay
+
+56:48.340 --> 56:53.860
+un asesinato, se lo informa la policía, pero resulta que después evoluciona la investigación
+
+56:53.860 --> 57:00.420
+y fue un suicidio o fue un atentado o fue bajo otras causas. ¿Cómo actualizan esta información?
+
+57:00.420 --> 57:02.180
+¿Lo llevan a la actualización?
+
+57:03.060 --> 57:11.060
+¿Qué pasa si un asesinato ha sido reportado como un tipo de asesinato, pero luego,
+
+57:11.060 --> 57:17.220
+durante la evolución de la investigación, se descubrió que ha sido otro tipo de asesinato?
+
+57:17.220 --> 57:19.060
+¿Cómo updates tu database?
+
+57:19.060 --> 57:22.420
+Right, so this is one of the trickier things of getting a system like this going,
+
+57:22.420 --> 57:28.740
+is managing amendments or changes to existing records and or the deletion,
+
+57:28.820 --> 57:32.660
+like if they decide it's not a crime and they remove it or additions of new ones, right?
+
+57:32.660 --> 57:38.500
+And in the actual code writing process and in getting the data system set up at the outset,
+
+57:38.500 --> 57:41.300
+you need to be really careful and responsible with how you do it.
+
+57:41.300 --> 57:44.740
+So the way it works is each of the two departments I get it from
+
+57:46.100 --> 57:50.820
+manage it kind of slightly differently. So the LAPD, remember their little six month thing
+
+57:50.820 --> 57:53.300
+that they're very fond of, they only want to give me the last six months.
+
+57:53.620 --> 58:00.500
+So every day the file updates and it's sliced from their database of every date in the last six
+
+58:00.500 --> 58:06.020
+months. I then, and it has a unique ID, right? I pull the similar time period from my database
+
+58:06.020 --> 58:12.500
+and I evaluate each record looking for amendments in any field, right? That's part of the code that
+
+58:12.500 --> 58:19.140
+does the load. And then if there's an amendment, it changes the record and it also logs each
+
+58:19.220 --> 58:23.220
+version as well. We don't publish that, but privately in the database it's logging every
+
+58:23.220 --> 58:28.020
+version of the individual records. And so we're able to check within that six months, though
+
+58:28.020 --> 58:34.500
+because they have that six month rule on their side, if a crime older than six months is amended,
+
+58:34.500 --> 58:40.580
+I don't get it, right? And it's not in our crime site. And it's for that reason that when we calculate
+
+58:40.580 --> 58:45.620
+our long term statistics for the rankings, we use a six month period because it's only within
+
+58:45.620 --> 58:50.740
+that six months that I can, you know, it's probably a very small number that change, but I don't know.
+
+58:50.740 --> 58:55.540
+And since I don't know, I'm not going to pretend I do, right? And so that's why we worked on that
+
+58:55.540 --> 59:00.820
+thing. Now the sheriff's department, though they don't have the reputation, do a smarter thing.
+
+59:00.820 --> 59:06.900
+When they, when they give me the daily slice, they give me all amendments in the last six months,
+
+59:06.900 --> 59:13.220
+in the last six months. So rather than filtering on the crime date, they're filtering on the edited
+
+59:13.540 --> 59:18.980
+date, that their database keeps every time there's a change. And so that allows me to be more,
+
+59:18.980 --> 59:24.980
+you know, certain that you're getting it. But in my code, I have to make sure that I do all those
+
+59:24.980 --> 59:28.900
+changes, otherwise my data is going to get out of date and be wrong. There's also a process for
+
+59:29.780 --> 59:34.740
+removing crimes that have been deleted. And if a crime has been deleted, I check it in the database,
+
+59:34.740 --> 59:40.180
+we keep the record, we actually keep it on the map, and you can click on it and it'll say deleted.
+
+59:40.180 --> 59:44.580
+And then we'll explain to you that the police have deleted this crime, but we will omit it from the
+
+59:44.580 --> 59:49.620
+statistics, right? So when we calculate the numbers, we won't count it, but we'll still show it to you
+
+59:49.620 --> 59:54.340
+so you don't like come to our site one day, see a crime and come back and then it's gone and think
+
+59:54.340 --> 59:58.340
+that we're playing some game. You know what I mean? We're just going to be transparent about
+
+59:58.340 --> 01:00:01.460
+it got deleted. And that's a real pain in the butt, you have to write a lot of code.
+
+01:00:01.940 --> 01:00:03.380
+But it's worth doing.
+
+01:00:10.500 --> 01:00:16.820
+Hi, do you have like a system to test the accuracy of the information that you receive,
+
+01:00:16.820 --> 01:00:21.860
+even if it's from a government agency? How do you know to trust that that information
+
+01:00:22.660 --> 01:00:25.780
+is accurate? Sort of broadly as opposed to just the crime data?
+
+01:00:26.580 --> 01:00:33.380
+Yeah, so like yeah, so broadly, there's a couple, you know, things you can do that are just kind of,
+
+01:00:33.380 --> 01:00:37.540
+you know, they're not even really tricks, it's just like basic stuff that, you know,
+
+01:00:37.540 --> 01:00:42.260
+people call integrity tests or whatever. To me, the most basic thing is if you're getting line by
+
+01:00:42.260 --> 01:00:48.340
+line data that's provided to you by a source and they themselves publish some total somewhere
+
+01:00:48.340 --> 01:00:54.100
+or add it up somewhere, can you recreate the total that they've made? And I almost, if I can find
+
+01:00:54.740 --> 01:01:00.260
+that, that will always be my first goal is to say, can I recreate the analysis
+
+01:01:00.260 --> 01:01:03.620
+that they themselves have done? It doesn't mean their analysis is right,
+
+01:01:03.620 --> 01:01:07.540
+you know what I mean? But it means you understand how they do what they do and how they get there.
+
+01:01:07.540 --> 01:01:12.020
+And then if it does match, you know, you got a pretty good sense you're on track with them.
+
+01:01:12.020 --> 01:01:14.900
+And if it doesn't match, you get to ask some really interesting questions.
+
+01:01:14.900 --> 01:01:18.340
+Why is this? And then you can, and then that process you'll learn a lot, you know,
+
+01:01:18.340 --> 01:01:22.500
+and there's usually only a small number of people in the government, you know, agency that
+
+01:01:22.500 --> 01:01:26.420
+actually know how that happens. And once you get to talk to one of them, you can ask them
+
+01:01:26.420 --> 01:01:30.180
+all kinds of questions, you can learn all kinds of stuff, and you're able to kind of get some more.
+
+01:01:30.180 --> 01:01:34.980
+So to me, it's just like adding it up. It's, you know, even like just the total number of rows,
+
+01:01:34.980 --> 01:01:37.940
+you know what I mean? It's not like you're doing anything fancy. Like, do I have the same
+
+01:01:38.740 --> 01:01:43.300
+number of rows that they do? If they're omitting things, which people often are,
+
+01:01:43.300 --> 01:01:46.660
+for different reasons, omitting things from analysis, you know, you got to figure out
+
+01:01:46.660 --> 01:01:50.820
+what those are, right? It's like what I discovered looking at the fire department database and a
+
+01:01:50.820 --> 01:01:54.980
+lot of their problems, is they were omitting different things at different times, and they didn't
+
+01:01:54.980 --> 01:01:59.460
+know why, because different people were doing it, and it wasn't standardized, and we were really
+
+01:01:59.460 --> 01:02:03.620
+pressing them on it, writing all these stories, and then I got one of the memos that they wrote
+
+01:02:03.620 --> 01:02:08.020
+in that time period that we were pressuring them, and the memo about how to use the database said,
+
+01:02:08.660 --> 01:02:12.820
+what do we exclude? Question mark, you know what I mean? And so don't always assume that there's
+
+01:02:12.820 --> 01:02:17.380
+really like a system. You know, the people with the government generate this data, they're people
+
+01:02:17.460 --> 01:02:21.060
+just like you, they have, you know, often deadlines just like you, and people clujen
+
+01:02:21.060 --> 01:02:24.980
+stuff, you know what I mean? Numbers get clujes sometimes, particularly when it's not,
+
+01:02:24.980 --> 01:02:29.220
+though Argentina may be an exception, particularly when it's not like the really high level
+
+01:02:29.220 --> 01:02:34.900
+economic data that everyone is very closely watching, right? But, um, does that answer your
+
+01:02:35.220 --> 01:02:40.260
+question? Yeah, thank you. Okay. ¿Alguna otra? Dejamos acá.
+
+01:02:45.780 --> 01:02:54.260
+Do you guys write about what works, what are the best practices when a place where the crime goes
+
+01:02:54.260 --> 01:03:01.380
+down in a place where you reported high crime rates before? Sort of a good news kind of story,
+
+01:03:01.460 --> 01:03:06.820
+like on what works. Um, you know, probably not as much as we should, you know what I mean?
+
+01:03:06.820 --> 01:03:11.780
+The reality about crime, and this is probably my opinion, but you know, crime in the United
+
+01:03:11.780 --> 01:03:17.300
+States is going down over a really long term period, according to official crime reports,
+
+01:03:17.300 --> 01:03:22.020
+you know what I mean? Like way down, you know what I mean? You saw that story with 300 homicides,
+
+01:03:22.020 --> 01:03:27.140
+it was over a thousand like in the 90s. And so that's the big long term story about crime data
+
+01:03:27.220 --> 01:03:31.860
+in the United States. And I think that, that the media in the U.S. covers that a lot because
+
+01:03:31.860 --> 01:03:37.060
+politicians talk about it a lot, police chiefs talk about it a lot. It is remarkable. And that
+
+01:03:37.060 --> 01:03:43.220
+kind of big picture, like good news story about crime going down is very, very commonly told in
+
+01:03:43.220 --> 01:03:52.020
+the U.S. media. However, why? Right? Like, why is the crime going down is a debated thing? And that,
+
+01:03:52.020 --> 01:03:55.140
+you know, the mayor is going to tell you, it's because he and the police chief are such great
+
+01:03:55.140 --> 01:03:59.300
+mayors and police chiefs, right? And they're, they've reformed the police department to be more
+
+01:03:59.300 --> 01:04:05.220
+enlightened and da, da, da, da. Well, okay, that may be true, but major crime is going down in every
+
+01:04:05.220 --> 01:04:09.380
+city in the United States, and you're not mayor everywhere. And that mayor in that other town,
+
+01:04:09.380 --> 01:04:15.940
+he's in jail, so I mean, he wasn't a very good mayor, right? So there's some structural things
+
+01:04:16.740 --> 01:04:22.260
+happening in the, in at least the U.S., they're deeper, you know what I mean, than like one mayor
+
+01:04:22.340 --> 01:04:27.140
+or one approach to policing that are happening. And, and a lot of different ways we try to get at
+
+01:04:27.140 --> 01:04:33.860
+that, we've used our data to do a couple stories, like about, like areas within high crime neighborhoods
+
+01:04:33.860 --> 01:04:38.100
+that have lots of crimes, smaller, like sub neighborhood, like block, you know, areas that have
+
+01:04:38.100 --> 01:04:42.500
+like next to none, and like, why is that? And we've gone and done stories about a couple places
+
+01:04:42.500 --> 01:04:46.820
+like that to see what, what is that place like that leads to that happening, right? And there's
+
+01:04:46.900 --> 01:04:52.820
+some reasons, but I think that the, the really big ticket question in the U.S. about why crime is
+
+01:04:52.820 --> 01:04:58.900
+going down is still to be answered, and maybe can't be answered, you know, via some mix of economics
+
+01:04:58.900 --> 01:05:03.540
+and sociology and politics that kind of leads to it all. There's one person who wrote a controversial
+
+01:05:03.540 --> 01:05:08.740
+magazine article a few months ago claiming it's the reduction in lead and paint. There's less
+
+01:05:08.740 --> 01:05:14.020
+lead paint in, in like, in poor, in poor neighborhoods, and so fewer people have lead poisoning,
+
+01:05:14.020 --> 01:05:17.460
+and lead poisoning leads to all this other stuff, you know what I mean? And that's a theory,
+
+01:05:18.020 --> 01:05:21.780
+but how do you test it? How do we ever sort this out? I don't know if we'll really ever know the
+
+01:05:21.780 --> 01:05:25.940
+answer. Thank you, Ann.

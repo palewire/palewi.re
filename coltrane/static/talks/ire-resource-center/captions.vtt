@@ -1,0 +1,1939 @@
+WEBVTT
+
+00:00.000 --> 00:07.000
+And we'll get this webinar rolling.
+
+00:07.000 --> 00:09.000
+Welcome everybody here.
+
+00:09.000 --> 00:10.000
+My name is Cody Winchester.
+
+00:10.000 --> 00:13.000
+I am the director of technology at IRE.
+
+00:13.000 --> 00:18.000
+Thank you for coming to hear about our brand new resource center.
+
+00:18.000 --> 00:23.000
+I'm going to be handing this over to Ben Welch here in a minute.
+
+00:23.000 --> 00:29.000
+He and, or the colleague, Derek Willis have been working on,
+
+00:29.000 --> 00:37.000
+if you have not seen it, I'm going to drop a link in chat, archive.ire.org,
+
+00:37.000 --> 00:43.000
+which is our new repository for contest entries, tip sheets,
+
+00:43.000 --> 00:45.000
+all sorts of resources.
+
+00:45.000 --> 00:49.000
+We are working on supplementing that as we go.
+
+00:49.000 --> 00:54.000
+And Ben, you just recently described this as our 1.0 version.
+
+00:54.000 --> 00:55.000
+We're looking for feedback.
+
+00:55.000 --> 00:59.000
+So please kick the tires and let us know what you think.
+
+00:59.000 --> 01:03.000
+And I know this recording will be made available afterward
+
+01:03.000 --> 01:08.000
+for anybody who has to leave early or wasn't able to make it.
+
+01:08.000 --> 01:11.000
+And otherwise, I'm going to turn it over to Derek,
+
+01:11.000 --> 01:15.000
+chair of the board's website improvement task force,
+
+01:15.000 --> 01:20.000
+who's done quite a bit of work to make these resources more accessible.
+
+01:20.000 --> 01:21.000
+Thanks.
+
+01:21.000 --> 01:22.000
+Thanks, Cody.
+
+01:22.000 --> 01:24.000
+And thanks, everybody, for being here.
+
+01:24.000 --> 01:27.000
+Really, what I want to, the way I want to begin is by talking about,
+
+01:27.000 --> 01:33.000
+like, we, I think, all know or like have an idea of like how valuable
+
+01:33.000 --> 01:37.000
+the resources that come out of our IRE's trainings and conferences
+
+01:37.000 --> 01:38.000
+and contests are.
+
+01:38.000 --> 01:41.000
+And like, if you've been a member or been around the organization
+
+01:41.000 --> 01:46.000
+or been to one of the conferences, you know that like you go,
+
+01:46.000 --> 01:49.000
+sometimes a lot of these sessions you go to for the tip sheets.
+
+01:49.000 --> 01:52.000
+The tip sheets are great or the contest entries are great.
+
+01:52.000 --> 01:54.000
+You're like, wow, I really want to know how they did that.
+
+01:54.000 --> 01:59.000
+And so the effort that our task force and in particular Ben worked on,
+
+01:59.000 --> 02:01.000
+has been working on for the last year,
+
+02:01.000 --> 02:06.000
+is about trying to harvest that knowledge and that context
+
+02:06.000 --> 02:09.000
+and make it accessible to the IRE membership.
+
+02:09.000 --> 02:13.000
+And so to that end, like, thanks to the efforts of Cody and other folks
+
+02:13.000 --> 02:17.000
+in terms of getting us, you know,
+
+02:17.000 --> 02:22.000
+digital representations of conference tip sheets, of contest entries,
+
+02:22.000 --> 02:29.000
+we're able to now have a archive site for those and that allows user
+
+02:29.000 --> 02:34.000
+and IRE members to search for interesting things, for useful things,
+
+02:34.000 --> 02:36.000
+for like, oh, hey, I remember this session from this conference
+
+02:36.000 --> 02:39.000
+and I want to find that tip sheet or I want to see, you know,
+
+02:39.000 --> 02:43.000
+what's been done on this topic and all the, you know,
+
+02:43.000 --> 02:47.000
+all the contest entries that we have and, you know, other kinds of materials
+
+02:47.000 --> 02:50.000
+from our conferences, IRE's conferences and trainings.
+
+02:50.000 --> 02:55.000
+And so that's kind of what we've built with the archive site.
+
+02:55.000 --> 02:58.000
+And so we want to kind of show that off and talk a little bit about
+
+02:58.000 --> 03:00.000
+what that entails.
+
+03:00.000 --> 03:04.000
+Ben, can you do me a favor and just drop in like the presentation link,
+
+03:04.000 --> 03:06.000
+because I think I've misplaced it somehow.
+
+03:06.000 --> 03:09.000
+I sure can.
+
+03:09.000 --> 03:12.000
+And I am clear of the thing I had to watch out for.
+
+03:12.000 --> 03:17.000
+Oh, well, then if you'd like to, you give a much better spiel on this
+
+03:17.000 --> 03:21.000
+than I do, but it's up to you. I'm happy to.
+
+03:21.000 --> 03:26.000
+Let's, I'll pull it up and then let's do edit like Kenny and Dolly.
+
+03:26.000 --> 03:28.000
+That sounds great.
+
+03:28.000 --> 03:32.000
+All right. Can you guys see my screen?
+
+03:32.000 --> 03:34.000
+Yes. Excellent.
+
+03:34.000 --> 03:36.000
+So, yeah, you heard it from Derek. There's a brand new website.
+
+03:36.000 --> 03:39.000
+We launched it at the night car conference in Indianapolis.
+
+03:39.000 --> 03:43.000
+You can go to it now if you'd like at archive.iree.org.
+
+03:43.000 --> 03:45.000
+It's our new resource center.
+
+03:45.000 --> 03:47.000
+And I'm going to tell you how it works.
+
+03:47.000 --> 03:51.000
+You can see here on the homepage, which is what you'll see after you log in.
+
+03:51.000 --> 03:55.000
+When you first go, you should be prompted to sign in because this is members only.
+
+03:55.000 --> 03:57.000
+After you log in, you get a big search box.
+
+03:57.000 --> 04:02.000
+And if you type in your own name or the subject of whatever you're working on
+
+04:02.000 --> 04:05.000
+at your job right now or whatever you're interested in,
+
+04:05.000 --> 04:09.000
+you should get back a list of related IRE resources.
+
+04:09.000 --> 04:15.000
+Each one, there's about 33,000 that are currently in the database.
+
+04:15.000 --> 04:21.000
+And each one of them has its own sort of detail page or URL
+
+04:21.000 --> 04:24.000
+where we present everything we have for that resource, which, you know,
+
+04:24.000 --> 04:28.000
+has its name, who came up with it, what type of thing it is.
+
+04:28.000 --> 04:33.000
+And then in most cases, we have the associated thing itself,
+
+04:33.000 --> 04:38.000
+be it a PDF of the tip sheet that was scanned in or emailed over
+
+04:38.000 --> 04:43.000
+or an audio recording of a panel or other event.
+
+04:43.000 --> 04:45.000
+Those are the two most common things.
+
+04:45.000 --> 04:48.000
+And so 33,000 are in there.
+
+04:48.000 --> 04:52.000
+What you'll find if you go in there, if you fish through it,
+
+04:52.000 --> 04:56.000
+is that the majority of them are IRE contest entries.
+
+04:56.000 --> 05:00.000
+So, you know, through the years when people have applied to win an IRE award,
+
+05:00.000 --> 05:03.000
+they've had to fill out a form that explains, you know,
+
+05:03.000 --> 05:08.000
+why they should win and talks about the method behind their work.
+
+05:08.000 --> 05:12.000
+And that actually accounts for the majority of the 33,000
+
+05:12.000 --> 05:16.000
+are those contest entries, which stretch back decades.
+
+05:16.000 --> 05:20.000
+In preparing this site, I heard from some of our members
+
+05:20.000 --> 05:23.000
+who are passionate users of the contest entries.
+
+05:23.000 --> 05:26.000
+I can share with you a couple use cases I heard about
+
+05:26.000 --> 05:29.000
+from real world investigative people.
+
+05:29.000 --> 05:33.000
+One is an editor here at Reuters who told me that he uses the database
+
+05:33.000 --> 05:37.000
+to look for and sniff around topics that he's interested in exploring
+
+05:37.000 --> 05:39.000
+and maybe investigating.
+
+05:39.000 --> 05:42.000
+And what he'll do is look for maybe classic examples
+
+05:42.000 --> 05:46.000
+that he hadn't heard of from decades past.
+
+05:46.000 --> 05:48.000
+Maybe they're localized in different places
+
+05:48.000 --> 05:50.000
+and ask himself, could I nationalize the story
+
+05:50.000 --> 05:53.000
+or is there some lesson I can learn from what's been done in the past?
+
+05:53.000 --> 05:57.000
+It also allows him to see whether other people have already covered the waterfront
+
+05:57.000 --> 06:00.000
+or whether there might be new stuff to look up.
+
+06:00.000 --> 06:05.000
+His view is that newspaper archives are so decayed
+
+06:05.000 --> 06:08.000
+and the internet is so biased towards the present
+
+06:08.000 --> 06:12.000
+that he often can't find the same information when he searches in Google
+
+06:12.000 --> 06:16.000
+and that looking at the contest entries gives him a more direct look
+
+06:17.000 --> 06:20.000
+at what investigative reporters and editors have been doing.
+
+06:20.000 --> 06:22.000
+So that's one case.
+
+06:22.000 --> 06:25.000
+Another case I heard was from people applying for awards.
+
+06:25.000 --> 06:29.000
+So you could look at the applications from the previous year
+
+06:29.000 --> 06:31.000
+and say, hey, who won and why did they apply
+
+06:31.000 --> 06:33.000
+and what things did they emphasize or not?
+
+06:33.000 --> 06:36.000
+And that can help you write a better package yourself.
+
+06:36.000 --> 06:38.000
+That was another tip I heard.
+
+06:38.000 --> 06:41.000
+And then a third use case, which I did not anticipate
+
+06:41.000 --> 06:43.000
+but makes a lot of sense,
+
+06:43.000 --> 06:48.000
+is I think a number of journalism educators use the contest entries
+
+06:48.000 --> 06:52.000
+to help their students learn about the methods and practices
+
+06:52.000 --> 06:55.000
+of kind of like the great stories in IRE history.
+
+06:55.000 --> 06:58.000
+So if you're having your students study the Boston Globe
+
+06:58.000 --> 07:01.000
+child sexual abuse story
+
+07:01.000 --> 07:04.000
+or pick your greatest hit of investigative journalism,
+
+07:04.000 --> 07:10.000
+if you find the contest entries for those stories,
+
+07:10.000 --> 07:14.000
+you can often get a lot of insider detail about how the data analysis
+
+07:14.000 --> 07:18.000
+was done or the story was put together, the kind of behind-the-scenes stuff
+
+07:18.000 --> 07:21.000
+that could be really helpful for students to learn.
+
+07:21.000 --> 07:25.000
+So that was the third interesting use case I heard about contest entries.
+
+07:25.000 --> 07:30.000
+The number two most common thing in the database are, of course, the tip sheets,
+
+07:30.000 --> 07:32.000
+which I suspect are the most popular.
+
+07:32.000 --> 07:36.000
+I don't have data to back that up, but that's going to be all the materials
+
+07:36.000 --> 07:40.000
+presentations through the years with the PDFs attached.
+
+07:40.000 --> 07:44.000
+We have 6,000 of those assembled there in this data set.
+
+07:44.000 --> 07:48.000
+There are a few duplicates and kind of reruns from year to year,
+
+07:48.000 --> 07:51.000
+but it's pretty fresh, pretty fresh and pretty unique.
+
+07:51.000 --> 07:54.000
+And then the third large group are the audio recordings.
+
+07:54.000 --> 08:00.000
+These are all the panel discussions and events that happen at IRE conferences.
+
+08:00.000 --> 08:04.000
+A large share of those are put down to tape,
+
+08:04.000 --> 08:08.000
+and you can listen to MP3s of Bob Woodward and Leonard Downey
+
+08:08.000 --> 08:10.000
+talking about this or that,
+
+08:10.000 --> 08:15.000
+or Sarah Cohen schooling you up on the database frame of mind way back when.
+
+08:15.000 --> 08:20.000
+You also are able to listen to the audio recordings of more recent events as well
+
+08:20.000 --> 08:25.000
+and find stuff related to topics you're interested in.
+
+08:25.000 --> 08:29.000
+And for me, as someone who was really exploring this archive in depth
+
+08:29.000 --> 08:31.000
+for the first time making the site,
+
+08:31.000 --> 08:35.000
+I had a lot of fun going back and listening to some of the older stuff
+
+08:35.000 --> 08:40.000
+and tuning into the golden oldies.
+
+08:40.000 --> 08:44.000
+Every asset in here has a common set of metadata
+
+08:44.000 --> 08:48.000
+or columns in the spreadsheet that go with each record,
+
+08:48.000 --> 08:50.000
+and some are filled in better than others.
+
+08:50.000 --> 08:52.000
+This is not a perfect data set.
+
+08:52.000 --> 08:54.000
+This release we're doing is really a first effort
+
+08:54.000 --> 08:56.000
+just to get this stuff up and out,
+
+08:56.000 --> 08:58.000
+and there's a lot of room for improvement.
+
+08:58.000 --> 09:00.000
+And this is one of those areas where we think we can improve.
+
+09:00.000 --> 09:04.000
+You can see why everything has a category and a title and description.
+
+09:04.000 --> 09:08.000
+Our author's field isn't very well structured or formatted.
+
+09:08.000 --> 09:10.000
+It's a little loosey goosey.
+
+09:10.000 --> 09:15.000
+And we've got some pretty big gaps as far as the year or date
+
+09:15.000 --> 09:17.000
+when the records were created,
+
+09:17.000 --> 09:19.000
+which means that when you do a search and try to sort
+
+09:19.000 --> 09:21.000
+for what the most recent document is,
+
+09:21.000 --> 09:24.000
+which is a really common use case we heard from people,
+
+09:24.000 --> 09:26.000
+we don't have a perfect solution yet.
+
+09:26.000 --> 09:28.000
+And that's something we want to get better at
+
+09:28.000 --> 09:31.000
+bringing up these numbers that you see here on this chart
+
+09:31.000 --> 09:32.000
+is one of our goals,
+
+09:32.000 --> 09:36.000
+and we want to gradually add more and more extra stuff on as well.
+
+09:36.000 --> 09:41.000
+I will jump in here to say that this is much more
+
+09:41.000 --> 09:46.000
+of a problem of a past resource problem.
+
+09:46.000 --> 09:53.000
+The efforts of the staff have really helped us have more data,
+
+09:53.000 --> 09:56.000
+more metadata information about more recent resources,
+
+09:56.000 --> 10:00.000
+tip sheets, conference entries, things like that.
+
+10:00.000 --> 10:06.000
+But there are quite a few resources from older conferences,
+
+10:06.000 --> 10:12.000
+events where that information isn't present.
+
+10:12.000 --> 10:16.000
+And oftentimes that affiliation, which is one of the lowest ones,
+
+10:16.000 --> 10:20.000
+essentially that's being extracted from people's names
+
+10:20.000 --> 10:23.000
+and information on, say, a tip sheet.
+
+10:23.000 --> 10:27.000
+And in those cases, if there wasn't really a standard,
+
+10:27.000 --> 10:30.000
+people might just put their names and emails on a tip sheet.
+
+10:30.000 --> 10:35.000
+And so there's literal cases where the information isn't there
+
+10:35.000 --> 10:37.000
+and we have to either sort of derive it
+
+10:37.000 --> 10:38.000
+or maybe we won't get it,
+
+10:38.000 --> 10:42.000
+or we have to wait until someone might claim it.
+
+10:42.000 --> 10:45.000
+Yep.
+
+10:45.000 --> 10:51.000
+And this database that you can search with uses
+
+10:51.000 --> 10:53.000
+what's called semantic search.
+
+10:53.000 --> 10:56.000
+And so this is kind of an AI-flavored version of search
+
+10:56.000 --> 11:00.000
+that goes a little beyond just doing kind of strict keyword matching
+
+11:00.000 --> 11:02.000
+of what you're putting in.
+
+11:02.000 --> 11:04.000
+Kind of under the hood, inside the database,
+
+11:04.000 --> 11:09.000
+we've had a machine learning system kind of break up each asset
+
+11:09.000 --> 11:12.000
+into kind of its component parts
+
+11:12.000 --> 11:15.000
+using the kind of fancy vectorization and AI stuff
+
+11:15.000 --> 11:17.000
+we hear so much about these days.
+
+11:17.000 --> 11:21.000
+And that allows it to take your query, what you search in there,
+
+11:21.000 --> 11:24.000
+and find something closer to what you really mean.
+
+11:24.000 --> 11:27.000
+And it also allows us to sort of rate documents
+
+11:27.000 --> 11:29.000
+based on their similarity to each other
+
+11:29.000 --> 11:31.000
+and other interesting things.
+
+11:31.000 --> 11:34.000
+All of the code that does this is open source on GitHub
+
+11:34.000 --> 11:38.000
+on the IRE apps profile page, if anyone's interested.
+
+11:38.000 --> 11:40.000
+And you can see the Python code we do.
+
+11:40.000 --> 11:44.000
+I'd be happy to get nerdy in the question and answer portion
+
+11:44.000 --> 11:45.000
+and go into the details of this,
+
+11:45.000 --> 11:47.000
+but I don't want to bore you too much.
+
+11:47.000 --> 11:51.000
+But we can brag and say we do have an AI-enabled search,
+
+11:51.000 --> 11:54.000
+which is pretty cool and was a big learning experience
+
+11:54.000 --> 11:57.000
+for me putting this together.
+
+11:57.000 --> 12:00.000
+After you do your search, you see a result page kind of like this,
+
+12:00.000 --> 12:03.000
+which takes the result of that AI funnel
+
+12:03.000 --> 12:06.000
+and says, here's what we think are the best matches for you,
+
+12:06.000 --> 12:10.000
+which you then can pick and see from the list how you like.
+
+12:10.000 --> 12:12.000
+You're able to tune that search by, say,
+
+12:12.000 --> 12:14.000
+limiting it to different categories.
+
+12:14.000 --> 12:17.000
+Say you only want to search tip sheets or audio.
+
+12:17.000 --> 12:21.000
+You're able to just check and uncheck those boxes and do that.
+
+12:21.000 --> 12:24.000
+You're allowed to sort newest and oldest in addition to relevance,
+
+12:24.000 --> 12:28.000
+but it is imperfect due to those gaps in the data currently.
+
+12:28.000 --> 12:30.000
+And if you really, really hate AI,
+
+12:30.000 --> 12:32.000
+you can just turn it off there with that little switch
+
+12:32.000 --> 12:36.000
+and do a standard keyword search as well.
+
+12:36.000 --> 12:40.000
+At the bottom of each of pages, each assets page,
+
+12:40.000 --> 12:42.000
+you can see some recommended similar documents.
+
+12:42.000 --> 12:46.000
+This is based on that same AI sugar where we're able to say,
+
+12:46.000 --> 12:51.000
+you know, this one is most similar to that one and on and on.
+
+12:51.000 --> 12:55.000
+I did have an AI bot make these similar scores for my slide,
+
+12:55.000 --> 12:57.000
+and I can see that it has titled one,
+
+12:57.000 --> 13:00.000
+a guide to ass kicking in the 90s.
+
+13:00.000 --> 13:02.000
+I just noticed that.
+
+13:02.000 --> 13:03.000
+I don't think that's a real tip sheet.
+
+13:03.000 --> 13:06.000
+Maybe it is a real tip sheet. I don't know.
+
+13:06.000 --> 13:08.000
+We'll have to look that one up.
+
+13:08.000 --> 13:11.000
+As we said at the start, this is member walled.
+
+13:11.000 --> 13:16.000
+So just registering with the IRE website is not enough to access this database.
+
+13:16.000 --> 13:20.000
+You have to both be registered and have an active membership,
+
+13:20.000 --> 13:23.000
+aka have paid your dues in the last year.
+
+13:23.000 --> 13:26.000
+If you don't do that, you can't get it. Sorry.
+
+13:26.000 --> 13:30.000
+And this is the kind of software tools we're using.
+
+13:30.000 --> 13:32.000
+We're using kind of a vectorized database,
+
+13:32.000 --> 13:34.000
+which is a newfangled thing to kind of build.
+
+13:34.000 --> 13:37.000
+And this site, I began, I'd be happy to talk about the tech later
+
+13:37.000 --> 13:39.000
+if people want to get into it.
+
+13:39.000 --> 13:41.000
+But, you know, just to wrap up,
+
+13:41.000 --> 13:43.000
+I just want to say this is a work in progress.
+
+13:43.000 --> 13:48.000
+It's a very simple search that has a couple interesting features,
+
+13:48.000 --> 13:52.000
+but there's so much more we probably can and should be doing with this.
+
+13:52.000 --> 13:56.000
+We want to hear your feedback on what's broken or not like it should be.
+
+13:56.000 --> 14:01.000
+We want to hear your feature requests on what it should be doing, that it's not.
+
+14:01.000 --> 14:03.000
+And if you're really passionate about this,
+
+14:03.000 --> 14:08.000
+we would love to welcome you into our volunteer creation process.
+
+14:09.000 --> 14:13.000
+We have a sort of list of priorities going forward.
+
+14:13.000 --> 14:18.000
+Our top priority is to expand this system to make it possible for the IRE
+
+14:18.000 --> 14:21.000
+staff to do rolling incremental updates.
+
+14:21.000 --> 14:25.000
+Currently, we're just able to do like big database dumps every so often in
+
+14:25.000 --> 14:29.000
+that requires like me or Derek to push a button or Cody.
+
+14:29.000 --> 14:32.000
+And we'd rather have like an administrative panel
+
+14:32.000 --> 14:34.000
+where the staff can be actively improving it.
+
+14:34.000 --> 14:35.000
+That's our top priority.
+
+14:35.000 --> 14:37.000
+We're going to do that in the coming months.
+
+14:37.000 --> 14:40.000
+But then we also have some gaps in the data,
+
+14:40.000 --> 14:43.000
+stuff that was lost in the migration, some of these flawed fields.
+
+14:43.000 --> 14:46.000
+We want to try to start cleaning that up.
+
+14:46.000 --> 14:47.000
+And then finally,
+
+14:47.000 --> 14:50.000
+we have some really interesting stuff associated with the assets.
+
+14:50.000 --> 14:54.000
+We haven't integrated yet like the OCRing of all the documents,
+
+14:54.000 --> 14:56.000
+the transcribing of all the audio files.
+
+14:56.000 --> 14:59.000
+We do have all those associated transcripts,
+
+14:59.000 --> 15:02.000
+but we have not yet integrated those into the search or the interface.
+
+15:02.000 --> 15:04.000
+You can't see them on the site.
+
+15:04.000 --> 15:06.000
+Your search doesn't benefit from them.
+
+15:06.000 --> 15:09.000
+And we'd really like to get around to that before too long too.
+
+15:09.000 --> 15:11.000
+So that's kind of our roadmap.
+
+15:11.000 --> 15:15.000
+The whole thing was done on a volunteer basis by really the three of us
+
+15:15.000 --> 15:20.000
+and our colleagues on the volunteer task force.
+
+15:20.000 --> 15:25.000
+So be nice to us because this was a nice weekend thing.
+
+15:25.000 --> 15:30.000
+But we definitely also want your brutal honesty about how it can
+
+15:30.000 --> 15:32.000
+and should be better as well.
+
+15:32.000 --> 15:35.000
+And that's really my spiel.
+
+15:35.000 --> 15:38.000
+And I don't know if Cody has an agenda beyond this,
+
+15:38.000 --> 15:43.000
+but I'd love to hear from folks of what they think about it,
+
+15:43.000 --> 15:50.000
+how they use the IRE archives and how we can make them better.
+
+15:50.000 --> 16:01.000
+No, let's go ahead and open it up if people want to chat.
+
+16:02.000 --> 16:05.000
+Okay, I can get us started.
+
+16:05.000 --> 16:06.000
+Hi, everybody.
+
+16:06.000 --> 16:08.000
+Thanks so much for sharing.
+
+16:08.000 --> 16:11.000
+Well, for building the tool or for sharing it with everyone.
+
+16:11.000 --> 16:16.000
+One piece of feedback I gave in the Slack that I wanted to follow up on
+
+16:16.000 --> 16:21.000
+was categorization or the possibility of categorization.
+
+16:21.000 --> 16:25.000
+I had mentioned that for me as someone who is new to journalism,
+
+16:25.000 --> 16:27.000
+I'm not aware of what I don't know.
+
+16:27.000 --> 16:31.000
+And so even coming up with what to search for is hard
+
+16:31.000 --> 16:35.000
+when I'm presented with just a search bar on the homepage.
+
+16:35.000 --> 16:38.000
+So definitely something like that would be really helpful
+
+16:38.000 --> 16:39.000
+as a future request for me.
+
+16:39.000 --> 16:42.000
+You'd be interested in kind of browsing topics you're interested in.
+
+16:42.000 --> 16:43.000
+Am I hearing that right?
+
+16:43.000 --> 16:44.000
+Exactly.
+
+16:44.000 --> 16:47.000
+Yeah, we've heard that you're not the only person who said that.
+
+16:47.000 --> 16:51.000
+You know, we had several other people at NyCar raise the same question.
+
+16:51.000 --> 16:53.000
+They're kind of like, I want to nose around.
+
+16:53.000 --> 16:56.000
+I want to walk through the stacks a little bit, you know.
+
+16:56.000 --> 17:02.000
+And I could imagine, you know, we don't currently have kind of tags
+
+17:02.000 --> 17:05.000
+or categories beyond the sort of like, this is a tip sheet.
+
+17:05.000 --> 17:07.000
+This is a contest entry level stuff.
+
+17:07.000 --> 17:11.000
+And so getting that, like applying those groupings
+
+17:11.000 --> 17:15.000
+is like something maybe AI can help us with or I don't know what.
+
+17:15.000 --> 17:16.000
+Like, so that's a challenge.
+
+17:16.000 --> 17:18.000
+And we were actually talking about that earlier today.
+
+17:18.000 --> 17:20.000
+Like, how could we do that in a disciplined way?
+
+17:20.000 --> 17:24.000
+A second idea we've heard, I wonder what you would think of this,
+
+17:24.000 --> 17:30.000
+is maybe having the IRA staff or muck rock or members of the community
+
+17:30.000 --> 17:33.000
+curate kind of like maybe greatest hits kind of lists,
+
+17:33.000 --> 17:36.000
+like a reporter who really knows a topic or someone on the staff
+
+17:36.000 --> 17:39.000
+collected the 10 best tip sheets on topic X
+
+17:39.000 --> 17:42.000
+and it was a little more of a DJ playlist.
+
+17:42.000 --> 17:47.000
+Does that appealing or how do you react to those ideas?
+
+17:47.000 --> 17:49.000
+Yeah, I mean, I would definitely love something like that.
+
+17:49.000 --> 17:54.000
+I think if those curated lists could still also link to the non,
+
+17:54.000 --> 17:59.000
+the top, you know, top 20 or 10 to 20, 20 to 30 of whatever else is left.
+
+17:59.000 --> 18:02.000
+So I could then follow up with other things.
+
+18:02.000 --> 18:04.000
+I think that would be really helpful.
+
+18:04.000 --> 18:09.000
+But as a place to start, for sure, I would love to see something like that.
+
+18:09.000 --> 18:10.000
+Yeah.
+
+18:10.000 --> 18:15.000
+And I'm assuming it's also tricky because language changes over time too.
+
+18:15.000 --> 18:19.000
+So the way something is described in the 90s maybe is described with using
+
+18:19.000 --> 18:20.000
+different words now.
+
+18:20.000 --> 18:23.000
+So I'm sure it's a challenge.
+
+18:23.000 --> 18:24.000
+That's an interesting question.
+
+18:24.000 --> 18:27.000
+There's a PhD thesis for you, Derek.
+
+18:27.000 --> 18:32.000
+I mean, there's a lot of, I'll pass, but there's a lot of like,
+
+18:32.000 --> 18:39.000
+there are definitely sort of topics or specific phrases or techniques
+
+18:39.000 --> 18:43.000
+that kind of die out for not extinction level stuff,
+
+18:43.000 --> 18:46.000
+but in terms of like what IRE members talk about.
+
+18:46.000 --> 18:47.000
+Yeah.
+
+18:47.000 --> 18:51.000
+It's like as if that were the case that essentially like we used to talk
+
+18:51.000 --> 18:54.000
+about these things and now we don't talk about that specific thing anymore.
+
+18:54.000 --> 18:58.000
+We've replaced that with something else or we've, we've moved on.
+
+18:58.000 --> 19:03.000
+So there's definitely a, a life cycle to some of these, some of these things.
+
+19:03.000 --> 19:07.000
+I, I, you know, not like mostly not for things like if you're browsing by,
+
+19:07.000 --> 19:11.000
+like I want to do the story on this kind of institution or things like that,
+
+19:11.000 --> 19:13.000
+or I'm interested in what's been done in this area.
+
+19:13.000 --> 19:18.000
+Like probably that's fine, but like there's definitely some specific
+
+19:18.000 --> 19:23.000
+technique stuff that is either, that is basically now mostly dead in terms
+
+19:23.000 --> 19:27.000
+of like we have, like we have a lot of people talking about it, but like,
+
+19:27.000 --> 19:31.000
+like there are a lot of tip sheets in there on how to search the internet.
+
+19:31.000 --> 19:32.000
+Right.
+
+19:32.000 --> 19:33.000
+And right.
+
+19:33.000 --> 19:37.000
+And now maybe somebody would use the word OSINT if they're talking about
+
+19:37.000 --> 19:39.000
+talking about like, yeah.
+
+19:39.000 --> 19:42.000
+And so like, and so like, but I mean, I do think that like Ben,
+
+19:42.000 --> 19:47.000
+like the semantic aspect of this search engine does handle some of those
+
+19:47.000 --> 19:51.000
+use cases where like, if I'm describing what we now call OSINT probably
+
+19:51.000 --> 19:53.000
+should find that stuff anyway.
+
+19:53.000 --> 19:54.000
+Right.
+
+19:54.000 --> 19:57.000
+Or a car versus data journalism, that kind of thing.
+
+19:57.000 --> 20:01.000
+I think it's like, like that's, that's where like, that's the whole,
+
+20:01.000 --> 20:03.000
+that's the whole ball game for semantic search.
+
+20:03.000 --> 20:06.000
+That's why you use it is to be like, I.
+
+20:06.000 --> 20:07.000
+Yeah.
+
+20:07.000 --> 20:09.000
+Like it could appear in all these different ways.
+
+20:09.000 --> 20:10.000
+So.
+
+20:10.000 --> 20:11.000
+Yeah.
+
+20:11.000 --> 20:12.000
+Cool.
+
+20:12.000 --> 20:13.000
+Thank you.
+
+20:13.000 --> 20:18.000
+Um, once I could follow up one small bug that I have noticed so far is if I
+
+20:18.000 --> 20:23.000
+click on, I haven't pulled up, if I click on an item and I see that there's
+
+20:23.000 --> 20:27.000
+a category tip sheet or audio, if I click on it,
+
+20:27.000 --> 20:32.000
+it just takes me back to the homepage search bar rather than I was,
+
+20:32.000 --> 20:36.000
+I was like, I was expecting, I guess I would say like a list of all the audio
+
+20:36.000 --> 20:38.000
+ones or all the tip sheets kind of in one spot.
+
+20:38.000 --> 20:40.000
+That's what it should be doing.
+
+20:40.000 --> 20:45.000
+I mean, yeah, like, like, oh no, no, she's absolutely right.
+
+20:45.000 --> 20:48.000
+Like I just tried it with contest entry and it just goes right back to the
+
+20:48.000 --> 20:49.000
+homepage.
+
+20:49.000 --> 20:51.000
+This is like one of my Svelte kit bugs.
+
+20:51.000 --> 20:52.000
+Yeah.
+
+20:52.000 --> 20:55.000
+Where like, you know, you're trying to do that.
+
+20:55.000 --> 20:57.000
+I don't want to drag you into my JavaScript life, but like,
+
+20:57.000 --> 21:00.000
+this is something that like where it'll work on your local development.
+
+21:00.000 --> 21:03.000
+And then not when you build it out on versatile Derek and like,
+
+21:03.000 --> 21:07.000
+there's like little things like that, that I, that it's good people point out.
+
+21:07.000 --> 21:09.000
+So, wow.
+
+21:09.000 --> 21:12.000
+Should we just like assign AI to do this right now?
+
+21:12.000 --> 21:14.000
+Get on it, Claude.
+
+21:19.000 --> 21:21.000
+I mean, probably.
+
+21:21.000 --> 21:22.000
+I'm doing it right now.
+
+21:22.000 --> 21:24.000
+Other, other thoughts.
+
+21:24.000 --> 21:25.000
+Yeah.
+
+21:25.000 --> 21:26.000
+We went here.
+
+21:26.000 --> 21:27.000
+We want your bug reports.
+
+21:27.000 --> 21:28.000
+Thank you so much for that.
+
+21:28.000 --> 21:29.000
+That's really helpful.
+
+21:29.000 --> 21:30.000
+Thank you.
+
+21:30.000 --> 21:31.000
+Thank you.
+
+21:31.000 --> 21:32.000
+Thank you.
+
+21:32.000 --> 21:33.000
+Thank you.
+
+21:33.000 --> 21:34.000
+Thank you.
+
+21:34.000 --> 21:38.000
+I'm curious to know if folks have thoughts about how we should,
+
+21:38.000 --> 21:51.000
+or whether or how we should handle.
+
+21:51.000 --> 21:54.000
+Not whether, or essentially how we should handle.
+
+21:54.000 --> 21:58.000
+We have like, we've got some amount of non-English language.
+
+21:58.000 --> 22:00.000
+Resources, right?
+
+22:00.000 --> 22:01.000
+Yeah.
+
+22:01.000 --> 22:03.000
+We, we, we do have some number.
+
+22:03.000 --> 22:05.000
+They're not currently categorized that way.
+
+22:05.000 --> 22:09.000
+And a lot of the.
+
+22:09.000 --> 22:13.000
+A lot of the backlog that we have to load into the database from the last
+
+22:13.000 --> 22:18.000
+couple of years, we have quite a bit more mostly Spanish language content.
+
+22:18.000 --> 22:22.000
+But being able to categorize by language is another.
+
+22:22.000 --> 22:26.000
+I mean, when we're, when we're talking about, you know,
+
+22:26.000 --> 22:29.000
+What does the process look like when we're loading new resources into the
+
+22:29.000 --> 22:32.000
+database, being able to categorize by language is one of,
+
+22:32.000 --> 22:36.000
+is one of our, on our wish list.
+
+22:36.000 --> 22:45.000
+Okay.
+
+22:45.000 --> 22:47.000
+Other thoughts or.
+
+22:47.000 --> 22:50.000
+Or future suggestions or.
+
+22:50.000 --> 22:52.000
+We'll make this more useful.
+
+22:52.000 --> 22:57.000
+Beyond brow, beyond browsing, which we definitely now hear.
+
+22:57.000 --> 23:00.000
+Silvia, I just linked you to the issue where AI has been assigned to pick
+
+23:00.000 --> 23:02.000
+it up. If you're interested in.
+
+23:02.000 --> 23:04.000
+Co-pilot as a spectator sport.
+
+23:04.000 --> 23:08.000
+Let me know if I got the description of the bug wrong. I think I got it.
+
+23:08.000 --> 23:11.000
+But yeah.
+
+23:11.000 --> 23:13.000
+Hi.
+
+23:13.000 --> 23:15.000
+Hello. Hello. How are you?
+
+23:15.000 --> 23:19.000
+I'm great. Thank you. And thank you for organizing this.
+
+23:19.000 --> 23:21.000
+I found really useful.
+
+23:21.000 --> 23:26.000
+I don't know if it is already possible or covered,
+
+23:26.000 --> 23:30.000
+but I was wondering if.
+
+23:30.000 --> 23:34.000
+There might be like a connection in database.
+
+23:34.000 --> 23:37.000
+If a story won an award,
+
+23:37.000 --> 23:40.000
+one of like a Pulitzer award or,
+
+23:40.000 --> 23:44.000
+or another award. And so you can have that.
+
+23:44.000 --> 23:47.000
+Like the, the most important,
+
+23:47.000 --> 23:52.000
+the category of the awarded stories.
+
+23:52.000 --> 23:53.000
+Hmm.
+
+23:53.000 --> 23:54.000
+That's a good, like,
+
+23:54.000 --> 23:57.000
+that's a good idea for one of these curated lists, right? Or you, you know,
+
+23:57.000 --> 24:00.000
+you would say here, here's like,
+
+24:00.000 --> 24:02.000
+here's all of last year's winners, right?
+
+24:02.000 --> 24:04.000
+Maybe you're something like that or.
+
+24:04.000 --> 24:06.000
+And then.
+
+24:06.000 --> 24:09.000
+Sorry. And then it might be interesting.
+
+24:09.000 --> 24:13.000
+If the authors or someone else will write.
+
+24:13.000 --> 24:16.000
+A behind the scene.
+
+24:16.000 --> 24:19.000
+A story of the story.
+
+24:19.000 --> 24:21.000
+About the tools used.
+
+24:21.000 --> 24:22.000
+The method.
+
+24:22.000 --> 24:24.000
+The methodology and the tools.
+
+24:24.000 --> 24:26.000
+These will be the real value.
+
+24:26.000 --> 24:29.000
+I think I don't know if the other.
+
+24:29.000 --> 24:31.000
+Agree.
+
+24:31.000 --> 24:33.000
+So we do have like, well, I mean,
+
+24:33.000 --> 24:35.000
+first of all, we, we kind of used to have for,
+
+24:35.000 --> 24:38.000
+for like technical sort of methodological stuff.
+
+24:38.000 --> 24:39.000
+We, we.
+
+24:39.000 --> 24:41.000
+I already sometimes will.
+
+24:41.000 --> 24:42.000
+You know, obviously there's,
+
+24:42.000 --> 24:45.000
+there's some panels and sessions about that that go into some detail
+
+24:45.000 --> 24:46.000
+about that.
+
+24:46.000 --> 24:50.000
+This is also what we used to use uplink for in a lot of cases.
+
+24:50.000 --> 24:52.000
+Or in some cases, at least a description of it.
+
+24:52.000 --> 24:55.000
+Uplink was like this older newsletter that we had.
+
+24:55.000 --> 24:58.000
+And.
+
+24:58.000 --> 25:00.000
+And I think we're going to be able to,
+
+25:00.000 --> 25:02.000
+at least one of my goals is to be able to integrate the,
+
+25:02.000 --> 25:05.000
+the text of uplinks into there.
+
+25:05.000 --> 25:06.000
+As well.
+
+25:06.000 --> 25:08.000
+But I do think that like.
+
+25:08.000 --> 25:09.000
+There's a.
+
+25:09.000 --> 25:12.000
+Like.
+
+25:12.000 --> 25:14.000
+Like the, the, the, I think the challenge,
+
+25:14.000 --> 25:18.000
+one of the challenges for that is that there are like the tip sheets
+
+25:18.000 --> 25:21.000
+are usually like a summer and even the conference presentations
+
+25:21.000 --> 25:24.000
+themselves are usually a summary of that rather than like a play by
+
+25:24.000 --> 25:26.000
+play.
+
+25:26.000 --> 25:27.000
+So.
+
+25:27.000 --> 25:28.000
+Oh, we're bringing back.
+
+25:28.000 --> 25:29.000
+I read your.
+
+25:29.000 --> 25:30.000
+Oh, all right.
+
+25:30.000 --> 25:32.000
+Nice uplink returns. Great.
+
+25:32.000 --> 25:33.000
+Great.
+
+25:33.000 --> 25:36.000
+But I do think like one of the issues was sort of like, I guess it
+
+25:36.000 --> 25:37.000
+depends.
+
+25:37.000 --> 25:40.000
+How detailed do you want that methodological stuff?
+
+25:40.000 --> 25:41.000
+To be.
+
+25:41.000 --> 25:43.000
+Because a lot of times we don't get all,
+
+25:43.000 --> 25:50.000
+we don't really have all of that as part of our resources.
+
+25:50.000 --> 25:51.000
+Okay. Thank you.
+
+25:51.000 --> 25:54.000
+It might be interesting also to involve the voters of the,
+
+25:54.000 --> 25:55.000
+of the stories.
+
+25:55.000 --> 25:56.000
+So we would like,
+
+25:56.000 --> 25:59.000
+we would like people to be able to like members to be able to claim
+
+25:59.000 --> 26:01.000
+resources that they've uploaded.
+
+26:02.000 --> 26:03.000
+You know, it's sort of been like, you know,
+
+26:03.000 --> 26:05.000
+if you go like to a member's page,
+
+26:05.000 --> 26:07.000
+the member directory and be like, Hey,
+
+26:07.000 --> 26:10.000
+I've got here are the resources from this member.
+
+26:10.000 --> 26:13.000
+And like, I, you know,
+
+26:13.000 --> 26:16.000
+eventually allow them to like add thing or at least, you know,
+
+26:16.000 --> 26:18.000
+augment that.
+
+26:18.000 --> 26:21.000
+This information that would be,
+
+26:21.000 --> 26:25.000
+that would be a great thing to do because I suspect there were people
+
+26:25.000 --> 26:27.000
+who have things that are like, okay.
+
+26:27.000 --> 26:30.000
+Yeah. Most of this advice is still good, but this thing is not.
+
+26:31.000 --> 26:34.000
+Or like I've updated this here or like, you know,
+
+26:34.000 --> 26:36.000
+you should contact me about this because things have changed.
+
+26:40.000 --> 26:41.000
+Thank you so much.
+
+26:41.000 --> 26:46.000
+Yep. Do you use the, um, the resources yourself much now?
+
+26:47.000 --> 26:48.000
+I will.
+
+26:49.000 --> 26:50.000
+Okay.
+
+26:50.000 --> 26:52.000
+I'm curious what people are doing in real life.
+
+26:52.000 --> 26:53.000
+You know,
+
+26:53.000 --> 26:55.000
+cause you make something like this and it's hard to know like,
+
+26:55.000 --> 26:57.000
+what are people really doing out there? You know,
+
+26:57.000 --> 27:00.000
+I wasn't aware of these resources, but now,
+
+27:00.000 --> 27:03.000
+thanks to this webinar, I'm, I'm aware.
+
+27:03.000 --> 27:05.000
+So thank you for organizing it.
+
+27:05.000 --> 27:06.000
+Of course.
+
+27:06.000 --> 27:08.000
+Because we receive tons of emails.
+
+27:08.000 --> 27:12.000
+So, and sometimes I don't even open and just read the title.
+
+27:12.000 --> 27:17.000
+So, because there are so many emails and we need to prioritize.
+
+27:17.000 --> 27:20.000
+But so these, there was in the title,
+
+27:20.000 --> 27:23.000
+in the headline of the email, there was written the new resource center.
+
+27:23.000 --> 27:24.000
+I said, okay, interesting.
+
+27:25.000 --> 27:27.000
+Little editing advice there. I love it.
+
+27:39.000 --> 27:41.000
+Yeah. Other thoughts or questions.
+
+27:55.000 --> 27:59.000
+Yeah. Well, if nobody has any other questions or sorry,
+
+27:59.000 --> 28:02.000
+Sylvia just saw you unmute. I didn't mean to interrupt you there.
+
+28:02.000 --> 28:05.000
+Oh, I was out of curiosity. I was wondering,
+
+28:05.000 --> 28:08.000
+so every time you refresh the homepage,
+
+28:08.000 --> 28:11.000
+there's a different set of suggestions under the search bar.
+
+28:11.000 --> 28:13.000
+And I was curious how those are generated.
+
+28:15.000 --> 28:20.000
+It is a list that I made up and they are drawn randomly.
+
+28:21.000 --> 28:23.000
+And do you have one you'd like to see added?
+
+28:23.000 --> 28:25.000
+We can make a pull request right now.
+
+28:25.000 --> 28:26.000
+Yeah.
+
+28:26.000 --> 28:27.000
+We just add to it.
+
+28:30.000 --> 28:34.000
+I don't have anything particular, I guess, but I do often rely on like,
+
+28:35.000 --> 28:39.000
+as far as browsing, sometimes I will look there to see like, oh,
+
+28:39.000 --> 28:43.000
+what's this other topic that I know nothing about? And I'll click on it.
+
+28:43.000 --> 28:45.000
+Yeah. Yeah.
+
+28:45.000 --> 28:48.000
+It was me trying to be cutesy. So if you click this link, Sylvia,
+
+28:48.000 --> 28:50.000
+I don't know if you're interested in JavaScript,
+
+28:50.000 --> 28:52.000
+but you can see the full list right there.
+
+28:53.000 --> 28:56.000
+So I wanted them not to be too long so that it wouldn't wrap the two
+
+28:56.000 --> 28:58.000
+lines. Yeah.
+
+28:58.000 --> 29:01.000
+I do think that we also have the opportunity to possibly like, you know,
+
+29:01.000 --> 29:04.000
+maybe we do something where it's like, um,
+
+29:04.000 --> 29:07.000
+all like in the month or two or, you know,
+
+29:07.000 --> 29:11.000
+after a conference where it's like one of the canned searches is tip
+
+29:11.000 --> 29:15.000
+sheets from night car, this year's night car tip sheets from this year's
+
+29:15.000 --> 29:18.000
+IRE conference, whether we could do something like that.
+
+29:19.000 --> 29:22.000
+Yeah. I think that would be really useful too. Mm hmm.
+
+29:22.000 --> 29:26.000
+Cause so many people ask for the chip sheets like right after the
+
+29:26.000 --> 29:29.000
+conference you're looking for. I'm like right after. Yeah.
+
+29:29.000 --> 29:31.000
+So the constant annoyance of our staff, I'm sure.
+
+29:31.000 --> 29:33.000
+We're like, yeah, we're getting there. We're getting to them.
+
+29:33.000 --> 29:34.000
+We got to upload all these things.
+
+29:35.000 --> 29:37.000
+Yeah. Steep sheet and the presentations,
+
+29:37.000 --> 29:40.000
+or if you can share all the presentation, that would be great.
+
+29:41.000 --> 29:44.000
+Yeah. Those will be included in many cases. Right. Cody,
+
+29:44.000 --> 29:47.000
+if people had like a PowerPoint deck or whatever.
+
+29:47.000 --> 29:51.000
+Oh yeah. And in every case we, we have, uh, you know,
+
+29:51.000 --> 29:54.000
+we, we talked a little bit about getting some of the, um,
+
+29:54.000 --> 29:56.000
+resources from recent conferences.
+
+29:56.000 --> 29:59.000
+So if you go to that list that I posted in a chat,
+
+29:59.000 --> 30:02.000
+all of those are eventually going to get loaded into, um,
+
+30:02.000 --> 30:06.000
+the resource database plus a bunch more, um,
+
+30:06.000 --> 30:09.000
+you know, kind of odds and ends. And then, you know,
+
+30:09.000 --> 30:12.000
+figuring out like how, like webinars like this, you know,
+
+30:12.000 --> 30:16.000
+we record it. Uh, we usually upload this like to our Vimeo, uh,
+
+30:16.000 --> 30:17.000
+account.
+
+30:17.000 --> 30:21.000
+Our, our previous, uh, system did not have a concept of like,
+
+30:21.000 --> 30:24.000
+you know, an embed code for a video or even just like a link to
+
+30:24.000 --> 30:26.000
+something as opposed to like a document.
+
+30:26.000 --> 30:30.000
+So this will be a lot more flexible and we'll be able to, um, um,
+
+30:30.000 --> 30:33.000
+yeah, anything that the speaker send us plus the audio that we record,
+
+30:33.000 --> 30:35.000
+we will upload into this for sure.
+
+30:39.000 --> 30:40.000
+Thank you.
+
+30:40.000 --> 31:01.000
+Any other thoughts, questions, ideas, bug reports?
+
+31:01.000 --> 31:04.000
+So be asked what help will we're looking for? Well, bug reports is a big one.
+
+31:04.000 --> 31:06.000
+Feature request is another one. You know,
+
+31:06.000 --> 31:11.000
+um, for people who are interested in programming or the kind of library
+
+31:11.000 --> 31:13.000
+science of doing this kind of thing.
+
+31:13.000 --> 31:17.000
+We'd love to welcome people in. The whole thing is open source software.
+
+31:17.000 --> 31:21.000
+Um, and that's not just, uh, to show off.
+
+31:21.000 --> 31:23.000
+It's really a desperate plea for help.
+
+31:23.000 --> 31:26.000
+And, uh, so, you know, if you also have,
+
+31:26.000 --> 31:29.000
+if anybody has time or interest in improving the software,
+
+31:29.000 --> 31:31.000
+we'd love to welcome you in.
+
+31:31.000 --> 31:32.000
+Um,
+
+31:32.000 --> 31:35.000
+if anybody has time or interest in improving the software,
+
+31:35.000 --> 31:37.000
+we'd love to welcome you into that.
+
+31:37.000 --> 31:40.000
+We're currently have a closed source repo where we're trying to work on
+
+31:40.000 --> 31:44.000
+that administrative panel. I mentioned, so the staff can update it.
+
+31:44.000 --> 31:45.000
+That isn't open,
+
+31:45.000 --> 31:48.000
+but if people are interested in participating in that software project,
+
+31:48.000 --> 31:52.000
+I would be happy to welcome them in as collaborators.
+
+31:52.000 --> 31:53.000
+Um,
+
+31:53.000 --> 31:57.000
+and I also, yeah, I think also another way is like,
+
+31:57.000 --> 31:58.000
+because we've been talking about,
+
+31:58.000 --> 32:01.000
+and then heard from people about like the aspect of like browsing,
+
+32:01.000 --> 32:04.000
+like we have our ideas about that. Obviously, you know, like those,
+
+32:04.000 --> 32:08.000
+right? Like not randomly, but the ones that Ben already has put in there,
+
+32:08.000 --> 32:12.000
+uh, suggestions, but like if people have ideas for like, okay, well,
+
+32:12.000 --> 32:14.000
+if I were going to design like a browser, you know,
+
+32:14.000 --> 32:19.000
+like a topic system here, uh, you know, like, what would that encompass?
+
+32:19.000 --> 32:21.000
+Like, what should that, what would that look like?
+
+32:21.000 --> 32:24.000
+What should that look like? Um, like,
+
+32:24.000 --> 32:26.000
+I think the more suggestions and input we have on that,
+
+32:26.000 --> 32:29.000
+the better any system that we might come up with is going to be.
+
+32:35.000 --> 32:37.000
+And I just, uh, toss in the chat, if you just email,
+
+32:37.000 --> 32:41.000
+and this is on the, the, uh, page as well.
+
+32:41.000 --> 32:44.000
+If you see an issue, email help at irie.org.
+
+32:44.000 --> 32:47.000
+If you have a feature request, that's a great place for it too.
+
+32:47.000 --> 32:50.000
+All that eventually gets filtered over into a, you know, kind of a bug,
+
+32:50.000 --> 32:53.000
+bug track, bug and feature tracking websites, uh, that we use.
+
+32:53.000 --> 32:58.000
+So definitely, uh, please kick the tires and let us know what you think.
+
+32:58.000 --> 32:59.000
+Yep.
+
+32:59.000 --> 33:04.000
+Also that the AI has already sunned me and, and, uh, made its suggestion
+
+33:04.000 --> 33:05.000
+for how to improve the code.
+
+33:05.000 --> 33:06.000
+So you can see the link.
+
+33:06.000 --> 33:09.000
+I've got the, the pull request is already in, I,
+
+33:09.000 --> 33:12.000
+what it's describing as the bug sounds right,
+
+33:12.000 --> 33:15.000
+but I kind of want to pull that down to my computer and look at it first
+
+33:15.000 --> 33:17.000
+before we send it out to the world.
+
+33:17.000 --> 33:20.000
+But, um, I think that's probably a pretty good guess just looking at it.
+
+33:20.000 --> 33:22.000
+I probably just made the link Ron.
+
+33:23.000 --> 33:27.000
+Or I'd made it one way and then changed how it works and forgot to update it.
+
+33:27.000 --> 33:30.000
+The kind of dumb stuff you do when you make websites.
+
+33:38.000 --> 33:39.000
+Anybody else?
+
+33:39.000 --> 33:42.000
+Final thoughts, questions, discussion.
+
+33:46.000 --> 33:47.000
+All right.
+
+33:47.000 --> 33:51.000
+Well, um, thank you so much to Derek and Ben for being here today and also
+
+33:51.000 --> 33:53.000
+just for all the work y'all have put into this.
+
+33:53.000 --> 33:54.000
+It's fantastic.
+
+33:54.000 --> 33:56.000
+It's such a huge improvement over what we have.
+
+33:56.000 --> 33:59.000
+And thank you all for coming to give your feedback.
+
+33:59.000 --> 34:02.000
+Like I said, um, help at ira.org, um,
+
+34:02.000 --> 34:05.000
+is going to be your email address if you have any feedback.
+
+34:05.000 --> 34:10.000
+Um, otherwise we will see around and we will post a recording of this,
+
+34:10.000 --> 34:12.000
+uh, on our website soon.
+
+34:12.000 --> 34:14.000
+Thank you everybody.
+
+34:14.000 --> 34:15.000
+Thanks for coming.
+
+34:15.000 --> 34:16.000
+Thanks for your thoughts.
+
+34:16.000 --> 34:17.000
+Yeah.
+
+34:17.000 --> 34:18.000
+Yeah.
+
+34:18.000 --> 34:19.000
+Thank you.

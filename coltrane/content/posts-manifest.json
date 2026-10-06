@@ -1,6 +1,6 @@
 {
   "legacy_pre_lang_post_count": 25,
-  "post_count": 72,
+  "post_count": 69,
   "posts": [
     {
       "body_sha256": "7061b29a316090dd15bd99c72c176be91dc3436f634419295c0ff5e65c8e0ce0",
@@ -14,70 +14,56 @@
       "path": "posts/2007-02-14--sql-recipe-the-number-of-federal-government-working-days-between-two-dates.md",
       "permalink": "/posts/2007/02/14/sql-recipe-the-number-of-federal-government-working-days-between-two-dates/",
       "published_at": "2007-02-14T07:52:24-08:00",
-      "sha256": "ef64fce6ca61d73780e3ecff0ec81f7031e7704464422006df78c9f0c9010f1a"
+      "sha256": "c11c43734278854c9466fa9ea15c32be9c2db7ba7a9175b6c1b7d772054a7c93"
     },
     {
-      "body_sha256": "e78f2c6012c77f847d619a66a37d55d7ad7780f27fb6496c7a1d013283558161",
+      "body_sha256": "7d2fd043132f0630de37d272d890edbd9381e7c357685db253e27b1fa73ca957",
       "path": "posts/2008-03-24--go-snoop-yourself.md",
       "permalink": "/posts/2008/03/24/go-snoop-yourself/",
       "published_at": "2008-03-24T06:46:31-07:00",
-      "sha256": "c228ea20f419b7423e35acd91f1e89c7c80d0dd08855ad67794e6531d9bdf5d1"
-    },
-    {
-      "body_sha256": "412c50671a731e3d1092954275e553b78b38eb4ba45a04e3f68636ba1117b8df",
-      "path": "posts/2008-04-05--python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term.md",
-      "permalink": "/posts/2008/04/05/python-recipe-open-a-file-read-through-it-print-each-line-matching-a-search-term/",
-      "published_at": "2008-04-05T08:49:58-07:00",
-      "sha256": "82200c19beda37afdb25dad608b0d92b0ba470a443bb1b4831b75e5c322f764b"
+      "sha256": "ecce8cabf250dd4dd47076be18f5ca0fe5890c1fe27902f57c25099b7bf1a4b8"
     },
     {
       "body_sha256": "d6d66f3d1992c1419bbdc47cc5256a2eb640bdfdf6a35d04b7d75d3b55bc6c4a",
       "path": "posts/2008-04-07--python-recipe-open-multiple-files-search-for-matches-count-your-hits-on-the-fly.md",
       "permalink": "/posts/2008/04/07/python-recipe-open-multiple-files-search-for-matches-count-your-hits-on-the-fly/",
       "published_at": "2008-04-07T01:06:45-07:00",
-      "sha256": "d9874713dddbc871b98426354c2a372198a8427d4b4ffdd65939c4c2396b12f9"
+      "sha256": "7b8e792eed6876f6583f8efb904068160311dc75e636074065ed009ee358e1c8"
     },
     {
       "body_sha256": "d36a0826f4f277d9db58eceaed4600843a8face8cafc6f3c21db243165e01c51",
       "path": "posts/2008-04-14--python-recipe-read-a-file-search-for-a-pattern-print-your-matches.md",
       "permalink": "/posts/2008/04/14/python-recipe-read-a-file-search-for-a-pattern-print-your-matches/",
       "published_at": "2008-04-14T22:52:41-07:00",
-      "sha256": "beddf380b9a2c42bd7b51732eca3b676920aa2f2be31225c38a4040cc980b6cc"
+      "sha256": "b04f99be41d447b0122f24b97066e5f6aa6f02ad6e76e0b4cf8b4f2b3c9a0162"
     },
     {
-      "body_sha256": "ce9d2239b40d8d5f0c8b88d971a83821939760124de265e00ebdb28740984464",
+      "body_sha256": "6b46f01bea9bb094614fd3cac76e78fc77320d11aa9231cbeffd98658d6b2d8e",
       "path": "posts/2008-04-20--python-recipe-grab-a-page-scrape-a-table-download-a-file.md",
       "permalink": "/posts/2008/04/20/python-recipe-grab-a-page-scrape-a-table-download-a-file/",
       "published_at": "2008-04-20T13:43:13-07:00",
-      "sha256": "04aec49c7377d4e1aee421efb9963869595f54f386ae10ff09d9a29fe25b9a33"
+      "sha256": "8a7a6937b9e49a219e6413b75cf90e169a8361c914b3364a43abb392d117a944"
     },
     {
       "body_sha256": "208d4f338bda7b4842b6a2949051161e3c29589738763b01f4cbeddda414872a",
       "path": "posts/2008-04-21--python-recipe-print-a-future-date-in-the-format-you-want.md",
       "permalink": "/posts/2008/04/21/python-recipe-print-a-future-date-in-the-format-you-want/",
       "published_at": "2008-04-21T10:31:59-07:00",
-      "sha256": "12a5fb9c47228d6d3d031601cf2a83531bb90499c9134435325a2fa73b25d1e4"
+      "sha256": "fbd3dbde1bbef3045c5a99c869c049c534ddeb1628c02072cdf7547672685e4f"
     },
     {
       "body_sha256": "67c3ecac1a15c713273b226d390694edd4ee5aec2ab027c97c9ec473d0cdc9ab",
       "path": "posts/2008-04-26--python-recipe-connect-to-mysql-database-execute-a-query-print-the-results.md",
       "permalink": "/posts/2008/04/26/python-recipe-connect-to-mysql-database-execute-a-query-print-the-results/",
       "published_at": "2008-04-26T10:28:57-07:00",
-      "sha256": "2a28e868c2c9264bbb87caedb31b541fdfefe074e76c5593d86e7f39c6dd06c4"
+      "sha256": "73564b616dd8bfd179b4070f7bc12eb42fd509ecabc8847a2ca21df908caff27"
     },
     {
       "body_sha256": "c84e2761472dfc5063951b62f9399f9e8476eaf65b794000e133f318f4dd81f2",
       "path": "posts/2008-04-27--ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter.md",
       "permalink": "/posts/2008/04/27/ubuntu-recipe-how-to-automagically-post-you-lastfm-feed-to-twitter/",
       "published_at": "2008-04-27T12:12:13-07:00",
-      "sha256": "86909acc11034e3e0ea1025b3a1f88e04191d1a700022bcb083551cb55aec42d"
-    },
-    {
-      "body_sha256": "81385d2540431b5bc6d0d8bc1826289eeaf5ba050b82fc0e75a0e736eb27d7d3",
-      "path": "posts/2008-05-18--bill-oreilly-flips-out-the-ringtone.md",
-      "permalink": "/posts/2008/05/18/bill-oreilly-flips-out-the-ringtone/",
-      "published_at": "2008-05-18T22:04:00-07:00",
-      "sha256": "a89e622fb50d76fcaf8f9dfd87eb19487ab65395686a42d312ba03e203b043f2"
+      "sha256": "299f3ae843e51f463162be8d964e2d10e35c8da43645ed54721f87348a6e5a65"
     },
     {
       "body_sha256": "e7a564d43685c5829610e4c587b49c93e51487dedd0afbcc66be2aee2f4abf91",
@@ -94,18 +80,18 @@
       "sha256": "2643f706a49abcf371bb2aa9e5de0e29b21aa4effd7144c59eceebd27c490950"
     },
     {
-      "body_sha256": "52fd0ad2c3b5ac12cd56ab93c6e0d09a0de6f951a32c29e79905189d5f2dfe08",
+      "body_sha256": "ac8c895ea34148af23d5e6e51fc69c30d6658b559aa45084bf56a7a71cac8dab",
       "path": "posts/2008-06-01--bens-hip-hop-twitter-bot.md",
       "permalink": "/posts/2008/06/01/bens-hip-hop-twitter-bot/",
       "published_at": "2008-06-01T03:56:05-07:00",
-      "sha256": "fb72d619d933223685f62c6b31efe2725f54d841fa98be6820ded4600f5c5886"
+      "sha256": "f23e8aba3057c8cded41be71da8dcff9a301099f87cb8bc15d8a7755c5eca505"
     },
     {
       "body_sha256": "cf7a8b58ec6e075e1409bf91a45363f5009f75bc412cb1e02e0abe3c0ab3fd89",
       "path": "posts/2008-06-15--terminal-recipe-how-to-download-an-entire-web-site-with-wget.md",
       "permalink": "/posts/2008/06/15/terminal-recipe-how-to-download-an-entire-web-site-with-wget/",
       "published_at": "2008-06-15T09:05:15-07:00",
-      "sha256": "1c4df5e52dc1a79a7c19c8dd391cb3bae722e80eaed639e1f8ae331b5ff34458"
+      "sha256": "58aa57ae6cea13416215bac5ddf5612a0afc0f82a69fc22db2de2ad9ea145c49"
     },
     {
       "body_sha256": "708f69b1b97d8c36d2eb98fe6adf03deef28512fde0478542f3125a34c8661e6",
@@ -115,18 +101,18 @@
       "sha256": "7e1fd470d0f4730ff492cf1ab30e2ec2a4404fe3f7425c78ac9fc68fbc8b9cd3"
     },
     {
-      "body_sha256": "ad671cb98afa3ff26ae6e0d9e10af554480ef7de37c788899e99301ad9e9cd08",
+      "body_sha256": "c95a900929efd0d20f00136fe09f6c0b5c55cb77158ef596456a9a9cc5199e92",
       "path": "posts/2008-07-06--permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks.md",
       "permalink": "/posts/2008/07/06/permalinks-low-rent-data-viz-and-other-stupid-caspio-tricks/",
       "published_at": "2008-07-06T20:20:33-07:00",
-      "sha256": "1caf7939b7f364cdfb5e544a27fbec51dc12a25951c8b64b55d6af84579b5997"
+      "sha256": "d106e4d1fe2b303896adf4842746e6facd28aa793037c47dfb72bfa1af3c435c"
     },
     {
       "body_sha256": "4f4ca05a12364ffd666951b3e6188dba798ed1b8ecfa0fddebcf6ee3a6bfd5b2",
       "path": "posts/2008-07-20--how-we-got-here-or-which-past-are-we-prolouging-again.md",
       "permalink": "/posts/2008/07/20/how-we-got-here-or-which-past-are-we-prolouging-again/",
       "published_at": "2008-07-20T10:36:17-07:00",
-      "sha256": "632fbf5a8a8416dc72e43e756eb1afdffa811a814b897d679d8cf256b69fedbc"
+      "sha256": "c77769dbf76c7e1bbe9ac8b212283896e2cccdde9e117225a0fec5b4104b38ce"
     },
     {
       "body_sha256": "25e523465ce3e964dd1fcfdd81c6bec6a74a89aca3499c82ec5f61b27e93520b",
@@ -150,11 +136,11 @@
       "sha256": "8ea75f9da288d898ebf5230fc740b59d014e70fc61459d9e78dd49df6e415820"
     },
     {
-      "body_sha256": "853b6ebe2bce023c24dedf3e18b85c10bf6db97358958d75412c67df1e52efc5",
+      "body_sha256": "50f1e084cd377a6533bfe96459c50f22d8f699cb52aa91c80fd19140781519c4",
       "path": "posts/2009-03-04--openlayers-recipe-how-to-map-proportional-symbols.md",
       "permalink": "/posts/2009/03/04/openlayers-recipe-how-to-map-proportional-symbols/",
       "published_at": "2009-03-04T11:04:00-08:00",
-      "sha256": "8d448ed1cf515f9033083549f0c5a4faed791f01056eff94ac1726251c69e853"
+      "sha256": "e74525c6cfc4791983ab0263e40409449942ef8a4c894ec0ccaf73f1569b02f8"
     },
     {
       "body_sha256": "28108187d4bf5ba2ce4902b2189454a819e8b41b418d98a502a54e7190433f70",
@@ -171,18 +157,18 @@
       "sha256": "cd8bd9fcba2d9a1faf63322c7ac28a6101c20d514aa9a3ecdf58eea656aceb36"
     },
     {
-      "body_sha256": "231cf8e23142e5904394744840b5d6116c0d93c0ee7b622846c4e34aa4825a3c",
+      "body_sha256": "e27295c23f1bf27c9e5104a7f3715fb45563a66b25f46e087bbf663cb79ac775",
       "path": "posts/2009-07-29--new-improved-even-more-conspicuous-consumption.md",
       "permalink": "/posts/2009/07/29/new-improved-even-more-conspicuous-consumption/",
       "published_at": "2009-07-29T09:42:08-07:00",
-      "sha256": "94c99358ba507944b13b94d1dd30ddee1881daa0549f3805de23c3e83707420b"
+      "sha256": "28cc799b1d2f11b62280be3aabcab0e0028821b589ac111fdd527f7a48127e94"
     },
     {
-      "body_sha256": "cc0651b560934b10786ced792891959b1220b261bd471a40be4977f7eaefb63f",
+      "body_sha256": "9f72c4ecf1d49a51012300f7a95d4472df9a65f5ceeb51116b3fb01ee02fded1",
       "path": "posts/2009-08-01--django-recipe-make-django-tagging-cloud-all-models.md",
       "permalink": "/posts/2009/08/01/django-recipe-make-django-tagging-cloud-all-models/",
       "published_at": "2009-08-01T10:45:25-07:00",
-      "sha256": "5c539c31d62a9adeaa28c6eeefb1ab8718db66b934511e168a7aa3b04d56ba77"
+      "sha256": "a499c2ad63ded5a021a37a9dcb4c0829cbf2cbee16a13554c2aaaa14cb5794b6"
     },
     {
       "body_sha256": "68a38efb14c803e58d41593b1fe867547a2237e2b6dfd1c236f1dfa5b6dcfbcd",
@@ -196,7 +182,7 @@
       "path": "posts/2009-08-07--python-recipe-calculate-adjusted-monthly-values.md",
       "permalink": "/posts/2009/08/07/python-recipe-calculate-adjusted-monthly-values/",
       "published_at": "2009-08-07T20:40:28-07:00",
-      "sha256": "8483259d5675858d6814e1fa36bffe1c535c463f7ceeff023bf33ae95991fe16"
+      "sha256": "c9cc0e144e64bc61c260dc71709c149d9df6b4a0155fa9d6a34d6f933d503b4e"
     },
     {
       "body_sha256": "6248110261742c61c96e5f1ef8b57711b77728100f02aa996d42fd05b44cb834",
@@ -248,25 +234,18 @@
       "sha256": "d735f2674ebde1737eabdc62d5b5cf70719d5c5bdc7a576deea286e1b3b9a1f3"
     },
     {
-      "body_sha256": "793d66522b9cb0a24a2cd84b4a3cb0320d1d45514aa83eb88c03a2b3ff03ae3f",
-      "path": "posts/2010-03-10--google-charts-takes-tufte-challenge.md",
-      "permalink": "/posts/2010/03/10/google-charts-takes-tufte-challenge/",
-      "published_at": "2010-03-10T13:13:57-08:00",
-      "sha256": "a2e82435bc3dced11c97acb7d047e9aeb6720d701a9daf63d779895d685c5cb1"
-    },
-    {
       "body_sha256": "a98b5c29b9bb02049a1e3cda5e5cfb286ec94e9ccd69ac08a88c20ce8b98e7d6",
       "path": "posts/2010-03-24--fabric-recipe-delete-pyc-files-runserver-starts.md",
       "permalink": "/posts/2010/03/24/fabric-recipe-delete-pyc-files-runserver-starts/",
       "published_at": "2010-03-24T13:19:09-07:00",
-      "sha256": "e34cdfe20adbf1bc2aa3852d1cef0879916c4d68488adf2b5a8a324e6c408f44"
+      "sha256": "1ea75131fd545c162c1ff3dc1282866f3c4d48add34d92e3f86a0b46fc7ba729"
     },
     {
-      "body_sha256": "88a95f1119613c68a0cd5b0f974cbe85c0ac9062a7c666b2c72273cadd054c40",
+      "body_sha256": "f51048f249baae72a9cff235268f449ce6032ca96bd0920130d2f675dceeefe8",
       "path": "posts/2010-11-07--django-recipe-twitter-style-infinite-scroll.md",
       "permalink": "/posts/2010/11/07/django-recipe-twitter-style-infinite-scroll/",
       "published_at": "2010-11-07T12:36:59-08:00",
-      "sha256": "02e683fe48664768b7c6a696816ecb2654bebde4b1c801936c5ac6e7ea54ef6d"
+      "sha256": "904fb4682cd046d06f613ca6adb131a396fbed05ef5fd126cc53a5028c5d2a08"
     },
     {
       "body_sha256": "f2886d440bfe1c0cb673ff1c20811063aa885c15ea152557ff14d22471e46808",
@@ -325,11 +304,11 @@
       "sha256": "431479aff5e2cfe1be89a730d2db600ca3f3d3c1812a25fcb379d5d78a3bd1b3"
     },
     {
-      "body_sha256": "90d1522bbc6f257435153577c9dc3bfc9779bc9c1e94385d6414624398fc6e99",
+      "body_sha256": "0a622e1d2103cff33b343ffa6403b6ee5a60583f7ea97f3bc9ef5c9e749a0bdc",
       "path": "posts/2012-03-26--leaflet-recipe-hover-events-features-and-polygons.md",
       "permalink": "/posts/2012/03/26/leaflet-recipe-hover-events-features-and-polygons/",
       "published_at": "2012-03-26T13:47:10-07:00",
-      "sha256": "000b865aa1ec67ebee075a1ef07588ea357d91d8230afafe9319cdf62b69df39"
+      "sha256": "8667636f9291c241156d3b241e96b573292edca6638d468ce3161d7ca0628829"
     },
     {
       "body_sha256": "52508620f5b3e90abbe71fc152fad1771da269a3c2801813c296c330b50bdf61",
@@ -444,11 +423,11 @@
       "sha256": "9791af73b8675c3a1291265955f31cb57b0e4ddabd541b829e306bb5c192c4f5"
     },
     {
-      "body_sha256": "b92cf526967556f8d7142ceabb2d6d374361e9463aea8d8d1c91446dd2d014ee",
+      "body_sha256": "80df7eda75eb65c3de92265ac6108b13d9bbde7cbbab5bfc0553f973687ebba9",
       "path": "posts/2018-04-14--my-times.md",
       "permalink": "/posts/2018/04/14/my-times/",
       "published_at": "2018-04-14T10:00:00-07:00",
-      "sha256": "a81a66d72798b9cc9cdbe9ea9a93902be11bf14a7edddf4d6594c2e37a54297d"
+      "sha256": "3562ce435c150d1fbd1da2c4b73500bc7d41fc809271c08ecc5158f639827ad5"
     },
     {
       "body_sha256": "0f1fb56cb208e21b634ee2ac7b57ffc02b13c1884640002f1b810e9229fcf872",
@@ -462,7 +441,7 @@
       "path": "posts/2021-02-23--nicar21-after-party-first-python-notebook.md",
       "permalink": "/posts/2021/02/23/nicar21-after-party-first-python-notebook/",
       "published_at": "2021-02-23T19:20:22-08:00",
-      "sha256": "a86998f57bb584af92712623cf519e7c0f97fc08280faaca059db0f6ed40b692"
+      "sha256": "f47ac0d615c6ce41482ef0b648e374dbb79a501ab520f4e42d47e737e5187ece"
     },
     {
       "body_sha256": "f64014ab1f24011e7239d8a29eb6046d87c82c6da02ea34bdf0a40b797e231c9",
@@ -472,18 +451,18 @@
       "sha256": "336e06c05e5954a8369f09475f009d6615ed14e7e634f3045200a400e20c802c"
     },
     {
-      "body_sha256": "455297fd075fe38df22ad3fb93e649d11ec116fcef5062df75b0b77dd5bb0bda",
+      "body_sha256": "6559df5ff3e70b94bdf244b364712b17e33df74f1d1644c78cfb1a8840b83de8",
       "path": "posts/2021-05-09--public-art-on-la-light-rail-line.md",
       "permalink": "/posts/2021/05/09/public-art-on-la-light-rail-line/",
       "published_at": "2021-05-09T16:52:30-07:00",
-      "sha256": "8ddae0648ada71f10f7297ae29b31146c5e4b007aacaaaf113e20dfe40ddd421"
+      "sha256": "0f269f6c36dfa4e7318563d0143f195573980868eb222b639bb1481c1e7b11a1"
     },
     {
-      "body_sha256": "1050cb8925fec52a8bfa7b4c96868becbdd5f264b4efed9e0ea92d1542e96ce0",
+      "body_sha256": "248c211583c860580fc85750ceeb6fff0d0df820b06438a6582c703df96e9b43",
       "path": "posts/2024-10-30--data-journalism-delivery.md",
       "permalink": "/posts/2024/10/30/data-journalism-delivery/",
       "published_at": "2024-10-30T12:00:00-07:00",
-      "sha256": "a1f236aa4c8abdc94b9d87709fc51b3a1cc532a4d54d5e7040d751d73706e98c"
+      "sha256": "92c588cde0dd73cf9ffc466136a24c4e72caead2ff354260ed5e2c5e915b7d6e"
     },
     {
       "body_sha256": "b52217f827a47b58b301d743fc7266f54b22b9a80a4070a19b5233aa4d2d26d8",
@@ -507,12 +486,12 @@
       "sha256": "568ae2a319b6bf239f507326e7dc1a5f5ac5b7725a022abe45264e1e690cd669"
     }
   ],
-  "posts_fingerprint_sha256": "ac12923e2f7752e59443f9b11660d166e1ff142eea461cb0cb0c169a46e27181",
+  "posts_fingerprint_sha256": "657ae40a1671572a06a7518e29eb86098dd03da372d77af7f8546e05e780962e",
   "production_inventory": {
     "draft": 94,
     "hidden": 0,
-    "live": 72,
-    "total": 166
+    "live": 71,
+    "total": 165
   },
   "schema_version": 1
 }

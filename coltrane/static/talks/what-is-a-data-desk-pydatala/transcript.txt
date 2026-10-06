@@ -1,0 +1,1401 @@
+[00:06] okay welcome to everybody
+[00:10] okay welcome to everybody I'm Nathan Dan
+[00:13] I'm Nathan Dan co-chair and part of the goal of this
+[00:16] co-chair and part of the goal of this conference is to showcase some of the
+[00:18] conference is to showcase some of the great work happening in the Los Angeles
+[00:19] great work happening in the Los Angeles data community I'm really happy to
+[00:22] data community I'm really happy to introduce one of the last two keynotes
+[00:24] introduce one of the last two keynotes who both of them are Los Angeles locals
+[00:27] who both of them are Los Angeles locals doing great great things yet in very
+[00:29] doing great great things yet in very different industries Ben Welsh is the
+[00:34] different industries Ben Welsh is the editor of the Los Angeles Times data
+[00:36] editor of the Los Angeles Times data desk a team of reporters and computer
+[00:38] desk a team of reporters and computer programmers in the newsroom who who work
+[00:41] programmers in the newsroom who who work to collect organize analyze and present
+[00:43] to collect organize analyze and present large amounts of information Ben is also
+[00:46] large amounts of information Ben is also co-founder of the California civic data
+[00:49] co-founder of the California civic data coalition an open-source network of
+[00:52] coalition an open-source network of developers working to open up public
+[00:53] developers working to open up public data Ben is also creator of past pages
+[00:56] data Ben is also creator of past pages an arc idea an archive dedicated to the
+[00:59] an arc idea an archive dedicated to the preservation of online news Ben has
+[01:01] preservation of online news Ben has worked at the Los Angeles Times and
+[01:03] worked at the Los Angeles Times and since 2007 before working at the Times
+[01:06] since 2007 before working at the Times been conducted data analysis for
+[01:08] been conducted data analysis for investigative projects of the Senator
+[01:10] investigative projects of the Senator Center for Public Integrity in
+[01:12] Center for Public Integrity in Washington DC projects he has
+[01:14] Washington DC projects he has contributed to have been awarded
+[01:15] contributed to have been awarded numerous prizes including the Pulitzer I
+[01:18] numerous prizes including the Pulitzer I met Ben through an education program he
+[01:21] met Ben through an education program he was leading through the knight
+[01:21] was leading through the knight foundation python for data journalists
+[01:24] foundation python for data journalists analyzing money in politics the
+[01:26] analyzing money in politics the educational program this program taught
+[01:30] educational program this program taught journalists how to use Python pandas to
+[01:32] journalists how to use Python pandas to Purdue notebooks and related Python
+[01:34] Purdue notebooks and related Python tools to help investigate money in
+[01:36] tools to help investigate money in politics
+[01:37] politics another interesting fact I was just
+[01:39] another interesting fact I was just browsing through github through Ben's
+[01:41] browsing through github through Ben's github and I noticed that he has made it
+[01:43] github and I noticed that he has made it accepted contributions to pandas Jupiter
+[01:46] accepted contributions to pandas Jupiter lab Altair probably several others as a
+[01:50] lab Altair probably several others as a conference chair I'm excited to hear
+[01:52] conference chair I'm excited to hear about some of the tools that he that
+[01:54] about some of the tools that he that this community supports and maintains
+[01:56] this community supports and maintains are being utilized by the LA Times
+[02:00] are being utilized by the LA Times please join please welcome me in joining
+[02:01] please join please welcome me in joining Ben wells
+[02:05] hello how are you guys good good
+[02:10] hello how are you guys good good it took a minute to get set up because I
+[02:12] it took a minute to get set up because I tried to plug my Linux computer into
+[02:14] tried to plug my Linux computer into this fancy system you can guess how well
+[02:16] this fancy system you can guess how well that went
+[02:17] that went we're back on the Apple so this is me
+[02:21] we're back on the Apple so this is me Ben Welsh like you heard this is what my
+[02:24] Ben Welsh like you heard this is what my wife calls my Bible salesman photo which
+[02:27] wife calls my Bible salesman photo which is definitely not a compliment
+[02:30] is definitely not a compliment I go by pale wire online that's my
+[02:32] I go by pale wire online that's my handle on most things that's a long
+[02:33] handle on most things that's a long story I mean all the slides that I'm
+[02:36] story I mean all the slides that I'm gonna walk through here today are
+[02:37] gonna walk through here today are available for you online at this URL
+[02:41] available for you online at this URL Whois data desk la tems Whois data desk
+[02:44] Whois data desk la tems Whois data desk if you go there you can follow along you
+[02:46] if you go there you can follow along you can breeze ahead you can share it with
+[02:49] can breeze ahead you can share it with somebody else and also I'll point out in
+[02:51] somebody else and also I'll point out in the lower corner here on the right will
+[02:54] the lower corner here on the right will be little hyperlinks that will link off
+[02:56] be little hyperlinks that will link off to every example I show cuz I'm gonna go
+[02:57] to every example I show cuz I'm gonna go through a lot of stuff really fast and
+[02:59] through a lot of stuff really fast and just to try to keep it interesting and
+[03:01] just to try to keep it interesting and if there's anything you want to check
+[03:03] if there's anything you want to check out you just stop go to this link and
+[03:05] out you just stop go to this link and just look for the little blue link in
+[03:06] just look for the little blue link in the corner okay you should be able to
+[03:08] the corner okay you should be able to find it so I'm back at my first slide I
+[03:12] find it so I'm back at my first slide I had the old LA Times headquarters
+[03:14] had the old LA Times headquarters downtown that's actually not where we
+[03:15] downtown that's actually not where we work anymore the LA Times has recently
+[03:17] work anymore the LA Times has recently moved to El Segundo which I'm taken to
+[03:20] moved to El Segundo which I'm taken to calling gundo and so if you drive down
+[03:24] calling gundo and so if you drive down take the 105 to LAX you'll see a new
+[03:26] take the 105 to LAX you'll see a new office that's where the database sits
+[03:28] office that's where the database sits every day on the 6th floor they're doing
+[03:30] every day on the 6th floor they're doing our job and what the heck do computer
+[03:32] our job and what the heck do computer programmers do in a newsroom well they
+[03:34] programmers do in a newsroom well they do a couple things and I'm gonna walk
+[03:35] do a couple things and I'm gonna walk you through them alright and give you
+[03:37] you through them alright and give you examples of each the first thing we do
+[03:39] examples of each the first thing we do and we do a lot of this is we take data
+[03:42] and we do a lot of this is we take data and for some reason this is like the
+[03:44] and for some reason this is like the emoji for data no one's ever explained
+[03:46] emoji for data no one's ever explained it to me you know what if you know what
+[03:49] it to me you know what if you know what the heck that is please let me know I'm
+[03:51] the heck that is please let me know I'm told it's a database right we take data
+[03:53] told it's a database right we take data big chunks of information as our raw
+[03:55] big chunks of information as our raw material they're our input right and
+[03:58] material they're our input right and then we process those data and that data
+[04:00] then we process those data and that data and we turn it into stories right and so
+[04:03] and we turn it into stories right and so that's one big thing the data test does
+[04:05] that's one big thing the data test does is we turn databases into news and that
+[04:07] is we turn databases into news and that means we write code so even though I
+[04:09] means we write code so even though I went to journalism school and I got
+[04:11] went to journalism school and I got started in TV news and other people in
+[04:14] started in TV news and other people in our team went to journalism school for
+[04:16] our team went to journalism school for the most part or were librarians there
+[04:17] the most part or were librarians there were other things we all write computer
+[04:19] were other things we all write computer but and that includes Python like this
+[04:22] but and that includes Python like this and a lot of other things but we still
+[04:24] and a lot of other things but we still also write in English so even though
+[04:25] also write in English so even though we're computer programmers that doesn't
+[04:27] we're computer programmers that doesn't mean we're just like nerds in a cubicle
+[04:29] mean we're just like nerds in a cubicle in the corner and we don't participate
+[04:30] in the corner and we don't participate in making and telling stories we also
+[04:33] in making and telling stories we also still do that too so let me tell you a
+[04:35] still do that too so let me tell you a story of how that went but before we go
+[04:37] story of how that went but before we go here's some late-breaking news numbers
+[04:40] here's some late-breaking news numbers in the news there's a big number tonight
+[04:42] in the news there's a big number tonight in the news does anyone know what it is
+[04:46] 1.6 billion is the number in the news
+[04:48] 1.6 billion is the number in the news today and that's because there will be a
+[04:50] today and that's because there will be a Mega Millions jackpot for that amount
+[04:52] Mega Millions jackpot for that amount all right and through this speech I'm
+[04:54] all right and through this speech I'm going to be doing some quick trivia
+[04:56] going to be doing some quick trivia questions some easy some hard and if you
+[04:58] questions some easy some hard and if you shout out the correct answer you will
+[04:59] shout out the correct answer you will win one ticket in tonight's Mega
+[05:02] win one ticket in tonight's Mega Millions lotto for 1.6 billion dollars
+[05:04] Millions lotto for 1.6 billion dollars all right and should you win should you
+[05:08] all right and should you win should you win I don't expect anything all right
+[05:10] win I don't expect anything all right but you should consider maybe writing a
+[05:12] but you should consider maybe writing a check to numb focus if you have 1.6
+[05:15] check to numb focus if you have 1.6 billion you might need the tax shelter
+[05:16] billion you might need the tax shelter ok so let's start with an easy one this
+[05:20] ok so let's start with an easy one this will be the easiest one what's on this
+[05:22] will be the easiest one what's on this map California who was it
+[05:25] map California who was it one ticket come collect all right
+[05:35] there you are sir all right so that's an
+[05:38] there you are sir all right so that's an easy one the Maps gonna zoom in a little
+[05:39] easy one the Maps gonna zoom in a little closer
+[05:40] closer it's now here what's this on this map no
+[05:43] it's now here what's this on this map no nope what Santa Barbara County who said
+[05:48] nope what Santa Barbara County who said it come get your ticket
+[05:51] it come get your ticket okay so California has 58 counties I
+[05:54] okay so California has 58 counties I know you guys are numbers people so
+[05:56] know you guys are numbers people so there's 58 counties one of which is LA
+[05:57] there's 58 counties one of which is LA County - the best County but maybe
+[05:59] County - the best County but maybe second best if we're being generous
+[06:01] second best if we're being generous might be Santa Barbara County which is
+[06:03] might be Santa Barbara County which is just up the coast a little north of
+[06:05] just up the coast a little north of where we are now he says it's pretty
+[06:06] where we are now he says it's pretty cool I can't disagree and then if we
+[06:08] cool I can't disagree and then if we zoom in a little closer here's a tougher
+[06:10] zoom in a little closer here's a tougher question within Santa Barbara County if
+[06:12] question within Santa Barbara County if we zoom in on this area right here we're
+[06:15] we zoom in on this area right here we're gonna see that does anybody know what
+[06:17] gonna see that does anybody know what that is hmm no no
+[06:25] that is hmm no no no no no no
+[06:32] no no no no so there's Gaviota here's your hint
+[06:35] so there's Gaviota here's your hint right Gaviota is over here and you just
+[06:37] right Gaviota is over here and you just keep going what's that it's something
+[06:41] keep going what's that it's something ranch you can't win twice all right so
+[06:43] ranch you can't win twice all right so we're moving on that it is actually
+[06:45] we're moving on that it is actually Hollister ranch does anyone know what
+[06:48] Hollister ranch does anyone know what Hollister ranch is this is a picture of
+[06:49] Hollister ranch is this is a picture of it it's a it's a subdivision in the
+[06:53] it it's a it's a subdivision in the mountains just west of Santa Barbara
+[06:55] mountains just west of Santa Barbara City that is private it has private
+[06:57] City that is private it has private roads and about a hundred and thirty
+[07:00] roads and about a hundred and thirty houses including mansions populated by
+[07:03] houses including mansions populated by people like James Cameron and the
+[07:05] people like James Cameron and the founder of Patagonia and Jackson Browne
+[07:07] founder of Patagonia and Jackson Browne and they have a beautiful subdivision
+[07:09] and they have a beautiful subdivision with many many rich mansions and they
+[07:11] with many many rich mansions and they have actually closed off the roads from
+[07:14] have actually closed off the roads from the public including access to the
+[07:16] the public including access to the public beaches like this beautiful one
+[07:17] public beaches like this beautiful one here and if you read the LA Times you
+[07:20] here and if you read the LA Times you can read stories by my colleague Rosanna
+[07:22] can read stories by my colleague Rosanna who writes about environment and coastal
+[07:24] who writes about environment and coastal access here in California
+[07:25] access here in California and you'd receive stories like this like
+[07:27] and you'd receive stories like this like she did recently and if you were to read
+[07:29] she did recently and if you were to read that you would learn that you know in
+[07:31] that you would learn that you know in California the public has a right to
+[07:32] California the public has a right to access the beach right it's the beaches
+[07:34] access the beach right it's the beaches public property but in this case the
+[07:36] public property but in this case the road that goes to the beach is not right
+[07:39] road that goes to the beach is not right and the residents of Hollister ranch
+[07:40] and the residents of Hollister ranch have spent the last several decades
+[07:42] have spent the last several decades trying to make sure that those roads
+[07:43] trying to make sure that those roads don't get open to the public and the
+[07:45] don't get open to the public and the only way you can really get to the beach
+[07:46] only way you can really get to the beach is on horseback or by kayak all right
+[07:49] is on horseback or by kayak all right and one of those people who's attempted
+[07:51] and one of those people who's attempted to kayak to Hollister ranch on a few
+[07:53] to kayak to Hollister ranch on a few occasions is our city columnist Steve
+[07:56] occasions is our city columnist Steve Lopez who writes a lot about coastal
+[07:58] Lopez who writes a lot about coastal access and he thinks that stuff like
+[08:00] access and he thinks that stuff like that should be opened up and he's
+[08:01] that should be opened up and he's curious to learn more about elite places
+[08:04] curious to learn more about elite places like Hollister ranch and how they're run
+[08:05] like Hollister ranch and how they're run so after Rosanna did this story recently
+[08:07] so after Rosanna did this story recently Steve got a tip and then Steve called me
+[08:11] Steve got a tip and then Steve called me on the phone and he said Ben have you
+[08:13] on the phone and he said Ben have you ever heard of something called the
+[08:14] ever heard of something called the Williamson Act I said Steve I have no
+[08:17] Williamson Act I said Steve I have no goddamn clue what you're talking about
+[08:18] goddamn clue what you're talking about and like any good scientist I went to
+[08:21] and like any good scientist I went to Google and then to Wikipedia right and I
+[08:24] Google and then to Wikipedia right and I looked it up when I read this and it
+[08:25] looked it up when I read this and it says the Williamson Act is a law in the
+[08:27] says the Williamson Act is a law in the state of California that says that
+[08:28] state of California that says that certain agricultural lands that are
+[08:30] certain agricultural lands that are certified by local county authorities
+[08:32] certified by local county authorities so there's 58 different ways of doing it
+[08:34] so there's 58 different ways of doing it right are able to be designated as
+[08:37] right are able to be designated as agricultural something or other on
+[08:39] agricultural something or other on state law and then given guess what a
+[08:41] state law and then given guess what a hefty property tax break right and
+[08:44] hefty property tax break right and Hollister ranch even though it's a
+[08:45] Hollister ranch even though it's a subdivision said his tip it still also
+[08:49] subdivision said his tip it still also classified as an agricultural because
+[08:51] classified as an agricultural because there's a cattle operation run by two or
+[08:54] there's a cattle operation run by two or three residents that are allow their
+[08:55] three residents that are allow their cows to wander around everyone else's
+[08:57] cows to wander around everyone else's property whether they participated in or
+[08:59] property whether they participated in or not
+[09:00] not sounds like a pretty good tip but how do
+[09:02] sounds like a pretty good tip but how do you check that kind of thing out well
+[09:03] you check that kind of thing out well this is where data can help so Steve and
+[09:06] this is where data can help so Steve and I went to the County Assessors website
+[09:08] I went to the County Assessors website and then we could actually called up a
+[09:10] and then we could actually called up a guy who works in the appraisal division
+[09:11] guy who works in the appraisal division there and we said do you guys track any
+[09:13] there and we said do you guys track any of this you know like we got this tip we
+[09:16] of this you know like we got this tip we heard this thing is it really true what
+[09:18] heard this thing is it really true what is it what's about and the guy started
+[09:20] is it what's about and the guy started walking us through the Assessors website
+[09:22] walking us through the Assessors website and on this website there's a database
+[09:25] and on this website there's a database and if you're like in our business on
+[09:27] and if you're like in our business on the outside of these big data systems
+[09:29] the outside of these big data systems unlike say hunter Owens earlier from LA
+[09:31] unlike say hunter Owens earlier from LA City who's on the inside if you're on
+[09:33] City who's on the inside if you're on the outside like us you're almost kind
+[09:35] the outside like us you're almost kind of fumbling around we don't know what
+[09:37] of fumbling around we don't know what got dated the government keeps and what
+[09:39] got dated the government keeps and what it released in there and who has it or
+[09:40] it released in there and who has it or da-da-da-da-da but what we love our web
+[09:43] da-da-da-da-da but what we love our web forms right cuz web forms signify
+[09:46] forms right cuz web forms signify there's a database and we started
+[09:48] there's a database and we started interviewing this guy and we're like
+[09:49] interviewing this guy and we're like well what about like James Cameron's
+[09:51] well what about like James Cameron's house or whoever just like pick one the
+[09:53] house or whoever just like pick one the guy came up with a parcel number which
+[09:55] guy came up with a parcel number which is the unique ID for a property you
+[09:57] is the unique ID for a property you punch it in there and he pointed out
+[09:59] punch it in there and he pointed out this site to us you know and this is
+[10:02] this site to us you know and this is what's called the value notice which is
+[10:04] what's called the value notice which is published online for every property in
+[10:06] published online for every property in Santa Barbara County and if you qualify
+[10:09] Santa Barbara County and if you qualify for the Williamson Act someone someone
+[10:11] for the Williamson Act someone someone perhaps anticipating what Steve Lopez
+[10:13] perhaps anticipating what Steve Lopez would like to do right had created this
+[10:16] would like to do right had created this table that exists on every parcels page
+[10:19] table that exists on every parcels page which says hey under normal property tax
+[10:22] which says hey under normal property tax rules and is the state of California a
+[10:25] rules and is the state of California a property is assessed under what's called
+[10:27] property is assessed under what's called prop 13 right under normal property tax
+[10:30] prop 13 right under normal property tax rules this property would be assessed at
+[10:31] rules this property would be assessed at seven hundred and fifty thousand dollars
+[10:33] seven hundred and fifty thousand dollars and it's property tax would be one point
+[10:35] and it's property tax would be one point one percent of that approximately right
+[10:37] one percent of that approximately right but because it was called agricultural
+[10:40] but because it was called agricultural and sorry this is kind of grainy here
+[10:42] and sorry this is kind of grainy here that number went down from 750,000 to
+[10:45] that number went down from 750,000 to only three hundred and thirty eight
+[10:47] only three hundred and thirty eight thousand whoa that cut this person's
+[10:49] thousand whoa that cut this person's property tax in half right
+[10:51] property tax in half right I wonder if everybody in Hollister ranch
+[10:54] I wonder if everybody in Hollister ranch whether they participate in ranching or
+[10:56] whether they participate in ranching or not get that kind of benefit right well
+[10:59] not get that kind of benefit right well how do we figure it out so that there's
+[11:03] how do we figure it out so that there's Hollister ranch so we go back to this
+[11:05] Hollister ranch so we go back to this map you may have noticed that this map
+[11:06] map you may have noticed that this map didn't look as nice as the previous ones
+[11:08] didn't look as nice as the previous ones because those other ones came from
+[11:10] because those other ones came from Google this one came from Mike huges as
+[11:14] Google this one came from Mike huges as ugly as it is it is a beautiful tool
+[11:16] ugly as it is it is a beautiful tool open-source software that allows you to
+[11:17] open-source software that allows you to take electronic map files called
+[11:19] take electronic map files called shapefile so you guys know all this
+[11:20] shapefile so you guys know all this stuff I normally talk to journalists
+[11:22] stuff I normally talk to journalists I'll just stop with that
+[11:23] I'll just stop with that QGIS this is a file I got from guess
+[11:27] QGIS this is a file I got from guess what the county surveyors website where
+[11:30] what the county surveyors website where I was nosing around and hey there's a
+[11:31] I was nosing around and hey there's a shapefile that has all the subdivisions
+[11:33] shapefile that has all the subdivisions when I looked in the attributes I saw
+[11:35] when I looked in the attributes I saw hey these are marked as Hollister ranch
+[11:37] hey these are marked as Hollister ranch then I knows around a little more and I
+[11:40] then I knows around a little more and I found they have an FTP online oh my gosh
+[11:42] found they have an FTP online oh my gosh and the FTP has every parcel right okay
+[11:48] and the FTP has every parcel right okay this is I get excited guys and then I
+[11:50] this is I get excited guys and then I put that in my queue just so now here's
+[11:52] put that in my queue just so now here's every parcel in Santa Barbara County and
+[11:54] every parcel in Santa Barbara County and there's house to ranch if now if I'm
+[11:56] there's house to ranch if now if I'm going to do this analysis I need to like
+[11:57] going to do this analysis I need to like cookie-cutter these guys out right back
+[11:59] cookie-cutter these guys out right back when I first started doing this stuff I
+[12:01] when I first started doing this stuff I might have tried to use the queue just
+[12:02] might have tried to use the queue just plug in waited 45 minutes it would have
+[12:05] plug in waited 45 minutes it would have crashed in I mean I would have bitched
+[12:06] crashed in I mean I would have bitched and moaned or whatever but now thanks to
+[12:09] and moaned or whatever but now thanks to y'all in my Jupiter notebook I import
+[12:11] y'all in my Jupiter notebook I import geo pandas alright have you guys have
+[12:14] geo pandas alright have you guys have seen geo pandas it's like pandas with
+[12:17] seen geo pandas it's like pandas with the geospatial stuff so I'm able to take
+[12:20] the geospatial stuff so I'm able to take one shape file of all the parcels and
+[12:23] one shape file of all the parcels and another of the subdivisions filter the
+[12:26] another of the subdivisions filter the subdivisions down do a spatial join get
+[12:28] subdivisions down do a spatial join get the subset of 136 or whatever parcels
+[12:32] the subset of 136 or whatever parcels and house tranche
+[12:33] and house tranche sorry but then you may have noticed if
+[12:36] sorry but then you may have noticed if you look carefully at this file that was
+[12:40] you look carefully at this file that was in the FTP it had AB suffix underscored
+[12:43] in the FTP it had AB suffix underscored no owners so I was able to confined all
+[12:46] no owners so I was able to confined all the parcels in Hollister ranch but I
+[12:48] the parcels in Hollister ranch but I didn't know who owned him and if we're
+[12:49] didn't know who owned him and if we're gonna write the story we got to know
+[12:50] gonna write the story we got to know which ones James Cameron and which ones
+[12:52] which ones James Cameron and which ones nada
+[12:53] nada so I emailed the guy names have been
+[12:56] so I emailed the guy names have been redacted to protect the innocent okay so
+[12:58] redacted to protect the innocent okay so I emailed the guy at the county and I
+[13:00] I emailed the guy at the county and I said dude where are the
+[13:01] said dude where are the can I have the owners what's that uh I
+[13:06] can I have the owners what's that uh I should be using the clicker anyway and
+[13:07] should be using the clicker anyway and so here's the email he sent me back and
+[13:10] so here's the email he sent me back and you know this stuff is public record
+[13:12] you know this stuff is public record right the data should be out there but
+[13:14] right the data should be out there but this is the kind of thing that happens
+[13:15] this is the kind of thing that happens in real life when you're like doing what
+[13:16] in real life when you're like doing what we do the guy says well actually Ben we
+[13:18] we do the guy says well actually Ben we cannot send you the ownership records
+[13:20] cannot send you the ownership records and they cannot be published online
+[13:21] and they cannot be published online because there's a state law that says
+[13:23] because there's a state law that says that public officials names and
+[13:25] that public officials names and addresses cannot be published over the
+[13:26] addresses cannot be published over the Internet
+[13:27] Internet everybody else is in trouble and our
+[13:29] everybody else is in trouble and our interpretation of that law
+[13:30] interpretation of that law administratively is that no addresses or
+[13:32] administratively is that no addresses or owners can be published online at all
+[13:34] owners can be published online at all right and this is the sort of thing that
+[13:36] right and this is the sort of thing that just like makes me drives me crazy
+[13:37] just like makes me drives me crazy and as we accumulate as we try to ask
+[13:40] and as we accumulate as we try to ask for data like this from different
+[13:41] for data like this from different government offices what we often find is
+[13:42] government offices what we often find is they often have different
+[13:43] they often have different interpretations of these laws and
+[13:44] interpretations of these laws and depending on who you're talking to
+[13:46] depending on who you're talking to you're going to get different stuff
+[13:47] you're going to get different stuff their office isn't Santa Barbara I'm an
+[13:49] their office isn't Santa Barbara I'm an El Segundo oh my god they want me to
+[13:51] El Segundo oh my god they want me to drive up there pay them 50 bucks to get
+[13:54] drive up there pay them 50 bucks to get a CDR and drive back down and do the
+[13:56] a CDR and drive back down and do the merge right and so unlike all you guys
+[13:58] merge right and so unlike all you guys I'm not very nice so then I just start
+[14:01] I'm not very nice so then I just start banging the table and you can see I was
+[14:02] banging the table and you can see I was like so angry writing this email I
+[14:04] like so angry writing this email I accidentally put a question mark at the
+[14:06] accidentally put a question mark at the end of the first sentence which I didn't
+[14:08] end of the first sentence which I didn't even mean to do but but after I sent it
+[14:13] even mean to do but but after I sent it I was like yeah I did mean that you know
+[14:15] I was like yeah I did mean that you know I mean even though it was totally
+[14:16] I mean even though it was totally accidental there's like a typo blah blah
+[14:17] accidental there's like a typo blah blah blah and so then we begin a process
+[14:19] blah and so then we begin a process where we're banging on the table we
+[14:20] where we're banging on the table we begin calling all the politicians hey
+[14:22] begin calling all the politicians hey give us the owners ultimately I did have
+[14:24] give us the owners ultimately I did have to cut him a check which I charged to
+[14:26] to cut him a check which I charged to our new billionaire owner and they sent
+[14:28] our new billionaire owner and they sent it to me via Dropbox file requests which
+[14:30] it to me via Dropbox file requests which is an awesome feature by the way and
+[14:31] is an awesome feature by the way and then now that I had all the owners I had
+[14:34] then now that I had all the owners I had a complete dataset of all the parcels in
+[14:35] a complete dataset of all the parcels in Hollister ranch and who owns them but I
+[14:37] Hollister ranch and who owns them but I needed those value notices that were in
+[14:39] needed those value notices that were in that weird webpage they didn't have the
+[14:40] that weird webpage they didn't have the database for that so here comes my
+[14:42] database for that so here comes my Jupiter notebook again right and some
+[14:45] Jupiter notebook again right and some like a scraper now web scraping is like
+[14:48] like a scraper now web scraping is like if we had a conference like this for
+[14:49] if we had a conference like this for news nerds like in my robe which we do
+[14:51] news nerds like in my robe which we do web scraping is like the number one most
+[14:53] web scraping is like the number one most popular thing everybody loves this this
+[14:55] popular thing everybody loves this this is of two tool and feature in Python
+[14:57] is of two tool and feature in Python that is absolutely crucial to what we do
+[14:59] that is absolutely crucial to what we do because so much data is on the internet
+[15:01] because so much data is on the internet but not in a format that we can like get
+[15:03] but not in a format that we can like get at and how we want and so tools like
+[15:05] at and how we want and so tools like this like requests and beautifulsoup
+[15:07] this like requests and beautifulsoup which I love and other things are really
+[15:09] which I love and other things are really important and just to prove that I put
+[15:11] important and just to prove that I put this up just to prove I'm not totally a
+[15:12] this up just to prove I'm not totally a bad guy
+[15:13] bad guy I did put a user agent letting them know
+[15:14] I did put a user agent letting them know who
+[15:15] who why was and there's like a little time
+[15:17] why was and there's like a little time where it sleeps ten seconds between
+[15:19] where it sleeps ten seconds between requests I'm not a bad guy right and so
+[15:23] requests I'm not a bad guy right and so then we downloaded that parse the data
+[15:25] then we downloaded that parse the data out merged it and at the end of the day
+[15:27] out merged it and at the end of the day ultimately the data analysis that we did
+[15:30] ultimately the data analysis that we did is is seen like in in maybe 10 or 10 10
+[15:32] is is seen like in in maybe 10 or 10 10 or 15 lines of Python and it's it's math
+[15:35] or 15 lines of Python and it's it's math that's so simple that I'm almost
+[15:37] that's so simple that I'm almost embarrassed to show it to this room you
+[15:38] embarrassed to show it to this room you know what I mean because you guys are
+[15:39] know what I mean because you guys are doing all this really sophisticated
+[15:40] doing all this really sophisticated stuff but at the end of the day after we
+[15:43] stuff but at the end of the day after we had been able to get all the parcels and
+[15:45] had been able to get all the parcels and all the value notices for the hundred
+[15:47] all the value notices for the hundred and thirty whatever parcels it really
+[15:48] and thirty whatever parcels it really was just calculating the difference in
+[15:50] was just calculating the difference in the property tax break right for all
+[15:53] the property tax break right for all those properties summing it up right and
+[15:56] those properties summing it up right and then calculating basically the
+[15:58] then calculating basically the percentage you know and so then roughly
+[15:59] percentage you know and so then roughly speaking the property tax of all these
+[16:01] speaking the property tax of all these millionaires who live in these huge
+[16:02] millionaires who live in these huge coastal elite mansions and deny you
+[16:04] coastal elite mansions and deny you access to the beach is a 50% property
+[16:06] access to the beach is a 50% property tax break which adds up to about two
+[16:08] tax break which adds up to about two million dollars last year and will
+[16:10] million dollars last year and will continue to add up each year and then
+[16:12] continue to add up each year and then that ultimately comes out as this
+[16:14] that ultimately comes out as this because you know you or I could maybe
+[16:15] because you know you or I could maybe read this but it lacks context your
+[16:18] read this but it lacks context your mother probably doesn't read Python code
+[16:19] mother probably doesn't read Python code I know mine doesn't but my mother
+[16:21] I know mine doesn't but my mother definitely reads Steve Lopez and so we
+[16:24] definitely reads Steve Lopez and so we then took that data analysis and put it
+[16:26] then took that data analysis and put it into a relatively traditional form which
+[16:28] into a relatively traditional form which was Steve's column and he sort of
+[16:30] was Steve's column and he sort of unfurled the the analysis and all the
+[16:32] unfurled the the analysis and all the context and this was in last Sunday's
+[16:34] context and this was in last Sunday's newspaper and so that's a way and this
+[16:36] newspaper and so that's a way and this column is an example of how all the open
+[16:38] column is an example of how all the open source tools that you guys work on and
+[16:40] source tools that you guys work on and that we depend on in our business end up
+[16:42] that we depend on in our business end up creating kind of a pretty traditional
+[16:43] creating kind of a pretty traditional kind of like investigative story right
+[16:46] kind of like investigative story right and and but we do other things that
+[16:49] and and but we do other things that aren't so traditional that are that
+[16:51] aren't so traditional that are that follow the same pattern
+[16:52] follow the same pattern Oh for this conference actually here's I
+[16:55] Oh for this conference actually here's I created a new repository which we just
+[16:57] created a new repository which we just open sourced over the weekend which has
+[16:59] open sourced over the weekend which has all of the Jupiter notebooks we've
+[17:00] all of the Jupiter notebooks we've released for stories like this including
+[17:02] released for stories like this including Hollister ranch if you go to data desk
+[17:04] Hollister ranch if you go to data desk slash notebooks on github you could find
+[17:07] slash notebooks on github you could find every single one of them only some of
+[17:09] every single one of them only some of them buy me a lot of them by my
+[17:11] them buy me a lot of them by my colleagues as well but another example
+[17:15] colleagues as well but another example from the past week of us taking data and
+[17:17] from the past week of us taking data and turn it into news involve this guy pop
+[17:19] turn it into news involve this guy pop quiz who is he okay you can't win for
+[17:23] quiz who is he okay you can't win for that
+[17:24] that - easy even I you know I love a better
+[17:28] - easy even I you know I love a better basketball one and so Andy Andy Roberson
+[17:30] basketball one and so Andy Andy Roberson who's on our team she had been charged
+[17:32] who's on our team she had been charged with creating for LA Times comm a Lakers
+[17:35] with creating for LA Times comm a Lakers roster to help our readers get to know
+[17:37] roster to help our readers get to know all the different people on the Lakers
+[17:39] all the different people on the Lakers and had little videos for each of them
+[17:40] and had little videos for each of them and their BIOS and stats and stuff about
+[17:43] and their BIOS and stats and stuff about how tall they are and where their foot
+[17:45] how tall they are and where their foot college they went to and all that stuff
+[17:47] college they went to and all that stuff and she made a really nice page but we
+[17:49] and she made a really nice page but we kind of felt like oh I could use like a
+[17:50] kind of felt like oh I could use like a little more data could use like a little
+[17:52] little more data could use like a little more like oomph going on in the page and
+[17:54] more like oomph going on in the page and so that's where Ryan Manassas came in
+[17:56] so that's where Ryan Manassas came in who's sitting right back over there and
+[17:58] who's sitting right back over there and and he went and developed a data set
+[18:02] and he went and developed a data set that had Ryan just correct me where I
+[18:05] that had Ryan just correct me where I get this wrong basically the location on
+[18:06] get this wrong basically the location on the court where all the players in the
+[18:08] the court where all the players in the NBA shoot from and how well they shoot
+[18:10] NBA shoot from and how well they shoot and how many shots they made from each
+[18:11] and how many shots they made from each of those positions he then fed that into
+[18:14] of those positions he then fed that into a different style of notebook which is
+[18:16] a different style of notebook which is called an observable notebook who here
+[18:18] called an observable notebook who here has seen observable notebooks he got to
+[18:20] has seen observable notebooks he got to check out this website observable hq.com
+[18:23] check out this website observable hq.com it's by Mike Bostock the creator of d3
+[18:25] it's by Mike Bostock the creator of d3 and Jeremy Ashkan ashed creator of a lot
+[18:27] and Jeremy Ashkan ashed creator of a lot of other cool programming stuff and
+[18:29] of other cool programming stuff and they're attempting to create a
+[18:30] they're attempting to create a JavaScript notebook that's basically in
+[18:32] JavaScript notebook that's basically in the cloud that is is already a
+[18:34] the cloud that is is already a competitor to stuff like Jupiter and is
+[18:37] competitor to stuff like Jupiter and is an incredible product for for really
+[18:40] an incredible product for for really rapidly creating interfaces and
+[18:42] rapidly creating interfaces and visualizations from data in like
+[18:44] visualizations from data in like cutting-edge JavaScript I would really
+[18:46] cutting-edge JavaScript I would really recommend checking it out and Ryan was
+[18:48] recommend checking it out and Ryan was able to with just a little bit of code
+[18:50] able to with just a little bit of code in this notebook take that data file we
+[18:51] in this notebook take that data file we looked at before wired into a d3 hex bin
+[18:54] looked at before wired into a d3 hex bin system and create different shot charts
+[18:57] system and create different shot charts for every player in the NBA showing
+[18:59] for every player in the NBA showing where they shoot from and how they made
+[19:01] where they shoot from and how they made it we did a little bit of work to style
+[19:02] it we did a little bit of work to style it out in the Lakers colors week sport
+[19:04] it out in the Lakers colors week sport the SVG from that we move it into the
+[19:07] the SVG from that we move it into the website and then here for each player
+[19:09] website and then here for each player when you click on them you get not just
+[19:10] when you click on them you get not just the bio and the video you get also their
+[19:12] the bio and the video you get also their shot chart right so there's Brendan
+[19:15] shot chart right so there's Brendan Ingram and so this is a case where we're
+[19:17] Ingram and so this is a case where we're using that data to help make something
+[19:18] using that data to help make something that's untraditional it's not a
+[19:20] that's untraditional it's not a newspaper article right it's like a web
+[19:21] newspaper article right it's like a web feature it'll never appear in the print
+[19:23] feature it'll never appear in the print paper and our team tries to really do
+[19:24] paper and our team tries to really do both of those things so here's LeBron
+[19:26] both of those things so here's LeBron Jameses shot chart right
+[19:28] Jameses shot chart right LeBron he's good alright you may have
+[19:31] LeBron he's good alright you may have heard all right next quiz who's shot
+[19:34] heard all right next quiz who's shot chart is this
+[19:37] JaVale McGee who said it there he is
+[19:44] JaVale McGee who said it there he is JaVale looks pretty good so far
+[19:48] JaVale looks pretty good so far this year yeah he I've been impressed
+[19:53] this year yeah he I've been impressed especially defensively offensively he's
+[19:55] especially defensively offensively he's got room to improve all right so we
+[19:59] got room to improve all right so we don't just turn turn data into news we
+[20:02] don't just turn turn data into news we also often do the reverse this is the
+[20:04] also often do the reverse this is the second type of thing we do and so I want
+[20:05] second type of thing we do and so I want to walk you through a couple examples of
+[20:07] to walk you through a couple examples of this and that might sound glib just
+[20:09] this and that might sound glib just flipping it around but I'm serious so
+[20:11] flipping it around but I'm serious so here's an example it's a serious example
+[20:12] here's an example it's a serious example so when I first started at the LA Times
+[20:14] so when I first started at the LA Times in 2007 there was the wars in Iraq and
+[20:18] in 2007 there was the wars in Iraq and Afghanistan were going pretty hot and
+[20:19] Afghanistan were going pretty hot and heavy and the LA Times had already
+[20:21] heavy and the LA Times had already committed at that point to write an
+[20:23] committed at that point to write an obituary of every Californian who died
+[20:26] obituary of every Californian who died in either theater and here's an example
+[20:28] in either theater and here's an example of one and this if you start if you put
+[20:32] of one and this if you start if you put on what I call when I talk to the
+[20:33] on what I call when I talk to the normies your database glasses which I'm
+[20:36] normies your database glasses which I'm sure there's no trouble for you guys and
+[20:37] sure there's no trouble for you guys and you look at content like this from our
+[20:40] you look at content like this from our website you could begin to sort of guess
+[20:42] website you could begin to sort of guess kind of what database fields and columns
+[20:44] kind of what database fields and columns are behind a system like this right
+[20:47] are behind a system like this right a new story like this will have a
+[20:49] a new story like this will have a headline right that'll be one column
+[20:51] headline right that'll be one column they'll be like that little sub headline
+[20:53] they'll be like that little sub headline sometimes called the deck head in
+[20:55] sometimes called the deck head in newspaper slang there's the publication
+[20:57] newspaper slang there's the publication date that'll be a column that'll be
+[20:59] date that'll be a column that'll be date-time format right and then what the
+[21:01] date-time format right and then what the journalists think is the most important
+[21:03] journalists think is the most important column the byline all right with their
+[21:05] column the byline all right with their name and then in almost all news
+[21:06] name and then in almost all news databases after stuff like that there's
+[21:08] databases after stuff like that there's just another one that's just the big
+[21:09] just another one that's just the big blob of text right which is all the
+[21:12] blob of text right which is all the English that we put into it just as one
+[21:15] English that we put into it just as one big crazy blob of text and when I had
+[21:16] big crazy blob of text and when I had arrived the LA Times had already written
+[21:19] arrived the LA Times had already written hundreds of obituaries just like that of
+[21:22] hundreds of obituaries just like that of each person and I was looking for a data
+[21:24] each person and I was looking for a data project to hook to start off with and I
+[21:26] project to hook to start off with and I was looking for people to hook up with
+[21:27] was looking for people to hook up with and we decided what if we were to build
+[21:30] and we decided what if we were to build the database of these obituaries rather
+[21:32] the database of these obituaries rather than just publish them as big blobs of
+[21:35] than just publish them as big blobs of text and forget about them and if you
+[21:36] text and forget about them and if you keep those database glasses on and you
+[21:38] keep those database glasses on and you begin to read a story like this you can
+[21:40] begin to read a story like this you can see the other columns that would be very
+[21:42] see the other columns that would be very easy to fill in for many of these like
+[21:45] easy to fill in for many of these like if we just look at the lead here we can
+[21:46] if we just look at the lead here we can see we have the person's branch
+[21:48] see we have the person's branch they're ranked their hometown how they
+[21:53] they're ranked their hometown how they died where they died right first middle
+[21:56] died where they died right first middle last name age high school right
+[22:03] last name age high school right marital status number of kids that had a
+[22:06] marital status number of kids that had a gender right go on and on all those
+[22:08] gender right go on and on all those things could be classified and so what
+[22:09] things could be classified and so what we did is we pulled out all that what
+[22:11] we did is we pulled out all that what would you guys call it in your slang
+[22:13] would you guys call it in your slang labels or categories I just call them
+[22:15] labels or categories I just call them columns or fields right okay good I'm
+[22:19] columns or fields right okay good I'm learning a lot of jargon here today my
+[22:21] learning a lot of jargon here today my favorite so far is fraud II if something
+[22:23] favorite so far is fraud II if something has like a high score on the fraud
+[22:24] has like a high score on the fraud system and so Malloy more on our team
+[22:27] system and so Malloy more on our team who actually is a veteran herself and an
+[22:29] who actually is a veteran herself and an educated librarian did that basically
+[22:32] educated librarian did that basically and we used another open-source system
+[22:34] and we used another open-source system that I don't hear as much about in this
+[22:35] that I don't hear as much about in this conference but is essential to us which
+[22:37] conference but is essential to us which is would anyone know what this is Django
+[22:41] is would anyone know what this is Django it's the Django I mean you can't wait
+[22:42] it's the Django I mean you can't wait twice it's the Django as a web framework
+[22:45] twice it's the Django as a web framework that it's kind of from the website of
+[22:47] that it's kind of from the website of Python that was actually invented at the
+[22:49] Python that was actually invented at the lawrence journal world newspaper and was
+[22:51] lawrence journal world newspaper and was used to launch websites ultimately like
+[22:53] used to launch websites ultimately like instagram pinterest and many others use
+[22:55] instagram pinterest and many others use it as like a framework for development
+[22:56] it as like a framework for development on the back end but one of the great
+[22:58] on the back end but one of the great features of it is as an instant admin so
+[23:00] features of it is as an instant admin so if you design a database table that has
+[23:02] if you design a database table that has like the columns we were just talking
+[23:03] like the columns we were just talking about it will create this generic admin
+[23:05] about it will create this generic admin with no code from you it can just like
+[23:07] with no code from you it can just like infer it and do it and for what we do
+[23:09] infer it and do it and for what we do which is often assembling databases that
+[23:11] which is often assembling databases that don't exist before out of the news right
+[23:14] don't exist before out of the news right a system like this to get a data entry
+[23:16] a system like this to get a data entry platform like up and running is just
+[23:18] platform like up and running is just huge right and so we put this is it we
+[23:20] huge right and so we put this is it we built the system and here's that same
+[23:22] built the system and here's that same guy in the same story first middle last
+[23:23] guy in the same story first middle last name gender age unique slug hometown and
+[23:29] name gender age unique slug hometown and when we had done that and assembled for
+[23:31] when we had done that and assembled for all of them were able to do a lot more
+[23:32] all of them were able to do a lot more we were able to build a website that had
+[23:34] we were able to build a website that had a page for every single person and you
+[23:36] a page for every single person and you could click the link of the hometown and
+[23:38] could click the link of the hometown and you could see everyone who's died from
+[23:40] you could see everyone who's died from that hometown and we could publish these
+[23:41] that hometown and we could publish these pages before the obituaries were
+[23:43] pages before the obituaries were finished get the page out there on the
+[23:45] finished get the page out there on the web early get comments from people who
+[23:48] web early get comments from people who knew them on the page and in turn turn
+[23:51] knew them on the page and in turn turn that data into a product it's not just a
+[23:53] that data into a product it's not just a traditional story but also after you've
+[23:55] traditional story but also after you've accrued it you're also to then able to
+[23:57] accrued it you're also to then able to mine that database you've you've created
+[23:59] mine that database you've you've created for all sorts of enterprise stories one
+[24:01] for all sorts of enterprise stories one we're counting them we know when the 500
+[24:03] we're counting them we know when the 500 person died we can integrate population
+[24:05] person died we can integrate population data and tell you what hometown has had
+[24:07] data and tell you what hometown has had the most deaths per capita we could tell
+[24:09] the most deaths per capita we could tell you what cemetery has the most guys
+[24:10] you what cemetery has the most guys buried at it and then we can go write a
+[24:12] buried at it and then we can go write a Memorial Day story there and we can take
+[24:14] Memorial Day story there and we can take a more structured and you know numerate
+[24:17] a more structured and you know numerate approach to how we do a lot of
+[24:19] approach to how we do a lot of traditional stuff right and that's
+[24:21] traditional stuff right and that's because we took the news and we turned
+[24:23] because we took the news and we turned it into the database that didn't exist
+[24:24] it into the database that didn't exist another example of that is the homicide
+[24:27] another example of that is the homicide report at homicide at LA Times comm
+[24:29] report at homicide at LA Times comm which is the database that's kept by a
+[24:31] which is the database that's kept by a few people on our team mainly Nicole
+[24:33] few people on our team mainly Nicole Santa Cruz who's like that correspondent
+[24:35] Santa Cruz who's like that correspondent and writer who does a lot of it and the
+[24:37] and writer who does a lot of it and the iris Lee who does a lot of the computer
+[24:40] iris Lee who does a lot of the computer programming web development stuff and
+[24:41] programming web development stuff and that also has a Django admin where we're
+[24:44] that also has a Django admin where we're taking the source data which is just a
+[24:46] taking the source data which is just a list of people who've been killed from
+[24:48] list of people who've been killed from the county coroner's office and we're
+[24:50] the county coroner's office and we're enriching that you know we only give us
+[24:52] enriching that you know we only give us a couple data columns really not a lot
+[24:54] a couple data columns really not a lot we're putting that in and then we're
+[24:56] we're putting that in and then we're adding more and more stuff from our
+[24:57] adding more and more stuff from our reporting and we're accruing over time
+[24:59] reporting and we're accruing over time this this sort of unique original
+[25:01] this this sort of unique original database about everyone who's been
+[25:03] database about everyone who's been killed by another person and in the same
+[25:05] killed by another person and in the same way we can we can use Django and a
+[25:07] way we can we can use Django and a templated web framework to build a page
+[25:10] templated web framework to build a page for every every person including this
+[25:12] for every every person including this guy who you probably don't know this
+[25:14] guy who you probably don't know this person who you probably don't know but
+[25:16] person who you probably don't know but you should and this person you
+[25:18] you should and this person you definitely do know right and so the
+[25:21] definitely do know right and so the templating system and using even the
+[25:24] templating system and using even the sparse data we have to push it out
+[25:25] sparse data we have to push it out through the system allows us to create a
+[25:27] through the system allows us to create a page for every single person who's died
+[25:28] page for every single person who's died which sadly in many cases is the only
+[25:30] which sadly in many cases is the only notice of the the murder of many of
+[25:32] notice of the the murder of many of these people there's so little coverage
+[25:33] these people there's so little coverage and then it becomes the kind of a
+[25:35] and then it becomes the kind of a baseline from which we can try to reach
+[25:37] baseline from which we can try to reach and do more elevated and insightful work
+[25:39] and do more elevated and insightful work a recent example would be this story
+[25:41] a recent example would be this story Nicole did about all the people who died
+[25:43] Nicole did about all the people who died from street racing in LA County which is
+[25:45] from street racing in LA County which is actually a lot of people where we took
+[25:47] actually a lot of people where we took our homicide report data we connected it
+[25:49] our homicide report data we connected it with some other data we did and we were
+[25:51] with some other data we did and we were able to analyze what happens and like
+[25:53] able to analyze what happens and like one key finding here is that the
+[25:55] one key finding here is that the majority of people who do this who died
+[25:57] majority of people who do this who died in these cases actually are passengers
+[26:00] in these cases actually are passengers they're not the drivers which is said
+[26:01] they're not the drivers which is said you read the story it's good and that
+[26:05] you read the story it's good and that also is a Jupiter notebook that you can
+[26:06] also is a Jupiter notebook that you can get
+[26:08] get and besides stories we also take the
+[26:09] and besides stories we also take the news and turn it into software which
+[26:11] news and turn it into software which then turns into more stories so like we
+[26:14] then turns into more stories so like we were doing a lecture
+[26:15] were doing a lecture results you know the live election
+[26:16] results you know the live election results you see on election night and
+[26:18] results you see on election night and all the fancy maps and charts in every
+[26:19] all the fancy maps and charts in every news organization this was ours from the
+[26:21] news organization this was ours from the California primary and every single one
+[26:24] California primary and every single one of those pages on every single news site
+[26:26] of those pages on every single news site you look at the data all comes from the
+[26:27] you look at the data all comes from the same source The Associated Press so you
+[26:29] same source The Associated Press so you don't have to worry about thinking once
+[26:31] don't have to worry about thinking once faster than the other better than the
+[26:32] faster than the other better than the other they're all the exact identical
+[26:34] other they're all the exact identical source that everybody pays in for and
+[26:35] source that everybody pays in for and that data service actually has some open
+[26:37] that data service actually has some open source wrappers built around it here's
+[26:38] source wrappers built around it here's one we built a few years ago which was
+[26:40] one we built a few years ago which was then succeeded by this and this is a
+[26:42] then succeeded by this and this is a case of people in our news nerd world
+[26:44] case of people in our news nerd world collaborating around the common problems
+[26:46] collaborating around the common problems we have which are often gnarly datasets
+[26:48] we have which are often gnarly datasets you know what I mean and gnarly datasets
+[26:51] you know what I mean and gnarly datasets that need to be like refined and worked
+[26:53] that need to be like refined and worked on and turned into data pipelines are
+[26:54] on and turned into data pipelines are like the number one need in our news
+[26:56] like the number one need in our news nerd world for open source to help solve
+[26:59] nerd world for open source to help solve problems so that we can collaborate to
+[27:01] problems so that we can collaborate to get it done like you know and so here's
+[27:03] get it done like you know and so here's La County's crappy site the AP doesn't
+[27:05] La County's crappy site the AP doesn't have LA County results LA County has
+[27:08] have LA County results LA County has this site which you might think oh it
+[27:09] this site which you might think oh it could be worse Ben but then you crack
+[27:11] could be worse Ben but then you crack open the data file and here it is it's
+[27:13] open the data file and here it is it's not just a fixed-width file it's a
+[27:15] not just a fixed-width file it's a fixed-width file with different widths
+[27:17] fixed-width file with different widths depending on what type of line that
+[27:18] depending on what type of line that you're on and so Anthony Pesci and our
+[27:23] you're on and so Anthony Pesci and our team did the miserable work of like
+[27:24] team did the miserable work of like actually figuring out how to parse that
+[27:26] actually figuring out how to parse that file to do that whatever you would call
+[27:27] file to do that whatever you would call a variable fixed width or whatever that
+[27:29] a variable fixed width or whatever that is and then we just yesterday released
+[27:31] is and then we just yesterday released that as an open source library so that
+[27:33] that as an open source library so that hopefully nobody else has to do that
+[27:34] hopefully nobody else has to do that like gnarly parse again and when we have
+[27:36] like gnarly parse again and when we have to do it again in two years we'll
+[27:38] to do it again in two years we'll remember because we like put it into a
+[27:40] remember because we like put it into a package right and if you're interested
+[27:43] package right and if you're interested in our open source work I made another
+[27:44] in our open source work I made another repo data desk slash packages which has
+[27:47] repo data desk slash packages which has the more than 30 open source
+[27:48] the more than 30 open source repositories that our team has put out
+[27:50] repositories that our team has put out and maintains you'll notice that a
+[27:52] and maintains you'll notice that a really large majority of them have to do
+[27:54] really large majority of them have to do with dealing with gnarly data sets that
+[27:56] with dealing with gnarly data sets that we go to a lot and then those that those
+[27:58] we go to a lot and then those that those packages often then turn into stories so
+[28:00] packages often then turn into stories so like anybody know what this side is
+[28:08] what's in it though what's on it what's
+[28:09] what's in it though what's on it what's in here now now not this this one but
+[28:16] in here now now not this this one but this is called Cal access anybody ever
+[28:17] this is called Cal access anybody ever been here this is my least favorite
+[28:19] been here this is my least favorite website campaign-finance so all the
+[28:23] website campaign-finance so all the money that goes into the governor's race
+[28:25] money that goes into the governor's race and all the propositions and all the
+[28:27] and all the propositions and all the State House races as opposed to Congress
+[28:29] State House races as opposed to Congress and the federal stuff all the state
+[28:31] and the federal stuff all the state races all that all that money is
+[28:33] races all that all that money is reported into an awful database kept by
+[28:35] reported into an awful database kept by the Secretary of State called Cal access
+[28:37] the Secretary of State called Cal access and this is a really important database
+[28:39] and this is a really important database but nobody does any analysis of it
+[28:41] but nobody does any analysis of it because it's a it's a mess it's a it's
+[28:44] because it's a it's a mess it's a it's awful right and so that's where we
+[28:45] awful right and so that's where we created this group the California civic
+[28:47] created this group the California civic data coalition to create a github
+[28:49] data coalition to create a github pipeline that would then take that data
+[28:52] pipeline that would then take that data and you know and smooth it out and
+[28:55] and you know and smooth it out and format it into something that's usable
+[28:57] format it into something that's usable and this is an ongoing project we have
+[28:59] and this is an ongoing project we have with more than 150 contributors around
+[29:01] with more than 150 contributors around the world and it's resulted in this
+[29:03] the world and it's resulted in this still improving website where we create
+[29:05] still improving website where we create clean documented CSVs that like a normal
+[29:08] clean documented CSVs that like a normal person can just pull down the source
+[29:09] person can just pull down the source data from the government is eighty-eight
+[29:10] data from the government is eighty-eight tables 35 million records no
+[29:13] tables 35 million records no documentation about 40 the tables are
+[29:16] documentation about 40 the tables are defunct never been labeled the joins are
+[29:19] defunct never been labeled the joins are all screwed it's such a mess so we're
+[29:20] all screwed it's such a mess so we're trying to solve that and because we've
+[29:22] trying to solve that and because we've got that far and we have these
+[29:24] got that far and we have these simplified versions it's helping Ryan
+[29:25] simplified versions it's helping Ryan and Malloy who you saw earlier team with
+[29:28] and Malloy who you saw earlier team with people like Seema Mehta one of our
+[29:30] people like Seema Mehta one of our political reporters to do more stories
+[29:32] political reporters to do more stories about money in politics that are more
+[29:33] about money in politics that are more ambitious analysis than would have been
+[29:35] ambitious analysis than would have been done because if you got to spend six
+[29:37] done because if you got to spend six months doing the analysis you're only
+[29:38] months doing the analysis you're only gonna get that one story and do it again
+[29:40] gonna get that one story and do it again the next time it's gonna take six months
+[29:42] the next time it's gonna take six months again but we've reduced like the barrier
+[29:44] again but we've reduced like the barrier to getting into that data and we're
+[29:45] to getting into that data and we're trying to more and more which has allow
+[29:46] trying to more and more which has allow us to do stories like Gavin Newsom being
+[29:48] us to do stories like Gavin Newsom being the first guy to really take money from
+[29:50] the first guy to really take money from pot do a dashboard of all the money
+[29:53] pot do a dashboard of all the money coming into the state state state yeah
+[29:56] coming into the state state state yeah the governor's race that updates really
+[29:58] the governor's race that updates really frequently then mining that for analysis
+[30:00] frequently then mining that for analysis like being able to point out this that
+[30:02] like being able to point out this that the charter schools really put a lot of
+[30:04] the charter schools really put a lot of money into V Ragosa and the primary
+[30:07] money into V Ragosa and the primary being able to do historical analysis to
+[30:09] being able to do historical analysis to show that that money from those outside
+[30:11] show that that money from those outside groups was the most ever you know and
+[30:13] groups was the most ever you know and giving that kind of context requires
+[30:14] giving that kind of context requires having all that data at hand and then
+[30:16] having all that data at hand and then more recently mining into every campaign
+[30:18] more recently mining into every campaign donation Gavin Newsom are likely next
+[30:21] donation Gavin Newsom are likely next governor
+[30:21] governor has ever received to do kind of a story
+[30:23] has ever received to do kind of a story about his his his him coming in and so
+[30:27] about his his his him coming in and so California or at California civic data
+[30:29] California or at California civic data dot o-r-g is where that's at and this is
+[30:31] dot o-r-g is where that's at and this is kind of our biggest project right now of
+[30:33] kind of our biggest project right now of trying to bring people together to solve
+[30:35] trying to bring people together to solve a common data problem I've got tons of
+[30:37] a common data problem I've got tons of problems and tickets and stuff in there
+[30:39] problems and tickets and stuff in there if anyone's interested in money in
+[30:41] if anyone's interested in money in politics this is a great place to get
+[30:42] politics this is a great place to get involved there's other money in politics
+[30:44] involved there's other money in politics things to get involved with too if you
+[30:45] things to get involved with too if you curious just come talk to me I'm running
+[30:47] curious just come talk to me I'm running out of time our team does other stuff
+[30:49] out of time our team does other stuff like BOTS and tools and toys and other
+[30:54] like BOTS and tools and toys and other but that's the end because I'm
+[30:55] but that's the end because I'm out of time you can follow us at these
+[30:59] out of time you can follow us at these links and again all the slides are at
+[31:01] links and again all the slides are at this URL and that's that's all I got if
+[31:04] this URL and that's that's all I got if you got questions holler
+[31:14] so does anyone have any questions
+[31:25] well that's an interesting question
+[31:27] well that's an interesting question so the question is whether the click
+[31:29] so the question is whether the click rate difference between interactive and
+[31:31] rate difference between interactive and static graphics and this is a hot topic
+[31:32] static graphics and this is a hot topic in the world of data visualization you
+[31:35] in the world of data visualization you guys may remember like in the time of
+[31:36] guys may remember like in the time of Flash graphics you know and when data
+[31:39] Flash graphics you know and when data visualization really took off everything
+[31:41] visualization really took off everything had lots of hovers and boxes and things
+[31:44] had lots of hovers and boxes and things that jumped around and doodads dancing
+[31:46] that jumped around and doodads dancing bears is what Tom to Iraq at the New
+[31:48] bears is what Tom to Iraq at the New York Times used to call them and
+[31:49] York Times used to call them and recently as the Internet's move more
+[31:52] recently as the Internet's move more toward mobile phones you may be noticing
+[31:54] toward mobile phones you may be noticing the graphics from high-end visit people
+[31:56] the graphics from high-end visit people tend to be like just flat images you
+[31:58] tend to be like just flat images you don't I mean because they know you're on
+[31:59] don't I mean because they know you're on your phone and they think it's less
+[32:00] your phone and they think it's less likely you're gonna interact there's a
+[32:02] likely you're gonna interact there's a little bit of a dispute about like the
+[32:04] little bit of a dispute about like the actual numbers behind that cuz I don't
+[32:05] actual numbers behind that cuz I don't think there's been a serious study but
+[32:07] think there's been a serious study but obviously the majority of people
+[32:09] obviously the majority of people visiting LA Times comm and every new
+[32:11] visiting LA Times comm and every new site are now doing it on a phone right
+[32:13] site are now doing it on a phone right and so whatever you make it has to work
+[32:15] and so whatever you make it has to work on a phone and has to be good on a phone
+[32:16] on a phone and has to be good on a phone we can do things that are good on both
+[32:18] we can do things that are good on both that are they're simplified on the phone
+[32:21] that are they're simplified on the phone and are progressively enhanced on
+[32:23] and are progressively enhanced on desktop right which is what we try to do
+[32:25] desktop right which is what we try to do but you can't over invest in the desktop
+[32:27] but you can't over invest in the desktop and in the desktop doodads my feeling is
+[32:29] and in the desktop doodads my feeling is is that the interactivity is great and
+[32:32] is that the interactivity is great and we don't want to lose it but it's got to
+[32:34] we don't want to lose it but it's got to be it's got to be awesome you know what
+[32:35] be it's got to be awesome you know what I mean the thing that it does the thing
+[32:38] I mean the thing that it does the thing that the dancing bear has to be a really
+[32:39] that the dancing bear has to be a really good dancing bear for it to be worth the
+[32:41] good dancing bear for it to be worth the investment
+[32:44] sure
+[32:50] virtual reality we've done a couple
+[32:53] virtual reality we've done a couple virtual reality experiments I don't know
+[32:55] virtual reality experiments I don't know if we've like invested a ton maybe maybe
+[32:58] if we've like invested a ton maybe maybe not you know I think there's some people
+[32:59] not you know I think there's some people who think VR is the future of
+[33:01] who think VR is the future of storytelling and there's some people who
+[33:03] storytelling and there's some people who don't I don't know the answer to that I
+[33:05] don't I don't know the answer to that I think VR is really cool you know I mean
+[33:07] think VR is really cool you know I mean we've done some things that I'm really
+[33:09] we've done some things that I'm really proud of one of my former colleagues
+[33:10] proud of one of my former colleagues armando mangia made did a VR tour of
+[33:13] armando mangia made did a VR tour of Mars of the area where the Mars rover
+[33:15] Mars of the area where the Mars rover had like crawled around and you can like
+[33:16] had like crawled around and you can like fly around and it more than anything
+[33:19] fly around and it more than anything I've ever experienced it really helped
+[33:21] I've ever experienced it really helped me understand the terrain of Mars you
+[33:23] me understand the terrain of Mars you know so I thought it was an awesome like
+[33:25] know so I thought it was an awesome like experience as we say in our business
+[33:27] experience as we say in our business sorry but whether it's gonna be the
+[33:30] sorry but whether it's gonna be the future of news as we also say in our
+[33:32] future of news as we also say in our business I don't know
+[33:33] business I don't know we'll find out
+[33:46] well you know it's the newsroom is just
+[33:48] well you know it's the newsroom is just a collection of people you know they
+[33:50] a collection of people you know they mean and what's that oh it's question
+[33:53] mean and what's that oh it's question was are there some people in the
+[33:54] was are there some people in the newsroom who are less open to working
+[33:55] newsroom who are less open to working with data right is that your question of
+[33:58] with data right is that your question of some sections I don't think that Eddie
+[34:00] some sections I don't think that Eddie you know I hate to generalize you know
+[34:01] you know I hate to generalize you know as often as I do but no I think you know
+[34:05] as often as I do but no I think you know it just kind of comes down to the person
+[34:07] it just kind of comes down to the person you know our kind of general philosophy
+[34:08] you know our kind of general philosophy is we want to work with people who want
+[34:10] is we want to work with people who want to work with us and so we tend to seek
+[34:12] to work with us and so we tend to seek out a partner people who like want to
+[34:14] out a partner people who like want to have that relationship and we're lucky
+[34:15] have that relationship and we're lucky to be in a situation where our job is
+[34:17] to be in a situation where our job is just to be like a catalyst just like
+[34:19] just to be like a catalyst just like make a cool story app and make like a
+[34:21] make a cool story app and make like a thing happen and if we do that we're
+[34:22] thing happen and if we do that we're good so we don't have to like break down
+[34:25] good so we don't have to like break down walls or deal with people who don't want
+[34:27] walls or deal with people who don't want to deal with us which is a great thing
+[34:28] to deal with us which is a great thing about our set up in my opinion I got a
+[34:31] about our set up in my opinion I got a question please so that that story you
+[34:34] question please so that that story you open with it's kind of it's easy to
+[34:37] open with it's kind of it's easy to connect with in common with this
+[34:38] connect with in common with this populist level like the fat cat getting
+[34:41] populist level like the fat cat getting the huge property discount because
+[34:42] the huge property discount because they're weird pets or whatever but I'm
+[34:44] they're weird pets or whatever but I'm wondering how often you guys run across
+[34:47] wondering how often you guys run across stories that I mean the end of the day
+[34:49] stories that I mean the end of the day LA Times is still a business I'm
+[34:50] LA Times is still a business I'm wondering how often you guys run across
+[34:52] wondering how often you guys run across the story that you feel like this is
+[34:53] the story that you feel like this is interesting and it's worthwhile but we
+[34:55] interesting and it's worthwhile but we got to kind of self select out because
+[34:56] got to kind of self select out because it's not gonna generate that clicks that
+[34:58] it's not gonna generate that clicks that we need to drive I'm never consciously
+[35:00] we need to drive I'm never consciously you know what I mean that's never like a
+[35:01] you know what I mean that's never like a thing where we know we can't do this
+[35:03] thing where we know we can't do this story no one will read it that's never
+[35:04] story no one will read it that's never happened you know I'm sure there is in
+[35:06] happened you know I'm sure there is in like the collection of humans and
+[35:08] like the collection of humans and institutions some sort of subconscious
+[35:10] institutions some sort of subconscious or institutional bias around whatever
+[35:12] or institutional bias around whatever like why do we write more about the
+[35:14] like why do we write more about the Lakers than the Clippers you know what I
+[35:15] Lakers than the Clippers you know what I mean more people care about the Lakers
+[35:16] mean more people care about the Lakers you know there are definitely things
+[35:18] you know there are definitely things like that no offense to Ryan who's a
+[35:20] like that no offense to Ryan who's a Clippers fan but but no I've never in my
+[35:25] Clippers fan but but no I've never in my entire journalistic career had anyone
+[35:26] entire journalistic career had anyone say we can't do a good story because
+[35:28] say we can't do a good story because people aren't interested in it one cool
+[35:31] people aren't interested in it one cool thing about newsrooms is it's definitely
+[35:33] thing about newsrooms is it's definitely full of people who are on the watch for
+[35:34] full of people who are on the watch for stuff like that and are paranoid about
+[35:36] stuff like that and are paranoid about it and also no one wants to get in the
+[35:40] it and also no one wants to get in the way of a good story in a newsroom if you
+[35:41] way of a good story in a newsroom if you got a good story everyone will be
+[35:43] got a good story everyone will be supportive which is one of the cool
+[35:44] supportive which is one of the cool things about being in the newsroom hello
+[35:49] things about being in the newsroom hello thanks for talking I want to hear about
+[35:50] thanks for talking I want to hear about a time when you made a decision - I'm
+[35:53] a time when you made a decision - I'm back sensor data or like not share
+[35:56] back sensor data or like not share certain information that right under how
+[35:58] certain information that right under how you think about yeah right so in this
+[35:59] you think about yeah right so in this case
+[36:00] case actually put the whole property tax role
+[36:01] actually put the whole property tax role with the names up there because I felt
+[36:03] with the names up there because I felt like it would it's it's standard
+[36:05] like it would it's it's standard practice in other counties and it's
+[36:07] practice in other counties and it's ridiculous that it's not public I can
+[36:09] ridiculous that it's not public I can look it up online in most places in
+[36:10] look it up online in most places in America and I just kind of wanted to
+[36:12] America and I just kind of wanted to make the point and so I did it even
+[36:13] make the point and so I did it even though no one will notice but there's
+[36:14] though no one will notice but there's definitely other cases where we don't
+[36:16] definitely other cases where we don't because there's just no reason right if
+[36:19] because there's just no reason right if and it could potentially backfire on the
+[36:22] and it could potentially backfire on the story if P if that becomes a distraction
+[36:24] story if P if that becomes a distraction from what you're trying to tell so for
+[36:26] from what you're trying to tell so for instance one piece of public data that
+[36:27] instance one piece of public data that is public that is rarely published
+[36:29] is public that is rarely published online is voter registration data so how
+[36:32] online is voter registration data so how you vote is totally secret nobody knows
+[36:34] you vote is totally secret nobody knows how you vote but if you're registered to
+[36:37] how you vote but if you're registered to vote and in what party and whether you
+[36:39] vote and in what party and whether you vote yes or no is a public record and
+[36:42] vote yes or no is a public record and the political parties are using this
+[36:43] the political parties are using this data and getting it from the Secretary
+[36:45] data and getting it from the Secretary of State all the time right and we did a
+[36:46] of State all the time right and we did a story about a weird third party called
+[36:49] story about a weird third party called the American independent party which was
+[36:52] the American independent party which was formed by George Wallace to get on the
+[36:53] formed by George Wallace to get on the ticket in the 60s here in California and
+[36:55] ticket in the 60s here in California and there's thousands and thousands of
+[36:57] there's thousands and thousands of people including the new owner of the LA
+[36:59] people including the new owner of the LA Times by the way who accidentally
+[37:01] Times by the way who accidentally registered in this party thinking it was
+[37:03] registered in this party thinking it was being independent but you were actually
+[37:05] being independent but you were actually joining the American independent party
+[37:07] joining the American independent party oopsey right and so we did a story about
+[37:09] oopsey right and so we did a story about that whole oopsie and we made a look up
+[37:11] that whole oopsie and we made a look up so you could check am I in this like
+[37:13] so you could check am I in this like crazy party that I don't want to be in
+[37:14] crazy party that I don't want to be in and it would return like yes or no if
+[37:16] and it would return like yes or no if you put your stuff in but I didn't like
+[37:18] you put your stuff in but I didn't like surface the whole database so that
+[37:20] surface the whole database so that everybody could look up everybody else I
+[37:22] everybody could look up everybody else I put a little birthdate checker on there
+[37:25] put a little birthdate checker on there even though you wouldn't have to because
+[37:27] even though you wouldn't have to because I didn't want it to turn into a fishing
+[37:28] I didn't want it to turn into a fishing expedition I wanted to make it more of a
+[37:30] expedition I wanted to make it more of a service for readers and I thought that
+[37:32] service for readers and I thought that could distract from the story so that's
+[37:33] could distract from the story so that's a case where we it's an editorial
+[37:35] a case where we it's an editorial judgment you know totally legally we
+[37:37] judgment you know totally legally we could have published it but it just
+[37:38] could have published it but it just didn't fit with what our goals was we're
+[37:40] didn't fit with what our goals was we're in publishing does that make sense okay
+[37:44] so data science is really hot right now
+[37:46] so data science is really hot right now yeah how are you can what is your like
+[37:50] yeah how are you can what is your like value add in the job market are you
+[37:51] value add in the job market are you paying big salaries or is it just like
+[37:53] paying big salaries or is it just like all the work is like really rewarding or
+[37:56] all the work is like really rewarding or do you just say Ryan oh geez raises hell
+[38:02] do you just say Ryan oh geez raises hell yes we definitely could use a raise you
+[38:03] yes we definitely could use a raise you know what I mean we're in a business
+[38:05] know what I mean we're in a business that's collapsing let's be honest right
+[38:07] that's collapsing let's be honest right and and so there there's there's a
+[38:10] and and so there there's there's a little bit of a premium for what we do
+[38:12] little bit of a premium for what we do but not so much
+[38:13] but not so much that they're out there throwing a lot of
+[38:14] that they're out there throwing a lot of money around you know the reality is is
+[38:17] money around you know the reality is is almost everyone I know who does what
+[38:18] almost everyone I know who does what like we do are people who have like have
+[38:21] like we do are people who have like have have some of these skills that you guys
+[38:23] have some of these skills that you guys have or have an interest in them but
+[38:24] have or have an interest in them but aren't like SuperDuper skilled but we're
+[38:26] aren't like SuperDuper skilled but we're passionate about journalism and we kind
+[38:28] passionate about journalism and we kind of like you kind of see like wow if I
+[38:30] of like you kind of see like wow if I learn these skills that I do this stuff
+[38:31] learn these skills that I do this stuff we can do these cool stories that we
+[38:32] we can do these cool stories that we wouldn't otherwise do we can make the
+[38:34] wouldn't otherwise do we can make the news better we can do better stuff you
+[38:35] news better we can do better stuff you know and so for us it I think for most
+[38:37] know and so for us it I think for most people it kind of fits the two things
+[38:39] people it kind of fits the two things kind of go together your passion for
+[38:40] kind of go together your passion for news and your interest or maybe passion
+[38:43] news and your interest or maybe passion for programming and stuff help you like
+[38:45] for programming and stuff help you like push together and there definitely are
+[38:47] push together and there definitely are people who do what we do who now work
+[38:48] people who do what we do who now work I'd one of my guard in 2007 the guy who
+[38:51] I'd one of my guard in 2007 the guy who got hired the same day he works at a
+[38:52] got hired the same day he works at a hedge fund now right and I know people
+[38:54] hedge fund now right and I know people who work in mergers and acquisitions and
+[38:56] who work in mergers and acquisitions and thought out of that and I but that's not
+[38:59] thought out of that and I but that's not for me I wish you paid better maybe one
+[39:01] for me I wish you paid better maybe one day I'm trying to rewrite our job
+[39:03] day I'm trying to rewrite our job descriptions we'll see how that goes I
+[39:06] descriptions we'll see how that goes I give you some tips on that by the way if
+[39:09] give you some tips on that by the way if anyone's in a unionized newsroom or a
+[39:11] anyone's in a unionized newsroom or a workplace yeah so I have a question
+[39:15] workplace yeah so I have a question about the alternative facts news or fake
+[39:23] about the alternative facts news or fake news fake news right well it's sort of a
+[39:27] news fake news right well it's sort of a two-part question first of all do you
+[39:29] two-part question first of all do you see the role of the press in trying to
+[39:36] see the role of the press in trying to limit identify report on or debunk fake
+[39:42] limit identify report on or debunk fake news that are being spread around there
+[39:43] news that are being spread around there through most common with social media
+[39:46] through most common with social media channels and do you guys work did you
+[39:50] channels and do you guys work did you guys do any work in that in that area
+[39:52] guys do any work in that in that area specifically our team hasn't
+[39:53] specifically our team hasn't specifically worked on that but I had my
+[39:55] specifically worked on that but I had my opinion there's been a lot of great data
+[39:57] opinion there's been a lot of great data journalism about fake news like I've the
+[40:00] journalism about fake news like I've the story I feel like really caught on that
+[40:02] story I feel like really caught on that seemed him as far as I know was was well
+[40:04] seemed him as far as I know was was well done was the BuzzFeed news story by
+[40:06] done was the BuzzFeed news story by Craig Silverman about how the most
+[40:07] Craig Silverman about how the most shared stories before the last election
+[40:09] shared stories before the last election that you know that we're all fake you
+[40:11] that you know that we're all fake you know what I mean like the Pope endorsing
+[40:12] know what I mean like the Pope endorsing Trump or whatever and that was a case
+[40:14] Trump or whatever and that was a case where he took his data journalism skills
+[40:16] where he took his data journalism skills and he took it at this sort of inside
+[40:18] and he took it at this sort of inside the media topic and I thought it had an
+[40:20] the media topic and I thought it had an impact and in my opinion I think the
+[40:21] impact and in my opinion I think the media coverage about fake news the real
+[40:23] media coverage about fake news the real news about the fake news
+[40:25] news about the fake news has drawn a lot of attention to this
+[40:27] has drawn a lot of attention to this problem which i think is good you know
+[40:29] problem which i think is good you know and I'm all for people doing that you
+[40:31] and I'm all for people doing that you know I I hear about not being an expert
+[40:33] know I I hear about not being an expert I hear about research that says when you
+[40:35] I hear about research that says when you debunk false claims you just reinforce
+[40:38] debunk false claims you just reinforce those claims and a lot of people's minds
+[40:39] those claims and a lot of people's minds there's like behavioral research on this
+[40:41] there's like behavioral research on this I'm not an expert and it makes me worry
+[40:42] I'm not an expert and it makes me worry that maybe we're not helping things you
+[40:45] that maybe we're not helping things you know but I don't I don't have the
+[40:46] know but I don't I don't have the solution and as a journalist you know
+[40:48] solution and as a journalist you know kind of my default assumption is always
+[40:50] kind of my default assumption is always more sunlight is better more coverage is
+[40:52] more sunlight is better more coverage is better and so I'm all for it and I think
+[40:55] better and so I'm all for it and I think there's been a lot of great technology
+[40:56] there's been a lot of great technology people who've helped news organizations
+[40:58] people who've helped news organizations cover that story too so ok last question
+[41:02] cover that story too so ok last question you can bug me afterwards too ok my
+[41:06] you can bug me afterwards too ok my question is oh sorry yeah my question is
+[41:10] question is oh sorry yeah my question is can you talk a little bit about the data
+[41:13] can you talk a little bit about the data desk rolls and how you go from
+[41:16] desk rolls and how you go from collecting data is that a specific role
+[41:18] collecting data is that a specific role to somebody who's building the website
+[41:20] to somebody who's building the website and and producing the visualizations we
+[41:22] and and producing the visualizations we don't really have like like firmly
+[41:24] don't really have like like firmly design defined roles like oh you're the
+[41:27] design defined roles like oh you're the designer and you're the database
+[41:29] designer and you're the database administrator and you're the writer you
+[41:31] administrator and you're the writer you know what I mean
+[41:31] know what I mean maybe we should do that but my feeling
+[41:34] maybe we should do that but my feeling is on our team we're better off when
+[41:35] is on our team we're better off when everybody is kind of a generalist when
+[41:37] everybody is kind of a generalist when everybody is really comfortable I just
+[41:40] everybody is really comfortable I just say people on our team when we're
+[41:41] say people on our team when we're looking for like young people to break
+[41:42] looking for like young people to break in I don't care if you can code I care
+[41:45] in I don't care if you can code I care if you can like solve problems you know
+[41:46] if you can like solve problems you know what I mean and if you're creative about
+[41:48] what I mean and if you're creative about solving problems with computers and to
+[41:50] solving problems with computers and to me that's like the essential skill of
+[41:51] me that's like the essential skill of like what we're doing is being a hard
+[41:53] like what we're doing is being a hard worker who's creative it like doing that
+[41:54] worker who's creative it like doing that and the result is is we have a team it's
+[41:57] and the result is is we have a team it's kind of like a pretty odd ball crew of
+[41:59] kind of like a pretty odd ball crew of people who have like different skills
+[42:00] people who have like different skills like Ryan's who's here came through a
+[42:02] like Ryan's who's here came through a statistics program Malloy came through
+[42:03] statistics program Malloy came through the army right and libraries we have
+[42:06] the army right and libraries we have other people who came through
+[42:07] other people who came through traditional journalism schools and other
+[42:09] traditional journalism schools and other routes and we have some people who are
+[42:10] routes and we have some people who are better at HTML and CSS and JavaScript
+[42:13] better at HTML and CSS and JavaScript and other people who are better at
+[42:14] and other people who are better at Python but they learn from each other
+[42:16] Python but they learn from each other and just kind of we just kind of make it
+[42:18] and just kind of we just kind of make it make stuff happen you know so we don't
+[42:20] make stuff happen you know so we don't define it that much we might need to if
+[42:22] define it that much we might need to if we want to get paid more though huh and
+[42:25] we want to get paid more though huh and but no we don't thank you yep oh we
+[42:33] but no we don't thank you yep oh we could you want to do more questions Oh
+[42:34] could you want to do more questions Oh more questions I could talk all night
+[42:37] more questions I could talk all night guys I have a question
+[42:39] guys I have a question have you noticed yeah can I ask you a
+[42:42] have you noticed yeah can I ask you a question yeah please
+[42:43] question yeah please oh thanks I'm right here okay so last
+[42:49] oh thanks I'm right here okay so last night I saw the soloist oh and I would
+[42:53] night I saw the soloist oh and I would not have known who's Steve Lopez
+[42:55] not have known who's Steve Lopez two days ago yeah so that was cool that
+[42:57] two days ago yeah so that was cool that you mentioned him that is a really
+[43:00] you mentioned him that is a really wonderful movie and it's all about this
+[43:02] wonderful movie and it's all about this very kind of human story this
+[43:04] very kind of human story this idiosyncratic random meeting between two
+[43:06] idiosyncratic random meeting between two people which leads to this that's right
+[43:08] people which leads to this that's right big thing I was curious you know you
+[43:11] big thing I was curious you know you mentioned the future of journalism
+[43:12] mentioned the future of journalism you're talking about data journalism
+[43:13] you're talking about data journalism here do you see the the methods you're
+[43:18] here do you see the the methods you're talking about potentially growing and
+[43:21] talking about potentially growing and importance as they most certainly will I
+[43:23] importance as they most certainly will I think but when they do do you think that
+[43:25] think but when they do do you think that they could potentially wind up
+[43:27] they could potentially wind up displacing or replacing the kind of
+[43:29] displacing or replacing the kind of human journalism stories that we well
+[43:32] human journalism stories that we well said we're movie I don't know you know
+[43:36] said we're movie I don't know you know what I mean I mean you guys are the you
+[43:38] what I mean I mean you guys are the you know machine learning people you can
+[43:40] know machine learning people you can educate me about how far computers are
+[43:42] educate me about how far computers are going to get at writing stories you know
+[43:44] going to get at writing stories you know what I mean like the one bit of like
+[43:46] what I mean like the one bit of like automated news writing that our team has
+[43:48] automated news writing that our team has done is is related to quakes earthquakes
+[43:53] done is is related to quakes earthquakes so there's like a automatic there's data
+[43:55] so there's like a automatic there's data that gets sent out every time the
+[43:57] that gets sent out every time the government detects an earthquake and one
+[43:59] government detects an earthquake and one of my colleagues wrote a bot that
+[44:00] of my colleagues wrote a bot that automatically writes a blog post about
+[44:02] automatically writes a blog post about every earthquake that just has like the
+[44:04] every earthquake that just has like the basic data and like a map and then that
+[44:06] basic data and like a map and then that gets sent to the copy desk every time
+[44:07] gets sent to the copy desk every time the quake happens we call quake BOTS and
+[44:09] the quake happens we call quake BOTS and that's the sort of thing a lot of people
+[44:11] that's the sort of thing a lot of people look at and they say jibon you're you're
+[44:13] look at and they say jibon you're you're killing you're stealing our jobs you
+[44:15] killing you're stealing our jobs you know what I mean but the reality is in
+[44:17] know what I mean but the reality is in my opinion is that the jobs are already
+[44:18] my opinion is that the jobs are already gone
+[44:19] gone you know the LA Times is one third of
+[44:21] you know the LA Times is one third of the size of was if you look at the
+[44:23] the size of was if you look at the Bureau of Labor Statistics numbers the
+[44:25] Bureau of Labor Statistics numbers the number of people who work in newspapers
+[44:26] number of people who work in newspapers is is 50% what it was 10 or 15 years ago
+[44:29] is is 50% what it was 10 or 15 years ago like literally the industry is
+[44:31] like literally the industry is disappearing and that's because of the
+[44:33] disappearing and that's because of the change in the advertising model and the
+[44:35] change in the advertising model and the shift to the internet and the increased
+[44:36] shift to the internet and the increased competition and all these other things
+[44:38] competition and all these other things that have to be honest nothing to do
+[44:40] that have to be honest nothing to do with the automation of content creation
+[44:42] with the automation of content creation and everything to do with the automation
+[44:44] and everything to do with the automation of content delivery and distribution
+[44:45] of content delivery and distribution right and that's really what's changed
+[44:48] right and that's really what's changed our industry and I feel like that's kind
+[44:50] our industry and I feel like that's kind of boring and everybody loves the
+[44:52] of boring and everybody loves the internet you know
+[44:53] internet you know because it's awesome and so it's not as
+[44:54] because it's awesome and so it's not as exciting to talk about as like the
+[44:56] exciting to talk about as like the computers gonna write the story instead
+[44:57] computers gonna write the story instead but those those quake posts that the bot
+[44:59] but those those quake posts that the bot is doing nobody was doing them you know
+[45:01] is doing nobody was doing them you know what I mean it's not replacing anybody
+[45:03] what I mean it's not replacing anybody it's doing something we weren't doing
+[45:04] it's doing something we weren't doing and it's relieving the people who worked
+[45:06] and it's relieving the people who worked there from having to like scramble and
+[45:08] there from having to like scramble and write a little post every time their
+[45:09] write a little post every time their editor feels an earthquake great as
+[45:11] editor feels an earthquake great as opposed to doing an automated way so I
+[45:12] opposed to doing an automated way so I think that we are the industries it's
+[45:15] think that we are the industries it's such a crisis and in such a deep thing a
+[45:17] such a crisis and in such a deep thing a change I don't see that as having a huge
+[45:20] change I don't see that as having a huge effect you know maybe you know I think
+[45:23] effect you know maybe you know I think sure like data cleaning like I spend
+[45:26] sure like data cleaning like I spend most of my time doing as I tried to show
+[45:28] most of my time doing as I tried to show on that maybe you guys can automate that
+[45:30] on that maybe you guys can automate that work away for me please do you know what
+[45:32] work away for me please do you know what I mean I don't want to do that yeah so
+[45:37] I mean I don't want to do that yeah so because of the journalists and like
+[45:39] because of the journalists and like industry is so rough right now I'm
+[45:43] industry is so rough right now I'm curious if you have any like if you've
+[45:44] curious if you have any like if you've experienced any pushback on making
+[45:46] experienced any pushback on making things open-source and just kind of
+[45:48] things open-source and just kind of sharing this with other journalists
+[45:50] sharing this with other journalists versus you know keeping some of these
+[45:52] versus you know keeping some of these things private and in-house so that the
+[45:54] things private and in-house so that the LA Times has a monopoly on certain types
+[45:56] LA Times has a monopoly on certain types of stories now nobody's really paying
+[45:58] of stories now nobody's really paying attention I'll be honest with you and
+[45:59] attention I'll be honest with you and and I and if they when they do I'm kind
+[46:02] and I and if they when they do I'm kind of ready to make the case you know you
+[46:03] of ready to make the case you know you look at something like that election
+[46:05] look at something like that election stuff I went over really really fast but
+[46:07] stuff I went over really really fast but that's a case where we would have spent
+[46:08] that's a case where we would have spent weeks and weeks and weeks writing the
+[46:09] weeks and weeks and weeks writing the same code that everybody else was
+[46:11] same code that everybody else was writing you know what I mean and
+[46:12] writing you know what I mean and everybody's team is two or three or four
+[46:14] everybody's team is two or three or four or five people and we just don't have
+[46:15] or five people and we just don't have the resources to like do all this stuff
+[46:17] the resources to like do all this stuff on our own I don't think there's really
+[46:18] on our own I don't think there's really a choice other than open source to solve
+[46:20] a choice other than open source to solve a lot of the problems we have because we
+[46:23] a lot of the problems we have because we just don't have a hundred engineers to
+[46:24] just don't have a hundred engineers to throw it anything you know and so
+[46:26] throw it anything you know and so there's really only a couple places that
+[46:27] there's really only a couple places that can really have a competitive advantage
+[46:29] can really have a competitive advantage of this and they're the largest ones and
+[46:30] of this and they're the largest ones and if you're in a small or midsize place I
+[46:32] if you're in a small or midsize place I think open source is your only only real
+[46:34] think open source is your only only real opportunity now that said they're you
+[46:36] opportunity now that said they're you know what's the old Linux thing Fudd
+[46:38] know what's the old Linux thing Fudd you know fear uncertainty and doubt
+[46:39] you know fear uncertainty and doubt people raised about open source that
+[46:41] people raised about open source that definitely happens there was a long
+[46:42] definitely happens there was a long period of time where we had a lawyer who
+[46:44] period of time where we had a lawyer who just like didn't like open source for
+[46:45] just like didn't like open source for some reason so I just didn't put
+[46:47] some reason so I just didn't put licenses on our repo because I just
+[46:49] licenses on our repo because I just didn't want to have a conversation with
+[46:50] didn't want to have a conversation with a lawyer about a license I just put and
+[46:52] a lawyer about a license I just put and I get pull requests from the license
+[46:54] I get pull requests from the license nerd saying you should they had a
+[46:55] nerd saying you should they had a license and I was like yeah I'm just not
+[46:57] license and I was like yeah I'm just not gonna do that
+[46:58] gonna do that you know because because I don't want to
+[47:00] you know because because I don't want to have to defend that to the lawyer one
+[47:02] have to defend that to the lawyer one day you know day mean and then she she
+[47:03] day you know day mean and then she she left and now I put licenses on
+[47:06] left and now I put licenses on it's MIT guys I'm into MIT I don't know
+[47:09] it's MIT guys I'm into MIT I don't know about you I thank you so much for coming
+[47:13] about you I thank you so much for coming and speaking today thank you in the back
+[47:16] and speaking today thank you in the back my question is what is the current
+[47:19] my question is what is the current vision for the times and how are you
+[47:21] vision for the times and how are you gonna make the stories reach us and many
+[47:26] gonna make the stories reach us and many other folks of our generation who have
+[47:29] other folks of our generation who have kind of split off I know that I noticed
+[47:30] kind of split off I know that I noticed that you guys have hired for podcasts
+[47:33] that you guys have hired for podcasts and that's one way but what's the vision
+[47:35] and that's one way but what's the vision and how are you reaching us well that's
+[47:37] and how are you reaching us well that's above my pay grade and still being
+[47:39] above my pay grade and still being developed the LA Times has a new owner
+[47:41] developed the LA Times has a new owner his name is dr. Patrick soon Xian he is
+[47:44] his name is dr. Patrick soon Xian he is one of the richest people in Los Angeles
+[47:46] one of the richest people in Los Angeles and the richest doctor in the world he
+[47:48] and the richest doctor in the world he made his money on pharmaceuticals a and
+[47:50] made his money on pharmaceuticals a and other things and now he's in his 60s and
+[47:52] other things and now he's in his 60s and he's bought the LA Times as kind of a
+[47:54] he's bought the LA Times as kind of a legacy project for himself though he
+[47:56] legacy project for himself though he says he intends to run it fully as the
+[47:58] says he intends to run it fully as the business and not as a philanthropy and
+[48:00] business and not as a philanthropy and so as of just a few months ago we're an
+[48:02] so as of just a few months ago we're an entirely different ownership structure
+[48:04] entirely different ownership structure and fiscal situation than we were for
+[48:07] and fiscal situation than we were for the the 20 years that preceded him right
+[48:09] the the 20 years that preceded him right and what that's gonna mean for us is an
+[48:11] and what that's gonna mean for us is an independent like thing owned by a single
+[48:14] independent like thing owned by a single billionaire is still unclear you know
+[48:17] billionaire is still unclear you know and that strategy we have a new editor
+[48:19] and that strategy we have a new editor we're hiring for the first time in a
+[48:20] we're hiring for the first time in a long time which is great I'm more
+[48:23] long time which is great I'm more optimistic about some things than I have
+[48:26] optimistic about some things than I have been in a while which is good but what
+[48:28] been in a while which is good but what it's ultimately gonna mean I don't know
+[48:30] it's ultimately gonna mean I don't know you know I think if we follow the trends
+[48:32] you know I think if we follow the trends of the rest of the industry it probably
+[48:34] of the rest of the industry it probably means moving toward more towards a
+[48:36] means moving toward more towards a digital subscription model because
+[48:38] digital subscription model because digital advertising doesn't pay and it's
+[48:40] digital advertising doesn't pay and it's failing for pretty much everyone and so
+[48:42] failing for pretty much everyone and so in order to finance the news
+[48:43] in order to finance the news organization the readers have to pay
+[48:45] organization the readers have to pay more right and so that's why everyone's
+[48:46] more right and so that's why everyone's going to pay walls and that kind of
+[48:48] going to pay walls and that kind of thing and that's been very successful
+[48:49] thing and that's been very successful for a few places so I suspect well we're
+[48:52] for a few places so I suspect well we're gonna invest more than that but even
+[48:53] gonna invest more than that but even that really hasn't been announced I
+[48:55] that really hasn't been announced I think it's still being determined in El
+[48:58] think it's still being determined in El Segundo as we speak I'll be watching as
+[49:01] Segundo as we speak I'll be watching as closely as you trust me all right I
+[49:06] closely as you trust me all right I think I have the last one okay I get the
+[49:10] think I have the last one okay I get the last question twice in a row okay can I
+[49:14] last question twice in a row okay can I so one of my biggest pet peeves is poor
+[49:16] so one of my biggest pet peeves is poor scientific journalism I'm wondering if
+[49:18] scientific journalism I'm wondering if the data desk provide
+[49:19] the data desk provide it's for the LA Times some statistical
+[49:23] it's for the LA Times some statistical expertise for pieces and and kind of
+[49:27] expertise for pieces and and kind of what you guys what is your guys's role
+[49:28] what you guys what is your guys's role in that we do when called upon and we
+[49:30] in that we do when called upon and we try to on the stories we work on
+[49:32] try to on the stories we work on directly but it's not like there's a
+[49:35] directly but it's not like there's a desk that every story comes by and we
+[49:37] desk that every story comes by and we stamp it yes yes the math is right and I
+[49:40] stamp it yes yes the math is right and I like you have picked up the paper some
+[49:41] like you have picked up the paper some day and been like I don't know about
+[49:42] day and been like I don't know about using percentage change right there you
+[49:44] using percentage change right there you know what I mean or whatever right and
+[49:46] know what I mean or whatever right and or is it billion or million are we sure
+[49:49] or is it billion or million are we sure you know like that kind of thing and
+[49:51] you know like that kind of thing and there isn't like a centralized process
+[49:54] there isn't like a centralized process for that we have editors and copy
+[49:56] for that we have editors and copy editors and people who go over
+[49:57] editors and people who go over everything really carefully but there's
+[49:59] everything really carefully but there's not like a numbers editor who looks at
+[50:01] not like a numbers editor who looks at every number in the paper that's managed
+[50:03] every number in the paper that's managed kind of on a story by story basis and so
+[50:06] kind of on a story by story basis and so that we don't could be exhausting if I
+[50:10] that we don't could be exhausting if I did be honest
+[50:11] did be honest thank you okay I have a few lotto
+[50:15] thank you okay I have a few lotto tickets left
+[50:28] yeah I'm trying to think of a fair way
+[50:31] yeah I'm trying to think of a fair way to give these out what's that okay yeah
+[50:36] to give these out what's that okay yeah we could use them right definitely true
+[50:40] how about if you come up to me
+[50:42] how about if you come up to me afterwards and tell you tell me about an
+[50:44] afterwards and tell you tell me about an LA Times story you read recently proving
+[50:46] LA Times story you read recently proving you've read it I'll give you a lotto
+[50:47] you've read it I'll give you a lotto ticket okay thank you
+[50:51] ticket okay thank you [Applause]

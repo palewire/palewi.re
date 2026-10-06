@@ -16,15 +16,25 @@ describe("production route plan", () => {
     ];
     const routes = routePlan;
 
-    expect(routes).toHaveLength(37);
-    expect(new Set(routes)).toHaveLength(37);
+    expect(routes).toHaveLength(36);
+    expect(new Set(routes)).toHaveLength(36);
     expect(routes).not.toContain("palewi.re/*");
     expect(routes.every((route) => route.endsWith("*") && !route.slice(0, -1).includes("*"))).toBe(true);
     for (const path of productionCases) {
       expect(routes.some((route) => routeMatches(new URL(`https://palewi.re${path}?source=test`), route)), path).toBe(true);
     }
     expect(routes.some((route) => routeMatches(new URL("https://mastodon.palewi.re/feed/"), route))).toBe(false);
-    for (const path of ["/who-is-ben-welsh/", "/work/", "/talks/", "/docs/", "/bots/", "/posts/2026/08/24/current-post/"]) {
+    for (const path of [
+      "/who-is-ben-welsh/",
+      "/apps/",
+      "/clips/",
+      "/code/",
+      "/guides/",
+      "/talks/",
+      "/docs/",
+      "/bots/",
+      "/posts/2026/08/24/current-post/",
+    ]) {
       expect(routes.some((route) => routeMatches(new URL(`https://palewi.re${path}`), route)), path).toBe(false);
     }
   });

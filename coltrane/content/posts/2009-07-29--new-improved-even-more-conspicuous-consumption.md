@@ -5,7 +5,7 @@ published_at: '2009-07-29T09:42:08-07:00'
 ---
 <p>This morning I added Readernaut support, with <a href="http://readernaut.com/palewire/">the latest books I post</a> syncing and republishing here.</p>
 
-<p>The system works almost identically to the other services, with a slightly different database structure. The Book model in my Django system inherits from an abstract model that is common to all of the third-party data like Flickr and Twitter. That helps simplify the code and ensure a baseline consistency so that I can reliably expect each data set to slot into the <a href="/ticker/page/1/">sitewide ticker</a>.</p>
+<p>The system works almost identically to the other services, with a slightly different database structure. The Book model in my Django system inherits from an abstract model that is common to all of the third-party data like Flickr and Twitter. That helps simplify the code and ensure a baseline consistency so that I can reliably expect each data set to slot into the sitewide ticker.</p>
 
 <p>Here's a taste. You can find <a href="http://github.com/palewire/palewire.com/tree/master">the whole codebase on github.</a></p>
 

@@ -1,0 +1,565 @@
+WEBVTT
+
+00:00.000 --> 00:07.000
+Alright, cool. So I work at the LA Times. My name is Ben Welsh, and I need to get this on the big screen.
+
+00:07.000 --> 00:11.000
+Let's see. I think that'll do it.
+
+00:15.000 --> 00:19.000
+Ooh, and it's too big. Linux.
+
+00:19.000 --> 00:21.000
+Alright, we'll get by.
+
+00:21.000 --> 00:26.000
+So, my name's Ben Welsh. I work at a team called the Data Desk at the Los Angeles Times.
+
+00:26.000 --> 00:30.000
+And my talk is called Human Assisted Reporting.
+
+00:30.000 --> 00:34.000
+How to Create Robot Reporters in Your Own Image.
+
+00:34.000 --> 00:36.000
+That's not clear right there.
+
+00:36.000 --> 00:42.000
+And so, I come from, I was trained in a tradition of journalism which is called Computer Assisted Reporting.
+
+00:42.000 --> 00:50.000
+It's decades old. The whole idea is that we can be more efficient and do cooler and better investigative reporting by using computers.
+
+00:50.000 --> 00:54.000
+This is an idea that's not new. It's been around for a long time, and the name kind of tells you that.
+
+00:54.000 --> 01:03.000
+My joke always is that everyone's computer-assisted now.
+
+01:03.000 --> 01:08.000
+Photographers, architects, pretty much any job you need to do, you use a computer.
+
+01:08.000 --> 01:12.000
+But you don't call it a computer-assisted architect or a computer-assisted reporter.
+
+01:12.000 --> 01:18.000
+It's only in journalism that we continue to distinguish ourselves with the use of Microsoft Excel.
+
+01:19.000 --> 01:22.000
+But anyway, so it's a spin on that term is what I want to talk about today.
+
+01:22.000 --> 01:26.000
+It's this whole idea of computer-assisted reporting and thinking about it differently.
+
+01:26.000 --> 01:32.000
+And all the URLs and everything I talk about are going to be available right here on Delicious.
+
+01:32.000 --> 01:37.000
+So, it's just L-A-T-M-S slash robot reporters.
+
+01:37.000 --> 01:43.000
+And so, in my opinion, this is how computer-assisted reporting works today. In an image.
+
+01:43.000 --> 01:50.000
+So, your editor or you, the reporter, have an idea, something out in the world that you want to investigate and get to the bottom of.
+
+01:50.000 --> 01:54.000
+You pick up your weapon, your computer, and you go out hunting for it.
+
+01:54.000 --> 01:57.000
+And that's the way that most computer-assisted reporting gets done.
+
+01:57.000 --> 02:04.000
+People already kind of have an idea or a field or a data set or something they want to hunt, and they go out and look for it.
+
+02:04.000 --> 02:12.000
+And the idea that I kind of want to put out there as an alternative metaphor or way of thinking about what we do is this.
+
+02:12.000 --> 02:18.000
+Which is from the movie Minority Report, which I love. And it says how it ought to be at the bottom there.
+
+02:18.000 --> 02:25.000
+And in this scene, there's these robotic spiders that are able to crawl all over and do an operation on Tom Cruise.
+
+02:25.000 --> 02:31.000
+And I think that if we can up our game and what we do in computer-assisted reporting, we don't have to go out hunting for the story.
+
+02:31.000 --> 02:36.000
+The computer can go hunt for it for us and bring it back to us.
+
+02:36.000 --> 02:38.000
+And where are we while that's all happening?
+
+02:38.000 --> 02:45.000
+We're back at the bar with Cary Grant, our editor, talking about the next story, but also enjoying a drink.
+
+02:45.000 --> 02:52.000
+And this is a shot from the movie His Girl Friday, which if you haven't seen, do yourself a favor tonight.
+
+02:52.000 --> 03:01.000
+And this idea first kind of came to me when I saw a website right here, which was created by Matt Waite, who's a leader in our field, now a professor at Nebraska.
+
+03:01.000 --> 03:05.000
+And he's famous for the website PolitiFact, but he made a lot of other sites in St. Pete.
+
+03:05.000 --> 03:09.000
+And this is one that's kind of gone now that he did about real estate.
+
+03:09.000 --> 03:13.000
+And it had a page for every neighborhood in Tampa Bay or the Tampa area.
+
+03:13.000 --> 03:15.000
+And there was a map, which is now dead.
+
+03:15.000 --> 03:17.000
+This is from the Internet Archive.
+
+03:17.000 --> 03:19.000
+I had to kind of, you know, pry this out.
+
+03:19.000 --> 03:21.000
+And it had the latest home listings and a list.
+
+03:21.000 --> 03:24.000
+And then it had this paragraph right there.
+
+03:24.000 --> 03:29.000
+And I read this paragraph, and it was what Matt calls a mad lip, right?
+
+03:29.000 --> 03:38.000
+It was an automated paragraph written by an algorithm that said, based on this week's data in this neighborhood, here's the story, right?
+
+03:38.000 --> 03:43.000
+And for every neighborhood and every page, there was this same paragraph, but it had different information.
+
+03:43.000 --> 03:46.000
+And it was up or down, depending on the trend in that area.
+
+03:46.000 --> 03:49.000
+And I saw that, and I said, my God, that's news, right?
+
+03:49.000 --> 03:52.000
+That's not even, you know, it's like an automated news story.
+
+03:52.000 --> 03:57.000
+And that kind of inspired me to think about what I was doing in a different way.
+
+03:57.000 --> 04:02.000
+And at the Los Angeles Times, I've spent some time over the last few years experimenting with that.
+
+04:02.000 --> 04:08.000
+And I want to kind of show you how that process works and how you can create algorithms that write the news for you, right?
+
+04:08.000 --> 04:10.000
+And also find it, right?
+
+04:10.000 --> 04:16.000
+So what I'm going to do is teach you how to Dougie, right?
+
+04:16.000 --> 04:17.000
+So, all right, so let's go.
+
+04:17.000 --> 04:18.000
+Here's how you Dougie.
+
+04:18.000 --> 04:26.000
+Okay, one, you find a simple, repetitive, and moving data stream that updates every day or with some frequency, right?
+
+04:26.000 --> 04:27.000
+Like home sales.
+
+04:27.000 --> 04:36.000
+In this case, this is an email that I receive with a list of blacked out other people every morning from the Los Angeles Police Department at about 2.30 in the morning.
+
+04:36.000 --> 04:43.000
+And it includes a CSV file spreadsheet that has everyone arrested the previous day and booked by the LAPD.
+
+04:43.000 --> 04:51.000
+Right, so I have my structured, simple, repetitive, moving data stream that lands in my inbox every day, right?
+
+04:51.000 --> 04:56.000
+I then do a pull and a parse, and then I put it on loop, right?
+
+04:56.000 --> 05:05.000
+So I write a script that goes into my inbox every day, looks for that email, looks for that attachment, pulls it in, parses it, loads it into a database.
+
+05:05.000 --> 05:08.000
+And then I set up a system so that that just runs every day.
+
+05:08.000 --> 05:12.000
+It's just an automated data pull, right?
+
+05:12.000 --> 05:24.000
+Then I can, through, this is where the fun part comes in, the algorithm, that you can then write code that will ask and answer the common questions that a reporter would ask when they were looking at that same data set.
+
+05:24.000 --> 05:35.000
+There's so much of what we do, these questions we ask, what was the biggest, what was the most recent, these sort of basic journalistic questions we ask out of data that really can be turned into algorithms or code when you think about it.
+
+05:35.000 --> 05:41.000
+And these are just some examples that I was, you know, that I thought of looking at this data set, right?
+
+05:41.000 --> 05:44.000
+And so how, and then that can turn itself into code, right?
+
+05:44.000 --> 05:48.000
+So is this the first code of the conference?
+
+05:48.000 --> 05:50.000
+Right? If it is, I'm pretty proud.
+
+05:50.000 --> 05:57.000
+So this is an example of, like, you know, every day you would want to know, hey, what were the most severe things that people got arrested for yesterday?
+
+05:57.000 --> 05:58.000
+What were the biggest deals?
+
+05:58.000 --> 06:01.000
+And a proxy for that in the data is what their bail amount was set for.
+
+06:01.000 --> 06:05.000
+You know, the worst thing you did, the higher your bail, most likely, right?
+
+06:05.000 --> 06:16.000
+So this is just a little bit of code that every day goes through that spreadsheet, sorts it by from bail from highest to lowest, slices it off and says, hey, I've got the list of the biggest bails, right?
+
+06:16.000 --> 06:17.000
+And what do I do with that?
+
+06:17.000 --> 06:23.000
+Oh, I send it out in an email to all the reporters who cover the police in crime for the L.A. Times, right?
+
+06:23.000 --> 06:26.000
+And we don't just get the list of the biggest bails and send them that.
+
+06:26.000 --> 06:27.000
+We also keep a watch list, right?
+
+06:27.000 --> 06:36.000
+We want to know any time anyone who's a minister or a producer or a musician in their occupation field gets arrested, and that gets flagged, right?
+
+06:36.000 --> 06:44.000
+So instead of having to comb through this book every day as a reporter and spend all their time doing it, the computer can automate a lot of that process, right?
+
+06:44.000 --> 06:47.000
+And do it for you, and then send you in a nice email.
+
+06:47.000 --> 06:49.000
+You can see that's like an alert.
+
+06:49.000 --> 06:51.000
+You also could make, like, a dashboard to drill down.
+
+06:51.000 --> 06:56.000
+This is an internal web page we keep at the L.A. Times that just has everybody arrested yesterday.
+
+06:56.000 --> 07:03.000
+But it also has some search features, so when someone is arrested for a major crime, we can go look for previous arrests, et cetera, et cetera.
+
+07:03.000 --> 07:07.000
+It's a research tool internally for us to use.
+
+07:07.000 --> 07:14.000
+And this is an example of another piece of code that then takes, like, a structured data set like that and turns it into a sentence, right?
+
+07:14.000 --> 07:19.000
+Where, you know, it sort of diagnoses certain things about the data and then writes a mad lib, right?
+
+07:19.000 --> 07:21.000
+It's a little sentence that kind of tells you something about it.
+
+07:21.000 --> 07:22.000
+This actually isn't crime.
+
+07:22.000 --> 07:27.000
+This is census data that we did for a neighborhood site we keep, and it wrote this sentence.
+
+07:27.000 --> 07:37.000
+So for every neighborhood in Los Angeles, we can write a sentence that tells you one, the data point that's interesting to you, and some contextual comparison along with it that links to other stuff, right?
+
+07:37.000 --> 07:45.000
+And so that way, I wrote, you know, 250 of those by writing it once with a template.
+
+07:45.000 --> 07:47.000
+So, but really, what do you get out of doing this sort of thing, right?
+
+07:47.000 --> 07:49.000
+Well, one, you get breaking news, right?
+
+07:49.000 --> 07:52.000
+So this is an example where Puck from the real world was arrested.
+
+07:52.000 --> 07:58.000
+Not the biggest deal, but we scooped TMZ and had the news first in the world because the alert system caught it, right?
+
+07:58.000 --> 08:02.000
+We're watching closely through computer programming.
+
+08:02.000 --> 08:04.000
+Two, it's a way around PIOs.
+
+08:04.000 --> 08:08.000
+One of the biggest crimes in Los Angeles last year was on opening day of the Dodgers season.
+
+08:08.000 --> 08:17.000
+A man was brutally beaten, a San Francisco Giants fan, and he quickly became a symbol for the decay of the Dodgers organization and our former team owner, Frank McCourt.
+
+08:18.000 --> 08:20.000
+And the police arrested the wrong guy the first time.
+
+08:20.000 --> 08:21.000
+They screwed it up.
+
+08:21.000 --> 08:24.000
+And when they arrested the first guy, there was a big press conference.
+
+08:24.000 --> 08:26.000
+Oh, man, everybody's got to know, right?
+
+08:26.000 --> 08:27.000
+We got the guy.
+
+08:27.000 --> 08:29.000
+Well, it turns out it wasn't the guy.
+
+08:29.000 --> 08:33.000
+And when they finally find the people who really did it, they tried to kind of hide who they were arresting.
+
+08:33.000 --> 08:37.000
+There was like this, they didn't want to tell the media right away who they were going to go busting.
+
+08:37.000 --> 08:38.000
+But I had the data.
+
+08:38.000 --> 08:40.000
+I didn't have to ask the PIO.
+
+08:40.000 --> 08:41.000
+It was in my system.
+
+08:41.000 --> 08:46.000
+It arrived at two in the morning, and we were the first reporters knocking on those neighbors' doors, figuring out who these guys were.
+
+08:46.000 --> 08:50.000
+Because the system got us a step ahead, right?
+
+08:50.000 --> 08:52.000
+You also get instant analysis.
+
+08:52.000 --> 08:56.000
+So Occupy LA was camped out across in the LA Times for three months.
+
+08:56.000 --> 09:01.000
+There was like a three-day standoff with the police where they came and cracked down and rolled everybody out.
+
+09:01.000 --> 09:09.000
+When they did the big arrests, a couple hundred people were able to instantly do a census of all the people that were arrested and tell you something about them using this data.
+
+09:09.000 --> 09:14.000
+We actually published a list of all the people who were arrested and some other things about them that were in there.
+
+09:14.000 --> 09:15.000
+You get the automated copy.
+
+09:15.000 --> 09:21.000
+This is from our blog, The Homicide Report, where we try to track every homicide that happens in Los Angeles County.
+
+09:21.000 --> 09:23.000
+You have a post for every person.
+
+09:23.000 --> 09:30.000
+We don't have enough resources to do a lot of reporting on all of that, but certain amounts of information based on the coroner's data can be automated.
+
+09:30.000 --> 09:31.000
+And then we write that.
+
+09:31.000 --> 09:34.000
+That's the bare minimum for every post, is the automated paragraph.
+
+09:34.000 --> 09:40.000
+And then as we gather more information, we then write through that and add more to it.
+
+09:40.000 --> 09:41.000
+Right?
+
+09:41.000 --> 09:42.000
+This is a similar thing we do.
+
+09:42.000 --> 09:48.000
+This is an automated blog post written by the computer that runs a couple times a week when we get new LAPD crime data.
+
+09:48.000 --> 09:57.000
+It analyzes it for trends, and it tells you what neighborhoods in Los Angeles this most recent week have had in having an uptick in crime historically.
+
+09:57.000 --> 09:58.000
+Right?
+
+09:58.000 --> 10:03.000
+And here's another thing from our crime site where it's all automated news.
+
+10:03.000 --> 10:04.000
+Same thing with earthquakes.
+
+10:04.000 --> 10:06.000
+My colleague Ken Schwenke did this.
+
+10:06.000 --> 10:09.000
+When an earthquake happens, everybody's going to the USGS site, copying and pasting.
+
+10:09.000 --> 10:10.000
+Where's the link?
+
+10:10.000 --> 10:11.000
+Fuck, I can't find it.
+
+10:11.000 --> 10:12.000
+Where is it?
+
+10:12.000 --> 10:13.000
+Ah!
+
+10:13.000 --> 10:15.000
+We don't got to do that.
+
+10:15.000 --> 10:16.000
+It's structured data.
+
+10:16.000 --> 10:18.000
+We have a computer system that just sits.
+
+10:18.000 --> 10:19.000
+Uh-oh.
+
+10:19.000 --> 10:20.000
+I better hurry.
+
+10:20.000 --> 10:27.000
+So we have a computer system that just automatically writes a blog post and sends it in as soon as it happens.
+
+10:27.000 --> 10:30.000
+Anyway, there's a lot of other stuff you can do this with, which would be fun.
+
+10:30.000 --> 10:34.000
+There's companies that are trying to make money off it, like Narrative Science is really good.
+
+10:34.000 --> 10:35.000
+They do some awesome stuff.
+
+10:35.000 --> 10:36.000
+I'm just making news.
+
+10:36.000 --> 10:37.000
+They're trying to make money.
+
+10:37.000 --> 10:38.000
+Who's smarter?
+
+10:38.000 --> 10:39.000
+Um...
+
+10:39.000 --> 10:42.000
+I'm out of juice, right?
+
+10:42.000 --> 10:48.000
+And so I had a big finish to try to make a more serious point and kind of talk a little trash.
+
+10:48.000 --> 10:49.000
+I'm sad I won't going to make it.
+
+10:49.000 --> 10:53.000
+But that Narrative Science guy, the next slide was a quote that he delivered to the New York Times
+
+10:53.000 --> 10:59.000
+where he said, in full visionary startup, I am the future mode, right?
+
+10:59.000 --> 11:04.000
+He said, within five years, a computer program will win the Pulitzer Prize.
+
+11:04.000 --> 11:07.000
+And I'll be damned if it's not my software.
+
+11:07.000 --> 11:08.000
+Right?
+
+11:08.000 --> 11:11.000
+Well, I hate to break it to him, but guess what?
+
+11:11.000 --> 11:14.000
+Computer programs have already won the Pulitzer Prize.
+
+11:14.000 --> 11:19.000
+They've won a half dozen of them, starting in 1989 with Bill Dedmon's story in Atlanta.
+
+11:19.000 --> 11:20.000
+Right?
+
+11:20.000 --> 11:21.000
+Color of money.
+
+11:21.000 --> 11:22.000
+Color of money, that's right.
+
+11:22.000 --> 11:30.000
+And my point is, is that what we should really strive for is not just to automate for automation's sake
+
+11:30.000 --> 11:34.000
+or to save money, but what will really be great is if we can automate and make it easier
+
+11:34.000 --> 11:37.000
+and lower the barrier to do the kind of work that wins the Pulitzer Prize.
+
+11:37.000 --> 11:42.000
+That's already been done by people that come before us, and we need to be respectful
+
+11:42.000 --> 11:45.000
+and see what's in that tradition that's worth saving and worth automating
+
+11:45.000 --> 11:50.000
+and worth making more efficient rather than just throwing it out, acting like it doesn't exist.
+
+11:50.000 --> 11:53.000
+Because, you know, I work at an old line media institution.
+
+11:53.000 --> 11:55.000
+I complain about it every day.
+
+11:55.000 --> 11:56.000
+It drives me nuts.
+
+11:56.000 --> 12:03.000
+But there's also a hubris in the startup community around this idea that, you know,
+
+12:04.000 --> 12:07.000
+that they don't need to learn anything from the past.
+
+12:07.000 --> 12:09.000
+So there's nothing worth saving about journalism.
+
+12:09.000 --> 12:11.000
+There's a lot worth saving, and there's a lot worth doing.
+
+12:11.000 --> 12:13.000
+And we're the people who are going to do it.
+
+12:13.000 --> 12:15.000
+I'm getting emotional.
+
+12:15.000 --> 12:20.000
+But it's just, you know, okay, some old newspaper guy didn't like your blog.
+
+12:20.000 --> 12:22.000
+Get over it.
+
+12:22.000 --> 12:24.000
+Write a story that's worth reading.
+
+12:24.000 --> 12:26.000
+Write a story that's worth Brian's mom reading.
+
+12:26.000 --> 12:28.000
+That's how I can do it.
+
+12:28.000 --> 12:29.000
+I'm done.
+
+12:29.000 --> 12:31.000
+All right.

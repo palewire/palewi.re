@@ -1,21 +1,22 @@
 {% extends "coltrane/base.html" %}
 
 {% block title %}talks . {{ block.super }}{% endblock %}
+{% block description %}Recordings, slides and other materials from my public-speaking appearances.{% endblock %}
 
 {% block canonicalurl %}https://palewi.re/talks/{% endblock %}
 
 {% block ogtitle %}talks{% endblock %}
 {% block ogtype %}website{% endblock %}
 {% block ogurl %}https://palewi.re/talks/{% endblock %}
-{% block ogdescription %}A selection of recordings, slides and other materials from my public-speaking appearances.{% endblock %}
+{% block ogdescription %}Recordings, slides and other materials from my public-speaking appearances.{% endblock %}
 
 {% block twittertitle %}talks{% endblock %}
-{% block twitterdescription %}A selection of recordings, slides and other materials from my public-speaking appearances.{% endblock %}
+{% block twitterdescription %}Recordings, slides and other materials from my public-speaking appearances.{% endblock %}
 {% block twitterurl %}https://palewi.re/talks/{% endblock %}
 
 {% block googleurl %}https://palewi.re/talks/{% endblock %}
 {% block googleheadline %}talks{% endblock %}
-{% block googledescription %}A selection of slides and videos from my public-speaking appearances.{% endblock %}
+{% block googledescription %}Recordings, slides and other materials from my public-speaking appearances.{% endblock %}
 {% block googlecreated %}2019-11-10T00:00:00{% endblock %}
 {% block googlepublished %}2019-11-10T00:00:00{% endblock %}
 {% block googletype %}CollectionPage{% endblock %}
@@ -47,24 +48,30 @@
     <div class="interiorlist applist twelvecol last">
         <h1>Talks</h1>
         <p class="description">
-            A selection of recordings, slides and other materials from my public-speaking appearances.
+            Recordings, slides and other materials from my public-speaking appearances
         </p>
 
+        {% if object_list %}
+        <section>
         {% for object in object_list %}
             {% ifchanged object.date.year %}
+            {% if not forloop.first %}</ul>{% endif %}
             <div class="row">
-                <div class="section-hed twelvecol last">
+                <h2 class="section-hed twelvecol last">
                     {{ object.date|date:"Y" }}
-                </div>
+                </h2>
             </div>
+            <ul class="catalog-list">
             {% endifchanged %}
-            <div class="row">
+            <li class="row">
                 <article class="listitem twelvecol last">
-                    {{ object.date|date:"N" }} •
-                    “{{ object.title }}” at {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}
-                    {% if object.video_url or object.slides_url %}({% if object.video_url %}<a target="_blank" href="{{ object.video_url }}">Video &raquo;</a>{% if object.slides_url %} {% endif %}{% endif %}{% if object.slides_url %}<a target="_blank" href="{{ object.slides_url }}">Materials &raquo;</a>{% endif %}){% endif %}
+                    <time datetime="{{ object.date|date:"Y-m-d" }}">{{ object.date|date:"N" }}</time> •
+                    {% if object.slug %}<a href="{{ object.get_absolute_url }}">{% elif object.guide_url %}<a href="{{ object.guide_url }}">{% endif %}“{{ object.title }}”{% if object.slug or object.guide_url %}</a>{% endif %} at {{ object.venue }}{% if object.location %} in {{ object.location }}{% endif %}
                 </article>
-            </div>
+            </li>
         {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
     </div>
-{% endblock %}
+    {% endblock %}

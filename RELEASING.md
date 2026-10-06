@@ -42,8 +42,9 @@ Use semantic version numbers:
   as `v3.0.0`.
 
 The first recorded release is tagged `v2`. Treat it as `v2.0.0` when choosing
-the next version. Do not update the version in `pyproject.toml`; that describes
-the local Python project, not the deployed website.
+the next version. The next major site upgrade will be `v3.0.0`. Do not update
+the version in `pyproject.toml`; that describes the local Python project, not
+the deployed website.
 
 ## Release checklist
 

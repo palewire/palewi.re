@@ -1,0 +1,324 @@
+Bare Facts First
+How Reuters uses Datawrapper
+to create, automate and disseminate
+hundreds of charts each week
+Who I am
+I’m Ben Welsh.
+
+I joined Reuters in 2023 after 15
+years leading data projects at
+the Los Angeles Times.
+
+I’m helping our team create
+more of what we call “news
+applications.”
+What is Reuters?
+❖ Founded in 1851, Reuters is the world’s
+  largest international multimedia news
+  provider.
+
+❖ Each day 2,500 journalists in nearly 200
+  locations around the globe produce news in
+  16 languages.
+
+❖ Financial professionals receive exclusive
+  news and data from Reuters via the LSEG
+  terminal.
+
+❖ More than 2,000 newsrooms republish our
+  work via a wire service.
+
+❖ Breaking news, analysis and special reports
+  are available for free on reuters.com.
+
+❖ A legally binding vow requires we uphold
+  trust principles valuing independence,
+  integrity and freedom from bias.
+Our mission
+❖ Breaking news was at the core from the
+  beginning.
+
+❖ An 1883 memo spelled out the London
+  office’s expectations for correspondents.
+
+❖ At that time, stories were sent by telegram.
+
+❖ The editors asked “that the bare fact be ﬁrst
+  telegraphed with the utmost promptitude.”
+What you’re in for
+❖ How Datawrapper charts created by
+  Reuters staff are distributed to the world
+
+❖ How we extended that system to automate
+  routine charts
+
+❖ Your questions
+Before Datawrapper
+❖ High-caliber graphics team
+  spread thin by requests for
+  simple charts
+
+❖ Too many good charts not
+  getting made due to backlog
+
+❖ Zero-sum competition between
+  simple stuff and ambitious
+  enterprise
+
+❖ Frustrated reporters
+  bootlegging charts with trashy
+  tools
+The requirements in theory
+
+
+     Self-hosted and embeddable HTML
+
+
+
+
+     Raster and vector images
+
+
+
+
+      Editable source code
+
+
+
+
+      Light and dark modes
+Hooking up
+Datawrapper’s custom
+webhooks will send a ping after
+you publish or unpublish a
+chart.
+It passes along the unique
+identiﬁer of the chart that’s
+been edited.
+Jon McClure wrote code that
+that picks up published charts
+and moves them into Reuters
+systems.
+What that looks like
+
+
+          API
+Custom ﬁelds come in handy
+
+ API
+The requirements in practice
+Teams too
+
+
+
+
+    ✨Bonus: Need a Teams klaxon? Ours is free!
+     reuters-graphics.github.io/teams-klaxon/
+After Datawrapper
+❖ We have an end-to-end
+  pipeline to deliver any
+  Datawrapper chart
+❖ McClure’s team has trained
+  800+ reporters and editors
+❖ Reporters can publish charts
+  on their “patch”
+❖ Graphics staff ﬁelding far
+  fewer requests
+Text is automated
+When Ben arrived at Reuters, he
+learned it already had a text
+automation system.
+
+It’s called Lynx Insight. It ﬁts
+data to pre-deﬁned templates
+using carefully tailored logic.
+
+This story is ﬁled immediately
+after new US employment
+numbers are released each
+month.
+Why not graphics?
+The graphics department head,
+Matt Weber, long wanted to
+automate graphics too.
+
+As with Lynx Insight, it could
+boost speed, increase volume
+and allow highly-skilled talent
+to focus on higher-skill work.
+
+So Ben set out to try.
+Feeding the funnel
+Ben learned how Jon’s
+distribution tools work.
+
+His life ﬂashed before his eyes.
+
+Jon’s ingestion system for
+Datawrapper was, in the
+metaphorical parlance of Ben’s
+tronc overlords, a funnel.
+
+Ben just needed to ﬁgure out
+how to feed it.
+Enter the API
+APIs allow programmers to
+access online services with
+code.
+
+Datawrapper’s API allows users
+to automatically generate
+charts and maps.
+
+All Ben had to do was send
+instructions over the web with a
+special access token.
+Python is cool
+Sergio Sánchez Zavala created
+an open-source package that
+lets you access the API using
+the Python programming
+language.
+
+If you know Python, it’s easy to
+use.
+
+Ben knew Python.
+Our advantage
+Reuters is the exclusive news
+provider for LSEG, a ﬁnancial
+service that competes with the
+infamous Bloomberg Terminal.
+
+That means we have access to
+a high-quality, rapidly updating
+feed of newsmaking numbers.
+
+It’s the top source for Reuters
+graphics, but reporters have to
+claw out data ﬁles and paste
+them into Datawrapper.
+
+That’s slow.
+Another API
+Ben learned that the LSEG
+system also offers an API.
+
+He found its open-source
+Python package.
+
+He got excited.
+The missing link
+Ben realized that Python code
+could download data from
+LSEG’s API and then upload
+charts to Datawrapper’s API.
+
+All he needed was an “ETL”
+pipeline that connected the two
+systems.
+
+So he wrote it.
+The pipeline in theory
+The pipeline in reality
+For example
+Here is Python code that —
+using a set of custom ETL
+helpers — creates a line chart of
+the unemployment rate.
+
+It’s just one small snippet within
+a large system, but it shows the
+basic bits needed for each chart
+template.
+Actions as platform
+The system is run via Actions,
+the powerful task runner
+included with GitHub.
+
+Yes, Actions is the production
+environment.
+
+Yes, it works.
+
+Yes, it’s virtually free.
+
+Yes, you should do this.
+Down the funnel
+After an Action makes a new
+chart via the Datawrapper API,
+Jon’s system picks it up and
+does the rest.
+
+The templated charts drop into
+our graphics pool, just like the
+custom charts made by our
+staff.
+Speed wins
+The result is that when a
+newsmaking number hits LSEG,
+an automated chart can be
+ready in minutes.
+
+We’re seeing our charts land
+even faster than our text
+stories.
+Scary scale
+The templates can easily be
+extended to sibling data series.
+
+This allows our system to scale
+far beyond what any human
+could do.
+
+A powerful example is our bar
+chart template for corporate
+earnings reports.
+
+It can instantly make a chart for
+each of the thousands of stocks
+tracked by LSEG.
+Freedom rings
+Ally Levine had to log on early
+on Fridays to manually make
+that unemployment rate chart.
+
+Now the robot does the work.
+
+Ally gets to sleep in and do
+things like this instead.
+Putting up numbers
+We’ve been up and running for a
+little more than six months.
+
+Thus far, we have nearly 60
+templates, including a few that
+branch out beyond LSEG and
+Datawrapper.
+
+All told we’ve pushed through
+roughly 25,000 charts.
+Merging back
+Ben teamed up with Sergio to
+expand and improve the
+Datawrapper package for
+Python.
+
+It now covers 100% of API
+features.
+Python API code in reality
+Python API code in theory
+You must learn
+Ben and Sergio created a
+tutorial that shows newbies
+how to use the Datawrapper API
+with Python.
+
+It was a standing-room only
+event at the recent NICAR
+conference in Baltimore.
+
+It’s fully scripted and free to all
+on Ben’s website.
+Thank you!
+Slides available at bit.ly/bff-dvs

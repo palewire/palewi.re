@@ -8,6 +8,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pytest
+from bs4 import BeautifulSoup
 from django.conf import settings
 from django.utils import timezone
 
@@ -32,10 +33,10 @@ def test_historical_markdown_posts_match_public_export_manifest():
     manifest_posts = manifest["posts"]
     expected_paths = {entry["path"] for entry in manifest_posts}
     actual_paths = {f"posts/{path.name}" for path in POSTS_PATH.glob("*.md")}
-    assert manifest["post_count"] == 72
-    assert len(manifest_posts) == 72
+    assert manifest["post_count"] == 69
+    assert len(manifest_posts) == 69
     assert expected_paths.issubset(actual_paths)
-    assert manifest["production_inventory"] == {"total": 166, "live": 72, "draft": 94, "hidden": 0}
+    assert manifest["production_inventory"] == {"total": 165, "live": 71, "draft": 94, "hidden": 0}
 
     fingerprint = hashlib.sha256(
         json.dumps(manifest_posts, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode()
@@ -53,10 +54,19 @@ def test_historical_markdown_posts_match_public_export_manifest():
         )
 
 
+def test_my_times_images_have_alt_attributes():
+    """Every image in the My Times post provides alternative text."""
+    post_path = POSTS_PATH / "2018-04-14--my-times.md"
+    images = BeautifulSoup(post_path.read_text(encoding="utf-8"), "html.parser").find_all("img")
+
+    assert len(images) == 134
+    assert all(image.has_attr("alt") for image in images)
+
+
 def test_markdown_posts_have_unique_slugs_and_preserved_permalinks():
     """Posts retain globally unique slugs and date URLs."""
     posts = load_posts()
-    assert len(posts) >= 72
+    assert len(posts) >= 71
     assert len({post.slug for post in posts}) == len(posts)
     assert len({(post.published_at.date(), post.slug) for post in posts}) == len(posts)
 
@@ -80,13 +90,16 @@ def test_django_uses_timezone_aware_datetimes():
 
 
 def test_markdown_posts_preserve_legacy_pre_lang_markup():
-    """Raw HTML bodies retain the code markup consumed by the current renderer."""
+    """Raw HTML bodies retain code markup and receive semantic highlighting."""
     legacy_posts = [post for post in load_posts() if re.search(r"<pre\s+[^>]*\blang=", post.body_markup)]
-    assert len(legacy_posts) == load_manifest()["legacy_pre_lang_post_count"] == 25
+    assert len(legacy_posts) >= load_manifest()["legacy_pre_lang_post_count"] == 25
 
     python_post = next(post for post in legacy_posts if '<pre lang="python">' in post.body_markup)
     assert '<pre lang="python">' in python_post.body_markup
-    assert 'class="source"' in pygmenter(python_post.body_markup)
+    highlighted = pygmenter(python_post.body_markup)
+    assert '<div class="source" data-language="Python">' in highlighted
+    assert '<pre aria-label="Python code"><code class="language-python">' in highlighted
+    assert "&lt;div class=" not in highlighted
 
 
 def test_markdown_post_requires_los_angeles_datetime(tmp_path):

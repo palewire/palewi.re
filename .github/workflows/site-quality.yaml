@@ -81,8 +81,10 @@ jobs:
           urls: |
             https://palewi.re/who-is-ben-welsh/
             https://palewi.re/posts/
-            https://palewi.re/work/
+            https://palewi.re/clips/
+            https://palewi.re/apps/
+            https://palewi.re/code/
+            https://palewi.re/guides/
             https://palewi.re/talks/
-            https://palewi.re/docs/
             https://palewi.re/posts/2025/05/21/ire-podcast-transcript/
           uploadArtifacts: true

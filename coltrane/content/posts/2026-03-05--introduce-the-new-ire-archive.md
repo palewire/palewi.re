@@ -1,5 +1,5 @@
 ---
-title: The New IRE Archive
+title: The new IRE archive
 slug: introduce-the-new-ire-archive
 published_at: '2026-03-05T03:00:08-08:00'
 repr_image: https://palewi.re/static/img/introduce-the-new-ire-archive.png

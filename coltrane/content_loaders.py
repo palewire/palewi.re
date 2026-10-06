@@ -13,21 +13,43 @@ Edit the appropriate file under ``coltrane/content/``:
   Optional fields: ``url`` (str), ``year`` (int).
   Ordering: ``-year``, then ``title`` (alphabetical).
 
-* ``clips.yaml``   – Work items listed on the /work/ page.
+* ``apps.yaml``    – Standalone apps and services listed on the /apps/ page.
+  Required fields: ``title`` (str), ``type`` (one of ``archiving``, ``bot``,
+  ``database``, ``personal``), ``url`` (HTTP(S) URL, unique).
+  Optional fields: ``description`` (str).
+  Ordering: preserved from file (explicit list order).
+
+* ``clips.yaml``   – Published work records routed by type.
   Required fields: ``title`` (str), ``type`` (one of ``app``,
-  ``lesson-plan``, ``story``, ``software``), ``date`` (YYYY-MM-DD),
+  ``lesson-plan``, ``service``, ``story``, ``software``), ``date`` (YYYY-MM-DD),
   ``url`` (str, unique).
   Optional fields: ``archive_url`` (Wayback snapshot URL),
-  ``archive_exemption`` (reason a snapshot cannot be created).
+  ``archive_exemption`` (reason a snapshot cannot be created), ``link_url``
+  (alternate HTTP(S) destination when the original is no longer served),
+  ``catalog_title`` (matching catalog entry when titles differ).
   Ordering: ``-date``.
 
-* ``talks.yaml``   – Talks listed on the /talks/ page.
+* ``code.yaml``    – Open-source projects grouped and alphabetized on /code/.
+  Required fields: ``title`` (str), ``type`` (one of ``data``, ``python``,
+  ``javascript``, ``other``, ``inactive``), ``url`` (HTTP(S) URL, unique).
+  Optional fields: ``description`` (str).
+
+* ``talks.yaml``   – Talks listed on the /talks/ page and, when a ``slug`` is
+  supplied, published at /talks/<slug>/.
   Required fields: ``title`` (str), ``venue`` (str), ``location`` (str),
   ``date`` (YYYY-MM-DD).
-  Optional fields: ``video_url`` (str), ``slides_url`` (str).
+  Optional fields: ``slug`` (unique URL slug), ``short_title`` (str), ``byline`` (str),
+  ``deck_aspect_ratio`` (positive ``width / height`` ratio),
+  ``video_url`` (str), ``audio_url`` (str), ``audio_download_url`` (str),
+  ``local_video_url`` (str), ``local_audio_url`` (str), ``slides_url`` (str),
+  ``deck_url`` (str), ``pdf_url`` (str),
+  ``notes_url`` (str), ``notes_text_url`` (str), ``transcript_url`` (str),
+  ``transcript_text_url`` (str), ``captions_url`` (str),
+  ``poster_url`` (str), ``original_slides_url`` (str), and
+  ``original_video_url`` (str).
   Ordering: ``-date``.
 
-* ``docs.yaml``    – Documentation listed on the /docs/ page.
+* ``docs.yaml``    – Software listed on /code/ and lessons listed on /guides/.
   Required fields: ``title`` (str), ``type`` (one of
   ``lesson-plan``, ``software``), ``url`` (str, unique).
   Optional fields: ``description`` (str), ``repository_url`` (HTTP(S) URL,
@@ -53,10 +75,11 @@ from __future__ import annotations
 import datetime
 import random
 import re
+from collections.abc import Sequence
 from dataclasses import dataclass
 from functools import cached_property
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -64,7 +87,22 @@ from django.utils import timezone
 
 CONTENT_PATH = Path(__file__).resolve().parent / "content"
 
-CLIP_TYPES = frozenset({"app", "lesson-plan", "story", "software"})
+CLIP_TYPES = frozenset({"app", "lesson-plan", "service", "story", "software"})
+APP_TYPES = frozenset({"archiving", "bot", "database", "personal"})
+APP_TYPE_LABELS = {
+    "archiving": "Archiving",
+    "database": "Databases",
+    "bot": "Social media bots",
+    "personal": "Personal websites",
+}
+CODE_TYPES = frozenset({"data", "inactive", "javascript", "other", "python"})
+CODE_TYPE_LABELS = {
+    "python": "Python",
+    "javascript": "JavaScript",
+    "data": "Data",
+    "other": "Other",
+    "inactive": "Inactive",
+}
 DOC_TYPES = frozenset({"lesson-plan", "software"})
 LOS_ANGELES = ZoneInfo("America/Los_Angeles")
 POST_FRONT_MATTER_FIELDS = frozenset({"title", "slug", "published_at", "repr_image", "wordpress_id"})
@@ -83,6 +121,34 @@ class Award:
 
 
 @dataclass(frozen=True)
+class App:
+    title: str
+    type: str
+    url: str
+    description: str = ""
+
+
+@dataclass(frozen=True)
+class AppCategory:
+    title: str
+    object_list: list[App]
+
+
+@dataclass(frozen=True)
+class CodeProject:
+    title: str
+    type: str
+    url: str
+    description: str = ""
+
+
+@dataclass(frozen=True)
+class CodeCategory:
+    title: str
+    object_list: list[CodeProject]
+
+
+@dataclass(frozen=True)
 class Clip:
     title: str
     type: str
@@ -90,6 +156,17 @@ class Clip:
     url: str
     archive_url: str = ""
     archive_exemption: str = ""
+    catalog_title: str = ""
+    link_url: str = ""
+
+    @property
+    def display_url(self) -> str:
+        return self.link_url or self.url
+
+    @property
+    def is_linkable(self) -> bool:
+        parsed = urlparse(self.display_url)
+        return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
 @dataclass(frozen=True)
@@ -99,7 +176,78 @@ class Talk:
     location: str
     date: datetime.date
     video_url: str = ""
+    local_video_url: str = ""
+    audio_url: str = ""
+    audio_download_url: str = ""
+    local_audio_url: str = ""
     slides_url: str = ""
+    guide_url: str = ""
+    archive_url: str = ""
+    slug: str = ""
+    short_title: str = ""
+    byline: str = ""
+    deck_url: str = ""
+    deck_aspect_ratio: str = ""
+    pdf_url: str = ""
+    notes_url: str = ""
+    notes_template: str = ""
+    notes_text_url: str = ""
+    transcript_url: str = ""
+    transcript_template: str = ""
+    transcript_text_url: str = ""
+    captions_url: str = ""
+    poster_url: str = ""
+    original_slides_url: str = ""
+    original_video_url: str = ""
+
+    def get_absolute_url(self) -> str:
+        """Return the permanent public page for talks that have one."""
+        return f"/talks/{self.slug}/" if self.slug else "/talks/"
+
+    @property
+    def display_subtitle(self) -> str:
+        """Return the full title without a repeated short title."""
+        if self.short_title:
+            prefix = f"{self.short_title}:"
+            if self.title.startswith(prefix):
+                return self.title.removeprefix(prefix).lstrip()
+        return self.title
+
+    @property
+    def local_video_mime_type(self) -> str:
+        """Return the browser MIME type for the hosted video recording.
+
+        Returns:
+            The MIME type matching ``local_video_url``. WebM recordings return
+            ``"video/webm"``; every other recording returns ``"video/mp4"``.
+
+        Examples:
+            A Talk whose local_video_url ends in ``.webm`` returns
+            ``"video/webm"``.
+        """
+        if urlparse(self.local_video_url).path.lower().endswith(".webm"):
+            return "video/webm"
+        return "video/mp4"
+
+    @property
+    def youtube_embed_url(self) -> str:
+        """Return a privacy-enhanced YouTube embed URL when the recording is eligible."""
+        parsed = urlparse(self.video_url)
+        host = parsed.netloc.lower().removeprefix("www.").removeprefix("m.")
+        if host == "youtu.be":
+            video_id = parsed.path.lstrip("/").split("/", maxsplit=1)[0]
+        elif host == "youtube.com":
+            if parsed.path == "/watch":
+                video_id = parse_qs(parsed.query).get("v", [""])[0]
+            elif parsed.path.startswith(("/embed/", "/live/", "/shorts/")):
+                video_id = parsed.path.split("/")[2]
+            else:
+                return ""
+        else:
+            return ""
+        if re.fullmatch(r"[-\w]{11}", video_id) is None:
+            return ""
+        return f"https://www.youtube-nocookie.com/embed/{video_id}"
 
 
 @dataclass(frozen=True)
@@ -199,6 +347,16 @@ def _optional_str(record: dict, field_name: str, path: str) -> str:
     return value
 
 
+def _optional_aspect_ratio(record: dict, field_name: str, path: str) -> str:
+    """Return an optional positive whole-number CSS aspect ratio."""
+    value = _optional_str(record, field_name, path)
+    if not value:
+        return ""
+    if not re.fullmatch(r"[1-9]\d*\s*/\s*[1-9]\d*", value):
+        raise ContentError(f"{path}: record {record!r} field '{field_name}' must be a positive width / height ratio")
+    return value
+
+
 def _optional_http_url(record: dict, field_name: str, path: str, title: str) -> str:
     """Return an optional HTTP(S) URL with doc-specific error context."""
     value = record.get(field_name, "")
@@ -209,6 +367,35 @@ def _optional_http_url(record: dict, field_name: str, path: str, title: str) -> 
     parsed = urlparse(value)
     if value and (parsed.scheme not in {"http", "https"} or not parsed.netloc or any(char.isspace() for char in value)):
         raise ContentError(f"{path}: doc '{title}' {field_name} must be an HTTP(S) URL, got {value!r}")
+    return value
+
+
+def _optional_wayback_url(record: dict, field_name: str, path: str) -> str:
+    """Return an optional Wayback Machine snapshot URL."""
+    value = _optional_str(record, field_name, path)
+    if not value:
+        return ""
+    parsed = urlparse(value)
+    if (
+        parsed.scheme not in {"http", "https"}
+        or parsed.netloc != "web.archive.org"
+        or any(char.isspace() for char in value)
+    ):
+        raise ContentError(f"{path}: field '{field_name}' must be a web.archive.org HTTP(S) URL, got {value!r}")
+    return value
+
+
+def _require_http_url(record: dict, field_name: str, path: str) -> str:
+    """Return a required HTTP(S) URL or raise ContentError."""
+    value = _require_str(record, field_name, path)
+    return _validate_http_url(value, field_name, path)
+
+
+def _validate_http_url(value: str, field_name: str, path: str) -> str:
+    """Return an HTTP(S) URL or raise a field-specific ContentError."""
+    parsed = urlparse(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc or any(char.isspace() for char in value):
+        raise ContentError(f"{path}: field '{field_name}' must be an HTTP(S) URL, got {value!r}")
     return value
 
 
@@ -243,6 +430,14 @@ def _require_slug(record: dict, path: str) -> str:
     if re.fullmatch(r"[-\w]+", slug) is None:
         raise ContentError(f"{path}: field 'slug' must contain only letters, numbers, underscores, and hyphens")
     return slug
+
+
+def _optional_slug(record: dict, path: str) -> str:
+    """Return an optional URL slug accepted by the talk detail route."""
+    value = _optional_str(record, "slug", path)
+    if value and re.fullmatch(r"[-\w]+", value) is None:
+        raise ContentError(f"{path}: field 'slug' must contain only letters, numbers, underscores, and hyphens")
+    return value
 
 
 def _optional_wordpress_id(record: dict, path: str) -> int | None:
@@ -327,6 +522,10 @@ def load_clips(path: Path | None = None) -> list[Clip]:
         seen_urls.add(url)
         archive_url = _optional_str(record, "archive_url", label)
         archive_exemption = _optional_str(record, "archive_exemption", label)
+        catalog_title = _optional_str(record, "catalog_title", label)
+        link_url = _optional_str(record, "link_url", label)
+        if link_url:
+            _validate_http_url(link_url, "link_url", f"{label}: clip '{title}'")
         if archive_url:
             parsed_archive_url = urlparse(archive_url)
             if (
@@ -347,10 +546,110 @@ def load_clips(path: Path | None = None) -> list[Clip]:
                 url=url,
                 archive_url=archive_url,
                 archive_exemption=archive_exemption,
+                catalog_title=catalog_title,
+                link_url=link_url,
             )
         )
     clips.sort(key=lambda c: c.date, reverse=True)
     return clips
+
+
+def load_apps(path: Path | None = None) -> list[App]:
+    """Load and validate standalone apps from YAML."""
+    if path is None:
+        path = CONTENT_PATH / "apps.yaml"
+    label = str(path)
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(raw, dict):
+        raise ContentError(f"{label}: top-level structure must be a mapping")
+    items = raw.get("apps", [])
+    if not isinstance(items, list):
+        raise ContentError(f"{label}: 'apps' must be a list")
+    seen_urls: set[str] = set()
+    apps: list[App] = []
+    for record in items:
+        if not isinstance(record, dict):
+            raise ContentError(f"{label}: each app must be a mapping, got {record!r}")
+        title = _require_str(record, "title", label)
+        app_type = _require_str(record, "type", label)
+        if app_type not in APP_TYPES:
+            raise ContentError(f"{label}: app '{title}' type '{app_type}' must be one of {sorted(APP_TYPES)}")
+        url = _require_http_url(record, "url", label)
+        if url in seen_urls:
+            raise ContentError(f"{label}: duplicate app URL '{url}'")
+        seen_urls.add(url)
+        description = _optional_str(record, "description", label)
+        apps.append(App(title=title, type=app_type, url=url, description=description))
+    return apps
+
+
+def group_apps(apps: Sequence[App]) -> list[AppCategory]:
+    """Group apps into the display order used on the Apps page."""
+    return [
+        AppCategory(title=label, object_list=matching_apps)
+        for app_type, label in APP_TYPE_LABELS.items()
+        if (matching_apps := [app for app in apps if app.type == app_type])
+    ]
+
+
+def load_clip_updates(clip_type: str, catalog: Sequence[App | CodeProject | Doc]) -> list[Clip]:
+    """Return dated work records not already represented in a catalog."""
+    catalog_titles = {item.title.casefold() for item in catalog}
+    catalog_urls = {item.url for item in catalog}
+    catalog_urls.update(item.repository_url for item in catalog if isinstance(item, Doc) and item.repository_url)
+    return [
+        clip
+        for clip in load_clips()
+        if clip.type == clip_type
+        and (clip.catalog_title or clip.title).casefold() not in catalog_titles
+        and clip.url not in catalog_urls
+    ]
+
+
+def load_code(path: Path | None = None) -> list[CodeProject]:
+    """Load and validate the open-source code catalog."""
+    if path is None:
+        path = CONTENT_PATH / "code.yaml"
+    label = str(path)
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(raw, dict):
+        raise ContentError(f"{label}: top-level structure must be a mapping")
+    items = raw.get("code", [])
+    if not isinstance(items, list):
+        raise ContentError(f"{label}: 'code' must be a list")
+    seen_titles: set[str] = set()
+    seen_urls: set[str] = set()
+    projects: list[CodeProject] = []
+    for record in items:
+        if not isinstance(record, dict):
+            raise ContentError(f"{label}: each code project must be a mapping, got {record!r}")
+        title = _require_str(record, "title", label)
+        title_key = title.casefold()
+        if title_key in seen_titles:
+            raise ContentError(f"{label}: duplicate code project title '{title}'")
+        seen_titles.add(title_key)
+        project_type = _require_str(record, "type", label)
+        if project_type not in CODE_TYPES:
+            raise ContentError(
+                f"{label}: code project '{title}' type '{project_type}' must be one of {sorted(CODE_TYPES)}"
+            )
+        url = _require_http_url(record, "url", label)
+        if url in seen_urls:
+            raise ContentError(f"{label}: duplicate code project URL '{url}'")
+        seen_urls.add(url)
+        description = _optional_str(record, "description", label)
+        projects.append(CodeProject(title=title, type=project_type, url=url, description=description))
+    projects.sort(key=lambda project: project.title.casefold())
+    return projects
+
+
+def group_code(projects: Sequence[CodeProject]) -> list[CodeCategory]:
+    """Group code projects using the sections from the GitHub README."""
+    return [
+        CodeCategory(title=label, object_list=matching_projects)
+        for project_type, label in CODE_TYPE_LABELS.items()
+        if (matching_projects := [project for project in projects if project.type == project_type])
+    ]
 
 
 def load_talks(path: Path | None = None) -> list[Talk]:
@@ -364,6 +663,7 @@ def load_talks(path: Path | None = None) -> list[Talk]:
     items = raw.get("talks", [])
     if not isinstance(items, list):
         raise ContentError(f"{label}: 'talks' must be a list")
+    seen_slugs: set[str] = set()
     talks: list[Talk] = []
     for record in items:
         if not isinstance(record, dict):
@@ -373,7 +673,14 @@ def load_talks(path: Path | None = None) -> list[Talk]:
         location = _require_str(record, "location", label)
         date = _require_date(record, "date", label)
         video_url = _optional_str(record, "video_url", label)
+        audio_url = _optional_str(record, "audio_url", label)
+        audio_download_url = _optional_str(record, "audio_download_url", label)
         slides_url = _optional_str(record, "slides_url", label)
+        slug = _optional_slug(record, label)
+        if slug in seen_slugs:
+            raise ContentError(f"{label}: duplicate talk slug '{slug}'")
+        if slug:
+            seen_slugs.add(slug)
         talks.append(
             Talk(
                 title=title,
@@ -381,7 +688,29 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 location=location,
                 date=date,
                 video_url=video_url,
+                local_video_url=_optional_str(record, "local_video_url", label),
+                audio_url=audio_url,
+                audio_download_url=audio_download_url,
+                local_audio_url=_optional_str(record, "local_audio_url", label),
                 slides_url=slides_url,
+                guide_url=_optional_str(record, "guide_url", label),
+                archive_url=_optional_wayback_url(record, "archive_url", label),
+                slug=slug,
+                short_title=_optional_str(record, "short_title", label),
+                byline=_optional_str(record, "byline", label),
+                deck_url=_optional_str(record, "deck_url", label),
+                deck_aspect_ratio=_optional_aspect_ratio(record, "deck_aspect_ratio", label),
+                pdf_url=_optional_str(record, "pdf_url", label),
+                notes_url=_optional_str(record, "notes_url", label),
+                notes_template=_optional_str(record, "notes_template", label),
+                notes_text_url=_optional_str(record, "notes_text_url", label),
+                transcript_url=_optional_str(record, "transcript_url", label),
+                transcript_template=_optional_str(record, "transcript_template", label),
+                transcript_text_url=_optional_str(record, "transcript_text_url", label),
+                captions_url=_optional_str(record, "captions_url", label),
+                poster_url=_optional_str(record, "poster_url", label),
+                original_slides_url=_optional_str(record, "original_slides_url", label),
+                original_video_url=_optional_str(record, "original_video_url", label),
             )
         )
     talks.sort(key=lambda t: t.date, reverse=True)

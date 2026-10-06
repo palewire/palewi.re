@@ -1,0 +1,91 @@
+HOW WE USE
+DOCUMENTCLOUD AT
+THE LOS ANGELES TIMES
+
+
+
+
+              By @palewire
+             palewi.re/talks
+SINCE NICAR '12
+
+261 DOCUMENTS
+ 37,802 PAGES
+LOTS OF CLICKS
+WHAT
+WE DO
+HOT DOCUMENTS
+THEMATIC DUMPS
+SUPPORTING EVIDENCE
+FUN WITH
+ARCHIVES
+HOW
+WE DO IT
+UPLOAD TO
+DOCCLOUD
+GO TO INTRANET
+    ADMIN
+CREATE OUR PAGE
+PUBLISH TO WWW
+PROMOTE THE
+   PAGE
+CAN BE DEPUTIZED TO     EXTRA PRODUCTION
+WEB PRODUCERS           WORK REQUIRED
+
+PAGEVIEWS, ADS          SLOW DOCUMENTCLOUD
+BELONG TO YOU           PROCESSING SPEED CAN
+                        FRUSTRATE USERS
+THE APP CAN SYNC WITH
+DOCUMENTCLOUD API       WHEN YOU UPLOAD A
+                        HUGE SET OF DOCUMENTS
+                        SOME WILL BE DUDS
+ API
+EXAMPLES
+PYTHON API
+ WRAPPER
+>>> from documentcloud import DocumentCloud
+>>> from documentcloud import DocumentCloud
+>>> client = DocumentCloud(
+  'lincoln.steffens@mcclures.com',
+  'password12345'
+)
+>>> from documentcloud import DocumentCloud
+>>> client = DocumentCloud(
+  'lincoln.steffens@mcclures.com',
+  'password12345'
+)
+>>> client.search("muck")
+>>> from documentcloud import DocumentCloud
+>>> client = DocumentCloud(
+  'lincoln.steffens@mcclures.com',
+  'password12345'
+)
+>>> client.search("muck")
+[]
+>>> from documentcloud import DocumentCloud
+>>> client = DocumentCloud(
+  'lincoln.steffens@mcclures.com',
+  'password12345'
+)
+>>> client.search("muck")
+[]
+>>> client.documents.upload(
+  '/home/ida/Documents/mybook.pdf'
+  title='The Shame of the Cities'
+)
+>>> from documentcloud import DocumentCloud
+>>> client = DocumentCloud(
+  'lincoln.steffens@mcclures.com',
+  'password12345'
+)
+>>> client.search("muck")
+[]
+>>> client.documents.upload(
+  '/home/ida/Documents/mybook.pdf'
+  title='The Shame of the Cities'
+)
+<Document: The Shame of the Cities>
+SYNC METADATA
+UPLOAD BATCHES
+THE END
+PALEWI.RE/TALKS

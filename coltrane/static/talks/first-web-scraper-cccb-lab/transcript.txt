@@ -1,0 +1,1718 @@
+[00:00] Hey guys, welcome back, thanks for staying, thanks for sticking in.
+[00:14] So before we get going, what I had planned, and we can always freewheel and freelance
+[00:20] and switch it around, is a pretty serious coding man.
+[00:26] We're gonna dig in, we're gonna write some code.
+[00:28] There's a whole tutorial I have planned for us to work through where we're gonna do something
+[00:32] called web scraping.
+[00:33] But before we get going, I just kind of want to assess what kind of experience people have.
+[00:39] The lesson is put together so it assumes absolutely zero experience, but I want to see kind of
+[00:46] what's going on.
+[00:47] So if I could just ask a question and people raise their hands, that would be awesome.
+[00:51] So who here has done programming on the command line or the terminal of their computer before?
+[00:59] Anyone?
+[01:01] It's okay, it's totally okay.
+[01:04] So who here has ever written code in the Python programming language?
+[01:11] Okay a couple.
+[01:13] And who here has Python installed on their computer?
+[01:19] Okay a couple.
+[01:20] So we're gonna have to install Python, I think it's part of the class.
+[01:23] And so then ultimately, has anyone here ever written a web scraper before or even know
+[01:27] what web scraping is?
+[01:29] No.
+[01:30] Okay so you know what it is?
+[01:32] And keep your hand up if you've done it.
+[01:35] How'd you do it?
+[01:36] Scrapes in the middle.
+[01:37] It's a button?
+[01:39] It's a button?
+[01:53] That's awesome.
+[01:54] Yeah so basically if you guys don't know, it sounds like most of you do, web scraping
+[01:58] are different techniques that basically suck the data out of a website where it's kind
+[02:02] of encoded with all the other crap that's in the page and just drops it into something
+[02:06] like a spreadsheet so you can access it like any other data.
+[02:09] And there's a lot of different ways to do it and they're getting increasingly automated.
+[02:13] But since every webpage is different and things are put up in different ways, it's often
+[02:18] the case that you need to write code yourself as opposed to rely on some of these tools
+[02:24] which are great and for simple stuff will work pretty well I bet.
+[02:27] But for more complex websites that are just weird government stuff, probably can't do
+[02:32] the job.
+[02:33] So the goal of the class, which I'm calling a first web scraper, is for everybody here
+[02:40] to one, get their feet wet and do a little command line mucking.
+[02:45] Get Python going, do a little Python mucking, learn some of the basics of Python which you
+[02:50] can use to all kinds of stuff.
+[02:52] And then if we get there, write a little web scraper.
+[02:55] And it won't be much more impressive than what the button can do but it'll teach you
+[02:59] the fundamentals of how you would write one yourself.
+[03:04] Does this sound like a reasonable proposal, does everybody think this is a good idea?
+[03:09] But before we start, this is going to be painful.
+[03:12] So in English we have a saying called a crash course, do you guys say this in Spanish?
+[03:18] So a crash course is sort of like a class where things are moving really too fast and
+[03:22] kind of out of control and a lot of stuff breaks.
+[03:26] So there's no way you're ever going to master programming in two hours or even get all
+[03:29] that far but we're going to try to get a lot of the basics in and a lot of stuff's going
+[03:34] to go wrong and I'm going to run around the room and help people when they get stuck and
+[03:38] all I ask is that you hang with me, okay?
+[03:41] Sound good?
+[03:42] All right.
+[03:43] So I'm going to fire up my computer here and I'm going to give you the URL of a website
+[03:47] where I have the entire class scripted out.
+[03:49] So if you think I'm going too slow or too fast, you can move at your own speed right
+[03:52] there, okay?
+[03:54] So here's my text editor.
+[03:55] Let's bump up the font size on this bad boy.
+[03:58] Oh, by the way, is everybody, we have a mix of Windows and Mac, is that right?
+[04:02] Okay, that's what I figured.
+[04:04] That's fine.
+[04:06] So we're going to have two different sets of bugs to work through, guys.
+[04:09] You're not as excited as I am.
+[04:14] Okay.
+[04:15] Select.
+[04:16] Let's see if this gets big now.
+[04:17] Yeah.
+[04:18] Yes.
+[04:19] Oh, it's not up there.
+[04:22] Let's see if I can, like, mirror the screen so I'm seeing the same thing you're seeing.
+[04:25] Hey, how about that?
+[04:28] Hola.
+[04:29] Right?
+[04:30] Okay.
+[04:31] Is that big enough?
+[04:32] Can everybody read that?
+[04:33] Okay.
+[04:34] Great.
+[04:35] So what I'm going to do is I'm going to kind of write stuff up here and as we go and you
+[04:38] guys can follow along on your computers.
+[04:40] If at any point you have a question, just shout it, okay?
+[04:43] And since I need to type, I might put down the mic and just yell for a little bit if
+[04:47] that's okay.
+[04:48] If that's not a big deal to anyone, okay.
+[04:50] I'll move this mic up.
+[04:51] Well, no.
+[04:52] Whatever.
+[04:53] Okay.
+[04:54] Can you hear me?
+[04:55] I'm coming.
+[04:56] I'm coming.
+[04:57] I need both hands.
+[04:58] Okay.
+[04:59] So the website where we're going to go, oh, thank you, I'm going to open a web browser.
+[05:07] I'm using Linux, guys.
+[05:08] Yeah.
+[05:09] Anybody else?
+[05:10] No.
+[05:11] Get with it.
+[05:12] Okay.
+[05:13] So the website that has the documentation, we're going to walk through.
+[05:18] Where's my mouse here, guys?
+[05:20] Did it get lost on some other screen?
+[05:22] Am I really mirrored?
+[05:24] Look who's having the technical difficulties.
+[05:30] Come on.
+[05:31] Come on.
+[05:33] Yeah.
+[05:36] Where's my mouse?
+[05:39] Okay.
+[05:41] So the website you're going to go to while I figure that out is firstwebscraper.rtfd.org.
+[05:50] You guys see that?
+[05:51] So open that up in your web browser.
+[05:53] RTFD, anyone know what that stands for?
+[05:56] It's a nerd acronym in computer programming, which stands for read the fucking documentation.
+[06:08] And it's a website that lets you host documentation for free.
+[06:11] And so that's why we're using it.
+[06:13] And you should land here.
+[06:18] Everybody got it?
+[06:19] Okay.
+[06:20] And so this is the really long thing I've written that has all the stuff, including
+[06:33] every command we're going to run.
+[06:34] Oh, wait.
+[06:35] I went to first news app.
+[06:36] I went to the wrong site, didn't I?
+[06:38] It should be firstwebscraper.
+[06:41] That's a different class, guys.
+[06:42] We're not doing that one.
+[06:43] This is what you see, right?
+[06:45] Not news app, web scraper.
+[06:46] Great.
+[06:47] And so this is everything we're going to do, all the commands, and a lot of the stuff
+[06:52] I'm going to say.
+[06:53] But we're going to go through it a lot slower, and we're going to kind of take our time.
+[06:56] But if you get bored, you can move ahead.
+[06:58] Or if we move too fast for you, you can hang behind.
+[07:01] And our ultimate goal at the end of this, if we get there, is to scrape the data from
+[07:06] the roster of jail inmates at the Boone County Jail in Boone County, Missouri, guys, who's
+[07:12] been to Boone County, Missouri.
+[07:13] Yeah.
+[07:14] This is the University of Missouri, where I graduated.
+[07:17] And this little dumpy website you can click on includes who's in lockup tonight.
+[07:22] And so we're going to bust some data out of the Boone County Jail, guys.
+[07:26] Jailbreak.
+[07:27] Who's excited?
+[07:28] No?
+[07:29] Just me?
+[07:30] Okay.
+[07:31] But before we do all that, we got to get all our tools in order.
+[07:33] And these are the basic tools that you're going to use your entire career as a computer
+[07:38] programmer, or at least until Oculus Rift replaces, you know, the keyboard or whatever.
+[07:44] And they're going to be necessary before we can even get started.
+[07:48] And so we got a lot of boring fundamentals we got to get out of the way that you got
+[07:51] to have in.
+[07:52] And you can see that in this first section here called prerequisites.
+[07:58] And the first thing that's required is a command line interface to interact with your computer.
+[08:04] And so what's the command line interface?
+[08:06] It's the goofy thing that looks like this, right, that you can type into, who am I?
+[08:14] My favorite existential command.
+[08:16] And it'll return for you a lot of different stuff about the computer, right?
+[08:20] This is just like the hackers in the movies, right?
+[08:23] That's what we need to be issuing commands directly to the computer and have it respond.
+[08:28] Like say, run my Python script, right?
+[08:30] That sort of thing.
+[08:32] And so every operating system has one of these.
+[08:35] They're just slightly different.
+[08:36] And you can install replacements that are a little snazier like the one I'm using.
+[08:40] But let's just now make sure everybody can open their command line interface.
+[08:44] And no one's done it before.
+[08:45] So this will be your first.
+[08:46] Oh, this is awesome.
+[08:47] Okay.
+[08:48] So if you're a Mac user, right, you got that thing spotlight or the little search thing
+[08:52] up in the corner.
+[08:53] You know what I'm talking about?
+[08:54] Okay.
+[08:55] In the upper right-hand corner, in the upper right-hand corner, I don't have a Mac here,
+[08:56] but in the upper right-hand corner, there's a little Sherlock.
+[08:57] I appreciate it.
+[08:58] Thank you.
+[08:59] And you got to open that, and you're just going to type in the word terminal.
+[09:18] Terminal.
+[09:19] I'm causing trouble.
+[09:21] And so that's going to then open, guess what, the terminal, okay?
+[09:25] And you can go ahead and do just like I did, and type in, type in the existential command,
+[09:31] who am I, right?
+[09:34] And hit enter, and you're going to see it's going to return the name of your user, right?
+[09:39] Now if you're in Windows, that might not work, because I don't know if Windows is that existential
+[09:43] man.
+[09:44] It doesn't look inward.
+[09:46] It works excellent.
+[09:47] Okay.
+[09:48] I take it back.
+[09:50] But now if you're in Windows, there's a slightly different thing you have to do.
+[09:53] You have a start menu.
+[09:55] I bet in the lower left-hand corner, right?
+[09:58] And so if you hit your start menu, and this may vary depending on your version of Windows,
+[10:04] there's a little box in there that you can type stuff into, right, and it'll pull up
+[10:08] programs.
+[10:09] Try typing in there three letters, C, M, D. And the Windows people can tell me if I'm
+[10:18] getting this wrong, but you just type C, M, D into that little thing, and it should open
+[10:22] a black DOS terminal, right?
+[10:25] The one that made Bill Gates so rich.
+[10:28] And so that is basically, that's the Windows version of the command line interface.
+[10:33] And unfortunately, DOS and the Mac system, which is based on Unix, which is the same
+[10:40] thing as Linux, have two slightly different ways of doing everything.
+[10:43] They're very close, but we're going to have differences in what they can do.
+[10:48] And so I'm hoping that now we can just have a brief segment where we walk through a lot
+[10:52] of the basic commands that you will use every day once you get used to doing this.
+[10:57] And if you become a programmer, you will do this every day, all day, that allow us to
+[11:01] create files and directories, move things around, inspect the file system, and execute
+[11:06] files, okay?
+[11:07] And so that's going to be the first chapter of the documentation on the website that's
+[11:12] called Act 1 command line.
+[11:15] We're going to go through that now, okay?
+[11:17] Everybody has their terminal up?
+[11:19] We all got there?
+[11:23] We're doing great.
+[11:24] Boom County better watch out.
+[11:27] All right.
+[11:30] So now the teacher will remind himself.
+[11:33] All right.
+[11:35] So the first command we're going to learn is one that will just print the current directory
+[11:39] then you're in.
+[11:40] Not instead of who am I, where am I, all right?
+[11:43] And there's two slightly different ways to do this.
+[11:46] If you're in a Linux system, you'll simply type the letters P, W, D, and hit enter.
+[11:55] Should I size this up too?
+[11:58] Yeah.
+[12:00] Bigger.
+[12:01] Right?
+[12:03] And if you're in Windows, just hit CD and push enter.
+[12:07] So try doing that.
+[12:09] And you should see it print something back out at you, right?
+[12:12] And the way the command line works is when you issue a command that the computer likes
+[12:16] and it knows how to use, it does the no bells go off.
+[12:20] It doesn't reward you.
+[12:21] It's not like there's any magic thing that happens.
+[12:24] It just sort of quietly finishes its command and prints out the result of what it wanted.
+[12:29] So you did P, W, D, right?
+[12:31] And it printed out a little line there or CD and it printed out a little line.
+[12:35] That line is the location where you currently are on your computer's file system, right?
+[12:42] And that is going to be the home directory for your user.
+[12:46] And I bet if you've ever used my computer or the finder or whatever they call it on
+[12:50] Apple to move around, you kind of recognize that user name and where some of the stuff
+[12:55] is, right?
+[12:56] Because you're now browsing and sitting inside of the same file system and folder structure
+[13:02] that you see when you navigate the folders via the user interface or via the finder and
+[13:10] the my computer, right?
+[13:11] You're inside of it operating within that same playing field.
+[13:15] And this is your current location, which you can move around it.
+[13:18] And so P, W, D, which stands for, anyone want to guess?
+[13:23] It's pretty terrible.
+[13:26] Present working directory, right?
+[13:29] And CD actually stands for change directory, except you're not changing directories.
+[13:34] It's just telling you the current directory, which doesn't really make sense either, right?
+[13:39] And you may say, why do these things have such dumb short names?
+[13:42] And why don't they really make sense?
+[13:45] And the reason is, is because they were just invented by nerds in like the late 70s and
+[13:50] early 80s who were coming up with all this stuff and nobody came up with anything better.
+[13:56] And they caught on way more than any of them ever thought they would.
+[14:01] And now we have to live with them because the entire world depends on how they operate.
+[14:05] Right?
+[14:06] And so what you'll find as you get inside the internals of your computer and you start
+[14:10] to do what programmers do and live in programming land, you'll see particularly on the open
+[14:15] source side of the spectrum, you'll see a lot of it is just kind of haphazard and has
+[14:19] odd names.
+[14:20] And it's sort of weirdly just the way it is.
+[14:23] And you just kind of have to learn the way it is and memorize a bunch of little stuff
+[14:27] and you'll kind of get it.
+[14:29] And it sucks, but that's the way it is.
+[14:31] And it's all the result of some guy, probably Dennis Ritchie in 1977 at Bell Labs in New
+[14:37] Jersey said, I'm going to call it PWD or whatever, whoever it was, right?
+[14:42] And so now it's still PWD.
+[14:44] There's no better reason than that.
+[14:46] Don't feel stupid because you don't know that stuff.
+[14:49] It's just some dumb decision, some nerd made, okay?
+[14:52] And as you write code yourself, you'll see how hard it is the name thinks.
+[14:55] And they just keep it short because they didn't want to type so much.
+[14:58] You know what I mean?
+[14:59] It's a pain in the butt to type present working directory, okay?
+[15:03] So let's see.
+[15:04] The next thing we're going to learn is how do we find out what's inside this directory?
+[15:08] Can I take a look at it and list everything that's in it?
+[15:10] Yes, you can.
+[15:12] So if you're on Mac, type L-S and hit enter.
+[15:18] If you're on Windows, type D-I-R and hit enter, right?
+[15:24] It's a little big here.
+[15:26] Let me size that down.
+[15:31] What's that?
+[15:38] L-S. You know, I don't even know what L-S stands for.
+[15:53] You know, there's this other crazy command, man, which will read for you the old manuals
+[15:57] from like the 70s.
+[15:59] So if we hit man, it's going to say list directory contents is what it was named originally.
+[16:04] Why is that L-S?
+[16:07] I have no idea.
+[16:08] You know what I mean?
+[16:09] You could write your doctoral thesis on this stuff.
+[16:10] And so what you see is a list of the stuff in the directory and, oh man, I am really
+[16:11] giving you guys a hard time.
+[16:12] Sorry.
+[16:13] And, you know, I bet you recognize some of these folder names that come up, right?
+[16:28] You see like one called desktop or one called documents, right?
+[16:33] I hate that.
+[16:34] The documents one I really hate.
+[16:36] It's just a mess, man, you know?
+[16:38] And basically you're looking at the command line at the same stuff you see when you move
+[16:45] around your computer in the interface.
+[16:48] And we're just looking at it in this way and you can then inspect it.
+[16:51] So let's say now we see that there's this directory desktop that's inside the directory,
+[16:58] the PWD, where we're currently sitting, right?
+[17:02] What if we want to move there?
+[17:04] So in the same way that when you click on the desktop folder, it opens the desktop folder,
+[17:09] right?
+[17:10] You can issue commands that will move from your current directory to another one, right?
+[17:15] And in this case, it's the same for both.
+[17:17] It's that CD command from before.
+[17:20] So what you can do is type CD and then the name of the folder you want to jump into,
+[17:25] which in this case is desktop, right?
+[17:32] And again, no, no bone, no bell, no reward.
+[17:36] The computer just quietly moves on and returns the next line.
+[17:40] That means it worked, right?
+[17:41] That's a good sign when you're on the command line.
+[17:43] Go ahead.
+[17:44] Yep.
+[17:45] Oh, hit Q maybe.
+[17:51] Q. It worked?
+[17:57] Okay.
+[18:00] That's just the dumb stuff you memorize.
+[18:02] So after like years, that's what you can look forward to is that knowledge.
+[18:06] Hit Q to exit man because in 1977, blah, blah, blah.
+[18:12] Okay.
+[18:13] So, so what's happened?
+[18:14] Now you did CD desktop.
+[18:16] Now let's type our PWD again, or if you're on Windows, just CD and nothing.
+[18:21] And guess what?
+[18:23] My present working directory has changed, right?
+[18:27] Remember before it was slash home slash Ben.
+[18:30] Now it's slash home slash Ben slash desktop, right?
+[18:33] So CD is the tool you use to jump around.
+[18:37] Let's say I want to go back up to the one that's above me.
+[18:41] That doesn't really have a name, right?
+[18:43] That's sort of the parent of the one I'm currently in.
+[18:47] There's another goofy way to do that, which you'll need to know, which is CD space dot
+[18:55] dot.
+[18:56] And dot dot is the magic notation for the parent of the directory you are currently
+[19:01] in.
+[19:02] Yeah.
+[19:03] CD.
+[19:04] And now I'm going to do PWD again and guess what?
+[19:09] I'm back where I was before.
+[19:11] It's in this kind of way that you can jump and move all over the file system, right?
+[19:16] Let's say you wanted to move to an entirely different, you wanted to go back to the root
+[19:20] of the file system and see everything from the very beginning.
+[19:23] CD slash, right?
+[19:26] L, S. Here's all the goofy stuff that's at the root.
+[19:30] Then I could do CD slash home slash Ben, right?
+[19:37] And I could type in the full path of someplace I would like to go, starting with the slash
+[19:42] at the beginning, and that's going to jump me there.
+[19:46] And it's with these types of acrobatics and just simple commands that you jump from one
+[19:52] place to another and move around the file system.
+[19:56] Make sense?
+[19:59] Any questions about that?
+[20:00] No?
+[20:01] Cool.
+[20:02] Okay.
+[20:03] So now let's make some stuff.
+[20:04] There's also a bunch of commands for creating and editing and deleting files, right?
+[20:10] Like say a Python script, which we're going to get to, right?
+[20:14] So let's say we want to make, so in our home directory we have desktop and we have documents
+[20:19] and maybe you have like videos and music and all that crap that they load you up with,
+[20:23] right?
+[20:24] But we're done with that stuff, man.
+[20:26] We're making code now.
+[20:27] So we need a new folder called code to stick all our code in, right?
+[20:31] And it's just as cool as all those other ones, so we're going to make it in the same
+[20:33] place the same way, right?
+[20:36] So did everybody CD dot dot back up to their home directory?
+[20:43] And then do PWD or do a CD and look where you are and see if you're in that home thing.
+[20:48] Yours won't be home slash whoever, unless you're on Linux like me, it'll be slightly
+[20:52] different.
+[20:53] It'll be whatever the Windows home directory is.
+[20:57] PWD.
+[21:04] So you might be out of your home directory.
+[21:06] You know what?
+[21:07] Let's do a cool shortcut.
+[21:09] So there's actually a cool shortcut for your home directory that you can use at any time
+[21:14] like ET to phone home, right?
+[21:16] Or like Harry Potter to jump in a chimney.
+[21:18] I use that for the kids now.
+[21:21] All right, so if you do CD, a tilde, is that what you call in Spanish, too, a tilde?
+[21:29] No?
+[21:30] So if you do, it has no name?
+[21:36] I've seen your keyboard.
+[21:37] You have some pretty weird shit, too.
+[21:40] No.
+[21:41] But so you do CD, a tilde, and a slash, and that is kind of the universal signal for take
+[21:46] me back to my home directory that you can use pretty much any time.
+[21:50] That's not in the thing.
+[21:51] So do that.
+[21:52] And we can really put this code directory anywhere, so I wouldn't stress about it.
+[21:56] But do CD, tilde, slash to make sure you're home.
+[21:59] And now we're going to learn a new command.
+[22:01] This new command will make directories, right?
+[22:05] Make this code directory we want to put stuff in.
+[22:07] All right, so first for the Mac people, and then for Windows.
+[22:11] So the Mac command is MKDIR, right?
+[22:15] And some weirdly named little compact thing that guess what stands for make directory.
+[22:22] And then you follow that with a space and a name of the directory you would like to
+[22:26] make.
+[22:27] I'm going to do code with a capital C because it's just as cool as the desktop.
+[22:32] Right?
+[22:33] Oh, I already made code because I did this before.
+[22:36] Hold on.
+[22:39] This is what I get.
+[22:40] I'm going to have to fix this real quick.
+[22:44] Okay, so I'm going to name mine, I'm going to have to name mine code two because that's
+[22:57] really professional.
+[22:59] Just to show what you can do, right?
+[23:02] So you do make dir code.
+[23:03] Now if you're in Windows, you would do MD, which is a better abbreviation, I would argue.
+[23:09] Right, guys?
+[23:10] If we're writing these?
+[23:11] Maybe not.
+[23:12] I don't know.
+[23:13] MD code is what you're going to do on Windows.
+[23:16] Okay?
+[23:23] That work for everybody?
+[23:29] Oh.
+[23:30] Whoo!
+[23:32] Impressive.
+[23:34] Impressive.
+[23:35] That's a first.
+[23:36] I've taught many of these classes, that's a first.
+[23:39] Pretty cool.
+[23:40] You're on your own.
+[23:42] That should be Linux, though.
+[23:44] So make dir should work.
+[23:45] Though your problem might be that you don't have permissions to edit the file system because
+[23:51] the phone's all locked down.
+[23:54] Yeah.
+[23:56] You might have the same issue.
+[24:00] Yeah, you could try that.
+[24:03] You guys can get that machine out if you want to.
+[24:05] That's got admin on it, though.
+[24:07] You're screwed.
+[24:08] You might want to sit with somebody else, I guess.
+[24:11] Sorry.
+[24:12] I should have said that before we showed up.
+[24:15] So did that work for everybody else on laptops?
+[24:18] Okay, cool.
+[24:19] So now if you do ls again, you're going to see your directory show up in that list.
+[24:23] Okay?
+[24:24] So now what we want to do is we want to move into our new directory.
+[24:30] Who knows how.
+[24:35] CD code.
+[24:36] That's right.
+[24:38] No, no, dot, dot, because dot, dot is backwards.
+[24:41] So you just do CD code, and that'll move relative to your current directory.
+[24:45] It will try to move into a directory named code.
+[24:49] So everybody try CD code.
+[24:51] And I have to do CD code 2 because I already have a code directory.
+[24:56] Okay.
+[25:04] No, no.
+[25:05] Code 2 is just me.
+[25:06] That's because I already had a code, so I had to make another one.
+[25:08] That's how much I love code.
+[25:10] All right.
+[25:15] And, you know, obviously, it doesn't have to be code.
+[25:17] It could be foo or donkey or whatever.
+[25:19] You know, you can put whatever names you want in these cases.
+[25:21] We're just choosing code.
+[25:26] Okay?
+[25:28] Awesome.
+[25:29] Okay, so now we've moved into the directory.
+[25:31] The next thing we're going to do is make a file there.
+[25:34] And this is one you can only do on Mac and Linux that Windows doesn't actually let you do.
+[25:38] So this is just going to be a quick Mac-only lesson.
+[25:41] Let's say we want to make the Python file where we're going to store our scraper, right?
+[25:46] There's a funny command named touch.
+[25:49] I know, kind of creepy, right?
+[25:51] Nerds.
+[25:53] There's actually another one named finger.
+[25:55] I'm not even making this up.
+[25:58] So touch.
+[26:00] And then we're going to name our file scrape.py.
+[26:03] That's where we're going to stick all our Python code at the end of the day, and we're going to hit enter.
+[26:07] Now, if you're in Windows, you could just open this directory in your My Computer.
+[26:13] Go to your home directory.
+[26:15] You're going to see code.
+[26:16] You can just open it up there, and you can right-click and make a file named scrape.py.
+[26:22] Have people done that before, just make a new file through My Computer?
+[26:27] You have to save it yourself.
+[26:28] You can't do it from the command line.
+[26:30] Sorry.
+[26:32] And so now if you do ls in this directory, you're going to see that the file you've made is sitting right there.
+[26:38] And so touch is the way to make a file.
+[26:42] Mine's kind of running off the end here because I got it so big.
+[26:48] No problem.
+[26:49] So have you cd'd into your code directory?
+[26:53] Okay, now you need to open up My Computer and navigate to this new folder that we've made.
+[27:00] You're in Windows.
+[27:01] Or you're in Apple.
+[27:02] Never mind.
+[27:03] You want to do touch?
+[27:04] You see the touch command right up here?
+[27:07] Touch scrape.py?
+[27:09] So what you're going to tell it to do with touch is you're saying, hey, computer, make a new file in this directory and name it scrape.py.
+[27:21] Okay?
+[27:22] And then if you ls after that, you're going to see it in the directory.
+[27:26] And has anyone ever seen a .py file before?
+[27:30] Do you know what that is?
+[27:32] It's a Python file.
+[27:34] And so all it is is it's just like any other file, any text file.
+[27:38] It's empty.
+[27:39] There's nothing in it.
+[27:40] But the fact that we named it .py is when we get to the Python part going to ultimately be the instructions that let the computer know, hey, this is a Python script.
+[27:53] And we need to, when we run it, we need to use Python.
+[27:57] And the code in it is going to be Python code.
+[28:00] And all that is just established by what you put on the end of the file when you name it, right?
+[28:05] The same way an MP3 file is interpreted by the computer as music.
+[28:10] And a JPG file, JPEG, is interpreted as an image, right?
+[28:15] You guys have probably seen those before.
+[28:17] .py is Python.
+[28:20] Okay?
+[28:22] Everybody get their file made?
+[28:26] If you need help, just say so.
+[28:30] You got it.
+[28:33] So it's weird.
+[28:34] I know.
+[28:35] I know.
+[28:36] I'm a little afraid to go into the man page on that one.
+[28:39] And so that was one last thing we're going to learn.
+[28:43] And then we'll be done with this, the kindergarten command line.
+[28:46] Okay?
+[28:47] And that's the most fun one.
+[28:49] That's destroy a file.
+[28:51] Right?
+[28:52] Yeah.
+[28:53] Yeah.
+[28:54] Okay.
+[28:55] Now, before I teach you how to do this, I'm going to warn you.
+[28:59] Okay?
+[29:00] This is not like, are you sure you want to put it in the recycle bin?
+[29:04] And then even when you say yes, it's still in the recycle bin.
+[29:08] And then they say, are you sure you want to delete it when you close it?
+[29:11] You know what I mean?
+[29:12] You get two chances on that recycle bin stuff, right?
+[29:16] You get no chances.
+[29:18] This is the most dangerous thing you do.
+[29:21] You need to use it really carefully.
+[29:23] If you were to write this command a certain way, which I will not teach you,
+[29:27] all right?
+[29:28] If you were to write this command a certain way, you could delete the entire
+[29:31] file system of your computer and brick it.
+[29:34] Right?
+[29:35] And it's a big joke in computer programming to try to get people to do it,
+[29:38] to hide it inside other code and screw with your friends.
+[29:41] Right?
+[29:42] But we're not going to go there.
+[29:43] We're going to be really, really careful.
+[29:45] Right, guys?
+[29:46] We're just going to delete scrape.py.
+[29:48] That's all we're going to do.
+[29:49] We just made it.
+[29:50] We're going to delete it.
+[29:51] And the command for that is another dumb little thing.
+[29:54] It's called rm.
+[29:57] That's for Windows.
+[29:58] That's not for Windows.
+[30:00] That's for Mac only, Mac and Linux.
+[30:02] And you do rm scrape.py.
+[30:10] Hit it.
+[30:11] Now if I do ls, guess what?
+[30:13] It's gone.
+[30:14] And you'll note it didn't ask me.
+[30:16] Are you sure?
+[30:18] It just did it.
+[30:19] Okay?
+[30:20] So if you're in Windows, I believe the command is del.
+[30:25] Right?
+[30:26] So you type del scrape.py.
+[30:30] And then hit dir, right, to list the directory.
+[30:34] And you'll see it's gone.
+[30:41] Okay?
+[30:43] Yeah, the command line.
+[30:44] So those are the basic stuff.
+[30:45] We're going to use a lot of these tricks as we get into the next stage.
+[30:48] But that's basically the fundamentals of kind of basic command line stuff.
+[30:53] Right?
+[30:54] And there's one really special command we're going to need to get into Python stuff.
+[30:58] But you might not have it already installed.
+[31:00] Okay?
+[31:01] And so that command is, guess what?
+[31:04] Python.
+[31:06] So we need to find out who has Python installed already.
+[31:09] It probably comes preinstalled on your Apple computers.
+[31:13] And who doesn't?
+[31:14] It probably is not on your Windows computers.
+[31:17] So could everybody please type Python, like the snake, right?
+[31:26] Though actually it's named after Monty Python, I think.
+[31:28] I hate to say it.
+[31:29] Nerds.
+[31:31] So type Python.
+[31:34] Hit enter.
+[31:35] And you see how my thing went into this weird little, like, land down here?
+[31:39] This is the Python interpreter where you're able to write Python code.
+[31:43] Really complex, important things that do amazing operations like 2 plus 2.
+[31:49] Right?
+[31:50] And if you got that, you've got Python.
+[31:55] Right?
+[31:56] And you're good to go on the Python part.
+[31:58] If you don't have that, we need to install Python on your computer.
+[32:02] Okay?
+[32:03] So who doesn't have Python?
+[32:06] All right.
+[32:07] It's totally cool.
+[32:08] It's all Windows people?
+[32:09] Yes?
+[32:10] Yes?
+[32:11] Okay.
+[32:12] Okay.
+[32:13] We're going to have now a painful interlude where we try to get Python installed on the
+[32:17] Windows computers.
+[32:18] And we just got to do this and get it out of the way.
+[32:20] It's going to be a pain.
+[32:21] But once you have it, you'll be set.
+[32:23] Okay?
+[32:24] So I'm going to propose, since it's only a small minority of people, that we maybe take
+[32:30] a 5 or 10 minute break and I just huddle with the Windows people and we work it out.
+[32:34] And the Mac people don't have to deal with it.
+[32:37] Does that sound okay?
+[32:39] Okay.
+[32:40] Good.
+[32:41] All right.
+[32:43] So, hey, guys.
+[32:44] If you go back to that web page I made, Windows people, I'm talking to you.
+[32:49] And you go to the top, that prerequisite section.
+[32:54] Number three says this right here.
+[33:00] This is going to tell us how we're going to install Python.
+[33:02] And there's two steps.
+[33:04] The first will be not so bad.
+[33:06] The second's going to suck.
+[33:07] Okay?
+[33:08] But we're going to do it.
+[33:09] All right?
+[33:10] So the first is, is we need to go click on this link I have here where it says here.
+[33:15] All right?
+[33:16] You see that?
+[33:17] And that's going to take you to the Python website where we're going to download something
+[33:23] that will install Python for you.
+[33:29] Okay?
+[33:31] Okay.
+[33:33] And my mouse has gone haywire so I'm going to restart my computer.
+[33:36] But you guys all see that link and you're clicking on it?
+[33:38] Okay.
+[33:39] So do you see where it has a download?
+[33:41] Now we need to find Python 2.7.
+[33:44] We do not want Python 3.0.
+[33:49] This is a whole lame Python thing that we're just going to dodge.
+[33:54] Okay?
+[33:55] 2.7.
+[33:56] You see that?
+[33:57] And it says download the Windows installer.
+[34:00] Do you guys see that?
+[34:02] The first that Windows x86 MSI installer.
+[34:06] Does everybody see that right there?
+[34:08] Okay.
+[34:09] That's what we're going to download.
+[34:10] And that's going to be a little click-through thing that's going to try to install Python
+[34:14] for us.
+[34:15] Okay?
+[34:16] So can you just click that and download it?
+[34:18] Thanks.
+[34:29] Somehow my mouse has just, like, disappeared.
+[34:32] It's totally bizarre.
+[34:34] It must be something to do with the multi-screens.
+[34:42] Oh, no.
+[34:43] I got my battery filled up.
+[34:47] Oh, that's this wireless thing.
+[34:49] The mouse is back in Los Angeles.
+[34:51] I'm trying to use the track pad.
+[34:54] And I'm failing.
+[34:55] You guys don't see it, do you?
+[34:57] Totally weird.
+[34:59] And maybe if I, is that thing downloading?
+[35:02] So now you're going to have to click through it, okay?
+[35:05] And let me look over somebody's shoulder as they click through it.
+[35:12] Did you already do it?
+[35:14] Oh, you got it?
+[35:15] Okay, great.
+[35:16] So we're going to open it up.
+[35:18] Is it all downloaded for everybody?
+[35:20] Okay, great.
+[35:21] And it's going to open up some weird little thing that's like every other program you've
+[35:26] installed in Windows, I think, right?
+[35:28] Once it gets fired up.
+[35:30] Okay.
+[35:31] And it's going to say, should you allow it to do things to your computer, maybe?
+[35:35] Right?
+[35:36] And your answer has to be yes.
+[35:37] Because we're playing with big boy's toys now.
+[35:41] Okay.
+[35:45] And then it's going to maybe ask you to select the destination directory where you're going
+[35:49] to install Python.
+[35:50] This is the folder where it's going to put it.
+[35:52] Don't change this.
+[35:53] Just say, yeah, I'm good with it.
+[35:56] Hit next.
+[35:59] Okay.
+[36:00] Then it's going to ask you if you want to customize Python.
+[36:02] You do not want to customize Python.
+[36:05] Okay.
+[36:06] Next.
+[36:09] Okay.
+[36:12] So it's going to install this.
+[36:13] It may ask you to type in your administration password.
+[36:16] If you don't have an administration password, you are screwed.
+[36:20] To do this type of work, you need to be able to operate like a super user on your system.
+[36:25] If your job is to try to do these things and your company gives you a computer that won't
+[36:29] let you, you need to go to your boss and say, I can't do my job.
+[36:33] Tell the IT idiot to take this off.
+[36:36] Right?
+[36:37] Because you won't be able to do the stuff we're going to try to do with this when you
+[36:39] have those restrictions that are made for people who aren't programmers.
+[36:43] Right?
+[36:48] Okay.
+[36:51] So let me open my terminal.
+[36:55] Let me move it up over here.
+[36:58] Okay.
+[36:59] So again, let's type Python Windows, guys.
+[37:04] Oops.
+[37:06] Python.
+[37:08] Okay.
+[37:09] Did that happen?
+[37:11] What happened?
+[37:14] It doesn't work.
+[37:15] Okay.
+[37:16] So this is going to be what I expected and a teachable moment, guys.
+[37:20] You ready?
+[37:21] Okay.
+[37:22] So these little weird things we're typing, LS, CD, PWD, Python, what the hell are they?
+[37:30] Where are they?
+[37:32] Right?
+[37:33] They're little programs that are installed in your computer and they're off in some, like,
+[37:37] distant hidden system folder that you probably have never been to or even knew existed.
+[37:43] There's a folder filled with hundreds of these stupid little programs.
+[37:47] Right?
+[37:48] But they're not in the directory where you're issuing commands.
+[37:52] They're off in this distant directory.
+[37:54] So when you're executing them, you're not giving the full path to where they're at.
+[37:58] You're just giving their names.
+[38:00] So how does the computer know to run them?
+[38:02] It knows to run them because there's this thing called the path.
+[38:06] And I'm only teaching you this because you have to know it for Windows in this case.
+[38:10] So the path is this wacky global variable that is on all these computers that's just a list of directories.
+[38:17] Let me show you.
+[38:19] This is really exciting stuff.
+[38:22] And you can call it like that.
+[38:24] Whoa, what's that, Ben?
+[38:26] That's a list of directories in these hidden super folders separated by colons, like user local Ben.
+[38:35] Once you're inside the mind of Dennis Ritchie in 1978, you'll know Ben stands for binary.
+[38:41] Right?
+[38:42] And let's say let's look inside that directory and see what's in there, right?
+[38:47] Hey, it's a bunch of commands, right?
+[38:49] And what if I grep like there's one that has LS in it, right?
+[38:54] And if I echo the path again, I can see there's one that's just called Ben, right?
+[39:01] And that has all kinds of stuff, including LS.
+[39:05] So there is LS.
+[39:06] LS itself is actually at slash Ben slash LS, right?
+[39:12] But the reason why when you type LS, it actually calls that is your computer, every time you issue a command,
+[39:22] is looking through this path for something that matches, that has the thing you just typed.
+[39:29] And if it finds it, it executes it, right?
+[39:31] So it's kind of a shortcut.
+[39:32] So these things that are in these special folders you can call on without having to type their whole long location
+[39:38] or to CD into their directory or any of that stuff.
+[39:41] And Python's the exact same way, except Python and Windows is one we're adding that wasn't there before, right?
+[39:48] And so Python itself is just a file, a file that was just installed.
+[39:54] And remember when you were clicking through the goofy installer, it said, where do you want to put this?
+[40:00] And it said, Python 2.7, it wanted to make that folder.
+[40:04] You remember that in Windows?
+[40:06] That's where your Python file is, except that folder is not in your path.
+[40:12] So even though the file's there, when you type Python, it doesn't find it.
+[40:18] So I know this is way in the weeds.
+[40:21] So what you literally have to do to get Python to work on Windows, and remember, you chose Windows, not me, right?
+[40:28] And this is true for almost all the programming languages.
+[40:31] You have to install it, and then you have to edit your path so that it can find Python when you type it.
+[40:38] I know that was a long journey.
+[40:40] Did that make sense?
+[40:42] Okay, Windows crew, we're going to edit your path.
+[40:46] You already did it?
+[40:49] I found a folder, Python 2.7.
+[40:55] You already CD'd there?
+[40:57] Dude, you're a pro.
+[40:58] Right, so he CD'd into the Python directory, and within it found the Python thing, and then just called it,
+[41:04] and because he was in the directory, it could find it.
+[41:07] It didn't have to look on the path, right?
+[41:09] And it just ran it.
+[41:10] So okay, how about you Control-C to get out of that, or just type exit.
+[41:14] Let's leave the Python.
+[41:18] Right, and so now you're going to be exit, and then open parentheses, or Control-Z.
+[41:23] Do Control-Z.
+[41:27] Enter there.
+[41:28] Now do CD, and let's see what directory you're in where you found the file.
+[41:33] Just CD nothing, so it'll tell us where you are.
+[41:37] You're in C colon slash Python 2.7.
+[41:41] So C colon slash Python 2.7 is what we need to add to your path, right?
+[41:48] So how do we add things to the Windows path?
+[41:51] Oh, well, so let me write that down.
+[41:55] So if I've got this right, tell me if I got this wrong.
+[41:58] This is the folder where it is.
+[42:01] Oh, I got Python spelled wrong.
+[42:03] Write that, capital C maybe.
+[42:06] Okay, so that's the directory we need to add to your Windows path.
+[42:09] And so here's how you do it.
+[42:12] So this could vary depending on your version of Windows.
+[42:15] Yeah.
+[42:16] So do you have a My Computer, like a little My Computer icon in your desktop,
+[42:20] or is that too old for you guys now?
+[42:23] If you do, could you right-click on it?
+[42:26] So you're going to go to your My Computer, wherever that is, the little opener.
+[42:31] And then the actual My Computer icon itself.
+[42:42] Can you right-click on it?
+[42:59] Okay, has everybody been able to do that?
+[43:02] I see you were able to, right?
+[43:03] This is what we get.
+[43:05] Okay, so Windows users, right-click on My Computer,
+[43:09] and then there's going to be something like Systems Properties,
+[43:12] or what did it say?
+[43:14] System.
+[43:17] Okay, so you know where the My Computer is?
+[43:19] Have you seen that?
+[43:22] It's probably on your desktop.
+[43:33] So My Computer itself, right?
+[43:35] So there's an icon you clicked on to get here.
+[43:42] That's your user folder.
+[43:44] How about that guy?
+[43:45] Right-click on that.
+[43:46] Right-click on this one.
+[43:50] Or right-click, so it'll bring up like a menu.
+[43:54] Yeah, then do proper.ace.
+[43:56] I get it right now.
+[43:57] Not even close.
+[43:59] Yeah, okay.
+[44:02] Okay, so could you try doing that same thing,
+[44:04] which is right-click on your computer right there?
+[44:08] Yeah.
+[44:10] And then go to Properties.
+[44:15] I'm sorry.
+[44:18] It has to be done.
+[44:22] Okay, we got there?
+[44:25] You got there?
+[44:26] Okay, so who's got one in English so I can look over your shoulder?
+[44:30] Did you right-click on My Computer?
+[44:33] So you hit that,
+[44:37] and then there's going to be a little computer icon if you scroll up.
+[44:42] Scroll up.
+[44:45] That guy.
+[44:46] It says equipo on some of these.
+[44:49] And then go to Properties.
+[44:52] Okay, so that's going to give us this like crazy computer settings page.
+[44:55] Does anyone have it in English so I can kind of like peek over your shoulder?
+[44:58] Oh, thank you.
+[45:00] So in the left-hand menu,
+[45:03] I'm going to guess we're going to look in Advanced System Settings.
+[45:08] And yes.
+[45:10] So do you guys see something that says like Advanced System Settings?
+[45:12] You click that, and then that's going to open up a weird gray box, okay?
+[45:18] I know.
+[45:19] Blame Bill Gates.
+[45:20] Can you believe he's this rich?
+[45:22] Okay, yes.
+[45:24] Okay, so you guys got it up.
+[45:25] Okay, and now there's a bunch of weird tabs.
+[45:29] There's a bunch of weird tabs.
+[45:31] Come on.
+[45:32] You've done this before?
+[45:34] Okay, so then there's an Advanced tab that's in the middle of the new thing that popped up.
+[45:38] Can you hit that Advanced tab?
+[45:41] Okay, awesome.
+[45:43] Now at the very bottom of this dumb thing is something that says Environment Variables.
+[45:48] Do you see that?
+[45:49] Environment Variables?
+[45:51] Let's click on that.
+[45:54] There it is right there.
+[45:58] Okay, did you get that up?
+[46:00] Okay.
+[46:07] Okay.
+[46:13] Everybody's got that up.
+[46:14] Okay, and so you should see in that top box a list of goofy variables, right?
+[46:21] And so some people will have one that says Path and others won't.
+[46:24] Is that what's going on?
+[46:26] I see some people.
+[46:27] So his says Path.
+[46:28] Do you have one that says Path in the little list there?
+[46:33] Maybe in the lower window.
+[46:35] Let's look on your lower window.
+[46:37] Oh yeah, so on some machines it might be in the lower window or the upper window,
+[46:41] but look for the one called Path.
+[46:43] Do you see that?
+[46:45] Okay, so that is the same way I was printing out my path up on the screen.
+[46:49] That's your path that leads to all the folders where the Windows files are.
+[46:53] And so what we need to do is we need to add your Python directory to that list that's on the right-hand side there.
+[47:00] And the way we're going to do it is we're going to click on Path in that little list, right?
+[47:04] So it gets blue.
+[47:06] And then we're going to hit Edit.
+[47:08] Do you guys see that Edit button?
+[47:11] Okay, this is pretty gnarly, I know.
+[47:14] Okay, so now do not delete what's in there.
+[47:17] Do not delete what is in there.
+[47:20] Okay, we're going to add to it.
+[47:23] Okay, so click into it and say scroll your mouse all the way to the far right-hand side, right?
+[47:34] And so your cursor is at the end of that long thing that's been written in that box, okay?
+[47:42] And we need to put in the separator that's going to separate one directory in the list from the next,
+[47:49] which is a semicolon.
+[47:51] Is that how you say that in Spanish?
+[47:53] You guys know what a semicolon is?
+[47:56] Okay, thank you.
+[47:59] So at the very end, you're going to put one of those guys,
+[48:04] and then you're going to put the path to our Python folder where we believe that bin file is, right?
+[48:11] With the C, yeah.
+[48:20] So you guys see this last line I have written here?
+[48:23] I'll blow it up.
+[48:29] See that line right there?
+[48:31] You're going to add that to the end on the right-hand side.
+[48:37] Beautiful.
+[48:42] Did you add it on the end?
+[48:46] Oh, it's already working? Great.
+[48:48] So you must already be in there if you look.
+[48:50] I bet if you look, it's already in there.
+[48:53] I might need to do a capital P, I think, on this Python.
+[49:00] Yep, that's perfect.
+[49:05] You don't need the space.
+[49:06] I don't know if it matters, but you don't need it.
+[49:09] Okay, were you able to get it?
+[49:12] You're stuck on...
+[49:15] Okay, so go to...
+[49:21] There's one called Advanced, maybe?
+[49:23] Click through these tabs so I can see them.
+[49:31] No, click right here.
+[49:34] No, try here.
+[49:37] Right here.
+[49:39] Hit this thing.
+[49:41] No, that's not it.
+[49:44] Cancel.
+[49:46] Try this one.
+[49:49] Click try here again.
+[49:51] You might have older windows, huh?
+[49:54] It's not your fault.
+[49:56] Hit the here.
+[49:58] My Spanish is so bad.
+[50:02] No.
+[50:05] Check this real quick.
+[50:11] Your hard drive.
+[50:15] Let's try this one again.
+[50:25] Just look at it real quick.
+[50:28] Okay, once you have it in there, just hit okay and just save it.
+[50:32] Okay, and then close and reopen your DOS prompt.
+[50:36] So close the command line after you've saved it
+[50:39] and reopen it by typing CMD into that directory.
+[50:43] Cancel.
+[50:50] Hit that.
+[50:58] Try that again. I'm just confused.
+[51:01] Let's look through these.
+[51:10] This is like permission.
+[51:18] We'll Google it as we get other people caught up here in a minute
+[51:21] and I'll come back to you. I'm sorry.
+[51:24] Basically, the Google search we need to do is
+[51:28] set the path in Windows Vista, which is what you're running.
+[51:32] Okay, and if you just Google that,
+[51:34] someone will have the screenshots that will help you real quick.
+[51:37] I'll look when I have a second, but that's what it's going to be.
+[51:40] Okay, so everybody that just did that and reopened their terminal
+[51:43] and typed Python, did it work?
+[51:45] Yes, so type Python now again.
+[51:52] Yes.
+[51:56] What a relief.
+[51:58] Yes, you have Python. Windows.
+[52:01] We almost defeated it.
+[52:04] Okay.
+[52:07] Right.
+[52:10] Okay.
+[52:12] We're ready for the Python segment of our lesson.
+[52:15] Okay, guys?
+[52:18] And if you call up, you guys still have that web page up
+[52:22] where all the lesson is?
+[52:24] Now we're going to work through, and I know this is a little kindergarten,
+[52:27] but it's good stuff.
+[52:29] We're going to work through the fundamentals of Python
+[52:32] in the same way we had worked through the fundamentals
+[52:35] of the command line, right?
+[52:37] So I'm going to help you
+[52:41] just kind of understand some of the basics,
+[52:43] show you some simple basic commands,
+[52:45] and after we kind of got them figured out,
+[52:48] we're going to write our script, all right?
+[52:50] But first, we've got to deal with the basics.
+[52:52] And so, you know, the first thing about...
+[52:56] Remember our file scrape.py we made?
+[52:59] Right, so running a Python file,
+[53:01] which is just in a script like anything else, right?
+[53:05] God damn it.
+[53:07] Oh, my God, sorry.
+[53:09] It's just as simple as taking that Python command.
+[53:13] Mm-hmm, mm-hmm, mm-hmm.
+[53:16] All you're doing is...
+[53:19] Python file name.py
+[53:24] is then going to execute whatever file you've named
+[53:27] with the .py and run it, okay?
+[53:29] And that's basically how you end up running Python files,
+[53:31] now that we have them at the end of the day.
+[53:33] But the alternative is just to type in Python itself
+[53:38] and hit enter and get the Python interpreter, as it's known,
+[53:42] so you can execute Python code like 2 plus 2 directly, okay?
+[53:50] Am I cut off at the end there a little bit?
+[53:53] All right, something like that, okay?
+[53:56] And so I want everybody to type in Python
+[54:01] and get down to their interpreter.
+[54:06] Let's switch, sure.
+[54:09] Okay, sorry.
+[54:11] Okay, and so now we're no longer in the command line.
+[54:14] I mean, we're in the command line,
+[54:16] but we're not playing by the rules of the command line.
+[54:18] You know, there is no...
+[54:20] Right, so there is no more ls here.
+[54:22] You know what I mean?
+[54:24] There is no more cd, there is no more rm.
+[54:27] We're now not writing command line programs and scripts.
+[54:31] We're writing Python code, which has its own rules,
+[54:35] its own commands, its own bad names for things,
+[54:38] and its own kind of world.
+[54:40] But what's good about it is you can write these scripts
+[54:42] that from top to bottom do stuff and then rerun them.
+[54:45] But you got to know the fundamentals of things
+[54:47] before you can run them.
+[54:49] So is everybody who's able to get it going
+[54:51] dropped into Python?
+[54:53] And you know what you can probably do,
+[54:55] I just thought of it, it's the fastest family.
+[54:57] You cd, you do Python directly,
+[55:00] you do problems in front.
+[55:02] I just thought of this.
+[55:04] Sorry, I'm breaking all the rules.
+[55:05] Let's open up your command line real quick.
+[55:07] Let's cd into...
+[55:09] I'm feeling bad.
+[55:10] Oh, God damn it.
+[55:12] Ben.
+[55:14] So...
+[55:16] cd, this is shift, Python, 2.7, right?
+[55:23] And then type Python, and it's not on your path,
+[55:26] but you can just run it right there.
+[55:28] Okay, so let's just skip the path and you can keep rolling.
+[55:32] You're with us? Okay.
+[55:34] So everybody's in.
+[55:36] So Python, so like the first thing you need to know
+[55:39] is anybody know what a variable is?
+[55:41] Have you ever heard of this?
+[55:43] So a variable is like a little bag or a little name space
+[55:48] where you name something and then you assign to it a value.
+[55:51] You know what I mean?
+[55:52] So you create a label that exists within Python
+[55:59] that has something stored inside of it.
+[56:01] And so I'm going to create one called greeting,
+[56:04] and I'm going to create it by naming it.
+[56:06] I'm going to name it greeting.
+[56:08] I'm going to type equal.
+[56:11] I'm going to open this string and then I'm going to say,
+[56:13] hola.
+[56:15] Okay.
+[56:18] Can everybody try that?
+[56:19] So you can do greeting equal hola.
+[56:25] Yes.
+[56:27] So Python is now the same across all platforms,
+[56:29] which is a great thing about programming languages too.
+[56:32] They can be run on different systems and do the same thing.
+[56:36] And that's good.
+[56:40] Okay.
+[56:41] So it just again just kicks down to the next line.
+[56:44] There's no bells or whistles.
+[56:46] There's no reward.
+[56:47] But what you've just done is you've created a thing called greeting
+[56:50] and you've put inside it the phrase hola.
+[56:53] Exciting, right?
+[56:54] So now you can do stuff with it, right?
+[56:56] Now that you have it.
+[56:58] So you could do, there's a Python command
+[57:00] you might be interested in called print.
+[57:03] Can anyone guess what this one does?
+[57:06] So one of the great things about Python
+[57:07] is they kind of did a better job of naming things.
+[57:09] It has its own problems, but one of the big,
+[57:12] the emphasis when the language was created in the 90s
+[57:14] was to make something a little more legible.
+[57:16] Like let's just name it print instead of echo,
+[57:19] which is what it's called on the command line, right?
+[57:22] So if I say print greeting, look what comes out.
+[57:27] Okay.
+[57:28] So go ahead and try that.
+[57:34] So we have, we have this variable,
+[57:38] which we then could screw around with and do stuff with.
+[57:42] And so I can do, and I could say greeting, I could change it.
+[57:45] I could instead say greeting equal hello, right?
+[57:50] And now I've changed what it is.
+[57:52] And if I print greeting, it says hello now instead of ola.
+[57:57] Make it sense?
+[57:58] Okay.
+[57:59] So the variable is the thing on the left.
+[58:01] That's the label or the namespace as it is known.
+[58:05] Maybe not such a great name either.
+[58:07] The namespace greeting is where we are storing hello.
+[58:11] But what is, you know, hello.
+[58:12] Hello is what is, well, hello is a string.
+[58:17] Hello is a string of characters grouped together
+[58:21] and surrounded by quotation marks.
+[58:24] And the thing about programming languages is they allow things
+[58:27] only in certain data types.
+[58:29] Everything has to be very strictly defined as one of a set of data types.
+[58:37] And so one type of data that you can assign to a variable
+[58:41] is a string, which is some letters and characters surrounded
+[58:46] by single or double quotes.
+[58:48] And you can do double quotes if you prefer that.
+[58:50] I could do or single quotes greeting equal ola, right?
+[58:54] So just to make the point, let's make a whole bunch of strings, right?
+[58:57] So I already have greeting.
+[58:59] Let's make one.
+[59:00] Let's call it goodbye.
+[59:02] And I'm going to say later bro, right?
+[59:05] Because I'm from America.
+[59:07] And I'm going to hit enter and I can then print goodbye.
+[59:11] Right.
+[59:12] And then I'm going to make a third one and I'm going to call it.
+[59:15] And, you know, again, you can name these really anything, right?
+[59:18] So I'm going to name this favorite animal and I'm going to say it's donkey.
+[59:23] Right.
+[59:24] And then I can print favorite animal.
+[59:28] Right.
+[59:29] And it says donkey.
+[59:30] And then maybe I just want to make a variable called donkey
+[59:32] and put donkey inside of it just for fun.
+[59:35] So I can print donkey and see donkey because I love donkeys.
+[59:39] But you get the idea that this is just like any kind of string like this
+[59:43] can just be shoved into a variable and then accessed later.
+[59:47] And you're going to use this all the time once you get a script.
+[59:51] And it might not make sense at first, but once we have all these building blocks,
+[59:54] I promise you we'll make something.
+[59:56] Okay.
+[59:57] So there's other kinds of data, you know, it's just like math class, man.
+[01:00:00] You got strings with your characters, but you got integers.
+[01:00:03] Remember, integers.
+[01:00:04] So an integer is a number that doesn't have a decimal point.
+[01:00:08] Right.
+[01:00:09] And you don't need strings on those.
+[01:00:11] So I can make one and like, you know, it's going to be like math class.
+[01:00:13] I'm going to name the variable X.
+[01:00:15] Right.
+[01:00:16] Just like math class and X is going to be 99.
+[01:00:21] Right.
+[01:00:22] And there's no strings around it.
+[01:00:23] And because there's no strings around it and because it's a number,
+[01:00:27] it's that X now becomes an integer.
+[01:00:31] Right.
+[01:00:32] And I can do this thing called type.
+[01:00:34] Right.
+[01:00:35] And it'll tell me X is an integer.
+[01:00:36] Right.
+[01:00:37] And then I can do X plus two and get 101.
+[01:00:41] Right.
+[01:00:42] But if I do greeting plus two, you can't add strings and integers.
+[01:00:50] Ints is short for integer.
+[01:00:52] Right.
+[01:00:53] Another random abbreviation that they've done.
+[01:00:55] So is it the word integer in Spanish or what would it be?
+[01:00:59] Integre.
+[01:01:00] Integre.
+[01:01:01] Okay.
+[01:01:02] Close.
+[01:01:03] Okay.
+[01:01:04] And so because X is an integer and Python,
+[01:01:11] like all programming languages is picky about data types,
+[01:01:14] I was able to add it with another integer,
+[01:01:17] the number two and get the combined number X plus two equals 101.
+[01:01:22] Right.
+[01:01:23] And if I just type X, it'll tell me X is 99 and I can do multiplication.
+[01:01:27] I can do X times error.
+[01:01:29] Hold on.
+[01:01:30] X times X.
+[01:01:31] There's all sorts of stuff you can do with integers you can't do with strings.
+[01:01:34] Right.
+[01:01:35] So that's the second data type we're going to use from time to time as well as integers.
+[01:01:40] There's another one called float as in floating point decimal is what that's short for.
+[01:01:46] And so that's just the number that has a decimal point and values after it.
+[01:01:52] So that would be 99.9.
+[01:01:54] Right.
+[01:01:55] Would be a float.
+[01:01:58] Right.
+[01:02:00] And you could do another one and it could be 0.1.
+[01:02:05] And you can do Y plus Z then and you get 100 even.
+[01:02:11] Right.
+[01:02:12] So it's just another data type similar to integer.
+[01:02:14] It allows decimals.
+[01:02:15] They keep them separate.
+[01:02:16] It's a math thing.
+[01:02:17] Okay.
+[01:02:18] It comes up and when you do really high end math for what we're doing,
+[01:02:21] it doesn't matter.
+[01:02:22] But if you need the decimal points, you got to make sure things are floats now.
+[01:02:27] Now a really fun one that we're going to use all the time, which is called a list.
+[01:02:32] So if you guys done a lot of programming before, I don't know if it's okay.
+[01:02:35] If you haven't, sounds like not.
+[01:02:36] But every programming language has things like this strings, numbers, something similar
+[01:02:41] and lists and lists are just collections of variables or values that you can do stuff
+[01:02:49] with.
+[01:02:50] And the way you make a list is you just make one of these brackets that looks just like
+[01:02:55] that.
+[01:02:56] Okay.
+[01:02:57] It's got to be that rectangular bracket and you just start putting stuff in it.
+[01:03:01] So I'm going to make a list and I'm going to say 1, 2, 3, 4 are going to be my list.
+[01:03:07] And I hit enter and there's a list.
+[01:03:10] 1, 2, 3, 4.
+[01:03:11] And I can even put that in a variable.
+[01:03:12] I can say list of ints.
+[01:03:15] Right.
+[01:03:16] So it's a list filled with integers.
+[01:03:19] So I can now have a variable that has inside of it a list.
+[01:03:24] And you can do stuff besides that.
+[01:03:26] You know what I mean?
+[01:03:27] You could do 1, 2, A, B. Right.
+[01:03:32] That's okay.
+[01:03:33] You know what I mean?
+[01:03:34] So with a list can contain any of those data types that we've seen before.
+[01:03:39] A big list of them.
+[01:03:40] And it can even contain other lists.
+[01:03:42] You know what I mean?
+[01:03:43] I could have in here then 3, 4, 5.
+[01:03:46] And I now have a list with a list in it.
+[01:03:48] And this sort of nested lists and how we organize lists is a big way that we kind of structure
+[01:03:53] and transform data that we're moving around and playing with in our scripts.
+[01:03:58] Okay.
+[01:04:01] Am I going too fast?
+[01:04:03] No.
+[01:04:04] This makes sense.
+[01:04:05] Okay.
+[01:04:06] Good.
+[01:04:07] And then lists have cool things you can do with them, man.
+[01:04:08] So you remember I made list of ints.
+[01:04:10] Right.
+[01:04:11] So let's say I want to pull an item out of the list.
+[01:04:14] I want the number 1.
+[01:04:16] You can do another bracket like that on the end and then put a number in it and it will
+[01:04:23] pull the item at that number right out of your list.
+[01:04:27] So you're able to access the list, pull items out of it.
+[01:04:30] We're going to loop through it pretty soon and interact with it in ways you can't with
+[01:04:34] other data types.
+[01:04:35] And so why is 0?
+[01:04:37] Go ahead.
+[01:04:38] I was just about to say that.
+[01:04:43] You're kicking butt.
+[01:04:44] That's exactly right.
+[01:04:45] So remember there's all the weird stuff we have to memorize.
+[01:04:49] One of the crazy things about computers, and this is true with almost every programming
+[01:04:53] language, is that things are what are known as 0 indexed.
+[01:04:58] And so the first of anything is actually the 0.
+[01:05:02] So whenever you want to pull, so if I want to pull the first thing out of the list, I
+[01:05:06] give it the 0 index that's called.
+[01:05:09] If I want the second thing out of the list, I do the 1 index.
+[01:05:12] You just subtract 1 from whichever one you want mentally, and you can kind of get where
+[01:05:17] you want to go.
+[01:05:18] And let's say there is no fifth one, and so if I ask for an index that isn't in the list,
+[01:05:23] it just throws this error, right?
+[01:05:25] And so that's one of these Python things you just got to memorize, but it's really true
+[01:05:29] for all languages.
+[01:05:30] 0 comes first.
+[01:05:32] Count starting with 0.
+[01:05:34] One of these programming things, man.
+[01:05:36] There'll be exceptions to it too, which just drive you crazy.
+[01:05:39] So then you can do fun things like you can slice a list.
+[01:05:47] Let's say I want just the first two things in the list, right?
+[01:05:51] You do the same bracket thing.
+[01:05:53] You give it the index you want it to start at, a colon, and then the one you want it
+[01:05:58] to end at, and it will slice portions of the list in different ways so you could exclude
+[01:06:05] values and goof around with it.
+[01:06:09] Make sense?
+[01:06:11] We'll go over this again when we actually use it.
+[01:06:13] Okay.
+[01:06:14] Then there's this other one we don't really care about called a tuple, and a tuple is
+[01:06:17] a list that you can't add things to.
+[01:06:19] It's a permanent list that has to stay the way it is forever.
+[01:06:22] So I could take list of ints, for instance, and I could do append, add 5, right?
+[01:06:27] And then if I do, you'll see that now 5 is on the back end of the list, right?
+[01:06:31] So you're able with lists to edit them and goof around with them after you make them,
+[01:06:36] right?
+[01:06:37] Tuples you can't, right?
+[01:06:39] Who cares?
+[01:06:40] Boring, right?
+[01:06:42] So you only really need tuples.
+[01:06:44] Well, you don't really ever need tuples for what we're doing, but they're kind of there.
+[01:06:47] Maybe at some point it'll come up in your life, all right?
+[01:06:52] It's a list that you can't edit.
+[01:06:54] So for instance, if I take this and then I try to add something to it like I did the list,
+[01:06:59] it's going to throw an error.
+[01:07:01] And so it's basically a list that can do less than a list.
+[01:07:04] We probably shouldn't even cover it.
+[01:07:05] It's boring, okay?
+[01:07:07] There's a final data type, the dictionary, which is we're not going to use in this lesson,
+[01:07:12] but is ultimately very useful.
+[01:07:14] And it's like a combination of keys and values that you can store together in something.
+[01:07:23] And we won't even go into it in depth because it's kind of complicated.
+[01:07:27] But basically, you see how I have something here that's called like the phone book?
+[01:07:30] And it has pairs.
+[01:07:35] So there's two sets of data.
+[01:07:36] There's the name, Chinese takeout, and there's the phone number to call.
+[01:07:40] And then there's the other name, mom, and the phone number to call.
+[01:07:43] So essentially you create something kind of like a phone book where there's pairs of what are called keys
+[01:07:49] and values that you then can look up and goof around with later.
+[01:07:52] So I could say, give me mom, right?
+[01:07:54] And then out comes the number, that kind of thing.
+[01:07:58] But those are all the basic data types.
+[01:08:00] That's basically it, guys.
+[01:08:01] You've learned every data type and all the stuff that goes not only into Python,
+[01:08:05] but pretty much all computer programming.
+[01:08:07] And these really boring basic fundamentals that I've just showed you will really quickly
+[01:08:12] become things you can do a lot with, okay?
+[01:08:16] And so one way you start doing it is by chaining them together into what are called control structures
+[01:08:22] or scripts of multiple things on top of each other that negotiate a set of data and do stuff.
+[01:08:28] So the one we're going to use in our scraper that we'll cover now is called a for loop.
+[01:08:35] Have you guys ever done a loop?
+[01:08:37] So we have the list, right, and we want to loop through it,
+[01:08:40] and we want to do something to everything in the list, right?
+[01:08:45] I'm skipping some stuff in the lesson here too because I want to get to our scraper.
+[01:08:49] But you can look at the other stuff if you want to.
+[01:08:52] So I'm going to clear this, and I'm going to make a new list, and I'm going to call it letters, right?
+[01:09:02] And letters is going to have A, B, and C in it, okay?
+[01:09:09] And remember, I could do letters and zero, and I could get back A.
+[01:09:16] Makes sense, and I could do letters and two, and I could get back C.
+[01:09:20] Okay, so I can access it, but what if I want to loop through it and do something with every letter in the list?
+[01:09:27] Like say I might want to loop through a spreadsheet of data, right?
+[01:09:31] Huh? That's where we're going to go with that ultimately.
+[01:09:34] So what you do is there's another special command called for, spelled for,
+[01:09:40] and you do something like four letter in letters, right?
+[01:09:47] Hit colon, enter. You should get this dot, dot, dot. You need the colon.
+[01:09:53] Four spaces. One, two, three, four. One, two, three, four.
+[01:09:59] And then I'm going to do print letter, and I'm going to hit enter twice.
+[01:10:05] Look what it did.
+[01:10:10] So go ahead and try that. There's a bunch of stuff to unpack here.
+[01:10:18] So the magic words here, the magic words here that you will always reuse
+[01:10:25] whenever you loop through a list are for and in, right?
+[01:10:31] And then these are things you can substitute and do other stuff with.
+[01:10:37] So letters, right, is our list that we made up here.
+[01:10:41] And we're saying for every letter in the list, right, print the letter.
+[01:10:48] And then one, two, three, it prints the letters.
+[01:10:53] So what it's doing is it's looping through every item in the list
+[01:10:57] or iterating, as they say in programming, right?
+[01:11:01] It's looping through every item in the list, and it's doing what you tell it to here, right?
+[01:11:07] And if you've done this in other programming languages like JavaScript or Java,
+[01:11:13] you may have had to do like a parenthesis like here and here,
+[01:11:17] like around the clause that you've written to close off the code
+[01:11:21] that's being executed against each letter.
+[01:11:24] This is where Python is unique.
+[01:11:26] This is the one thing that's totally special about Python and that no other language does.
+[01:11:31] It's that whitespace, this space, space, space, space we can't do here,
+[01:11:38] basically created a whole other set of indented code
+[01:11:43] that only got ran inside the loop for each one, okay?
+[01:11:48] And the computer just actually reads your whitespace.
+[01:11:52] And so every single space you type in a Python code is meaningful
+[01:11:56] and will be interpreted by the computer as it executes the code, right?
+[01:12:01] And the indentation is a way that you block something off to say,
+[01:12:05] I only want it to run inside of, say, a loop, okay?
+[01:12:10] And this is a tricky thing because it means you've got to get your spaces just right.
+[01:12:16] You don't use tabs.
+[01:12:17] If you use four spaces, you always have to use four spaces for it to work.
+[01:12:21] If you have multiple lines in your loop, like I'll show you.
+[01:12:24] So let's say I do this again and I do four letter in letters, right?
+[01:12:31] Oops, I screwed up.
+[01:12:33] See how as soon as I made a typo, I got an error?
+[01:12:35] That's how picky this stuff is.
+[01:12:37] One, two, three, four.
+[01:12:38] Print the number one.
+[01:12:40] One, two, three, four.
+[01:12:42] Print letter, right?
+[01:12:45] And you see how within the loop, for each time through,
+[01:12:48] it executed the two things that it had been indented, right?
+[01:12:53] Print one, print letter.
+[01:12:55] First one's A.
+[01:12:56] Print one, print letter.
+[01:12:58] Second one's B, okay?
+[01:13:00] So we're able, with our indentation, to create kind of a level
+[01:13:04] or a bracketed off piece of code that only operates within that world.
+[01:13:09] Okay, so like here's another.
+[01:13:11] And then once you de-indent, you come out of that world.
+[01:13:14] So watch this.
+[01:13:18] So I do four letter in letters, right?
+[01:13:21] One, two, three, four.
+[01:13:23] Print letter, right?
+[01:13:26] Then I go down and I do print hello, right?
+[01:13:31] That just runs once.
+[01:13:34] Because we've come out of our little indented world, right?
+[01:13:43] And when I didn't have that space in there,
+[01:13:45] when I just tried to print it right after,
+[01:13:47] or if I tried to print it at a different indentation,
+[01:13:53] like if I tried just one space and I did print, print one,
+[01:14:00] it's going to break, right?
+[01:14:02] And it's going to say, you have an indentation error.
+[01:14:05] This thing you did right here, I don't know what to do with.
+[01:14:09] And the computer's so picky, that's how code is,
+[01:14:11] it's just going to fall apart.
+[01:14:12] And so the real finicky thing at first
+[01:14:15] is you have to get the white space just right.
+[01:14:17] And some people who don't like Python
+[01:14:19] call this white space fascism.
+[01:14:22] Yeah, that hurts, right?
+[01:14:24] Because it's very, very picky about how you line stuff up.
+[01:14:27] And so if you're getting errors,
+[01:14:29] that could very well be the cause,
+[01:14:30] and that's going to be really important
+[01:14:32] as we get more complex and we put more stuff together, right?
+[01:14:36] But this is the basics of how you loop through a list.
+[01:14:40] And now letters is the name of our list,
+[01:14:42] but this letter right here,
+[01:14:44] so this is a variable that we create
+[01:14:47] that then exists inside the indentation.
+[01:14:50] And this doesn't have to be letter,
+[01:14:52] we could name this whatever we want, right?
+[01:14:54] In the same way we were naming variables
+[01:14:56] when we first started.
+[01:14:57] So we could do, for instance,
+[01:15:00] I could instead say for donkey, right, in letters.
+[01:15:07] One, two, three, four.
+[01:15:09] Now what do I type?
+[01:15:11] Print donkey, that's right.
+[01:15:14] And so the way the loop works
+[01:15:16] is the things that always have to be the same
+[01:15:18] is this has to be a list, right?
+[01:15:22] This has to say for and in,
+[01:15:24] and then you have to name the variable
+[01:15:25] that it's going to be iterating through.
+[01:15:28] Okay, and that is how you loop through a list.
+[01:15:32] Are we out of time?
+[01:15:33] Oh my God, totally?
+[01:15:36] Are they going to kick us out?
+[01:15:39] Okay, can I just show you the scraper script really quick
+[01:15:42] even though we won't have time to write it together?
+[01:15:45] Guys, I'm sorry.
+[01:15:47] Okay, so, Boone County Jail, who's in lockup, right?
+[01:15:51] So they have this goofy website.
+[01:15:53] I'm going to go super duper fast.
+[01:15:55] Get excited, right?
+[01:15:58] So it is this webpage right here.
+[01:16:00] Oh, hold on, right here.
+[01:16:03] And so this is a dumb webpage
+[01:16:05] that they do in Columbia, Missouri every day
+[01:16:07] telling you who is currently in jail.
+[01:16:10] And it updates and looks the same every day.
+[01:16:12] It has their name and as their gender,
+[01:16:13] their race, their age, and where they're from,
+[01:16:15] mostly from Columbia, Missouri, right?
+[01:16:18] And so let's say in all this page,
+[01:16:20] I want this as a spreadsheet.
+[01:16:21] I want a scraper to go,
+[01:16:23] and every day while I sleep even, right,
+[01:16:26] download this spreadsheet and save it to a file.
+[01:16:28] So over time, I can build a database
+[01:16:30] of everybody who gets locked up, right?
+[01:16:33] This is a table that's inside this HTML thing,
+[01:16:36] and I want to scrape it out.
+[01:16:37] If I inspect it using this magic tool,
+[01:16:40] I can see that here it is.
+[01:16:41] This is the table that's inside the page
+[01:16:43] I want to pull the data from, right?
+[01:16:45] And I can see that it has a unique goofy name
+[01:16:47] called results table.
+[01:16:49] That's the name of this table.
+[01:16:50] And so what I need to do is write Python code
+[01:16:53] that's going to pull out results table,
+[01:16:55] loop through all the rows, use our looping skills,
+[01:16:59] grab the data, and print it out to the file, okay?
+[01:17:02] And so then the way that happens is you have to install
+[01:17:05] a couple other Python libraries,
+[01:17:07] and this was going to be the other hellish install
+[01:17:09] we don't have time for,
+[01:17:10] that allow you to download websites
+[01:17:13] and parse them using Python and make a script.
+[01:17:20] And so the script is right here, right here, right here, right here.
+[01:17:35] Oh, too big.
+[01:17:50] Right?
+[01:17:51] And so this is a Python code we'd write in that script
+[01:17:53] that does a lot of the basic things we talked about.
+[01:17:55] What we didn't get into is you can import these other libraries
+[01:17:58] that do all kinds of magic things so you don't have to write code.
+[01:18:01] One will download websites, the other will parse them.
+[01:18:04] This one will write them out to a spreadsheet, right?
+[01:18:07] And then what you do is you just start using them.
+[01:18:09] You make a variable, right, called URL,
+[01:18:12] which includes a string,
+[01:18:14] which is the URL of the web page you want to visit.
+[01:18:17] You then use the fancy library we imported right here
+[01:18:20] to get the URL and save it
+[01:18:22] and pull the HTML from the web thing magically in the script.
+[01:18:26] We then pass that into this other library that can parse the HTML, right?
+[01:18:31] We give it the special instructions and we say,
+[01:18:33] hey, find in that the table called results table.
+[01:18:38] Remember how we saw that in the page?
+[01:18:40] And that's the detective work of scraping,
+[01:18:42] is that you have to find in the page the unique thing
+[01:18:45] that allows you to pull the string and extract the data,
+[01:18:48] which we did really quickly inspecting it.
+[01:18:50] There it is.
+[01:18:51] That table is now a thing that we can find stuff in using beautiful soup.
+[01:18:55] So I say, hey, I want you to take the table
+[01:18:58] and I want you to find every row in the table,
+[01:19:01] which happens to have an HTML tag called TR, which stands for row.
+[01:19:04] And guess what, I want you to loop through it
+[01:19:07] just like we just did, right, guys?
+[01:19:09] So for every row in the HTML rows, right,
+[01:19:14] I want you to then do a second loop.
+[01:19:17] I want you to find all the cells in the table loop through the cells, right?
+[01:19:23] I want you to grab the text out of them
+[01:19:27] and then I want you to add them to a list, right?
+[01:19:30] So as we're looping through the cells,
+[01:19:32] we're adding them to the list and that's a row
+[01:19:35] and then add the row to the big list of all the rows
+[01:19:38] and then we create a list of lists
+[01:19:41] that has all the data pulled from the HTML via the loop, right?
+[01:19:48] And then write it out to a spreadsheet using the simple spreadsheet tool.
+[01:19:52] I know that was really fast, but that's basically where we're going.
+[01:19:56] If you follow on the web page, which again is firstwebscraper.rtfd.org, right?
+[01:20:06] You guys remember that one?
+[01:20:07] That's this one.
+[01:20:09] Every single step is explained and written out
+[01:20:12] and it will show you how to work through the skills you have now
+[01:20:15] to write the script and do exactly what I just showed you.
+[01:20:18] So we didn't have time to get through all this stuff tonight.
+[01:20:21] We only got you set up and running, but you can go home,
+[01:20:24] click on Act 3 and you can do all that stuff
+[01:20:28] and end up with the script that works
+[01:20:30] and there's step-by-step instructions.
+[01:20:32] So the class can continue even though they may kick us out of here.
+[01:20:37] Okay, anybody have any questions or you want to yell at me
+[01:20:40] for not going fast enough?
+[01:20:43] Yeah.
+[01:20:50] So there are utilities in Python to interact with all sorts of things.
+[01:20:54] You know, so there's millions of open source libraries
+[01:20:57] or thousands that will make it easy to access different things
+[01:21:01] like requests and beautiful super we just saw.
+[01:21:04] And there are tools for accessing Twitter and Facebook
+[01:21:07] that allow you to, just in the same way we import requests,
+[01:21:11] you sort of import Twitter or whatever it's called.
+[01:21:15] And these things, you just Google them on the web,
+[01:21:17] you look for them, Python and Twitter,
+[01:21:20] and you'll see that there's libraries for interacting
+[01:21:22] with all sorts of different stuff that have in them functions
+[01:21:26] and tools that allow you just to stuff in the data you want
+[01:21:30] and kind of make something simple by smashing them together.
+[01:21:38] Yes.
+[01:21:42] There's not necessarily a best one.
+[01:21:45] I like Python just because I like Python because I like the simplicity.
+[01:21:49] I think that the white space and a lot of the stuff makes it easy to read
+[01:21:53] and that's why Python is often taught to beginners,
+[01:21:55] especially even children that taught Python as a first programming language
+[01:21:59] because a lot of the stuff we were just doing is really simple
+[01:22:02] and you'd be surprised how kind of weird it gets in other languages.
+[01:22:05] But to be honest, you can do this with any of the really popular languages.
+[01:22:10] I can't say it's necessarily better.
+[01:22:12] I just think it's readable.
+[01:22:15] Oh yeah, it's all free.
+[01:22:16] I mean, remember we downloaded and installed it.
+[01:22:18] Everything's free and open source.
+[01:22:19] I mean, all the major programming languages are,
+[01:22:21] with the exception of Java and the Windows stuff.
+[01:22:25] But unless you need to make a Windows app,
+[01:22:27] there's no reason to bother with that stuff.
+[01:22:38] So it's usually best just to, if you can,
+[01:22:42] to just code your own web scraper rather than using, you know,
+[01:22:46] kimono labs or import.
+[01:22:49] Like the point and click tools?
+[01:22:53] Oh, those are great.
+[01:22:54] You know what I mean?
+[01:22:55] I like them and I think that if it's like a browser plug-in,
+[01:22:58] they can do it and you can just grip and rip the data,
+[01:23:00] like I like to say, just go for it.
+[01:23:02] I mean, you don't need to write code when you don't need to.
+[01:23:04] But this is the foundation from which you'll be able to execute
+[01:23:08] much more complex scrapes.
+[01:23:10] So for instance, you could take this and then automate it
+[01:23:13] and set it to run every day at 5 a.m.
+[01:23:15] and gradually build a list over a year,
+[01:23:17] where if you use a browser plug-in,
+[01:23:19] you'd have to go and click it every day at 5 a.m., right?
+[01:23:22] So you're able to make it repeatable more easily.
+[01:23:24] And then also there's some things you want to scrape,
+[01:23:27] and these are the ones that are the most fun,
+[01:23:29] that are like paginated.
+[01:23:30] So let's say you want to scrape a web page
+[01:23:32] that has 5,000 pages of data that you have to go through, right?
+[01:23:36] You'd have to go with your browser plug-in,
+[01:23:38] you'd have to go and click and click and click,
+[01:23:40] which what we could do with this,
+[01:23:41] and there's a lot of more advanced scrapes you can look on online
+[01:23:44] and if you email me, I can send you some,
+[01:23:46] that basically will then click through all the pages
+[01:23:49] and repeat the same scrape for every single page
+[01:23:53] and then you're able to download hundreds of thousands of records
+[01:23:57] by basically just visiting every page on the website
+[01:24:00] and extracting the data you want.
+[01:24:02] But before you can get there, before you can run,
+[01:24:04] you've got to learn to walk.
+[01:24:05] But if you just need something one time,
+[01:24:07] smash and grab, I just want it, yeah, the plug-ins are great.
+[01:24:10] Another just short question.
+[01:24:13] In any case, is web scraping illegal?
+[01:24:18] Yes.
+[01:24:20] If it's a government website, almost certainly no,
+[01:24:23] because it's public information.
+[01:24:25] If it's a private website that has a terms of service or whatever,
+[01:24:29] they oftentimes don't want you to do it.
+[01:24:33] Now, there's a difference between collecting it for your own private use
+[01:24:37] and republishing any of it legally, and I'm not a lawyer,
+[01:24:41] but I think you can scrape things that are private data
+[01:24:44] and I think maybe legally argue in some cases
+[01:24:48] you're not breaking the law if you just store it
+[01:24:50] and don't do anything with it, but if you say republish it, you issue...
+[01:24:53] Do you guys have Craigslist here?
+[01:24:56] Yeah, so it's classified ads for apartments.
+[01:24:58] They don't want anyone scraping them
+[01:25:00] because people could scrape them and make a competitor
+[01:25:03] or do game the system or something.
+[01:25:05] And so they want to make it against the rules of their website,
+[01:25:09] which gives them the right to ban you or potentially sue you or whatever,
+[01:25:13] and also will develop software that will try to stop you from doing it.
+[01:25:18] So they'll see that you're visiting every page
+[01:25:20] and they'll kill your request or ban you kind of automatically.
+[01:25:24] Also, the same technology that issues this request...
+[01:25:27] So hackers are pretty famous now, right? They're everywhere.
+[01:25:30] Have you ever heard the phrase denial of service attack?
+[01:25:33] Right, so that's basically when you...
+[01:25:35] It's the most basic hacker attack.
+[01:25:37] It's what Anonymous does to MasterCard or whatever.
+[01:25:39] And all it really is is requesting as many web pages as you can
+[01:25:44] as quickly as possible so that the web server
+[01:25:47] that passes the page gets overwhelmed and crashes.
+[01:25:51] So it's just request, request, request, request, request, request,
+[01:25:53] request as many times as you want.
+[01:25:56] The technology that does that is no more complicated than this.
+[01:25:59] It's literally code this simple that makes those requests.
+[01:26:02] It just does it many, many times in a row
+[01:26:06] and distributed across many different machines,
+[01:26:09] which is what a distributed denial of service attack is.
+[01:26:12] So if you were to run this Python script over and over again,
+[01:26:16] or let's say you were to make a loop,
+[01:26:18] you were to make a list that had the number 1 through 1 million,
+[01:26:21] 1 million numbers in the list,
+[01:26:23] and you were to say, 4 number in, 1 through 1 million, colon,
+[01:26:28] space, space, space, this,
+[01:26:31] you would then issue 1 million web requests in a row
+[01:26:34] for the exact same URL over and over again.
+[01:26:37] And you would essentially be running a low-grade denial of service attack.
+[01:26:42] Maybe not even intentionally, but you would.
+[01:26:45] And so sometimes if it's a crappy government website,
+[01:26:48] they'll crash just because they're poorly built
+[01:26:50] and they can't handle it and you don't mean it.
+[01:26:52] And so what you can do is you can put in delays.
+[01:26:55] There's a library called time,
+[01:26:57] and you can say inside that loop, 1 through 1 million,
+[01:27:00] you could put time.sleep 2 seconds.
+[01:27:03] Every time it went through the loop, it would make the request,
+[01:27:05] wait 2 seconds, start the loop again.
+[01:27:08] Make the request, wait 2 seconds, start the loop again.
+[01:27:11] And so with tricks like that, you can kind of make it easier
+[01:27:14] on the people you're scraping, and it's kind of polite scraping,
+[01:27:21] which I would recommend.
+[01:27:22] So don't use this.
+[01:27:23] So what I've just told you,
+[01:27:24] you could basically be a crappy member of Anonymous at this point
+[01:27:28] with that basic technology.
+[01:27:30] And as you get more into programming,
+[01:27:32] you'll learn a lot of this stuff once you understand it.
+[01:27:34] It's not that complicated.
+[01:27:36] It's just all these basic data types and loops
+[01:27:38] and things that we're going through.
+[01:27:43] The last question.
+[01:27:47] Thank you.
+[01:27:48] If we want to learn more Python, what would you recommend?
+[01:27:52] Well, there's a million things on the Internet.
+[01:27:54] You know what I mean?
+[01:27:55] Google is great for this.
+[01:27:56] Well, Google will lead you to many things that are great for this,
+[01:27:59] which is you just type in...
+[01:28:01] So there's free books that will teach you Python.
+[01:28:04] There's one called Dive into Python.
+[01:28:06] There's another called How to Think Like a Computer Scientist or something.
+[01:28:11] But what they really are is kind of kindergarten Python.
+[01:28:14] And they'll teach you actually a lot of the stuff that we just did.
+[01:28:21] You know, I'm a member of IRE-NICAR,
+[01:28:23] which is a group at the University of Missouri where that jail is.
+[01:28:27] And they have a lot of training materials for Python and other languages
+[01:28:31] that have kind of journalism examples.
+[01:28:33] So if you just type in Python and journalism,
+[01:28:36] and you'll find probably a bunch of stuff.
+[01:28:38] I can't think of a ton off the top of my head,
+[01:28:40] but there are literally hundreds of thousands of things to look at.
+[01:28:43] I would say like a beginning Python book would be good.
+[01:28:46] But the reality is that computer science,
+[01:28:49] you could study it for years and years and years.
+[01:28:51] It's very deep.
+[01:28:52] What you really need is a combination of the fundamentals
+[01:28:54] and then kind of a practical project,
+[01:28:56] like a web scrape that you want to work on
+[01:28:58] and to partner the two things, and you'll get there.
+[01:29:03] Okay?
+[01:29:04] Thanks, guys.
+[01:29:05] I know that was the crash course.
+[01:29:06] That was a crash course, but we survived it, huh?
+[01:29:08] Thank you very much.
+[01:29:09] Okay.

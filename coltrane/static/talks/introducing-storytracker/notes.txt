@@ -1,0 +1,160 @@
+StoryTracker 1.0
+A brief introduction by Ben Welsh
+My name is Ben
+Sometimes I go by @palewire
+I work here
+The @latimes in #DTLA
+TK
+Screenshots
+ are good
+Screenshots
+ are good
+
+    But
+also stupid
+Screenshots
+ are good
+
+     But
+ also stupid
+
+   HTML is
+the gold mine
+>>> import storytracker
+>>> obj = storytracker.archive('http://www.stltoday.com', output_dir='/home/ben/Desktop/')
+>>> obj.gzip_archive_path
+'/home/ben/Desktop/http!www.stltoday.com!|!!!@2014-11-08T23:49:08.188549+00:00.gz'
+>>> obj.write_hyperlinks_csv_to_path('/home/ben/Desktop/stltoday.csv')
+>>> obj.write_overlay_to_directory('/home/ben/Desktop/')
+'/home/ben/Desktop/overlay-http!www.cnn.com!|!!!@2014-11-08T23:49:08.188549+00:00.png'
+>>> urlset.write_overlay_animation_to_directory('/home/ben/Desktop/')
+'/home/ben/Desktop/urlset-overlay.gif'
+>>> urlset.write_href_overlay_animation_to_directory(
+>>>     'http://www.stltoday.com/sports/columns/bernie-miklasz/bernie-big-red-thrive-under-you
+>>>     '/home/ben/Desktop/'
+>>> )
+'/home/ben/Desktop/urlset-href-overlay.gif'
+So what?
+So what?
+
+
+Automated
+ analysis
+So what?
+
+
+Automated
+ analysis
+
+
+Here’s how
+Who does Drudge love the most?
+Who does Drudge love the most?
+
+Nov. 4
+Who does Drudge love the most?
+
+Nov. 4      7 days
+Who does Drudge love the most?
+
+Nov. 4      7 days     96 archives
+Who does Drudge love the most?
+
+ Nov. 4     7 days     96 archives
+
+
+953 links
+Who does Drudge love the most?
+
+ Nov. 4       7 days      96 archives
+
+
+953 links   448 stories
+Who does Drudge love the most?
+
+ Nov. 4       7 days      96 archives
+
+
+953 links   448 stories   142 domains
+9.
+9.   8.
+9.   8.   5.
+
+
+
+
+5.   5.
+9.   8.   5.
+
+
+
+
+5.   5.   4.
+9.   8.   5.
+
+
+
+
+5.   5.   4.
+
+
+
+
+3.
+9.   8.   5.
+
+
+
+
+5.   5.   4.
+
+
+
+
+3.   1.   1.
+>>> import storytracker
+>>> obj = storytracker.open_wayback_machine_url(
+>>>     'https://web.archive.org/web/20010911223655/http://www.cnn.com/'
+>>> )
+What next?
+             What next?
+
+Real world
+ feedback
+             What next?
+
+Real world     Grow, via
+ feedback     partnerships
+             What next?
+
+Real world     Grow, via      PastPages
+ feedback     partnerships   integration
+              What next?
+
+Real world      Grow, via      PastPages
+ feedback      partnerships   integration
+
+SVG outputs
+              What next?
+
+Real world      Grow, via      PastPages
+ feedback      partnerships   integration
+
+SVG outputs    Storysniffer
+                 refactor
+              What next?
+
+Real world      Grow, via      PastPages
+ feedback      partnerships   integration
+
+SVG outputs    Storysniffer      Your
+                 refactor     wild ideas
+http://storytracker.p
+astpages.org
+
+
+
+
+                        Questions?
+Sorry, haters.
+Still standing.

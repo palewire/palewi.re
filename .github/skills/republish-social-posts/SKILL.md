@@ -26,6 +26,8 @@ page or direct readers back to a social platform.
    faithful local transcription, then format it for the blog.
 2. Remove emojis from titles and body text. Treat their removal as a mechanical
    formatting change; do not replace them with words unless the user asks.
+   Remove any standalone hashtag used as a social-media header at the start of
+   the body.
 3. Propose a concise title, a slug, and a publication timestamp based on the
    original social post. Use the original time when it is available and convert
    it to Los Angeles time. If only a date is available, ask the user to choose
@@ -35,7 +37,9 @@ page or direct readers back to a social platform.
 5. Do not add source notes, outbound social links, embeds, social-media assets,
    or a provenance field. The finished post must stand on its own.
 6. Reuse images only when the user owns them or confirms the right to reuse
-   them. Never hotlink platform-hosted media.
+   them. A user's nomination of one of their own social-media posts confirms
+   permission to reuse its directly associated images. Never hotlink
+   platform-hosted media.
 7. Resolve shortened URLs found in the nominated post to their canonical
    destinations by following redirects only. Weave each result into the
    surrounding original language as a meaningful inline link. Do not retain
@@ -45,11 +49,16 @@ page or direct readers back to a social platform.
    do not substitute unrelated art.
 9. Convert a lead video no longer than 10 seconds into an optimized animated
    GIF and use it as the blog post's `repr_image`. For a longer video, ask the
-   user whether to use a still image or omit lead art. Do not hotlink or embed
-   a platform-hosted video.
+   user whether to use it as a locally served lead video, use a still image, or
+   omit lead art. A nominated post owned by the user grants permission to
+   download its directly associated video for use as a page asset. Store the
+   downloaded video in `coltrane/static/img/` and render it with a `<video>`
+   tag. Do not hotlink or embed a platform-hosted video.
 10. If a lead GIF needs visual touch-ups, use a manually or AI-retouched GIF
     supplied by the user from an approved image editor. Do not apply automatic
     background edits that could damage the original artwork.
+11. Wrap responsive chart embeds in `<div class="chart-embed">` so they receive
+    the same bottom spacing as lead images.
 
 ## Approval and publication
 
@@ -62,10 +71,12 @@ page or direct readers back to a social platform.
 3. Do not add draft, status, source URL, or unsupported metadata fields.
    Private drafts and nomination records stay in the chat.
 4. Run `make check`.
-5. Before opening a pull request, reuse a healthy local server or run
+5. Before asking for publication approval, reuse a healthy local server or run
    `make serve`, then open the new post on localhost for the user to review.
-   Wait for the user's response unless they explicitly waive this preview.
-6. Prepare a focused pull request for the approved batch.
+   This test-site review is required unless the user explicitly waives it.
+6. Wait for the user to approve the test-site version. Do not commit, open a
+   pull request, or publish the post before that approval.
+7. Prepare a focused pull request for the approved batch.
 
 ## Batch status
 

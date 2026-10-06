@@ -40,6 +40,11 @@ docs:
   repository_url: https://github.com/palewire/first-llm-classifier
   description: Learn how journalists use large-language models to organize and analyze
     massive datasets
+- title: First Observable Notebook
+  type: lesson-plan
+  url: https://observablehq.com/collection/@palewire/first-observable-notebook-2020
+  repository_url: https://observablehq.com/collection/@palewire/first-observable-notebook-2020
+  description: A course on programming interactive graphics with Observable notebooks
 - title: First PMTiles Map
   type: lesson-plan
   url: https://palewi.re/docs/first-pmtiles-map/

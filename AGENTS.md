@@ -25,10 +25,22 @@ When running, auditing, or troubleshooting a local audio/video backup of the
 media referenced by `coltrane/content/talks.yaml` or blog posts, load the
 `archive-media` skill (`.github/skills/archive-media/SKILL.md`) first.
 
+When creating browser-framed lead art for a post from a public URL, load the
+`lead-art-screenshot` skill (`.github/skills/lead-art-screenshot/SKILL.md`).
+
 ## Before finishing
 
 Run `make check`. This is the same set of lint, type, Django, and test checks
 used by CI.
+
+Before opening or merging a pull request, apply exactly one changelog category:
+`feature`, `improvement`, `fix`, `maintenance`, or `skip-changelog`. The
+required Lint check rejects pull requests without exactly one category.
+`enhancement` counts as an improvement; Dependabot's `dependencies` and
+`github_actions` labels count as maintenance. Read `RELEASING.md` before
+creating a GitHub release. Releases use semantic versions, point to the
+deployed `main` commit, and are published only after the production smoke test
+passes.
 
 Worker changes also require `make worker-test`, `make worker-validate`,
 `make legacy-worker-test`, and `make legacy-worker-validate`. Production
@@ -42,7 +54,7 @@ secrets, generated files, or `.goals/` agent state.
 ## Project map
 
 - `coltrane/`: publishing features and content
-  - `coltrane/content/`: YAML-backed content (awards, clips, docs, talks, slogans, bots)
+  - `coltrane/content/`: YAML-backed content (apps, awards, clips, code, docs, talks, slogans, bots)
   - `coltrane/content_loaders.py`: validated loaders for all YAML content types
 - `toolbox/`: shared utilities
 - `project/`: Django settings and URL routing
@@ -85,7 +97,9 @@ Ordered by descending year, then alphabetically by title.
 
 ### clips.yaml
 
-Work items listed on `/work/`.
+Published work records are routed by type: `story` and newsroom `app` records
+appear on `/clips/`, standalone `service` records on `/apps/`, `software`
+records on `/code/`, and `lesson-plan` records on `/guides/`.
 
 ```yaml
 clips:
@@ -115,13 +129,16 @@ talks:
     date: "2024-06-15"       # YYYY-MM-DD
     video_url: "https://..." # optional
     slides_url: "https://..." # optional
+    guide_url: "https://..." # optional related guide
+    archive_url: "https://web.archive.org/web/..." # optional Wayback snapshot
 ```
 
 Ordered by descending date.
 
 ### docs.yaml
 
-Documentation listed on `/docs/` in two groups.
+Documentation listed in two catalogs: software on `/code/` and lesson plans on
+`/guides/`.
 
 ```yaml
 docs:
@@ -134,7 +151,8 @@ docs:
 
 `repository_url` must be an HTTP(S) URL. Omit it or use an empty value when a
 canonical repository cannot be verified. It is catalog metadata and is not
-rendered on `/docs/`. Docs are ordered by type, then alphabetically by title.
+rendered on the list pages. Docs are ordered by type, then alphabetically by
+title.
 
 ### bio_skills.yaml
 

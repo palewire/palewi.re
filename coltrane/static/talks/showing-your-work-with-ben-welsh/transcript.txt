@@ -1,0 +1,560 @@
+[00:00] [MUSIC]
+[00:01] >> Hello, and welcome to the Data Journalism Podcast.
+[00:05] I'm Scott Klein.
+[00:06] >> I'm Alberto Cairo.
+[00:07] >> And I'm Simon Rogers.
+[00:09] >> This week, we're joined by a returning guest, Ben Welsh from Reuters.
+[00:16] Ben is a long time proponent of open source and
+[00:20] published lots of great open source projects.
+[00:23] And so he and I paired up a couple of months ago to take a look at
+[00:28] open source activity and news and came out with a piece on the source blog from Open News.
+[00:35] Since then, I have been tracking open source activity in news and
+[00:39] I've actually launched a newsletter at openjournalism.news.
+[00:44] And frankly, I've been watching open source activity in news a lot since then.
+[00:49] And there's a lot to be happy about, a lot of encouraging activity.
+[00:54] A lot of really good repos coming out, a lot of good open source activity.
+[00:57] And I've gotten a lot of great feedback from the community on the work.
+[01:00] So this interview, we talk kind of much more generally about open source activity in news.
+[01:08] >> Amazing, and the thing about Ben is that I don't think modern data journalism
+[01:12] would look the same without him.
+[01:14] He does such incredible work around opening up data and making it more available.
+[01:19] And it was a real pleasure to spend time with him.
+[01:21] He is actually a kind of regular fixture at Nycar where we recorded this interview.
+[01:27] And he often does this thing like the full Nycar where he basically presents every
+[01:31] day constantly.
+[01:32] So he's a bit of powerhouse.
+[01:33] We were kind of lucky to have some time with him.
+[01:35] >> Ben is also a returning guest.
+[01:37] >> Yeah. >> He visited the, yeah,
+[01:40] the podcast more than four years ago.
+[01:43] So it was great to hear what he's been up to since then.
+[01:48] He has a new job.
+[01:50] And as always, I found his observations about where the industry is going,
+[01:54] where we are, and where we are heading.
+[01:56] I think that they are spot on.
+[01:58] >> Okay, let's get into it.
+[02:00] [MUSIC]
+[02:10] All right, we are live from Nycar in Indianapolis.
+[02:13] First time ever, and we're so glad to be here with Ben Welch.
+[02:17] You've got a new job since we last spoke.
+[02:19] Tell us what you've been up to at Reuters.
+[02:21] >> Thank you for having me.
+[02:22] It's a pleasure to be back here at Nycar and talking to you guys again.
+[02:26] I now live in New York City, money making Manhattan,
+[02:29] where I walk to work every day at Three Times Square and
+[02:32] work at the Reuters Newsroom.
+[02:34] Reuters is an international news agency with more than 2,700 journalists
+[02:39] all around the planet, and one node in that big network is right there in New York,
+[02:44] where we cover markets, economics, business, and really anything else.
+[02:49] And I lead a small team who are working on automating data for breaking news.
+[02:53] >> Tell us a little bit more about that.
+[02:54] What does that actually entail day to day for you?
+[02:57] >> Sure, if you think about what's going on on Wall Street,
+[03:00] as the charts move up or down, there's an opportunity to cover that with data.
+[03:04] And a traditional approach would have been to assign somebody to go and
+[03:08] download a spreadsheet and reformat it and stick it into a charting tool.
+[03:13] And then get an editor to look at it and push it through.
+[03:16] And that worked great, it just wasn't necessarily the quickest thing and
+[03:20] can only cover so many topics at one time, your throughput was limited.
+[03:25] And what we really see is an opportunity for automation to really attack that type
+[03:29] of breaking news coverage of market moving information in a way that gives us
+[03:34] greater speed and scale to talk like the corporate denizen that I am.
+[03:38] And so if you think about it, that data that's coming out of the Korean stock
+[03:43] market, the oil prices, the whatever else, the futures market is updating minute by
+[03:48] minute and what our team has done is set up hundreds of automated pipelines that
+[03:53] are drawing from all these different data feeds identifying when new records are
+[03:56] available and automatically publishing charts that are ready to go within seconds.
+[04:01] And so when the oil prices ran wild on Sunday night after the attack on Iran,
+[04:06] we had the live chart up on the homepage within minutes before the tech story
+[04:11] about the increase was even ready to show that and
+[04:13] then it can develop live as the new numbers come in.
+[04:17] We're trying to take that approach to as many different topics as we can,
+[04:20] not just commodities and markets, but also public opinion polls.
+[04:24] We routinely publish one of the broadest American public opinion polls.
+[04:28] And by automating the charts in coverage,
+[04:31] we're able to just get it out quicker and faster.
+[04:33] So on that Sunday, we had the first public opinion poll of what Americans thought
+[04:37] of the attack on Iran and again, the chart was ready before the tech story
+[04:41] because we had it all wired up.
+[04:43] >> So there are two really exciting things about it, at least.
+[04:47] One is that you didn't create your own graphics stack,
+[04:51] you didn't kind of invent the entire thing.
+[04:54] But you're in fact wrapping it around data wrapper,
+[04:57] which is something that really lots and lots of newsrooms are now using.
+[05:02] I know the New York Times has switched back to if they're still using that code.
+[05:06] And it's become one of maybe two with Flourish data wrappers become one of
+[05:11] the two sort of main graphics engines that newsrooms are using.
+[05:15] Which leads me to the second thing that's exciting is that you actually also
+[05:19] publish these pipelines as open source code, right?
+[05:22] So newsrooms could adopt this and be able to, I mean,
+[05:25] not that many newsrooms need to be as quick as Reuters.
+[05:29] But newsrooms could adopt these to be useful for
+[05:32] their communities in different ways, right?
+[05:35] So one thing we released last year that has been super useful to us, and
+[05:38] I suspect will be to others, is a Python library that kind of acts as a wrapper or
+[05:43] a helper for automatically making charts with data wrapper.
+[05:47] So most of us encounter data wrapper in our browser as a point and
+[05:50] click interface where with relative ease you can make a really great chart, right?
+[05:54] But it also has an API that allows a computer or
+[05:57] a machine to make a chart by posting into that system the instructions for
+[06:02] how to make it.
+[06:03] But to do that requires a good amount of technical know how and
+[06:06] you kind of have to decode the kind of dozens of little options that configure,
+[06:11] make the bar this color, set the axis this format.
+[06:14] And most of that's undocumented.
+[06:16] So what we've done is written a Python library that fully maps out all of those
+[06:20] options for eight or ten of the data wrapper chart types and
+[06:23] fully documents how they all work.
+[06:25] And so now with a very small amount of Python code, you can really easily
+[06:29] configure and automate a line chart, a bar chart, a column chart.
+[06:32] And that's now open source and available for anyone.
+[06:35] And we also took it one step further, not to get too nerdy here,
+[06:39] but I feel like this might be the venue.
+[06:42] >> This is the venue for this.
+[06:43] >> Yeah, we connected that to what's now called a model context protocol server,
+[06:49] which is kind of an emerging standard for making a kind of pluggable system for
+[06:54] connecting outside data sources and tools into an AI chat bot like OpenAI or Claude.
+[07:00] And because of the way the Python code is written,
+[07:03] it's actually kind of perfectly suited to kind of connect with the chat bot.
+[07:08] I don't know if folks have done this, but there's an emerging standard as well for
+[07:11] sort of teaching the bot how to deal with different data structures.
+[07:16] And the system that we use to help ourselves make the chart is the same
+[07:20] system that the AI use, so we've released an MCP server.
+[07:24] It's still experimental, but it can be plugged into any chat bot.
+[07:28] And you can then say, hey, chat bot, here's a spreadsheet.
+[07:31] Could you make me a bar chart?
+[07:32] And boom, it'll talk to DataRapper and bring it right back.
+[07:36] >> That's so helpful.
+[07:37] I mean, the charts that AI tends to make have not been great.
+[07:42] Certainly nothing to the level of what DataRapper is capable of.
+[07:45] So that's exciting, I'm gonna try that.
+[07:47] >> Yeah, I just talked to the Politico crew here at the conference, and
+[07:49] they're installing it in their local newsroom too, which is pretty exciting.
+[07:53] >> This is gonna lead into what we're really here to talk about.
+[07:55] But why do you make Open?
+[07:56] Why make it available to everybody?
+[07:58] Why isn't it like secret, commercial, confidential information?
+[08:02] >> Well, I think we have a lot to benefit from making it open.
+[08:06] Within days of me releasing it, I received a contribution from a developer
+[08:11] in a newsroom in Germany who I've never met, who contributed support for
+[08:15] a DataRapper map and automating how to configure that that we hadn't done yet.
+[08:19] And so by inviting other people into the project,
+[08:22] we got something back out of it, right?
+[08:25] And so to me, there's definitely the reciprocal part of it.
+[08:28] For me, I think open source really demands a higher standard of coding and
+[08:32] quality, just even knowing it's gonna be public.
+[08:36] Sometimes it pressures you to make it a little better.
+[08:38] And I think that that's what an editor I used to have liked to call good pressure.
+[08:44] And so I think that it puts a little good pressure on it there.
+[08:47] And I just think it's also the right thing to do, not to sound too corny.
+[08:52] We're not releasing the stuff that really makes our system break news and
+[08:56] beat everybody else.
+[08:57] We're releasing one component of it that I think is kinda shared across the field.
+[09:02] And then I think I don't really see much of a downside for us in doing it.
+[09:06] >> So what Ben is talking about and Simon is talking about is a piece that Ben and
+[09:11] I published earlier this year that came out of some of the research that I've been
+[09:15] doing for years and Ben joined and was doing some physical analysis over the last
+[09:19] year that was really looking at the prevalence of open source activity
+[09:25] in newsrooms in America, and really kind of chasing a hunch that we had.
+[09:30] A sort of feeling we had that the activity has really tailed off in recent years.
+[09:35] And it actually turned out that I had a data set that was ready to go on this
+[09:39] because I had, back when X was called Twitter, I had a data set of all of
+[09:44] the newsrooms open source repository, their open source accounts on GitHub.
+[09:49] And I was chatting with Ben one day and we decided to take a look at the,
+[09:53] use this data set to take a look at the activity to see if it really had
+[09:55] tailed off.
+[09:57] Ben, do you wanna talk just for a second about kind of what we found and
+[09:59] what the piece is about?
+[10:00] >> Yeah, so we took Scott's list of I think about 350 news organizations on
+[10:05] GitHub and wrote a little Python code to go download all the repositories that
+[10:10] have been made by those organizations ever.
+[10:12] Just to kind of build a data set of all open source activity,
+[10:15] at least on GitHub, by this kind of very large broad set of news orgs.
+[10:20] And then when we started analyzing and looking at it, we found that not only
+[10:23] was Scott's hunch that activity was going down right.
+[10:27] It was, the trend was much more dramatic than we had expected.
+[10:31] If you just take a look at something like the number of new open source
+[10:34] repositories, that number peaked at 2,000 new repositories or
+[10:39] more than that in the year 2016, and it has just been in a consistent and
+[10:44] really quite dramatic decline since then.
+[10:48] Each year stepping down to fewer and fewer with a kind of a low point reached
+[10:52] in 2024, I think of around only 400.
+[10:56] So we've seen just in less than a decade, an 80% drop in the number of open source
+[11:02] repositories published by news organizations.
+[11:05] Which is a, as a long time data journalist, I said, wow,
+[11:08] that sounds like a nut graft to me.
+[11:10] >> Yeah, yeah, and it wasn't just open source repositories.
+[11:13] We wanted to, that's an easy thing to count.
+[11:16] And so it was a good proxy in that sense, if not an imperfect proxy like all
+[11:21] proxies are.
+[11:22] But we also looked at posts to the nikar-l mailing list, so we're at nikar.
+[11:27] So I think it's just natural for us to talk about the nikar-l list.
+[11:30] And there was a time when the nikar-l listserv was the must read email list for
+[11:36] data journalists.
+[11:38] I remember when I let it buzz my phone when a new nikar-l post would come.
+[11:42] I would get a notification on my phone cuz I wanted to read it as soon as it came
+[11:45] out, and we found that there was a similar decline on the nikar-l mailing list.
+[11:51] I think that was down 89% from its peak at around the same time.
+[11:55] So really a culture of sharing that really peaked in 2016 has tailed off
+[12:01] considerably, not just in the stuff that's easy to see, but
+[12:05] I think in the stuff that's kind of harder to measure as well.
+[12:08] >> Definitely, I think one of the things that always attracted me to data
+[12:11] journalists originally was this culture of sharing.
+[12:14] Because often data journalists, you're kind of isolated where you are.
+[12:17] This idea you're part of a bigger community, but actually also that it can
+[12:21] make your work better because people are gonna come back to you and
+[12:24] improve what you do, just like the example you gave.
+[12:27] So obviously, the peak is 2016.
+[12:29] That is a different world now in terms of data journalism.
+[12:32] Do you wanna talk about how different that was?
+[12:34] How data journalism's changed since then?
+[12:36] >> Well, how different was in terms of just number of outlets?
+[12:40] We have BuzzFeed doing a ton of data journalism.
+[12:42] 538 were incredibly prolific contributors to GitHub.
+[12:47] >> Without a doubt, the first thing that came to our mind,
+[12:49] we're asking the question, what could explain this?
+[12:51] Why has this gone down so much?
+[12:52] And I think if you compare today to then,
+[12:54] the thing everybody who's paying attention thinks of first is economics, right?
+[12:58] We just have all these places that were large contributors.
+[13:00] You just listed them.
+[13:01] And if they go out of business, they can't keep contributing, right?
+[13:04] It's kind of a pretty basic explanation.
+[13:07] And I think that's just true, you know what I mean?
+[13:09] You definitely see in our data set that there's a strong cohort of places.
+[13:12] They're just gone, and that accounts for some, but not all of the decline.
+[13:17] And that's where it started to get interesting for
+[13:18] us in kind of reporting out the data set.
+[13:22] Cuz what we saw is that there were other cohorts or
+[13:25] other groups of news organizations within the data who are also declining,
+[13:29] who didn't have those economic problems.
+[13:31] You know, I'm not here to name names or call anybody out, but
+[13:33] we can all think of the very successful news organizations of the Internet era.
+[13:37] And if you look for them in our data set, you're gonna see they're dropping too.
+[13:41] So it can't all be the money, right?
+[13:43] So something else must explain it.
+[13:45] And that's what set Scott and I off on a little bit of a reporting expedition.
+[13:49] You wanna share what we did, Scott?
+[13:51] >> Yeah, so as journalists, as data journalists, we didn't just stop at
+[13:54] looking at the data and publishing what the data findings were.
+[13:56] We wanted to talk to people to see if they had a hunch about what changed and
+[14:01] why the numbers had gone down.
+[14:02] So we talked to more than a dozen people.
+[14:04] These were practitioners, people who we felt were big advocates for
+[14:09] open source or just big open source releasers back in the day.
+[14:13] And talk to them about, first of all, did they agree with the hunch?
+[14:16] We let them know what the data showed.
+[14:17] And asked them to help us understand what changed in their newsrooms.
+[14:21] What were their motivations for open sourcing in the first place?
+[14:23] And did those motivations go away?
+[14:25] What changed about their workplaces that might have led to a decline,
+[14:30] a sort of zeal to open source everything.
+[14:32] >> And in addition to economics, we really heard two other major themes kind of come
+[14:36] up in different ways from different perspectives as we went through it.
+[14:39] One was the idea of technological maturity, you might say, or
+[14:44] like the we fixed it theory.
+[14:46] And several people we interviewed said one reason you might see less open source
+[14:51] is we just don't need it as much.
+[14:52] Some of the problems have been solved.
+[14:54] You look at the explosion of open source in that period is associated with
+[14:57] the development a lot of web frameworks for publishing data on the web.
+[15:02] Be it Django or Sveltekit or what you name it, D3.
+[15:06] And now that those problems are quote unquote solved,
+[15:09] maybe there's less need, right?
+[15:11] So that was one theory we heard from folks.
+[15:13] And I've heard that concurred by others.
+[15:16] And then a third theory we heard, and
+[15:17] this especially came from the people in the large successful newsrooms, I would say,
+[15:22] is the idea of kind of a cultural change that's happened in the winners of
+[15:26] the internet era.
+[15:28] It's articulated by one person we interviewed as saying when your team has
+[15:32] moved to the center of the newsroom, it's no longer the boutique
+[15:36] kind of experimental R and D nerds in the corner.
+[15:39] But they're now part of the capital P product and the quote unquote main thing,
+[15:45] right?
+[15:46] Your bosses are different people with different outlooks, right?
+[15:49] Your incentives are different.
+[15:50] You're focused on meeting the OKRs and
+[15:52] the quarterly goals, not kicking up something cool to see if the Internet is
+[15:57] a real thing or not, right?
+[15:58] And that that cultural change accounts for why, in their theory,
+[16:04] why some of these large newsrooms have dropped.
+[16:07] >> But while that's happened,
+[16:08] there have also been like really interesting startups,
+[16:11] things like The Pudding or City Bureau, Bellingcat,
+[16:14] which are kind of pioneering new types of reporting.
+[16:17] Do you think that's making a difference, Scott?
+[16:19] >> Yeah, I mean, there definitely are newsrooms, especially places that are
+[16:24] startups like The Pudding, Bellingcat, there are a few others that
+[16:28] are really punching above their weight when it comes to sharing.
+[16:31] So The Pudding puts a lot of things open source.
+[16:35] There's a terrific newsroom in Harrisburg, Pennsylvania called Spotlight PA.
+[16:40] I think they put their entire everything.
+[16:42] I think they put things up on their GitHub before they publish it.
+[16:44] I mean, they are really, really doing kind of keeping the old ways, in a way,
+[16:50] doing really terrific work.
+[16:51] >> Yeah, I think that's right, cuz our findings are really just in the aggregate,
+[16:54] right, we're talking about news at all.
+[16:55] But there are some real good news stories inside the data set when you dig down.
+[17:00] And I just think we really can't say, in my opinion,
+[17:03] enough good stuff about the success of the open source intelligence movement,
+[17:06] as it's known, who I think are one, modeling excellence in journalism and
+[17:11] hard work and creativity and inclusiveness, but also sharing.
+[17:17] And I think that in data, my little niche, my little corner of that big curve,
+[17:23] we would do well to pay attention to how they've been succeeding and
+[17:26] try to emulate them.
+[17:27] >> Yeah, I mean, data journalism was hardly new in the early 2010s, but
+[17:32] it sort of felt like we were bringing something new to newsrooms.
+[17:37] It was a lot of people coming from tech or from outside news were coming in,
+[17:40] bringing some of the sort of open source fervor.
+[17:44] These are people who worked at places that open sourced without even,
+[17:48] you didn't need a recent open source, of course you open sourced everything.
+[17:52] So I think there was a lot of energy coming in, it was a fairly new,
+[17:55] at least the way we were practicing it, and thinking about it was fairly new and
+[17:58] growing.
+[17:59] And I think on some level, that's what OSINT is now,
+[18:02] what open source intelligence is now.
+[18:04] And I think, in a way, Ben talked about maturity.
+[18:08] It's almost, it's a good thing that data journalists would have to come to
+[18:13] a conference like NYCART to see people who really understood what they did.
+[18:16] And to sort of gather meaning and standards and sort of edit each other in
+[18:21] a way that they didn't necessarily get from their newsrooms.
+[18:23] Where we all sort of worked in places where we had bosses that were very bright and
+[18:28] very good journalists, but not necessarily people could help us with our Python
+[18:31] problems or decide between pandas or R or whatever, right?
+[18:36] And so we kind of turned to each other for that, and in a way,
+[18:39] that's what created the culture of sharing.
+[18:41] And now a lot of our newsrooms have become much more sophisticated,
+[18:45] much more data literate.
+[18:47] And we are turning inward, and we talk all about the inward shift in the story.
+[18:51] Where there are actually people in our newsrooms that we can turn to,
+[18:55] to get the answers to our Python questions and to edit our math,
+[18:59] as Amanda Cox used to put it.
+[19:01] And in a way, we kind of didn't, we didn't need each other quite as urgently.
+[19:05] And so the culture of sharing became more of a conscious effort than the default.
+[19:10] >> I love that you also included a piece about Django, because Django is so
+[19:15] important and something that a lot of people perhaps don't know about now.
+[19:18] But without it, the web would not look how it looks.
+[19:20] Do you want to explain what Django is for people?
+[19:22] >> Yeah, I mean, we've all used Instagram, unfortunately, right?
+[19:25] And believe it or not, the first edition of Instagram when it was launched as
+[19:30] a startup was built using an open source web development toolkit called Django.
+[19:35] And that toolkit, which launched this billion dollar business that now
+[19:38] dominates the attention of many Americans,
+[19:42] was invented at a small local newspaper in Lawrence, Kansas.
+[19:46] Where at the Lawrence Journal World, a team of ragtag nerds decided to build
+[19:51] a better newspaper website, and in doing so, created a set of tools for
+[19:56] building websites out of databases that then grew into one of the most popular
+[20:01] ways to make a website of any kind.
+[20:04] And it's just one of, I think, a whole list of stories and
+[20:08] examples of where really significant and
+[20:11] world changing kind of technology was developed in newsrooms.
+[20:16] And these are stories, I think, that we know in our little world, but
+[20:19] might not be more broadly known.
+[20:21] >> Yeah, you sort of think about news as a legacy business, but
+[20:26] Django is far from the only example.
+[20:28] D3, the JavaScript framework that helps create graphics was incubated,
+[20:33] I would say in a newsroom was sort of invented before Mike Bostock got to
+[20:36] The New York Times, it was really incubated there.
+[20:39] Backbone underscore sort of a lot of JavaScript behavior frameworks.
+[20:44] >> Svelte.
+[20:45] >> Svelte, speaking of JavaScript frameworks,
+[20:48] very much came out of Rich Harris's work at The New York Times and elsewhere.
+[20:52] And I found out in writing this piece that the varnish proxy
+[20:57] write through cache was written on behalf of a newsroom in Europe.
+[21:01] So there was a time, and in many ways, it can still be here,
+[21:06] where newsrooms were not just open sourcing code for other newsrooms to use,
+[21:10] but open sourcing code that people far outside news were using.
+[21:14] >> And Django, named after the Jazz guitarist Django Reinhardt.
+[21:17] >> Yes. >> Cuz Adrian Hollabarty,
+[21:19] massive Jazz fan.
+[21:20] I always felt that when you put data sets online or put anything online,
+[21:25] the numbers of people it would attract would be very small,
+[21:28] often like 10 people, one person even.
+[21:30] But to me, that didn't matter because it was a sign of transparency and
+[21:34] the sign of kind of openness, which is important,
+[21:36] especially in this age of trust deficit that we see.
+[21:40] How important is it, do you think, like emotionally almost,
+[21:43] for news to be part of this open kind of culture?
+[21:46] >> Well, I think it's important to do just for its own sake, as you said, for
+[21:49] transparency in the scientific spirit of Phil Meyer that really launched
+[21:54] this whole movement.
+[21:55] I think it's part of being credible and convincing to your audience.
+[21:59] But I wouldn't write off its appeal as a product either.
+[22:02] I think we can point to a number of data products that are incredibly
+[22:07] successful in the commercial marketplace and with readers.
+[22:10] If you look, for instance, this week we had the first midterm elections of the year
+[22:14] in the United States, in Texas, and elsewhere.
+[22:17] And the live election result pages on all the different news sites that night were,
+[22:22] I'm sure, drawing absolutely stupendous readership.
+[22:26] And those are data products, just like anything else.
+[22:28] And they are made by data journalists, including ones at this conference.
+[22:32] We can look at the coronavirus story.
+[22:34] We can look at, this one might be a little controversial to some.
+[22:38] We can look at the WikiLeaks story and many others, and
+[22:41] see cases where publishing data on the web has had really dramatic readership.
+[22:47] >> Yeah, Simon, you bring up a really good point,
+[22:49] which is the idea of sort of reproducible research.
+[22:52] And when I was at ProPublica, one of the things that we really paid attention to
+[22:57] was the rise of the reproducible research movement within academia.
+[23:01] And the idea that it was incumbent upon us,
+[23:05] if we were doing a sophisticated data analysis, to publish, initially,
+[23:10] white papers where we explained, we're sure, a very sort of academic light,
+[23:14] although never peer reviewed, sort of research papers to help people understand
+[23:18] our analysis.
+[23:19] And then later, when Jupiter Notebooks, then called IPython Notebooks,
+[23:24] came out to actually publish or reproduce what you could run.
+[23:28] Now you could do it right within GitHub, but you could rerun our analysis and
+[23:32] see where we might have screwed up.
+[23:34] We did that very much in the spirit of journalism,
+[23:37] where we said, here's our methodology down to a T.
+[23:40] You could reproduce it and do the exact same thing if you have the same data set
+[23:43] that we do, which often we published as well.
+[23:46] And you could do it, and if we did our math wrong, we want to know.
+[23:49] Just like every journalist wants to know if they get it wrong, and
+[23:52] then want an opportunity to get it right.
+[23:53] And so that was very much part of our impetus for
+[23:57] open sourcing all of our data stuff.
+[24:00] And on some level, that is still happening.
+[24:02] We're going to be talking at this conference with the Myre Award winners.
+[24:06] And in both of the cases of the folks we're talking to, ProPublica and
+[24:10] the Baltimore Banner, they published very detailed methodologies,
+[24:14] explaining all of the decisions that they had to make, because the data's imperfect.
+[24:18] And the code out there that's available to do this work is imperfect.
+[24:21] And all of the decisions that they had to make that brought them to the analysis.
+[24:25] So that too, it's not just creating Svelte and D3 and open source products.
+[24:32] But also simply as part of, it's how we are transparent as data journalists.
+[24:36] We have an opportunity to be very transparent about
+[24:40] our methodology down to the line of code.
+[24:43] And why would we not take advantage of that?
+[24:46] >> But how do we fix this?
+[24:47] Because I know you guys actually spent a lot of time talking to people about
+[24:51] how to make things better.
+[24:52] So what are your recommendations?
+[24:53] >> Well, we asked everyone, we interviewed that same question.
+[24:56] We also convened a panel at the News Product Alliance conference last fall in
+[25:01] Chicago and asked the whole room full of journalists the same question.
+[25:04] And we've had, I have to tell you, dozens and
+[25:06] dozens of conversations with different data journalists since the story's come out.
+[25:10] And we've asked all of them, how do we fix it?
+[25:12] Same question.
+[25:13] I don't think anybody knows the perfect answer.
+[25:15] And I don't think there's one answer.
+[25:16] There's probably a lot of different things that need to happen.
+[25:19] But ideas that came up, I would be happy to share.
+[25:23] One is the idea of trying to make open source more of a norm within the project
+[25:29] cycle.
+[25:30] One big reason a lot of projects were open in the past, we heard from people,
+[25:34] is that was how you started a project.
+[25:36] If your project started open, it was easier to keep it open rather than
+[25:40] waiting till the day before you published and
+[25:42] having to mop everything up and shove it out.
+[25:45] So kind of better defaults was one idea that they'd come up.
+[25:49] Another is trying to create in these sort of growing and
+[25:52] strong institutions that are succeeding right now.
+[25:55] Maybe a position is focused on this.
+[25:58] And open source editors, is that what they called it, Scott?
+[26:00] >> Mm-hm, mm-hm.
+[26:02] >> What other ideas did we hear?
+[26:03] Hm.
+[26:04] >> Well, one of them, I mean, one of them was just like, give it the office.
+[26:08] Like, if you want open source to come back, open source your stuff, right?
+[26:11] Start with you, was one of the- >> Pull up your pants.
+[26:15] >> Yeah, just do it.
+[26:16] So that was definitely one of them.
+[26:18] Assigned somebody to coordinate, we heard, make an open source award.
+[26:22] So sort of best open source project of the year.
+[26:25] We also heard from people who were talking about, really among the people who
+[26:29] said, you know, what changed in my newsroom is that we matured not just as
+[26:33] journalists, but as product managers.
+[26:36] So as product development became more sophisticated and
+[26:41] more formalized in newsrooms, you needed an OKR, you needed a goal.
+[26:47] You know, it had to link to some corporate strategy to open source things.
+[26:51] And so you just could never prioritize it.
+[26:54] So one of the things we heard is, you know,
+[26:55] the bosses should make it one of the goals that we should try to open source for
+[26:58] projects this year.
+[27:00] Or we should try to document, you know, five projects this year so
+[27:03] that we can't open source it.
+[27:04] So we also heard from people that if one of the reasons that this might have slowed
+[27:09] down is that formal product management kind of methodologies came in and
+[27:14] dissuaded people from spending time on this.
+[27:16] How do we then use that to help persuade people to do this?
+[27:20] I think we need to welcome in the vibe coders.
+[27:22] What do you guys think about this?
+[27:23] 100 percent.
+[27:24] No question about it.
+[27:25] There's just this growing group of people who are able to participate in coding in
+[27:29] this dawning era of AI assistance.
+[27:31] And these are people that have kind of been locked out up until now.
+[27:35] And I see in them the ones I meet so much hunger and curiosity and desire.
+[27:40] And also as a numbers person, I see a growing denominator, just like more
+[27:45] potential participants, more people to collaborate with.
+[27:48] And I just kind of wonder how can we capitalize on this moment?
+[27:51] And I'm I feel like I don't know what it will look like, but I sense that there
+[27:56] must be the GitHub moment coming for vibe coders where they all are able to not
+[28:02] just make something in private on their computer with Claude, but share and
+[28:07] collaborate with each other.
+[28:09] There's a moment of connection that's happening that must happen, I think, or
+[28:13] logically follows.
+[28:15] And I think that there's a way in which GitHub is part of why we had our peak and
+[28:19] this smaller niche.
+[28:20] And I think that's why I'm thinking of it as the GitHub moment for vibe coders.
+[28:25] And I can't wait for it to get here.
+[28:27] No, I couldn't agree more.
+[28:28] I mean, how many projects have I looked at where I said, oh, gee, I wish it did
+[28:32] this thing a little bit differently, or I wish it supported the CMS that I use, or
+[28:36] I wish it could do this, but I don't have the time or the inclination or I don't
+[28:39] know this programming language, or I don't feel like I've got the chops to do a
+[28:43] pull request for this from GitHub, so I'll just live without it, or I'll do
+[28:46] something else, or worse, I'll make my own.
+[28:50] And so what vibe coding can do, I mean, vibe coding is, it gets better every
+[28:54] couple of days.
+[28:55] I mean, it is already a spectacular at doing software development.
+[28:59] And one of the things it's particularly good at is reading an existing kind of
+[29:04] code repository and making changes, including making security changes, you
+[29:10] know, making speed changes, just sort of looking at it and looking to look at the
+[29:14] Git history and understand why things were the way they were so it can be
+[29:17] careful about what it does.
+[29:18] And so the idea of, you know, fixing a repo that's out there so that it works
+[29:23] better for your newsroom, or let's say somebody takes a look at your, at Ben at
+[29:27] your code for, you know, that wraps data wrapper and says, well, how do I do this
+[29:32] with flourish? Well, you can vibe code, you can have cloud code change so that it
+[29:37] works with the flourish API instead of the data wrapper API, or let's say that
+[29:40] data wrapper changes this API, because if it's undocumented, that means I'll be
+[29:43] going to change it without telling you.
+[29:44] And then when that happens, it's something that really probably you can vibe
+[29:49] code. Now, interestingly, there is some concern about this in the open source
+[29:56] community. So there's a developer who created a system called vouching, where
+[30:03] they are so concerned about vibe coded pull requests on GitHub, that there's now
+[30:10] a system where you can vouch for other developers. So you can say, well, I know
+[30:14] that Simon is a real developer, he didn't vibe code this, so you should let him do a
+[30:19] pull request to your code base. Whereas no one knows Scott, so don't take his
+[30:24] code because he probably does vibe coded that. So it's kind of interesting that
+[30:27] there's sort of, you know, antibodies being deployed to stop this. But I agree
+[30:32] with you, Ben, I think that it's going to open it up to all sorts of really smart
+[30:37] technical journalists who may not be able to code at the level that you would need
+[30:41] to do a real pull request, who can add really critical features that you just
+[30:45] don't need or you don't see, but but actually make your stuff better.
+[30:49] It's like back in the day, back when we all started, there was a kind of opening
+[30:53] up almost democratization of day journalism because anybody can make a
+[30:56] chart. And now you've kind of got the same thing happening again, right?
+[31:00] There's a new technology, it's opening it up. Anybody can do it. It does change how
+[31:06] we do what we do, but it's an incredible moment, I think.
+[31:08] Without a doubt, they'll be good and bad, but you know, who cares, you know?
+[31:13] Yeah, I guess I'm still the hopeful one. You know what I mean? To me, I find
+[31:16] myself at this AI moment, feeling, using the language of my new employer, feeling
+[31:21] kind of bullish. You know, I feel kind of up about this. And my hope is, is that
+[31:25] this next AI chapter is going to turn that curve back around that we made in
+[31:30] our story. And we're going to see more people sharing in the years to come.
+[31:35] Ben, thank you so much for joining us. Great to have you.
+[31:39] Thank you for having me.
+[31:46] Thanks for listening to the Data Journalism podcast. We're hosted by Alberto Cairo,
+[31:51] Scott Klein and me, Simon Rodgers. Special thanks to Lauren, Chris and the whole
+[31:57] NikeR team for all of their support with this episode.
+[32:01] Our producer is Aussie Linus Goodman.
+[32:03] The music you can hear is the sound of data made with two-tone, an app that turns
+[32:08] numbers into tunes. This week, we used Google searches for the term "data
+[32:13] journalism" since 2004. Do you have a new data driven story or project coming up?
+[32:19] Tell us about it at dayjournalismpodcast@gmail.com and we might even feature it
+[32:25] on the show. Subscribe to make sure you never miss an episode.

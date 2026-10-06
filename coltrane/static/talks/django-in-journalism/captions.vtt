@@ -1,0 +1,2563 @@
+WEBVTT
+
+00:00.000 --> 00:05.360
+Next up, we have our second panel of the day.
+
+00:05.360 --> 00:10.440
+The panel is on journalism with Django, which is obviously where Django came from.
+
+00:10.440 --> 00:16.000
+So please introduce our panelists, who I believe will then be introducing themselves.
+
+00:16.000 --> 00:25.120
+Hello, everybody, once again.
+
+00:25.120 --> 00:33.120
+Because Django came out of a journalism environment, probably for that reason, it's had some uptake
+
+00:33.120 --> 00:37.200
+in the journalism world, and we thought it would be interesting to get the perspective
+
+00:37.200 --> 00:47.360
+of that one type of Django user and how they use it, how they think it can be improved,
+
+00:47.360 --> 00:48.720
+and just any other thoughts they have.
+
+00:48.720 --> 00:53.960
+So we have a number of illustrious journalists who use Django here, and they're all going
+
+00:53.960 --> 00:55.680
+to introduce themselves.
+
+00:55.680 --> 00:57.680
+First, Ben.
+
+00:57.680 --> 01:05.240
+Hi, my name is Ben Welsh, and I work at the Los Angeles Times, where we do some database
+
+01:05.240 --> 01:10.740
+projects for the web, and before that, I worked in D.C. at the Center for Public Integrity
+
+01:10.740 --> 01:15.600
+and kind of came into it through the investigative journalism world like Matt here.
+
+01:15.600 --> 01:18.560
+I guess that's my introduction.
+
+01:18.560 --> 01:20.280
+I'm Matt Waite.
+
+01:20.280 --> 01:25.360
+My title is News Technologist at the St. Petersburg Times, which is to say, if anybody
+
+01:25.360 --> 01:30.120
+knows what the hell I do, I'd love to know, you can tell me later.
+
+01:30.120 --> 01:34.480
+I've used Django for a little over a year now, I've launched two sites.
+
+01:34.480 --> 01:39.400
+My first project, still online, is a project called PolitiFact, which fat checks presidential
+
+01:39.400 --> 01:42.400
+candidates.
+
+01:42.400 --> 01:43.400
+What's the second?
+
+01:43.400 --> 01:44.400
+I'm sorry?
+
+01:44.400 --> 01:45.400
+What's the second project you've done?
+
+01:45.400 --> 01:50.200
+Oh, it was a, we just launched it, it was a real estate, neighborhood-based real estate
+
+01:50.200 --> 01:55.480
+site, where you can, if you live in the Tampa Bay area, you can get a somewhat ridiculous
+
+01:55.480 --> 02:00.400
+amount of detail about how houses are selling and for how much in your very small micro
+
+02:00.400 --> 02:01.400
+neighborhood.
+
+02:01.400 --> 02:02.400
+Cool.
+
+02:02.400 --> 02:07.000
+And Ben, you didn't mention any projects that you'd worked on, so could you just, really
+
+02:07.000 --> 02:08.000
+quickly?
+
+02:08.000 --> 02:12.040
+We've only been doing Django at the LA Times for, since I think about Memorial Day, and
+
+02:12.040 --> 02:14.320
+we've put out three apps since then.
+
+02:14.320 --> 02:19.440
+The first was, we ripped off one of yours, we did a Memorial Day thing about California
+
+02:19.440 --> 02:22.960
+servicemen and women who died in Iraq and Afghanistan.
+
+02:22.960 --> 02:27.440
+We also did dog registrations in Los Angeles, so you could see the most common dogs or look
+
+02:27.440 --> 02:30.960
+up your name and see where they're at and what the most common breeds are, goofy stuff
+
+02:30.960 --> 02:32.600
+like that.
+
+02:32.600 --> 02:37.040
+And then this week, we put out, on a very tight deadline, I'm proud to report, the
+
+02:37.040 --> 02:41.840
+new school scores here in the state of California, so you could see how your local school's doing
+
+02:41.840 --> 02:43.680
+or compare them across the state.
+
+02:43.680 --> 02:44.680
+Cool.
+
+02:44.920 --> 02:49.800
+My name is Maura Chase, and I work at the Atlanta Journal of Constitution, which, if
+
+02:49.800 --> 02:55.320
+you don't know, that was actually where Adrian worked first, but that's another story.
+
+02:55.320 --> 02:59.800
+I've worked there for about a year, and I've been using Django for about two years.
+
+02:59.800 --> 03:04.780
+We don't have, we have a kind of a separate CMS, we don't have Ellington or anything,
+
+03:04.780 --> 03:09.720
+so we build more kind of like site enhancements and special projects in Django.
+
+03:09.720 --> 03:13.680
+Probably our biggest thing is we do all the photo galleries on the site, they get lots
+
+03:13.680 --> 03:18.960
+of traffic, people love to look at photos.
+
+03:18.960 --> 03:23.680
+And I'm Matt Croydon, I'm development manager at Media for Media, which is the shiny new
+
+03:23.680 --> 03:25.160
+name for World Online.
+
+03:25.160 --> 03:31.240
+You know, obviously we're associated with the journal World, birthplace of Django, and
+
+03:31.240 --> 03:35.160
+I've been involved a lot with both the development of Ellington, our content management system,
+
+03:35.160 --> 03:42.080
+and also a lot of database journalism, data visualization projects for and with the newsroom.
+
+03:43.080 --> 03:48.240
+All right, so as I mentioned at the beginning, we're putting this together, putting this
+
+03:48.240 --> 03:51.720
+panel together because Django came out of this journalism environment.
+
+03:51.720 --> 03:53.960
+I wanted to get your thoughts.
+
+03:53.960 --> 03:59.560
+Are you using Django because it came out of a journalism environment, or would you have
+
+03:59.560 --> 04:01.280
+found it otherwise?
+
+04:01.280 --> 04:05.000
+Do we have like extra cred in that world, in your opinion?
+
+04:05.000 --> 04:06.000
+Does it matter?
+
+04:06.000 --> 04:07.000
+How does it help us?
+
+04:07.000 --> 04:08.000
+How does it hurt us?
+
+04:08.000 --> 04:10.200
+What do you think?
+
+04:10.320 --> 04:12.880
+I don't think I should be answering this, so I'm going to pass it off.
+
+04:12.880 --> 04:16.240
+Yeah, Matt doesn't really have a choice.
+
+04:16.240 --> 04:20.280
+I think that I actually used Django before I worked at the paper.
+
+04:20.280 --> 04:24.920
+So I came from Django from a non kind of paper background.
+
+04:24.920 --> 04:27.920
+I think that, I mean, kind of both.
+
+04:27.920 --> 04:32.680
+It definitely has extra credit, because it came out of newspapers, and everyone knows
+
+04:32.680 --> 04:38.080
+about Django and they know about the Lawrence Journal world, so there's obviously great
+
+04:38.080 --> 04:43.560
+reasons to use Django besides that fact, but I think that's definitely a big deal.
+
+04:43.560 --> 04:44.560
+I agree.
+
+04:44.560 --> 04:45.560
+I think it's evolving.
+
+04:45.560 --> 04:46.560
+I think it is both.
+
+04:46.560 --> 04:50.680
+I think it started out as, hey, some other newspaper made this, let's check it out.
+
+04:50.680 --> 04:55.680
+I joke that the reason that the newspaper people use Django is slug fields, because
+
+04:55.680 --> 04:57.400
+it harkens back to hot type.
+
+04:57.400 --> 05:02.800
+I mean, when people set type and put it there were slugs that they use, so that's like comfort
+
+05:02.800 --> 05:03.800
+food to us.
+
+05:03.800 --> 05:05.640
+Oh, look, slug's weed.
+
+05:06.160 --> 05:11.800
+I have seen, just to interrupt, I have seen an uptake in usage and awareness of the term
+
+05:11.800 --> 05:16.160
+slug, like since Django has been released in random blogs, but...
+
+05:16.160 --> 05:19.000
+It's like home cooking.
+
+05:19.000 --> 05:22.840
+Can we swap in TK for null at some point?
+
+05:22.840 --> 05:25.520
+That one's before my time.
+
+05:25.520 --> 05:26.520
+Long story.
+
+05:26.520 --> 05:30.880
+But I would say that the answer to that is a resounding yes, and it may not necessarily
+
+05:30.880 --> 05:33.120
+always be for the best reasons.
+
+05:33.120 --> 05:34.280
+How do ideas spread?
+
+05:34.280 --> 05:35.280
+How do memes happen?
+
+05:35.280 --> 05:40.520
+I mean, there's a degree to which that there's, it's kind of a bad phrase to use, but almost
+
+05:40.520 --> 05:44.240
+a cult of personality that kind of happens to a certain degree, where within the journalism
+
+05:44.240 --> 05:48.640
+world there's this knowledge among managers and among people who run the organizations
+
+05:48.640 --> 05:53.200
+that they need to change, but a lot of them don't really know how, or what that change
+
+05:53.200 --> 05:55.400
+should look like, or how it should take shape.
+
+05:55.400 --> 06:00.720
+And I think when there are people within the journalism community who are at least attempting
+
+06:00.720 --> 06:05.680
+to articulate some version of an alternative or a future, I think that it has more credibility
+
+06:05.680 --> 06:06.960
+than it would comes for outside.
+
+06:06.960 --> 06:12.800
+So I think when Adrian or Rob Curley or whoever shows up on Romanesco saying, this is one
+
+06:12.800 --> 06:17.400
+version of the future, or what I think a possibility for the future could be, I think that that
+
+06:17.400 --> 06:23.360
+carries a lot more credibility than, or it just has a greater chance of propagating itself.
+
+06:23.360 --> 06:26.200
+Another thing that I would mention, and we'll probably talk about this more in a little
+
+06:26.200 --> 06:32.520
+bit, the admin, the auto admin, is just a killer feature for a newsroom because of deadlines
+
+06:32.520 --> 06:36.920
+and it's there, and you get people putting in data right away for free.
+
+06:36.920 --> 06:38.720
+So that's a, yeah, go ahead.
+
+06:38.720 --> 06:39.720
+Deadlines in a matter of hours.
+
+06:39.720 --> 06:43.040
+I mean, yeah, the admin makes that, what I was going to say, when they get the reels
+
+06:43.040 --> 06:46.920
+that go into Ben's point, is that newspaper editors tend to be more fad conscious than
+
+06:46.920 --> 06:48.800
+a gang of tweens at a mall.
+
+06:48.800 --> 06:53.080
+So one person makes something work, they're going to chase it like a herd of kids.
+
+06:54.080 --> 06:58.040
+I saw an amazing slide at a presentation at another conference where it was a picture
+
+06:58.040 --> 07:02.520
+of six year olds playing soccer, and they all bunched around the ball and they just
+
+07:02.520 --> 07:06.320
+chased the ball around like this little mass of kids just chasing the ball around the field.
+
+07:06.320 --> 07:07.320
+Journalism.
+
+07:07.320 --> 07:08.320
+Yeah.
+
+07:08.320 --> 07:09.320
+It's pretty much right there.
+
+07:09.320 --> 07:15.080
+But I mean, and that's flip, and I in a sense agree with it, but I mean that also is an
+
+07:15.080 --> 07:19.800
+opportunity for everybody in this room to do something because you have an audience
+
+07:19.800 --> 07:26.160
+of potential customers who will give you money to do things for them and to come up
+
+07:26.160 --> 07:31.000
+with cool stuff and also be able to put that on a platform where a lot of people will see
+
+07:31.000 --> 07:33.680
+it, which is, I mean, that's a lot of fun.
+
+07:33.680 --> 07:38.040
+And so there's opportunities for, I think, products made out of Django or made from Django
+
+07:38.040 --> 07:43.040
+or I don't know what, to be sold to the newspaper audience because there's competitor products
+
+07:43.040 --> 07:47.600
+that are being sold now that suck and you guys could kick them, you guys could take
+
+07:47.600 --> 07:48.600
+over.
+
+07:48.600 --> 07:49.600
+Like Caspio.
+
+07:49.600 --> 08:01.400
+So, Matt, what was the quickest turnaround ever for a journalism Django project that
+
+08:01.400 --> 08:02.880
+you'd made?
+
+08:02.880 --> 08:05.360
+Four hours.
+
+08:05.360 --> 08:10.760
+When Hurricane Fay looked like it was going to come straight up our tailpipe, I noticed
+
+08:10.760 --> 08:16.200
+that what the newsroom was doing was taking all of this structured information and just
+
+08:16.200 --> 08:20.480
+dumping it in a blog and they were doing it at such a volume that important information
+
+08:20.480 --> 08:25.720
+like which hurricane evacuation shelters were open was rocketing down the list.
+
+08:25.720 --> 08:29.480
+I mean, this is a chronological order blog.
+
+08:29.480 --> 08:30.680
+These shelters are opening.
+
+08:30.680 --> 08:37.360
+That's a life or death thing and in half an hour, an hour, it's six posts down the line
+
+08:37.360 --> 08:39.960
+and it's gone and you can't find it anymore.
+
+08:39.960 --> 08:45.040
+So that bothered me, so I sat down and just quick banged out an app in Geojango actually
+
+08:45.040 --> 08:48.000
+that mapped out where the hurricane evacuation shelters were so you could see where they
+
+08:48.000 --> 08:53.160
+were and which one was the closest one to you and the admin allowed the clerks to just
+
+08:53.160 --> 08:56.880
+start punching in the data and turned out that Fay turned away from us and we never
+
+08:56.880 --> 08:57.880
+got to use it.
+
+08:57.880 --> 09:02.800
+So, yeah, I built one in four hours that nobody ever saw.
+
+09:02.800 --> 09:03.800
+The other Matt?
+
+09:03.800 --> 09:09.680
+I mean, for the longest time, we had the sort of running gag at work of, you know, we'd
+
+09:09.680 --> 09:14.840
+talk about an idea over lunch and by the end of the day, it was launched and, I mean,
+
+09:14.840 --> 09:19.400
+that's pretty common for both the, you know, short turnaround stuff staying up all night
+
+09:19.400 --> 09:24.280
+to get something done for the next day's paper or the next day's news cycle but also just,
+
+09:24.280 --> 09:28.800
+you know, trivial little things, hey, this would be fantastic, let's do it, oh, it's
+
+09:28.800 --> 09:30.960
+done by the end of the day.
+
+09:30.960 --> 09:32.960
+Any particular examples?
+
+09:32.960 --> 09:36.280
+Sorry, I'm blanking.
+
+09:36.280 --> 09:38.840
+No problem at all.
+
+09:39.200 --> 09:46.000
+Have you guys generally found that the workflow is create your models, stick some reporters
+
+09:46.000 --> 09:50.360
+loose on the admin and then they're putting in data while you're working on the views
+
+09:50.360 --> 09:51.960
+and the templates?
+
+09:51.960 --> 09:54.480
+Yeah, definitely.
+
+09:54.480 --> 09:59.720
+It seems like at the general world, we're sort of shifting from, you know, here's my
+
+09:59.720 --> 10:07.400
+data, let's model it in Django apps and, you know, unleash the reporter in the admin.
+
+10:07.400 --> 10:12.120
+These days, we're doing a lot more, you know, looking at the structured data ahead of time,
+
+10:12.120 --> 10:16.920
+you know, get it in a Google Docs or, you know, so that we can get to it via CSV and
+
+10:16.920 --> 10:21.360
+then doing, you know, automated imports or, you know, providing tools for if it's just
+
+10:21.360 --> 10:26.600
+a real simple, you know, tabular or, you know, one thing over time, you know, we have tools
+
+10:26.600 --> 10:32.640
+that don't necessarily require as much programmer intervention as it used to.
+
+10:33.360 --> 10:34.600
+Right, right.
+
+10:34.600 --> 10:37.440
+Ben, how are things at the LA Times?
+
+10:37.440 --> 10:43.360
+Well, I think the admin came in really handy when we did the Memorial Day project about
+
+10:43.360 --> 10:48.160
+casualties in the war where we hadn't done any Django projects before and it was sort
+
+10:48.160 --> 10:52.760
+of I had to sell people on letting us do this and one of the things that made me comfortable
+
+10:52.760 --> 10:57.280
+that we could do it on a tight deadline in a couple of maybe three weeks when it required
+
+10:57.280 --> 11:01.960
+a lot of additional entry and modification of the source data was that I knew that on
+
+11:01.960 --> 11:06.120
+day one, once I had the models up, I could have someone totally independent of me doing
+
+11:06.120 --> 11:10.800
+all that work while the web development was happening and that is, I mean, just a huge
+
+11:10.800 --> 11:11.800
+advantage.
+
+11:11.800 --> 11:16.240
+I mean, I'm sure people here in other circumstances are familiar with that advantage but, I mean,
+
+11:16.240 --> 11:20.120
+it's something that is just peculiarly suited to a newsroom, you know, when things just
+
+11:20.120 --> 11:24.600
+come up quickly and you have to do it, you know, if there was just umpteen examples of
+
+11:24.600 --> 11:29.120
+how you could work with it but I agree.
+
+11:29.120 --> 11:39.600
+So journalists are probably some of the stupidest people technologically who use Django admins.
+
+11:39.600 --> 11:43.480
+Are they taping this?
+
+11:43.480 --> 11:50.600
+So I'm wondering what your experience has been in showing journalists and reporters
+
+11:50.600 --> 11:52.920
+the admin just in general.
+
+11:52.920 --> 11:53.920
+How does it go?
+
+11:53.920 --> 11:56.920
+We'll go over with them.
+
+11:56.920 --> 12:00.800
+On that note, one of my favorite jokes is both Matt and I come out of the investigative
+
+12:00.800 --> 12:05.000
+journalism world where computers were adopted in like the late 70s and early 80s by some
+
+12:05.000 --> 12:08.120
+forward thinking guys who just wanted to do more sophisticated analysis.
+
+12:08.120 --> 12:12.560
+So you want to do like some social science, like heavy duty, like let's get at the data
+
+12:12.560 --> 12:14.680
+from the local courthouse or whatever.
+
+12:14.680 --> 12:17.480
+They learned how to do it and both of us kind of came up trained in that world which kind
+
+12:17.480 --> 12:19.200
+of naturally bridged into this.
+
+12:19.200 --> 12:22.920
+And the really awkward phrase for people to do that which just sounds very antiquated
+
+12:22.920 --> 12:28.320
+today but is a computer assisted reporting which is you know, and I always make the joke
+
+12:28.320 --> 12:31.480
+that it's still around today and it's still used very frequently in our world and it's
+
+12:31.480 --> 12:34.880
+almost kind of embarrassing for us, at least for me it is, because I always think you never
+
+12:34.880 --> 12:39.680
+hear today of a computer assisted photographer or a computer assisted architect.
+
+12:39.680 --> 12:43.400
+You know, it's only in the field of journalism where you still manage to distinguish yourself
+
+12:43.400 --> 12:52.200
+by using Excel but Django has made inroads just in the short period of time we've used
+
+12:52.200 --> 12:54.080
+it with people who aren't necessarily that savvy.
+
+12:54.080 --> 12:59.600
+I mean, it's easier to use as an admin than our CMS or for people who approve comments
+
+12:59.600 --> 13:02.000
+on our sites they use it and they all seem to like it.
+
+13:02.000 --> 13:06.760
+And one of my things I'm most proud of or is just so great is one of the Metro editor
+
+13:06.760 --> 13:12.720
+who I worked with on the Worded thing is not someone who is not very webby but who's open
+
+13:12.720 --> 13:16.960
+to change and who wants to do things and who really has been I think rewarded by the process
+
+13:16.960 --> 13:17.960
+of this project.
+
+13:17.960 --> 13:21.840
+And she came up to me the other day and she said, you know, I'm really looking for something
+
+13:21.840 --> 13:25.320
+else for us to jangify, you know?
+
+13:25.320 --> 13:27.160
+And to me that just felt like a huge victory.
+
+13:27.160 --> 13:33.440
+Yeah, I think the admin feels sort of immediately at home for anyone who's spent any time on
+
+13:33.440 --> 13:38.720
+the internet and so that at our organization the only time that we run into trouble with,
+
+13:38.720 --> 13:42.120
+you know, this is the admin, this is what it does as someone who's just completely unfamiliar
+
+13:42.120 --> 13:45.040
+with computers or has a very limited experience with them.
+
+13:45.040 --> 13:50.040
+So anybody else, it's just like riding a bike.
+
+13:50.040 --> 13:53.480
+When it comes to the admin, I mean, the greatest thing that ever happened for users of the
+
+13:53.480 --> 13:54.480
+admin is like Hotmail.
+
+13:54.480 --> 13:59.960
+I tell people if you've used a web-based email account, you can use the admin.
+
+13:59.960 --> 14:01.320
+You will survive.
+
+14:01.320 --> 14:07.000
+It's just a couple of boxes and you hit save and you're done.
+
+14:07.000 --> 14:10.520
+I have never, I haven't had a single problem with anybody who went, oh, I don't know what
+
+14:10.520 --> 14:11.520
+I'm doing.
+
+14:11.520 --> 14:12.520
+I don't know what I'm doing.
+
+14:12.520 --> 14:18.360
+I mean, the web is so permutated society now that just a simple form, you know, people
+
+14:18.360 --> 14:22.280
+run into them all the time and that's pretty much what the admin is, is a simple form.
+
+14:22.280 --> 14:26.520
+And you actually, as far as how it could be improved, you actually find people asking
+
+14:26.520 --> 14:30.680
+for improvements similar to things they see on more advanced web applications like they'll
+
+14:30.680 --> 14:36.160
+say, gee, could I moderate all these comments in a batch like from the main screen or, you
+
+14:36.160 --> 14:40.400
+know, when you're dealing with the inline changes and all that which I haven't had a
+
+14:40.400 --> 14:45.120
+chance to work with 1.0 much yet but I'm told that there's improvements there.
+
+14:45.120 --> 14:51.520
+I think we have, you know, a CMS and the Django admin is a lot easier to use than our
+
+14:51.520 --> 14:52.520
+paper CMS.
+
+14:52.520 --> 14:54.960
+So people generally like it.
+
+14:54.960 --> 14:58.080
+One of the things that I think that Django developers don't always do is even before
+
+14:58.080 --> 15:03.640
+new forms admin, there's a lot of customizations that you can do to make it easier for people
+
+15:03.640 --> 15:09.240
+to enter things, just grouping fields, help text, things like that.
+
+15:09.240 --> 15:14.960
+So Maura, before we got on stage, you were talking about how you did some training of
+
+15:14.960 --> 15:15.960
+the admin?
+
+15:15.960 --> 15:16.960
+Oh, no.
+
+15:16.960 --> 15:21.880
+I actually haven't done this yet but my idea was to do a screencast or some training and
+
+15:21.880 --> 15:26.960
+just basically talk about the Django admin fields apart from any particular app, just,
+
+15:26.960 --> 15:31.960
+you know, these are the different fields that you'll encounter, you know, a foreign key,
+
+15:31.960 --> 15:33.520
+you know, many to many.
+
+15:33.520 --> 15:36.760
+If it's bold, then it means it's required, if it's not bold, it's not required, that
+
+15:36.760 --> 15:37.760
+kind of thing.
+
+15:37.760 --> 15:38.760
+Right.
+
+15:38.780 --> 15:44.320
+I'm wondering whether we should somehow package that up in a generic fashion, like the, here's
+
+15:44.320 --> 15:49.920
+this, like a, you know, walk through one page at a time, here is a required field that's
+
+15:49.920 --> 15:50.920
+in bold.
+
+15:50.920 --> 15:51.920
+Boom.
+
+15:51.920 --> 15:52.920
+And maybe it's like customized for your data.
+
+15:52.920 --> 15:53.920
+Right.
+
+15:53.920 --> 15:54.920
+Do you think that would be useful?
+
+15:54.920 --> 15:56.200
+I think that would be incredibly useful.
+
+15:56.200 --> 16:00.720
+I think that because I'm so familiar with the Django admin, I just, there's probably
+
+16:00.720 --> 16:03.520
+a lot of things that you kind of take for granted that you already know when you look
+
+16:03.520 --> 16:06.160
+at it that maybe someone new to it, it's not as obvious to them.
+
+16:06.160 --> 16:11.000
+If you teach them, it's like teaching them to fish, kind of, instead of, you know, giving
+
+16:11.000 --> 16:13.440
+them food.
+
+16:13.440 --> 16:20.400
+What are the top admin features that you'd like to see?
+
+16:20.400 --> 16:22.480
+Other than multiple deletion.
+
+16:22.480 --> 16:25.840
+Oh, damn it.
+
+16:25.840 --> 16:26.840
+It's perfect.
+
+16:26.840 --> 16:27.840
+All right.
+
+16:27.840 --> 16:28.840
+Next question.
+
+16:28.840 --> 16:33.080
+Well, I kind of bumbled on this in our earlier conversations, but I don't really know how
+
+16:33.080 --> 16:34.280
+to articulate it either.
+
+16:34.280 --> 16:40.240
+I mean, one of the problems of dealing with data that is in some senses peculiar to journalism
+
+16:40.240 --> 16:45.120
+or is just very commonly found within journalism, if not unique to it, is that you're almost
+
+16:45.120 --> 16:52.280
+always starting with some sort of third party data as like your beginning point, like you're
+
+16:52.280 --> 16:57.800
+starting with the school scores data that's released by the state of California.
+
+16:57.800 --> 17:02.520
+And so there's a series of like cleanup and migration and transformation stuff that you
+
+17:03.520 --> 17:07.840
+almost always have to do when you're dealing with government data just to do the analysis
+
+17:07.840 --> 17:11.760
+to write the story, let alone to build a new web application based on the data.
+
+17:11.760 --> 17:16.000
+And those things just recur and happen in virtually every project.
+
+17:16.000 --> 17:20.720
+And now since Django is so easy, I actually spend much more time preparing the data than
+
+17:20.720 --> 17:24.920
+I actually do developing it for the website.
+
+17:24.920 --> 17:28.040
+And those tasks are things I'm sure people are familiar with, which is just very simple
+
+17:28.040 --> 17:32.840
+things often standardization of mutations and parent-child relationships where you
+
+17:32.840 --> 17:37.320
+still want to maintain the initial relationship that was in the data as you got it from the
+
+17:37.320 --> 17:38.320
+source.
+
+17:38.320 --> 17:44.080
+But for the purposes of, say, a web application or analysis, you want to combine two nominative
+
+17:44.080 --> 17:48.760
+categories, say, like where in the school's data there's a city field in the address that
+
+17:48.760 --> 17:53.320
+the state provides and is commonly filled with misspellings and other problems that
+
+17:53.320 --> 17:57.520
+you don't necessarily want to eliminate because you need to maintain the integrity of the
+
+17:57.520 --> 17:59.800
+data should you ever need to go back to it.
+
+17:59.800 --> 18:03.600
+But you'd like to be able to easily and to be able to do things like that in the admin
+
+18:03.600 --> 18:08.800
+where that could be deputized to someone else while the programmer gets to do the programming
+
+18:08.800 --> 18:14.120
+stuff rather than going through 60,000 dog breed names like I had to do and get all the
+
+18:14.120 --> 18:17.520
+combinations of the things handwritten in the form by the guy who filled it out, you
+
+18:17.520 --> 18:21.200
+know, would be a huge boon.
+
+18:21.200 --> 18:25.160
+What's the data model like for the dog names thing?
+
+18:25.160 --> 18:29.920
+It's actually very simple, the ultimate, what I did is I, since Los Angeles, every
+
+18:29.920 --> 18:32.520
+block having just launched in LA, I'm sure you're familiar with some of the problems
+
+18:32.520 --> 18:37.720
+of gathering public data in LA and one of them is that the bureaucratic topography,
+
+18:37.720 --> 18:39.920
+I guess that you would call it, is just very fragmented.
+
+18:39.920 --> 18:43.840
+It's like, so if you're doing every block San Francisco, I mean, there's essentially
+
+18:43.840 --> 18:47.640
+one city authority that maintains and centralizes all the stuff.
+
+18:47.640 --> 18:51.720
+It's, you know, not unlike a small European country, say, like Sweden or France or something
+
+18:51.720 --> 18:55.840
+where you just go to the government office for each thing and get it, but in Los Angeles
+
+18:55.840 --> 18:59.680
+you have LA City and you have LA County and you have Santa Monica and you have West Hollywood
+
+18:59.680 --> 19:02.880
+and you have Pasadena and you have Long Beach and you have all these places and they all
+
+19:02.880 --> 19:06.800
+have their own police departments and they all have their own, like public health is
+
+19:06.800 --> 19:07.800
+something that was more centralized.
+
+19:07.800 --> 19:10.680
+I think you guys probably had an easier time with that for like restaurant inspection,
+
+19:10.680 --> 19:15.240
+but it varies from source to source and so, say, for the dog's data, it was, like when
+
+19:15.240 --> 19:19.880
+I first moved to LA, I knew I was going to have to learn all this fragmented bureaucracy,
+
+19:19.880 --> 19:24.200
+so let's just start putting in public information requests and try to learn LA County.
+
+19:24.200 --> 19:29.080
+And I think that that set ended up being maybe 10 different public information requests that
+
+19:29.080 --> 19:35.040
+came back in different CSV files, which I then combined into one large table, which
+
+19:35.040 --> 19:41.400
+I did sort of the cleaning and the standardization process on, which then once that was complete,
+
+19:41.400 --> 19:47.680
+was migrated into a Django app afterward, but if all that stuff, the standardization
+
+19:47.680 --> 19:53.040
+that I ended up having to do through SQL and could have been done within the admin
+
+19:53.040 --> 19:56.600
+by someone else, it would have saved a ton of time and labor.
+
+19:56.600 --> 20:00.680
+That would be a cool feature, like it's sort of along the same lines as multiple deletion.
+
+20:00.680 --> 20:07.400
+It's like multiple changing, like if you have John and Johnny and you want to combine those,
+
+20:07.400 --> 20:11.520
+like filter, show me all the John and Johnny and just like, okay, change them all definitively
+
+20:11.520 --> 20:15.960
+to John, boom, that would be really, really cool.
+
+20:15.960 --> 20:19.520
+That's just welcome.
+
+20:19.520 --> 20:28.000
+So Matt, wait, you've on Twitter and on your blog in various places always made self-deprecating.
+
+20:28.000 --> 20:36.200
+I'm just a journalist, you know, I'm not a programmer, but Django helps me be productive.
+
+20:36.200 --> 20:40.840
+Why do you think Django lets you be productive?
+
+20:41.840 --> 20:49.000
+A couple of reasons, first of which being Python, being the first language that I actually
+
+20:49.000 --> 20:53.200
+started to learn and actually learned it.
+
+20:53.200 --> 21:00.720
+You know, I'm a knuckle-dragging, mouth-breathing, land-grant graduate from the Midwest, liberal
+
+21:00.720 --> 21:08.840
+arts major, who, you know, the toughest class I took in college was like, you know, 18th
+
+21:08.840 --> 21:10.880
+century English literature.
+
+21:10.880 --> 21:17.280
+So I had no experience with programming, got into database journalism like Ben was describing
+
+21:17.280 --> 21:19.440
+and I realized, you know, maybe I ought to learn a scripting language.
+
+21:19.440 --> 21:24.720
+So people around me that I respected were all talking about Perl, you could do all kinds
+
+21:24.720 --> 21:29.380
+of crazy stuff in Perl and I'm like, okay, I'll give Perl a shot and about three days
+
+21:29.380 --> 21:33.120
+later I'm like, oh, hell with that.
+
+21:33.120 --> 21:36.200
+So then a couple other guys I knew, they were like, yeah, we use PHP to do stuff.
+
+21:36.200 --> 21:39.640
+I'm like, okay, I'll try PHP, again, three days later, oh, hell with that.
+
+21:39.640 --> 21:42.120
+I'll never get that.
+
+21:42.120 --> 21:46.720
+Python was the first language I actually tried and it was like, okay, I want to do this.
+
+21:46.720 --> 21:53.640
+And very early on it was like, well, I don't know how to express that.
+
+21:53.640 --> 21:55.000
+Maybe it should be like this.
+
+21:55.000 --> 21:57.720
+Oh, my God, it worked.
+
+21:57.720 --> 22:02.760
+It just, for some reason, kind of the Python syntax is kind of the way I thought it should
+
+22:02.760 --> 22:03.760
+be.
+
+22:03.760 --> 22:05.440
+And it just did.
+
+22:06.200 --> 22:10.200
+A lot of times it was just, I was a little bit off and it was just a process of learning.
+
+22:10.200 --> 22:16.560
+But the learning curve for me on Python was a lot, lot less steep than it was for any
+
+22:16.560 --> 22:19.400
+of the half a dozen other things I've tried.
+
+22:19.400 --> 22:27.880
+Which made Django a lot easier for me because, you know, I know SQL pretty well.
+
+22:27.880 --> 22:35.040
+So I could look at view syntax and go, okay, I know what this is doing.
+
+22:35.040 --> 22:38.240
+And it just kind of was like, it just kind of went from there.
+
+22:38.240 --> 22:42.840
+The discussion earlier, somebody finally put a name to the way that I learned Django, which
+
+22:42.840 --> 22:47.400
+was the Z-shaped learning curve, where I ran right up against that wall and bounced off
+
+22:47.400 --> 22:50.560
+it hard, kind of went backwards and then started going up again.
+
+22:50.560 --> 22:54.440
+And I've described it to other people who are trying to learn Django as kind of a rollercoaster
+
+22:54.440 --> 22:55.440
+of learning curves.
+
+22:55.440 --> 22:58.760
+You get going up, up, up, up, up, and then you hit the top and you're like, holy crap,
+
+22:58.760 --> 23:00.520
+I can do something!
+
+23:00.520 --> 23:05.920
+And then you go back up again and you just repeat over and over again until one day you
+
+23:05.920 --> 23:09.880
+wake up and you say, oh, I'm going to implement this.
+
+23:09.880 --> 23:13.400
+And you implement it and it works just that fast.
+
+23:13.400 --> 23:14.400
+Just like that.
+
+23:14.400 --> 23:18.440
+It works as you thought about it in your head and you realize, holy crap, the world has
+
+23:18.440 --> 23:20.400
+just opened up to me.
+
+23:21.400 --> 23:26.000
+That was kind of the process of me learning Django, which is just, I think it should do
+
+23:26.000 --> 23:30.320
+this and I think it should be this way and oh my god, it worked that way.
+
+23:30.320 --> 23:34.120
+So I don't know, dumb luck, I guess.
+
+23:34.120 --> 23:38.080
+I think it's really significant that we've got people on this panel that sort of come
+
+23:38.080 --> 23:39.080
+from both sides.
+
+23:39.080 --> 23:43.240
+We have journalists that happen to program because of Django and we have programmers
+
+23:43.240 --> 23:47.080
+that happen to be into journalism and have learned a lot about journalism because of
+
+23:47.080 --> 23:48.080
+Django.
+
+23:48.440 --> 23:52.400
+I don't know what it is, but I think it's significant that sort of we've got Django
+
+23:52.400 --> 23:57.840
+in the middle bridging these two very, very different sides of what's going on.
+
+23:59.880 --> 24:03.080
+Anything else on that topic?
+
+24:03.080 --> 24:10.240
+What do you guys absolutely hate about working with Django or at least dislike?
+
+24:10.240 --> 24:13.240
+I hate the feeds framework.
+
+24:13.240 --> 24:14.240
+The syndication feeds?
+
+24:14.240 --> 24:15.240
+Yes.
+
+24:16.240 --> 24:23.360
+And we are using 096 at work and we'll upgrade to 1.02 and I know there's been some improvements,
+
+24:23.360 --> 24:27.320
+I haven't used it very much, but I mean, have you ever thought of making it more like a
+
+24:27.320 --> 24:31.640
+generic view or just, I don't know, more?
+
+24:31.640 --> 24:36.320
+It's kind of, I don't know, I hate in the URL comp feed, you kind of like, you kind
+
+24:36.320 --> 24:37.320
+of...
+
+24:37.320 --> 24:38.320
+Feed dicked.
+
+24:38.320 --> 24:39.320
+Feed dicked, yeah.
+
+24:39.320 --> 24:40.320
+You don't have to call it that.
+
+24:40.320 --> 24:41.320
+You can call it flower dicked.
+
+24:41.320 --> 24:44.960
+Well, that's true, but still, nonetheless, it is still the feed dicked.
+
+24:45.360 --> 24:46.360
+Okay.
+
+24:47.960 --> 24:51.720
+I would say one of the most exciting things that, if I paid closer attention, I probably
+
+24:51.720 --> 24:55.040
+already would have known about, but that I saw here this weekend was, I believe it was
+
+24:55.040 --> 24:59.880
+called demigrations yesterday, the ability to change your model without eliminating the
+
+24:59.880 --> 25:02.760
+data was just something that I constantly ran into.
+
+25:02.760 --> 25:07.960
+And if you're learning Django and even learning web development as you kind of do this, as
+
+25:07.960 --> 25:12.800
+you go along, I mean, I think both Matt and I come to Django with a very large data set
+
+25:12.800 --> 25:14.800
+that you want to get online, you know what I mean?
+
+25:14.800 --> 25:17.520
+It's not like a green grass thing where you're going to be building it from scratch.
+
+25:17.520 --> 25:22.240
+And so, as you're learning it, you're making mistakes and you're having to mess around
+
+25:22.240 --> 25:24.440
+with your models and get things straight.
+
+25:24.440 --> 25:27.840
+Having to always like rebuild the data set every time you made that change was something
+
+25:27.840 --> 25:31.760
+that was pretty burdensome.
+
+25:31.760 --> 25:34.920
+PolitiFact was my first project and I was kind of developing it with the Washington
+
+25:34.920 --> 25:39.880
+bureau chief and we were doing a very iterative process, although we didn't know what that
+
+25:39.880 --> 25:40.880
+was at the time.
+
+25:40.880 --> 25:42.080
+We weren't smart enough to know what it was.
+
+25:42.080 --> 25:46.080
+So, he'd call me up and say, okay, hey, I want to capture this information.
+
+25:46.080 --> 25:49.800
+So, I'd sketch out a model or a series of models and related tables and I'd send them,
+
+25:49.800 --> 25:52.120
+you know, go to the admin and try it out now.
+
+25:52.120 --> 25:56.440
+And he'd enter in, actually, he'd report it out, a fact check of something that I believe
+
+25:56.440 --> 26:01.480
+Mitt Romney had said and he'd go, okay, well, I really would, I really think we ought to
+
+26:01.480 --> 26:02.480
+store this information.
+
+26:02.480 --> 26:06.080
+I think we ought to do it or I think we ought to do this other thing and I'm like, okay,
+
+26:06.080 --> 26:07.280
+wipe it away.
+
+26:07.280 --> 26:08.560
+Start all over again.
+
+26:08.560 --> 26:12.480
+And that was fine when it was just one, but then he got kind of excited and started doing
+
+26:12.480 --> 26:16.560
+4, 5, 6, and 10 and then asked me to change something else.
+
+26:16.560 --> 26:20.920
+And I'm like, you know what's going to happen, right?
+
+26:20.920 --> 26:22.920
+He's like, oh.
+
+26:22.920 --> 26:26.600
+And I do it anyway.
+
+26:26.600 --> 26:31.880
+And you know, I've now reached the stage where the editors are coming in like, can we do
+
+26:31.880 --> 26:32.880
+this or that or the other thing?
+
+26:32.880 --> 26:36.640
+I'm like, you realize we have like over seven, we have almost 700 statements in the database
+
+26:36.640 --> 26:37.640
+right now.
+
+26:37.720 --> 26:38.720
+I'm going to mess with it.
+
+26:38.720 --> 26:39.720
+I just don't.
+
+26:39.720 --> 26:40.720
+I'm too scared.
+
+26:40.720 --> 26:42.640
+Just leave it alone.
+
+26:42.640 --> 26:44.160
+It works.
+
+26:44.160 --> 26:45.160
+Don't jinx it.
+
+26:45.160 --> 26:46.160
+All right.
+
+26:46.160 --> 26:47.160
+So, yes.
+
+26:47.160 --> 26:50.200
+Database migrations, okay.
+
+26:50.200 --> 26:53.840
+We actually have a group of Rails developers at the Atlanta Jordan Constitution as well
+
+26:53.840 --> 26:56.320
+and as you know, Rails has migrations.
+
+26:56.320 --> 26:59.800
+And so, you know, I get to hear that all the time.
+
+26:59.800 --> 27:04.080
+So we, we, one of the things I'm actually really interested to look at that I haven't
+
+27:04.160 --> 27:08.240
+yet is Simon's thing about migrations because I think it's kind of grown similar to the
+
+27:08.240 --> 27:09.240
+way we do.
+
+27:09.240 --> 27:13.600
+We have kind of, we do a lot of migrations and they're very, they're just very scary
+
+27:13.600 --> 27:15.960
+when you're doing it on a live production database.
+
+27:15.960 --> 27:21.800
+And so, you know, we kind of store them or for reference in a Railsian way, like I don't
+
+27:21.800 --> 27:27.720
+know if you're familiar, there's like 001 and 002 for your order.
+
+27:27.720 --> 27:29.720
+And then, and then we kind of run them and pray.
+
+27:30.720 --> 27:34.720
+How many people here have written their own migration stuff for Django?
+
+27:34.720 --> 27:35.720
+Impressive.
+
+27:35.720 --> 27:42.960
+Matt, what do you hate about that?
+
+27:42.960 --> 27:47.680
+I hate to beat a dead horse but, yeah, migrations suck and we need to change them.
+
+27:47.680 --> 27:53.680
+What other than migrations?
+
+27:53.680 --> 27:59.360
+I think probably the biggest thing that sucks about working with Django is when you have
+
+27:59.360 --> 28:04.600
+to work outside of Django, that kind of makes everything else that much more sucky.
+
+28:04.600 --> 28:05.600
+Explain that.
+
+28:05.600 --> 28:12.400
+Well, you know, so if you spend all day writing Django and then you have to work within, maintain
+
+28:12.400 --> 28:18.720
+some old Perl code or maintain something that's not Django, it kind of spoils you for everything
+
+28:18.720 --> 28:20.920
+else you have to do.
+
+28:20.920 --> 28:24.800
+I got one, aggregate.
+
+28:24.800 --> 28:29.240
+Something that Ben and I have done a lot with database journalism is aggregates.
+
+28:29.240 --> 28:33.880
+That's pretty much all that you do, is your grouping and counting and summing and sorting
+
+28:33.880 --> 28:36.080
+and averaging and all that stuff.
+
+28:36.080 --> 28:42.680
+And that was a, you know, a stopping point for me was I got in there and I'm like, okay,
+
+28:42.680 --> 28:50.040
+now I want to count all these things and I'm like, where's, you know, where's sales.objects.count?
+
+28:50.040 --> 28:53.440
+Or group by this thing, then count them.
+
+28:53.440 --> 28:56.080
+And yes, you can drop into SQL and do it.
+
+28:56.080 --> 29:01.840
+But boy do I wish there was that one line, group it by this field, count up a number
+
+29:01.840 --> 29:04.400
+of unique things within that.
+
+29:04.400 --> 29:07.840
+I'm definitely encouraged by the fact that a lot of these things that we're griping about
+
+29:07.840 --> 29:12.080
+are things that, you know, if they're not in progress, they're things that we're thinking
+
+29:12.080 --> 29:13.360
+about as a community.
+
+29:13.360 --> 29:15.120
+So that makes me happy.
+
+29:15.120 --> 29:16.120
+Right.
+
+29:16.120 --> 29:22.160
+One of the things, maybe some of you feel my pain, but we only work on releases at work.
+
+29:22.160 --> 29:26.680
+So we only work on Django 1.6 and now we're going to work on Django 1.0.
+
+29:26.680 --> 29:32.840
+And I understand why that wasn't a Django 0.97, but please do not wait so long for your next
+
+29:32.840 --> 29:33.840
+version of Django.
+
+29:33.840 --> 29:34.840
+Okay.
+
+29:34.840 --> 29:36.920
+So that was going to be my very next question.
+
+29:36.920 --> 29:38.320
+You mentioned you're on 0.96.
+
+29:38.320 --> 29:41.440
+Matt, you guys are on 0.91?
+
+29:41.440 --> 29:43.720
+Yeah.
+
+29:43.720 --> 29:46.160
+So we're actually not on 0.91.
+
+29:46.160 --> 29:51.880
+We've got our internal version of Ellington that isn't commercial, that we just use internally.
+
+29:51.920 --> 29:57.760
+It's on revision 12.90 from November 2005.
+
+29:57.760 --> 30:04.680
+But we do, we were six failing tests away from being 100% on 1.0 and launching stuff
+
+30:04.680 --> 30:09.080
+later this month internally and should have commercial offerings by the end of the next
+
+30:09.080 --> 30:10.720
+month or so.
+
+30:10.720 --> 30:15.760
+So yeah, that's been, you know, sort of a situation in particular to us that, you know,
+
+30:15.760 --> 30:23.200
+I have shiny things in new versions of Django that I can't use yet or have to back port.
+
+30:23.200 --> 30:28.480
+That's something that we on the core developer team, you know, just like always run trunk
+
+30:28.480 --> 30:29.480
+and everything.
+
+30:29.480 --> 30:33.360
+I always run trunk on my little work stuff and projects.
+
+30:33.360 --> 30:34.880
+How much of a pain is it?
+
+30:34.880 --> 30:39.120
+I mean, you've already kind of talked about it, maybe the other two guys talk about is
+
+30:39.120 --> 30:43.840
+it really a huge pain to run on trunk?
+
+30:43.840 --> 30:49.720
+In terms of the pointy haired bosses requiring that you run on a release, any experiences
+
+30:49.720 --> 30:50.720
+with that?
+
+30:50.720 --> 30:55.080
+Yeah, when we set up PolitiFact for the first time, they were scared to death of something
+
+30:55.080 --> 30:56.080
+that wasn't 1.0.
+
+30:56.080 --> 31:01.920
+And then I said, well, I'd like to run trunk and they went, oh, hell no, oh, hell no.
+
+31:01.920 --> 31:05.040
+So PolitiFact runs on 9.6.
+
+31:05.040 --> 31:11.440
+Since that actually succeeded and nobody died, you know, the neighborhood watch is actually
+
+31:11.440 --> 31:21.120
+running on the GeoJango branch prior to 1.0 and that was actually the SVN version of that.
+
+31:21.120 --> 31:29.120
+So we've kind of broken through some barriers here at the times where they were extremely
+
+31:29.120 --> 31:32.200
+uncomfortable with things and now it works.
+
+31:32.200 --> 31:36.920
+So they're like, as long as you've got a good reason to do it, we can do it.
+
+31:36.920 --> 31:38.120
+Let's give it a shot.
+
+31:38.120 --> 31:44.120
+So it's, we've, for whatever reason, become more agile when we do that and we're now moving
+
+31:44.120 --> 31:50.920
+every, because we have one app running 9.6, we have one app running a branch.
+
+31:50.920 --> 31:55.800
+We have to have them on separate servers and we want to put them all together, which 1.0
+
+31:55.800 --> 31:59.680
+with the GeoJango Contrib app is a huge deal for us.
+
+31:59.680 --> 32:05.320
+So maybe that's one argument for fewer releases is it encourages work environments to be more
+
+32:05.320 --> 32:07.760
+agile and run Trunk.
+
+32:07.760 --> 32:12.280
+I got to say the last couple of weeks on Trunk have been kind of rough with a really big
+
+32:12.280 --> 32:17.280
+code base and, you know, kind of, you're just recovering from the last big backwards incompatible
+
+32:17.280 --> 32:22.080
+change when, you know, new comments drops or, you know, old forms goes away and you
+
+32:22.080 --> 32:25.520
+realize there's a whole bunch of stuff that you're not actually using but it's still in
+
+32:25.520 --> 32:29.480
+your code base and, oh, yeah, you can't load modules anymore.
+
+32:29.480 --> 32:33.920
+But yeah, overall, I think Trunk has been pretty stable in the last couple of weeks
+
+32:33.920 --> 32:34.920
+withstanding.
+
+32:34.920 --> 32:35.920
+Go ahead.
+
+32:35.920 --> 32:42.320
+I would say that between 0.096 and 1.0, to answer your original question, yes, it would
+
+32:42.320 --> 32:48.600
+have been kind of a painful to run on Trunk at work with, you know, multiple developers.
+
+32:48.600 --> 32:52.520
+Even just for me, and this was a little while ago, even just on my personal blog code, I
+
+32:52.520 --> 32:55.920
+didn't look at it for a while and I pulled it up and was hacking on it and all of a sudden
+
+32:55.920 --> 32:59.840
+form for model was deprecated, you know, that kind of stuff was happening all of the
+
+32:59.840 --> 33:00.840
+time recently.
+
+33:00.840 --> 33:04.800
+So, yeah, it would have been kind of painful.
+
+33:04.800 --> 33:10.560
+I would just say that we're running on 9.6 but our little Django Republic is a guerilla
+
+33:10.560 --> 33:11.560
+republic.
+
+33:11.560 --> 33:15.800
+I mean, in addition to being the only developer, I guess, it being my education and web development,
+
+33:15.800 --> 33:20.120
+it's also been my education server administration where we're working over at Media Temple and
+
+33:20.120 --> 33:27.120
+so we haven't had the same problems in that sense, okay.
+
+33:27.120 --> 33:28.120
+Time for Q&A.
+
+33:28.120 --> 33:29.120
+Any?
+
+33:29.120 --> 33:30.120
+Yeah, Russ.
+
+33:30.120 --> 33:31.120
+Certainly do.
+
+33:31.120 --> 33:32.760
+First one, sort of partial comments.
+
+33:32.760 --> 33:36.480
+One, the aggregation is on its way if you've got use cases of interesting type queries.
+
+33:36.480 --> 33:39.000
+I want so seriously to get this into 1.1.
+
+33:39.000 --> 33:40.000
+God bless you, sir.
+
+33:40.000 --> 33:44.280
+The patch is pretty much ready to go minus a couple of little bit of edits and whatnot.
+
+33:44.280 --> 33:49.560
+If you have interesting use cases of types of aggregate queries you want to do, please
+
+33:49.560 --> 33:53.440
+let us know so we can make sure that we're covering those sort of problems with the
+
+33:53.440 --> 33:56.280
+syntax and there aren't any bugs in those sort of areas.
+
+33:56.280 --> 33:58.800
+The other one, a quick comment was about evolution.
+
+33:58.800 --> 34:00.800
+Again, there's a panelist afternoon.
+
+34:00.800 --> 34:02.160
+We're all going to be talking about it.
+
+34:02.160 --> 34:06.680
+I'm also a little bit amazed that Simon, both by sheer force of personality and the people
+
+34:06.680 --> 34:10.280
+he knows, can release a product three days ago and still get more press than Django Evolution
+
+34:10.280 --> 34:14.680
+which has been around for nine months.
+
+34:14.680 --> 34:21.560
+The question I wanted to ask was about the Web 2.0, Waves Arms Wildly, and journalism
+
+34:21.560 --> 34:26.640
+and the attitude of the organisations you work with and the less enlightened who haven't
+
+34:26.640 --> 34:31.600
+quite drunkled the Kool-Aid yet in terms of mash-ups and pulling information together
+
+34:31.600 --> 34:32.600
+and whatnot.
+
+34:32.600 --> 34:37.080
+You're all with traditional media organisations doing traditional newspapers and that sort
+
+34:37.080 --> 34:42.760
+of thing and you have got journalists presumably not going out and individually interviewing
+
+34:42.760 --> 34:46.000
+dog owners to find out what type of dog they've got, they're scraping.
+
+34:46.000 --> 34:49.240
+There are still newspapers out there that are very much just printing and putting ink
+
+34:49.240 --> 34:53.800
+on paper and you end up with things like the AP coming out and saying, no, you can't quote
+
+34:53.800 --> 34:59.280
+more than four words on your website without paying a licence fee.
+
+34:59.280 --> 35:02.960
+What's the best way to educate the, I mean, it's interesting to me because I work for
+
+35:02.960 --> 35:09.840
+a company that is doing this sort of mash-up integration and doing search, passing links
+
+35:09.840 --> 35:15.880
+back to traditional media organisations who aren't necessarily down with what we're doing
+
+35:15.880 --> 35:18.160
+with their content.
+
+35:18.160 --> 35:23.480
+How do we as a community and just as individuals convince them that this is in their benefit
+
+35:23.480 --> 35:29.920
+and it's in their interest to be into this mass linking, mass building value by putting
+
+35:29.920 --> 35:33.880
+the links between data?
+
+35:33.880 --> 35:39.760
+Here and simply, the economic terms, particularly here in the United States, newspapers are
+
+35:39.760 --> 35:44.760
+hurting bad and if you can go into a newspaper manager and say, if you let us do this, you'll
+
+35:44.760 --> 35:47.560
+make money, done.
+
+35:47.560 --> 35:50.560
+You don't have to say anything else after that.
+
+35:50.560 --> 35:55.320
+I may be slightly oversimplifying it but Ben and I would probably agree with this, not
+
+35:55.320 --> 35:58.320
+that much.
+
+35:58.320 --> 36:04.760
+The newspaper business model online right now is selling advertisers the most possible
+
+36:04.760 --> 36:08.360
+eyeballs in a given day.
+
+36:08.360 --> 36:11.600
+They're selling advertising per thousand page views.
+
+36:11.600 --> 36:15.600
+So if you can show them what you're doing is going to increase the number of page views,
+
+36:15.600 --> 36:18.480
+they're not going to care at all.
+
+36:18.480 --> 36:22.720
+It means money in their pocket and right now, every newspaper company in America could use
+
+36:22.720 --> 36:25.280
+every dollar in their pocket they can get.
+
+36:25.280 --> 36:28.600
+So that's the approach I would take.
+
+36:28.600 --> 36:34.960
+Crass, yes, not very idealistic, obviously, but it will work.
+
+36:34.960 --> 36:37.600
+It will work very quickly.
+
+36:37.600 --> 36:45.800
+And a lot of particularly senior newspaper executives, that's what they'll understand.
+
+36:45.800 --> 36:51.840
+This whole idea of sharing information and extracting more meaning out of disparate data
+
+36:51.840 --> 36:58.280
+and somehow coming to some greater understanding, it goes right over their head.
+
+36:58.280 --> 37:02.560
+Say you're going to make more money if you let us do this, done.
+
+37:02.560 --> 37:05.360
+Any ideas on how to get their ears in the first place?
+
+37:05.360 --> 37:10.320
+Well, Adrian, you just had some success getting every block on the Chicago Tribune's website
+
+37:10.320 --> 37:12.840
+and the Chicago Sun-Times website, right?
+
+37:12.840 --> 37:15.920
+How did that happen?
+
+37:15.920 --> 37:20.720
+So it's sort of a special case because I knew some people there and they're interested in
+
+37:20.720 --> 37:21.720
+the project.
+
+37:21.720 --> 37:26.640
+There was some knowledge of the fact that the project existed.
+
+37:26.640 --> 37:34.520
+In my own experience, it's frustrating and it's difficult, and I've just had some lucky
+
+37:34.520 --> 37:38.920
+chances to work in places where there's been some clued in people.
+
+37:38.920 --> 37:40.920
+All right, Jason.
+
+37:40.920 --> 37:44.120
+You want to go first?
+
+37:44.120 --> 37:45.120
+You're first.
+
+37:45.120 --> 37:46.120
+All right.
+
+37:46.120 --> 37:49.120
+So just backing up what Adrian was saying earlier about journalists being some of the
+
+37:49.120 --> 37:52.360
+most technologically backwards people you can possibly work with.
+
+37:52.360 --> 37:58.080
+I work at a school of journalism and you want to sell them on this Django thing and they're
+
+37:58.080 --> 38:01.920
+going to come in and say they have to type in an href equals blah, blah, blah, and they're
+
+38:01.920 --> 38:04.040
+going to run screaming back to WordPress.
+
+38:04.040 --> 38:07.680
+So implementing without TinyMCE is kind of not an option.
+
+38:07.680 --> 38:11.320
+If you want to do these four-hour projects and you sort of got to go get the project
+
+38:11.320 --> 38:15.560
+and get it all installed, the way I'd love to see things work would be one line in the
+
+38:15.560 --> 38:22.320
+settings file would pull out a contrib thing and every text field would just have it.
+
+38:22.320 --> 38:28.160
+But part two to that is not just kind of a TinyMCE that we see, but a toggleable field
+
+38:28.160 --> 38:32.280
+so you can toggle between visual and HTML for when it screws up and have it nice and
+
+38:32.280 --> 38:33.280
+clean.
+
+38:33.280 --> 38:36.000
+So, you know, look to recent versions of WordPress, they do that really cleanly.
+
+38:36.000 --> 38:42.840
+Yeah, I don't let people use HTML because they know a little bit of HTML would be just
+
+38:42.880 --> 38:46.760
+enough to be dangerous.
+
+38:46.760 --> 38:53.240
+Yeah, I think that the right place to put that would be in the new admin classes.
+
+38:53.240 --> 38:58.000
+Use MCE equals true or, you know, whatever in order to automatically do it for every
+
+38:58.000 --> 38:59.000
+text field.
+
+38:59.000 --> 39:00.000
+Oh, yeah.
+
+39:00.000 --> 39:04.240
+I mean, I've done TinyMCE in Django, it's pretty easy.
+
+39:04.240 --> 39:09.280
+And doesn't TinyMCE have a thing where it can toggle itself, like within its...
+
+39:09.280 --> 39:13.080
+The default version, if you switch out to HTML mode, it brings up a separate window
+
+39:13.080 --> 39:16.480
+and you get this tangle of spaghetti code.
+
+39:16.480 --> 39:20.960
+If you look at the equivalent thing in WordPress, you just get nice clean text with just the
+
+39:20.960 --> 39:23.840
+minimal amount of formatting.
+
+39:23.840 --> 39:24.840
+Wishlist.
+
+39:24.840 --> 39:25.840
+Cool.
+
+39:25.840 --> 39:28.600
+Yeah, over there.
+
+39:28.600 --> 39:33.200
+This isn't really a Django thing, it's more content type inside of a content management
+
+39:33.200 --> 39:39.720
+system inside of a traditional newspaper, something I've been obsessed with since probably
+
+39:39.720 --> 39:42.000
+my second year of college.
+
+39:42.000 --> 39:49.000
+How do you take categories like front section, local, national, sports, and then push that
+
+39:50.400 --> 39:55.200
+onto a better situation on the web?
+
+39:55.200 --> 40:00.360
+So you have items like stories, multimedia, video, and then you have categories tagging
+
+40:00.360 --> 40:01.880
+and everything like that.
+
+40:02.080 --> 40:06.760
+How do you end up keeping everything flat enough so that way it makes sense to the traditional
+
+40:06.760 --> 40:12.800
+editors but yet makes sense inside the database as well?
+
+40:12.800 --> 40:15.200
+I think the honest answer is no one's really figured that out yet.
+
+40:15.200 --> 40:19.760
+I mean, pull up any newspaper.com and ask yourself, did they really figure that one
+
+40:19.760 --> 40:20.760
+out?
+
+40:20.760 --> 40:23.920
+And I think the answer is no.
+
+40:23.920 --> 40:29.040
+I heard somebody describe newspaper websites as being a giant ball of mud that we're just
+
+40:29.040 --> 40:33.800
+packing on more stuff and it's just accumulating over time until it just grows and grows and
+
+40:33.800 --> 40:35.960
+grows.
+
+40:35.960 --> 40:42.560
+So maybe Matt has a better answer than I do, but from what I can see, no one's answered
+
+40:42.560 --> 40:44.520
+that question satisfactorily yet.
+
+40:44.520 --> 40:47.160
+If they do, they're going to make a shitload of money.
+
+40:47.160 --> 40:52.520
+Yeah, I mean, on the technical side, categorize everything, tag everything, do it in a generic
+
+40:52.520 --> 40:58.160
+way, and then build some utilities that help you pull stuff out.
+
+40:58.160 --> 41:04.240
+I mean, we've got some stuff in Ellington that makes it easy to sort of bring up, show
+
+41:04.240 --> 41:08.920
+me all of the content for this section, show all of the content for this category.
+
+41:08.920 --> 41:13.520
+And it really only works that way because everything's categorized and once you talk
+
+41:13.520 --> 41:20.800
+about user-generated tagging, everything's tagged, aggregate that stuff and do good visualizations
+
+41:20.800 --> 41:25.800
+on that.
+
+41:25.800 --> 41:31.640
+I just quickly want to say thanks to Ben and his team for the best internet black hole
+
+41:31.640 --> 41:36.600
+of the last two weeks in the dog project.
+
+41:36.600 --> 41:37.600
+What's your dog's name?
+
+41:37.600 --> 41:38.600
+Scruffy.
+
+41:38.600 --> 41:39.600
+Scruffy.
+
+41:39.600 --> 41:41.200
+And how popular is Scruffy?
+
+41:41.200 --> 41:45.800
+I didn't put him in because you guys just included LA County dogs.
+
+41:45.800 --> 41:49.400
+We're unfortunately just south of the border by like 300 yards.
+
+41:49.400 --> 41:50.400
+You're an OC?
+
+41:50.400 --> 41:51.400
+Yeah.
+
+41:51.400 --> 41:52.400
+Okay.
+
+41:52.400 --> 41:53.400
+Well, thanks for using the site.
+
+41:53.400 --> 41:54.400
+I appreciate it.
+
+41:54.400 --> 41:55.400
+It was fabulous.
+
+41:56.400 --> 42:05.400
+I have a real quick thing to talk a little bit about the syndication framework.
+
+42:05.400 --> 42:11.080
+Actually, if you dig into it just a little bit, you'll notice there's a views.py file
+
+42:11.080 --> 42:13.920
+and it literally is just a generic view.
+
+42:13.920 --> 42:20.140
+So outside of any problem with regards to how you deal with the like data and making
+
+42:20.140 --> 42:26.780
+nicer feeds and whatever, if you're frustrated with how it forces you to deal with like
+
+42:26.780 --> 42:31.780
+where data's coming through in my projects, personally, I've just ripped out that view
+
+42:31.780 --> 42:34.940
+and I wrap it in other views and just throw it around anywhere.
+
+42:34.940 --> 42:35.940
+Yeah.
+
+42:35.940 --> 42:40.220
+I guess my beef is really that the way, the default way that you're supposed to use it
+
+42:40.220 --> 42:41.220
+that's presented as a bit and ideal.
+
+42:41.220 --> 42:42.220
+Right.
+
+42:42.220 --> 42:44.220
+Default way is just totally broken.
+
+42:44.220 --> 42:49.620
+One more question.
+
+42:49.620 --> 42:52.460
+This isn't necessarily Django related, but I was wondering if the four people on the
+
+42:52.460 --> 42:58.200
+panel could talk a little bit more about kind of the newspaper's decline that we're reading
+
+42:58.200 --> 43:02.580
+a lot about and how you guys see just technology and, I mean, you guys are kind of on the front
+
+43:02.580 --> 43:03.580
+lines of that.
+
+43:03.580 --> 43:08.340
+So what do you see it and how do you see it and I'd love to hear about that.
+
+43:08.340 --> 43:09.340
+I think-
+
+43:09.340 --> 43:10.340
+In 15 words or less.
+
+43:10.340 --> 43:11.340
+In 15 words or less.
+
+43:11.340 --> 43:16.540
+I think that Matt kind of really touched on what it's all about right now is page views
+
+43:16.540 --> 43:19.380
+equals dollars, which is unfortunate.
+
+43:19.460 --> 43:26.700
+I think that has some negative effects on journalism because what people want to see
+
+43:26.700 --> 43:31.660
+or read is maybe not the most, you know, high-brow journalism.
+
+43:31.660 --> 43:34.380
+I mean, people love pictures of celebrities.
+
+43:34.380 --> 43:39.060
+We have lots of pictures of celebrities and they get lots of page views, which is dollars,
+
+43:39.060 --> 43:41.460
+but I don't really consider that journalism.
+
+43:41.460 --> 43:42.460
+Yeah.
+
+43:42.460 --> 43:48.900
+If you would have found us at the bar last night, Ben and I were drinking and talking
+
+43:48.900 --> 43:53.220
+about this in that particular order.
+
+43:53.220 --> 43:57.980
+I think what Ben and I want to believe and what I think some of the things that we're
+
+43:57.980 --> 44:03.340
+doing and the things that Adrian are doing is that we are hoping against hope that a
+
+44:03.340 --> 44:10.020
+new model, a new business model for journalism can arise from some of the things that we're
+
+44:10.020 --> 44:15.500
+thinking about and doing and trying out and experimenting with that gets away from this.
+
+44:15.500 --> 44:24.660
+The more eyeballs wins idea that if you can sell an advertiser a specific piece of geography
+
+44:24.660 --> 44:30.220
+that they happen to that, you know, 80, 90% of their customer base is in, that should
+
+44:30.220 --> 44:36.540
+have value to them beyond just a thousand random page views that could come from anywhere
+
+44:36.540 --> 44:37.980
+in the world.
+
+44:37.980 --> 44:45.340
+So while as journalists, there's this Chinese wall between the business side and the
+
+44:45.340 --> 44:51.180
+journalism side, so I can't just walk into the advertising side and go, hey, let's tell
+
+44:51.180 --> 44:54.580
+me how to make money and let's just start doing it.
+
+44:54.580 --> 44:58.620
+But I can talk to my bosses and they can talk to their counterparts and we can start trying
+
+44:58.620 --> 45:00.540
+to push these ideas.
+
+45:00.540 --> 45:07.020
+It's way too early to know if that's actually going to succeed, if the bottom won't fall
+
+45:07.020 --> 45:11.460
+out long before it does, but that's not to say that there aren't people trying to work
+
+45:11.460 --> 45:17.540
+on it, that there are good and useful and not involving Lindsay Lohan things that we
+
+45:17.540 --> 45:26.180
+can do to inform our citizenry, inform democracy, not to get too high headed here about it,
+
+45:26.180 --> 45:33.100
+but that should have value and we need to build a business model around that.
+
+45:33.100 --> 45:34.940
+The problem is it's not there yet.
+
+45:34.940 --> 45:36.420
+It's not close.
+
+45:37.220 --> 45:43.460
+Yeah, I think working within the existing page views equals dollars framework that while
+
+45:43.460 --> 45:46.140
+potentially broken is what we've got right now.
+
+45:46.140 --> 45:51.100
+I think one thing you can really do is if you're doing those investigative journalism,
+
+45:51.100 --> 45:57.220
+data visualization projects, make it freaking compelling and make it really relevant to
+
+45:57.220 --> 45:58.220
+your audience.
+
+45:58.220 --> 46:04.500
+I mean, you can take something from a national data set and put a local spin on it and another
+
+46:04.500 --> 46:08.900
+thing you can do is get something that is continually updated, something that people
+
+46:08.900 --> 46:16.460
+will come back to and that'll let you sustain the financial side of it and so hopefully
+
+46:16.460 --> 46:22.020
+do enough of those and people will stop asking you how your journalism is making money.
+
+46:22.020 --> 46:23.620
+Is that a problem?
+
+46:23.620 --> 46:29.540
+One other thing to that that I learned particularly with doing PolitiFact and kind of increasing
+
+46:29.540 --> 46:34.340
+the amount of traffic that you get to your site is, you know, PolitiFact is my first
+
+46:34.340 --> 46:35.340
+project.
+
+46:35.340 --> 46:39.460
+I never had to worry about, you know, Google search engine optimization, but I learned
+
+46:39.460 --> 46:44.500
+and I put it in there and that's now paying off hugely and that 80 plus percent of the
+
+46:44.500 --> 46:48.780
+traffic that we get comes in sideways, it doesn't come through the main page.
+
+46:48.780 --> 46:53.820
+I learned how to make widgets, embeddable widgets that other people can embed on their blogs
+
+46:53.820 --> 46:57.300
+and their sites and you can put our content any old place you want because the links come
+
+46:57.300 --> 46:59.460
+back to us.
+
+46:59.460 --> 47:02.420
+A Twitter feed, what else have we done?
+
+47:02.420 --> 47:09.420
+Google custom homepage gadgets, any, I just did an iPhone, a quick and dirty iPhone thing
+
+47:09.420 --> 47:14.620
+because we found out that PolitiFact gets like 40 percent of all of the mobile traffic
+
+47:14.620 --> 47:20.020
+that any of my newspaper company sites get and 85 percent of that traffic is iPhones.
+
+47:20.020 --> 47:24.540
+So hell with it, I'm making me an iPhone app, took me a couple of hours of the, by the way,
+
+47:24.540 --> 47:30.460
+if anybody's trying to do this, IUI, which is a JavaScript and CSS library is awesome.
+
+47:30.460 --> 47:33.060
+That's my short commercial because I used it.
+
+47:33.060 --> 47:37.980
+One of the interesting things about, I'm totally ripping this off from my boss, Chris Heisel,
+
+47:37.980 --> 47:43.900
+thank you, about online journalism versus print journalism is in print, when you bought
+
+47:43.900 --> 47:47.420
+the paper, you would get, you know, X number of stories.
+
+47:47.420 --> 47:51.540
+You might read some of them, you might not, but all the stories were subsidized by the
+
+47:51.540 --> 47:52.740
+fact that you bought the paper.
+
+47:52.740 --> 47:53.820
+It's like a package deal.
+
+47:53.820 --> 47:55.780
+It's like buying an album.
+
+47:55.780 --> 48:00.260
+But now with online journalism, we can see what the stories that readers are actually
+
+48:00.260 --> 48:04.420
+interested in and so we can no longer subsidize all the stories in that way.
+
+48:04.420 --> 48:07.980
+It's like buying a single track off iTunes.
+
+48:07.980 --> 48:11.140
+Just to dovetail on that, I mean, if people in here are in the situation where they want
+
+48:11.140 --> 48:15.220
+to pitch something to news managers or to people in these organizations, I think one
+
+48:15.220 --> 48:19.060
+of the things he touched on will get you a lot of traction, which is that of search engine
+
+48:19.060 --> 48:23.380
+optimization, which is, I think, is something that Django can actually deliver on and that
+
+48:23.380 --> 48:28.740
+will provide something greatly superior to virtually any newspaper CMS that's sort
+
+48:28.740 --> 48:30.620
+of on the market.
+
+48:30.620 --> 48:34.100
+Because if you just go to the LA Times site right now and click on maybe the main story
+
+48:34.100 --> 48:37.580
+and look what that role looks like and then ask yourself how well that's going to do in
+
+48:37.580 --> 48:41.300
+a search engine and compare that to what you can say to them and you can give them the
+
+48:41.300 --> 48:45.060
+buzz word and you can then actually, I think, deliver the results.
+
+48:45.060 --> 48:48.940
+From the people, the managers I work with, I think that's a pitch that will resonate
+
+48:48.940 --> 48:53.340
+and that will click.
+
+48:53.340 --> 48:57.820
+Designing your own URLs is Google search engine observation out of the box.
+
+48:57.820 --> 49:02.740
+Clean semantic URLs is one of the things you can do and it's just, it's baked in.
+
+49:02.740 --> 49:03.740
+You just have to do it.
+
+49:03.740 --> 49:08.820
+Yeah, I like to say that Django is SEO friendly by default for free.
+
+49:08.820 --> 49:14.780
+How much time do we have, by the way?
+
+49:14.780 --> 49:17.900
+I have one quick question that that reminded me of.
+
+49:17.900 --> 49:23.780
+On our Django project.com homepage, we have, you know, the things that we advertise quote
+
+49:23.780 --> 49:24.780
+unquote.
+
+49:24.780 --> 49:28.220
+We come with an admin framework, we come with internationalization, we come with a template
+
+49:28.220 --> 49:29.940
+language.
+
+49:29.940 --> 49:34.900
+It sounds as if you guys are saying we should advertise some slightly different things or
+
+49:34.900 --> 49:36.820
+additional things.
+
+49:36.820 --> 49:40.900
+Do you think that advertising the SEO is something I've never even thought of?
+
+49:40.900 --> 49:45.340
+Do you think that it's worth advertising that at that level or is there anything else
+
+49:45.340 --> 49:46.900
+that we should advertise at that level?
+
+49:46.900 --> 49:51.580
+It's kind of amazing to me that people make a bunch of money doing SEO consulting.
+
+49:51.580 --> 49:56.620
+Not that people don't need it, but the fact of the matter is you just need a good URL
+
+49:56.620 --> 49:59.780
+and a good title tag and Django encourages that.
+
+49:59.780 --> 50:05.100
+So, I mean, I think that, you know, like I said, I think Django encourages you to be
+
+50:05.100 --> 50:06.100
+SEO friendly.
+
+50:06.100 --> 50:09.740
+I think it's also ultimately dependent on the audience that you're aiming at.
+
+50:09.740 --> 50:15.980
+If the Django project page is aimed at developers as a whole, maybe, maybe not.
+
+50:15.980 --> 50:22.020
+If it's aimed at IT executives who are debating whether or not they want to buy in and deploy
+
+50:22.020 --> 50:26.500
+Django in their shop, yeah, I definitely would put it on there.
+
+50:26.500 --> 50:30.420
+And if I was trying to sell Ellington, I definitely would mention that.
+
+50:30.420 --> 50:32.460
+I think we go.
+
+50:32.460 --> 50:33.460
+Okay.
+
+50:33.460 --> 50:34.460
+One more.
+
+50:34.460 --> 50:38.060
+I'm wondering whether anyone thinks that newspapers really care about the, like, dead
+
+50:38.060 --> 50:43.300
+tree archives that they've got the last 150 years because I've written a, you know, newspaper
+
+50:43.300 --> 50:48.980
+viewer that just, you stick in microfilm images and out comes sort of a dirty OCR newspaper
+
+50:48.980 --> 50:49.980
+site.
+
+50:49.980 --> 50:53.300
+But all the stuff that I've seen is just like, oh, you can pay for access.
+
+50:53.300 --> 50:56.700
+And, you know, nobody looks at that because they don't know what's in there in the first
+
+50:56.700 --> 50:57.700
+place.
+
+50:57.700 --> 50:58.700
+Well, you know, you'd be surprised.
+
+50:58.700 --> 51:03.460
+At the AJC, we have that you can pay for old access to the old archives.
+
+51:03.460 --> 51:06.420
+And the only reason it's still pay is because people pay for it.
+
+51:06.420 --> 51:07.820
+So it does happen.
+
+51:07.820 --> 51:11.860
+So they care deeply about their archives because they try to make money off of them.
+
+51:11.860 --> 51:16.820
+Unfortunately, well, fortunately, the company I work for actually, the archives are open
+
+51:16.820 --> 51:18.820
+going back to the 80s.
+
+51:18.820 --> 51:24.740
+The unfortunate side of that is that it's in the world's most hideous search interface
+
+51:24.740 --> 51:28.980
+that makes it impossibly ugly to deal with.
+
+51:28.980 --> 51:31.420
+Newspaper archives are actually big money.
+
+51:31.420 --> 51:37.460
+Newspapers sell their content to, like, LexisNexis to make a commercial aggregation company
+
+51:37.460 --> 51:40.460
+that other researchers use around the company or country.
+
+51:40.460 --> 51:48.220
+So what I love to see us doing a hell of a lot more with our archives, absolutely,
+
+51:48.220 --> 51:53.260
+because if you think about it, your local newspaper is the best, most consistent archive
+
+51:53.260 --> 51:57.180
+of the history of your community going.
+
+51:57.180 --> 52:02.740
+No matter what you think of your hometown newspaper, there's nothing better when looking
+
+52:02.740 --> 52:08.220
+at the history of your community than your newspaper, good or bad as it may be.
+
+52:08.220 --> 52:14.140
+So I think there's incredible value, incredible long tail value in the archives going way,
+
+52:14.140 --> 52:15.300
+way back.
+
+52:15.300 --> 52:19.020
+The problem is that a lot of newspapers are just trying to stay above water right now
+
+52:19.020 --> 52:20.860
+and keep up with things going on the web.
+
+52:20.860 --> 52:23.900
+They're not looking backwards at the stuff they've got.
+
+52:23.900 --> 52:29.060
+We're too busy going forward to know where we've been.
+
+52:29.060 --> 52:34.740
+One thing I'll note, we don't have all of our print archives going back, you know, till
+
+52:34.740 --> 52:38.620
+the dawn of time, though we probably should.
+
+52:38.620 --> 52:44.220
+We notice that we get a lot of search traffic and a lot of eyeballs because our archives
+
+52:44.220 --> 52:45.700
+are open.
+
+52:45.700 --> 52:51.700
+And so from a sort of a business standpoint, I think we make more money on advertisement
+
+52:51.700 --> 52:56.140
+because we have, you know, you can go back to the early 90s and everything we've published
+
+52:56.140 --> 53:01.620
+online is there and it's not behind a registration wall or a paywall, it's just there, take it.
+
+53:01.620 --> 53:04.660
+And I think we get more page views coming in via Google because of that.
+
+53:04.660 --> 53:05.660
+Sure.
+
+53:05.660 --> 53:07.780
+And I think there's also a search for monetization out of those as well.
+
+53:07.780 --> 53:10.540
+I mean, the New York Times has been a leader in doing this where they've put up a large
+
+53:10.540 --> 53:14.660
+portion of their archives and some, even the front pages and things like that.
+
+53:14.660 --> 53:19.540
+And I think it's just a matter of the technology being in place for a service like ProQuest,
+
+53:19.540 --> 53:23.220
+if you've ever seen ProQuest where you can go and I think on our site you can find an
+
+53:23.220 --> 53:27.500
+article in the archives and then purchase it, but you never actually get to see a preview
+
+53:27.500 --> 53:28.500
+of it.
+
+53:28.500 --> 53:31.420
+So like you're paying five bucks without even seeing what the page looks like.
+
+53:31.420 --> 53:36.580
+And I think that the modernization of that technology where you could maybe have just
+
+53:36.580 --> 53:42.580
+the printed text in, you know, HTML of say an old story, but maybe you throw down five
+
+53:42.580 --> 53:46.460
+bucks to get an image file of what that page looked like or that editorial cartoon that
+
+53:46.460 --> 53:52.820
+ran that day or that obituary for your grandfather or any of that stuff, I think that there probably
+
+53:52.820 --> 53:55.180
+is a good deal of long tail potential for that.
+
+53:55.180 --> 54:00.100
+It's just old photos even, you know, it's just a matter of getting it out online.
+
+54:00.100 --> 54:03.840
+But I think that, especially the New York Times leadership and I think the general sort
+
+54:03.840 --> 54:08.740
+of maximum page view sort of world view has led people to see that there's at least some
+
+54:08.740 --> 54:13.780
+value in people coming in through search and I hope that it starts that way and leads to
+
+54:13.780 --> 54:15.380
+something more.
+
+54:15.380 --> 54:16.380
+Thanks.
+
+54:16.380 --> 54:17.380
+Okay.
+
+54:17.380 --> 54:18.380
+Thanks, guys.
+
+54:18.380 --> 54:19.380
+Give it up for the panelists.
+
+54:19.380 --> 54:20.380
+Yep.
+
+54:20.380 --> 54:21.380
+All right.
+
+54:21.380 --> 54:21.400
+Thank you.

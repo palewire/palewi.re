@@ -1,0 +1,5083 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+ or maybe he's still trying to get his zoom in order.
+
+00:00:06.720 --> 00:00:08.920
+ - Can you hear me?
+
+00:00:08.920 --> 00:00:09.760
+ - I can hear you.
+
+00:00:09.760 --> 00:00:11.220
+ - Yeah.
+
+00:00:11.220 --> 00:00:14.000
+ - This has been a truly dramatic, like, point of view.
+
+00:00:14.000 --> 00:00:16.160
+ (laughing)
+
+00:00:16.160 --> 00:00:17.800
+ I'm zooming you from my phone
+
+00:00:17.800 --> 00:00:20.960
+ because I could not get my computer to zoom in.
+
+00:00:20.960 --> 00:00:22.440
+ I'm so sorry.
+
+00:00:22.440 --> 00:00:25.840
+ I am one of the recalcitrant nerds who insists
+
+00:00:25.840 --> 00:00:27.720
+ on continuing to use Linux,
+
+00:00:27.720 --> 00:00:30.640
+ even though everyone else has abandoned it.
+
+00:00:30.640 --> 00:00:34.640
+ And I use zoom every day with no trouble,
+
+00:00:34.640 --> 00:00:38.200
+ but I was told by your system
+
+00:00:38.200 --> 00:00:40.000
+ that I needed to upgrade my zoom.
+
+00:00:40.000 --> 00:00:41.600
+ And so I've spent the last 20 minutes
+
+00:00:41.600 --> 00:00:42.800
+ trying to upgrade my zoom.
+
+00:00:42.800 --> 00:00:44.960
+ (laughing)
+
+00:00:44.960 --> 00:00:47.360
+ So hard, so hard.
+
+00:00:48.860 --> 00:00:51.000
+ I know, so now I have zoomed you from my phone,
+
+00:00:51.000 --> 00:00:53.400
+ which is probably what I should have done in the first place.
+
+00:00:53.400 --> 00:00:56.720
+ And so I'm really, really, really, really sorry.
+
+00:00:56.720 --> 00:00:58.120
+ Thank you for your patience.
+
+00:00:58.120 --> 00:00:59.520
+ - Oh, no worries, Ben.
+
+00:00:59.520 --> 00:01:02.960
+ We are so thrilled to have you here.
+
+00:01:02.960 --> 00:01:05.960
+ I just wanted to give you a little bit of a preview
+
+00:01:09.080 --> 00:01:13.360
+ of what's been going on prior to you arriving.
+
+00:01:13.360 --> 00:01:15.920
+ You know, this event started on Wednesday
+
+00:01:15.920 --> 00:01:18.440
+ and it's a humanitarian mapathon event.
+
+00:01:18.440 --> 00:01:22.720
+ And the goal was to digitize 20,000 buildings
+
+00:01:22.720 --> 00:01:26.360
+ using hot OSM and open street maps.
+
+00:01:26.360 --> 00:01:28.880
+ I don't know if you can see from my virtual background,
+
+00:01:28.880 --> 00:01:32.880
+ but between our two campuses, UCLA and USC,
+
+00:01:32.880 --> 00:01:37.880
+ we each digitized collectively 10,000 buildings
+
+00:01:38.200 --> 00:01:39.440
+ at each school.
+
+00:01:39.440 --> 00:01:42.560
+ So we reach our miles to 20,000 buildings,
+
+00:01:42.560 --> 00:01:45.080
+ which were digitized mostly.
+
+00:01:45.080 --> 00:01:50.080
+ We were working in Indonesia and Sudan, South Sudan.
+
+00:01:50.200 --> 00:01:55.200
+ And yesterday we had back to back to back workshops
+
+00:01:55.360 --> 00:01:58.000
+ around topics of humanitarian mapping,
+
+00:01:58.000 --> 00:02:03.000
+ data science, Python, Jupyter Notebooks, Tableau, QGIS,
+
+00:02:03.760 --> 00:02:06.320
+ all these kinds of tools that I know you're familiar with
+
+00:02:07.520 --> 00:02:12.640
+ with the work that you do and the team that you manage.
+
+00:02:12.640 --> 00:02:15.760
+ So we're all very excited to have you here.
+
+00:02:15.760 --> 00:02:20.760
+ I just wanted to quickly kind of introduce you
+
+00:02:22.800 --> 00:02:25.160
+ with the work that I know that you've done.
+
+00:02:25.160 --> 00:02:27.480
+ So let me just quickly,
+
+00:02:27.480 --> 00:02:30.880
+ I'm just very briefly share my screen.
+
+00:02:32.560 --> 00:02:36.560
+ So you look quite different from your picture here.
+
+00:02:37.560 --> 00:02:39.640
+ - Yeah, COVID's been hard on us all.
+
+00:02:39.640 --> 00:02:42.400
+ - Yeah, yeah, you have this kind of rock star
+
+00:02:42.400 --> 00:02:43.880
+ vibe about you today.
+
+00:02:45.280 --> 00:02:48.760
+ COVID has made us all into, you know, punk stars.
+
+00:02:48.760 --> 00:02:53.480
+ But Ben, you know, if you're from Los Angeles
+
+00:02:54.480 --> 00:02:57.240
+ and are familiar with the type of work
+
+00:02:57.240 --> 00:02:59.920
+ that the LA Times has done over the years,
+
+00:02:59.920 --> 00:03:04.680
+ we know Ben has this kind of data journalist
+
+00:03:04.680 --> 00:03:07.640
+ who has put together a lot of the data,
+
+00:03:07.640 --> 00:03:11.240
+ you know, journalistic stories around the LA Times
+
+00:03:11.240 --> 00:03:13.440
+ and our local communities.
+
+00:03:13.440 --> 00:03:18.160
+ I happen to, let me see,
+
+00:03:18.160 --> 00:03:22.120
+ know about Ben's work primarily through the pandemic
+
+00:03:22.120 --> 00:03:25.280
+ because when this came about tracking the coronavirus
+
+00:03:25.280 --> 00:03:30.280
+ in California was a site launched by the LA Times
+
+00:03:31.440 --> 00:03:33.320
+ earlier this year.
+
+00:03:33.320 --> 00:03:37.640
+ And Ben led the effort to work with community organizers,
+
+00:03:37.640 --> 00:03:41.760
+ with hospitals to kind of have a one-stop shop
+
+00:03:41.760 --> 00:03:45.560
+ where all this information about the coronavirus was collected.
+
+00:03:45.560 --> 00:03:48.960
+ It's really an amazing resource if you haven't been there.
+
+00:03:48.960 --> 00:03:53.080
+ It has all the almost real-time data statistics
+
+00:03:53.080 --> 00:03:57.000
+ about coronavirus, kind of more focused locally.
+
+00:03:57.000 --> 00:04:00.000
+ So we know we have data from Johns Hopkins,
+
+00:04:00.000 --> 00:04:02.640
+ that's global and kind of more national,
+
+00:04:02.640 --> 00:04:06.320
+ but where do we find neighborhood level data
+
+00:04:06.320 --> 00:04:08.840
+ about what's going on in Los Angeles?
+
+00:04:08.840 --> 00:04:11.880
+ And this is just an incredible resource.
+
+00:04:11.880 --> 00:04:15.280
+ You know, it's full of real-time data graphics
+
+00:04:15.280 --> 00:04:17.060
+ that's updated hourly.
+
+00:04:18.120 --> 00:04:21.960
+ And, you know, unfortunately, it's still relevant today.
+
+00:04:21.960 --> 00:04:25.960
+ You know, back in March, when I first talked to Ben
+
+00:04:25.960 --> 00:04:28.440
+ about this, I was actually thinking, you know,
+
+00:04:28.440 --> 00:04:30.600
+ maybe the last of the summer.
+
+00:04:30.600 --> 00:04:33.320
+ But that's the reality of the moment.
+
+00:04:33.320 --> 00:04:38.320
+ It's an incredible resource with data charts, maps.
+
+00:04:39.440 --> 00:04:43.800
+ And also, what makes this resource so useful
+
+00:04:43.800 --> 00:04:48.800
+ for us in academia is that, you know, Ben's a huge,
+
+00:04:50.000 --> 00:04:53.040
+ as he said, you know, Linux operating systems
+
+00:04:53.040 --> 00:04:54.560
+ about open data.
+
+00:04:54.560 --> 00:04:56.760
+ So, you know, this week we've been thinking so much
+
+00:04:56.760 --> 00:04:59.200
+ about open data, crowdsourced information,
+
+00:04:59.200 --> 00:05:01.280
+ using open street maps.
+
+00:05:01.280 --> 00:05:06.280
+ And the data desk information provided by the LA Times
+
+00:05:06.440 --> 00:05:11.120
+ allows us to really work with data that's transparent,
+
+00:05:11.120 --> 00:05:13.280
+ that's made publicly available.
+
+00:05:13.280 --> 00:05:17.480
+ And this Coronavirus GitHub page is where I believe
+
+00:05:17.480 --> 00:05:21.080
+ Ben's team is contributing to the community
+
+00:05:21.080 --> 00:05:24.960
+ by providing almost real-time data and statistics
+
+00:05:24.960 --> 00:05:29.320
+ about all the information that they're collecting.
+
+00:05:29.320 --> 00:05:33.120
+ So, I'll leave my talk to that
+
+00:05:33.120 --> 00:05:37.200
+ and let Ben take over now.
+
+00:05:37.200 --> 00:05:40.640
+ And once again, thank you, Ben, for joining us today.
+
+00:05:41.320 --> 00:05:42.160
+ - Yeah, thank you.
+
+00:05:42.160 --> 00:05:46.040
+ I had just emailed you a link to my deck.
+
+00:05:46.040 --> 00:05:47.480
+ So, I'm stuck on my phone.
+
+00:05:47.480 --> 00:05:48.680
+ Would you mind calling that up
+
+00:05:48.680 --> 00:05:51.080
+ and just sharing your screen if it's not too much hassle?
+
+00:05:51.080 --> 00:05:52.280
+ - Oh, no problem.
+
+00:05:52.280 --> 00:05:54.080
+ Hold on one second.
+
+00:05:54.080 --> 00:05:55.400
+ - Sure.
+
+00:05:55.400 --> 00:05:57.520
+ I'll spiel for, I don't know, not too long,
+
+00:05:57.520 --> 00:05:59.760
+ but I was hoping to give everybody here an overview
+
+00:05:59.760 --> 00:06:01.320
+ of our team at the LA Times,
+
+00:06:01.320 --> 00:06:02.840
+ the data and graphics department,
+
+00:06:02.840 --> 00:06:05.800
+ kind of what we do, the types of people who are on the team,
+
+00:06:05.800 --> 00:06:08.040
+ the types of things we make,
+
+00:06:08.040 --> 00:06:10.560
+ so you guys can get a sense of, you know,
+
+00:06:10.560 --> 00:06:13.040
+ how these kind of data skills live
+
+00:06:13.040 --> 00:06:14.880
+ within the journalism world.
+
+00:06:14.880 --> 00:06:17.760
+ And then, you know, we can answer any questions
+
+00:06:17.760 --> 00:06:19.480
+ anybody has that really talk about anything
+
+00:06:19.480 --> 00:06:20.800
+ you guys wanna talk about.
+
+00:06:22.080 --> 00:06:24.040
+ And along the way, if you have anything
+
+00:06:24.040 --> 00:06:25.160
+ you wanna know more about,
+
+00:06:25.160 --> 00:06:27.080
+ or if I'm not explaining something good,
+
+00:06:27.080 --> 00:06:28.160
+ just stop me, just talk.
+
+00:06:28.160 --> 00:06:29.760
+ I'm happy to have a conversation
+
+00:06:31.200 --> 00:06:32.720
+ and glad to be here.
+
+00:06:32.720 --> 00:06:34.360
+ So, I also think it's really cool
+
+00:06:34.360 --> 00:06:36.200
+ you guys are doing open street map stuff,
+
+00:06:36.200 --> 00:06:40.240
+ which I myself have dabbled in a little bit,
+
+00:06:40.240 --> 00:06:42.440
+ trying to do one of my hometowns in Eastern Iowa,
+
+00:06:42.440 --> 00:06:43.560
+ where I grew up.
+
+00:06:43.560 --> 00:06:47.320
+ So, well, where to begin?
+
+00:06:47.320 --> 00:06:48.600
+ So, my name is Ben Welsh.
+
+00:06:48.600 --> 00:06:50.960
+ I'm the editor of the data and graphics department
+
+00:06:50.960 --> 00:06:51.960
+ at the LA Times.
+
+00:06:51.960 --> 00:06:55.480
+ And we're a team of about 20 people
+
+00:06:57.120 --> 00:07:00.280
+ who try to use our computer skills to like,
+
+00:07:00.280 --> 00:07:01.360
+ make stuff happen.
+
+00:07:01.360 --> 00:07:04.120
+ And this presentation will give you kind of an overview
+
+00:07:04.120 --> 00:07:05.920
+ of what that ends up being.
+
+00:07:07.160 --> 00:07:08.480
+ So, go ahead and click on.
+
+00:07:10.720 --> 00:07:12.520
+ So, there's me before COVID.
+
+00:07:12.520 --> 00:07:15.280
+ My wife calls this my Bible salesman photo.
+
+00:07:16.720 --> 00:07:19.360
+ And obviously, next is me after COVID.
+
+00:07:19.360 --> 00:07:20.640
+ We already got to this joke though,
+
+00:07:20.640 --> 00:07:22.200
+ so we don't need to stick with it.
+
+00:07:22.200 --> 00:07:25.280
+ Shout out to all the Twin Peaks fans out there.
+
+00:07:25.280 --> 00:07:26.560
+ We can keep going.
+
+00:07:26.560 --> 00:07:31.080
+ And this deck is one that I have presented internally
+
+00:07:31.080 --> 00:07:31.920
+ at our company,
+
+00:07:31.920 --> 00:07:35.400
+ and it initially included some private business figures,
+
+00:07:35.400 --> 00:07:38.280
+ which I've redacted just to not get in trouble.
+
+00:07:38.280 --> 00:07:41.080
+ But I'll give you the gist of what I was trying to get across
+
+00:07:41.080 --> 00:07:43.240
+ when we get to that point, okay?
+
+00:07:43.240 --> 00:07:44.080
+ Keep clicking.
+
+00:07:44.080 --> 00:07:45.920
+ So, the data and graphics department,
+
+00:07:45.920 --> 00:07:48.400
+ its mission, as best as I can articulate it,
+
+00:07:48.400 --> 00:07:51.680
+ is for us to create digital journalism
+
+00:07:51.680 --> 00:07:54.360
+ that's important to the readers of the LA Times,
+
+00:07:54.360 --> 00:07:55.720
+ both in what they want to read
+
+00:07:55.720 --> 00:07:58.120
+ and what they ought to read, right?
+
+00:07:58.120 --> 00:08:01.440
+ With using data development and design.
+
+00:08:01.440 --> 00:08:02.360
+ And by development,
+
+00:08:02.360 --> 00:08:05.520
+ I mean actual computer code development, right?
+
+00:08:05.520 --> 00:08:08.840
+ So the people that are on this team, if you hit the next slide,
+
+00:08:08.840 --> 00:08:12.240
+ are not just reporters and editors and journalists
+
+00:08:12.240 --> 00:08:15.160
+ and people like me who went to journalism school.
+
+00:08:15.160 --> 00:08:17.120
+ They're also at the same time,
+
+00:08:17.120 --> 00:08:20.440
+ computer programmers, data analysts,
+
+00:08:20.440 --> 00:08:23.000
+ information designers, data scientists,
+
+00:08:23.000 --> 00:08:25.960
+ whatever you want to call it, they're nerds, right?
+
+00:08:25.960 --> 00:08:30.040
+ And so, we're kind of one of the more multi-hyphened teams
+
+00:08:30.040 --> 00:08:32.240
+ at the LA Times and that people are called upon
+
+00:08:32.240 --> 00:08:35.040
+ to not just do the traditional skills of journalism,
+
+00:08:35.040 --> 00:08:38.280
+ but also to have these technical skills
+
+00:08:38.280 --> 00:08:42.240
+ that let them find and tell stories in other ways.
+
+00:08:42.240 --> 00:08:44.480
+ And this is something that's increasingly common
+
+00:08:44.480 --> 00:08:46.120
+ across the journalism industry.
+
+00:08:46.120 --> 00:08:48.400
+ Our team is not unique.
+
+00:08:48.400 --> 00:08:50.280
+ There's kind of an evolution happening
+
+00:08:50.280 --> 00:08:53.280
+ in graphics and data departments across the country
+
+00:08:53.280 --> 00:08:58.280
+ where graphics is becoming kind of a higher-skill
+
+00:09:00.520 --> 00:09:02.240
+ data and programming profession.
+
+00:09:02.240 --> 00:09:05.320
+ And our team is caught in the same currents
+
+00:09:05.320 --> 00:09:06.760
+ that are driving that, right?
+
+00:09:06.760 --> 00:09:10.760
+ And so, the people on our team have to be pretty darn flexible.
+
+00:09:10.760 --> 00:09:13.960
+ And so, if you hit the next slide, you can get a look at them.
+
+00:09:13.960 --> 00:09:17.080
+ Like I said, it's about 20 different people.
+
+00:09:17.080 --> 00:09:20.160
+ They come from many of them from Southern California,
+
+00:09:20.160 --> 00:09:23.440
+ many of them from UCLA and USC, or at least a couple,
+
+00:09:23.440 --> 00:09:25.840
+ but also from all across America.
+
+00:09:25.840 --> 00:09:28.160
+ And they're people with a lot of different backgrounds
+
+00:09:28.160 --> 00:09:29.360
+ and skills.
+
+00:09:29.360 --> 00:09:32.560
+ We try to have everybody learn as many
+
+00:09:32.560 --> 00:09:34.640
+ of the different types of things we do as possible,
+
+00:09:34.640 --> 00:09:37.240
+ but the way it works out is some people tend to be
+
+00:09:37.240 --> 00:09:40.000
+ a little better at analysis or maybe a little better
+
+00:09:40.000 --> 00:09:43.640
+ at visualization, but we don't specialize.
+
+00:09:43.640 --> 00:09:46.360
+ We really do kind of try to treat everybody
+
+00:09:46.360 --> 00:09:51.360
+ as being able to take on all of the challenges.
+
+00:09:51.720 --> 00:09:55.920
+ And so, we're always learning and we're always experimenting
+
+00:09:55.920 --> 00:09:58.960
+ and trying to take on new skills.
+
+00:09:58.960 --> 00:10:01.200
+ Just this morning, I was helping someone learn
+
+00:10:01.200 --> 00:10:04.040
+ how to write some spelt, if anybody here is a spelt fan,
+
+00:10:04.040 --> 00:10:07.120
+ to make some of our election graphics for next week.
+
+00:10:07.120 --> 00:10:09.360
+ So, if you hit the next slide, we're gonna get into
+
+00:10:09.360 --> 00:10:12.120
+ what are these things we actually make?
+
+00:10:12.120 --> 00:10:15.720
+ In a lot of ways, to me, a newspaper where I've worked
+
+00:10:15.720 --> 00:10:18.400
+ at the LA Times for 13 years now and seen a lot of change,
+
+00:10:18.400 --> 00:10:20.800
+ but even though we're making different things
+
+00:10:20.800 --> 00:10:24.480
+ and different products, it is kind of an information factory.
+
+00:10:24.480 --> 00:10:27.080
+ So, in a certain sense, a news organization
+
+00:10:27.080 --> 00:10:31.400
+ takes the raw materials of life, of things
+
+00:10:31.400 --> 00:10:33.040
+ that are happening in the world,
+
+00:10:33.040 --> 00:10:36.320
+ and it refines those raw materials into products,
+
+00:10:36.320 --> 00:10:38.280
+ news products that you can sell,
+
+00:10:38.280 --> 00:10:41.240
+ and the people want that help them make sense of the world.
+
+00:10:41.240 --> 00:10:46.200
+ And traditionally, in my painful metaphor,
+
+00:10:46.200 --> 00:10:48.680
+ the assembly lines at this factory were really focused
+
+00:10:48.680 --> 00:10:53.680
+ on making a print newspaper that had blocks of text, right?
+
+00:10:54.920 --> 00:10:58.080
+ With headlines and photos, and that was like,
+
+00:10:58.080 --> 00:11:00.800
+ what the majority of the assembly lines were set up to do.
+
+00:11:00.800 --> 00:11:03.640
+ There were other ones to have sports scores and boxes
+
+00:11:03.640 --> 00:11:05.000
+ and to give you the movie listings
+
+00:11:05.000 --> 00:11:06.360
+ and all these other things.
+
+00:11:06.360 --> 00:11:09.200
+ But in the rewiring of our economy,
+
+00:11:09.200 --> 00:11:11.960
+ that's brought on by the internet and all that,
+
+00:11:11.960 --> 00:11:15.160
+ the factory of the LA Times has to be refitted
+
+00:11:15.160 --> 00:11:18.560
+ with new assembly lines to make different products, right?
+
+00:11:18.560 --> 00:11:21.000
+ That are more in line with what people want
+
+00:11:21.000 --> 00:11:23.760
+ that can compete with other factories out there
+
+00:11:23.760 --> 00:11:27.280
+ in the marketplace, and that can help us shift
+
+00:11:27.280 --> 00:11:31.120
+ to a different type of business,
+
+00:11:31.120 --> 00:11:34.640
+ which is more focused on getting money from subscriptions
+
+00:11:34.640 --> 00:11:36.720
+ and readers who like us enough to pay us
+
+00:11:36.720 --> 00:11:38.840
+ and less so on advertising,
+
+00:11:38.840 --> 00:11:41.040
+ which if you guys are interested in all that business stuff,
+
+00:11:41.040 --> 00:11:43.040
+ we can talk about it later, but I won't be too boring.
+
+00:11:43.040 --> 00:11:47.720
+ And in our little department, it's my view that our assembly,
+
+00:11:47.720 --> 00:11:49.800
+ we basically have three assembly lines
+
+00:11:49.800 --> 00:11:52.960
+ that the people you saw before kind of interchangeably work
+
+00:11:52.960 --> 00:11:53.800
+ on.
+
+00:11:53.800 --> 00:11:58.800
+ The first one makes applications, software websites, right?
+
+00:11:59.280 --> 00:12:02.000
+ The second makes visual stories.
+
+00:12:02.000 --> 00:12:03.400
+ These are stand up, we'll get to those.
+
+00:12:03.400 --> 00:12:06.680
+ And then the third is making digital designs.
+
+00:12:06.680 --> 00:12:08.600
+ And so let's go through those one, two, three,
+
+00:12:08.600 --> 00:12:10.920
+ and I'll show you a bunch of examples of each.
+
+00:12:10.920 --> 00:12:13.520
+ So first up is applications.
+
+00:12:13.520 --> 00:12:16.280
+ This is where we use our software skills
+
+00:12:16.280 --> 00:12:19.440
+ to gather and refine data to serve our digital audience,
+
+00:12:19.440 --> 00:12:21.680
+ writing computer code to go get data,
+
+00:12:21.680 --> 00:12:23.960
+ filing public records requests to get it,
+
+00:12:23.960 --> 00:12:27.960
+ otherwise building databases ourselves from the ground up
+
+00:12:27.960 --> 00:12:31.960
+ that we can then turn into a web application
+
+00:12:31.960 --> 00:12:33.840
+ that is not a traditional story
+
+00:12:33.840 --> 00:12:36.920
+ that people will wanna read and maybe even pay for, right?
+
+00:12:36.920 --> 00:12:39.320
+ And so if you hit the next slide, the first example,
+
+00:12:39.320 --> 00:12:41.240
+ I guess would be the coronavirus tracker.
+
+00:12:41.240 --> 00:12:42.760
+ This is a recent one.
+
+00:12:42.760 --> 00:12:44.240
+ This is where we're gathering data
+
+00:12:44.240 --> 00:12:45.560
+ from a ton of different sources
+
+00:12:45.560 --> 00:12:47.760
+ and turning it into all these pages
+
+00:12:47.760 --> 00:12:51.400
+ that update as frequently as we can get them to,
+
+00:12:52.040 --> 00:12:54.400
+ and let people slice and dice and tailor them.
+
+00:12:54.400 --> 00:12:58.480
+ There's also 58 pages, one for each local county, right?
+
+00:12:58.480 --> 00:13:01.040
+ And we're always working to look and expand on this.
+
+00:13:01.040 --> 00:13:03.320
+ There's a few things I'm hoping we can get out soon.
+
+00:13:03.320 --> 00:13:04.400
+ Yes, that is Netscape.
+
+00:13:04.400 --> 00:13:06.800
+ This is my visual pun for this presentation.
+
+00:13:06.800 --> 00:13:09.160
+ If you'll bear with me, I'm showing my age.
+
+00:13:11.000 --> 00:13:12.680
+ Okay, so then like another example,
+
+00:13:12.680 --> 00:13:16.000
+ if we keep going would be our live wildfires map.
+
+00:13:16.000 --> 00:13:17.760
+ So this is where we're pulling in data
+
+00:13:17.760 --> 00:13:21.040
+ from a lot of public sources and one private one
+
+00:13:21.040 --> 00:13:23.960
+ to try to give people the most comprehensive,
+
+00:13:23.960 --> 00:13:26.840
+ kind of composite view of what's happening
+
+00:13:26.840 --> 00:13:29.520
+ with wildfires this minute in California
+
+00:13:29.520 --> 00:13:31.140
+ or the most recent one possible.
+
+00:13:33.080 --> 00:13:35.320
+ And it's in no way a traditional story, right?
+
+00:13:35.320 --> 00:13:38.520
+ It's a single webpage that updates and stands along.
+
+00:13:38.520 --> 00:13:40.600
+ If you hit the next one,
+
+00:13:40.600 --> 00:13:42.680
+ another example would be our quake bot.
+
+00:13:42.680 --> 00:13:45.280
+ So this is something that isn't like a standalone webpage.
+
+00:13:45.280 --> 00:13:46.240
+ It's something else.
+
+00:13:46.240 --> 00:13:48.280
+ It's a piece of automation.
+
+00:13:48.280 --> 00:13:50.400
+ And so every time there's an earthquake detected
+
+00:13:50.400 --> 00:13:53.880
+ by the USGS, it sends out like a data feed
+
+00:13:53.880 --> 00:13:56.120
+ to the whole world, like kind of little pulses
+
+00:13:56.120 --> 00:13:57.880
+ that say here's the latest earthquake
+
+00:13:57.880 --> 00:13:59.920
+ and how big it was and where it was.
+
+00:13:59.920 --> 00:14:03.440
+ And we have an algorithm that reads every one of those
+
+00:14:03.440 --> 00:14:05.840
+ based on how close they are to Los Angeles
+
+00:14:05.840 --> 00:14:07.320
+ and how high the magnitude is.
+
+00:14:07.320 --> 00:14:10.160
+ We have some sort of editorial barriers.
+
+00:14:10.160 --> 00:14:12.520
+ And then if the data surpasses those barriers,
+
+00:14:12.520 --> 00:14:14.760
+ this blog post is automatically written
+
+00:14:14.760 --> 00:14:16.560
+ and this map is automatically made
+
+00:14:16.560 --> 00:14:18.160
+ and prepared for publication.
+
+00:14:18.160 --> 00:14:21.640
+ And so within a minute of an earthquake happening,
+
+00:14:21.640 --> 00:14:23.040
+ we can have the complete post,
+
+00:14:23.040 --> 00:14:25.640
+ including the map ready to roll.
+
+00:14:25.640 --> 00:14:27.520
+ We still have a human look at it, of course,
+
+00:14:27.520 --> 00:14:28.920
+ before it goes live,
+
+00:14:28.920 --> 00:14:30.600
+ but this is where automation gives us
+
+00:14:30.600 --> 00:14:33.760
+ kind of a quick step out the door immediately.
+
+00:14:36.360 --> 00:14:38.520
+ And then the next one would be, I think,
+
+00:14:38.520 --> 00:14:42.320
+ our most recent police shootings database,
+
+00:14:42.320 --> 00:14:44.880
+ we have a long running project called the homicide report
+
+00:14:44.880 --> 00:14:46.480
+ where we have built from the ground up
+
+00:14:46.480 --> 00:14:49.000
+ our own independent database of every person
+
+00:14:49.000 --> 00:14:52.560
+ killed by another in LA County since the year 2000.
+
+00:14:52.560 --> 00:14:55.480
+ And this year we decided to repurpose a slice of that data
+
+00:14:55.480 --> 00:14:58.520
+ to be a standalone database that just tracks police shootings
+
+00:14:58.520 --> 00:15:01.280
+ and gives people a sense of the latest trends
+
+00:15:01.280 --> 00:15:03.200
+ and that now, like the homicide report,
+
+00:15:03.200 --> 00:15:05.640
+ live updates every time we get new records in.
+
+00:15:07.600 --> 00:15:11.080
+ These databases, they power these standalone applications
+
+00:15:11.080 --> 00:15:13.840
+ and they would probably worth doing just for that reason,
+
+00:15:13.840 --> 00:15:16.000
+ but they also have the side benefit
+
+00:15:16.000 --> 00:15:19.480
+ of allowing us to do enterprise analysis
+
+00:15:19.480 --> 00:15:21.840
+ into these issues that we otherwise couldn't do
+
+00:15:21.840 --> 00:15:23.400
+ if we didn't have the data, right?
+
+00:15:23.400 --> 00:15:25.560
+ So on the next slide, you can see,
+
+00:15:25.560 --> 00:15:27.920
+ since we've been gathering all this COVID data
+
+00:15:27.920 --> 00:15:28.760
+ for months and months,
+
+00:15:28.760 --> 00:15:31.520
+ we've been able to do tons of stories about COVID
+
+00:15:31.520 --> 00:15:33.400
+ that are a little more traditional,
+
+00:15:33.400 --> 00:15:38.000
+ but that have stronger claims and more insightful analysis
+
+00:15:38.000 --> 00:15:39.680
+ because we have this data to draw from.
+
+00:15:39.680 --> 00:15:43.560
+ So one example would be this kind of step back piece
+
+00:15:43.560 --> 00:15:47.000
+ that we did after LA County's sort of botched reopening,
+
+00:15:47.000 --> 00:15:49.200
+ where we were able to use all the data we gathered
+
+00:15:49.200 --> 00:15:53.200
+ and other things we pulled in to kind of tell that story
+
+00:15:53.200 --> 00:15:55.240
+ of what happened here in LA
+
+00:15:55.240 --> 00:15:58.100
+ in a way that wasn't just a data application, right?
+
+00:15:59.280 --> 00:16:01.640
+ And then the next one would come from our homicide report
+
+00:16:01.640 --> 00:16:03.080
+ database.
+
+00:16:03.080 --> 00:16:04.400
+ If you guys follow the news,
+
+00:16:04.400 --> 00:16:06.720
+ you may have heard about the case of Deshawn Kizzie,
+
+00:16:06.720 --> 00:16:08.240
+ who was a young man,
+
+00:16:08.240 --> 00:16:10.920
+ killed following a bicycle stop in South LA
+
+00:16:10.920 --> 00:16:13.840
+ by sheriff's deputies.
+
+00:16:15.040 --> 00:16:16.320
+ And when that happened,
+
+00:16:16.320 --> 00:16:18.000
+ it sort of raised a question of,
+
+00:16:18.000 --> 00:16:20.600
+ well, how common are these bicycle stops
+
+00:16:20.600 --> 00:16:22.960
+ that lead to fatal encounters?
+
+00:16:22.960 --> 00:16:25.320
+ And because we had gathered this database
+
+00:16:25.320 --> 00:16:26.520
+ and had all this information,
+
+00:16:26.520 --> 00:16:29.680
+ we were the only media outlet that was able to give
+
+00:16:29.680 --> 00:16:33.080
+ the public the news that, hey, this isn't a loan incident.
+
+00:16:33.080 --> 00:16:35.640
+ This is something that's happened 15 times
+
+00:16:35.640 --> 00:16:37.200
+ in the last 15 years.
+
+00:16:37.200 --> 00:16:39.520
+ And so it's not especially common,
+
+00:16:39.520 --> 00:16:41.920
+ but it's more common than this being the first time.
+
+00:16:41.920 --> 00:16:45.560
+ And you're able to bring context and insight to it.
+
+00:16:45.560 --> 00:16:48.040
+ You can see if you see that map fly by really quick
+
+00:16:48.040 --> 00:16:49.880
+ that these incidents have been concentrated
+
+00:16:49.880 --> 00:16:51.320
+ in certain areas too.
+
+00:16:52.200 --> 00:16:54.520
+ We have some public records requests out
+
+00:16:54.520 --> 00:16:57.200
+ that I believe will allow us to look into that further
+
+00:16:57.200 --> 00:16:58.040
+ in the future.
+
+00:16:59.280 --> 00:17:00.400
+ So that's thing one,
+
+00:17:00.400 --> 00:17:03.360
+ that's the kind of the applications and the analysis.
+
+00:17:03.360 --> 00:17:06.320
+ We have live election results coming on Tuesday.
+
+00:17:06.320 --> 00:17:08.320
+ So this is all the flowing data feeds
+
+00:17:08.320 --> 00:17:10.160
+ of votes coming in from across America.
+
+00:17:10.160 --> 00:17:12.680
+ We'll go into maps and tables and charts
+
+00:17:12.680 --> 00:17:17.040
+ to help you kind of make sense of what's going on, right?
+
+00:17:17.040 --> 00:17:19.680
+ And so all right, so now we can do thing two.
+
+00:17:19.680 --> 00:17:24.040
+ So assembly line number two is visual stories
+
+00:17:24.040 --> 00:17:25.000
+ is what I call them.
+
+00:17:25.000 --> 00:17:27.960
+ This is kind of an emerging story type
+
+00:17:27.960 --> 00:17:30.080
+ in the world of data and graphics online
+
+00:17:30.080 --> 00:17:32.040
+ that nobody really has a good name for.
+
+00:17:32.040 --> 00:17:33.640
+ So if anybody here has a better name for it,
+
+00:17:33.640 --> 00:17:34.520
+ I'd love to hear it.
+
+00:17:34.520 --> 00:17:35.800
+ You can hit the next slide.
+
+00:17:39.160 --> 00:17:43.280
+ And so visual stories are when graphics reporter reports
+
+00:17:43.280 --> 00:17:46.640
+ and designs visual coverage that is substantial enough
+
+00:17:46.640 --> 00:17:48.080
+ to stand on its own.
+
+00:17:48.080 --> 00:17:49.920
+ Traditionally graphics departments
+
+00:17:49.920 --> 00:17:52.200
+ had sort of made accompanying graphics.
+
+00:17:52.200 --> 00:17:53.920
+ So on the old assembly line,
+
+00:17:53.920 --> 00:17:56.200
+ you might be making a front page story
+
+00:17:56.200 --> 00:17:59.320
+ and you got to have 1600 words of text
+
+00:17:59.320 --> 00:18:00.640
+ and you got to have a headline
+
+00:18:00.640 --> 00:18:02.880
+ and you got to have maybe a couple photos.
+
+00:18:02.880 --> 00:18:04.720
+ And hey, if you're really going to dress up
+
+00:18:04.720 --> 00:18:06.960
+ that front page story, you might get a bar chart
+
+00:18:06.960 --> 00:18:08.520
+ and go with it, right?
+
+00:18:08.520 --> 00:18:12.040
+ And so a lot of graphics departments
+
+00:18:12.040 --> 00:18:14.600
+ had been oriented around being a support desk
+
+00:18:14.600 --> 00:18:18.160
+ that was producing these sort of supplementary graphics
+
+00:18:18.160 --> 00:18:19.160
+ for traditional stories.
+
+00:18:19.160 --> 00:18:20.720
+ And we love those graphics.
+
+00:18:20.720 --> 00:18:22.400
+ They're a good thing, I like them.
+
+00:18:22.400 --> 00:18:24.720
+ But I think we have the potential to do quite a bit more
+
+00:18:24.720 --> 00:18:27.240
+ and I think our audience wants something a little more.
+
+00:18:27.240 --> 00:18:30.280
+ And so one thing I bet everybody here has noticed
+
+00:18:30.280 --> 00:18:33.320
+ reading some of the leading news outlets in America
+
+00:18:33.320 --> 00:18:36.280
+ is that they now produce these visual stories
+
+00:18:36.280 --> 00:18:39.480
+ that are primarily just a combination of graphics
+
+00:18:39.480 --> 00:18:42.560
+ that are big enough that they can just stand on their own, right?
+
+00:18:42.560 --> 00:18:44.520
+ And that's what I call a visual story.
+
+00:18:45.600 --> 00:18:47.760
+ And these are pieces that at most places
+
+00:18:47.760 --> 00:18:51.440
+ are reported, pitched and executed primarily
+
+00:18:51.440 --> 00:18:53.280
+ by the graphics reporter.
+
+00:18:53.280 --> 00:18:57.800
+ It's not a case where a writer of a traditional story
+
+00:18:57.800 --> 00:19:01.280
+ comes to the graphics department and asks for a graphic, right?
+
+00:19:01.280 --> 00:19:03.960
+ So the entire process of how things kind of come together
+
+00:19:03.960 --> 00:19:07.200
+ has changed and the graphics reporter
+
+00:19:07.200 --> 00:19:10.040
+ is more in the driver's seat, okay?
+
+00:19:10.040 --> 00:19:14.560
+ And so go ahead and hit the next slide
+
+00:19:14.560 --> 00:19:15.680
+ and we'll look at some examples.
+
+00:19:15.680 --> 00:19:18.520
+ So early this year, as I'm sure everyone here knows,
+
+00:19:18.520 --> 00:19:21.720
+ Kobe Bryant died in a tragic helicopter accident
+
+00:19:21.720 --> 00:19:25.880
+ near Calabasas and immediately we thought
+
+00:19:25.880 --> 00:19:27.960
+ there's a visual component to the story.
+
+00:19:27.960 --> 00:19:30.160
+ For people to understand what happened,
+
+00:19:30.160 --> 00:19:33.360
+ you need to know the path of his helicopter, right?
+
+00:19:33.360 --> 00:19:37.520
+ And so on day one, it was like a map of where did he crash
+
+00:19:37.520 --> 00:19:38.920
+ and it's just like an X.
+
+00:19:38.920 --> 00:19:42.120
+ And then between day one and day two,
+
+00:19:42.120 --> 00:19:44.440
+ it's like, well, what was the path of the helicopter
+
+00:19:44.440 --> 00:19:48.400
+ and what was really going on and what's the play-by-play, right?
+
+00:19:48.400 --> 00:19:49.840
+ And then what we kind of learned on,
+
+00:19:49.840 --> 00:19:52.560
+ it happened on a Sunday, what we kind of learned on Monday
+
+00:19:52.560 --> 00:19:55.960
+ is like, oh, well, it seems like the final like part
+
+00:19:55.960 --> 00:19:59.200
+ of this helicopter flight is where things really went wrong.
+
+00:19:59.200 --> 00:20:01.160
+ And this was kind of the crucial moment.
+
+00:20:01.160 --> 00:20:03.200
+ And so we decide, well, let's try to do a story
+
+00:20:03.200 --> 00:20:06.880
+ that helps people see or understand as best as we can
+
+00:20:06.880 --> 00:20:07.720
+ what happened.
+
+00:20:07.720 --> 00:20:11.440
+ And so we took the publicly available data about the helicopter
+
+00:20:11.440 --> 00:20:14.440
+ and we turned it into like a three or four step
+
+00:20:14.440 --> 00:20:17.560
+ little graphic here that has, for each chapter in the story,
+
+00:20:17.560 --> 00:20:20.720
+ has like a 3D map that helps you see what's going on.
+
+00:20:20.720 --> 00:20:24.240
+ And by the end, you sort of are able to see
+
+00:20:24.240 --> 00:20:27.280
+ this sort of important thing where the helicopter
+
+00:20:27.280 --> 00:20:30.000
+ began climbing very rapidly in the last few seconds
+
+00:20:30.000 --> 00:20:32.280
+ before a quick turn and then a crash.
+
+00:20:32.280 --> 00:20:34.560
+ And that's the sort of thing that you can describe in words
+
+00:20:34.560 --> 00:20:39.560
+ but is maybe better understood by seeing a 3D model, right?
+
+00:20:40.840 --> 00:20:43.840
+ So the next example on the next slide
+
+00:20:43.840 --> 00:20:46.760
+ would be something from politics.
+
+00:20:46.760 --> 00:20:49.760
+ So we have this very tight DA race, we think.
+
+00:20:49.760 --> 00:20:52.920
+ And after the primary, when we knew we were going
+
+00:20:52.920 --> 00:20:55.360
+ to run off, we get the precinct level results
+
+00:20:55.360 --> 00:20:58.080
+ that show you where people voted in every neighborhood.
+
+00:20:58.080 --> 00:21:00.560
+ And we kind of did an analysis that looked at,
+
+00:21:00.560 --> 00:21:02.320
+ well, where is the incumbent strong?
+
+00:21:02.320 --> 00:21:04.200
+ Where is the challenger strong?
+
+00:21:04.200 --> 00:21:07.320
+ And what would an upset coalition have to look like
+
+00:21:07.320 --> 00:21:09.080
+ based on past election results
+
+00:21:09.080 --> 00:21:10.920
+ and what we kind of know about this election?
+
+00:21:10.920 --> 00:21:14.760
+ So this piece is really about helping people understand
+
+00:21:14.760 --> 00:21:19.840
+ the political calculus of this local race through maps, right?
+
+00:21:19.840 --> 00:21:24.840
+ And then the next one is we did a local mask survey.
+
+00:21:26.560 --> 00:21:28.120
+ So there was this thing over the summer,
+
+00:21:28.120 --> 00:21:31.240
+ the question of how many people are actually really wearing masks
+
+00:21:31.240 --> 00:21:34.360
+ and rather than just quote public opinion polls
+
+00:21:34.360 --> 00:21:36.600
+ or take data from other places,
+
+00:21:36.600 --> 00:21:38.440
+ we decided to conduct our own survey.
+
+00:21:38.440 --> 00:21:41.680
+ So a dozen of our reporters went to three different locations
+
+00:21:41.680 --> 00:21:44.080
+ of multiple times over a few weeks.
+
+00:21:44.080 --> 00:21:47.040
+ We followed a method that Jill Darling at USC
+
+00:21:47.040 --> 00:21:48.760
+ helped us like figure out.
+
+00:21:48.760 --> 00:21:50.360
+ And then we were able to kind of come back
+
+00:21:50.360 --> 00:21:52.440
+ with our own provisional conclusions
+
+00:21:52.440 --> 00:21:56.960
+ about how many people are wearing masks roughly
+
+00:21:56.960 --> 00:22:00.440
+ and the variations between the different locations we looked at.
+
+00:22:00.440 --> 00:22:02.520
+ And then that's presented here
+
+00:22:02.520 --> 00:22:04.960
+ as sort of a designee standalone thing
+
+00:22:04.960 --> 00:22:06.640
+ that's really more about charts and maps
+
+00:22:06.640 --> 00:22:08.360
+ than it is about text, right?
+
+00:22:09.600 --> 00:22:14.200
+ Next slide would be something that's not really data at all.
+
+00:22:14.200 --> 00:22:15.160
+ It's more visual.
+
+00:22:15.160 --> 00:22:17.440
+ And so in the George Floyd protests,
+
+00:22:17.440 --> 00:22:19.240
+ I'm sure everyone saw on social media,
+
+00:22:19.240 --> 00:22:22.640
+ there was a lot of footage of the police here in LA
+
+00:22:22.640 --> 00:22:24.920
+ being pretty violent.
+
+00:22:24.920 --> 00:22:28.760
+ And so we did a piece where we tried to aggregate
+
+00:22:28.760 --> 00:22:30.440
+ as much as that as possible
+
+00:22:30.440 --> 00:22:35.280
+ and then help compare it to the actual standards
+
+00:22:35.280 --> 00:22:38.120
+ for use of force the police are supposed to follow
+
+00:22:38.120 --> 00:22:40.160
+ to show the contrast.
+
+00:22:40.160 --> 00:22:42.640
+ And so this is a case where we're using the design
+
+00:22:42.640 --> 00:22:46.520
+ and the visual graph and the videos to tell the story
+
+00:22:46.520 --> 00:22:49.880
+ and it's not really like charts and maps, you know what I mean?
+
+00:22:49.880 --> 00:22:51.840
+ But it still falls within kind of this
+
+00:22:51.840 --> 00:22:56.320
+ under this visual umbrella that I think is part of what we do
+
+00:22:56.320 --> 00:22:58.760
+ and it's why I call it a visual story
+
+00:22:58.760 --> 00:23:01.280
+ and not a graphic story or something, right?
+
+00:23:02.680 --> 00:23:05.360
+ And we have another example I'm trying to remember.
+
+00:23:05.360 --> 00:23:07.360
+ Oh, and then here's one we did on homeless housing.
+
+00:23:07.360 --> 00:23:10.760
+ This is a type of visual story I bet you've all seen too
+
+00:23:10.760 --> 00:23:14.440
+ that we call scrolly telling, which is a terrible term,
+
+00:23:14.440 --> 00:23:17.360
+ which is where as you scroll things sort of move and happen
+
+00:23:17.360 --> 00:23:19.680
+ and this is another type of visual technique
+
+00:23:19.680 --> 00:23:22.840
+ that we use from time to time, depending on whether it fits
+
+00:23:22.840 --> 00:23:26.000
+ the story we're trying to tell, okay?
+
+00:23:26.000 --> 00:23:27.480
+ I think that's it for those examples.
+
+00:23:27.480 --> 00:23:29.560
+ And then I think we get to things three,
+
+00:23:29.560 --> 00:23:31.960
+ if I remember my deck right, which is digital designs.
+
+00:23:31.960 --> 00:23:35.280
+ Oh, no, it doesn't fit the screen size.
+
+00:23:35.280 --> 00:23:37.480
+ My gosh, you found a bug in my deck,
+
+00:23:37.480 --> 00:23:42.040
+ but this is a case where we're using our digital design skills
+
+00:23:42.040 --> 00:23:45.360
+ to elevate the newsroom's most ambitious journalism
+
+00:23:45.360 --> 00:23:46.720
+ through like what we think
+
+00:23:46.720 --> 00:23:49.720
+ are cool digital custom presentations.
+
+00:23:49.720 --> 00:23:53.600
+ And in this case, we're usually helping to elevate stories
+
+00:23:53.600 --> 00:23:56.360
+ developed by other departments rather than our own work.
+
+00:23:56.360 --> 00:23:57.760
+ And a lot of it has some, you know,
+
+00:23:57.760 --> 00:23:59.800
+ nothing to do with data or graphics.
+
+00:23:59.800 --> 00:24:02.600
+ We're kind of the boutique web designers
+
+00:24:02.600 --> 00:24:06.080
+ for these like flagship projects of the newsroom, okay?
+
+00:24:06.080 --> 00:24:08.680
+ So examples of that wouldn't be on the following slide.
+
+00:24:08.680 --> 00:24:12.280
+ So the first one would be we did an obituaries package
+
+00:24:12.280 --> 00:24:15.200
+ of all the people who died from COVID.
+
+00:24:17.280 --> 00:24:20.120
+ Not all of them of many people who died in COVID,
+
+00:24:20.120 --> 00:24:21.400
+ of COVID here locally.
+
+00:24:21.400 --> 00:24:23.800
+ And then that package has sort of a custom design
+
+00:24:23.800 --> 00:24:25.840
+ to try to make it more dramatic and interesting
+
+00:24:25.840 --> 00:24:27.680
+ and engaging for the reader.
+
+00:24:27.680 --> 00:24:29.640
+ The next example is one from Sunday.
+
+00:24:29.640 --> 00:24:31.160
+ I wonder if anybody here saw it.
+
+00:24:31.160 --> 00:24:34.000
+ We had a piece by Rosanna Shee about DDT
+
+00:24:34.000 --> 00:24:37.600
+ being dumped off the coast back in the day here in LA.
+
+00:24:37.600 --> 00:24:40.760
+ And to try to make that story more impactful and grabby
+
+00:24:40.760 --> 00:24:43.400
+ and to get people we did custom design for it,
+
+00:24:43.400 --> 00:24:45.560
+ which included like a video topper,
+
+00:24:45.560 --> 00:24:48.360
+ which you see here, a little scrolly telling in the middle.
+
+00:24:48.360 --> 00:24:52.080
+ And then the sort of overall design and theme of the page
+
+00:24:52.080 --> 00:24:54.120
+ is customized to fit the story.
+
+00:24:54.120 --> 00:24:58.880
+ It isn't just the generic LA times kind of look, right?
+
+00:24:58.880 --> 00:25:02.880
+ Now the next one is the Chicano moratorium package
+
+00:25:02.880 --> 00:25:04.760
+ over the summer, we had an anniversary
+
+00:25:04.760 --> 00:25:08.640
+ of a famous protest in East LA against the Vietnam War,
+
+00:25:08.640 --> 00:25:12.000
+ which ended up being a series of stories.
+
+00:25:12.000 --> 00:25:13.680
+ And in the past, this might have just been
+
+00:25:13.680 --> 00:25:16.360
+ like a newspaper special suction,
+
+00:25:16.360 --> 00:25:18.560
+ and then a bunch of pages on our website
+
+00:25:18.560 --> 00:25:19.960
+ that aren't really connected.
+
+00:25:19.960 --> 00:25:22.960
+ But what we try to do is to bring a style and theme
+
+00:25:22.960 --> 00:25:23.840
+ to the whole package.
+
+00:25:23.840 --> 00:25:26.040
+ This is kind of the cover page where all the stories
+
+00:25:26.040 --> 00:25:28.800
+ were collected, and then each of the individual stories
+
+00:25:28.800 --> 00:25:31.160
+ was given sort of a variation on the theme
+
+00:25:31.160 --> 00:25:33.120
+ that you see here is the idea.
+
+00:25:34.280 --> 00:25:36.440
+ And I think next up is the one I'm gonna,
+
+00:25:36.440 --> 00:25:39.280
+ oh, then sometimes we do these for other platforms,
+
+00:25:39.280 --> 00:25:40.640
+ not just for the open web.
+
+00:25:40.640 --> 00:25:42.720
+ The Linux nerd in me would love it all just to be
+
+00:25:42.720 --> 00:25:47.280
+ on RWW, but as far as our business goes,
+
+00:25:47.280 --> 00:25:49.280
+ we do need to cross publish these things
+
+00:25:49.280 --> 00:25:54.280
+ on monopolistic corporate platforms, guys, like Apple News.
+
+00:25:54.280 --> 00:25:57.200
+ And so sometimes we will customize stuff
+
+00:25:57.200 --> 00:25:59.720
+ to work on those other places as well,
+
+00:25:59.720 --> 00:26:02.120
+ as you see here with our voter guide,
+
+00:26:02.120 --> 00:26:05.120
+ which ran inside of Apple News.
+
+00:26:06.480 --> 00:26:08.120
+ And then we have, I think the next slide
+
+00:26:08.120 --> 00:26:09.760
+ will just tease one we have coming,
+
+00:26:09.760 --> 00:26:13.480
+ we're gonna try to do a crazier year in review package
+
+00:26:14.680 --> 00:26:16.160
+ that will be more visual and fun
+
+00:26:16.160 --> 00:26:18.120
+ than what we typically done in the past.
+
+00:26:18.120 --> 00:26:20.560
+ So those are the three types of things we do.
+
+00:26:21.560 --> 00:26:24.640
+ The next section kind of gets into what that requires
+
+00:26:24.640 --> 00:26:26.720
+ for a change, and some of this is a little more
+
+00:26:26.720 --> 00:26:29.480
+ in my message for people eternally at the LA Times,
+
+00:26:29.480 --> 00:26:31.040
+ but I think it'll work for you guys too,
+
+00:26:31.040 --> 00:26:34.440
+ which is for this, for our data and graphics department
+
+00:26:34.440 --> 00:26:38.000
+ to make these things and to achieve this mission,
+
+00:26:38.000 --> 00:26:41.600
+ they have to be more independent and ambitious
+
+00:26:41.600 --> 00:26:44.920
+ than maybe a traditional graphics department has been,
+
+00:26:44.920 --> 00:26:46.720
+ and they need to have a higher skill level.
+
+00:26:46.720 --> 00:26:50.160
+ So that requires us to seek out
+
+00:26:50.160 --> 00:26:52.800
+ and develop our own ideas,
+
+00:26:52.800 --> 00:26:55.280
+ to look at the major storylines of the day,
+
+00:26:55.280 --> 00:26:58.800
+ be it COVID or COB or the Dodgers winning
+
+00:26:58.800 --> 00:27:01.560
+ or the election or the George Floyd protests
+
+00:27:01.560 --> 00:27:02.880
+ or homelessness here locally
+
+00:27:02.880 --> 00:27:04.760
+ or whatever those major topics are
+
+00:27:04.760 --> 00:27:08.920
+ that we know both matter to our democracy,
+
+00:27:08.920 --> 00:27:12.400
+ but also to our audience in terms of what they want to pay for.
+
+00:27:12.400 --> 00:27:14.320
+ We need to look at those topics and say,
+
+00:27:14.320 --> 00:27:17.720
+ our job is to develop striking visual and data coverage
+
+00:27:17.720 --> 00:27:18.960
+ that people are going to want,
+
+00:27:18.960 --> 00:27:20.920
+ and that means we have to be more ambitious
+
+00:27:20.920 --> 00:27:22.920
+ than some departments have been in the past.
+
+00:27:22.920 --> 00:27:24.720
+ We need to take more initiative,
+
+00:27:24.720 --> 00:27:27.560
+ and we need to operate more like a traditional news department
+
+00:27:27.560 --> 00:27:31.560
+ in having our own sort of editing system and people in place.
+
+00:27:31.560 --> 00:27:32.960
+ So that's kind of this section.
+
+00:27:32.960 --> 00:27:34.840
+ And you can just jump through the next few slides
+
+00:27:34.840 --> 00:27:39.160
+ and we'll get to where the next section,
+
+00:27:39.160 --> 00:27:40.680
+ I just talk about the results.
+
+00:27:40.680 --> 00:27:42.880
+ So just, you can jump ahead here a couple.
+
+00:27:45.720 --> 00:27:48.600
+ There's Alex Tatuzzi and my deputy editor, my hero.
+
+00:27:48.600 --> 00:27:50.200
+ And then the next slide is our listing.
+
+00:27:50.200 --> 00:27:52.400
+ We have a job listing for a second deputy editor
+
+00:27:52.400 --> 00:27:56.160
+ as we try to increase our editing muscle on our team,
+
+00:27:56.160 --> 00:27:58.080
+ which is one of my major strategic goals
+
+00:27:58.080 --> 00:27:59.240
+ for the current moment.
+
+00:28:01.080 --> 00:28:03.360
+ And the reason we pursue all these goals
+
+00:28:03.360 --> 00:28:05.920
+ is not just 'cause we're nerds and we like to do it,
+
+00:28:05.920 --> 00:28:07.600
+ which is maybe a good enough reason
+
+00:28:07.600 --> 00:28:10.360
+ if you're not expecting to get paid.
+
+00:28:11.200 --> 00:28:16.280
+ But we also are pursuing this different type of journalism.
+
+00:28:16.280 --> 00:28:17.480
+ One, because we like doing it.
+
+00:28:17.480 --> 00:28:19.000
+ Two, because it's better journalism.
+
+00:28:19.000 --> 00:28:21.720
+ The three, because it pays and it's better for our business.
+
+00:28:21.720 --> 00:28:26.720
+ And so the next section is really kind of covers
+
+00:28:26.880 --> 00:28:29.200
+ that these types of things I've been showing you,
+
+00:28:29.200 --> 00:28:31.960
+ they're more popular with audiences.
+
+00:28:31.960 --> 00:28:34.640
+ They're more valuable in that they are seen
+
+00:28:34.640 --> 00:28:38.600
+ to convert more new subscribers to the digital product,
+
+00:28:38.600 --> 00:28:41.920
+ which is our number one business goal than a typical story.
+
+00:28:41.920 --> 00:28:44.040
+ And they're more durable in that they continue
+
+00:28:44.040 --> 00:28:47.120
+ to draw an audience long after they're initially published,
+
+00:28:47.120 --> 00:28:50.600
+ where most new stories kind of peter out within a day or two.
+
+00:28:50.600 --> 00:28:54.040
+ So this next section is all redacted,
+
+00:28:54.040 --> 00:28:56.800
+ so we don't need to look at it, but I can give you the gist.
+
+00:28:56.800 --> 00:28:58.800
+ I mean, you probably aren't gonna be surprised
+
+00:28:58.800 --> 00:29:00.000
+ to hear this if you think about it,
+
+00:29:00.000 --> 00:29:02.240
+ but our coronavirus tracker,
+
+00:29:02.240 --> 00:29:04.360
+ as humble as it may appear to you,
+
+00:29:04.360 --> 00:29:06.560
+ is the most popular page in the history
+
+00:29:06.560 --> 00:29:08.120
+ of the Los Angeles Times website.
+
+00:29:08.120 --> 00:29:10.840
+ No page has ever been visited by more people.
+
+00:29:10.840 --> 00:29:13.360
+ And if you compare it to our top traditional stories,
+
+00:29:13.360 --> 00:29:15.680
+ it is multiple times more popular
+
+00:29:15.680 --> 00:29:19.020
+ than the most popular stories of the year.
+
+00:29:19.020 --> 00:29:21.320
+ And then when you look at conversions
+
+00:29:21.320 --> 00:29:25.760
+ in terms of what's valuable in attracting new paying subscribers,
+
+00:29:25.760 --> 00:29:30.120
+ it is an order of magnitude higher
+
+00:29:30.120 --> 00:29:33.680
+ than the number two story of the entire year.
+
+00:29:33.680 --> 00:29:36.800
+ And so you see that when things like this connect,
+
+00:29:36.800 --> 00:29:40.560
+ they have a sort of home run possibility for the business
+
+00:29:40.560 --> 00:29:44.520
+ that a traditional story very rarely can have.
+
+00:29:44.520 --> 00:29:47.120
+ And then if you look at that over time,
+
+00:29:47.120 --> 00:29:50.320
+ you'll see that it didn't become the top converting story
+
+00:29:50.320 --> 00:29:53.360
+ until three or four months after it had initially launched,
+
+00:29:53.360 --> 00:29:56.360
+ which just shows that it's continuing to draw audience
+
+00:29:56.360 --> 00:29:59.400
+ and new paying customers over time
+
+00:29:59.400 --> 00:30:01.840
+ and that sort of durability I was talking about.
+
+00:30:01.840 --> 00:30:04.040
+ And so for those reasons,
+
+00:30:04.040 --> 00:30:06.840
+ we think that there's a strong business logic
+
+00:30:06.840 --> 00:30:08.520
+ behind investing in what we do.
+
+00:30:08.520 --> 00:30:10.960
+ And I'll kind of close with this, I guess maybe,
+
+00:30:10.960 --> 00:30:14.360
+ but having been a news nerd, as people say,
+
+00:30:14.360 --> 00:30:18.320
+ and having done this kind of thing for nearly 20 years now,
+
+00:30:18.320 --> 00:30:19.920
+ that has been the biggest change
+
+00:30:19.920 --> 00:30:22.200
+ that I have seen in the last five or 10 years.
+
+00:30:22.200 --> 00:30:26.680
+ When I began this as like a computer programmer journalist
+
+00:30:26.680 --> 00:30:29.920
+ in 2000, we were curiosities.
+
+00:30:29.920 --> 00:30:34.200
+ We were either the one person on the investigative team
+
+00:30:34.200 --> 00:30:38.120
+ who had learned to code to try to do a cool data analysis
+
+00:30:38.120 --> 00:30:40.680
+ for a traditional print investigative piece,
+
+00:30:40.680 --> 00:30:44.000
+ or you were some weird person in the corner
+
+00:30:44.000 --> 00:30:46.560
+ who said the internet's gonna be big one day,
+
+00:30:46.560 --> 00:30:49.240
+ and we need to learn how to make new weird things.
+
+00:30:49.240 --> 00:30:51.840
+ And so the justifications for most of the teams
+
+00:30:51.840 --> 00:30:54.640
+ that I've been on in my entire career
+
+00:30:54.640 --> 00:30:57.480
+ were either this is data analysis
+
+00:30:57.480 --> 00:31:00.120
+ to do more impactful and important investigative reporting.
+
+00:31:00.120 --> 00:31:02.120
+ That's actually what got me into it initially
+
+00:31:02.120 --> 00:31:04.560
+ and is still my passion, right?
+
+00:31:04.560 --> 00:31:08.600
+ Or it was this is sort of boutique internet experimentation
+
+00:31:08.600 --> 00:31:11.880
+ to kind of see what comes of it, right?
+
+00:31:11.880 --> 00:31:16.320
+ And we're now far enough into the digital transition
+
+00:31:16.320 --> 00:31:17.920
+ to the information economy
+
+00:31:17.920 --> 00:31:19.720
+ that that's just fundamentally changed.
+
+00:31:19.720 --> 00:31:21.960
+ And what we've seen is that there are certain types
+
+00:31:21.960 --> 00:31:25.160
+ of these products, these data and graphics products
+
+00:31:25.160 --> 00:31:26.760
+ that are so successful
+
+00:31:26.760 --> 00:31:29.920
+ that there's now like a capitalistic economic logic
+
+00:31:29.920 --> 00:31:31.800
+ for producing them.
+
+00:31:31.800 --> 00:31:34.000
+ And there's less and less of a logic
+
+00:31:34.000 --> 00:31:36.560
+ for producing what these departments produced before.
+
+00:31:36.560 --> 00:31:39.040
+ And so that's why I think not to get,
+
+00:31:39.040 --> 00:31:40.280
+ I guess I am at the university
+
+00:31:40.280 --> 00:31:42.680
+ so I can get all Marxist on you guys, you know,
+
+00:31:42.680 --> 00:31:45.960
+ like I think that that is this economic logic
+
+00:31:45.960 --> 00:31:48.800
+ that is driving kind of the evolution of our team
+
+00:31:48.800 --> 00:31:50.960
+ and the justification for growing it,
+
+00:31:50.960 --> 00:31:55.120
+ as well as similar changes you see in other departments
+
+00:31:55.120 --> 00:31:57.240
+ like ours at other news organizations,
+
+00:31:57.240 --> 00:32:01.280
+ some of which are like us in the middle of the transition
+
+00:32:01.280 --> 00:32:04.880
+ and some others are further along down the road.
+
+00:32:04.880 --> 00:32:07.040
+ Like for instance, the New York Times graphics desk
+
+00:32:07.040 --> 00:32:10.160
+ which is already fully converted into this type of thing
+
+00:32:10.160 --> 00:32:12.920
+ that I've been talking about here today.
+
+00:32:12.920 --> 00:32:15.640
+ And I don't work there so I don't know the numbers
+
+00:32:15.640 --> 00:32:18.560
+ but I would estimate based on what we see
+
+00:32:18.560 --> 00:32:21.600
+ and based upon how the number of things they put out
+
+00:32:21.600 --> 00:32:23.200
+ and the quality of what they put out
+
+00:32:23.200 --> 00:32:25.920
+ that like the New York Times graphics department
+
+00:32:25.920 --> 00:32:29.360
+ may be the most read and most profitable department
+
+00:32:29.360 --> 00:32:31.840
+ in the whole newsroom, like that wouldn't surprise me
+
+00:32:31.840 --> 00:32:33.800
+ with maybe the exception of one or two people
+
+00:32:33.800 --> 00:32:35.700
+ who write about Trump, you know.
+
+00:32:37.480 --> 00:32:41.040
+ And that is something that just was not true in the past
+
+00:32:41.040 --> 00:32:44.840
+ when these departments were seen as supplementary, right?
+
+00:32:45.760 --> 00:32:47.840
+ So that's my spiel.
+
+00:32:47.840 --> 00:32:50.000
+ I'm happy to talk about really any of these issues
+
+00:32:50.000 --> 00:32:52.360
+ that were raised, any of the stories in particular,
+
+00:32:52.360 --> 00:32:54.320
+ any, you guys want to talk about Python?
+
+00:32:54.320 --> 00:32:56.240
+ I'll talk D3, I'll talk about that.
+
+00:32:57.240 --> 00:32:58.520
+ Whatever you guys want to talk about,
+
+00:32:58.520 --> 00:33:01.480
+ I'm happy to just jam and hang out.
+
+00:33:03.600 --> 00:33:07.600
+ - All right, well, that was fascinating.
+
+00:33:07.600 --> 00:33:10.520
+ I do certainly want to open it up to the audience
+
+00:33:10.520 --> 00:33:13.160
+ because this is about the students who are here
+
+00:33:13.160 --> 00:33:14.760
+ participating this week.
+
+00:33:15.680 --> 00:33:18.840
+ Maybe I'll have Andy kind of summarize the questions
+
+00:33:18.840 --> 00:33:21.200
+ in the chat room, but in the meantime,
+
+00:33:21.200 --> 00:33:23.880
+ well, you know, go ahead and post questions
+
+00:33:23.880 --> 00:33:26.320
+ that you have for Ben in the chat room,
+
+00:33:26.320 --> 00:33:29.480
+ but maybe I'll kick it off a little bit here, Ben.
+
+00:33:29.480 --> 00:33:32.480
+ You really talk about this kind of transformative age
+
+00:33:32.480 --> 00:33:36.880
+ of data journalism through this kind of visual evolution.
+
+00:33:38.040 --> 00:33:40.520
+ What's just kind of like mind boggling to me
+
+00:33:40.520 --> 00:33:45.120
+ is the fluidity by which you guys go about your business.
+
+00:33:45.120 --> 00:33:47.280
+ Thinking like any one of the products
+
+00:33:47.280 --> 00:33:50.600
+ that you have showcased in your presentation,
+
+00:33:50.600 --> 00:33:54.120
+ if we were to do any one of those in academic institution,
+
+00:33:54.120 --> 00:33:56.720
+ it'll probably take six months to create.
+
+00:33:56.720 --> 00:34:01.320
+ And just kind of, you know, be followed by this,
+
+00:34:01.320 --> 00:34:05.680
+ your ability to, you know, pivot so quickly
+
+00:34:05.680 --> 00:34:06.680
+ with a new story.
+
+00:34:06.680 --> 00:34:08.720
+ And then the next day you have like something
+
+00:34:08.720 --> 00:34:12.320
+ that looks like it took six months to create.
+
+00:34:12.320 --> 00:34:15.720
+ Can you talk a little bit about this kind of this environment
+
+00:34:15.720 --> 00:34:18.560
+ that you work in, the speed that you have to work in?
+
+00:34:18.560 --> 00:34:20.560
+ And you ever sleep?
+
+00:34:20.560 --> 00:34:23.040
+ - Well, I'm glad you think that during COVID, very rarely,
+
+00:34:23.040 --> 00:34:24.520
+ as you can tell by looking at me,
+
+00:34:24.520 --> 00:34:27.720
+ but like after the selection,
+
+00:34:27.720 --> 00:34:30.520
+ the dream is like December, like maybe a day off,
+
+00:34:30.520 --> 00:34:31.360
+ but like,
+
+00:34:33.800 --> 00:34:37.280
+ but more seriously, it's really like any,
+
+00:34:37.280 --> 00:34:39.680
+ like, you know, I like the factory metaphor,
+
+00:34:39.680 --> 00:34:41.240
+ but I'm sure there's other ways to talk about it,
+
+00:34:41.240 --> 00:34:46.240
+ but it's like any process, any like manufacturing process,
+
+00:34:46.920 --> 00:34:48.520
+ you break it down into pieces
+
+00:34:48.520 --> 00:34:51.360
+ and then you like get really good at like, you know,
+
+00:34:51.360 --> 00:34:53.280
+ getting each of those pieces of things
+
+00:34:53.280 --> 00:34:55.880
+ that need to get done kind of like handled, you know,
+
+00:34:55.880 --> 00:35:00.000
+ and you then try to speed up the process as much as you can.
+
+00:35:00.000 --> 00:35:04.640
+ And so like in the case of like a visual story, for instance,
+
+00:35:04.640 --> 00:35:07.560
+ you can think about it in that abstract manufacturing way
+
+00:35:07.560 --> 00:35:10.920
+ in the sense that you need a toolkit
+
+00:35:10.920 --> 00:35:14.000
+ that lets you stand up a single static page
+
+00:35:14.000 --> 00:35:16.280
+ that's outside of like a traditional
+
+00:35:16.280 --> 00:35:19.480
+ rigid content management system, right?
+
+00:35:19.480 --> 00:35:22.240
+ That can be custom coded and designed.
+
+00:35:22.240 --> 00:35:24.440
+ And so what you'll find is that at our department
+
+00:35:24.440 --> 00:35:26.520
+ and every other one like it,
+
+00:35:26.520 --> 00:35:28.680
+ that people have their little quote framework
+
+00:35:28.680 --> 00:35:31.760
+ or their little, you know, publishing rig
+
+00:35:31.760 --> 00:35:36.080
+ that lets them spin up a standalone web page.
+
+00:35:36.080 --> 00:35:37.880
+ And then within that, there's like components
+
+00:35:37.880 --> 00:35:39.960
+ of web development that make it easier for you
+
+00:35:39.960 --> 00:35:42.520
+ to move quickly like a template inheritance.
+
+00:35:42.520 --> 00:35:44.280
+ Well, within that system,
+
+00:35:44.280 --> 00:35:47.200
+ we have a base template that has all the LA time styles
+
+00:35:47.200 --> 00:35:49.200
+ and fonts and the header and footer
+
+00:35:49.200 --> 00:35:51.160
+ and like all the basic pieces.
+
+00:35:51.160 --> 00:35:53.480
+ And so then those are just like there for you
+
+00:35:53.480 --> 00:35:56.760
+ when you like get the page like rolling, you know what I mean?
+
+00:35:56.760 --> 00:35:59.000
+ And you're within that already.
+
+00:35:59.000 --> 00:36:00.560
+ And then by the push of a button,
+
+00:36:00.560 --> 00:36:02.040
+ you can trigger a little deploy
+
+00:36:02.040 --> 00:36:04.240
+ that will send that like blank page live.
+
+00:36:04.240 --> 00:36:08.040
+ And then within the framework, you, you know,
+
+00:36:08.040 --> 00:36:09.160
+ depending on how you set it up,
+
+00:36:09.160 --> 00:36:11.560
+ you have ways to import data files
+
+00:36:11.560 --> 00:36:14.160
+ and then to quickly get them into JavaScript
+
+00:36:14.160 --> 00:36:16.240
+ and other tools so that you can lay out the page
+
+00:36:16.240 --> 00:36:18.040
+ kind of as quickly as possible.
+
+00:36:18.040 --> 00:36:20.240
+ And our system isn't as streamlined as it could be
+
+00:36:20.240 --> 00:36:21.480
+ or as it should be, you know,
+
+00:36:21.480 --> 00:36:25.240
+ but like every, we've developed it ourselves internally
+
+00:36:25.240 --> 00:36:28.000
+ and we're trying to make it better like all the time.
+
+00:36:28.000 --> 00:36:29.240
+ Like this week we were talking about,
+
+00:36:29.240 --> 00:36:33.600
+ well, how could we get it better at producing a headless page
+
+00:36:33.600 --> 00:36:35.440
+ that's for iframing in other places?
+
+00:36:35.440 --> 00:36:37.320
+ You know, how could we make a template
+
+00:36:37.320 --> 00:36:39.680
+ that's just like ready to make an iframe page
+
+00:36:39.680 --> 00:36:42.680
+ that could go on the homepage in 10 minutes, right?
+
+00:36:42.680 --> 00:36:46.760
+ And so you have to have like that toolkit that's there.
+
+00:36:46.760 --> 00:36:48.200
+ You have to have someone on staff
+
+00:36:48.200 --> 00:36:50.280
+ who can like build and maintain such a toolkit
+
+00:36:50.280 --> 00:36:52.280
+ because they don't really exist.
+
+00:36:52.280 --> 00:36:54.680
+ One of my goals is for there to be
+
+00:36:54.680 --> 00:36:58.640
+ a more standard open source sort of like thing for that.
+
+00:36:58.640 --> 00:36:59.480
+ You know what I mean?
+
+00:36:59.480 --> 00:37:01.680
+ You look at tool like when we make an application
+
+00:37:01.680 --> 00:37:04.080
+ like the live election results or the tracker,
+
+00:37:04.080 --> 00:37:06.160
+ we might use Django or some of these
+
+00:37:06.160 --> 00:37:09.640
+ pretty highly developed web frameworks for databases.
+
+00:37:09.640 --> 00:37:11.720
+ But when it comes to static pages,
+
+00:37:11.720 --> 00:37:15.200
+ you really just have kind of like a hodgepodge
+
+00:37:15.200 --> 00:37:17.760
+ of like node framework thingies
+
+00:37:17.760 --> 00:37:20.440
+ that like can kind of halfway make a page
+
+00:37:20.440 --> 00:37:22.360
+ but they don't have the 30 different things
+
+00:37:22.360 --> 00:37:23.920
+ you actually need to make a real page
+
+00:37:23.920 --> 00:37:25.720
+ that you want to publish, right?
+
+00:37:25.720 --> 00:37:28.720
+ And like kind of, I think that there's the possibility
+
+00:37:28.720 --> 00:37:31.240
+ for a stronger open source framework
+
+00:37:31.240 --> 00:37:34.040
+ that goes beyond just the basic tools
+
+00:37:34.040 --> 00:37:36.560
+ and gets into a little more of the opinionated decisions
+
+00:37:36.560 --> 00:37:38.480
+ about how to manage deployment
+
+00:37:38.480 --> 00:37:41.720
+ and static assets and data files and stuff.
+
+00:37:41.720 --> 00:37:43.440
+ Wow, that was way too nerdy.
+
+00:37:43.440 --> 00:37:45.760
+ But like that's part of it.
+
+00:37:45.760 --> 00:37:47.480
+ That's like the technology part.
+
+00:37:47.480 --> 00:37:49.800
+ And then there's the kind of editing and journalism part
+
+00:37:49.800 --> 00:37:53.360
+ which is identifying either planned events
+
+00:37:53.360 --> 00:37:54.480
+ that are ahead on the calendar
+
+00:37:54.480 --> 00:37:56.840
+ that you know are coming like the election
+
+00:37:56.840 --> 00:38:00.760
+ or pivoting when a major storyline emerges
+
+00:38:00.760 --> 00:38:03.040
+ and then focusing your assignment on it.
+
+00:38:03.040 --> 00:38:05.320
+ And so like in the case of like the Kobe thing,
+
+00:38:05.320 --> 00:38:08.480
+ it's like Kobe's helicopter crashes on Sunday.
+
+00:38:08.480 --> 00:38:10.440
+ In a breaking news situation like that,
+
+00:38:10.440 --> 00:38:14.280
+ we tend to think in terms of like rounds of coverage
+
+00:38:14.280 --> 00:38:15.120
+ or stages.
+
+00:38:15.120 --> 00:38:16.680
+ So on day one, we're going to do this.
+
+00:38:16.680 --> 00:38:18.360
+ On day two, we're going to do this.
+
+00:38:18.360 --> 00:38:19.640
+ And then we're going to aim for something
+
+00:38:19.640 --> 00:38:21.400
+ that's like a little more, you know what I mean?
+
+00:38:21.400 --> 00:38:23.080
+ And so like in the case of Kobe,
+
+00:38:23.080 --> 00:38:25.640
+ day one was just like, where is the crash?
+
+00:38:25.640 --> 00:38:27.360
+ What kind of helicopter was it?
+
+00:38:27.360 --> 00:38:28.200
+ You know what I mean?
+
+00:38:28.200 --> 00:38:30.160
+ The basic facts and can you visually do that?
+
+00:38:30.160 --> 00:38:33.920
+ Day two was, well let's get the play-by-play.
+
+00:38:33.920 --> 00:38:35.160
+ What was the like?
+
+00:38:35.160 --> 00:38:36.200
+ When did they take off?
+
+00:38:36.200 --> 00:38:37.040
+ Where did they go?
+
+00:38:37.040 --> 00:38:39.120
+ But you know, so we had a graphic
+
+00:38:39.120 --> 00:38:41.640
+ with the day two story that had that stuff.
+
+00:38:41.640 --> 00:38:43.520
+ Was there a route, a typical route?
+
+00:38:43.520 --> 00:38:45.320
+ Was it an unusual route, you know?
+
+00:38:45.320 --> 00:38:49.200
+ And then what happens typically in that is
+
+00:38:49.200 --> 00:38:50.920
+ after you learn the basic facts,
+
+00:38:50.920 --> 00:38:52.160
+ you kind of get to a point where you're like,
+
+00:38:52.160 --> 00:38:54.600
+ okay, here's what we think the story is.
+
+00:38:54.600 --> 00:38:55.440
+ You know what I mean?
+
+00:38:55.440 --> 00:38:56.960
+ So like within these facts,
+
+00:38:56.960 --> 00:39:00.000
+ here's what we think is worth sort of teasing out
+
+00:39:00.000 --> 00:39:01.200
+ visually for people.
+
+00:39:01.200 --> 00:39:03.600
+ So both has to be something insightful
+
+00:39:03.600 --> 00:39:05.880
+ that goes beyond the basic facts for people,
+
+00:39:05.880 --> 00:39:09.200
+ but it also has to have like a visual component to it, right?
+
+00:39:09.200 --> 00:39:10.400
+ And so in the case of Kobe,
+
+00:39:10.400 --> 00:39:13.600
+ our decision was to focus on the final turns of the helicopter.
+
+00:39:13.600 --> 00:39:15.000
+ All this is of course debatable,
+
+00:39:15.000 --> 00:39:16.840
+ but those were sort of our judgments we made
+
+00:39:16.840 --> 00:39:18.480
+ like in those moments.
+
+00:39:18.480 --> 00:39:20.280
+ Like the conception boat crash,
+
+00:39:20.280 --> 00:39:22.880
+ the fire off Santa Barbara coast,
+
+00:39:22.880 --> 00:39:24.980
+ I guess a year ago now,
+
+00:39:24.980 --> 00:39:27.480
+ was another example of that where day one,
+
+00:39:27.480 --> 00:39:30.640
+ it's just, well, where was the boat? What was the boats route?
+
+00:39:30.640 --> 00:39:33.040
+ Day two, or there are like advanced,
+
+00:39:33.040 --> 00:39:34.560
+ our piece for the weekend then was like,
+
+00:39:34.560 --> 00:39:37.080
+ well, what were the escape routes on this boat?
+
+00:39:37.080 --> 00:39:39.880
+ Where that was what seemed to us to be like the story.
+
+00:39:39.880 --> 00:39:42.480
+ You're kind of betting that that's how it's gonna shake out.
+
+00:39:42.480 --> 00:39:43.320
+ You know what I mean?
+
+00:39:43.320 --> 00:39:44.680
+ As the facts come in.
+
+00:39:44.680 --> 00:39:46.760
+ And then let's make a 3D model of the boats
+
+00:39:46.760 --> 00:39:49.360
+ so we can show people what these escape routes were like
+
+00:39:49.360 --> 00:39:51.400
+ and emphasize that they weren't very good.
+
+00:39:51.400 --> 00:39:53.120
+ You know, it's what it ended up being.
+
+00:39:53.120 --> 00:39:55.400
+ So that's like a breaking new situation.
+
+00:39:55.400 --> 00:39:57.080
+ And then there's kind of in between ones
+
+00:39:57.080 --> 00:40:00.400
+ where it's like there's gonna be this long storyline.
+
+00:40:00.400 --> 00:40:02.840
+ And this is something that we're just trying to really
+
+00:40:02.840 --> 00:40:04.800
+ get better at in our department this year.
+
+00:40:04.800 --> 00:40:07.240
+ And is what I really admire about the New York Times
+
+00:40:07.240 --> 00:40:09.560
+ and some of the more mature departments,
+
+00:40:09.560 --> 00:40:12.200
+ is it seems to me that they have kind of decided on
+
+00:40:12.200 --> 00:40:15.560
+ for the year, here's what their major storylines are gonna be.
+
+00:40:15.560 --> 00:40:17.960
+ And then they come up with a string of visual coverage
+
+00:40:17.960 --> 00:40:20.320
+ to try to attack those major storylines.
+
+00:40:20.320 --> 00:40:23.480
+ And sometimes those can be planned like the election.
+
+00:40:23.480 --> 00:40:25.960
+ And other times like COVID, they just occur
+
+00:40:25.960 --> 00:40:28.440
+ and then you have to be smart pivot, right?
+
+00:40:28.440 --> 00:40:30.240
+ And so for us, we've done that this year
+
+00:40:30.240 --> 00:40:33.840
+ for the Floyd protests and for the COVID coverage
+
+00:40:33.840 --> 00:40:38.440
+ where we put together our own independent visual coverage plan
+
+00:40:38.440 --> 00:40:39.720
+ of like here's ideas.
+
+00:40:39.720 --> 00:40:41.760
+ Everybody in the team pitches things in.
+
+00:40:41.760 --> 00:40:43.960
+ We think about are there applications we could do?
+
+00:40:43.960 --> 00:40:46.520
+ We think about are there visual stories we could do?
+
+00:40:46.520 --> 00:40:48.200
+ And then we try to make them happen.
+
+00:40:50.080 --> 00:40:51.720
+ - Yeah, that's wonderful.
+
+00:40:51.720 --> 00:40:52.840
+ I just wanna jump in.
+
+00:40:52.840 --> 00:40:54.240
+ There's a really, really great question.
+
+00:40:54.240 --> 00:40:56.760
+ I think it can kind of build on what you were,
+
+00:40:56.760 --> 00:40:58.600
+ I mean, what you just talked about.
+
+00:40:58.600 --> 00:41:01.640
+ But the question is about just sort of thought process
+
+00:41:01.640 --> 00:41:03.440
+ and developing stories and data,
+
+00:41:03.440 --> 00:41:08.440
+ but specifically about dealing with biases and storytelling.
+
+00:41:08.680 --> 00:41:10.920
+ And then the follow up to it is,
+
+00:41:10.920 --> 00:41:13.480
+ are there any specific examples that you could share
+
+00:41:13.480 --> 00:41:18.160
+ where you did face pushback on a story
+
+00:41:18.160 --> 00:41:19.440
+ that is sort of data driven,
+
+00:41:19.440 --> 00:41:22.280
+ but maybe there's some sort of part of it
+
+00:41:22.280 --> 00:41:25.600
+ that kind of, you know, there was a stop to it.
+
+00:41:26.720 --> 00:41:28.520
+ - Like internally at the LA Times, that's-
+
+00:41:28.520 --> 00:41:29.840
+ - Yeah.
+
+00:41:29.840 --> 00:41:34.040
+ - Well, you know, or maybe just from you.
+
+00:41:34.040 --> 00:41:35.400
+ Maybe you kind of, yeah.
+
+00:41:35.400 --> 00:41:38.040
+ - I think I have an example, it might not be exactly that.
+
+00:41:38.040 --> 00:41:39.960
+ I will just say I've been here 13 years
+
+00:41:39.960 --> 00:41:42.600
+ and you know, like any institution,
+
+00:41:42.600 --> 00:41:45.280
+ people have disagreements and conflicts and struggles,
+
+00:41:45.280 --> 00:41:46.120
+ you know what I mean?
+
+00:41:46.120 --> 00:41:47.400
+ And I've had my own.
+
+00:41:47.400 --> 00:41:48.800
+ But I will say that in that time,
+
+00:41:48.800 --> 00:41:51.480
+ I have never once felt that if I had a good story
+
+00:41:51.480 --> 00:41:53.520
+ that I knew was true, we couldn't get it published.
+
+00:41:53.520 --> 00:41:54.600
+ That's never happened.
+
+00:41:55.640 --> 00:41:57.400
+ There are people I really disagree with
+
+00:41:57.400 --> 00:41:59.000
+ and to be honest with you, I don't like
+
+00:41:59.000 --> 00:41:59.960
+ and they might not like me,
+
+00:41:59.960 --> 00:42:04.400
+ but I have at different times been able to come to them
+
+00:42:04.400 --> 00:42:06.920
+ with we have the story, check this out, let's do it.
+
+00:42:06.920 --> 00:42:09.800
+ And those people, they rise above all the personal stuff
+
+00:42:09.800 --> 00:42:10.840
+ and they're like, yeah, let's do it.
+
+00:42:10.840 --> 00:42:11.680
+ You know what I mean?
+
+00:42:11.680 --> 00:42:13.600
+ And to me, that's one of the great things about a newsroom
+
+00:42:13.600 --> 00:42:17.040
+ is that people who disagree or who are different
+
+00:42:17.040 --> 00:42:19.160
+ can unite around like a good story.
+
+00:42:19.160 --> 00:42:21.200
+ And like I have nothing but good things to say
+
+00:42:21.200 --> 00:42:23.880
+ about that personally, but like this is an example though
+
+00:42:23.880 --> 00:42:26.840
+ and of something slightly different but related,
+
+00:42:26.840 --> 00:42:30.320
+ which is how and one thing I really love about statistics
+
+00:42:30.320 --> 00:42:33.120
+ is how it can sometimes they can sometimes lead you
+
+00:42:33.120 --> 00:42:36.120
+ to conclusions that you do you would never imagine,
+
+00:42:36.120 --> 00:42:36.960
+ you know what I mean?
+
+00:42:36.960 --> 00:42:40.080
+ Or maybe we're counter to your initial bias
+
+00:42:40.080 --> 00:42:41.760
+ and then you end up telling a different story
+
+00:42:41.760 --> 00:42:43.320
+ than the one you thought you were gonna tell
+
+00:42:43.320 --> 00:42:45.200
+ when it started out, right?
+
+00:42:45.200 --> 00:42:50.080
+ And so you guys remember Hurricane Harvey in Houston.
+
+00:42:50.080 --> 00:42:51.960
+ Oh, I have to send a Slack message really quick.
+
+00:42:51.960 --> 00:42:52.720
+ I have to,
+
+00:43:02.120 --> 00:43:03.320
+ this will just take a second.
+
+00:43:03.320 --> 00:43:05.120
+ I have bought a mechanical keyboard
+
+00:43:05.120 --> 00:43:07.240
+ during this like period at home guys
+
+00:43:07.240 --> 00:43:10.040
+ and it is so loud when I type that this might be deafening
+
+00:43:10.040 --> 00:43:13.080
+ but you guys remember Hurricane Harvey.
+
+00:43:13.080 --> 00:43:15.440
+ This was in Houston a couple years ago.
+
+00:43:15.440 --> 00:43:18.280
+ They had kind of like a big storm come through
+
+00:43:18.280 --> 00:43:19.600
+ and kind of flood the whole place
+
+00:43:19.600 --> 00:43:22.920
+ and it led to these sort of crazy images on television
+
+00:43:22.920 --> 00:43:24.640
+ of people trying to cross the city
+
+00:43:24.640 --> 00:43:27.400
+ in this sort of biblical flood kind of situation.
+
+00:43:27.400 --> 00:43:28.840
+ And it was a Friday night and we were sitting
+
+00:43:28.840 --> 00:43:30.760
+ in the newsroom at the LA Times
+
+00:43:30.760 --> 00:43:33.640
+ and an editor said to me, well, we gotta do something.
+
+00:43:33.640 --> 00:43:34.480
+ Let's come up with something.
+
+00:43:34.480 --> 00:43:35.680
+ It was one of these moments, right?
+
+00:43:35.680 --> 00:43:37.320
+ Like what are we gonna do?
+
+00:43:37.320 --> 00:43:38.960
+ This nuts thing is happening.
+
+00:43:38.960 --> 00:43:41.080
+ We have to come up with a way to cover it.
+
+00:43:42.840 --> 00:43:45.240
+ And like a lot of those situations,
+
+00:43:45.240 --> 00:43:47.920
+ you kind of start with what you're seeing in the news,
+
+00:43:47.920 --> 00:43:50.760
+ what you hear from other people and your own biases.
+
+00:43:50.760 --> 00:43:51.600
+ You know what I mean?
+
+00:43:51.600 --> 00:43:53.000
+ Like what you kind of think about the world.
+
+00:43:53.000 --> 00:43:56.280
+ And like, and then we're trying to come up
+
+00:43:56.280 --> 00:43:57.120
+ with a data story.
+
+00:43:57.120 --> 00:43:58.920
+ And so our initial thought was, hey,
+
+00:43:58.920 --> 00:44:03.920
+ if we get the data about where the FEMA flood zones are,
+
+00:44:05.200 --> 00:44:07.840
+ these officially defined flood zones from the government,
+
+00:44:07.840 --> 00:44:08.680
+ right?
+
+00:44:08.680 --> 00:44:11.160
+ And we compare it to the early damage data
+
+00:44:11.160 --> 00:44:12.800
+ that we see coming in from the government
+
+00:44:12.800 --> 00:44:14.480
+ about where buildings are damaged.
+
+00:44:14.480 --> 00:44:17.280
+ We're gonna find that all the people in these zones
+
+00:44:17.280 --> 00:44:19.760
+ got wiped out and we're gonna be able to add them up
+
+00:44:19.760 --> 00:44:22.160
+ into some big number and try to do a story
+
+00:44:22.160 --> 00:44:25.080
+ about the like extent of the damage, right?
+
+00:44:25.080 --> 00:44:27.360
+ And like, we didn't know exactly what it was gonna be,
+
+00:44:27.360 --> 00:44:30.120
+ but that was kind of our methodological bias
+
+00:44:30.120 --> 00:44:32.640
+ or frame that we like came to it with, right?
+
+00:44:36.760 --> 00:44:38.800
+ Let me just send this message, sorry.
+
+00:44:38.800 --> 00:44:42.240
+ And we're all fired up to do that.
+
+00:44:42.240 --> 00:44:44.240
+ I stayed up to like one in the morning, like it's like,
+
+00:44:44.240 --> 00:44:47.480
+ oh my gosh, the Harris County Property Assessors Office
+
+00:44:47.480 --> 00:44:49.040
+ has all the data online.
+
+00:44:49.040 --> 00:44:50.040
+ Yeah, grab it.
+
+00:44:50.040 --> 00:44:52.520
+ And the FEMA is having a conference call
+
+00:44:52.520 --> 00:44:54.640
+ and they're gonna give out the damage data.
+
+00:44:54.640 --> 00:44:56.560
+ Wow, there's property values.
+
+00:44:56.560 --> 00:44:57.400
+ Here's the flood zones.
+
+00:44:57.400 --> 00:44:59.360
+ I'm gonna put them all together and like find it out.
+
+00:44:59.360 --> 00:45:02.000
+ And like, and then we pitched that story to an editor
+
+00:45:02.000 --> 00:45:03.440
+ and we say, this is what story is gonna be.
+
+00:45:03.440 --> 00:45:05.320
+ It's gonna be about how screwed up Houston got
+
+00:45:05.320 --> 00:45:06.600
+ 'cause all this.
+
+00:45:06.600 --> 00:45:09.000
+ And then I did the analysis
+
+00:45:09.000 --> 00:45:12.520
+ and what I quickly found, or not quickly, not so quickly,
+
+00:45:12.520 --> 00:45:15.680
+ what I soon found was that most of the damage
+
+00:45:15.680 --> 00:45:19.960
+ was actually outside of the official FEMA flood zones, right?
+
+00:45:19.960 --> 00:45:21.840
+ So that was an interesting thing.
+
+00:45:21.840 --> 00:45:24.080
+ And then we're like, okay, so let's start calling people
+
+00:45:24.080 --> 00:45:25.000
+ and let's figure out what's going on.
+
+00:45:25.000 --> 00:45:27.520
+ So we're just getting on the phone calling, texting
+
+00:45:27.520 --> 00:45:28.760
+ 'cause we have all these addresses
+
+00:45:28.760 --> 00:45:29.920
+ from the property assessors.
+
+00:45:29.920 --> 00:45:32.120
+ Just call every person and just see what's going on.
+
+00:45:32.120 --> 00:45:34.920
+ And we did dozens and dozens of phone calls.
+
+00:45:34.920 --> 00:45:38.320
+ And what we found is that people inside
+
+00:45:38.320 --> 00:45:42.040
+ the official FEMA risk zones were actually like fine.
+
+00:45:42.040 --> 00:45:44.760
+ Like every one of them we could try to was like,
+
+00:45:44.760 --> 00:45:45.600
+ no, I'm good.
+
+00:45:45.600 --> 00:45:46.440
+ We were high.
+
+00:45:46.440 --> 00:45:49.800
+ We had put up like, we had elevated our house
+
+00:45:49.800 --> 00:45:52.280
+ or we had put in a retaining pond
+
+00:45:52.280 --> 00:45:55.320
+ and that caught all the water or our roads got redone.
+
+00:45:55.320 --> 00:45:57.280
+ And it was the people outside who had the problems.
+
+00:45:57.280 --> 00:46:00.800
+ And what we kind of pieced together then
+
+00:46:00.800 --> 00:46:03.240
+ from talking to experts and more and more people
+
+00:46:03.240 --> 00:46:06.800
+ was that our initial assumption was actually reverse.
+
+00:46:06.800 --> 00:46:08.760
+ And that's because believe it or not,
+
+00:46:08.760 --> 00:46:11.120
+ public policy works guys or it can.
+
+00:46:11.120 --> 00:46:14.360
+ It's that if you're inside an official FEMA flood zone,
+
+00:46:14.360 --> 00:46:16.720
+ there were all these additional building requirements
+
+00:46:16.720 --> 00:46:19.320
+ and retrofitting requirements for like taking care
+
+00:46:19.320 --> 00:46:20.160
+ and getting ready.
+
+00:46:20.160 --> 00:46:22.120
+ And so the people who lived in the quote unquote
+
+00:46:22.120 --> 00:46:26.200
+ riskiest areas actually ended up having the best outcomes
+
+00:46:26.200 --> 00:46:29.040
+ because they had to take all these preventive measures.
+
+00:46:29.040 --> 00:46:30.800
+ And so we ended up writing a story about that,
+
+00:46:30.800 --> 00:46:33.200
+ about how, hey, these regulations actually work,
+
+00:46:33.200 --> 00:46:34.920
+ but they're not nearly widespread enough
+
+00:46:34.920 --> 00:46:37.160
+ to save all these other people, you know what I mean?
+
+00:46:37.160 --> 00:46:39.120
+ It's kind of what the story ended up being.
+
+00:46:39.120 --> 00:46:40.760
+ And we had to kind of go back to the editor
+
+00:46:40.760 --> 00:46:43.440
+ and be like, oh, our initial pitch, it's like not that at all.
+
+00:46:43.440 --> 00:46:47.240
+ And that was this, it's a little hard to summarize,
+
+00:46:47.240 --> 00:46:50.160
+ but that was this sort of like weird process
+
+00:46:50.160 --> 00:46:53.000
+ of gathering numbers, listening to them,
+
+00:46:53.000 --> 00:46:55.440
+ talking to people on the other end of the data
+
+00:46:55.440 --> 00:46:57.880
+ and gradually having like a light bulb go on like,
+
+00:46:57.880 --> 00:47:00.200
+ oh, what everything I think is wrong.
+
+00:47:00.200 --> 00:47:02.280
+ And then you have, there's, whenever that happens,
+
+00:47:02.280 --> 00:47:03.800
+ there's always this like fun meeting
+
+00:47:03.800 --> 00:47:05.520
+ like in the middle of it where like you get together
+
+00:47:05.520 --> 00:47:07.800
+ and you're like, hey, we're totally wrong, right?
+
+00:47:07.800 --> 00:47:09.560
+ (laughing)
+
+00:47:09.560 --> 00:47:11.560
+ And you have to, okay, well, we can't just give up.
+
+00:47:11.560 --> 00:47:13.240
+ We gotta come up with like some story.
+
+00:47:13.240 --> 00:47:15.440
+ And so then oftentimes it's a more interesting story,
+
+00:47:15.440 --> 00:47:16.280
+ you know what I mean?
+
+00:47:16.280 --> 00:47:19.120
+ Because it's something you didn't expect, you know?
+
+00:47:21.200 --> 00:47:24.240
+ - Yeah, that's, yeah, that is actually amazing.
+
+00:47:24.240 --> 00:47:26.640
+ And it's really, I think it's just sort of really helpful
+
+00:47:26.640 --> 00:47:31.040
+ to kind of get that perspective on how you develop
+
+00:47:31.040 --> 00:47:33.640
+ and really work through these stories.
+
+00:47:33.640 --> 00:47:37.360
+ Another question, and I know we wanna be really sensitive
+
+00:47:37.360 --> 00:47:40.400
+ of having you here for too, too long,
+
+00:47:40.400 --> 00:47:42.640
+ but we have a couple of really good questions.
+
+00:47:42.640 --> 00:47:45.840
+ One, I think that would maybe really also be helpful
+
+00:47:45.840 --> 00:47:48.480
+ for students is just sort of thinking about
+
+00:47:48.480 --> 00:47:51.920
+ that tipping point between when you're creating a story,
+
+00:47:51.920 --> 00:47:55.560
+ when is it interactive and when is it static
+
+00:47:55.560 --> 00:47:58.920
+ and kind of like, how does that decision process get made
+
+00:47:58.920 --> 00:48:01.760
+ and how does that sort of, how does that happen?
+
+00:48:01.760 --> 00:48:04.640
+ - That's a tough one, and there's not one answer,
+
+00:48:04.640 --> 00:48:08.360
+ but I mean, if the question is when is something interactive?
+
+00:48:08.360 --> 00:48:09.920
+ Look, if you ask it that way,
+
+00:48:09.920 --> 00:48:13.440
+ the answer is less and less so every month and year.
+
+00:48:13.440 --> 00:48:16.240
+ And that has a lot to do with the changes we've seen
+
+00:48:16.240 --> 00:48:19.560
+ in consumer technology over the last five or 10 years.
+
+00:48:19.560 --> 00:48:22.560
+ As more and more people have moved to mobile phones.
+
+00:48:22.560 --> 00:48:24.240
+ Believe it or not, you probably will believe it.
+
+00:48:24.240 --> 00:48:27.080
+ You guys are into tech.
+
+00:48:27.080 --> 00:48:30.080
+ The majority of people who read the LA Times online
+
+00:48:30.080 --> 00:48:33.400
+ read it on a phone, like well more than 50%.
+
+00:48:33.400 --> 00:48:36.200
+ And so in a circumstance where the majority
+
+00:48:36.200 --> 00:48:39.200
+ of your audience is visiting you on a very small screen,
+
+00:48:40.760 --> 00:48:44.160
+ which they mostly just like thumb up and down on, right?
+
+00:48:45.040 --> 00:48:48.240
+ A lot of the interactive graphics that were very intricate
+
+00:48:48.240 --> 00:48:51.680
+ and made in Adobe Flash or whatever, 10 years ago,
+
+00:48:51.680 --> 00:48:54.400
+ really no longer makes sense because most people
+
+00:48:54.400 --> 00:48:56.240
+ aren't gonna interact with them and use them.
+
+00:48:56.240 --> 00:48:58.920
+ And the reality is, is what we learned from web analytics,
+
+00:48:58.920 --> 00:49:00.400
+ even before the mobile changes,
+
+00:49:00.400 --> 00:49:03.320
+ that most people never interacted with them anyway.
+
+00:49:03.320 --> 00:49:06.880
+ And so that's why you've seen a shift in,
+
+00:49:06.880 --> 00:49:08.560
+ if you follow kind of our little niche,
+
+00:49:08.560 --> 00:49:11.600
+ you've seen a shift away from most interactive graphics.
+
+00:49:11.600 --> 00:49:14.280
+ And so for the most part, we're looking for graphics
+
+00:49:14.280 --> 00:49:19.280
+ that can work static and small on mobile
+
+00:49:19.520 --> 00:49:22.000
+ and the way to make them more insightful
+
+00:49:22.000 --> 00:49:24.760
+ is usually through adding an annotation layer,
+
+00:49:24.760 --> 00:49:27.080
+ so like a little swoopy arrow or something.
+
+00:49:28.040 --> 00:49:30.560
+ Or a scrolling change, like you see
+
+00:49:30.560 --> 00:49:33.760
+ in that scrolling technique or the chart sort of changes
+
+00:49:33.760 --> 00:49:36.240
+ as the user continues to read the page.
+
+00:49:36.240 --> 00:49:38.720
+ Where interactivity still makes a lot of sense,
+
+00:49:38.720 --> 00:49:43.080
+ I think is in cases of personalization or of discovery.
+
+00:49:43.080 --> 00:49:47.960
+ So we're gonna have a chart that shows you
+
+00:49:47.960 --> 00:49:51.000
+ the total number of deaths at nursing homes from COVID.
+
+00:49:51.000 --> 00:49:52.760
+ But then when we have the, we're gonna have a table
+
+00:49:52.760 --> 00:49:55.400
+ that lets you look up the nursing home and care about, right?
+
+00:49:55.400 --> 00:49:57.440
+ And then that table should have like a search
+
+00:49:57.440 --> 00:50:00.240
+ and a filter and a way for you to like dig into it.
+
+00:50:00.240 --> 00:50:02.440
+ And then there's something like the live wildfires map,
+
+00:50:02.440 --> 00:50:05.640
+ which is really about one, giving you an overview
+
+00:50:05.640 --> 00:50:08.000
+ of like how many fires are there right now.
+
+00:50:08.000 --> 00:50:09.160
+ But then two,
+
+00:50:11.400 --> 00:50:14.840
+ two, letting you drill down into areas that you care about
+
+00:50:14.840 --> 00:50:17.400
+ to see kind of the latest data within those areas.
+
+00:50:17.400 --> 00:50:20.640
+ And so that's the map being there for personalization
+
+00:50:20.640 --> 00:50:22.080
+ and discovery, you know.
+
+00:50:23.560 --> 00:50:25.960
+ I think a lot of the interactivity that was just
+
+00:50:25.960 --> 00:50:28.200
+ like about fiddling, you've probably noticed
+
+00:50:28.200 --> 00:50:29.480
+ has like mostly disappeared.
+
+00:50:29.480 --> 00:50:32.040
+ Plus it's a lot, it takes more time to code.
+
+00:50:32.040 --> 00:50:34.200
+ - Yeah, very cool.
+
+00:50:34.200 --> 00:50:36.800
+ You know, we definitely wanna ask you this one question
+
+00:50:36.800 --> 00:50:38.720
+ for sure, because we have so many students here
+
+00:50:38.720 --> 00:50:41.600
+ who are interested in data and storytelling.
+
+00:50:41.600 --> 00:50:44.440
+ And sort of what is like, if you had one piece of advice
+
+00:50:44.440 --> 00:50:47.960
+ for students going out, working on school projects,
+
+00:50:47.960 --> 00:50:49.880
+ or really just wanting to break into
+
+00:50:49.880 --> 00:50:54.160
+ Ellie Times newsroom or other places, what is it?
+
+00:50:54.160 --> 00:50:55.840
+ What should they know?
+
+00:50:55.840 --> 00:50:57.680
+ - One piece of advice, I mean, I don't know.
+
+00:50:57.680 --> 00:50:58.520
+ - Or two or three.
+
+00:50:58.520 --> 00:50:59.360
+ - I can give you a call.
+
+00:50:59.360 --> 00:51:00.680
+ - Yeah, please.
+
+00:51:00.680 --> 00:51:03.520
+ - I mean, to me, this is a thing that has become cliche
+
+00:51:03.520 --> 00:51:06.040
+ and is said by some people who I think are kind of jerks,
+
+00:51:06.040 --> 00:51:10.520
+ but if you race them from your mind, it is true.
+
+00:51:10.520 --> 00:51:11.800
+ You gotta learn to code.
+
+00:51:11.800 --> 00:51:13.960
+ You don't have any, it's just like to really
+
+00:51:13.960 --> 00:51:16.800
+ do this well, you have to learn to code.
+
+00:51:16.800 --> 00:51:19.120
+ And you have to learn to code certain types of things,
+
+00:51:19.120 --> 00:51:20.320
+ not just like coding in general,
+
+00:51:20.320 --> 00:51:22.160
+ but I do think the fundamentals of programming
+
+00:51:22.160 --> 00:51:23.320
+ are so important.
+
+00:51:24.160 --> 00:51:26.840
+ The fundamentals of just like software and package design
+
+00:51:26.840 --> 00:51:29.640
+ are really underrated, just like how do I write a function
+
+00:51:29.640 --> 00:51:32.480
+ and then import it into another file and then reuse it
+
+00:51:32.480 --> 00:51:34.560
+ and like package code.
+
+00:51:34.560 --> 00:51:38.320
+ Like the basics of coding, I think are super important.
+
+00:51:38.320 --> 00:51:40.880
+ And then the sort of applied application of coding
+
+00:51:40.880 --> 00:51:42.240
+ to the types of things we do.
+
+00:51:42.240 --> 00:51:44.440
+ And so that, I think on the one hand,
+
+00:51:44.440 --> 00:51:47.160
+ is kind of data gathering and analysis.
+
+00:51:47.160 --> 00:51:50.360
+ So this is, how do I get data by scraping it
+
+00:51:50.360 --> 00:51:53.720
+ or reading it out of a database or building my own database?
+
+00:51:53.720 --> 00:51:57.280
+ And then how do I analyze it to like interview the data
+
+00:51:57.280 --> 00:51:58.280
+ is how we think about it.
+
+00:51:58.280 --> 00:51:59.920
+ What questions do I have for the data
+
+00:51:59.920 --> 00:52:02.320
+ and how can I write code that will help me get the answers
+
+00:52:02.320 --> 00:52:03.720
+ to those questions?
+
+00:52:03.720 --> 00:52:06.600
+ And so the tool that I teach a lot of classes on
+
+00:52:06.600 --> 00:52:09.080
+ that I like, but it's all debatable
+
+00:52:09.080 --> 00:52:13.200
+ is the Jupyter Notebook with Python data analysis tools.
+
+00:52:13.200 --> 00:52:15.640
+ They're free is kind of the best thing about it.
+
+00:52:15.640 --> 00:52:18.320
+ And the Jupyter environment once you figure out
+
+00:52:18.320 --> 00:52:22.440
+ how to get it running is just a really handy way
+
+00:52:22.440 --> 00:52:25.160
+ to do like step by step kind of data work.
+
+00:52:25.160 --> 00:52:26.560
+ And then on the other side,
+
+00:52:26.560 --> 00:52:31.600
+ there's the sort of how do we tell stories visually
+
+00:52:31.600 --> 00:52:33.120
+ through web development, right?
+
+00:52:33.120 --> 00:52:39.080
+ And that really involves learning fundamentals of HTML and CSS.
+
+00:52:39.080 --> 00:52:42.040
+ You know, again, just the basics are so important.
+
+00:52:42.040 --> 00:52:43.520
+ They're not even in HTML's case.
+
+00:52:43.520 --> 00:52:46.600
+ It's not even that hard, right?
+
+00:52:46.600 --> 00:52:50.400
+ And then how do you use JavaScript to make interactivity
+
+00:52:50.400 --> 00:52:54.080
+ and data visualizations?
+
+00:52:54.080 --> 00:52:56.840
+ I'm a big fan of D3.
+
+00:52:56.840 --> 00:53:01.960
+ And it's also a great way to get better at JavaScript, too,
+
+00:53:01.960 --> 00:53:05.200
+ because the D3 culture is really built around excellence
+
+00:53:05.200 --> 00:53:06.920
+ and programming, which I think is important.
+
+00:53:06.920 --> 00:53:09.200
+ I think there's a lot of free tools that are just about
+
+00:53:09.200 --> 00:53:12.120
+ cutting corners that don't really help you
+
+00:53:12.120 --> 00:53:16.800
+ over the long run become to master that type of thing.
+
+00:53:16.800 --> 00:53:18.040
+ So to me, there's the coding part,
+
+00:53:18.040 --> 00:53:20.600
+ but then there's the journalism part, which is thing two.
+
+00:53:20.600 --> 00:53:24.040
+ And this is where, like when I get applicants for internships
+
+00:53:24.040 --> 00:53:26.840
+ and stuff from data science programs,
+
+00:53:26.840 --> 00:53:29.200
+ which I'm always glad to get and I love to see,
+
+00:53:29.200 --> 00:53:31.920
+ you know, sometimes the people just haven't had the time
+
+00:53:31.920 --> 00:53:34.520
+ or opportunity to really apply their work in a way
+
+00:53:34.520 --> 00:53:36.880
+ that they're making something for the general public
+
+00:53:36.880 --> 00:53:41.880
+ or that has kind of a headline take away like point, you know?
+
+00:53:41.880 --> 00:53:44.840
+ A big part of editing and putting out a piece of journalism
+
+00:53:44.840 --> 00:53:47.040
+ is you kind of have to have like something to say.
+
+00:53:47.040 --> 00:53:50.400
+ And just writing a notebook that asks 10 questions
+
+00:53:50.400 --> 00:53:52.560
+ of the data or just making a graphic
+
+00:53:52.560 --> 00:53:55.080
+ that lets you fiddle with the numbers isn't enough, right?
+
+00:53:55.080 --> 00:53:56.840
+ The things that you're making need to kind of take
+
+00:53:56.840 --> 00:54:01.320
+ that next level of kind of journalistic whatever, you know,
+
+00:54:01.320 --> 00:54:03.240
+ by saying my finding is this.
+
+00:54:03.240 --> 00:54:05.360
+ And here's the headline that says it
+
+00:54:05.360 --> 00:54:08.040
+ and here's the three charts that show it, you know what I mean?
+
+00:54:08.040 --> 00:54:10.720
+ And you kind of like have a takeaway and a point
+
+00:54:10.720 --> 00:54:12.400
+ so that you have something to share.
+
+00:54:12.400 --> 00:54:15.560
+ And so when I see applicants who,
+
+00:54:15.560 --> 00:54:17.160
+ and I don't expect anyone who's being out
+
+00:54:17.160 --> 00:54:18.840
+ to really master any of this,
+
+00:54:18.840 --> 00:54:22.440
+ but when I see people who kind of have clearly put in the effort
+
+00:54:22.440 --> 00:54:24.320
+ to do both of those two things,
+
+00:54:24.320 --> 00:54:26.800
+ to like learn how to do the coding stuff to make stuff,
+
+00:54:26.800 --> 00:54:28.400
+ but also learn how to boil it down
+
+00:54:28.400 --> 00:54:29.720
+ and to make something out of it
+
+00:54:29.720 --> 00:54:31.720
+ for regular people, you know what I mean?
+
+00:54:32.800 --> 00:54:35.000
+ That's when I think you're a strong applicant
+
+00:54:35.000 --> 00:54:39.160
+ and you're sort of beginning the road to become do what we do.
+
+00:54:39.160 --> 00:54:41.400
+ But the reality is is learning how to code takes a while
+
+00:54:41.400 --> 00:54:42.800
+ and the things we're learning,
+
+00:54:42.800 --> 00:54:45.160
+ we're trying to do are emerging and experimental.
+
+00:54:45.160 --> 00:54:48.920
+ And so no one including myself really gets kind of good
+
+00:54:48.920 --> 00:54:51.320
+ at what we're doing until they've spent a couple of years
+
+00:54:51.320 --> 00:54:52.760
+ really apprenticing at it.
+
+00:54:52.760 --> 00:54:55.680
+ And that's just, that's just being human, you know?
+
+00:54:57.480 --> 00:54:58.320
+ - That's great.
+
+00:54:58.320 --> 00:54:59.160
+ That's really humbling.
+
+00:54:59.160 --> 00:55:01.800
+ And I think really honest to share that.
+
+00:55:01.800 --> 00:55:04.720
+ And I hope all the students out there
+
+00:55:04.720 --> 00:55:06.080
+ really get a lot out of that.
+
+00:55:06.080 --> 00:55:07.960
+ That's really helpful.
+
+00:55:07.960 --> 00:55:10.800
+ You know, I don't know if you wanted to kind of
+
+00:55:10.800 --> 00:55:13.920
+ have a wrap up question or...
+
+00:55:13.920 --> 00:55:14.760
+ - Yeah, whatever you guys got,
+
+00:55:14.760 --> 00:55:17.160
+ I'll take, I got a couple of minutes yet.
+
+00:55:17.160 --> 00:55:18.320
+ - Yeah, okay.
+
+00:55:18.320 --> 00:55:22.080
+ Well, well, first of all, thank you for kind of validating
+
+00:55:22.080 --> 00:55:25.400
+ this week for us from what you just said,
+
+00:55:25.400 --> 00:55:29.000
+ the value of coding, open data.
+
+00:55:29.000 --> 00:55:31.480
+ This is all that we've been kind of preaching
+
+00:55:31.480 --> 00:55:32.880
+ in the last couple of days.
+
+00:55:33.960 --> 00:55:35.600
+ Also should mention that if I look up
+
+00:55:35.600 --> 00:55:37.480
+ visual storyteller in the dictionary,
+
+00:55:37.480 --> 00:55:39.480
+ I think I'll find you in there.
+
+00:55:40.680 --> 00:55:45.040
+ You seem to embody that kind of visual storyteller mentality.
+
+00:55:46.320 --> 00:55:50.960
+ But I don't know if there's like one or two final questions.
+
+00:55:50.960 --> 00:55:53.720
+ Maybe somebody can unmute themselves
+
+00:55:53.720 --> 00:55:57.880
+ if you're out there and introduce yourself to Ben
+
+00:55:57.880 --> 00:56:02.880
+ and ask a question, hoping somebody can do that.
+
+00:56:07.120 --> 00:56:09.720
+ - I have a quick question.
+
+00:56:09.720 --> 00:56:10.560
+ - Please.
+
+00:56:10.560 --> 00:56:13.360
+ - And that's about, Ben, I see that you're active
+
+00:56:13.360 --> 00:56:16.760
+ in an organization called Data for Progress.
+
+00:56:16.760 --> 00:56:19.240
+ And I'm wondering if you'd talk about that a little bit.
+
+00:56:19.240 --> 00:56:22.080
+ It sort of ties in with what we've been doing
+
+00:56:22.080 --> 00:56:24.600
+ with humanitarian mapping.
+
+00:56:24.600 --> 00:56:28.560
+ And sort of how you see that kind of mission
+
+00:56:28.560 --> 00:56:32.480
+ converging with what you're doing at the LA Times,
+
+00:56:32.480 --> 00:56:35.560
+ which is obviously more of a commercial than--
+
+00:56:35.560 --> 00:56:37.120
+ - Yeah.
+
+00:56:37.120 --> 00:56:39.080
+ I don't know if I'm familiar with Data for Progress,
+
+00:56:39.080 --> 00:56:40.640
+ but I'm guessing it came up linked
+
+00:56:40.640 --> 00:56:42.720
+ to some other things that I do, you know what I mean?
+
+00:56:42.720 --> 00:56:46.920
+ But like for me personally, open source software
+
+00:56:46.920 --> 00:56:49.160
+ is probably as close as I get to religion.
+
+00:56:49.160 --> 00:56:53.560
+ Nice, but like, and I think is a really underrated
+
+00:56:53.560 --> 00:56:56.200
+ as a solution to a lot of problems.
+
+00:56:56.200 --> 00:56:58.000
+ It just needs more institutional support
+
+00:56:58.000 --> 00:57:00.240
+ from places like UCLA.
+
+00:57:00.240 --> 00:57:03.680
+ But what you guys are providing today, which is great,
+
+00:57:03.680 --> 00:57:08.120
+ you know, but like, and so I've been involved
+
+00:57:08.120 --> 00:57:12.240
+ in a number of kind of open source data gathering
+
+00:57:12.240 --> 00:57:15.960
+ and cleaning efforts related to helping journalists
+
+00:57:15.960 --> 00:57:18.880
+ both improve their skills, but also to kind of
+
+00:57:18.880 --> 00:57:20.840
+ build software and data infrastructure.
+
+00:57:20.840 --> 00:57:23.320
+ So we're not all like replicating each other's work
+
+00:57:23.320 --> 00:57:27.120
+ and we can benefit from kind of group collaboration.
+
+00:57:27.120 --> 00:57:30.000
+ One of those is called the California Civic Data Coalition.
+
+00:57:30.000 --> 00:57:33.560
+ And so this was a foundation funded open source
+
+00:57:33.560 --> 00:57:37.960
+ software project that refines and cleans up
+
+00:57:37.960 --> 00:57:39.560
+ the campaign finance data put up
+
+00:57:39.560 --> 00:57:40.920
+ by the California state government.
+
+00:57:40.920 --> 00:57:42.680
+ So this is the money in our state politics,
+
+00:57:42.680 --> 00:57:44.320
+ like all these Uber ads you're seeing
+
+00:57:44.320 --> 00:57:46.280
+ for Prop 22 right now.
+
+00:57:46.280 --> 00:57:50.680
+ And the data is there, it's just really difficult to access
+
+00:57:50.680 --> 00:57:52.960
+ because it's just in crappy shape.
+
+00:57:52.960 --> 00:57:56.400
+ And so there's kind of like this problem of who's going
+
+00:57:56.400 --> 00:57:57.960
+ to clean it up, right?
+
+00:57:57.960 --> 00:57:59.920
+ And so we created an open source group
+
+00:57:59.920 --> 00:58:02.240
+ to write the software that would be the refinery
+
+00:58:02.240 --> 00:58:04.680
+ for that like raw data, and then all the code
+
+00:58:04.680 --> 00:58:07.360
+ and all the effort is open source as well as the result.
+
+00:58:07.360 --> 00:58:10.040
+ Along the way we invented some bulk data loading
+
+00:58:10.040 --> 00:58:12.160
+ open source software tools, which people now use
+
+00:58:12.160 --> 00:58:14.480
+ for like totally different purposes, you know what I mean?
+
+00:58:14.480 --> 00:58:17.040
+ There's like side benefits to doing that.
+
+00:58:17.040 --> 00:58:19.320
+ And we're replicating that model currently
+
+00:58:19.320 --> 00:58:21.240
+ when it comes to tracking COVID data,
+
+00:58:21.240 --> 00:58:23.520
+ where initially the LA Times was doing 100%
+
+00:58:23.520 --> 00:58:26.360
+ of this COVID tracking ourselves in California,
+
+00:58:26.360 --> 00:58:28.760
+ but we now have a team of people from eight newsrooms
+
+00:58:28.760 --> 00:58:31.600
+ across the state who are helping us kind of gather it
+
+00:58:31.600 --> 00:58:34.960
+ and consolidate this cleaned up database of COVID data.
+
+00:58:37.080 --> 00:58:41.000
+ And I think that there's one, a lot of potential for that,
+
+00:58:41.000 --> 00:58:43.400
+ but two, I think as news organizations get smaller
+
+00:58:43.400 --> 00:58:46.960
+ and struggle, I don't know if there's a better alternative,
+
+00:58:46.960 --> 00:58:47.800
+ like who, you know what I mean?
+
+00:58:47.800 --> 00:58:50.640
+ Other than we just hope the New York Times gets big enough,
+
+00:58:50.640 --> 00:58:52.240
+ they can do it for everybody, you know what I mean?
+
+00:58:52.240 --> 00:58:54.720
+ Like that's really, the commercial solution
+
+00:58:54.720 --> 00:58:57.040
+ is going to be news monopoly, you know,
+
+00:58:57.040 --> 00:58:59.480
+ that's just big enough to do that is what I think.
+
+00:58:59.480 --> 00:59:02.120
+ But, you know, maybe I'm being too pessimistic.
+
+00:59:02.120 --> 00:59:04.520
+ So I think we need to band together
+
+00:59:04.520 --> 00:59:06.120
+ to come up with this alternative.
+
+00:59:10.560 --> 00:59:12.040
+ - Thank you.
+
+00:59:12.040 --> 00:59:16.160
+ Great, how about one last question for Ben?
+
+00:59:16.160 --> 00:59:18.360
+ How about one of the questions?
+
+00:59:18.360 --> 00:59:19.200
+ - I have a question.
+
+00:59:19.200 --> 00:59:20.360
+ - There we go, please.
+
+00:59:22.360 --> 00:59:26.680
+ - So I love your neighborhood map,
+
+00:59:26.680 --> 00:59:29.920
+ which is, I know, which has been on the page
+
+00:59:29.920 --> 00:59:31.960
+ for a while now, it's so great.
+
+00:59:31.960 --> 00:59:36.320
+ And I use it in my classes to talk to instruct students,
+
+00:59:36.320 --> 00:59:38.200
+ well, instruct students about two things,
+
+00:59:38.200 --> 00:59:40.680
+ one about the concept of place
+
+00:59:40.680 --> 00:59:42.720
+ and another about the concept
+
+00:59:42.720 --> 00:59:45.000
+ of volunteer geographic information.
+
+00:59:46.600 --> 00:59:49.960
+ And I'm curious if you guys have done other projects
+
+00:59:49.960 --> 00:59:52.160
+ that you think are within the realm
+
+00:59:52.160 --> 00:59:54.920
+ of like volunteer geographic information.
+
+00:59:54.920 --> 00:59:57.080
+ So like people actually map like-
+
+00:59:57.080 --> 01:00:00.880
+ - Yep, that project is one of my great white whales
+
+01:00:00.880 --> 01:00:02.560
+ and that we haven't really revived it.
+
+01:00:02.560 --> 01:00:06.320
+ There was a, the plan was to do it last year
+
+01:00:06.320 --> 01:00:08.840
+ for this census, but other things have come up.
+
+01:00:11.680 --> 01:00:13.200
+ And just so people know,
+
+01:00:13.200 --> 01:00:16.240
+ there is no official source of neighborhoods in LA County,
+
+01:00:16.240 --> 01:00:18.560
+ even though we all feel that we live in one.
+
+01:00:19.640 --> 01:00:22.400
+ And so about 10 years ago with some of my colleagues,
+
+01:00:22.400 --> 01:00:25.160
+ we sort of tried to pull the public
+
+01:00:25.160 --> 01:00:28.320
+ and then divide up LA County into, you know,
+
+01:00:28.320 --> 01:00:30.000
+ the LA Times neighborhoods at least.
+
+01:00:30.000 --> 01:00:32.640
+ And then we connected those kind of like
+
+01:00:32.640 --> 01:00:34.960
+ with the legos of census tracts.
+
+01:00:34.960 --> 01:00:37.360
+ So then all the areas have all this metadata
+
+01:00:37.360 --> 01:00:40.600
+ about demographics that are then merged with them,
+
+01:00:40.600 --> 01:00:43.040
+ which has allowed us to do dozens of investigative
+
+01:00:43.040 --> 01:00:46.480
+ and analytical stories to compare East LA to West LA,
+
+01:00:46.480 --> 01:00:47.480
+ you know what I mean?
+
+01:00:48.560 --> 01:00:50.600
+ It's not more in social science.
+
+01:00:50.600 --> 01:00:53.480
+ And one of my personal ambitions is for our team
+
+01:00:53.480 --> 01:00:56.680
+ to be more of a social science data provider.
+
+01:00:56.680 --> 01:00:58.400
+ We're trying to do that a little bit here with COVID,
+
+01:00:58.400 --> 01:01:01.680
+ but I would love to sort of be able to publish
+
+01:01:01.680 --> 01:01:05.000
+ sort of like the machine readable atlas
+
+01:01:05.000 --> 01:01:07.480
+ of LA demographics by neighborhood or something
+
+01:01:07.480 --> 01:01:09.440
+ so that we could see more and more people
+
+01:01:09.440 --> 01:01:12.120
+ able to do that type of analytical work.
+
+01:01:12.120 --> 01:01:14.480
+ But at the core of it was this crowdsourcing effort
+
+01:01:14.480 --> 01:01:16.080
+ 'cause we didn't want to do it entirely alone.
+
+01:01:16.080 --> 01:01:17.960
+ So we sort of put out our own version of the maps
+
+01:01:17.960 --> 01:01:20.400
+ and then we had people tell us how wrong we were
+
+01:01:20.400 --> 01:01:23.640
+ and we modified them and you can't please everybody.
+
+01:01:23.640 --> 01:01:24.680
+ There's definitely flaws,
+
+01:01:24.680 --> 01:01:27.000
+ but that was kind of a collaborative process.
+
+01:01:27.000 --> 01:01:28.440
+ You know, that's the type of thing
+
+01:01:28.440 --> 01:01:31.120
+ that we haven't turned into like it.
+
+01:01:31.120 --> 01:01:32.800
+ We're going to do something like that every month,
+
+01:01:32.800 --> 01:01:34.360
+ but there's a few examples through the years
+
+01:01:34.360 --> 01:01:35.800
+ that I've had a lot of fun working on.
+
+01:01:35.800 --> 01:01:40.280
+ Like we finally, we're going to do the like a few years ago,
+
+01:01:40.280 --> 01:01:43.920
+ the like, what is the East Side story in the LA Times?
+
+01:01:43.920 --> 01:01:44.760
+ You know what I mean?
+
+01:01:44.760 --> 01:01:46.680
+ Where everybody brings out their grievances, you know,
+
+01:01:46.680 --> 01:01:49.440
+ and I will tell you as long as I am the data
+
+01:01:49.440 --> 01:01:52.400
+ and graphics editor, the East Side begins at the LA River.
+
+01:01:52.400 --> 01:01:54.840
+ I'm sorry, everybody who lives on Sunset,
+
+01:01:54.840 --> 01:01:57.360
+ you don't live on the East Side, sorry, you know what I mean?
+
+01:01:57.360 --> 01:02:02.360
+ But like, but we know people disagree, you know what I mean?
+
+01:02:03.040 --> 01:02:04.040
+ Like there is no answer.
+
+01:02:04.040 --> 01:02:06.520
+ And so we did like a one-off that was sort of
+
+01:02:06.520 --> 01:02:08.080
+ in that same tradition where it was,
+
+01:02:08.080 --> 01:02:11.320
+ here's a map of LA, draw the East Side, right?
+
+01:02:11.320 --> 01:02:13.360
+ And we had hundreds of people like draw them all.
+
+01:02:13.360 --> 01:02:14.880
+ And then we made this composite map
+
+01:02:14.880 --> 01:02:18.280
+ that was like everybody's East Side like overlaid.
+
+01:02:18.280 --> 01:02:23.280
+ And it was a little abstract and already, you know what I mean?
+
+01:02:23.920 --> 01:02:26.360
+ I don't know if it was like the clearest data visualization
+
+01:02:26.360 --> 01:02:29.440
+ ever drawn, but it sort of had this fun effort of like,
+
+01:02:29.440 --> 01:02:32.400
+ here's the splatter of like what everybody thinks, you know?
+
+01:02:32.400 --> 01:02:34.840
+ And though I'm sure our readership is biased
+
+01:02:34.840 --> 01:02:36.760
+ in a certain direction.
+
+01:02:36.760 --> 01:02:41.760
+ But so like that was an example of that, I guess.
+
+01:02:41.760 --> 01:02:42.600
+ - Yeah.
+
+01:02:44.880 --> 01:02:47.040
+ - You know, to me, the crowdsourcing thing that's out there
+
+01:02:47.040 --> 01:02:48.680
+ that nobody does much with Viz,
+
+01:02:48.680 --> 01:02:49.920
+ which we could do with Quakebot,
+
+01:02:49.920 --> 01:02:53.160
+ is the like, did you feel an earthquake data from like USGS?
+
+01:02:53.160 --> 01:02:55.400
+ I think it's like all of there for every earthquake
+
+01:02:55.400 --> 01:02:58.000
+ and like nobody really does much with it, you know?
+
+01:02:59.440 --> 01:03:01.240
+ I know the scientists at USGS do,
+
+01:03:01.240 --> 01:03:03.960
+ but like, I don't know if the news media does.
+
+01:03:03.960 --> 01:03:04.800
+ Yeah.
+
+01:03:04.800 --> 01:03:06.120
+ - Right.
+
+01:03:06.120 --> 01:03:06.960
+ Cool.
+
+01:03:06.960 --> 01:03:07.800
+ Thank you.
+
+01:03:11.040 --> 01:03:11.880
+ - All right.
+
+01:03:11.880 --> 01:03:13.920
+ Yeah, no, there's a whole bunch of chatter
+
+01:03:13.920 --> 01:03:17.480
+ about that project you're talking about mapping Los Angeles.
+
+01:03:17.480 --> 01:03:18.320
+ - Yeah.
+
+01:03:18.320 --> 01:03:20.680
+ - It's many of us fondly remember that kind of,
+
+01:03:20.680 --> 01:03:22.960
+ hey, we can contribute to defining boundaries,
+
+01:03:22.960 --> 01:03:25.200
+ which is not something we're used to.
+
+01:03:25.200 --> 01:03:28.840
+ Boundaries are usually defined by somebody up there.
+
+01:03:28.840 --> 01:03:30.320
+ And we abide by those boundaries.
+
+01:03:30.320 --> 01:03:31.600
+ And here's the LA Times saying,
+
+01:03:31.600 --> 01:03:33.560
+ hey, you define your own boundaries.
+
+01:03:33.560 --> 01:03:35.760
+ So that was a really neat project.
+
+01:03:35.760 --> 01:03:39.440
+ And still to this day in the urban planning department,
+
+01:03:39.440 --> 01:03:43.720
+ that's a go to resource for doing neighborhood level analysis.
+
+01:03:43.720 --> 01:03:44.560
+ - Yeah.
+
+01:03:44.560 --> 01:03:46.160
+ I was absolutely just going to say that.
+
+01:03:46.160 --> 01:03:51.160
+ I mean, I think the impact of that project in the classroom,
+
+01:03:51.360 --> 01:03:53.480
+ I just don't know if that kind of reaches you all,
+
+01:03:53.480 --> 01:03:55.760
+ but like, I mean, that is in so many different classes,
+
+01:03:55.760 --> 01:03:58.280
+ so many different students use that as sort of like,
+
+01:03:58.280 --> 01:04:00.080
+ understanding LA at this point.
+
+01:04:00.080 --> 01:04:01.400
+ - Yes, we have census tracts.
+
+01:04:01.400 --> 01:04:02.680
+ Yes, we have these other boundaries,
+
+01:04:02.680 --> 01:04:06.040
+ but those particular boundaries in that work
+
+01:04:06.040 --> 01:04:09.080
+ is just super, super influential in the classroom.
+
+01:04:09.080 --> 01:04:09.920
+ - Yeah.
+
+01:04:09.920 --> 01:04:12.480
+ I mean, to me, I just see all the times we fail to revive it.
+
+01:04:12.480 --> 01:04:14.560
+ So I feel a little guilty with that.
+
+01:04:14.560 --> 01:04:17.400
+ But like, you know, we kind of have, I have some ideas.
+
+01:04:17.400 --> 01:04:20.120
+ I might be like, this is one of these things
+
+01:04:20.120 --> 01:04:23.200
+ where like internally it gets caught up in the politics of like,
+
+01:04:23.200 --> 01:04:25.920
+ do we need a hyper local neighborhood news product?
+
+01:04:25.920 --> 01:04:26.760
+ You know what I mean?
+
+01:04:26.760 --> 01:04:28.640
+ And like, it's hard to have a conversation internally
+
+01:04:28.640 --> 01:04:31.520
+ without it being caught up with like traditional coverage.
+
+01:04:31.520 --> 01:04:34.320
+ It's my belief that it should be more of a data application
+
+01:04:34.320 --> 01:04:37.720
+ and like kind of like a social science hub
+
+01:04:37.720 --> 01:04:40.160
+ that is like easy enough for the average person
+
+01:04:40.160 --> 01:04:41.520
+ to understand, you know what I mean?
+
+01:04:41.520 --> 01:04:44.480
+ That's just like what is, you know,
+
+01:04:44.480 --> 01:04:46.800
+ Chevy bills or whatever, you know?
+
+01:04:46.800 --> 01:04:50.440
+ And I would like to kind of narrow kind of the mission
+
+01:04:50.440 --> 01:04:53.280
+ of it to really focus on that kind of popularizing
+
+01:04:53.280 --> 01:04:54.800
+ the demographics thing.
+
+01:04:54.800 --> 01:04:57.960
+ And so my hope is, is that we can do that
+
+01:04:57.960 --> 01:04:59.880
+ when the new census data comes out.
+
+01:04:59.880 --> 01:05:03.040
+ But as you know, it's the ACS is where the action really is.
+
+01:05:03.040 --> 01:05:04.120
+ So it doesn't matter.
+
+01:05:06.240 --> 01:05:08.960
+ I kind of wonder if we could partner that with like,
+
+01:05:08.960 --> 01:05:10.160
+ can I give you my pet idea?
+
+01:05:10.160 --> 01:05:12.000
+ And you guys can tell me if it's terrible.
+
+01:05:13.600 --> 01:05:15.920
+ With like a gentrification analysis.
+
+01:05:15.920 --> 01:05:17.280
+ - Oh, yeah.
+
+01:05:17.280 --> 01:05:18.480
+ - If you like that, yeah.
+
+01:05:18.480 --> 01:05:19.560
+ 'Cause I did some reading
+
+01:05:19.560 --> 01:05:20.880
+ and you guys may know this better than me,
+
+01:05:20.880 --> 01:05:22.720
+ but there's these like academic definitions
+
+01:05:22.720 --> 01:05:26.960
+ of gentrification, which as far as I can tell,
+
+01:05:26.960 --> 01:05:30.560
+ are kind of limited to a sort of post-war redevelopment
+
+01:05:30.560 --> 01:05:33.400
+ sort of framework of like, how old is the housing stock?
+
+01:05:33.400 --> 01:05:36.200
+ And how recently has it been replenished?
+
+01:05:36.200 --> 01:05:40.000
+ And what is the change in housing value been, right?
+
+01:05:40.000 --> 01:05:42.680
+ And so like, you could, I look at those methods
+
+01:05:42.680 --> 01:05:45.000
+ and I could take these longitudinal census databases.
+
+01:05:45.000 --> 01:05:46.560
+ I can do that for every census tract
+
+01:05:46.560 --> 01:05:48.680
+ and then I could tell you what's the most gentrified neighborhood
+
+01:05:48.680 --> 01:05:49.960
+ in LA like that way, right?
+
+01:05:49.960 --> 01:05:50.800
+ That would be one way.
+
+01:05:50.800 --> 01:05:53.600
+ But like my hunch is that that's not enough.
+
+01:05:53.600 --> 01:05:58.320
+ Like in our 21st century life,
+
+01:05:58.320 --> 01:06:01.680
+ there's sort of this Brooklynized idea of gentrification,
+
+01:06:01.680 --> 01:06:04.640
+ which has to do with cultural products, right?
+
+01:06:04.640 --> 01:06:07.960
+ And commerce and like that kind of thing, you know what I mean?
+
+01:06:07.960 --> 01:06:10.400
+ Like what is the business in Highland Park now
+
+01:06:10.400 --> 01:06:13.800
+ on that strip on Fig versus 10 years ago, right?
+
+01:06:13.800 --> 01:06:15.800
+ Used to be a Latino typewriter shop
+
+01:06:15.800 --> 01:06:19.840
+ and now it's a hipster cocktail bar or whatever, you know?
+
+01:06:19.840 --> 01:06:21.640
+ And I think that's what people have in mind
+
+01:06:21.640 --> 01:06:23.080
+ when they send you an interpretation today.
+
+01:06:23.080 --> 01:06:25.720
+ And so like what I'm kind of reaching for
+
+01:06:25.720 --> 01:06:27.760
+ is could you come up with a metric
+
+01:06:27.760 --> 01:06:29.560
+ that would try to capture that
+
+01:06:29.560 --> 01:06:31.320
+ and then integrate it with the older metrics
+
+01:06:31.320 --> 01:06:35.680
+ into like a kind of more up-to-date gentrification index
+
+01:06:35.680 --> 01:06:38.240
+ or something, do anybody have any ideas
+
+01:06:38.240 --> 01:06:40.840
+ or have read anything that smiles ahead of me on this?
+
+01:06:42.480 --> 01:06:44.720
+ - Well, you know, there's a Center for Neighborhood Knowledge
+
+01:06:44.720 --> 01:06:47.280
+ here at UCLA that does a lot of research.
+
+01:06:47.280 --> 01:06:48.600
+ I don't know if you know Paul Wong,
+
+01:06:48.600 --> 01:06:49.880
+ he's a professor who--
+
+01:06:49.880 --> 01:06:53.640
+ - I don't know. - Wong worked with models
+
+01:06:53.640 --> 01:06:56.680
+ of gentrification and they have a site,
+
+01:06:56.680 --> 01:06:59.320
+ a project called Urban Displacement,
+
+01:06:59.320 --> 01:07:01.880
+ collaboration with Berkeley and UCLA
+
+01:07:01.880 --> 01:07:04.920
+ where they have index S for gentrification.
+
+01:07:04.920 --> 01:07:05.760
+ - No, really?
+
+01:07:05.760 --> 01:07:08.880
+ - It just talks about the need for us, you know,
+
+01:07:08.880 --> 01:07:11.120
+ in academia and also to let you know,
+
+01:07:11.120 --> 01:07:14.640
+ like UCLA is launching this kind of data acts initiative.
+
+01:07:14.640 --> 01:07:17.280
+ So it sounds like we are,
+
+01:07:17.280 --> 01:07:21.280
+ once that behind you guys, but we're right there
+
+01:07:21.280 --> 01:07:25.160
+ in terms of our efforts to think about,
+
+01:07:25.160 --> 01:07:27.200
+ like you said, you know, the importance of coding
+
+01:07:27.200 --> 01:07:30.320
+ in kind of the more social sciences,
+
+01:07:30.320 --> 01:07:32.920
+ which isn't traditionally been the case.
+
+01:07:32.920 --> 01:07:36.680
+ So just to think about how us in academia,
+
+01:07:36.680 --> 01:07:39.240
+ I mean, I feel such a stronger bond with you
+
+01:07:39.240 --> 01:07:41.880
+ through what we've been discussing today
+
+01:07:41.880 --> 01:07:43.800
+ and the importance that we work together
+
+01:07:45.200 --> 01:07:49.000
+ to create some meaningful stories
+
+01:07:49.000 --> 01:07:53.680
+ that can inform policy decisions across our communities.
+
+01:07:55.320 --> 01:07:58.600
+ - Yeah, I also love, I really love the idea
+
+01:07:58.600 --> 01:08:01.880
+ of kind of looking at sort of alternative data sources.
+
+01:08:01.880 --> 01:08:06.160
+ I was on a call yesterday and a workshop yesterday
+
+01:08:06.160 --> 01:08:10.000
+ actually looking at the Getty's new Riche project.
+
+01:08:10.000 --> 01:08:12.920
+ And they're putting all these images out there.
+
+01:08:12.920 --> 01:08:15.480
+ And this workshop was really trying to understand
+
+01:08:15.480 --> 01:08:17.680
+ how to look at those images, you know,
+
+01:08:17.680 --> 01:08:20.560
+ in this, you know, cultural production,
+
+01:08:20.560 --> 01:08:22.200
+ the streets that were photographed,
+
+01:08:22.200 --> 01:08:25.720
+ historically looking at, you know, racial change over time
+
+01:08:25.720 --> 01:08:29.600
+ and really talking about gentrification
+
+01:08:29.600 --> 01:08:32.160
+ and how a data set like that with those images
+
+01:08:32.160 --> 01:08:35.000
+ could be used with, you know, all these sources
+
+01:08:35.000 --> 01:08:37.240
+ that you're talking about, but other data sets
+
+01:08:37.240 --> 01:08:40.440
+ that are cultural and kind of trying to, you know,
+
+01:08:40.440 --> 01:08:45.200
+ look at that and also how to sort of code those images
+
+01:08:45.200 --> 01:08:49.920
+ and doing that coding so that it actually is, you know,
+
+01:08:49.920 --> 01:08:51.600
+ doing the work that we want it to do
+
+01:08:51.600 --> 01:08:55.760
+ in terms of understanding, you know, the displacement
+
+01:08:55.760 --> 01:08:57.120
+ or whatever's happening.
+
+01:08:57.120 --> 01:08:59.160
+ And not just sort of saying like, oh, you know,
+
+01:08:59.160 --> 01:09:00.800
+ this was here before and now it's gone,
+
+01:09:00.800 --> 01:09:02.880
+ but like, well, why is it gone?
+
+01:09:02.880 --> 01:09:05.560
+ And really kind of, you know, putting the point onto that.
+
+01:09:05.560 --> 01:09:09.680
+ So yeah, it's really interesting.
+
+01:09:09.680 --> 01:09:10.520
+ And I think you're right.
+
+01:09:10.520 --> 01:09:11.960
+ I mean, I think what we've been talking about
+
+01:09:11.960 --> 01:09:15.480
+ with, you know, really learning how to, you know,
+
+01:09:15.480 --> 01:09:19.720
+ build coding and, you know, also just stepping back
+
+01:09:19.720 --> 01:09:22.560
+ and being able to kind of piece, I think,
+
+01:09:22.560 --> 01:09:25.120
+ like really different data sets.
+
+01:09:25.120 --> 01:09:27.360
+ And the thing that we were talking about yesterday too
+
+01:09:27.360 --> 01:09:30.600
+ is just sort of understanding that world of data
+
+01:09:30.600 --> 01:09:33.800
+ and kind of, especially I think for things
+
+01:09:33.800 --> 01:09:36.720
+ like gentrification, kind of stepping out
+
+01:09:36.720 --> 01:09:41.720
+ and kind of looking at or trying to understand it
+
+01:09:42.400 --> 01:09:47.400
+ in a way that's local and trying to find sources
+
+01:09:49.000 --> 01:09:53.240
+ that maybe aren't that typical, you know, census,
+
+01:09:53.240 --> 01:09:54.400
+ you know, way of understanding it.
+
+01:09:54.400 --> 01:09:55.960
+ So I don't know, I love it.
+
+01:09:55.960 --> 01:09:56.800
+ Yeah.
+
+01:09:56.800 --> 01:09:59.480
+ - There's a guy at Harvard I found he did a paper read
+
+01:09:59.480 --> 01:10:02.320
+ used Yelp data and then he tried to like correlate
+
+01:10:02.320 --> 01:10:05.000
+ the arrival of certain types of businesses
+
+01:10:05.000 --> 01:10:07.440
+ with other gentrification indicators, you know,
+
+01:10:07.440 --> 01:10:10.280
+ like educated population or whatever.
+
+01:10:10.280 --> 01:10:15.280
+ And so there might be something there, you know,
+
+01:10:15.960 --> 01:10:18.880
+ but I kind of imagine the index.
+
+01:10:18.880 --> 01:10:21.600
+ You take like the traditional metric of like buildings
+
+01:10:21.600 --> 01:10:25.160
+ or whatever, you know, you add in the racial dynamic
+
+01:10:25.160 --> 01:10:27.560
+ of, you know, white invasion, as I've learned,
+
+01:10:27.560 --> 01:10:29.080
+ it's called in some papers.
+
+01:10:29.080 --> 01:10:32.960
+ And then you maybe add like a third cultural dimension
+
+01:10:32.960 --> 01:10:35.480
+ of these products and then you like mix those into like
+
+01:10:35.480 --> 01:10:38.000
+ a radar chart or like an index or something
+
+01:10:38.000 --> 01:10:40.280
+ and that'd be kind of cool.
+
+01:10:40.280 --> 01:10:42.200
+ My bet is what Adams would be number one.
+
+01:10:42.200 --> 01:10:44.040
+ That's my bet guys.
+
+01:10:44.040 --> 01:10:45.720
+ - I would say from personal experience
+
+01:10:45.720 --> 01:10:49.560
+ with Brooklyn and here in LA, the first major indicator
+
+01:10:49.560 --> 01:10:51.840
+ should be when the real estate agent decides
+
+01:10:51.840 --> 01:10:53.840
+ to change the name of the name.
+
+01:10:53.840 --> 01:10:54.680
+ - There you go.
+
+01:10:54.680 --> 01:10:55.520
+ That's another one.
+
+01:10:55.520 --> 01:10:56.680
+ - That's an indicator.
+
+01:10:56.680 --> 01:10:58.520
+ - One thing I learned looking at the literature too,
+
+01:10:58.520 --> 01:11:01.160
+ I thought was interesting is traditionally only like
+
+01:11:01.160 --> 01:11:03.360
+ the lowest quartile could ever be thought of
+
+01:11:03.360 --> 01:11:04.480
+ as having gentrified.
+
+01:11:04.480 --> 01:11:08.080
+ So you had to be depressed to ever undergo the process.
+
+01:11:08.080 --> 01:11:10.080
+ And I don't think that people think about it that way
+
+01:11:10.080 --> 01:11:11.120
+ today anymore.
+
+01:11:11.120 --> 01:11:13.320
+ Like, 'cause when I ran the traditional numbers,
+
+01:11:13.320 --> 01:11:16.720
+ I saw that Venice Beach had a really high score
+
+01:11:16.720 --> 01:11:19.080
+ on some of the values but wouldn't have been considered
+
+01:11:19.080 --> 01:11:21.600
+ because it was already a pretty wealthy place to begin with.
+
+01:11:21.600 --> 01:11:22.440
+ Right?
+
+01:11:22.440 --> 01:11:23.920
+ And so like there's this way in which I think
+
+01:11:23.920 --> 01:11:27.760
+ the traditional numeric framework doesn't mesh
+
+01:11:27.760 --> 01:11:29.320
+ with how people really think about it
+
+01:11:29.320 --> 01:11:30.440
+ or talk about it today.
+
+01:11:30.440 --> 01:11:32.280
+ And like, that's the thing I just feel like
+
+01:11:32.280 --> 01:11:34.040
+ there must be some way to wrestle that.
+
+01:11:34.040 --> 01:11:34.880
+ But.
+
+01:11:36.800 --> 01:11:38.360
+ - That could be a,
+
+01:11:38.360 --> 01:11:40.720
+ and this is a very geographically nerdy
+
+01:11:40.720 --> 01:11:43.880
+ but a modifiable aerial unit problem issue
+
+01:11:43.880 --> 01:11:47.560
+ where because you're looking at Venice as a whole.
+
+01:11:47.560 --> 01:11:49.160
+ - Right, we've predefined it.
+
+01:11:49.160 --> 01:11:50.000
+ - Yeah.
+
+01:11:50.000 --> 01:11:51.880
+ - Very wealthy parts get, you know,
+
+01:11:51.880 --> 01:11:54.440
+ averaged with the less wealthy parts.
+
+01:11:54.440 --> 01:11:55.280
+ So those.
+
+01:11:56.280 --> 01:11:57.440
+ - That's a good point.
+
+01:11:57.440 --> 01:11:58.280
+ - Yeah.
+
+01:12:01.000 --> 01:12:01.840
+ - Mm.
+
+01:12:02.960 --> 01:12:06.720
+ - But I'm thinking also that with the sort of combining
+
+01:12:06.720 --> 01:12:08.840
+ what Andy was talking about with the coding
+
+01:12:08.840 --> 01:12:11.880
+ and like maybe taking for each neighborhood,
+
+01:12:11.880 --> 01:12:14.480
+ choosing kind of like the commercial strip
+
+01:12:16.080 --> 01:12:17.800
+ and looking at Google Street View
+
+01:12:17.800 --> 01:12:20.440
+ and sort of like coding that over time
+
+01:12:20.440 --> 01:12:23.720
+ for the main, like the main drags of different neighborhoods.
+
+01:12:25.760 --> 01:12:26.600
+ - Yeah.
+
+01:12:26.600 --> 01:12:28.680
+ Or even if we did the number for the whole county,
+
+01:12:28.680 --> 01:12:30.880
+ you could pick the place that had the highest
+
+01:12:30.880 --> 01:12:32.600
+ and up new merit score and then go in
+
+01:12:32.600 --> 01:12:34.640
+ and do that closer study on that place.
+
+01:12:34.640 --> 01:12:35.480
+ - Yeah.
+
+01:12:35.480 --> 01:12:37.080
+ - You know, and then you wouldn't have to do everywhere.
+
+01:12:37.080 --> 01:12:38.200
+ - Right.
+
+01:12:38.200 --> 01:12:39.680
+ - I also have to think about how to do less.
+
+01:12:39.680 --> 01:12:40.520
+ Sorry.
+
+01:12:40.520 --> 01:12:42.280
+ (laughing)
+
+01:12:42.280 --> 01:12:43.760
+ - Now, I mean, I think that's one of the things
+
+01:12:43.760 --> 01:12:46.480
+ that we all struggle to is sort of kind of, you know,
+
+01:12:46.480 --> 01:12:50.080
+ looking at LA, but I think a lot of us push our students
+
+01:12:50.080 --> 01:12:52.400
+ and just people that we work with to focus in on areas.
+
+01:12:52.400 --> 01:12:55.040
+ And I think that's sort of like a nice bridge to,
+
+01:12:55.040 --> 01:12:56.800
+ you know, I think what you at the times do
+
+01:12:56.800 --> 01:13:01.680
+ is kind of putting in the person into our data stories.
+
+01:13:01.680 --> 01:13:04.840
+ And like, you know, not always sort of like having that
+
+01:13:04.840 --> 01:13:07.240
+ bird's eye view of everybody, but like, let's zoom in.
+
+01:13:07.240 --> 01:13:10.160
+ Let's like really kind of understand what this data set
+
+01:13:10.160 --> 01:13:12.760
+ is doing on this street, on this block.
+
+01:13:12.760 --> 01:13:13.600
+ - Yep.
+
+01:13:13.600 --> 01:13:15.600
+ We talk about them and like, there's usually,
+
+01:13:15.600 --> 01:13:18.240
+ there's like two different couples we're looking for.
+
+01:13:18.240 --> 01:13:21.040
+ There's like, there's either Mr. and Mrs. Outlier
+
+01:13:21.040 --> 01:13:23.400
+ or there's Mr. and Mrs. Central Tendency.
+
+01:13:23.400 --> 01:13:25.560
+ And like kind of depending on like which story
+
+01:13:25.560 --> 01:13:27.320
+ you're telling, you're sort of like aiming
+
+01:13:27.320 --> 01:13:28.640
+ for those people, you know.
+
+01:13:31.560 --> 01:13:32.400
+ - That's great.
+
+01:13:32.400 --> 01:13:33.720
+ I love that.
+
+01:13:33.720 --> 01:13:36.120
+ - I feel like we're in a newsroom right now
+
+01:13:36.120 --> 01:13:39.360
+ making decisions for the next story.
+
+01:13:41.160 --> 01:13:44.520
+ But I wanna wrap us up here,
+
+01:13:44.520 --> 01:13:46.320
+ taking too much of your time.
+
+01:13:48.360 --> 01:13:49.640
+ Thank you so much.
+
+01:13:49.640 --> 01:13:54.160
+ The conversations in the chat room has been just nonstop.
+
+01:13:54.160 --> 01:13:56.600
+ You've touched a lot of topics that really mean
+
+01:13:56.600 --> 01:13:59.200
+ so much to many of us.
+
+01:13:59.200 --> 01:14:03.560
+ So just wanna say a big thank you to Ben.
+
+01:14:03.560 --> 01:14:05.640
+ I'm sure it's shared by all of us here.
+
+01:14:06.560 --> 01:14:07.480
+ There you go.
+
+01:14:09.120 --> 01:14:11.880
+ And Ben, let's definitely get together again.
+
+01:14:13.440 --> 01:14:16.760
+ When there's a little bit more time to relax.
+
+01:14:16.760 --> 01:14:18.280
+ I don't know when that would be.
+
+01:14:18.280 --> 01:14:20.040
+ But I'd love to kind of have a conversation
+
+01:14:20.040 --> 01:14:23.200
+ about how we in academia can work closer together
+
+01:14:23.200 --> 01:14:27.120
+ with you guys at the LA Times.
+
+01:14:27.120 --> 01:14:27.960
+ - Great.
+
+01:14:27.960 --> 01:14:28.800
+ - Yeah.
+
+01:14:28.800 --> 01:14:29.640
+ - For having me.
+
+01:14:29.640 --> 01:14:30.480
+ - Thank you.
+
+01:14:30.480 --> 01:14:31.920
+ Thank you for being so generous with your time.
+
+01:14:31.920 --> 01:14:33.640
+ It's really amazing.
+
+01:14:33.640 --> 01:14:34.480
+ - Mm-hmm.
+
+01:14:34.480 --> 01:14:35.320
+ Thank you so much.
+
+01:14:35.320 --> 01:14:36.160
+ - Sorry, I was late.
+
+01:14:38.080 --> 01:14:39.200
+ - I love the new luck.
+
+01:14:39.200 --> 01:14:40.520
+ I love the-
+
+01:14:40.520 --> 01:14:42.040
+ (laughing)
+
+01:14:42.040 --> 01:14:43.800
+ - I'm gonna report that to my wife.
+
+01:14:46.080 --> 01:14:47.680
+ - All right, thank you so much, Ben.
+
+01:14:47.680 --> 01:14:49.000
+ - Thank you, Ben.
+
+01:14:49.000 --> 01:14:49.840
+ - Mm-hmm.
+
+01:14:49.840 --> 01:14:50.680
+ - Bye.

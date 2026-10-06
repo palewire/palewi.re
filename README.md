@@ -38,10 +38,10 @@ colors, typography, spacing, borders, and layout values. The current design
 has no shared shadow values.
 
 To reproduce a visual comparison, capture `/who-is-ben-welsh/`, `/posts/`, a
-post detail page, `/work/`, `/talks/`, and `/docs/` at 1440x1000 and 390x844
-with device scale factor 1 after `document.fonts.ready`, then compare decoded
-pixels. Exclude dynamic third-party embeds, such as SoundCloud, from both
-captures.
+post detail page, `/clips/`, `/apps/`, `/code/`, `/guides/`, and `/talks/` at
+1440x1000 and 390x844 with device scale factor 1 after `document.fonts.ready`,
+then compare decoded pixels. Exclude dynamic third-party embeds, such as
+SoundCloud, from both captures.
 
 Install Wrangler once with:
 
@@ -166,6 +166,25 @@ does not need an archive root, credentials, a network connection, or a media
 download. Its output names the exact clip, talk, or post location and the next
 Wayback, local-backup, checksum, and private-R2 action.
 
+## Site archive coverage
+
+The separate site archive tool inventories public palewi.re pages, including
+talk pages, hosted HTML decks, and same-site documentation. It checks Wayback
+before requesting missing captures and saves partial progress between runs:
+
+```bash
+make bake
+uv run python -m scripts.site_archive sync --lookup-only
+make site-archive-report
+```
+
+The weekly **Site archive** workflow saves its manifest on the
+`site-archive-data` branch without redeploying the site. Existing snapshots
+are sufficient; it does not recapture pages just because they are old.
+See [the site archive runbook](docs/site-archive.md) for credentials, manual
+captures, incomplete discovery, and recovery. A page snapshot does not
+guarantee that embedded media or interactive features have been preserved.
+
 ## Media archive (audio/video backup)
 
 `scripts/media_archive/` finds every playable audio/video source referenced
@@ -272,9 +291,11 @@ from the historical export; do not edit it for new posts.
 ## Deployment
 
 Merges to `main` run the `deploy-static-site` CI job after Lint and Test pass.
-It builds Django's static output in `dist/` and deploys
-`workers/static-site`, which serves `palewi.re` and `www.palewi.re`.
-Django is a build-time publishing system; it does not serve the public site.
+It verifies a same-zone redirect canary, builds Django's static output in
+`dist/`, deploys `workers/static-site`, attaches the generated
+`workers/legacy-redirects` route plan, and verifies production. The static
+Worker serves `palewi.re` and `www.palewi.re`. Django is a build-time
+publishing system; it does not serve the public site.
 
 ## Cloudflare access
 
@@ -458,8 +479,7 @@ attached routes. Django has no fallback for these routes.
 ### Legacy redirect Worker
 
 `project/redirects.yaml` is the readable, validated source of truth for legacy
-redirects. It currently has 22 exact paths and 8 dynamic patterns; this is the
-full retired Django inventory (the issue's earlier 21/7 count was stale).
+redirects. It currently has 21 exact paths and 8 dynamic patterns.
 `project/redirect_manifest.py` is pure Python validation and route-plan tooling
 used by the Worker tests, deployment commands, and production verifier.
 `workers/legacy-redirects/` reads that same file as a bundled text module and
@@ -470,7 +490,7 @@ TypeScript and Wrangler dry-run validation. A matching request receives a
 302, its manifest destination, and
 `X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped.
 
-The generated plan has 37 explicit `palewi.re` routes for the 30 manifest
+The generated plan has 36 explicit `palewi.re` routes for the 29 manifest
 entries. Every pattern has one terminal wildcard, which Cloudflare requires;
 there are no infix wildcards and no `palewi.re/*` route. The root-level date
 pattern uses ten digit-prefixed routes (`0*` through `9*`) because Cloudflare
@@ -481,10 +501,11 @@ instead of proxying to an origin. This Worker does not fetch a same-zone origin,
 that redirect matches never create a subrequest.
 
 The production smoke workflow runs the same verifier after deployment. It
-checks every exact rule, two representative cases for
-each dynamic rule, the exact `Location`, the Worker marker, and adjacent
-non-legacy paths. It uses a 20-second curl timeout and waits 15 seconds between
-up to four marker checks for route propagation.
+checks every exact rule, two representative cases for each dynamic rule, the
+exact `Location`, the Worker marker, and adjacent non-legacy paths. Canary and
+production verification use a 20-second curl timeout and wait 15 seconds
+between bounded retries for route propagation. Static-site verification also
+retries temporary status mismatches while newly deployed assets propagate.
 
 Use a dedicated Cloudflare token for deployment, restricted to the owning
 account and `palewi.re` zone. It needs only **Account > Workers Scripts >
@@ -520,9 +541,10 @@ CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 make legacy-worker-attach-routes
 WORKER_MARKER_ATTEMPTS=4 WORKER_MARKER_WAIT_SECONDS=15 make legacy-worker-verify-production
 ```
 
-Every mutating command requires its named confirmation variable. The verifier
-waits for the marker during route propagation but fails immediately on a bad
-status or Location.
+Every mutating command requires its named confirmation variable. The
+post-merge deployment runs the same canary, cleanup, route attachment, and
+verification sequence automatically. The verifier waits for the marker during
+route propagation but fails immediately on a bad status or Location.
 
 GitHub releases summarize meaningful batches of deployed changes. See
 [RELEASING.md](RELEASING.md) for the changelog and release process.

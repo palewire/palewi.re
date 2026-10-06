@@ -53,13 +53,13 @@ describe("legacy redirect Worker", () => {
     expect(config.env["same-zone-canary"].vars).toEqual({ CANARY_PATH: "/legacy-redirects-canary" });
   });
 
-  it("has 22 exact and 8 dynamic rules with a unique narrow Cloudflare route plan", () => {
+  it("has 21 exact and 8 dynamic rules with a unique narrow Cloudflare route plan", () => {
     const exact = manifest.redirects.filter((rule) => rule.examples === undefined);
     const dynamic = manifest.redirects.filter((rule) => rule.examples !== undefined);
 
-    expect(exact).toHaveLength(22);
+    expect(exact).toHaveLength(21);
     expect(dynamic).toHaveLength(8);
-    expect(routePlan).toHaveLength(37);
+    expect(routePlan).toHaveLength(36);
     expect(routePlan.every((route) => route.startsWith("palewi.re/"))).toBe(true);
     expect(routePlan.some((route) => route === "palewi.re/*")).toBe(false);
     expect(routePlan.every((route) => route.endsWith("*") && !route.slice(0, -1).includes("*"))).toBe(true);
@@ -106,12 +106,13 @@ describe("legacy redirect Worker", () => {
     expect(response.headers.get("allow")).toBe("GET, HEAD");
   });
 
-  it("keeps redirect chains intact without issuing a subrequest", () => {
+  it("hands current app destinations back to the static site", () => {
     const first = handleRequest(request("/applications/"));
     const second = handleRequest(request(first.headers.get("location") ?? ""));
 
     expect(first.headers.get("location")).toBe("/apps/");
-    expect(second.headers.get("location")).toBe("/work/");
+    expect(second.status).toBe(404);
+    expect(second.headers.get("location")).toBeNull();
   });
 
   it("rejects malformed, unsafe, overlapping, and looping manifest records", () => {

@@ -1,0 +1,157 @@
+a @LATdatadesk joint
+
+The Data Desk is a team of reporters and web developers in #DTLA.
+
+We make maps.
+
+We do other things, too.
+
+We build things with Django, which is in Python.
+
+Django can play with some great GIS tools. (Thanks, @jbronn!)
+
+from django.contrib.gis.db import models
+class UnemploymentRate(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+rate = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+GeoDjango is great because it makes adding GIS data a snap.
+
+Unemployment
+
+Election results
+
+Census demographics
+
+But what happens when you reuse the same maps?
+
+from django.contrib.gis.db import models
+class UnemploymentRate(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+rate = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+If you use the model we looked at before...
+
+from django.contrib.gis.db import models
+class ElectionResult(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+red_percent = models.FloatField()
+blue_percent = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+...you can end up with...
+
+from django.contrib.gis.db import models
+class Income(models.Model):
+fips_code = models.CharField(max_length=5)
+county = models.CharField(max_length=150)
+median_income = models.FloatField()
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.county
+
+...nearly identical models scattered all over the place.
+
+THIS IS BAD
+(Or, at least has problems)
+
+You are repeating yourself.
+Three loaders. Three columns. Three islands.
+
+The data can't talk to each other.
+How do you mash up the datasets?
+
+Your next app doesn't get any easier.
+Get ready to repeat yourself again.
+
+@ubernostrum preaches The Fourfold Path of Reusable Apps
+1. Do one thing, and do it well.
+2. Don't be afraid of multiple apps.
+3. Write for flexibility.
+4. Build to distribute.
+
+from django.contrib.gis.db import models
+class County(models.Model):
+fips_code = models.CharField(max_length=5)
+name = models.CharField(max_length=150)
+polygon = models.MultiPolygonField()
+objects = models.GeoManager()
+def __unicode__(self):
+return self.name
+
+So if we make a separate app, with just the GIS data...
+
+from django.contrib.gis.db import models
+from us_counties.models import County
+class UnemploymentRate(models.Model):
+rate = models.FloatField()
+county = models.OneToOneField(County)
+def __unicode__(self):
+return self.county
+
+...and then just have each of our data apps link to it...
+
+from django.contrib.gis.db import models
+from us_counties.models import County
+class ElectionResult(models.Model):
+red_percent = models.FloatField()
+blue_percent = models.FloatField()
+county = models.OneToOneField(County)
+def __unicode__(self):
+return self.county
+
+...then all of a sudden...
+
+from django.contrib.gis.db import models
+from us_counties.models import County
+class Income(models.Model):
+median_income = models.FloatField()
+county = models.OneToOneField(County)
+def __unicode__(self):
+return self.county
+
+....everything gets a bit simpler.
+
+THIS IS GOOD
+(Or, at least I think so)
+
+One map to rule them all.
+Load the data once and you're set forever.
+
+Your data are interconnected.
+You can easily mash up different data sets.
+
+The next app is easier.
+All you need is a foreign key link.
+
+Your GIS data can be packaged on pip.
+Wait...are you serious...that would mean...
+
+$ pip install latimes-pluggablemaps-uscounties
+
+http://lat.ms/pluggable
+
+FOLLOW US ON TWITTER
+
+@LATdatadesk
+@LATmappingLA
+@schwanksta
+@palewire
+
+Come work with us. Find this man.
+or email him at daniel.gaines@latimes.com

@@ -1,0 +1,188 @@
+Alright, cool. So I work at the LA Times. My name is Ben Welsh, and I need to get this on the big screen.
+Let's see. I think that'll do it.
+Ooh, and it's too big. Linux.
+Alright, we'll get by.
+So, my name's Ben Welsh. I work at a team called the Data Desk at the Los Angeles Times.
+And my talk is called Human Assisted Reporting.
+How to Create Robot Reporters in Your Own Image.
+That's not clear right there.
+And so, I come from, I was trained in a tradition of journalism which is called Computer Assisted Reporting.
+It's decades old. The whole idea is that we can be more efficient and do cooler and better investigative reporting by using computers.
+This is an idea that's not new. It's been around for a long time, and the name kind of tells you that.
+My joke always is that everyone's computer-assisted now.
+Photographers, architects, pretty much any job you need to do, you use a computer.
+But you don't call it a computer-assisted architect or a computer-assisted reporter.
+It's only in journalism that we continue to distinguish ourselves with the use of Microsoft Excel.
+But anyway, so it's a spin on that term is what I want to talk about today.
+It's this whole idea of computer-assisted reporting and thinking about it differently.
+And all the URLs and everything I talk about are going to be available right here on Delicious.
+So, it's just L-A-T-M-S slash robot reporters.
+And so, in my opinion, this is how computer-assisted reporting works today. In an image.
+So, your editor or you, the reporter, have an idea, something out in the world that you want to investigate and get to the bottom of.
+You pick up your weapon, your computer, and you go out hunting for it.
+And that's the way that most computer-assisted reporting gets done.
+People already kind of have an idea or a field or a data set or something they want to hunt, and they go out and look for it.
+And the idea that I kind of want to put out there as an alternative metaphor or way of thinking about what we do is this.
+Which is from the movie Minority Report, which I love. And it says how it ought to be at the bottom there.
+And in this scene, there's these robotic spiders that are able to crawl all over and do an operation on Tom Cruise.
+And I think that if we can up our game and what we do in computer-assisted reporting, we don't have to go out hunting for the story.
+The computer can go hunt for it for us and bring it back to us.
+And where are we while that's all happening?
+We're back at the bar with Cary Grant, our editor, talking about the next story, but also enjoying a drink.
+And this is a shot from the movie His Girl Friday, which if you haven't seen, do yourself a favor tonight.
+And this idea first kind of came to me when I saw a website right here, which was created by Matt Waite, who's a leader in our field, now a professor at Nebraska.
+And he's famous for the website PolitiFact, but he made a lot of other sites in St. Pete.
+And this is one that's kind of gone now that he did about real estate.
+And it had a page for every neighborhood in Tampa Bay or the Tampa area.
+And there was a map, which is now dead.
+This is from the Internet Archive.
+I had to kind of, you know, pry this out.
+And it had the latest home listings and a list.
+And then it had this paragraph right there.
+And I read this paragraph, and it was what Matt calls a mad lip, right?
+It was an automated paragraph written by an algorithm that said, based on this week's data in this neighborhood, here's the story, right?
+And for every neighborhood and every page, there was this same paragraph, but it had different information.
+And it was up or down, depending on the trend in that area.
+And I saw that, and I said, my God, that's news, right?
+That's not even, you know, it's like an automated news story.
+And that kind of inspired me to think about what I was doing in a different way.
+And at the Los Angeles Times, I've spent some time over the last few years experimenting with that.
+And I want to kind of show you how that process works and how you can create algorithms that write the news for you, right?
+And also find it, right?
+So what I'm going to do is teach you how to Dougie, right?
+So, all right, so let's go.
+Here's how you Dougie.
+Okay, one, you find a simple, repetitive, and moving data stream that updates every day or with some frequency, right?
+Like home sales.
+In this case, this is an email that I receive with a list of blacked out other people every morning from the Los Angeles Police Department at about 2.30 in the morning.
+And it includes a CSV file spreadsheet that has everyone arrested the previous day and booked by the LAPD.
+Right, so I have my structured, simple, repetitive, moving data stream that lands in my inbox every day, right?
+I then do a pull and a parse, and then I put it on loop, right?
+So I write a script that goes into my inbox every day, looks for that email, looks for that attachment, pulls it in, parses it, loads it into a database.
+And then I set up a system so that that just runs every day.
+It's just an automated data pull, right?
+Then I can, through, this is where the fun part comes in, the algorithm, that you can then write code that will ask and answer the common questions that a reporter would ask when they were looking at that same data set.
+There's so much of what we do, these questions we ask, what was the biggest, what was the most recent, these sort of basic journalistic questions we ask out of data that really can be turned into algorithms or code when you think about it.
+And these are just some examples that I was, you know, that I thought of looking at this data set, right?
+And so how, and then that can turn itself into code, right?
+So is this the first code of the conference?
+Right? If it is, I'm pretty proud.
+So this is an example of, like, you know, every day you would want to know, hey, what were the most severe things that people got arrested for yesterday?
+What were the biggest deals?
+And a proxy for that in the data is what their bail amount was set for.
+You know, the worst thing you did, the higher your bail, most likely, right?
+So this is just a little bit of code that every day goes through that spreadsheet, sorts it by from bail from highest to lowest, slices it off and says, hey, I've got the list of the biggest bails, right?
+And what do I do with that?
+Oh, I send it out in an email to all the reporters who cover the police in crime for the L.A. Times, right?
+And we don't just get the list of the biggest bails and send them that.
+We also keep a watch list, right?
+We want to know any time anyone who's a minister or a producer or a musician in their occupation field gets arrested, and that gets flagged, right?
+So instead of having to comb through this book every day as a reporter and spend all their time doing it, the computer can automate a lot of that process, right?
+And do it for you, and then send you in a nice email.
+You can see that's like an alert.
+You also could make, like, a dashboard to drill down.
+This is an internal web page we keep at the L.A. Times that just has everybody arrested yesterday.
+But it also has some search features, so when someone is arrested for a major crime, we can go look for previous arrests, et cetera, et cetera.
+It's a research tool internally for us to use.
+And this is an example of another piece of code that then takes, like, a structured data set like that and turns it into a sentence, right?
+Where, you know, it sort of diagnoses certain things about the data and then writes a mad lib, right?
+It's a little sentence that kind of tells you something about it.
+This actually isn't crime.
+This is census data that we did for a neighborhood site we keep, and it wrote this sentence.
+So for every neighborhood in Los Angeles, we can write a sentence that tells you one, the data point that's interesting to you, and some contextual comparison along with it that links to other stuff, right?
+And so that way, I wrote, you know, 250 of those by writing it once with a template.
+So, but really, what do you get out of doing this sort of thing, right?
+Well, one, you get breaking news, right?
+So this is an example where Puck from the real world was arrested.
+Not the biggest deal, but we scooped TMZ and had the news first in the world because the alert system caught it, right?
+We're watching closely through computer programming.
+Two, it's a way around PIOs.
+One of the biggest crimes in Los Angeles last year was on opening day of the Dodgers season.
+A man was brutally beaten, a San Francisco Giants fan, and he quickly became a symbol for the decay of the Dodgers organization and our former team owner, Frank McCourt.
+And the police arrested the wrong guy the first time.
+They screwed it up.
+And when they arrested the first guy, there was a big press conference.
+Oh, man, everybody's got to know, right?
+We got the guy.
+Well, it turns out it wasn't the guy.
+And when they finally find the people who really did it, they tried to kind of hide who they were arresting.
+There was like this, they didn't want to tell the media right away who they were going to go busting.
+But I had the data.
+I didn't have to ask the PIO.
+It was in my system.
+It arrived at two in the morning, and we were the first reporters knocking on those neighbors' doors, figuring out who these guys were.
+Because the system got us a step ahead, right?
+You also get instant analysis.
+So Occupy LA was camped out across in the LA Times for three months.
+There was like a three-day standoff with the police where they came and cracked down and rolled everybody out.
+When they did the big arrests, a couple hundred people were able to instantly do a census of all the people that were arrested and tell you something about them using this data.
+We actually published a list of all the people who were arrested and some other things about them that were in there.
+You get the automated copy.
+This is from our blog, The Homicide Report, where we try to track every homicide that happens in Los Angeles County.
+You have a post for every person.
+We don't have enough resources to do a lot of reporting on all of that, but certain amounts of information based on the coroner's data can be automated.
+And then we write that.
+That's the bare minimum for every post, is the automated paragraph.
+And then as we gather more information, we then write through that and add more to it.
+Right?
+This is a similar thing we do.
+This is an automated blog post written by the computer that runs a couple times a week when we get new LAPD crime data.
+It analyzes it for trends, and it tells you what neighborhoods in Los Angeles this most recent week have had in having an uptick in crime historically.
+Right?
+And here's another thing from our crime site where it's all automated news.
+Same thing with earthquakes.
+My colleague Ken Schwenke did this.
+When an earthquake happens, everybody's going to the USGS site, copying and pasting.
+Where's the link?
+Fuck, I can't find it.
+Where is it?
+Ah!
+We don't got to do that.
+It's structured data.
+We have a computer system that just sits.
+Uh-oh.
+I better hurry.
+So we have a computer system that just automatically writes a blog post and sends it in as soon as it happens.
+Anyway, there's a lot of other stuff you can do this with, which would be fun.
+There's companies that are trying to make money off it, like Narrative Science is really good.
+They do some awesome stuff.
+I'm just making news.
+They're trying to make money.
+Who's smarter?
+Um...
+I'm out of juice, right?
+And so I had a big finish to try to make a more serious point and kind of talk a little trash.
+I'm sad I won't going to make it.
+But that Narrative Science guy, the next slide was a quote that he delivered to the New York Times
+where he said, in full visionary startup, I am the future mode, right?
+He said, within five years, a computer program will win the Pulitzer Prize.
+And I'll be damned if it's not my software.
+Right?
+Well, I hate to break it to him, but guess what?
+Computer programs have already won the Pulitzer Prize.
+They've won a half dozen of them, starting in 1989 with Bill Dedmon's story in Atlanta.
+Right?
+Color of money.
+Color of money, that's right.
+And my point is, is that what we should really strive for is not just to automate for automation's sake
+or to save money, but what will really be great is if we can automate and make it easier
+and lower the barrier to do the kind of work that wins the Pulitzer Prize.
+That's already been done by people that come before us, and we need to be respectful
+and see what's in that tradition that's worth saving and worth automating
+and worth making more efficient rather than just throwing it out, acting like it doesn't exist.
+Because, you know, I work at an old line media institution.
+I complain about it every day.
+It drives me nuts.
+But there's also a hubris in the startup community around this idea that, you know,
+that they don't need to learn anything from the past.
+So there's nothing worth saving about journalism.
+There's a lot worth saving, and there's a lot worth doing.
+And we're the people who are going to do it.
+I'm getting emotional.
+But it's just, you know, okay, some old newspaper guy didn't like your blog.
+Get over it.
+Write a story that's worth reading.
+Write a story that's worth Brian's mom reading.
+That's how I can do it.
+I'm done.
+All right.

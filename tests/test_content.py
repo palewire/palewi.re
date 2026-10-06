@@ -8,9 +8,15 @@ import yaml
 
 from coltrane.content_loaders import (
     ContentError,
+    Doc,
+    group_apps,
+    group_code,
+    load_apps,
     load_awards,
     load_bots,
+    load_clip_updates,
     load_clips,
+    load_code,
     load_docs,
     load_posts,
     load_slogans,
@@ -81,6 +87,150 @@ def test_awards_empty_list_ok(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# apps.yaml
+# ---------------------------------------------------------------------------
+
+
+def test_apps_yaml_loads():
+    apps = load_apps()
+    assert len(apps) == 15
+    assert all(app.description for app in apps)
+    descriptions = {app.title: app.description for app in apps}
+    assert descriptions["the e.e. cummings free poetry archive"].startswith(
+        "A collection of the work of Edward Estlin Cummings"
+    )
+    assert descriptions["fivethirtyeightindex"].startswith("Explore 38,593")
+    assert [category.title for category in group_apps(apps)] == [
+        "Archiving",
+        "Databases",
+        "Social media bots",
+        "Personal websites",
+    ]
+
+
+def test_app_requires_http_url(tmp_path):
+    path = tmp_path / "apps.yaml"
+    path.write_text("apps:\n  - title: Example\n    type: personal\n    url: not-a-url\n")
+
+    with pytest.raises(ContentError, match="HTTP\\(S\\) URL"):
+        load_apps(path)
+
+
+def test_app_duplicate_url_raises(tmp_path):
+    path = tmp_path / "apps.yaml"
+    path.write_text(
+        "apps:\n"
+        "  - title: One\n    type: personal\n    url: https://example.com/\n"
+        "  - title: Two\n    type: personal\n    url: https://example.com/\n"
+    )
+
+    with pytest.raises(ContentError, match="duplicate"):
+        load_apps(path)
+
+
+def test_apps_empty_list_ok(tmp_path):
+    path = tmp_path / "apps.yaml"
+    path.write_text("apps: []\n")
+    assert load_apps(path) == []
+
+
+# ---------------------------------------------------------------------------
+# code.yaml
+# ---------------------------------------------------------------------------
+
+
+def test_code_yaml_loads_as_one_alphabetical_catalog():
+    projects = load_code()
+    assert len(projects) == 295
+    assert [project.title.casefold() for project in projects] == sorted(
+        project.title.casefold() for project in projects
+    )
+    assert [category.title for category in group_code(projects)] == [
+        "Python",
+        "JavaScript",
+        "Data",
+        "Other",
+        "Inactive",
+    ]
+
+
+def test_code_yaml_includes_nominated_repositories():
+    projects = load_code()
+    urls = {project.url for project in projects}
+
+    assert {
+        "https://github.com/palewire/californiacivicdata.org",
+        "https://github.com/palewire/cee-agriculture-climate-analysis",
+        "https://github.com/palewire/cummings.ee",
+        "https://github.com/palewire/cuny-jour-critique-wheel",
+        "https://github.com/palewire/datawrapper-mcp",
+        "https://github.com/palewire/datasette",
+        "https://github.com/palewire/fivethirtyeightindex.com",
+        "https://github.com/palewire/metar-weather-bot",
+        "https://github.com/palewire/moneyinpolitics.wtf",
+        "https://github.com/palewire/muckrockbot",
+        "https://github.com/palewire/news-homepages",
+        "https://github.com/palewire/news-homepages-runner",
+        "https://github.com/palewire/nyc-open-data-monitor",
+        "https://github.com/palewire/old-la-photos",
+        "https://github.com/palewire/palewi.re",
+        "https://github.com/palewire/random-pigeon-gpt",
+        "https://github.com/palewire/reuters-jobs",
+        "https://github.com/palewire/sanbornmaps",
+        "https://github.com/palewire/savemy.news",
+        "https://github.com/palewire/studs-terkel-podcast",
+    }.issubset(urls)
+
+
+def test_code_yaml_includes_remaining_profile_readme_repositories():
+    projects = load_code()
+    urls = {project.url for project in projects}
+
+    assert {
+        "https://github.com/data-liberation-project/aphis-inspection-reports",
+        "https://github.com/datadesk/boundaries.latimes.com",
+        "https://github.com/datadesk/latimes-document-stacker",
+        "https://github.com/datadesk/latimes-table-stacker",
+        "https://github.com/kip-claw/kip-claw",
+        "https://github.com/orchestral-motion/orchestral-motion.github.io",
+        "https://github.com/palewire/campaign_finance",
+        "https://github.com/palewire/cuny-jour-73361-coding-the-news",
+        "https://github.com/palewire/everytractcount",
+        "https://github.com/palewire/first-athena-query",
+        "https://github.com/palewire/first-automated-chart",
+        "https://github.com/palewire/first-basemap",
+        "https://github.com/palewire/first-django-admin",
+        "https://github.com/palewire/first-github-scraper",
+        "https://github.com/palewire/first-llm-classifier",
+        "https://github.com/palewire/first-news-app",
+        "https://github.com/palewire/first-pmtiles-map",
+        "https://github.com/palewire/first-pull-request",
+        "https://github.com/palewire/first-python-notebook",
+        "https://github.com/palewire/first-visual-story",
+        "https://github.com/palewire/first-web-scraper",
+        "https://github.com/palewire/go-big-with-github-actions",
+        "https://github.com/palewire/mlb-postseason-bot",
+        "https://github.com/palewire/nicar18-datadesk-family-reunion",
+        "https://github.com/palewire/nicar19-datadesk-family-reunion",
+        "https://github.com/palewire/pastpages.org",
+        "https://github.com/palewire/questionheds",
+        "https://github.com/palewire/twitter-mistadobalina",
+    }.issubset(urls)
+
+
+def test_code_rejects_duplicate_titles(tmp_path):
+    path = tmp_path / "code.yaml"
+    path.write_text(
+        "code:\n"
+        "  - title: Example\n    type: python\n    url: https://github.com/example/one\n"
+        "  - title: example\n    type: python\n    url: https://github.com/example/two\n"
+    )
+
+    with pytest.raises(ContentError, match="duplicate code project title"):
+        load_code(path)
+
+
+# ---------------------------------------------------------------------------
 # clips.yaml
 # ---------------------------------------------------------------------------
 
@@ -101,6 +251,29 @@ def test_clip_invalid_type_raises(tmp_path):
     p.write_text("clips:\n  - title: T\n    type: invalid\n    date: '2024-01-01'\n    url: http://x.com\n")
     with pytest.raises(ContentError, match="type"):
         load_clips(p)
+
+
+def test_clip_updates_remove_catalog_duplicates(tmp_path, monkeypatch):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Same title\n    type: software\n    date: '2024-01-03'\n    url: https://updates.example.com/\n"
+        "  - title: Same URL\n    type: software\n    date: '2024-01-02'\n    url: https://code.example.com/\n"
+        "  - title: Release name\n    catalog_title: Same title\n    type: software\n"
+        "    date: '2024-01-01'\n    url: https://updates.example.com/alias/\n"
+        "  - title: New release\n    type: software\n    date: '2023-01-01'\n    url: https://updates.example.com/new/\n"
+    )
+    monkeypatch.setattr("coltrane.content_loaders.CONTENT_PATH", tmp_path)
+    catalog = [
+        Doc(
+            title="Same title",
+            type="software",
+            url="https://docs.example.com/",
+            repository_url="https://code.example.com/",
+        )
+    ]
+
+    assert [clip.title for clip in load_clip_updates("software", catalog)] == ["New release"]
 
 
 def test_clip_duplicate_url_raises(tmp_path):
@@ -128,11 +301,55 @@ def test_clip_accepts_yaml_date_values(tmp_path):
     assert load_clips(p)[0].date == datetime.date(2024, 1, 1)
 
 
+def test_clip_only_links_http_urls(tmp_path):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Linked\n    type: story\n    date: '2024-01-01'\n    url: https://example.com/\n"
+        "  - title: Lost\n    type: story\n    date: '2023-01-01'\n    url: Original URL lost\n"
+    )
+
+    linked, lost = load_clips(path)
+    assert linked.is_linkable
+    assert not lost.is_linkable
+
+
+def test_clip_can_link_to_preserved_copy(tmp_path):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Preserved\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/gone\n"
+        "    link_url: https://web.archive.org/web/20240101/https://example.com/gone\n"
+    )
+
+    clip = load_clips(path)[0]
+    assert clip.display_url.startswith("https://web.archive.org/")
+    assert clip.is_linkable
+
+
+def test_clip_link_url_error_names_the_field(tmp_path):
+    path = tmp_path / "clips.yaml"
+    path.write_text(
+        "clips:\n"
+        "  - title: Broken fallback\n"
+        "    type: story\n"
+        "    date: '2024-01-01'\n"
+        "    url: https://example.com/gone\n"
+        "    link_url: not-a-url\n"
+    )
+
+    with pytest.raises(ContentError, match="field 'link_url' must be an HTTP\\(S\\) URL"):
+        load_clips(path)
+
+
 def test_clip_accepts_wayback_metadata(tmp_path):
     p = tmp_path / "clips.yaml"
     p.write_text(
         "clips:\n"
-        "  - title: T\n"
+        "  - title: 'A short title: A talk'\n"
         "    type: story\n"
         "    date: '2024-01-01'\n"
         "    url: https://example.com/story\n"
@@ -193,12 +410,256 @@ def test_talks_sorted_descending_date():
     assert dates == sorted(dates, reverse=True)
 
 
+def test_big_local_news_talk_has_no_unavailable_materials():
+    talk = next(talk for talk in load_talks() if talk.title == "What is Big Local News?")
+
+    assert talk.video_url == ""
+    assert talk.slides_url == ""
+    assert talk.archive_url == ""
+
+
+def test_data_journalism_workshop_uses_locally_hosted_recording():
+    talk = next(talk for talk in load_talks() if talk.title == "Data Journalism Workshop")
+
+    assert talk.get_absolute_url() == "/talks/data-journalism-workshop/"
+    assert talk.local_video_url == "/media/talks/data-journalism-workshop/video.mp4"
+    assert talk.captions_url == "/static/talks/data-journalism-workshop/captions.vtt"
+    assert talk.transcript_text_url == "/static/talks/data-journalism-workshop/transcript.txt"
+    assert talk.slides_url == ""
+
+
+def test_what_i_learned_talk_preserves_vimeo_source_and_adds_local_assets():
+    talk = next(talk for talk in load_talks() if talk.slug == "what-i-learned")
+
+    assert talk.title == "What I learned"
+    assert talk.venue == "Union Club"
+    assert talk.location == "Chicago"
+    assert talk.date == datetime.date(2017, 4, 20)
+    assert talk.video_url == "https://vimeo.com/214875675#t=407s"
+    assert talk.local_video_url == "/media/talks/what-i-learned/video.mp4"
+    assert talk.transcript_text_url == "/static/talks/what-i-learned/transcript.txt"
+    assert talk.captions_url == "/static/talks/what-i-learned/captions.vtt"
+
+
+def test_beyond_jms_talk_has_a_recording_and_no_dead_materials() -> None:
+    """Keep the original video source and replace dead materials with local assets.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_content.py -k beyond_jms``.
+    """
+    talk = next(talk for talk in load_talks() if talk.slug == "beyond-jms-the-power-of-python")
+
+    assert talk.title == "Beyond JMS: The power of Python"
+    assert talk.byline == "Ben Welsh and Iris Lee"
+    assert talk.venue == "San Diego State University"
+    assert talk.date == datetime.date(2021, 9, 24)
+    assert talk.video_url == "https://www.youtube.com/watch?v=QYCTVZLbbCU"
+    assert talk.get_absolute_url() == "/talks/beyond-jms-the-power-of-python/"
+    assert talk.local_video_url == "/media/talks/beyond-jms-the-power-of-python/video.webm"
+    assert talk.local_video_mime_type == "video/webm"
+    assert talk.transcript_template == "coltrane/talks/beyond-jms-the-power-of-python-transcript.html"
+    assert talk.transcript_text_url == "/static/talks/beyond-jms-the-power-of-python/transcript.txt"
+    assert talk.captions_url == "/static/talks/beyond-jms-the-power-of-python/captions.vtt"
+    assert talk.slides_url == ""
+    assert talk.deck_url == ""
+
+
+def test_data_and_graphics_talk_has_a_recording_and_archived_slides() -> None:
+    """Keep the recovered recording and archive the unavailable slides.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_content.py -k data_and_graphics``.
+    """
+    talk = next(talk for talk in load_talks() if talk.slug == "data-and-graphics-an-introduction")
+
+    assert talk.title == "DATA AND GRAPHICS: An introduction"
+    assert talk.date == datetime.date(2020, 10, 30)
+    assert talk.video_url == "https://www.youtube.com/watch?v=sSEiBF_RAMc&feature=emb_title"
+    assert talk.local_video_url == "/media/talks/data-and-graphics-an-introduction/video.mp4"
+    assert talk.poster_url == "/media/talks/data-and-graphics-an-introduction/presentation.jpg"
+    assert talk.transcript_template == "coltrane/talks/data-and-graphics-an-introduction-transcript.html"
+    assert talk.transcript_text_url == "/static/talks/data-and-graphics-an-introduction/transcript.txt"
+    assert talk.captions_url == "/static/talks/data-and-graphics-an-introduction/captions.vtt"
+    assert talk.slides_url == ""
+    assert talk.original_slides_url.endswith("/edit?usp=sharing")
+    assert talk.archive_url.startswith("https://web.archive.org/web/20201101062410/")
+
+
+def test_local_data_journalism_podcast_has_audio_sources_and_transcript():
+    talk = next(talk for talk in load_talks() if talk.slug == "local-data-journalism-podcast")
+
+    assert talk.audio_url.startswith("https://podcasters.spotify.com/pod/show/ddjpodcast/")
+    assert talk.audio_download_url.startswith("https://anchor.fm/s/47aac444/podcast/play/47380538/")
+    assert talk.local_audio_url == "/media/talks/local-data-journalism-podcast/audio.m4a"
+    assert talk.transcript_text_url == "/static/talks/local-data-journalism-podcast/transcript.txt"
+
+
+def test_new_appearance_talks_have_hosted_recordings_and_text_assets():
+    talks = {talk.slug: talk for talk in load_talks()}
+
+    showing_your_work = talks["showing-your-work-with-ben-welsh"]
+    assert showing_your_work.audio_url.startswith("https://creators.spotify.com/pod/profile/ddjpodcast/")
+    assert showing_your_work.local_audio_url == "/media/talks/showing-your-work-with-ben-welsh/audio.m4a"
+    assert showing_your_work.captions_url == "/static/talks/showing-your-work-with-ben-welsh/captions.vtt"
+
+    ire_radio = talks["a-conversation-with-ben-welsh"]
+    assert ire_radio.audio_url == "https://soundcloud.com/ire-nicar/a-conversation-with-ben-welsh"
+    assert ire_radio.local_audio_url == "/media/talks/a-conversation-with-ben-welsh/audio.m4a"
+    assert ire_radio.transcript_text_url == "/static/talks/a-conversation-with-ben-welsh/transcript.txt"
+
+    unspun = talks["unspun-data-journalism"]
+    assert unspun.audio_url.startswith("https://pocketcasts.com/podcast/unspun/")
+    assert unspun.local_audio_url == "/media/talks/unspun-data-journalism/audio.mp3"
+    assert unspun.captions_url == "/static/talks/unspun-data-journalism/captions.vtt"
+
+    reuters = talks["understanding-europes-heatwave"]
+    assert reuters.video_url == "https://www.youtube.com/watch?v=me0DlYHkJKE&t=28s"
+    assert reuters.local_video_url == "/media/talks/understanding-europes-heatwave/video.webm"
+    assert reuters.local_video_mime_type == "video/webm"
+    assert reuters.transcript_text_url == "/static/talks/understanding-europes-heatwave/transcript.txt"
+
+
+def test_talk_audio_fields_load(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: Podcast\n"
+        "    venue: A podcast\n"
+        "    location: Remote\n"
+        "    date: '2024-01-01'\n"
+        "    audio_url: https://podcasts.example.com/episode\n"
+        "    audio_download_url: https://cdn.example.com/episode.m4a\n"
+        "    local_audio_url: /media/talks/podcast/audio.mp3\n"
+    )
+
+    talk = load_talks(p)[0]
+
+    assert talk.audio_url == "https://podcasts.example.com/episode"
+    assert talk.audio_download_url == "https://cdn.example.com/episode.m4a"
+    assert talk.local_audio_url == "/media/talks/podcast/audio.mp3"
+
+
 def test_talk_optional_fields_default_empty(tmp_path):
     p = tmp_path / "talks.yaml"
     p.write_text("talks:\n  - title: T\n    venue: V\n    location: L\n    date: '2024-01-01'\n")
     talks = load_talks(p)
     assert talks[0].video_url == ""
+    assert talks[0].audio_url == ""
+    assert talks[0].audio_download_url == ""
+    assert talks[0].local_audio_url == ""
     assert talks[0].slides_url == ""
+    assert talks[0].guide_url == ""
+    assert talks[0].archive_url == ""
+    assert talks[0].slug == ""
+    assert talks[0].deck_url == ""
+    assert talks[0].short_title == ""
+    assert talks[0].byline == ""
+    assert talks[0].deck_aspect_ratio == ""
+    assert talks[0].notes_text_url == ""
+    assert talks[0].transcript_text_url == ""
+    assert talks[0].youtube_embed_url == ""
+
+
+def test_talk_detail_fields_and_slug_load(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: 'A short title: A talk'\n"
+        "    venue: V\n"
+        "    location: L\n"
+        "    date: '2024-01-01'\n"
+        "    slug: a-talk\n"
+        "    short_title: A short title\n"
+        "    byline: A Speaker and Another Speaker\n"
+        "    deck_url: /static/talks/a-talk/\n"
+        "    deck_aspect_ratio: 16 / 9\n"
+        "    notes_template: coltrane/talks/a-talk-notes.html\n"
+        "    notes_text_url: /static/talks/a-talk/notes.txt\n"
+        "    transcript_template: coltrane/talks/a-talk-transcript.html\n"
+        "    transcript_text_url: /static/talks/a-talk/transcript.txt\n"
+    )
+
+    talk = load_talks(p)[0]
+
+    assert talk.get_absolute_url() == "/talks/a-talk/"
+    assert talk.deck_url == "/static/talks/a-talk/"
+    assert talk.short_title == "A short title"
+    assert talk.byline == "A Speaker and Another Speaker"
+    assert talk.deck_aspect_ratio == "16 / 9"
+    assert talk.display_subtitle == "A talk"
+    assert talk.notes_template == "coltrane/talks/a-talk-notes.html"
+    assert talk.notes_text_url == "/static/talks/a-talk/notes.txt"
+    assert talk.transcript_template == "coltrane/talks/a-talk-transcript.html"
+    assert talk.transcript_text_url == "/static/talks/a-talk/transcript.txt"
+
+
+def test_talk_derives_privacy_enhanced_youtube_embed_url(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: A talk\n"
+        "    venue: V\n"
+        "    location: L\n"
+        "    date: '2024-01-01'\n"
+        "    video_url: https://www.youtube.com/watch?v=2RgPoy05AnA\n"
+    )
+
+    assert load_talks(p)[0].youtube_embed_url == "https://www.youtube-nocookie.com/embed/2RgPoy05AnA"
+
+
+def test_talk_archive_url_must_be_a_wayback_snapshot(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: T\n"
+        "    venue: V\n"
+        "    location: L\n"
+        "    date: '2024-01-01'\n"
+        "    archive_url: https://example.com/archive\n"
+    )
+
+    with pytest.raises(ContentError, match="archive_url"):
+        load_talks(p)
+
+
+@pytest.mark.parametrize("deck_aspect_ratio", ["16:9", "0 / 9", "16 / 0", "wide"])
+def test_talk_rejects_invalid_deck_aspect_ratio(tmp_path, deck_aspect_ratio):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: T\n"
+        "    venue: V\n"
+        "    location: L\n"
+        "    date: '2024-01-01'\n"
+        f"    deck_aspect_ratio: {deck_aspect_ratio}\n"
+    )
+
+    with pytest.raises(ContentError, match="deck_aspect_ratio"):
+        load_talks(p)
+
+
+def test_talk_duplicate_slug_raises(tmp_path):
+    p = tmp_path / "talks.yaml"
+    p.write_text(
+        "talks:\n"
+        "  - title: One\n    venue: V\n    location: L\n    date: '2024-01-01'\n    slug: a-talk\n"
+        "  - title: Two\n    venue: V\n    location: L\n    date: '2024-01-02'\n    slug: a-talk\n"
+    )
+
+    with pytest.raises(ContentError, match="duplicate talk slug"):
+        load_talks(p)
 
 
 def test_talk_missing_required_field_raises(tmp_path):
@@ -448,6 +909,8 @@ def test_bots_empty_list_ok(tmp_path):
     ("loader", "key"),
     [
         (load_awards, "awards"),
+        (load_apps, "apps"),
+        (load_code, "code"),
         (load_clips, "clips"),
         (load_talks, "talks"),
         (load_docs, "docs"),

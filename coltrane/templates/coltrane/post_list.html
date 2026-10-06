@@ -1,6 +1,7 @@
 {% extends "coltrane/base.html" %}
 
 {% block title %}posts . {{ block.super }}{% endblock %}
+{% block description %}A complete list of articles written for this site.{% endblock %}
 
 {% block canonicalurl %}https://palewi.re/posts/{% endblock %}
 
@@ -44,20 +45,27 @@
     <div class="interiorlist twelvecol last">
         <h1>Posts</h1>
         <p class="description">A complete list of articles written for this site</p>
+            {% if object_list %}
+        <section>
         {% for object in object_list %}
             {% ifchanged object.pub_date.year %}
+            {% if not forloop.first %}</ul>{% endif %}
             <div class="row">
-                <div class="section-hed twelvecol last">
+                <h2 class="section-hed twelvecol last">
                     {{ object.pub_date|date:"Y" }}
-                </div>
+                </h2>
             </div>
+            <ul class="catalog-list">
             {% endifchanged %}
-            <div class="row">
+            <li class="row">
                 <article class="listitem twelvecol last">
                     {{ object.pub_date|date:"N d" }} •
                     <a href="{{ object.get_absolute_url }}">{{ object }}</a>
                 </article>
-            </div>
+            </li>
         {% endfor %}
-    </div>
-{% endblock %}
+            </ul>
+        </section>
+            {% endif %}
+        </div>
+    {% endblock %}

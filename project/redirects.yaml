@@ -10,10 +10,8 @@ redirects:
     destination: /
   - source: bio/
     destination: /who-is-ben-welsh/
-  - source: apps/
-    destination: /work/
-  - source: clips/
-    destination: /work/
+  - source: work/
+    destination: /clips/
   - source: free-flu-shots/
     destination: https://web.archive.org/web/20130718063144/palewi.re/free-flu-shots/
   - source: random-oscars-ballot/

@@ -10,7 +10,8 @@
 
 ## Changelog
 
-<!-- Apply exactly one of these labels before merging. -->
+<!-- Required: apply exactly one changelog category before merging. The Lint
+     check will fail until exactly one is applied. See RELEASING.md. -->
 
 - [ ] `feature`
 - [ ] `improvement`

@@ -1,0 +1,712 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.720
+ If you've been reading the news this week or perhaps walking outside, you would know
+
+00:00:05.720 --> 00:00:11.060
+ that Europe is absolutely boiling.
+
+00:00:11.060 --> 00:00:16.500
+ And the people living under this heat dome, which is hovering over much of Western Europe,
+
+00:00:16.500 --> 00:00:19.880
+ are struggling to cope.
+
+00:00:19.880 --> 00:00:25.660
+ In London, teachers spray children with a hose to help cool down in the blistering heat.
+
+00:00:25.660 --> 00:00:31.380
+ And Prague beleaguered horses cool off in a river. In Paris, overheated shoppers line
+
+00:00:31.380 --> 00:00:37.020
+ up to buy fans.
+
+00:00:37.020 --> 00:00:44.720
+ Tereen Lebousit says the 100-degree heat wave has been "hell on earth."
+
+00:00:44.720 --> 00:00:49.520
+ These are the scenes this week across Europe, from Bordeaux to Barcelona.
+
+00:00:49.520 --> 00:00:55.960
+ The continent has endured a brutal, record-smashing heat wave that has turned deadly.
+
+00:00:55.960 --> 00:01:02.540
+ France saw a huge spike in drownings as people tried to beat the heat in the water.
+
+00:01:02.540 --> 00:01:07.980
+ And if you feel like this kind of weather is new, abnormal, you're right.
+
+00:01:07.980 --> 00:01:13.880
+ And if there are any doubt, we've just launched the Reuters Climate Monitor, which is an interactive
+
+00:01:13.880 --> 00:01:20.000
+ map that tracks just how abnormal the current high temperatures are across the globe.
+
+00:01:20.000 --> 00:01:25.760
+ So on today's On Assignment, we'll sit down with Ben Welsh, the data journalist behind
+
+00:01:25.760 --> 00:01:32.160
+ the project, to break down what the data actually shows, how unusual this moment really is,
+
+00:01:32.160 --> 00:01:38.040
+ and what it tells us about where this summer, and our climate, is headed next.
+
+00:01:38.040 --> 00:01:39.760
+ I'm your host, Jonah Green.
+
+00:01:43.880 --> 00:01:54.780
+ Ben Welsh is an investigative journalist who focuses on data-driven reporting and newsroom
+
+00:01:54.780 --> 00:01:55.880
+ tools.
+
+00:01:55.880 --> 00:01:58.480
+ And he joins us here today on the show.
+
+00:01:58.480 --> 00:02:00.760
+ Thanks for coming on, Ben.
+
+00:02:00.760 --> 00:02:01.760
+ Thanks for having me.
+
+00:02:01.760 --> 00:02:02.760
+ I'm excited to be here.
+
+00:02:02.760 --> 00:02:04.720
+ That's the spirit.
+
+00:02:04.720 --> 00:02:07.140
+ Where are you currently?
+
+00:02:07.140 --> 00:02:09.720
+ Is it also very hot where you are?
+
+00:02:09.720 --> 00:02:15.560
+ I'm talking to you right now from Money Making Manhattan, the center of it all, where I work
+
+00:02:15.560 --> 00:02:20.280
+ many days in the Times Square newsroom, but I'm coming to you from my home here on 28th
+
+00:02:20.280 --> 00:02:21.280
+ Street.
+
+00:02:21.280 --> 00:02:22.280
+ It looks nice.
+
+00:02:22.280 --> 00:02:25.120
+ It's a sticky, warm day that we have here today in New York.
+
+00:02:25.120 --> 00:02:30.000
+ I wouldn't call it pleasant, but it's not as dangerous as the heat we're reporting on
+
+00:02:30.000 --> 00:02:31.280
+ in other parts of the world.
+
+00:02:31.280 --> 00:02:32.280
+ Yeah.
+
+00:02:32.280 --> 00:02:38.560
+ I mean, it is, I was in New York a few days ago, it was oddly cool, which was a weird contrast
+
+00:02:38.560 --> 00:02:46.240
+ because New York City, especially, is no stranger to these disgustingly hot, humid summers.
+
+00:02:46.240 --> 00:02:53.120
+ And it's not uncommon for it to be 100 degrees Fahrenheit, which is 37 centigrade.
+
+00:02:53.120 --> 00:02:57.120
+ But Europe seems to be having a really hard time with these numbers.
+
+00:02:57.120 --> 00:03:05.240
+ And as you see the death toll coming out of these countries, why is Europe struggling
+
+00:03:05.240 --> 00:03:07.120
+ so much with this kind of heat?
+
+00:03:07.120 --> 00:03:11.920
+ Well, currently, there's a high pressure system, not to get too nerdy right away out the gate,
+
+00:03:11.920 --> 00:03:17.560
+ but there's a dome, there's a kind of air trapped over Europe, what's called an Omega
+
+00:03:17.560 --> 00:03:18.560
+ wave, I'm told.
+
+00:03:18.560 --> 00:03:22.880
+ Or it's really just a big bubble of hot air that has dried out the area and has brought
+
+00:03:22.880 --> 00:03:27.960
+ those temperatures up to highs that are rarely seen in that part of the world.
+
+00:03:27.960 --> 00:03:32.080
+ And there's one forecaster in France who's saying it's the highest temperature ever recorded.
+
+00:03:32.080 --> 00:03:36.000
+ We'll see if that holds up as people scrub the data in the coming days.
+
+00:03:36.000 --> 00:03:37.000
+ But it's really hot.
+
+00:03:37.000 --> 00:03:41.760
+ You might live in a place where 90 degrees Fahrenheit doesn't seem that hot to you.
+
+00:03:41.760 --> 00:03:45.540
+ And I think it's the to you and to them that's the key piece of it.
+
+00:03:45.540 --> 00:03:52.680
+ Because heat is dangerous for absolute reasons to talk in a mathy way, a high number is a
+
+00:03:52.680 --> 00:03:53.680
+ high number.
+
+00:03:53.680 --> 00:03:56.320
+ But it's also relative to where you live.
+
+00:03:56.320 --> 00:03:59.640
+ And that has to do with the infrastructure of where you live.
+
+00:03:59.640 --> 00:04:01.480
+ Do you have air conditioning?
+
+00:04:01.480 --> 00:04:02.480
+ Yes or no.
+
+00:04:02.480 --> 00:04:07.320
+ And also kind of cultural factors having to do with people's lifestyle, do they spend
+
+00:04:07.320 --> 00:04:13.840
+ a lot of time indoors or outdoors and do they are they practiced at protecting themselves
+
+00:04:13.840 --> 00:04:16.080
+ from heat?
+
+00:04:16.080 --> 00:04:20.840
+ Why is El Nino so powerful this year?
+
+00:04:20.840 --> 00:04:21.840
+ Sure.
+
+00:04:21.840 --> 00:04:26.240
+ So El Nino is a cyclical thing that's been going on long before you and I are born.
+
+00:04:26.240 --> 00:04:33.000
+ Basically, every few years, the sea temperature, the heat in the water, you know, in the eastern
+
+00:04:33.000 --> 00:04:38.200
+ Pacific kind of by Peru and Central America, just south of the United States and Mexico
+
+00:04:38.200 --> 00:04:39.800
+ will heat up.
+
+00:04:39.800 --> 00:04:46.320
+ And that process, which is about every two to seven years, has a ripple effect that goes
+
+00:04:46.320 --> 00:04:50.600
+ off across the entire globe, leading to lots and lots of different changes to our weather
+
+00:04:50.600 --> 00:04:55.120
+ that have become fairly predictable as scientists have tested it and measured it through the
+
+00:04:55.120 --> 00:04:56.120
+ years.
+
+00:04:56.120 --> 00:04:59.600
+ And one thing it does is it leads to a weaker hurricane season, typically, though you still
+
+00:04:59.600 --> 00:05:02.320
+ can have dangerous hurricanes in an El Nino year.
+
+00:05:02.320 --> 00:05:09.360
+ It leads to more rainfall in Southern California and at maybe the most global level, it tends
+
+00:05:09.360 --> 00:05:13.880
+ to lead to higher temperatures all across the planet and in a few particular places
+
+00:05:13.880 --> 00:05:14.960
+ as well.
+
+00:05:14.960 --> 00:05:21.400
+ And so as of this week, the U.S. Weather Service is saying we are entering our first El Nino
+
+00:05:21.400 --> 00:05:22.720
+ in several years.
+
+00:05:22.720 --> 00:05:26.480
+ It's you know, no one can know precisely how big it will be.
+
+00:05:26.480 --> 00:05:31.480
+ But due to some of the trends we've seen over the last few decades, the expectation and
+
+00:05:31.480 --> 00:05:36.480
+ the forecast is it will be one of the largest on record, which some are dubbing the super
+
+00:05:36.480 --> 00:05:38.000
+ El Nino.
+
+00:05:38.000 --> 00:05:44.600
+ If that comes to pass, it's predicted that we may see the hottest months and years on
+
+00:05:44.600 --> 00:05:48.600
+ record as a result in the days ahead.
+
+00:05:48.600 --> 00:05:53.800
+ And making people uncomfortable or causing death in certain cases, for those who are
+
+00:05:53.800 --> 00:05:55.800
+ more vulnerable.
+
+00:05:55.800 --> 00:06:02.080
+ What does this kind of heat do, you know, globally to supply chains, food production,
+
+00:06:02.080 --> 00:06:03.240
+ migratory patterns?
+
+00:06:03.240 --> 00:06:09.360
+ Like, give us a sense of the disruption that we may not even be aware of.
+
+00:06:09.360 --> 00:06:14.800
+ Yeah, I mean, it's just like climate change itself, it can be a slow and difficult to
+
+00:06:14.800 --> 00:06:19.360
+ directly observe kind of patterns, but we know that there's all kinds of shifts to where
+
+00:06:19.360 --> 00:06:25.720
+ people live, how they're living, agriculture, how the natural ecosystem and other animals
+
+00:06:25.720 --> 00:06:31.520
+ besides humans are living and moving, all kind of adds up to these larger scale changes
+
+00:06:31.520 --> 00:06:36.000
+ over time that we expect to unfold.
+
+00:06:36.000 --> 00:06:43.200
+ And it's hard to it's hard to directly measure that or understand and see all of it happening.
+
+00:06:43.200 --> 00:06:49.200
+ But as the global climate system changes, the world will evolve and adapt to match that
+
+00:06:49.200 --> 00:06:50.200
+ gradually.
+
+00:06:50.200 --> 00:06:57.240
+ And so a lot of us just kind of feel like it's hotter than we remember, and I think
+
+00:06:57.240 --> 00:06:59.320
+ the data bears that out.
+
+00:06:59.320 --> 00:07:05.200
+ But hopefully you have put together this database for where it is called the Climate Monitor
+
+00:07:05.200 --> 00:07:12.160
+ to visualize just how much hotter it is compared to historic averages.
+
+00:07:12.160 --> 00:07:17.320
+ Tell me about this project and how it works and why it came about.
+
+00:07:17.320 --> 00:07:20.680
+ Sure, I think you framed it pretty well there.
+
+00:07:20.680 --> 00:07:25.800
+ I can't speak for everyone watching and listening, but I suspect that many people out there in
+
+00:07:25.800 --> 00:07:31.800
+ Listenerland have woken up to a high weather forecast in the area where they lived and
+
+00:07:31.800 --> 00:07:36.520
+ thought to themselves, "Hey, has it always been this hot here this time of year?
+
+00:07:36.520 --> 00:07:38.600
+ Could it be climate change?
+
+00:07:38.600 --> 00:07:41.000
+ Is this weird?"
+
+00:07:41.000 --> 00:07:44.080
+ And I think that more and more people are asking themselves that question on a day-to-day
+
+00:07:44.080 --> 00:07:47.840
+ basis, and we wanted to try to help people find the answer.
+
+00:07:47.840 --> 00:07:52.160
+ And so what we've done is we've created a new website called the Reuters Climate Monitor,
+
+00:07:52.160 --> 00:07:58.040
+ which is it updates daily and it takes the weather forecast for everywhere on Earth,
+
+00:07:58.040 --> 00:08:03.520
+ and it compares today's high temperature to what used to be normal in that same place
+
+00:08:03.520 --> 00:08:08.280
+ about a century ago with kind of the oldest available data that we have and what a climate
+
+00:08:08.280 --> 00:08:11.440
+ scientist would call the "normal temperature."
+
+00:08:11.440 --> 00:08:16.120
+ And so you're able to on any given day say, "Here's the high now, and here's what the
+
+00:08:16.120 --> 00:08:19.320
+ high typically used to be in the same place."
+
+00:08:19.320 --> 00:08:23.520
+ That's plotted out on the map so you can see patterns across the whole world, and it wouldn't
+
+00:08:23.520 --> 00:08:28.360
+ surprise you if you were to look at it today and you were following the news to see that
+
+00:08:28.360 --> 00:08:33.680
+ there's a big red spot over Europe right now where the temperatures are highly unusual for
+
+00:08:33.680 --> 00:08:36.880
+ this time of year in those areas.
+
+00:08:36.880 --> 00:08:41.280
+ And just to give you some specifics, you can look at some of the cities in northern Spain
+
+00:08:41.280 --> 00:08:46.420
+ on the Atlantic coast, which are actually kind of the cooler part of Spain historically,
+
+00:08:46.420 --> 00:08:50.840
+ are seeing highs come in this week that are nearly double what the temperature kind of
+
+00:08:50.840 --> 00:08:57.160
+ typically was in those same places between 1960 and 1990, which is the comparison period
+
+00:08:57.160 --> 00:08:58.160
+ that we use.
+
+00:08:58.160 --> 00:08:59.160
+ That's unbelievable.
+
+00:08:59.160 --> 00:09:05.680
+ Yeah, I was playing with it earlier, and it's pretty shocking just to see it laid out so
+
+00:09:05.680 --> 00:09:10.860
+ clearly to show that yes, the world is getting hotter than it used to be.
+
+00:09:10.860 --> 00:09:15.200
+ It's not our imagination, and you can see that very clearly on the graph.
+
+00:09:15.200 --> 00:09:20.720
+ Let's see, I'm going to try to put in Paris here to see what this brings up.
+
+00:09:20.720 --> 00:09:29.960
+ Yeah, today's high forecast is 100 degrees Fahrenheit, which is 38 degrees in centigrade.
+
+00:09:29.960 --> 00:09:36.840
+ That is way above normal, and if you zoom in on the graph next to it, you could see
+
+00:09:36.840 --> 00:09:42.540
+ every month the temperature average is above normal.
+
+00:09:42.540 --> 00:09:48.240
+ This month so far it's 12 degrees, and then you have this nifty graph below kind of showing
+
+00:09:48.240 --> 00:09:55.720
+ the noise of many years past, but the blue line represents a normal average year, and
+
+00:09:55.720 --> 00:09:59.840
+ the red is this year, which is very high.
+
+00:09:59.840 --> 00:10:04.440
+ That chart shows you the entire globe in contrast to just Paris, but when you zoom in on any
+
+00:10:04.440 --> 00:10:10.200
+ place you can get the same comparison against a normal year for more than two million locations
+
+00:10:10.200 --> 00:10:16.400
+ on the planet using the data set that we've taken from the European Climate Agency.
+
+00:10:16.400 --> 00:10:19.200
+ How did you compile this?
+
+00:10:19.200 --> 00:10:24.960
+ We built it entirely using open source data created by the European Weather Agency.
+
+00:10:24.960 --> 00:10:29.480
+ American listeners and watchers may be familiar with the National Weather Service, which is
+
+00:10:29.480 --> 00:10:33.100
+ the United States kind of government-funded forecasting unit.
+
+00:10:33.100 --> 00:10:39.320
+ There's a similar operation in Europe that actually has what scientists will tell you
+
+00:10:39.320 --> 00:10:45.160
+ is the most authoritative record of Earth's temperatures for not just the planet as a
+
+00:10:45.160 --> 00:10:51.280
+ whole but for any location on Earth going back to 1940, and that database is the core
+
+00:10:51.280 --> 00:10:57.880
+ and the foundation of almost all climate science, but because it is generated using supercomputers
+
+00:10:57.880 --> 00:11:05.620
+ and is highly sophisticated, it takes five days for it to generate today's temperatures.
+
+00:11:05.620 --> 00:11:09.160
+ Today's temperatures won't enter that data set until five days from now.
+
+00:11:09.160 --> 00:11:14.920
+ The result of that has been that almost all climate science and reporting that's done,
+
+00:11:14.920 --> 00:11:19.280
+ not just in the news media but in the scientific community, tends to have a delay in it.
+
+00:11:19.280 --> 00:11:24.680
+ You're usually hearing about the high temperature last month or last week or last year, and
+
+00:11:24.680 --> 00:11:29.320
+ it's often delivered you in kind of the arcane statistics of an average temperature.
+
+00:11:29.320 --> 00:11:32.560
+ I doubt there's anyone out there that wakes up in the morning and asks themselves, "What
+
+00:11:32.560 --> 00:11:34.960
+ will the average temperature be today?"
+
+00:11:34.960 --> 00:11:38.680
+ That number is really useful when you're trying to look at the global trend at the highest
+
+00:11:38.680 --> 00:11:42.760
+ possible level, but it doesn't help the average person get the context that they're looking
+
+00:11:42.760 --> 00:11:46.840
+ for on the life that they're living or to help them better understand what's going on
+
+00:11:46.840 --> 00:11:49.680
+ in Europe right now if they're not there.
+
+00:11:49.680 --> 00:11:53.840
+ What we've tried to do is bridge that gap by taking today's weather forecast put out
+
+00:11:53.840 --> 00:11:57.640
+ by the same agency and doing a simple comparison of those two.
+
+00:11:57.640 --> 00:12:02.740
+ Now, there's some statistical procedures you go through to take two different models and
+
+00:12:02.740 --> 00:12:03.740
+ compare them.
+
+00:12:03.740 --> 00:12:07.200
+ We interviewed and worked with some of the world's leading climate scientists to make
+
+00:12:07.200 --> 00:12:13.760
+ sure we got all the math right and did it the correct way, but the result is by taking
+
+00:12:13.760 --> 00:12:18.240
+ today's forecast and comparing it to that historic record, we're able to do in real
+
+00:12:18.240 --> 00:12:25.340
+ time and ahead of time tell you how unusual today's temperatures are for any place on
+
+00:12:25.340 --> 00:12:26.340
+ Earth.
+
+00:12:26.340 --> 00:12:32.400
+ That's the most novel thing scientifically in our Humble project is putting those two
+
+00:12:32.400 --> 00:12:37.880
+ data sets together from the same agency in this new way.
+
+00:12:37.880 --> 00:12:47.660
+ This heat wave, this El Nino, this supercharged heat, and this aberration of average temperatures,
+
+00:12:47.660 --> 00:12:49.280
+ this is climate change.
+
+00:12:49.280 --> 00:12:50.280
+ Yes.
+
+00:12:50.280 --> 00:12:53.640
+ Well, what is climate change is a wonderful philosophical question.
+
+00:12:53.640 --> 00:12:57.560
+ I think it means different things to different people over time.
+
+00:12:57.560 --> 00:13:03.160
+ One thing a lot of experts emphasize is that the word climate change was selected and is
+
+00:13:03.160 --> 00:13:06.360
+ popularized because it has a broad application.
+
+00:13:06.360 --> 00:13:11.280
+ It can mean things getting hotter and in some cases maybe things getting colder or other
+
+00:13:11.280 --> 00:13:17.160
+ parts of the climate changing besides temperature, looking at other things that go on with the
+
+00:13:17.160 --> 00:13:21.600
+ atmosphere and in our oceans.
+
+00:13:21.600 --> 00:13:25.680
+ Climate change broadly is used to encompass all of those things.
+
+00:13:25.680 --> 00:13:30.240
+ I think that what we're primarily measuring thus far, we do want to add a lot of stuff
+
+00:13:30.240 --> 00:13:36.240
+ in the future we haven't got to yet, but what we're primarily focusing on so far is really
+
+00:13:36.240 --> 00:13:41.040
+ what used to be called more commonly, you don't hear as much anymore as global warming,
+
+00:13:41.040 --> 00:13:46.720
+ which is just the planet gradually getting warmer over time, which there is just overwhelming
+
+00:13:46.720 --> 00:13:53.120
+ evidence for and the data sets we're bringing to bear here are ones that we hope will try
+
+00:13:53.120 --> 00:13:59.240
+ to help the average person better see and understand what the numbers have to tell us.
+
+00:13:59.240 --> 00:14:00.240
+ Yeah.
+
+00:14:00.240 --> 00:14:01.720
+ What does a data reporter do?
+
+00:14:01.720 --> 00:14:05.800
+ It's a great question, I wish I got asked it more often.
+
+00:14:05.800 --> 00:14:07.720
+ What does a data reporter do?
+
+00:14:07.720 --> 00:14:16.400
+ I would say that we use STEM, science, technology, math skills to find and tell stories.
+
+00:14:16.400 --> 00:14:23.200
+ And that could mean downloading a spreadsheet and analyzing it and sorting it and then seeing
+
+00:14:23.200 --> 00:14:27.280
+ who's in the number one spot on the list and giving them a phone call.
+
+00:14:27.280 --> 00:14:32.900
+ And so it's about, to me, kind of a smarter or more scientific form of really traditional
+
+00:14:32.900 --> 00:14:34.600
+ journalistic techniques.
+
+00:14:34.600 --> 00:14:40.480
+ And so we're trying to use our technical skills to, like I said, find and tell stories.
+
+00:14:40.480 --> 00:14:45.160
+ So like another example on our desk just today, which is Tuesday, is we have a new public
+
+00:14:45.160 --> 00:14:51.160
+ opinion poll from our partner at Ipsos on how Americans feel about the president's performance
+
+00:14:51.160 --> 00:14:54.500
+ and the outcome thus far of the war in Iran.
+
+00:14:54.500 --> 00:14:58.520
+ And that, you know, public opinion polling is a statistical sample that we're doing and
+
+00:14:58.520 --> 00:15:04.000
+ then trying to find the story out of the headline and bring it across to our readers.
+
+00:15:04.000 --> 00:15:08.080
+ And a fun thing about being a data reporter is because you're a specialist and you have
+
+00:15:08.080 --> 00:15:13.640
+ some of those skills that help you do things that maybe not everybody knows how to do,
+
+00:15:13.640 --> 00:15:15.660
+ but you're able to cover a lot of different topics.
+
+00:15:15.660 --> 00:15:20.040
+ And so a fun thing about being a data reporter is you can cover public opinion one day, you
+
+00:15:20.040 --> 00:15:25.960
+ can cover economics another, and you can cover climate the next.
+
+00:15:25.960 --> 00:15:35.680
+ And it seems especially valuable now, if I may, given the kind of divisive political
+
+00:15:35.680 --> 00:15:41.000
+ scene we have here, especially in the U.S. and the fragmented media landscape in which,
+
+00:15:41.000 --> 00:15:47.860
+ you know, various news agencies can sort of portray their own reality.
+
+00:15:47.860 --> 00:15:54.520
+ And so, but you are, you are operating, at least the goal here is within the realm of
+
+00:15:54.520 --> 00:15:56.720
+ the objective.
+
+00:15:56.720 --> 00:15:58.520
+ That's the goal.
+
+00:15:58.520 --> 00:16:01.160
+ The reader can be the judge on how well I'm doing.
+
+00:16:01.160 --> 00:16:06.000
+ And I welcome their critiques and, you know, obviously just to say it, numbers and statistics
+
+00:16:06.000 --> 00:16:09.440
+ can and have very frequently been used to mislead people, you know?
+
+00:16:09.440 --> 00:16:15.560
+ And so they are, you know, not unimpeachable or undefeated on the field of play.
+
+00:16:15.560 --> 00:16:20.380
+ But as someone who's just trying to learn new things every day and share those things
+
+00:16:20.380 --> 00:16:25.440
+ with our readers to try to be able to verify what we're doing and convince people that
+
+00:16:25.440 --> 00:16:33.760
+ they should maybe consider learning from it, you know, showing your work, being clear and
+
+00:16:33.760 --> 00:16:40.280
+ verifiable, you know, and hopefully convincing is what data can help you do.
+
+00:16:40.280 --> 00:16:45.840
+ And it doesn't mean every data, every data analysis follows that or achieves that.
+
+00:16:45.840 --> 00:16:50.200
+ But it's a tool that we use to try to do better journalism.
+
+00:16:50.200 --> 00:16:54.000
+ Check out the website, guys, Reuters Climate Monitor, send me your bug reports.
+
+00:16:54.000 --> 00:16:55.000
+ Yeah.
+
+00:16:55.000 --> 00:17:07.040
+ Let me put all your complaints in the YouTube comments.
+
+00:17:07.040 --> 00:17:09.600
+ Thanks again to Ben for his time in reporting.
+
+00:17:09.600 --> 00:17:14.200
+ Music for this episode was by Josh Sommer with sound design and editing help from Jonathan
+
+00:17:14.200 --> 00:17:16.400
+ Stayers and Alex Sommer.
+
+00:17:16.400 --> 00:17:23.000
+ Our podcast team also includes Kim Vannell, Gail Issa, David Spencer, Christopher Wall-Jasper,
+
+00:17:23.000 --> 00:17:30.220
+ Mindy Burroughs, Sharon Reich-Garson, Abisoya Adelousi, Ethan Plotkin and Eliza Davis-Beard.
+
+00:17:30.220 --> 00:17:35.080
+ Our senior producers are Tara Oakes, Carmel Crimmins and me, Jonah Green.
+
+00:17:35.080 --> 00:17:37.960
+ Our executive producer is Leela De Kretzer.
+
+00:17:37.960 --> 00:17:42.720
+ For daily news around the world, check out our sister podcast, Reuters World News, which
+
+00:17:42.720 --> 00:17:45.240
+ we now publish seven days a week.
+
+00:17:45.240 --> 00:17:48.400
+ And we'll be back next weekend with another On Assignment.
+
+00:17:53.000 --> 00:17:55.760
+ (dramatic music)

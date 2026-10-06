@@ -22,10 +22,10 @@ def test_manifest_has_every_legacy_rule_and_a_narrow_route_plan():
     exact_rules = [rule for rule in RULES if not rule.is_dynamic]
     dynamic_rules = [rule for rule in RULES if rule.is_dynamic]
 
-    assert len(exact_rules) == 22
+    assert len(exact_rules) == 21
     assert len(dynamic_rules) == 8
     route_plan = cloudflare_route_plan(RULES)
-    assert len(route_plan) == 37
+    assert len(route_plan) == 36
     assert all(route.startswith(f"{ROUTE_HOST}/") for route in route_plan)
     assert all(route != f"{ROUTE_HOST}/*" for route in route_plan)
     assert all(route.endswith("*") and "*" not in route[:-1] for route in route_plan)

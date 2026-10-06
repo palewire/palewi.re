@@ -1,0 +1,59 @@
+Package data like software
+and stories will ﬂow like wine
+Unsolicited advice from yet another loud American
+My name is Ben
+Sometimes I go by @palewire
+I work here
+The @latimes in #DTLA
+¡Perdón!
+bit.ly/packaged-data
+All the slides and links in this talk
+ACT ONE
+The way we code now is barbaric
+Remind me why we have
+a data journalist.
+ACT TWO
+We’re getting better, but we’re still coding alone
+ACT THREE
+To truly open news, we’ve got to get nerdier
+$ pip install requests
+$ pip install requests
+$ python
+$ pip install requests
+$ python
+> import requests
+$ pip install requests
+$ python
+> import requests
+> requests.get(‘http://time.gov’)
+$ pip install requests
+$ python
+> import requests
+> requests.get(‘http://time.gov’)
+<Response [200]>
+dotadiw
+$ pip install requests
+$ pip install ba-election-results
+$ pip install blue-dollar
+THURSDAY
+Media Fair, Noon - 2 p.m.
+Workshops, 3 p.m. - 5 p.m.
+
+
+FRIDAY
+The hallways, just grab me
+
+
+SATURDAY
+Hackathon, all day
+THE END
+bit.ly/packaged-data
+bit.ly/code-rush-2
+
+palewi.re/who-is-ben-welsh/
+ben.welsh@gmail.com
+@palewire
+
+www.californiacivicdata.org
+cacivicdata@gmail.com
+@CAcivicdata

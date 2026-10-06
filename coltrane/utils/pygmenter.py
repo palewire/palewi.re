@@ -36,10 +36,29 @@ def pygmenter(raw_html):
         lexer_name = tag.get("lang")
         if not isinstance(lexer_name, str):
             continue
-        _formatter = HtmlFormatter(cssclass="source", linenos=bool(tag.get("linenos")))
         lexer_name = lexer_name.lower()
         if lexer_name and lexer_name in _lexer_names:
             lexer = get_lexer_by_name(lexer_name, stripnl=True, encoding="UTF-8")
-            tag.replace_with(highlight(tag.encode_contents(), lexer, _formatter))
+            formatter = HtmlFormatter(
+                cssclass="source",
+                linenos=tag.has_attr("linenos"),
+                style="native",
+            )
+            highlighted = BeautifulSoup(
+                highlight(tag.get_text(), lexer, formatter),
+                "html.parser",
+            )
+            pre = highlighted.pre
+            assert pre is not None
+            code = highlighted.new_tag(
+                "code",
+                attrs={"class": f"language-{lexer_name}"},
+            )
+            code.extend(pre.contents)
+            pre.append(code)
+            pre["aria-label"] = f"{lexer.name} code"
+            assert highlighted.div is not None
+            highlighted.div["data-language"] = lexer.name
+            tag.replace_with(highlighted.div)
 
     return str(soup)
