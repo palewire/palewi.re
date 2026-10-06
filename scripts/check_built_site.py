@@ -68,6 +68,7 @@ WORKER_ASSET_PATHS = frozenset(
         "/docs/reuters-style/",
         "/docs/savepagenow/",
         "/docs/storysniffer/",
+        "/docs/truth-telling-101/",
     }
 )
 WORKER_RUNTIME_PATH_PREFIXES = ("/media/talks/",)

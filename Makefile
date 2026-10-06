@@ -174,7 +174,7 @@ a11y:
 check: lint typecheck django-check check-clip-archives preservation-review test bake
 
 test:
-	@"$$(command -v uv)" run pytest tests/
+	@env -u MEDIA_ARCHIVE_PATH "$$(command -v uv)" run --no-env-file pytest tests/
 
 lint:
 	@"$$(command -v uv)" run ruff check .

@@ -1089,6 +1089,14 @@ code:
   url: https://observablehq.com/collection/@palewire/trump-tweets
   description: Techniques for working President Donald Trump's posts on twitter.com
   type: javascript
+- title: Truth-Telling 101
+  url: https://github.com/palewire/sva-dvc-3342a-truth-telling-101
+  description: A continuing education syllabus for data journalism at the School of Visual Arts
+  type: javascript
+- title: Truth-Telling 101 slide-deck starter
+  url: https://github.com/palewire/sva-dvc-3342a-slide-deck
+  description: Reusable SVA lecture deck starter built with SvelteKit and Reveal.js
+  type: javascript
 - title: twitter-mistadobalina
   url: https://github.com/palewire/twitter-mistadobalina
   description: A script that posts raps by Del Tha Funkee Homosapien to @mistadobalina on Twitter
