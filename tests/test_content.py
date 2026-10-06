@@ -141,7 +141,7 @@ def test_apps_empty_list_ok(tmp_path):
 
 def test_code_yaml_loads_as_one_alphabetical_catalog():
     projects = load_code()
-    assert len(projects) == 295
+    assert len(projects) == 297
     assert [project.title.casefold() for project in projects] == sorted(
         project.title.casefold() for project in projects
     )
@@ -179,6 +179,8 @@ def test_code_yaml_includes_nominated_repositories():
         "https://github.com/palewire/sanbornmaps",
         "https://github.com/palewire/savemy.news",
         "https://github.com/palewire/studs-terkel-podcast",
+        "https://github.com/palewire/sva-dvc-3342a-slide-deck",
+        "https://github.com/palewire/sva-dvc-3342a-truth-telling-101",
     }.issubset(urls)
 
 

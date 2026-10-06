@@ -259,11 +259,6 @@ docs:
   url: https://palewi.re/docs/storysniffer/
   repository_url: https://github.com/palewire/storysniffer
   description: Inspect a URL and estimate if it links to news story
-- title: Truth-Telling 101 slide-deck starter
-  type: software
-  url: https://github.com/palewire/sva-dvc-3342a-slide-deck
-  repository_url: https://github.com/palewire/sva-dvc-3342a-slide-deck
-  description: Reusable SVA lecture deck starter built with SvelteKit and Reveal.js
 - title: upload-data-to-biglocalnews-org
   type: software
   url: https://github.com/marketplace/actions/upload-data-to-biglocalnews-org
