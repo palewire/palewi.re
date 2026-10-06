@@ -39,7 +39,8 @@ Edit the appropriate file under ``coltrane/content/``:
   Required fields: ``title`` (str), ``venue`` (str), ``location`` (str),
   ``date`` (YYYY-MM-DD).
   Optional fields: ``slug`` (unique URL slug), ``short_title`` (str), ``byline`` (str),
-  ``deck_aspect_ratio`` (positive ``width / height`` ratio),
+  ``deck_aspect_ratio`` and ``deck_mobile_aspect_ratio`` (positive
+  ``width / height`` ratios),
   ``video_url`` (str), ``audio_url`` (str), ``audio_download_url`` (str),
   ``local_video_url`` (str), ``local_audio_url`` (str), ``slides_url`` (str),
   ``deck_url`` (str), ``pdf_url`` (str),
@@ -188,6 +189,7 @@ class Talk:
     byline: str = ""
     deck_url: str = ""
     deck_aspect_ratio: str = ""
+    deck_mobile_aspect_ratio: str = ""
     pdf_url: str = ""
     notes_url: str = ""
     notes_template: str = ""
@@ -700,6 +702,7 @@ def load_talks(path: Path | None = None) -> list[Talk]:
                 byline=_optional_str(record, "byline", label),
                 deck_url=_optional_str(record, "deck_url", label),
                 deck_aspect_ratio=_optional_aspect_ratio(record, "deck_aspect_ratio", label),
+                deck_mobile_aspect_ratio=_optional_aspect_ratio(record, "deck_mobile_aspect_ratio", label),
                 pdf_url=_optional_str(record, "pdf_url", label),
                 notes_url=_optional_str(record, "notes_url", label),
                 notes_template=_optional_str(record, "notes_template", label),

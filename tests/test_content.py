@@ -569,6 +569,7 @@ def test_talk_optional_fields_default_empty(tmp_path):
     assert talks[0].short_title == ""
     assert talks[0].byline == ""
     assert talks[0].deck_aspect_ratio == ""
+    assert talks[0].deck_mobile_aspect_ratio == ""
     assert talks[0].notes_text_url == ""
     assert talks[0].transcript_text_url == ""
     assert talks[0].youtube_embed_url == ""
@@ -587,6 +588,7 @@ def test_talk_detail_fields_and_slug_load(tmp_path):
         "    byline: A Speaker and Another Speaker\n"
         "    deck_url: /static/talks/a-talk/\n"
         "    deck_aspect_ratio: 16 / 9\n"
+        "    deck_mobile_aspect_ratio: 12 / 19\n"
         "    notes_template: coltrane/talks/a-talk-notes.html\n"
         "    notes_text_url: /static/talks/a-talk/notes.txt\n"
         "    transcript_template: coltrane/talks/a-talk-transcript.html\n"
@@ -600,6 +602,7 @@ def test_talk_detail_fields_and_slug_load(tmp_path):
     assert talk.short_title == "A short title"
     assert talk.byline == "A Speaker and Another Speaker"
     assert talk.deck_aspect_ratio == "16 / 9"
+    assert talk.deck_mobile_aspect_ratio == "12 / 19"
     assert talk.display_subtitle == "A talk"
     assert talk.notes_template == "coltrane/talks/a-talk-notes.html"
     assert talk.notes_text_url == "/static/talks/a-talk/notes.txt"
@@ -636,8 +639,9 @@ def test_talk_archive_url_must_be_a_wayback_snapshot(tmp_path):
         load_talks(p)
 
 
+@pytest.mark.parametrize("field_name", ["deck_aspect_ratio", "deck_mobile_aspect_ratio"])
 @pytest.mark.parametrize("deck_aspect_ratio", ["16:9", "0 / 9", "16 / 0", "wide"])
-def test_talk_rejects_invalid_deck_aspect_ratio(tmp_path, deck_aspect_ratio):
+def test_talk_rejects_invalid_deck_aspect_ratio(tmp_path, field_name, deck_aspect_ratio):
     p = tmp_path / "talks.yaml"
     p.write_text(
         "talks:\n"
@@ -645,10 +649,10 @@ def test_talk_rejects_invalid_deck_aspect_ratio(tmp_path, deck_aspect_ratio):
         "    venue: V\n"
         "    location: L\n"
         "    date: '2024-01-01'\n"
-        f"    deck_aspect_ratio: {deck_aspect_ratio}\n"
+        f"    {field_name}: {deck_aspect_ratio}\n"
     )
 
-    with pytest.raises(ContentError, match="deck_aspect_ratio"):
+    with pytest.raises(ContentError, match=field_name):
         load_talks(p)
 
 

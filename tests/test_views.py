@@ -691,7 +691,7 @@ def test_sva_first_lecture_talk_page_embeds_reveal_deck_and_links_guide(client):
         'src="https://palewi.re/docs/sva-dvc-3342a-slide-deck/lectures/social-science-in-a-hurry/?controls=1"'
         in content
     )
-    assert 'style="--talk-deck-aspect-ratio: 16 / 9;"' in content
+    assert ('style="--talk-deck-aspect-ratio: 24 / 19; --talk-deck-mobile-aspect-ratio: 12 / 19;"') in content
     assert '<a href="https://palewi.re/docs/truth-telling-101/weeks/week-1/">Read the related guide</a>' in content
 
 
