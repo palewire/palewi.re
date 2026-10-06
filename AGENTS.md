@@ -130,6 +130,8 @@ talks:
     video_url: "https://..." # optional
     slides_url: "https://..." # optional
     guide_url: "https://..." # optional related guide
+    deck_aspect_ratio: 16 / 9 # optional embedded desktop ratio
+    deck_mobile_aspect_ratio: 9 / 16 # optional mobile ratio
     archive_url: "https://web.archive.org/web/..." # optional Wayback snapshot
 ```
 

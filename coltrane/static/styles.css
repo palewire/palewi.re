@@ -836,6 +836,17 @@ nav .links li a:hover {
   border: var(--border-rule);
 }
 
+.talk-detail-slides {
+  container-type: inline-size;
+}
+
+/* Reveal switches to its mobile canvas below 768px inside the iframe. */
+@container (max-width: 769px) {
+  .talk-detail-deck {
+    aspect-ratio: var(--talk-deck-mobile-aspect-ratio, var(--talk-deck-aspect-ratio, 4 / 3));
+  }
+}
+
 .talk-detail-video-embed {
   aspect-ratio: 16 / 9;
 }

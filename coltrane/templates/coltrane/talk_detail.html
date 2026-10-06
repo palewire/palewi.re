@@ -41,9 +41,15 @@
     </header>
 
     {% if object.deck_url %}
-    <section aria-labelledby="slides">
+    <section class="talk-detail-slides" aria-labelledby="slides">
         <h2 id="slides">Slides</h2>
-        <iframe class="talk-detail-deck"{% if object.deck_aspect_ratio %} style="--talk-deck-aspect-ratio: {{ object.deck_aspect_ratio }};"{% endif %} src="{{ object.deck_url }}" title="Slides for {{ object.title }}"></iframe>
+        <iframe class="talk-detail-deck"
+            {% if object.deck_aspect_ratio or object.deck_mobile_aspect_ratio %}
+                style="{% if object.deck_aspect_ratio %}--talk-deck-aspect-ratio: {{ object.deck_aspect_ratio }};{% endif %}{% if object.deck_mobile_aspect_ratio %} --talk-deck-mobile-aspect-ratio: {{ object.deck_mobile_aspect_ratio }};{% endif %}"
+            {% endif %}
+            src="{{ object.deck_url }}"
+            title="Slides for {{ object.title }}"
+        ></iframe>
         {% if object.notes_template %}
         <details class="talk-detail-text">
             <summary>Show the extracted slide text</summary>
