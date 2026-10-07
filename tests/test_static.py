@@ -55,6 +55,16 @@ def test_talk_deck_breakpoint_keeps_narrow_desktop_embeds_landscape() -> None:
     assert "@container (max-width: 769px)" not in styles
 
 
+def test_slide_talk_pages_match_the_wide_guide_embed() -> None:
+    """Slide talk pages use the guide's wide desktop content column."""
+    static_dir = Path(__file__).resolve().parent.parent / "coltrane" / "static"
+    styles = (static_dir / "styles.css").read_text(encoding="utf-8")
+
+    assert "@media (min-width: 940px)" in styles
+    assert "#bd:has(.talk-detail-slides)" in styles
+    assert "--layout-content-width: 900px;" in styles
+
+
 @pytest.mark.skipif(not _MANIFEST_BUILT, reason="collected_static not yet built")
 def test_styles_css_in_manifest() -> None:
     """styles.css must appear as a key in the production staticfiles manifest.
