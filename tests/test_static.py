@@ -44,6 +44,17 @@ def test_base_template_uses_local_fonts(client) -> None:
     assert (static_dir / "fonts" / "OFL.txt").is_file()
 
 
+def test_talk_deck_breakpoint_keeps_narrow_desktop_embeds_landscape() -> None:
+    """Desktop embeds stay above Reveal's mobile-width cutoff."""
+    static_dir = Path(__file__).resolve().parent.parent / "coltrane" / "static"
+    styles = (static_dir / "styles.css").read_text(encoding="utf-8")
+
+    assert "@media (min-width: 768px)" in styles
+    assert "min-width: 768px;" in styles
+    assert "@media (max-width: 767px)" in styles
+    assert "@container (max-width: 769px)" not in styles
+
+
 @pytest.mark.skipif(not _MANIFEST_BUILT, reason="collected_static not yet built")
 def test_styles_css_in_manifest() -> None:
     """styles.css must appear as a key in the production staticfiles manifest.

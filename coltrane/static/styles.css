@@ -836,12 +836,14 @@ nav .links li a:hover {
   border: var(--border-rule);
 }
 
-.talk-detail-slides {
-  container-type: inline-size;
+/* Keep Reveal on its desktop canvas in narrow desktop content columns. */
+@media (min-width: 768px) {
+  .talk-detail-deck {
+    min-width: 768px;
+  }
 }
 
-/* Reveal switches to its mobile canvas below 768px inside the iframe. */
-@container (max-width: 769px) {
+@media (max-width: 767px) {
   .talk-detail-deck {
     aspect-ratio: var(--talk-deck-mobile-aspect-ratio, var(--talk-deck-aspect-ratio, 4 / 3));
   }
