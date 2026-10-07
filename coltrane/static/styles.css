@@ -790,6 +790,12 @@ nav .links li a:hover {
   max-width: 64rem;
 }
 
+@media (min-width: 940px) {
+  #bd:has(.talk-detail-slides) {
+    --layout-content-width: 900px;
+  }
+}
+
 .talk-detail header {
   display: flex;
   flex-direction: column;
