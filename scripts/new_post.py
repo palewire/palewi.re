@@ -7,7 +7,7 @@ import os
 import re
 import tempfile
 import unicodedata
-from collections.abc import Iterator
+from collections.abc import Generator
 from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
@@ -74,7 +74,7 @@ def write_new_file(destination: Path, content: str) -> None:
 
 
 @contextmanager
-def lock_posts_directory(posts_path: Path) -> Iterator[None]:
+def lock_posts_directory(posts_path: Path) -> Generator[None]:
     """Hold an interprocess lock on the posts directory."""
     descriptor = os.open(posts_path, os.O_RDONLY)
     locked = False
