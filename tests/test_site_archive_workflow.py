@@ -81,8 +81,8 @@ def test_artifact_actions_are_pinned_to_node24_releases() -> None:
     jobs = load_workflow()["jobs"]
     upload = next(step for step in jobs["archive"]["steps"] if step.get("uses", "").startswith("actions/upload-"))
     download = next(step for step in jobs["persist"]["steps"] if step.get("uses", "").startswith("actions/download-"))
-    assert upload["uses"] == "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
-    assert download["uses"] == "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c"
+    assert upload["uses"] == "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+    assert download["uses"] == "actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333"
 
 
 def test_only_persistence_can_write_and_both_jobs_use_the_same_source() -> None:
