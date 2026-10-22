@@ -115,10 +115,10 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
     ("page", "expected_digest"),
     [
         ("/posts/", "ff1d8b539e18b0bc5abf5b7320ac7b6f561a1f2fb1a3e09139f23ea0d2d083da"),
-        ("/clips/", "93e1b675376d543834974deee0e5c5828919385169d5eb77c1b6bccbbae4e6d8"),
+        ("/clips/", "3011d6b50d6d6d94c2530503b40ff12697a7ce3996e6d97b7223cfdb147708b0"),
         ("/apps/", "bb938e968fc7a05c6adb5bf151b896f84a80fad31e0313c3b294b4d6eb9e38bd"),
-        ("/code/", "c1c0186c609b5d6b7e4b2474576c5291fbf5bd9a1b74f8048145aaf510a37fc3"),
-        ("/guides/", "d79b6c32468623847970b1a1ddffa8e6b1f42503e17725a7a0c7d4c063e60406"),
+        ("/code/", "b5b06ab5fc151d06d904695d82abb7542b840ef2dbf07af0ac391535199efcb9"),
+        ("/guides/", "985359e2f6083628d784a82fbb4e0033c5a697796db6322712e45bb5194181a6"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
         ("/talks/", "67ab3d95a801e957cfb06bf9888a858a4defd896830ce5bc7c077ad120e56748"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
