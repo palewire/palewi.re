@@ -988,6 +988,10 @@ code:
   description: A Python library format dates, numbers and text to conform with the Reuters Style Guide,
     the standards that guide the world's largest independent newsroom
   type: python
+- title: reuters-temperature-storms
+  url: https://github.com/palewire/reuters-temperature-storms
+  description: How to calculate the supersized heat waves tracked by the Reuters Climate Monitor
+  type: python
 - title: san-francisco-campaign-contributions
   url: https://github.com/datadesk/san-francisco-campaign-contributions
   description: Itemized monetary campaign contributions compiled by San Francisco's Ethics Commission

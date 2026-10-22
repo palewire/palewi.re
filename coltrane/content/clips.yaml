@@ -1,4 +1,14 @@
 clips:
+- title: Heat Storm Tracker
+  type: story
+  date: '2026-10-20'
+  url: https://www.reuters.com/graphics/CLIMATE-AUTOMATED/MONITOR/akpeykqqapr/heat-storms/
+  archive_url: https://web.archive.org/web/20261021164804/https://www.reuters.com/graphics/CLIMATE-AUTOMATED/MONITOR/akpeykqqapr/heat-storms/
+- title: Giant ‘heat storms’ are scorching the Earth. This is the story of the biggest one.
+  type: story
+  date: '2026-10-20'
+  url: https://www.reuters.com/investigates/special-report/climate-heatstorms-science/
+  archive_exemption: Wayback capture failed with HTTP 520
 - title: How Europe’s intensifying marine heatwaves threaten its fisheries
   type: story
   date: '2026-09-26'
