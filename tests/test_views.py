@@ -552,6 +552,14 @@ def test_historical_talk_pages_have_hosted_recordings(client, slug, title):
             "00:00",
         ),
         (
+            "beyond-heat-waves-heat-storms",
+            "Beyond heat waves: the data behind &#x27;heat storms&#x27;",
+            "/media/talks/beyond-heat-waves-heat-storms/video.webm",
+            ' type="video/webm"',
+            "rare that reporters and journalists",
+            "00:00",
+        ),
+        (
             "data-and-graphics-an-introduction",
             "DATA AND GRAPHICS: An introduction",
             "/media/talks/data-and-graphics-an-introduction/video.mp4",
@@ -610,6 +618,10 @@ def test_talk_list_keeps_new_appearance_detail_links_without_source_links(client
         (
             "/talks/understanding-europes-heatwave/",
             "https://www.youtube.com/watch?v=me0DlYHkJKE&amp;t=28s",
+        ),
+        (
+            "/talks/beyond-heat-waves-heat-storms/",
+            "https://www.youtube.com/watch?v=MyS9pG3hAGs&amp;feature=youtu.be",
         ),
         (
             "/talks/data-and-graphics-an-introduction/",

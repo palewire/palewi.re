@@ -4,6 +4,11 @@ talks:
   location: YouTube
   date: '2026-10-24'
   video_url: https://www.youtube.com/watch?v=MyS9pG3hAGs&feature=youtu.be
+  slug: beyond-heat-waves-heat-storms
+  local_video_url: /media/talks/beyond-heat-waves-heat-storms/video.webm
+  transcript_template: coltrane/talks/beyond-heat-waves-heat-storms-transcript.html
+  transcript_text_url: /static/talks/beyond-heat-waves-heat-storms/transcript.txt
+  captions_url: /static/talks/beyond-heat-waves-heat-storms/captions.vtt
 - title: How AI can and can't help inform financial reporting
   venue: SABEW Personal Finance Summit
   location: New York

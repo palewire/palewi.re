@@ -532,6 +532,14 @@ def test_new_appearance_talks_have_hosted_recordings_and_text_assets():
     assert reuters.local_video_mime_type == "video/webm"
     assert reuters.transcript_text_url == "/static/talks/understanding-europes-heatwave/transcript.txt"
 
+    heat_storms = talks["beyond-heat-waves-heat-storms"]
+    assert heat_storms.video_url == "https://www.youtube.com/watch?v=MyS9pG3hAGs&feature=youtu.be"
+    assert heat_storms.local_video_url == "/media/talks/beyond-heat-waves-heat-storms/video.webm"
+    assert heat_storms.local_video_mime_type == "video/webm"
+    assert heat_storms.transcript_template == "coltrane/talks/beyond-heat-waves-heat-storms-transcript.html"
+    assert heat_storms.transcript_text_url == "/static/talks/beyond-heat-waves-heat-storms/transcript.txt"
+    assert heat_storms.captions_url == "/static/talks/beyond-heat-waves-heat-storms/captions.vtt"
+
 
 def test_talk_audio_fields_load(tmp_path):
     p = tmp_path / "talks.yaml"
