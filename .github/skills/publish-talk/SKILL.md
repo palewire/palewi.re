@@ -59,8 +59,12 @@ Commit these source assets to the repository:
   available.
 - `captions.vtt` — WebVTT captions when the source provides them.
 
-Use `.github/skills/archive-media/SKILL.md` before downloading media for
-preservation. Do not commit the recording itself; it belongs in the private
+Use `.github/skills/archive-media/SKILL.md` when creating or auditing a
+durable local preservation backup; that is separate from talk-page upload.
+A temporary full-size working copy outside the repository is enough to
+transcribe and upload a recording; publishing a talk does not require keeping
+a local archive or manifest. Respect source access controls. Do not commit the
+recording itself; it belongs in the private
 `palewire-talk-media` R2 bucket.
 
 ## Transcribe every recording
@@ -138,6 +142,13 @@ Load the `wrangler` skill before using Wrangler. Verify the pinned version:
 make check-wrangler
 ```
 
+Obtain the approved full-size source into a temporary staging location outside
+the repository. This copy is only a waystation for upload, not a durable local
+archive. Keep it until every required cloud upload has been verified; after
+that, it may be removed. A durable local archive is not a prerequisite for
+talk-page publishing. If one is explicitly requested, use the separate
+`archive-media` workflow and its own archive root.
+
 Upload the approved **full-size original video** and optional poster to the
 private R2 bucket. Never transcode or downsize a recording to fit Wrangler's
 upload limit. Keep the source file's browser-compatible extension in
@@ -199,13 +210,14 @@ The static-site Worker serves media from `/media/talks/<slug>/`, including
 support. Keep captions in the repository's static assets so they are
 committed and baked with the site.
 
-For a podcast, run the preservation backup first with an archive root outside
-the repository, verify it, then upload the approved MP3 to the talk-media
-bucket:
+For a podcast, use a temporary full-size copy outside the repository and
+upload the approved recording to the talk-media bucket. A durable local
+`media-archive-backup` run is not required just to stage the upload. If the
+task also calls for another cloud backup destination, upload and verify that
+copy through its established workflow too. Once all required cloud copies are
+verified, the temporary local file may be removed:
 
 ```bash
-ARCHIVE_ROOT=/absolute/path/outside/the/repo make media-archive-backup
-ARCHIVE_ROOT=/absolute/path/outside/the/repo make media-archive-verify
 cd workers/static-site
 npm exec -- wrangler r2 object put \
   palewire-talk-media/talks/<slug>/audio.m4a \
