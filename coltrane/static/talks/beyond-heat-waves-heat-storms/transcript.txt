@@ -1,0 +1,186 @@
+[00:00] It's rare that reporters and journalists get to name something. What I mean is we learn new things all the time. That's
+[00:06] why we're reporters, but it's unusual that we find ourselves in need of a new vocabulary to describe precisely what it
+[00:13] is we've learned. That's exactly what happened when a team of Reuters data reporters began pouring over reams of climate data going back to
+[00:20] the 1960s. [music] Two data journalists, Maurice Tam and Ben Welsh, began with a simple question.
+[00:29] What's a heat wave? And when they thought they had an answer and they ran it through the data, they discovered
+[00:35] something. A phenomenon of massive catastrophic heat storms that had once been rare had become not just regular
+[00:45] but constant. And change that dramatic required a dramatic change in our language just to describe them.
+[00:53] From Reuters, this is on assignment. On today's show, I'll talk to Mo and Ben about their findings, about what we know
+[00:59] and should know about heat storms. [music] I'm Zachary Golden.
+[01:11] [music] Maurice Tam is part of a Reuters team that won a Pulitzer Prize for its reporting on the global fentanyl crisis.
+[01:18] Ben Welsh is a data journalist and computer programmer with more than 20 years experience and they are the
+[01:23] incredible crew behind the story we're talking about today. Mo, Ben, thanks for being here with me.
+[01:28] >> Yeah, thank you for having us. >> Thanks for having us.
+[01:31] >> And um let's start with you, Mo. What is a heat storm?
+[01:36] >> A heat storm is effectively a gargantuan heat wave.
+[01:43] >> [music] >> When we started working on this project, it was clear that there that there was a new phenomenon that um what uh
+[01:52] parochially might have been thought of as a heat wave while they still existed, there was a a new phenomenon, something
+[01:58] that that covered vast swaths of the planet um that were both very rare and and almost unheard of in the 1960s had
+[02:07] become to dominate the entire planet. We needed a new vocabulary and uh the only name that seemed to stick through our
+[02:16] reporting was heattorms. Goodness knows we tried to find other names for it that seemed more
+[02:24] appropriate. Uh but honestly, heattorm was the only one that resonated throughout our our reporting and so we
+[02:31] stayed with it. >> So Mo, how much bigger and how much hotter are we talking about? So,
+[02:40] if we're just talking about heat storms, for example, in the 1960s, they average about five active heat storms at any
+[02:48] given time. Uh, in the 2020s, it's 102. If you looked at how long heat storms were were active on the planet's surface
+[02:58] in the 1960s, that period of time might have lasted at longest, a few months. On July 6, 2008,
+[03:06] we seem to have crossed the threshold. And after that date, there has been a every day has had at least one heat
+[03:14] storm active at some point anywhere in the planet. I mean, just to give some context on that, there are people who
+[03:19] are going to go to the polls in the US this November who have never lived on a planet at a time when there wasn't at
+[03:26] least one heat storm acting. And to me that just I I found that one particular fact to be utterly staggering.
+[03:37] >> So they're far more common than they were half a century ago.
+[03:42] >> Mhm. >> And talk to me a little bit about the size. I mean, were these things are they have they stayed big? They were big in
+[03:49] the 60s and they're big now. There's just more of them. Or are they >> Well, in this >> they're both larger and they stick
+[03:56] around. Uh so the la the the the the largest heat storm in the 1960s covered about 6% of the planet's surface um over
+[04:04] the course of its entire lifespan. Uh the one that we covered and wrote about in the first story of this series uh
+[04:13] heattorm vera um lasted one year and one day. In that one year and one day it touched 85% of the planet surface. Um
+[04:23] there is virtually not a human being that was alive during that period who didn't experience that heat heat storm
+[04:30] at least once and in many cases many more times than once many more than was just one day um and those two things
+[04:38] together are really at the heart of how um this shift has taken place and I also want to add too is that from the very
+[04:46] beginning of this project we were looking at a way to communicate how global warming warming um connected uh
+[04:56] is connected to daily lives and heat waves it seems to me and and I don't know if Ben agrees with me is kind of
+[05:02] like a connected tissue like a some some method of taking the lived experience that individuals feel every day when
+[05:10] they wake up in the morning and complain about how hot it is or or what the high temperature is going to be and translate
+[05:18] that into the how cl the climate itself is fundamentally shifting. And heat waves, it seems to me is as useful a
+[05:28] tool for explaining that as anything. >> Then before you could classify something as big as a heat storm, you actually had
+[05:35] to come up with a definition for something more mundane and and everyday, you had to define what a heat wave was.
+[05:44] Why was that a challenge? >> Well, this might surprise some people in the audience. I know it definitely surprised me, but there is no one sort
+[05:54] of global universally accepted definition of how hot it needs to be and for how long to call it a heat wave. It
+[06:02] turns out that the definitions of heat wave that you hear on the news or that you see in weather advisories actually
+[06:09] vary from place to place and have varied over time. And it's because I think the idea of heat waves until very recently
+[06:16] were kind of culturally determined by where people lived. Obviously, you have different climates in different places
+[06:21] in the world. You know, if you live very close to the equator versus, you know, in northern Canada, your idea of what's
+[06:27] hot, you know, naturally varies. And but it turns out there really no one has ever really kind of pinned down one
+[06:34] common way to do it. And so if we wanted to measure heat over time, which was our goal, we'd have to figure out how to do
+[06:39] that. And so Mo and I interviewed dozens of climate scientists around the world.
+[06:44] We collected a lot of the different ways that they're calculated in different spots and we came up with we thought was
+[06:50] kind of you know a good a good clear defensible conservative way to calculate what a heat wave would be that could be
+[06:58] applied to the entire planet using one uniform measuring system.
+[07:05] So the standard we came up with is that a heat wave is defined as any streak of 5 days or longer of abnormally high
+[07:14] temperatures which means ranking in the top 10% of what used to be normal in each location. Now, a heat storm are
+[07:23] those larger heat waves, and we defined those as any extended heat wave that at its peak covered at least 1% of the
+[07:33] surface of Earth, which is roughly about half the size of Canada.
+[07:38] And when we did that, what we saw really surprised us. um even you know in [music] that if you use a common ruler
+[07:47] or measuring system for the whole planet to to to to look at these heat waves you see that they're they're often much much
+[07:53] larger than what we talk about when we talk about heat say on the news or in regular places. It's not just little
+[07:59] spotty um areas that are hot for one or two days. There's really these very very large zones that have extreme
+[08:07] temperatures for very very long periods of time. >> Did that catch you by surprise?
+[08:12] I I can't speak for mo for me personally. Yes. You know, I knew that obviously the planet is getting warmer.
+[08:18] Um there's all there's so much evidence of that. I knew that that you know, from my own life, the summers feel hotter
+[08:24] than they used to. But to really see on the map, as you can see in our story, that for months or weeks at a time, the
+[08:32] extreme heat where I live or that I read about in Europe is actually connected geographically to places quite distant
+[08:38] from that. as you know, climate change and global warming take hold and the planet heats in general. Just the scale
+[08:44] of it did surprise me. Yes. >> As part of your reporting, you've applied names to these storms. Why did
+[08:52] the decision to do that? >> There are two reasons. Uh and in part that goes back to talking to some uh
+[09:00] researchers who study uh the issue of communicating science. Um and and part of it is to create what they call an uh
+[09:08] to objectify this phenomenon. And by giving them names, you are effectively telling the reader, telling people that
+[09:18] this is a defined object. It has boundaries. It has shape. It has a lifespan. And um in much in the same way
+[09:27] that hurricanes have similar things, they have lifespans. They have boundaries. They have affected areas.
+[09:33] And if you want to be able to communicate in a narrative form, for example, um you know, we can introduce
+[09:40] heat vera at the beginning of the story. Now, every time we come back to that and explain what the what happened to people
+[09:47] who were affected by Vera, we we can just say Vera and everyone will understand it. when somebody's trying to
+[09:53] do uh to understand what's happening in their community and you tell them well hurricane uh excuse me uh heattorm vera
+[10:00] is is affecting you now they they have some definition they have boundaries around that much easier to understand
+[10:07] what the consequences are when you've created boundaries around it and part of the creating boundaries around it is
+[10:14] giving it a name that you can reference and reference back to when you want to talk about it in the future um or f or
+[10:20] or storms that are approaching ing now um that might be getting names too.
+[10:26] >> Right? If we if we can't name it, how can we talk about it at all?
+[10:30] >> One of the strengths of any work of explanatory journalism involves revealing connections to people that may
+[10:37] have been invisible beforehand. So, so last summer we saw the headlines that Europe was cooking. you know, from from
+[10:45] Brussels to Budapest, people were experiencing just a terrible terrible uh heat scenarios. People were dying,
+[10:52] forests were burning. And then if you spin the globe on the border of Nepal and China, this
+[11:00] glacier just suddenly collapsed and flooded a huge area and entire towns were destroyed.
+[11:07] Was that one storm that cooked Europe and then blanketed Nepal?
+[11:12] >> Yes, it was. >> [music]
+[11:23] >> Mo, in in some of the biography you write about the storm that's called Vera that cooked so much of our planet in
+[11:28] 2023 and 2024, you did this remarkable thing where you sort of took us on a world tour of one storm. Um, you took us to Texas, you
+[11:37] took us to the Amazon rainforest, you took us to the places of Spain's olive oil growing region.
+[11:44] And everywhere you took us, you told us a different anecdote of just how dramatically life there had changed.
+[11:53] Could you take us to Texas and and tell us what you learned about what Vera did on one Friday night there when some kids
+[12:00] were playing a football game? >> Yeah. So, so briefly, um, you know, uh, Friday, uh, football in Texas is is
+[12:08] something that I think approaches religion and, um, you know, Friday night football is a big cultural, um,
+[12:18] touchstone. Uh uh needless to say um in this particular case, Austin had been suffering through a long period of heat
+[12:27] waves and heat storms including Vera. Um during the period leading up to the game, it was hot. Um and there was one
+[12:35] player who uh in particular, I think there were others that suffered, but there was one player in particular who
+[12:41] suffered from the heat, ended up throwing up on the sidelines, continuing to play, ended up in the hospital. um it
+[12:48] was rather touch and go for a period. And there was even a debate whether or not um they should drill a hole in his
+[12:54] head to relieve the pressure caused by ba brain swelling. And you know um that's just one example. And and uh you
+[13:03] know there are others more dramatic examples of heat causing deaths from sports practices because people aren't
+[13:09] accommodating the fact that we live in these in hotter circumstances now. Um, and in Texas in particular, I think now
+[13:17] they're talking about moving and building a bunch of in uh uh in interior practice spaces that can be cooled so
+[13:24] that they don't have to deal with the heat. Um, that is directly as a result of of the warming of the planet and and
+[13:31] the fact that these heat waves and heat storms are becoming far more common, especially um in this in the lower latitudes that
+[13:39] would include Texas. >> Take us to quickly to the Amazon. Um, >> you described a marine biologist at a late um where right there's
+[13:51] famously um a species of dolphin that can sometimes appear pink colored and they're they're somewhat revered
+[13:57] culturally as icons of the local environment. >> What happened there?
+[14:02] >> Uh they cooked effectively. Yeah. the water got so hot uh that they could no longer
+[14:12] survive and they died by the hundreds. Um you know we saw scenes of uh you know these these iconic pink dolphins and
+[14:20] they kind of uh they have a a cartoonish look to them when you see them in the water almost u very charismatic uh
+[14:28] species of dolphin and um to see them uh effectively cooked in their own water be like us cooking in the air. I mean maybe
+[14:37] arguably that's what's happening to the football players who are playing on Friday nights but uh to see these iconic
+[14:44] pink creatures just you know by the hundreds just laying on the side of the lake that had been under heat storms and
+[14:51] heat waves and vera for very very many days and months and that was the result you see when a shallow water a body of
+[14:59] water like that heats up um and creatures that depend on it to live uh they're going to die and that's what you
+[15:06] saw. >> Then I think it's it's pretty rare that in journalism you get to name something.
+[15:14] Uh work of explanatory journalism often involves, you know, uncovering things that we hadn't seen before, but it
+[15:19] wasn't like Woodward and Bernstein named the Watergate Hotel. It was already there. But you guys have had the chance
+[15:24] in this story to to frame something, to put a boundary around it.
+[15:31] At what point in your reporting did you feel that you were sort of in your own uncharted waters? You had to put a new
+[15:39] boundary around what you guys were doing. This was unlike pri previous prior reporting you'd done.
+[15:45] Well, when we came up with our formal definition of a heatwave, after talking to all the scientists and trying to
+[15:51] adopt a really mainline, mainstream, defensible, super scientific approach to making them, you know, we didn't really
+[15:58] know what we would see when we mapped it out over the last 80 years of available data. But then when we did, boom, we
+[16:04] just saw on the map these these areas of extreme heat growing larger and larger each decade as the Earth warmed. And we
+[16:12] knew we we were seeing something bigger than we expected. And that was bigger than what we talk about in the news
+[16:18] dayto-day. And you know, we we kind of felt, I don't want to speak for Mo, but I felt that to help our audience and the
+[16:27] public and other people understand what we're seeing, to start a conversation about that, we needed to invite people
+[16:33] to take a step back and look at the Earth from a zoom out a little and look at the Earth from a greater distance and
+[16:39] see these bigger changes that are happening in our planet. and and and that require that makes this a little
+[16:45] bit of a a challenge to the audience or to the public or to whoever reads our story to think a little differently
+[16:52] about the weather and what's happening all around us every day quite slowly but quite significantly over time. I think a
+[16:59] lot mo about what you said about looking back at that point in 2008 when without anybody seemingly noticing we went from
+[17:08] a period where heat storms could emerge, they could expand, they could cover part of the earth and then retreat and then
+[17:15] we as residents here could enjoy some time without a heat storm before the next one rose up. And then in 2008 um
+[17:22] they just became so frequent that there's never been a moment where one is not churning somewhere. We weren't aware
+[17:28] of that at the time. And so I wonder whether or not to a certain extent your reporting feels
+[17:35] are we in a way that we feel like maybe we're late to climate change in too many ways. We are maybe not responding as
+[17:44] quickly to the facts of it. We are not responding as quickly as to what we might be able to do to arrest or at
+[17:51] least slow some of its developments. And only now almost 20 years after that significant
+[17:59] change happened are we even aware of it. >> Are we late? Well, I think one of the great challenges that
+[18:09] researchers and scientists have had um since climate change and global warming became part of our vernacular is to
+[18:18] connect the real experience, the experience that you and I and anyone else might have had um with heat to
+[18:28] climate change. I think it's it's really difficult. I get up every morning and I ask myself how hot it's going to be or
+[18:35] in this time of year how cold it's going to be and I dress accordingly. I act accordingly. Um, and this was a genuine
+[18:42] attempt to connect the lay person with the researchers and find a way of communicating how our
+[18:51] world has changed. Are we late? Um, you know, uh, I think some would argue that we were late in 1988 when, um, you
+[19:02] know, Michael, uh, Oenheimer and and Jim Hansen went before Congress and said, "This is what's going to happen if we
+[19:08] don't do something now." Well, we, you know, they were clear. They were largely right in their in in what they said. And
+[19:15] yet, we didn't do anything then collectively. I mean, there have been fits and starts over time to try and
+[19:21] manage these things, but we don't seem to have been able to arrest the rise in carbon dioxide in the atmosphere. Uh, it
+[19:28] continues to go up uh every single year. Um, the science is clear that even small amounts of carbon dioxide in the
+[19:35] atmosphere are capable of trapping vast amounts of energy. And let's not kid ourselves here. The planet itself is all
+[19:42] about redist redistributing energy. That's how it works. That's why there are swirling weather patterns. That's
+[19:48] why there are swirling um uh currents in the ocean. It's all about just redistributing energy to find some kind
+[19:56] of balance. Um so we have known about this for a long time and we are now you know 30 years on from 35 years on from
+[20:05] Jim and and Michael talking before Congress and here we are still talking about how do we communicate to the public so
+[20:13] something is done. Are we late? Uh maybe, but we're also not too late, I hope.
+[20:20] >> I want to talk about where the reporting is going to take you guys next. This is a series. Mo, you've traced around the
+[20:27] globe looking at the effects that heat storms have had on people and places and and you're watching this thing from the
+[20:34] monitor that you built. Talk me through some of the stories that are coming up next. What are we going to learn? What
+[20:39] are we going to see? >> Okay. Uh so without giving away too much cuz I'd have to kill you if I told you too much. Um we will be um examining in
+[20:50] in in much more precise ways the health consequences of these events in various parts of the world. Um we will be
+[20:59] examining um how you know death uh that might be caused by this and and and we will be looking at some ecological
+[21:08] consequences of you know how plant life is affected how uh natural disasters are influenced by these events. So, but it
+[21:19] will all be in the context of how heat waves and heat storms are interacting with those elements to create a
+[21:26] situation that is in almost all cases worse for humanity and worse for the planet.
+[21:32] >> And to us, that's really the heart and soul of data journalism. You know, the numbers are just the beginning of the
+[21:38] story. You know, our job is to turn numbers into news. We are big- time nerds. We love making charts and graphs,
+[21:44] but they are far from enough, right? And so what Mo and and many many other photographers and reporters and
+[21:50] literally a cast of dozens here at Reuters are doing is using our data and these maps as as their road map to to to
+[21:58] go out into the world, the places the the data shows are being impacted and to to find out what's really going on out
+[22:04] there. And so we're going to have a lot more to share before long.
+[22:14] A big thank you to Ben and Mo for all their time and reporting. Sound design for this episode was by Jonathan Sters.
+[22:21] Our podcast team includes Eliza Davis Beard, Mindy Burroughs, Sharon Rich Garson, Gail Issa, Abasoya Osundero,
+[22:28] Ethan Platkin, Josh Summer, Sebastian Summer, Alex Summer, Tea Francesca Price, Joseph Ferguson, and Christopher
+[22:35] Walj, Jasper. Our senior producers are Carmel Crims, Jonah Green, Tara Oaks, and Kim Vanell. Leela Dretzer is our
+[22:44] executive producer. For daily news around the world, check out our sister podcast, Reuters World News, 7 days a
+[22:50] week. We'll be back next week on Assignment.

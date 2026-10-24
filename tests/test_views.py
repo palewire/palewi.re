@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "b5b06ab5fc151d06d904695d82abb7542b840ef2dbf07af0ac391535199efcb9"),
         ("/guides/", "4fc9fd13a05ecd20479fd289a7afd09f6cfd85ce97c72263d41aa80fae23b8a0"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "67ab3d95a801e957cfb06bf9888a858a4defd896830ce5bc7c077ad120e56748"),
+        ("/talks/", "136de8529330a2547523843e1de2428632b39de69231b33a2898986e3b8b6a73"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -552,6 +552,14 @@ def test_historical_talk_pages_have_hosted_recordings(client, slug, title):
             "00:00",
         ),
         (
+            "beyond-heat-waves-heat-storms",
+            "Beyond heat waves: the data behind &#x27;heat storms&#x27;",
+            "/media/talks/beyond-heat-waves-heat-storms/video.webm",
+            ' type="video/webm"',
+            "rare that reporters and journalists",
+            "00:00",
+        ),
+        (
             "data-and-graphics-an-introduction",
             "DATA AND GRAPHICS: An introduction",
             "/media/talks/data-and-graphics-an-introduction/video.mp4",
@@ -610,6 +618,10 @@ def test_talk_list_keeps_new_appearance_detail_links_without_source_links(client
         (
             "/talks/understanding-europes-heatwave/",
             "https://www.youtube.com/watch?v=me0DlYHkJKE&amp;t=28s",
+        ),
+        (
+            "/talks/beyond-heat-waves-heat-storms/",
+            "https://www.youtube.com/watch?v=MyS9pG3hAGs&amp;feature=youtu.be",
         ),
         (
             "/talks/data-and-graphics-an-introduction/",
