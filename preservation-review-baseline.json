@@ -1,6 +1,7 @@
 {
   "version": 1,
   "known_gaps": [
+    {"source_url": "https://traffic.omny.fm/d/clips/acc8cc57-ff7c-44c5-9bd6-ab0900fbdc43/96ef2688-bde9-45ab-9d4a-ab21012d3323/9402baf8-f101-4265-910c-b4f001582741/audio.mp3", "code": "local-media-untracked", "reason": "Public MP3 enclosure was backed up and checksum-verified in the external archive, then mirrored to the private palewire-talk-media R2 bucket on 2026-10-27."},
     {"source_url": "http://player.vimeo.com/video/114955572?title=0&amp;byline=0&amp;portrait=0", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "http://player.vimeo.com/video/114955600?title=0&amp;byline=0&amp;portrait=0", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},
     {"source_url": "http://player.vimeo.com/video/61290205?title=0&amp;byline=0&amp;portrait=0", "code": "local-media-untracked", "reason": "Historical media source awaiting recovery in issue #396."},

@@ -1,4 +1,16 @@
 talks:
+- title: "Call it a ‘heat storm,’ not a ‘heat wave,’ new Reuters analysis says"
+  venue: LAist 89.3
+  location: Los Angeles
+  date: '2026-10-27'
+  audio_url: https://omny.fm/shows/news-reports/call-it-a-heat-storm-not-a-heat-wave-new-reuters-analysis-says
+  audio_download_url: https://traffic.omny.fm/d/clips/acc8cc57-ff7c-44c5-9bd6-ab0900fbdc43/96ef2688-bde9-45ab-9d4a-ab21012d3323/9402baf8-f101-4265-910c-b4f001582741/audio.mp3
+  slug: call-it-a-heat-storm
+  short_title: Call it a ‘heat storm’
+  local_audio_url: /media/talks/call-it-a-heat-storm/audio.mp3
+  transcript_template: coltrane/talks/call-it-a-heat-storm-transcript.html
+  transcript_text_url: /static/talks/call-it-a-heat-storm/transcript.txt
+  captions_url: /static/talks/call-it-a-heat-storm/captions.vtt
 - title: "Beyond heat waves: the data behind 'heat storms'"
   venue: Reuters On Assignment
   location: YouTube
