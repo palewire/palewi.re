@@ -1,0 +1,60 @@
+[00:00] Support for this program comes from Wise. Wise lets customers send, spend, and receive money in over 40 currencies at the mid-market rate.
+[00:09] Learn more at Wise.com. Terms and conditions apply.
+[00:15] This is LAist 89.3. I'm Nereida Moreno.
+[00:19] Extreme heat is becoming more common and more deadly across the globe.
+[00:24] A new analysis from Reuters combed through extreme heat data on Earth for the past six decades,
+[00:29] and they coined a new term, heat storms, to describe that phenomenon.
+[00:33] Reuters editor Ben Welsh has been putting together the data on heat storms, and he joins us now to discuss. Ben, welcome.
+[00:40] Thank you for having me. You know, I'm a loyal listener to LAist and a sustaining member.
+[00:44] I'm honored to be here and to speak to your great audience.
+[00:47] We really appreciate you for being here. So first, what are heat storms and how did you come up with this metric?
+[00:53] This all started a while ago when my colleague and I, Maurice Tamman, set out to answer what we thought would be a pretty simple question.
+[01:01] We asked ourselves, are heat waves more common than they used to be? It seems to feel like it.
+[01:05] And since we're data journalists, what we did is we went off looking for some science and data we could use to answer the question.
+[01:11] And that's when we learned something that surprised me and Mo. There is no official scientific definition of a heat wave.
+[01:17] What counted as extreme heat was culturally determined. Different places set different standards.
+[01:23] And while climate scientists spent a lot of energy promoting things like the average global temperature,
+[01:29] it turns out they've never actually settled on one way to measure what counts as a heat wave.
+[01:34] So we decided to try to do it ourselves. We interviewed some of the world's leading experts.
+[01:38] We reviewed how other metrics are established and basically did a bunch of homework.
+[01:42] And then we settled on a measuring stick that we think is simple and grounded in science.
+[01:47] Yeah, tell us more about that measuring stick.
+[01:50] Sure. So we start by taking a 30-year sample of what used to be normal for every point on the planet.
+[01:57] The best data available today lets you go back to 1960 to 1990.
+[02:02] We then compare today's temperatures to that period.
+[02:06] And when the high ranks in the top 10% of what used to be normal for five or more days in a row, we call that a heat wave.
+[02:13] We then applied that measuring stick to every day since 1960 and put the results on the map.
+[02:19] That's when things really got interesting.
+[02:21] Back in the '60s and '70s, heat waves, under our definition, were rare, isolated events.
+[02:27] But in recent years, as Earth has gotten warmer, they've grown into these massive cascading blobs that blanket huge sections of the planet for months or even years at a time.
+[02:38] And looking at those maps, Mo and I realized we just didn't have the words to properly describe what we were seeing.
+[02:44] Heat wave just didn't feel like enough.
+[02:47] So we coined the term heat storm. And to qualify as a heat storm under our system, a heat wave has to cover at least 1% of Earth, which is about half the size of Canada.
+[02:57] Right. Like you said, it's our new normal.
+[03:00] And Ben, your analysis also found that the largest heat storm on record happened between 2023 and 2024.
+[03:08] So how did that affect different parts of the Earth?
+[03:10] Yeah, last week on Reuters.com, we published the story of the storm, which we call heat storm Vera, which lasted for more than a year and reached almost 85% of Earth's surface as it morphed over time.
+[03:22] Our reporting team chronicled its effects on people thousands of miles apart.
+[03:26] Football players in Texas were swooning under the Friday night lights.
+[03:30] Philippine students roasted in un-air-conditioned classrooms and pink dolphins in the Amazon rainforest even turned belly up, effectively cooked alive in the Jacuzzi-like waters there.
+[03:42] And how did that heat storm affect us here in Southern California?
+[03:46] SoCal was part of Vera's story from the very start.
+[03:49] We named the storm on July 29, 2023, when an older heat storm split into smaller pieces.
+[03:56] At that time, Vera stretched from the Central Pacific across California and all the way to the coast of Spain.
+[04:03] On its first day, Vera drove up the heat in Palm Springs to 118 degrees.
+[04:09] That's the hottest day of an already hot month and well above what used to be normal, even out there in the desert.
+[04:15] Elsewhere in the region, air quality officials were warning that heat was increasing smog in the air.
+[04:20] And that night, the lows in Palm Springs didn't get below 90 degrees.
+[04:24] So you started naming these heat storms and you even launched an online heat storm tracker.
+[04:30] Ben, why is it important to name them?
+[04:32] And do you anticipate that, you know, public agencies might consider adopting this naming framework in the future?
+[04:39] I mean, I get it if people out there in listener land are rolling their eyes at yet another weather word, right?
+[04:44] But the truth is we did not set out to do this.
+[04:46] We invented this term because we felt that, quote, heat wave simply didn't do justice to what we were seeing in the data.
+[04:53] As climate change is strengthening its grip, something bigger is happening to our planet.
+[04:58] We don't claim this term is perfect.
+[05:00] We don't expect everyone to instantly adopt it.
+[05:03] But if you can't name something, how can you talk about it at all?
+[05:07] We've been speaking with Reuters editor Ben Welsh. Ben, thank you so much for joining us.
+[05:11] Thank you for having me.
+[05:12] Stay cool, L.A.

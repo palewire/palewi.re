@@ -120,7 +120,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
         ("/code/", "b5b06ab5fc151d06d904695d82abb7542b840ef2dbf07af0ac391535199efcb9"),
         ("/guides/", "4fc9fd13a05ecd20479fd289a7afd09f6cfd85ce97c72263d41aa80fae23b8a0"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
-        ("/talks/", "136de8529330a2547523843e1de2428632b39de69231b33a2898986e3b8b6a73"),
+        ("/talks/", "48380cd16844c2168e95c4a43eb02dd123e547cd18462a9b652625b5f2b0b23d"),
         ("/bots/", "9e2991194a5be838f4ff33d1b5403065a752c57e235a28e7253399772dd63b41"),
     ],
 )
@@ -520,6 +520,14 @@ def test_historical_talk_pages_have_hosted_recordings(client, slug, title):
     ("slug", "title", "recording_url", "recording_type", "transcript_text", "first_timestamp"),
     [
         (
+            "call-it-a-heat-storm",
+            "Call it a ‘heat storm’",
+            "/media/talks/call-it-a-heat-storm/audio.mp3",
+            "",
+            "Reuters editor Ben Welsh",
+            "00:00",
+        ),
+        (
             "showing-your-work-with-ben-welsh",
             "Showing Your Work with Ben Welsh",
             "/media/talks/showing-your-work-with-ben-welsh/audio.m4a",
@@ -599,6 +607,10 @@ def test_talk_list_keeps_new_appearance_detail_links_without_source_links(client
     content = client.get("/talks/").content.decode()
 
     expected_links = (
+        (
+            "/talks/call-it-a-heat-storm/",
+            "https://omny.fm/shows/news-reports/call-it-a-heat-storm-not-a-heat-wave-new-reuters-analysis-says",
+        ),
         (
             "/talks/what-i-learned/",
             "https://vimeo.com/214875675#t=407s",
