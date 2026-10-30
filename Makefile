@@ -22,7 +22,9 @@ LEGACY_WORKER_DIR := workers/legacy-redirects
 LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
 STATIC_WORKER_DIR := workers/static-site
 TALK_ASSET_DIR := talks
+ACCESSIBILITY_DIR := tools/accessibility
 
+.PHONY: accessibility-dependencies
 .PHONY: help bootstrap ci-bootstrap check-tools worker-dependencies check-cf cloudflare-check install hooks dotenv bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 
@@ -60,6 +62,7 @@ help:
 	@echo "  report-built-site-quality  List documented and new issues in an existing dist/ build"
 	@echo "  serve      Start the development server"
 	@echo "  new-post  Create a public post interactively"
+	@echo "  accessibility-dependencies  Install locked accessibility tools and their browser"
 	@echo "  a11y       Run pa11y against a running local server (PORT=...)"
 	@echo "  check      Run the same lint, type, Django, and test checks as CI"
 	@echo "  test       Run tests only"
@@ -140,7 +143,10 @@ cloudflare-check: check-cf
 		node "$(CURDIR)/scripts/verify-cloudflare-identity.mjs" < "$$identity_file"; \
 	}
 
-bootstrap: check-tools dotenv install worker-dependencies hooks
+accessibility-dependencies:
+	npm --prefix "$(ACCESSIBILITY_DIR)" ci --no-audit --no-fund
+
+bootstrap: check-tools dotenv install worker-dependencies accessibility-dependencies hooks
 
 ci-bootstrap: install
 
@@ -169,11 +175,12 @@ new-post:
 
 a11y:
 	@test -n "$(PORT)" || { echo "Set PORT to the port printed by make serve." >&2; exit 1; }
+	@test -x "$(ACCESSIBILITY_DIR)/node_modules/.bin/pa11y-ci" || { echo "Run make accessibility-dependencies to install the locked accessibility tools." >&2; exit 1; }
 	@set -e; \
 	config="$$(mktemp)"; \
 	trap 'rm -f "$$config"' EXIT; \
 	sed "s/127.0.0.1:8000/127.0.0.1:$(PORT)/g" .pa11yci.json > "$$config"; \
-	npx --yes pa11y-ci@4.1.1 --config "$$config"
+	npm --prefix "$(ACCESSIBILITY_DIR)" run check -- --config "$$config"
 
 check: lint typecheck django-check check-clip-archives preservation-review test bake
 

@@ -186,8 +186,8 @@ def _run_make(
     )
 
 
-def test_bootstrap_installs_locked_worker_dependencies_without_global_wrangler(tmp_path: Path) -> None:
-    """Install each Worker dependency tree through bootstrap using npm stubs.
+def test_bootstrap_installs_locked_dependencies_without_global_wrangler(tmp_path: Path) -> None:
+    """Install Worker and accessibility dependency trees through npm stubs.
 
     Args:
         tmp_path: Temporary directory supplied by pytest.
@@ -237,11 +237,140 @@ def test_bootstrap_installs_locked_worker_dependencies_without_global_wrangler(t
             ["--prefix", str(directory), "ci", "--ignore-scripts", "--no-audit", "--no-fund"]
             for directory in worker_directories
         ],
+        ["--prefix", "tools/accessibility", "ci", "--no-audit", "--no-fund"],
     ]
     uv_calls = [call["args"] for call in calls if call["command"] == "uv"]
     assert ["sync", "--locked", "--group", "dev"] in uv_calls
     assert ["run", "pre-commit", "install"] in uv_calls
     assert not any(call["command"] == "wrangler" for call in calls)
+    accessibility_install_index = next(
+        index
+        for index, call in enumerate(calls)
+        if call["command"] == "npm" and call["args"][1:2] == ["tools/accessibility"]
+    )
+    hooks_install_index = next(
+        index
+        for index, call in enumerate(calls)
+        if call["command"] == "uv" and call["args"] == ["run", "pre-commit", "install"]
+    )
+    assert accessibility_install_index > max(
+        index
+        for index, call in enumerate(calls)
+        if call["command"] == "npm" and call["args"][2:3] == ["ci"] and "--ignore-scripts" in call["args"]
+    )
+    assert accessibility_install_index < hooks_install_index
+
+
+def test_a11y_rewrites_config_and_uses_locked_accessibility_install(tmp_path: Path) -> None:
+    """Pass a port-specific temporary config to the locked pa11y-ci command.
+
+    Args:
+        tmp_path: Temporary directory supplied by pytest.
+
+    Returns:
+        None. Asserts the npm command, absolute config path, and rewritten URLs.
+
+    Examples:
+        With `PORT=9123`, each default host URL uses port 9123 and the
+        installed tools under `ACCESSIBILITY_DIR` run without `npx`.
+    """
+    log_path = tmp_path / "calls.jsonl"
+    env = _test_environment(tmp_path, log_path)
+    fake_bin = Path(env["PATH"].split(os.pathsep)[0])
+    fake_npm = _write_fake_command(fake_bin, "npm")
+    accessibility_directory = tmp_path / "accessibility tools"
+    capture_path = tmp_path / "captured-pa11y-config.json"
+    env["MAKE_TEST_CONFIG_CAPTURE"] = str(capture_path)
+    env["FAKE_ACCESSIBILITY_DIR"] = str(accessibility_directory)
+    fake_npm.write_text(
+        fake_npm.read_text(encoding="utf-8").replace(
+            "raise SystemExit(0)",
+            "if name == 'npm' and sys.argv[1:3] == ['--prefix', os.environ['FAKE_ACCESSIBILITY_DIR']]:\n"
+            "    config_index = sys.argv.index('--config') + 1\n"
+            "    Path(os.environ['MAKE_TEST_CONFIG_CAPTURE']).write_text(\n"
+            "        Path(sys.argv[config_index]).read_text(encoding='utf-8'), encoding='utf-8'\n"
+            "    )\n"
+            "raise SystemExit(0)",
+        ),
+        encoding="utf-8",
+    )
+    pa11y_ci = _write_fake_command(accessibility_directory / "node_modules" / ".bin", "pa11y-ci")
+
+    result = _run_make(
+        "a11y",
+        env=env,
+        variables={"ACCESSIBILITY_DIR": str(accessibility_directory), "PORT": "9123"},
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert pa11y_ci.is_file()
+    calls = _read_calls(log_path)
+    assert len(calls) == 1
+    assert calls[0]["command"] == "npm"
+    config_path = Path(calls[0]["args"][-1])
+    assert config_path.is_absolute()
+    assert calls[0]["args"] == [
+        "--prefix",
+        str(accessibility_directory),
+        "run",
+        "check",
+        "--",
+        "--config",
+        str(config_path),
+    ]
+    assert calls[0]["args"][-2] == "--config"
+    expected_config = (
+        (REPOSITORY_ROOT / ".pa11yci.json").read_text(encoding="utf-8").replace("127.0.0.1:8000", "127.0.0.1:9123")
+    )
+    assert capture_path.read_text(encoding="utf-8") == expected_config
+    assert not config_path.exists()
+
+
+@pytest.mark.parametrize(
+    ("port", "install_tool", "expected_message"),
+    [
+        ("", True, "Set PORT to the port printed by make serve."),
+        ("9123", False, "Run make accessibility-dependencies"),
+    ],
+)
+def test_a11y_requires_port_and_locked_accessibility_executable(
+    tmp_path: Path,
+    port: str,
+    install_tool: bool,
+    expected_message: str,
+) -> None:
+    """Fail clearly before npm when the port or local pa11y-ci tool is absent.
+
+    Args:
+        tmp_path: Temporary directory supplied by pytest.
+        port: Port passed to the Make target, possibly empty.
+        install_tool: Whether the expected local executable exists.
+        expected_message: Required error guidance for the missing prerequisite.
+
+    Returns:
+        None. Asserts the target fails before running any command.
+
+    Examples:
+        An empty port requests `PORT=...`; a missing executable requests
+        `make accessibility-dependencies`.
+    """
+    log_path = tmp_path / "calls.jsonl"
+    env = _test_environment(tmp_path, log_path)
+    fake_bin = Path(env["PATH"].split(os.pathsep)[0])
+    _write_fake_command(fake_bin, "npm")
+    accessibility_directory = tmp_path / "accessibility tools"
+    if install_tool:
+        _write_fake_command(accessibility_directory / "node_modules" / ".bin", "pa11y-ci")
+
+    result = _run_make(
+        "a11y",
+        env=env,
+        variables={"ACCESSIBILITY_DIR": str(accessibility_directory), "PORT": port},
+    )
+
+    assert result.returncode != 0
+    assert expected_message in result.stderr
+    assert _read_calls(log_path) == []
 
 
 @pytest.mark.parametrize(

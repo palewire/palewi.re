@@ -5,8 +5,14 @@
 Run `make bootstrap` once after creating a clone or worktree. It installs locked
 dependencies and installs the pre-commit hooks. It first confirms that `uv`,
 Node.js 24.22 or later in the Node 24 series, and npm are available. It
-installs the locked Worker CLIs locally; it does not install a global CLI or
-authenticate with Cloudflare.
+installs the locked Worker CLIs and accessibility tools locally, including
+Puppeteer's matching Chrome browser in its user cache. It does not install a
+global CLI or authenticate with Cloudflare.
+
+Run `make a11y PORT=...` against the port printed by `make serve`. Existing
+checkouts can run `make accessibility-dependencies` to install the tools and
+browser from `tools/accessibility/package-lock.json`. CI uses these same
+targets; do not use an untracked `npx` install for accessibility checks.
 
 Run the development server with `make serve`. It first builds the expanded
 stylesheet and its source map. Linked worktrees automatically receive an

@@ -6,6 +6,8 @@ on:
     paths:
       - ".github/workflows/site-quality.yaml"
       - ".pa11yci.json"
+      - "Makefile"
+      - "tools/accessibility/**"
       - "bona_fides/**"
       - "coltrane/**"
       - "project/**"
@@ -48,7 +50,7 @@ jobs:
 
       - name: Prepare site
         run: |
-          make ci-bootstrap
+          make ci-bootstrap accessibility-dependencies
           uv run python manage.py collectstatic --noinput --clear
 
       - name: Start site
@@ -64,7 +66,7 @@ jobs:
           exit 1
 
       - name: Check accessibility
-        run: npx --yes pa11y-ci@4.1.1 --config .pa11yci.json
+        run: make a11y PORT=8000
 
   lighthouse:
     name: Lighthouse report
