@@ -16,7 +16,7 @@ updates:
       interval: "weekly"
     groups:
       worker-tooling:
-        patterns: ["wrangler", "typescript", "vitest", "@types/node"]
+        patterns: ["cf", "@cloudflare/vite-plugin", "vite", "typescript", "vitest", "@types/node"]
 
   - package-ecosystem: "npm"
     directory: "/workers/legacy-redirects"
@@ -24,7 +24,23 @@ updates:
       interval: "weekly"
     groups:
       worker-tooling:
-        patterns: ["wrangler", "typescript", "vitest", "@types/node"]
+        patterns: ["cf", "@cloudflare/vite-plugin", "vite", "typescript", "vitest", "@types/node"]
+
+  - package-ecosystem: "npm"
+    directory: "/workers/static-site"
+    schedule:
+      interval: "weekly"
+    groups:
+      worker-tooling:
+        patterns: ["cf", "@cloudflare/vite-plugin", "vite", "typescript", "vitest", "@types/node", "esbuild", "miniflare"]
+
+  - package-ecosystem: "npm"
+    directory: "/talks"
+    schedule:
+      interval: "weekly"
+    groups:
+      talk-tooling:
+        patterns: ["reveal.js"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
