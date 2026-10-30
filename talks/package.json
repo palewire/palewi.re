@@ -7,6 +7,6 @@
     "build": "node build.mjs"
   },
   "dependencies": {
-    "reveal.js": "5.2.1"
+    "reveal.js": "6.0.2"
   }
 }
