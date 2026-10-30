@@ -199,3 +199,25 @@ describe("static site Worker", () => {
     }
   });
 });
+
+
+describe("R2 platform metadata", () => {
+  it.each([
+    [{ offset: 900 }, "bytes 900-999/1000"],
+    [{ length: 100 }, "bytes 0-99/1000"],
+    [{ suffix: 100 }, "bytes 900-999/1000"],
+  ])("serves platform range metadata %j", async (range, expected) => {
+    const response = await handleRequest(request("/media/talks/example/video.mp4"), {
+      ASSETS: assets,
+      TALK_MEDIA: {
+        async get() {
+          return { body: new ReadableStream(), range, size: 1000, httpEtag: '"video"', writeHttpMetadata() {} };
+        },
+        async head() { return null; },
+      },
+    });
+    expect(response.status).toBe(206);
+    expect(response.headers.get("content-range")).toBe(expected);
+    expect(response.headers.get("content-length")).toBe("100");
+  });
+});

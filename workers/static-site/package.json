@@ -4,17 +4,20 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": ">=22 <25"
+    "node": ">=24.22 <25"
   },
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc --noEmit",
-    "config:check": "wrangler deploy --dry-run --env=\"\" && wrangler deploy --dry-run --env preview",
-    "startup:check": "wrangler check startup",
-    "validate": "npm run typecheck && npm run config:check && npm run startup:check"
+    "typecheck": "cf workers types --mode production && tsc --noEmit",
+    "config:check": "cf deploy --dry-run --mode production && cf deploy --dry-run --mode preview",
+    "startup:check": "cf workers check --mode production",
+    "validate": "npm run typecheck && npm run config:check && npm run startup:check",
+    "dev": "cf dev",
+    "build": "cf build"
   },
   "devDependencies": {
     "@types/node": "22.15.3",
+    "cf": "1.0.0-beta.26",
     "typescript": "5.7.3",
     "vitest": "5.0.0",
     "wrangler": "4.156.0"

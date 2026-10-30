@@ -21,7 +21,6 @@ WORKER_CANARY_NAME := palewire-mastodon-well-known-proxy-canary
 LEGACY_WORKER_DIR := workers/legacy-redirects
 LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
 STATIC_WORKER_DIR := workers/static-site
-STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 TALK_ASSET_DIR := talks
 
 .PHONY: help bootstrap ci-bootstrap check-tools worker-dependencies check-wrangler cloudflare-check install hooks dotenv bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
@@ -261,12 +260,12 @@ static-worker-validate: bake
 static-worker-preview-deploy: bake
 	@test "$$CONFIRM_STATIC_WORKER_PREVIEW_DEPLOY" = "1" || { echo "Set CONFIRM_STATIC_WORKER_PREVIEW_DEPLOY=1 after make static-worker-validate passes." >&2; exit 1; }
 	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(STATIC_WORKER_DIR)" && $(call run-wrangler,deploy --env preview --strict --name "$(STATIC_WORKER_PREVIEW_NAME)")
+	cd "$(STATIC_WORKER_DIR)" && $(call run-cf,deploy --mode preview --no-provision)
 
 static-worker-deploy: bake
 	@test "$$CONFIRM_STATIC_WORKER_DEPLOY" = "1" || { echo "Set CONFIRM_STATIC_WORKER_DEPLOY=1 after preview verification passes." >&2; exit 1; }
 	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(STATIC_WORKER_DIR)" && $(call run-wrangler,deploy --env="" --strict)
+	cd "$(STATIC_WORKER_DIR)" && $(call run-cf,deploy --mode production --no-provision)
 
 static-worker-verify:
 	@BASE_URL="$${BASE_URL:?Set BASE_URL to the static site URL.}" scripts/verify-static-site.sh
