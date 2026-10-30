@@ -43,8 +43,8 @@ beforeAll(async () => {
   port = await availablePort();
   worker = spawn(
     process.execPath,
-    ["./node_modules/cf/bin/cf", "dev", "--host", "127.0.0.1", "--port", String(port)],
-    { cwd: process.cwd() },
+    ["./node_modules/cf/bin/cf", "dev"],
+    { cwd: process.cwd(), env: { ...process.env, LEGACY_DEV_PORT: String(port) } },
   );
   worker.stdout.on("data", (data: Buffer) => {
     output += data.toString();

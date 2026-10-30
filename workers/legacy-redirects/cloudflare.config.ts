@@ -37,6 +37,8 @@ export default defineConfig(({ mode, isPreview }) => {
     case undefined:
     case "production":
       return { worker };
+    case "development":
+      return { worker: { ...worker, name: "palewire-legacy-redirects-development" } };
     case "production-routes":
       return {
         worker: {
