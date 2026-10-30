@@ -4,6 +4,8 @@ import os
 import subprocess
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -149,3 +151,54 @@ def test_production_verifiers_cover_new_navigation() -> None:
     assert 'request "/posts/2010/03/10/google-charts-takes-tufte-challenge/" 404' in static_verifier
     assert 'request "/work/"' not in static_verifier
     assert '"/work/:200"' not in redirect_verifier
+
+
+@pytest.mark.parametrize("valid_range", [True, False])
+def test_talk_media_verifier_rejects_invalid_range(tmp_path: Path, valid_range: bool) -> None:
+    """Verify media checks reject malformed headers even when bytes arrive.
+
+    Args:
+        tmp_path: Temporary directory supplied by pytest.
+        valid_range: Whether the curl stub returns numeric byte offsets.
+
+    Returns:
+        None. Asserts success only with a valid partial response.
+
+    Examples:
+        A response with bytes NaN-NaN/1000 fails despite its 32-byte body.
+    """
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    _write_executable(
+        bin_dir / "curl",
+        """#!/bin/sh
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --dump-header) headers_file=$2; shift 2 ;;
+    --output) body_file=$2; shift 2 ;;
+    *) shift ;;
+  esac
+done
+printf 'HTTP/2 206\nContent-Range: %s\n\n' "$FAKE_RANGE" > "$headers_file"
+printf '01234567890123456789012345678901' > "$body_file"
+printf '206'
+""",
+    )
+    env = {
+        **os.environ,
+        "PATH": f"{bin_dir}:{os.environ['PATH']}",
+        "FAKE_RANGE": "bytes 0-31/1000" if valid_range else "bytes NaN-NaN/1000",
+    }
+    result = subprocess.run(
+        ["sh", str(ROOT / "scripts" / "verify-talk-media.sh")],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert (result.returncode == 0) is valid_range
+    if valid_range:
+        assert "talk media verification passed" in result.stdout
+    else:
+        assert "bytes NaN-NaN/1000" in result.stderr

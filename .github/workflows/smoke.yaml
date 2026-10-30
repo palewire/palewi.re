@@ -48,6 +48,7 @@ jobs:
       - name: Verify production endpoints
         run: |
           scripts/verify-static-site.sh
+          scripts/verify-talk-media.sh
           scripts/verify-worker-endpoints.sh
           scripts/verify-legacy-redirects.sh
           scripts/verify-legacy-domains.sh

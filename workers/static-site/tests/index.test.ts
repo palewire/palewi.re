@@ -206,6 +206,7 @@ describe("R2 platform metadata", () => {
     [{ offset: 900 }, "bytes 900-999/1000"],
     [{ length: 100 }, "bytes 0-99/1000"],
     [{ suffix: 100 }, "bytes 900-999/1000"],
+    [{ offset: 0, length: 100, suffix: undefined }, "bytes 0-99/1000"],
   ])("serves platform range metadata %j", async (range, expected) => {
     const response = await handleRequest(request("/media/talks/example/video.mp4"), {
       ASSETS: assets,
