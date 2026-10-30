@@ -42,6 +42,14 @@ updates:
       talk-tooling:
         patterns: ["reveal.js"]
 
+  - package-ecosystem: "npm"
+    directory: "/tools/accessibility"
+    schedule:
+      interval: "weekly"
+    groups:
+      accessibility-tooling:
+        patterns: ["pa11y-ci"]
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
