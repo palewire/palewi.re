@@ -70,7 +70,7 @@ remain unchanged. CI sets `UV_NO_ENV_FILE=1`, so it never loads local settings.
 | `R2_SECRET_ACCESS_KEY` | Bucket-scoped R2 S3 secret |
 | `MEDIA_ARCHIVE_R2_BUCKET` | Private R2 bucket name; defaults to `palewire-media-archive` |
 | `R2_ENDPOINT_URL` | Optional R2 endpoint for jurisdiction-specific storage |
-| `CLOUDFLARE_API_TOKEN` | Wrangler API token for non-interactive local Cloudflare commands |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token for non-interactive local commands |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID for explicitly authorized Worker deployments |
 
 ## Quality gate
@@ -319,6 +319,15 @@ appropriate Worker directory; package files pin the CLI versions. This
 repository does not configure or deploy Cloudflare DNS, zones, Pages, or Workers until a maintainer
 explicitly runs a deployment target.
 
+### Static-site Worker
+
+The static-site package uses pinned `cf` for development and deployment. Its
+production and route-free preview modes live in `cloudflare.config.ts`;
+`wrangler.config.ts` points the bundler to the baked `dist/` assets. R2 media,
+Worker-first asset handling, and the four domain routes are preserved.
+See [the package guide](workers/static-site/README.md) for validation and
+guarded deployment commands.
+
 ### Mastodon discovery Worker
 
 `workers/mastodon-well-known-proxy/` is an isolated, locked Node project for a
@@ -345,7 +354,7 @@ upstream unless that path check succeeds.
 
 The Mastodon package pins `cf` 1.0.0-beta.26 and requires Node.js 24.22 or later
 in the Node 24 series. The CLI is still beta. Wrangler remains the pinned
-bundler for both migrated Workers; the static-site Worker uses Wrangler directly.
+bundler for all three Workers. Deployment commands use `cf`.
 Run the project-local CLI with `npm exec -- cf` from the Mastodon directory.
 `cf` keeps its own OAuth login and does not reuse `wrangler login`.
 

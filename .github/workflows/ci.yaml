@@ -154,7 +154,7 @@ jobs:
           make bake
           npm --prefix workers/static-site ci --ignore-scripts --no-audit --no-fund
           cd workers/static-site
-          npm exec -- wrangler deploy --env="" --strict
+          npm exec -- cf deploy --mode production --no-provision
 
       - name: Deploy legacy redirect routes
         run: CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 make legacy-worker-attach-routes

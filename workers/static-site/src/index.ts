@@ -2,13 +2,9 @@ export interface StaticAssets {
   fetch(request: Request): Promise<Response>;
 }
 
-export interface TalkMediaObject {
-  body: ReadableStream | null;
-  httpEtag: string;
-  range?: { length: number; offset: number };
-  size: number;
-  writeHttpMetadata(headers: Headers): void;
-}
+export type TalkMediaObject = Pick<R2Object, "httpEtag" | "range" | "size" | "writeHttpMetadata"> & {
+  body?: ReadableStream | null;
+};
 
 export interface TalkMedia {
   get(key: string, options?: { range?: Headers }): Promise<TalkMediaObject | null>;
@@ -142,10 +138,13 @@ async function serveTalkMedia(request: Request, media: TalkMedia | undefined): P
   object.writeHttpMetadata(headers);
   headers.set("etag", object.httpEtag);
   if (object.range) {
-    headers.set("content-length", String(object.range.length));
-    headers.set("content-range", `bytes ${object.range.offset}-${object.range.offset + object.range.length - 1}/${object.size}`);
+    const range = object.range;
+    const offset = "suffix" in range ? Math.max(0, object.size - range.suffix) : range.offset ?? 0;
+    const length = "suffix" in range ? object.size - offset : range.length ?? object.size - offset;
+    headers.set("content-length", String(length));
+    headers.set("content-range", `bytes ${offset}-${offset + length - 1}/${object.size}`);
   }
-  return new Response(request.method === "HEAD" ? null : object.body, {
+  return new Response(request.method === "HEAD" ? null : object.body ?? null, {
     headers,
     status: object.range ? 206 : 200,
   });
@@ -189,4 +188,4 @@ export default {
   fetch(request: Request, environment: WorkerEnvironment): Promise<Response> {
     return handleRequest(request, environment);
   },
-};
+} satisfies ExportedHandler<Cloudflare.Env>;

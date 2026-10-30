@@ -543,3 +543,44 @@ def test_legacy_worker_commands_require_confirmation(
     ]
     assert calls[1]["args"] == ["exec", "--", "cf", *arguments]
     assert calls[1]["cwd"] == str(REPOSITORY_ROOT / "workers/legacy-redirects")
+
+
+@pytest.mark.parametrize(
+    ("target", "confirmation", "mode"),
+    [
+        ("static-worker-preview-deploy", "CONFIRM_STATIC_WORKER_PREVIEW_DEPLOY", "preview"),
+        ("static-worker-deploy", "CONFIRM_STATIC_WORKER_DEPLOY", "production"),
+    ],
+)
+def test_static_worker_deploy_requires_confirmation(tmp_path: Path, target: str, confirmation: str, mode: str) -> None:
+    """Check static deployment selection without baking or deploying.
+
+    Args:
+        tmp_path: Temporary directory supplied by pytest.
+        target: Static deployment Make target.
+        confirmation: Required confirmation environment variable.
+        mode: Expected named cf mode.
+
+    Returns:
+        None. Asserts refusal before npm and correct deployment arguments.
+
+    Examples:
+        The preview target selects preview only after its confirmation is set.
+    """
+    log_path = tmp_path / "calls.jsonl"
+    env = _test_environment(tmp_path, log_path)
+    env.pop(confirmation, None)
+    _write_fake_command(tmp_path / "fake bin", "npm")
+    makefile = tmp_path / "Makefile"
+    makefile.write_text(f"include {REPOSITORY_ROOT / 'Makefile'}\nbake:\n\t@:\n")
+    refused = _run_make(target, env=env, makefile=makefile)
+    assert refused.returncode != 0
+    assert confirmation in refused.stderr
+    assert _read_calls(log_path) == []
+    env[confirmation] = "1"
+    allowed = _run_make(target, env=env, makefile=makefile)
+    assert allowed.returncode == 0, allowed.stderr
+    calls = _read_calls(log_path)
+    assert len(calls) == 2
+    assert calls[1]["args"] == ["exec", "--", "cf", "deploy", "--mode", mode, "--no-provision"]
+    assert calls[1]["cwd"] == str(REPOSITORY_ROOT / "workers/static-site")

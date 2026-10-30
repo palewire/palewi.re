@@ -1,0 +1,6 @@
+import { defineWranglerConfig } from "wrangler/experimental-config";
+
+export default defineWranglerConfig({
+  assetsDirectory: "../../dist",
+  types: { generate: false },
+});
