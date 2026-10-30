@@ -27,6 +27,7 @@ export default defineConfig(({ mode, isPreview }) => {
   switch (mode) {
     case undefined:
     case "production":
+    case "development":
       return { worker };
     case "production-routes":
       return {
