@@ -20,7 +20,6 @@ WORKER_DIR := workers/mastodon-well-known-proxy
 WORKER_CANARY_NAME := palewire-mastodon-well-known-proxy-canary
 LEGACY_WORKER_DIR := workers/legacy-redirects
 LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
-LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
 STATIC_WORKER_DIR := workers/static-site
 STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 TALK_ASSET_DIR := talks
@@ -343,22 +342,22 @@ legacy-worker-validate:
 legacy-worker-canary-deploy:
 	@test "$$CONFIRM_LEGACY_WORKER_CANARY_DEPLOY" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_CANARY_DEPLOY=1 after make legacy-worker-validate." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,deploy --env startup-canary --strict --name "$(LEGACY_WORKER_CANARY_NAME)")
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,deploy --mode startup-canary --no-provision)
 
 legacy-worker-delete-canary:
 	@test "$$CONFIRM_LEGACY_WORKER_DELETE_CANARY" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_DELETE_CANARY=1 to delete the route-free canary Worker." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,delete "$(LEGACY_WORKER_CANARY_NAME)" --force)
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,workers delete "$(LEGACY_WORKER_CANARY_NAME)" --force)
 
 legacy-worker-same-zone-canary-deploy:
 	@test "$$CONFIRM_LEGACY_WORKER_SAME_ZONE_CANARY_DEPLOY" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_SAME_ZONE_CANARY_DEPLOY=1 after make legacy-worker-validate passes." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,deploy --env same-zone-canary --strict)
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,deploy --mode same-zone-canary --no-provision)
 
 legacy-worker-attach-same-zone-canary:
 	@test "$$CONFIRM_LEGACY_WORKER_ATTACH_SAME_ZONE_CANARY" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_ATTACH_SAME_ZONE_CANARY=1 after the route-free same-zone canary deploy passes." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,deploy --env same-zone-canary --strict --route "$(LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE)")
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,deploy --mode same-zone-canary-route --no-provision)
 
 legacy-worker-verify-same-zone-canary:
 	@BASE_URL="$${BASE_URL:-https://palewi.re}" scripts/verify-legacy-redirect-canary.sh
@@ -366,7 +365,7 @@ legacy-worker-verify-same-zone-canary:
 legacy-worker-delete-same-zone-canary:
 	@test "$$CONFIRM_LEGACY_WORKER_DELETE_SAME_ZONE_CANARY" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_DELETE_SAME_ZONE_CANARY=1 to delete the same-zone canary and detach its route." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,delete --env same-zone-canary --force)
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,workers delete palewire-legacy-redirects-same-zone-canary --force)
 
 legacy-worker-route-plan:
 	@uv run python -c 'from project.redirect_manifest import RULES, cloudflare_route_plan; print(" ".join(f"--route {route}" for route in cloudflare_route_plan(RULES)))'
@@ -374,7 +373,7 @@ legacy-worker-route-plan:
 legacy-worker-attach-routes:
 	@test "$$CONFIRM_LEGACY_WORKER_ATTACH_ROUTES" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 only after same-zone canary verification and cleanup pass." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	@routes="$$(uv run python -c 'from project.redirect_manifest import RULES, cloudflare_route_plan; print(" ".join(f"--route {route}" for route in cloudflare_route_plan(RULES)))')"; cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,deploy --env="" --strict $$routes)
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,deploy --mode production-routes --no-provision)
 
 legacy-worker-verify-production:
 	@scripts/verify-legacy-redirects.sh
@@ -382,9 +381,9 @@ legacy-worker-verify-production:
 legacy-worker-detach-routes:
 	@test "$$CONFIRM_LEGACY_WORKER_DETACH_ROUTES" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_DETACH_ROUTES=1 to delete the Worker and detach its routes." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,delete --env="" --force)
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,workers delete palewire-legacy-redirects --force)
 
 legacy-worker-delete:
 	@test "$$CONFIRM_LEGACY_WORKER_DELETE" = "1" || { echo "Set CONFIRM_LEGACY_WORKER_DELETE=1 to delete the Worker and any attached routes." >&2; exit 1; }
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(LEGACY_WORKER_DIR)" && $(call run-wrangler,delete --env="" --force)
+	cd "$(LEGACY_WORKER_DIR)" && $(call run-cf,workers delete palewire-legacy-redirects --force)

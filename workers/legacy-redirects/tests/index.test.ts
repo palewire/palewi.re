@@ -1,9 +1,11 @@
 import { readFileSync } from "node:fs";
+import { URL as NodeURL } from "node:url";
 
 import { describe, expect, it } from "vitest";
 import { parse } from "yaml";
 
 import { handleRequest, loadManifest, routePlan, rules } from "../src/index";
+import config from "../cloudflare.config";
 
 const BASE_URL = "https://palewi.re";
 const MARKER = "cloudflare-worker-v1";
@@ -31,26 +33,34 @@ function expectedDestination(record: ManifestRecord, path: string): string {
 }
 
 describe("legacy redirect Worker", () => {
-  const manifest = parse(readFileSync(new URL("../../../project/redirects.yaml", import.meta.url), "utf8")) as {
+  const manifest = parse(readFileSync(new NodeURL("../../../project/redirects.yaml", import.meta.url), "utf8")) as {
     redirects: ManifestRecord[];
   };
 
-  it("disables public production exposure and keeps explicit canaries available", () => {
-    const config = JSON.parse(readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8"));
+  it("disables production preview access and isolates the route-free canaries", () => {
+    const production = config({ mode: "production", isPreview: false }).worker;
+    const startup = config({ mode: "startup-canary", isPreview: false }).worker;
+    const sameZone = config({ mode: "same-zone-canary", isPreview: false }).worker;
+    expect(production.workersDev).toBe(false);
+    expect(production.previewUrls).toBe(false);
+    expect(production).not.toHaveProperty("triggers");
+    expect(production).not.toHaveProperty("env");
+    expect(production).not.toHaveProperty("compatibilityFlags");
+    expect(startup.name).toBe("palewire-legacy-redirects-canary");
+    expect(startup.workersDev).toBe(true);
+    expect(startup.previewUrls).toBe(true);
+    expect(startup).not.toHaveProperty("triggers");
+    expect(startup).not.toHaveProperty("env");
+    expect(sameZone.name).toBe("palewire-legacy-redirects-same-zone-canary");
+    expect(sameZone.workersDev).toBe(true);
+    expect(sameZone.previewUrls).toBe(true);
+    expect(sameZone).toHaveProperty("triggers", []);
+    expect(sameZone).toHaveProperty("env.CANARY_PATH", { type: "text", value: "/legacy-redirects-canary" });
+  });
 
-    expect(config.workers_dev).toBe(false);
-    expect(config.preview_urls).toBe(false);
-    expect(config.routes).toBeUndefined();
-    expect(config.route).toBeUndefined();
-    expect(config.compatibility_flags ?? []).not.toContain("global_fetch_strictly_public");
-    expect(config.env["startup-canary"]).toEqual({
-      name: "palewire-legacy-redirects-startup-canary",
-      workers_dev: true,
-      preview_urls: true,
-    });
-    expect(config.env["same-zone-canary"].workers_dev).toBe(true);
-    expect(config.env["same-zone-canary"].preview_urls).toBe(true);
-    expect(config.env["same-zone-canary"].vars).toEqual({ CANARY_PATH: "/legacy-redirects-canary" });
+  it("rejects unknown modes and Worker Previews", () => {
+    expect(() => config({ mode: "prodution", isPreview: false })).toThrow("Unknown legacy Worker mode");
+    expect(() => config({ mode: "production", isPreview: true })).toThrow("named legacy canary modes");
   });
 
   it("has 21 exact and 8 dynamic rules with a unique narrow Cloudflare route plan", () => {

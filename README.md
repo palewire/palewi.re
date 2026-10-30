@@ -345,7 +345,7 @@ upstream unless that path check succeeds.
 
 The Mastodon package pins `cf` 1.0.0-beta.26 and requires Node.js 24.22 or later
 in the Node 24 series. The CLI is still beta. Wrangler remains the pinned
-bundler; the legacy and static-site Workers continue using Wrangler directly.
+bundler for both migrated Workers; the static-site Worker uses Wrangler directly.
 Run the project-local CLI with `npm exec -- cf` from the Mastodon directory.
 `cf` keeps its own OAuth login and does not reuse `wrangler login`.
 
@@ -504,10 +504,11 @@ redirects. It currently has 21 exact paths and 8 dynamic patterns.
 `project/redirect_manifest.py` is pure Python validation and route-plan tooling
 used by the Worker tests, deployment commands, and production verifier.
 `workers/legacy-redirects/` reads that same file as a bundled text module and
-has no `fetch()` call. Its small explicit
-`WorkerEnvironment` interface covers the only optional canary binding, avoiding
-a second generated 15,000-line Workerd declaration while preserving strict
-TypeScript and Wrangler dry-run validation. A matching request receives a
+has no `fetch()` call. It uses the pinned `cf` CLI and named modes in
+`cloudflare.config.ts`; Wrangler remains the bundler, with the YAML text-module
+rule in `wrangler.config.ts`. `cf workers types` generates the optional canary
+binding type before TypeScript validation. Generated `.cloudflare/` files stay
+untracked. A matching request receives a
 302, its manifest destination, and
 `X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped.
 
@@ -528,7 +529,8 @@ production verification use a 20-second curl timeout and wait 15 seconds
 between bounded retries for route propagation. Static-site verification also
 retries temporary status mismatches while newly deployed assets propagate.
 
-Use a dedicated Cloudflare token for deployment, restricted to the owning
+Authenticate from `workers/legacy-redirects` with `npm exec -- cf auth login`,
+or use a dedicated Cloudflare token for deployment, restricted to the owning
 account and `palewi.re` zone. It needs only **Account > Workers Scripts >
 Edit**, **Zone > Workers Routes > Edit**, and **Zone > Zone > Read**. The
 read-only `make cloudflare-check` token remains limited to **User > User
@@ -544,8 +546,8 @@ make legacy-worker-route-plan
 
 # Optional route-free startup canary. It cannot validate zone routing.
 CONFIRM_LEGACY_WORKER_CANARY_DEPLOY=1 make legacy-worker-canary-deploy
-# Verify the workers.dev URL printed by Wrangler with a representative redirect.
-BASE_URL="https://the-url-printed-by-wrangler" scripts/verify-legacy-redirects.sh
+# Verify the workers.dev URL printed by cf with a representative redirect.
+BASE_URL="https://the-url-printed-by-cf" scripts/verify-legacy-redirects.sh
 CONFIRM_LEGACY_WORKER_DELETE_CANARY=1 make legacy-worker-delete-canary
 
 # Required production-zone canary: deploy it without routes, then attach only
@@ -561,6 +563,10 @@ CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 make legacy-worker-attach-routes
 # dynamic pattern, Location, marker, and adjacent current paths.
 WORKER_MARKER_ATTEMPTS=4 WORKER_MARKER_WAIT_SECONDS=15 make legacy-worker-verify-production
 ```
+
+The `production-routes` mode asks the Python validator for the route plan.
+The default production mode has no routes; only the explicit attachment modes
+add routes. Dry runs cover all five modes and preserve the bundled YAML.
 
 Every mutating command requires its named confirmation variable. The
 post-merge deployment runs the same canary, cleanup, route attachment, and

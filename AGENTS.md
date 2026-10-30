@@ -43,18 +43,20 @@ creating a GitHub release. Releases use semantic versions, point to the
 deployed `main` commit, and are published only after the production smoke test
 passes.
 
-The Mastodon Worker uses project-local `cf` (pinned in its package.json) and
-requires Node.js 24.22 or later in the Node 24 series. Its settings and explicit
+The Mastodon and legacy redirect Workers use project-local `cf` (pinned in
+each package.json) and require Node.js 24.22 or later in the Node 24 series. Their settings and explicit
 route attachment modes live in `cloudflare.config.ts`; production has no public
-preview URLs, and only the named canary modes enable them. Use its guarded
+preview URLs, and only the named canary modes enable them. Use their guarded
 Makefile targets for deploys and cleanup. `cf` needs its own OAuth login or
-`CLOUDFLARE_API_TOKEN`. Wrangler remains its bundler and the CLI for the other
-Workers. Generated `.cloudflare/` build output and types must stay untracked.
+`CLOUDFLARE_API_TOKEN`. Wrangler remains their bundler and the CLI for the
+static-site Worker. The legacy production route mode calls the Python redirect validator;
+keep that validator as the source of the deployed route plan. Generated
+`.cloudflare/` build output and types must stay untracked.
 
 Worker changes also require `make worker-test`, `make worker-validate`,
 `make legacy-worker-test`, and `make legacy-worker-validate`. Production
-Wrangler configs keep `workers_dev` and `preview_urls` disabled; the named
-`startup-canary` and `same-zone-canary` environments explicitly enable preview
+configs keep workers.dev and preview URLs disabled; the named
+`startup-canary` and `same-zone-canary` modes explicitly enable preview
 URLs for guarded, route-free checks.
 
 Keep changes focused. Add or update tests when behavior changes. Do not commit

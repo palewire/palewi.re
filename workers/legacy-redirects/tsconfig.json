@@ -3,10 +3,11 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["ES2023", "ESNext.Disposable", "WebWorker"],
+    "lib": ["ES2023", "ESNext.Disposable"],
     "strict": true,
     "noEmit": true,
-    "types": ["node", "vitest/globals"]
+    "types": ["node", "vitest/globals"],
+    "skipLibCheck": true
   },
-  "include": ["src", "tests"]
+  "include": ["src", "tests", "cloudflare.config.ts", "wrangler.config.ts", ".cloudflare/types"]
 }
