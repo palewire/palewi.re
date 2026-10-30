@@ -139,8 +139,13 @@ async function serveTalkMedia(request: Request, media: TalkMedia | undefined): P
   headers.set("etag", object.httpEtag);
   if (object.range) {
     const range = object.range;
-    const offset = "suffix" in range ? Math.max(0, object.size - range.suffix) : range.offset ?? 0;
-    const length = "suffix" in range ? object.size - offset : range.length ?? object.size - offset;
+    const suffix = "suffix" in range ? range.suffix : undefined;
+    const offset = suffix !== undefined
+      ? Math.max(0, object.size - suffix)
+      : ("offset" in range ? range.offset : undefined) ?? 0;
+    const length = suffix !== undefined
+      ? object.size - offset
+      : ("length" in range ? range.length : undefined) ?? object.size - offset;
     headers.set("content-length", String(length));
     headers.set("content-range", `bytes ${offset}-${offset + length - 1}/${object.size}`);
   }
