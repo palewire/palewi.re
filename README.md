@@ -314,10 +314,12 @@ the token as your Cloudflare account allows. `wrangler whoami` does not need
 `CLOUDFLARE_ACCOUNT_ID`, so do not add that secret or variable yet.
 
 The cloud-agent setup and local bootstrap install the same locked Worker
-dependencies. Use `npm exec -- cf` or `npm exec -- wrangler` from the
-appropriate Worker directory; package files pin the CLI versions. This
-repository does not configure or deploy Cloudflare DNS, zones, Pages, or Workers until a maintainer
-explicitly runs a deployment target.
+dependencies. Use `npm exec -- cf` for Worker deployment commands, and
+`npm exec -- wrangler` for static-site and legacy Worker Wrangler tasks; package
+files pin the CLI versions. The Mastodon Worker uses its pinned Vite toolchain
+for local development. This repository does not configure or deploy Cloudflare
+DNS, zones, Pages, or Workers until a maintainer explicitly runs a deployment
+target.
 
 ### Static-site Worker
 
@@ -352,14 +354,18 @@ uses a terminal `*` for each route to serve WebFinger requests with
 `404` for a suffix such as `webfinger-extra`; the wildcard cannot reach the
 upstream unless that path check succeeds.
 
-The Mastodon package pins `cf` 1.0.0-beta.26 and requires Node.js 24.22 or later
-in the Node 24 series. The CLI is still beta. Wrangler remains the pinned
-bundler for all three Workers. Deployment commands use `cf`.
+The Mastodon package pins `cf` 1.0.0-beta.26 for deployment and requires
+Node.js 24.22 or later in the Node 24 series. It uses Vite 8.3.5 and the pinned
+`@cloudflare/vite-plugin` 2.0.0-beta.v.8 for bundling and local development;
+both the `cf` CLI and Vite plugin are beta releases. The static-site and legacy
+Workers still use Wrangler for bundling. Wrangler also remains the tool for the
+read-only identity check. Deployment commands use `cf`.
 Run the project-local CLI with `npm exec -- cf` from the Mastodon directory.
 `cf` keeps its own OAuth login and does not reuse `wrangler login`.
 
 `cloudflare.config.ts` owns the settings and routes. Its default and
-`production` modes have no routes, bindings, or public preview URLs.
+`production` modes have no routes, bindings, or public preview URLs. The local
+`development` mode keeps those same route-free settings.
 `startup-canary` deploys the existing route-free `-canary` Worker;
 `same-zone-canary` deploys the separate same-zone Worker without a route.
 Only `same-zone-canary-route` and `production-routes` attach their respective
@@ -374,7 +380,10 @@ and runtime types under ignored `.cloudflare/types/`, type-checks the code and
 configuration, dry-runs all five modes, and profiles startup. The generated
 Workers declarations overlap Node's web globals, so TypeScript skips declaration
 file checking while keeping application and configuration checking strict.
-The local runtime regression test starts `cf dev` through Wrangler/workerd.
+The local runtime regression test starts `cf dev`, which delegates to Vite,
+and exercises the Worker in workerd. For local development, run
+`npm --prefix workers/mastodon-well-known-proxy run dev`; the server listens on
+`127.0.0.1:5173`. Set `MASTODON_DEV_PORT` to use a different port.
 
 Run the isolated checks without contacting or changing Cloudflare:
 
@@ -395,8 +404,9 @@ interprets module exports as Worker entries and only accepts functions or an
 exported handler, so the module failed during startup before it made an
 upstream request. At that time, deleting the Worker restored the Django
 endpoints. This has been reproduced with Wrangler 4.125.0 and local Miniflare.
-The regression test starts the bundled Worker in workerd, which catches invalid
-module exports that direct TypeScript unit tests miss.
+The regression test starts the Worker through Vite's development server in
+workerd, which catches invalid module exports that direct TypeScript unit tests
+miss.
 
 After the startup fix, the route-free workers.dev canary passed, but attaching
 the Worker to the three `palewi.re` routes returned Worker-marked `502`
@@ -423,10 +433,10 @@ neither can update a Worker serving production routes. The same-zone canary only
 `CANARY_PATH` binding. It fetches the same fixed upstream's NodeInfo endpoint.
 The production Worker has no such binding and returns `404` for this path.
 
-Miniflare starts the bundled Worker and catches module/runtime regressions, but
-it cannot reproduce Cloudflare zone routing or error 1042. Passing the
-same-zone canary below is therefore required before any production route is
-attached.
+The Vite-powered local runtime check catches module/runtime regressions in
+workerd, but it cannot reproduce Cloudflare zone routing or error 1042. Passing
+the same-zone canary below is therefore required before any production route
+is attached.
 
 To deploy, authenticate with local `npm exec -- cf auth login` from the Worker
 directory, or an API token limited to the Cloudflare account and `palewi.re` zone that own these

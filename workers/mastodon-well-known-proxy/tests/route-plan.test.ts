@@ -18,6 +18,23 @@ function routeMatches(url: URL, route: string): boolean {
 }
 
 describe("production route plan", () => {
+  it.each([undefined, "production", "development"])(
+    "keeps %s route-free with public previews disabled",
+    (mode) => {
+      const worker = config({ mode, isPreview: false }).worker;
+      expect(worker.name).toBe("palewire-mastodon-well-known-proxy");
+      expect(worker.workersDev).toBe(false);
+      expect(worker.previewUrls).toBe(false);
+      expect(worker).not.toHaveProperty("triggers");
+      expect(worker).not.toHaveProperty("env");
+    },
+  );
+
+  it("rejects misspelled modes and implicit Worker Previews", () => {
+    expect(() => config({ mode: "prodution", isPreview: false })).toThrow("Unknown Mastodon Worker mode");
+    expect(() => config({ mode: "production", isPreview: true })).toThrow("named canary modes");
+  });
+
   it("only attaches the approved routes in the explicit attachment modes", () => {
     const production = config({ mode: "production-routes", isPreview: false }).worker;
     const canary = config({ mode: "same-zone-canary-route", isPreview: false }).worker;

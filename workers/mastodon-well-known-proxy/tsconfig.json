@@ -9,5 +9,5 @@
     "types": ["node", "vitest/globals"],
     "skipLibCheck": true
   },
-  "include": ["src", "tests", "cloudflare.config.ts", ".cloudflare/types"]
+  "include": ["src", "tests", "cloudflare.config.ts", "vite.config.ts", ".cloudflare/types"]
 }
