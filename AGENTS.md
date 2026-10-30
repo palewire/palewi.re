@@ -4,8 +4,9 @@
 
 Run `make bootstrap` once after creating a clone or worktree. It installs locked
 dependencies and installs the pre-commit hooks. It first confirms that `uv`,
-Node.js, npm, and Wrangler are available; it does not install or authenticate
-any tool.
+Node.js 24.22 or later in the Node 24 series, and npm are available. It
+installs the locked Worker CLIs locally; it does not install a global CLI or
+authenticate with Cloudflare.
 
 Run the development server with `make serve`. It first builds the expanded
 stylesheet and its source map. Linked worktrees automatically receive an
@@ -72,18 +73,20 @@ secrets, generated files, or `.goals/` agent state.
 Use `uv` and `pyproject.toml` for Python dependencies, plain CSS for styles,
 Ruff for formatting and linting, and ty for static analysis.
 
-Copilot cloud agents also receive Wrangler 4.125.0 from that setup workflow.
+Copilot cloud agents use the same locked Worker dependencies as local bootstrap.
 For authenticated Cloudflare identity checks, add a least-privilege
 `CLOUDFLARE_API_TOKEN` Copilot Agents secret with **User Details: Read** and
-**Memberships: Read** permissions. Locally, run `wrangler login` or set that
-environment variable, then use `make cloudflare-check`. This check uses
+**Memberships: Read** permissions. Locally, run `npm exec -- wrangler login`
+from `workers/static-site/` or set that environment variable, then use `make cloudflare-check`. This check uses
 `wrangler whoami --json`; it does not need `CLOUDFLARE_ACCOUNT_ID` and must
 not be expanded into a deployment command until a target is chosen.
 
 The vendored Wrangler skill includes general installation advice. For this
-repository, do not install Wrangler from an agent or use `@latest`; run
-`make check-wrangler` and use the existing pinned 4.125.0 CLI instead. Local
-developers install it once outside the repository as documented in `README.md`.
+repository, do not install global Wrangler or use `@latest`; run
+`make bootstrap` for the locked Worker dependencies and `make check-wrangler`
+to confirm the static-site package CLI. Worker commands use their own package
+pins. Relative `UV_ENV_FILE` paths resolve from the repository root, including
+commands that change into Worker directories.
 
 ## YAML content types
 

@@ -14,7 +14,6 @@ endif
 endif
 
 HOMEBREW_BIN := $(shell for path in /opt/homebrew/bin /usr/local/bin; do test -x "$$path/brew" && { printf '%s' "$$path"; break; }; done)
-WRANGLER_VERSION := 4.125.0
 export PATH := $(HOME)/.local/bin:$(HOME)/.npm-global/bin:$(HOME)/.volta/bin:$(HOME)/.asdf/shims:$(HOME)/.fnm/current/bin:$(HOMEBREW_BIN):$(PATH)
 
 WORKER_DIR := workers/mastodon-well-known-proxy
@@ -26,7 +25,7 @@ STATIC_WORKER_DIR := workers/static-site
 STATIC_WORKER_PREVIEW_NAME := palewire-static-site-preview
 TALK_ASSET_DIR := talks
 
-.PHONY: help bootstrap ci-bootstrap check-tools check-wrangler cloudflare-check install hooks dotenv bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools worker-dependencies check-wrangler cloudflare-check install hooks dotenv bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 
 .PHONY: preservation-inventory report-built-site-quality
@@ -35,7 +34,9 @@ TALK_ASSET_DIR := talks
 # Use uv's parser instead of sourcing a dotenv file in the shell.
 define run-with-dotenv
 if test -n "$${UV_ENV_FILE:-}" && test "$${UV_NO_ENV_FILE:-}" != "1" && test "$${UV_NO_ENV_FILE:-}" != "true"; then \
-	"$$(command -v uv)" run --env-file "$$UV_ENV_FILE" -- $(1); \
+	env_file="$$UV_ENV_FILE"; \
+	case "$$env_file" in /*) ;; *) env_file="$(CURDIR)/$$env_file" ;; esac; \
+	"$$(command -v uv)" run --env-file "$$env_file" -- $(1); \
 else \
 	$(1); \
 fi
@@ -54,10 +55,11 @@ help:
 	@echo "  bootstrap  Check developer tools, then prepare dependencies and hooks"
 	@echo "  ci-bootstrap  Prepare dependencies for CI"
 	@echo "  dotenv  Create .env from .env.example without overwriting it"
-	@echo "  check-tools  Confirm uv, Node.js, npm, and Wrangler are available"
-	@echo "  check-wrangler  Confirm Wrangler is available"
+	@echo "  check-tools  Confirm uv, Node.js, and npm are available"
+	@echo "  check-wrangler  Confirm the locked static-site Wrangler is available"
 	@echo "  cloudflare-check  Show the authenticated Cloudflare account"
-	@echo "  install    Install all dependencies without changing Git hooks"
+	@echo "  install    Install Python and talk dependencies without changing Git hooks"
+	@echo "  worker-dependencies  Install locked dependencies for all Workers"
 	@echo "  hooks      Install pre-commit hooks"
 	@echo "  bake       Build and quality-check static site files in dist/"
 	@echo "  check-built-site  Check an existing dist/ build without network access"
@@ -123,20 +125,23 @@ hooks:
 
 check-tools:
 	@command -v uv > /dev/null || { echo "uv is required. Install it from https://docs.astral.sh/uv/getting-started/installation/" >&2; exit 1; }
-	@command -v node > /dev/null || { echo "Node.js 24 is required. Install it from https://nodejs.org/" >&2; exit 1; }
-	@command -v npm > /dev/null || { echo "npm is required. Install Node.js 24 from https://nodejs.org/" >&2; exit 1; }
-	@$(MAKE) --no-print-directory check-wrangler
+	@command -v node > /dev/null || { echo "Node.js 24.22 or later in the Node 24 series is required. Install it from https://nodejs.org/" >&2; exit 1; }
+	@command -v npm > /dev/null || { echo "npm is required. Install Node.js 24.22 or later from https://nodejs.org/" >&2; exit 1; }
+	@node -e 'const [major, minor] = process.versions.node.split(".").map(Number); if (major !== 24 || minor < 22) { console.error("Node.js 24.22 or later in the Node 24 series is required."); process.exit(1); }'
+
+worker-dependencies:
+	@for directory in "$(WORKER_DIR)" "$(LEGACY_WORKER_DIR)" "$(STATIC_WORKER_DIR)"; do \
+		npm --prefix "$$directory" ci --ignore-scripts --no-audit --no-fund || exit $$?; \
+	done
 
 check-wrangler:
-	@command -v wrangler > /dev/null || { echo "Wrangler is required. Install version $(WRANGLER_VERSION) with: npm install --global wrangler@$(WRANGLER_VERSION)" >&2; exit 1; }
-	@"$$(command -v wrangler)" --version
-	@version="$$("$$(command -v wrangler)" --version | awk 'match($$0, /[0-9]+\.[0-9]+\.[0-9]+/) { print substr($$0, RSTART, RLENGTH); exit }')"; \
-	test "$$version" = "$(WRANGLER_VERSION)" || { echo "Wrangler $(WRANGLER_VERSION) is required. Found $${version:-an unrecognized version}. Install it with: npm install --global wrangler@$(WRANGLER_VERSION)" >&2; exit 1; }
+	@test -x "$(STATIC_WORKER_DIR)/node_modules/.bin/wrangler" || { echo "Run make bootstrap to install the locked Worker dependencies." >&2; exit 1; }
+	@cd "$(STATIC_WORKER_DIR)" && node_modules/.bin/wrangler --version
 
 cloudflare-check: check-wrangler
-	@$(call run-with-dotenv,"$$(command -v wrangler)" whoami --json) || { echo "Cloudflare authentication failed. Run 'wrangler login' locally or set CLOUDFLARE_API_TOKEN." >&2; exit 1; }
+	@cd "$(STATIC_WORKER_DIR)" && $(call run-wrangler,whoami --json) || { echo "Cloudflare authentication failed. Run 'npm exec -- wrangler login' in $(STATIC_WORKER_DIR) or set CLOUDFLARE_API_TOKEN." >&2; exit 1; }
 
-bootstrap: check-tools dotenv install hooks
+bootstrap: check-tools dotenv install worker-dependencies hooks
 
 ci-bootstrap: install
 

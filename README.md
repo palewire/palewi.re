@@ -7,7 +7,6 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
 - Node.js 24.22 or later in the Node 24 series for Worker and accessibility checks
-- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks
 
 ## Setup
 
@@ -26,8 +25,9 @@ make serve
 `make bootstrap` checks these commands before it installs anything. For its
 commands, it also adds common user installation paths including
 `$HOME/.local/bin`, npm's user directory, Volta, asdf, fnm, and a detected
-Homebrew bin directory. It does not install or authenticate any command. When
-`.env` is missing, it creates an ignored copy from `.env.example`. Uncomment
+Homebrew bin directory. It installs the locked Python, talk, and Worker
+dependencies and hooks; no globally installed Cloudflare CLI is required. It
+does not authenticate with Cloudflare. When `.env` is missing, it creates an ignored copy from `.env.example`. Uncomment
 and fill only the settings you need. Existing `.env` files, including worktree
 symlinks, are never changed.
 
@@ -43,12 +43,6 @@ post detail page, `/clips/`, `/apps/`, `/code/`, `/guides/`, and `/talks/` at
 then compare decoded pixels. Exclude dynamic third-party embeds, such as
 SoundCloud, from both captures.
 
-Install Wrangler once with:
-
-```bash
-npm install --global wrangler@4.125.0
-```
-
 Open the URL printed by the server. Linked Git worktrees automatically use
 available local ports, so multiple agents can run the site at the same time.
 
@@ -56,7 +50,9 @@ available local ports, so multiple agents can run the site at the same time.
 
 `.env.example` lists the optional local settings. `make` passes its ignored
 root `.env` to `uv` commands when it exists. Values already set in your shell
-take precedence. CI sets `UV_NO_ENV_FILE=1`, so it never loads local settings.
+take precedence. An explicit relative `UV_ENV_FILE` resolves from the
+repository root even when a Worker command changes directories. Absolute paths
+remain unchanged. CI sets `UV_NO_ENV_FILE=1`, so it never loads local settings.
 
 | Variable | Description |
 |----------|-------------|
@@ -305,9 +301,10 @@ Cloudflare access is limited to the non-destructive identity check:
 make cloudflare-check
 ```
 
-For local use, authenticate interactively with `wrangler login`, then run the
-check. In non-interactive local use, set `CLOUDFLARE_API_TOKEN` in the ignored
-`.env` file or your shell. Do not commit tokens. Cloud-agent and CI tokens
+For local use, run `npm exec -- wrangler login` from `workers/static-site/`,
+then run the check from the repository root. `make check-wrangler` uses the
+locked static-site package CLI installed by bootstrap. In non-interactive local
+use, set `CLOUDFLARE_API_TOKEN` in the ignored `.env` file or your shell. Do not commit tokens. Cloud-agent and CI tokens
 belong in their configured secrets, not a checked-out `.env`.
 
 For a Copilot cloud-agent session, create a **user API token** with only
@@ -316,9 +313,10 @@ as the `CLOUDFLARE_API_TOKEN` GitHub Copilot Agents secret. Restrict and expire
 the token as your Cloudflare account allows. `wrangler whoami` does not need
 `CLOUDFLARE_ACCOUNT_ID`, so do not add that secret or variable yet.
 
-The cloud-agent setup installs the pinned Wrangler version on each fresh
-runner. Local setup only finds an existing CLI. This repository does not
-configure or deploy Cloudflare DNS, zones, Pages, or Workers until a maintainer
+The cloud-agent setup and local bootstrap install the same locked Worker
+dependencies. Use `npm exec -- cf` or `npm exec -- wrangler` from the
+appropriate Worker directory; package files pin the CLI versions. This
+repository does not configure or deploy Cloudflare DNS, zones, Pages, or Workers until a maintainer
 explicitly runs a deployment target.
 
 ### Mastodon discovery Worker
