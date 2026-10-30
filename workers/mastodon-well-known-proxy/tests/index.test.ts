@@ -1,8 +1,7 @@
-import { readFileSync } from "node:fs";
-
 import { describe, expect, it, vi } from "vitest";
 
 import { handleRequest, type FetchImplementation } from "../src/index";
+import config from "../cloudflare.config";
 
 const BASE_URL = "https://palewi.re";
 const MAX_RESPONSE_BYTES = 1_048_576;
@@ -17,23 +16,32 @@ function fetchResponse(response: Response): FetchImplementation {
 
 describe("Mastodon discovery Worker", () => {
   it("disables public production exposure and configures explicit canaries", () => {
-    const config = JSON.parse(readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8"));
+    const production = config({ mode: "production", isPreview: false }).worker;
+    const startup = config({ mode: "startup-canary", isPreview: false }).worker;
+    const sameZone = config({ mode: "same-zone-canary", isPreview: false }).worker;
 
-    expect(config.workers_dev).toBe(false);
-    expect(config.preview_urls).toBe(false);
-    expect(config.routes).toBeUndefined();
-    expect(config.compatibility_flags).toContain("global_fetch_strictly_public");
-    expect(config.env["startup-canary"]).toEqual({
-      name: "palewire-mastodon-well-known-proxy-startup-canary",
-      workers_dev: true,
-      preview_urls: true,
+    expect(production.workersDev).toBe(false);
+    expect(production.previewUrls).toBe(false);
+    expect(production).not.toHaveProperty("env");
+    expect(production).not.toHaveProperty("triggers");
+    expect(production.compatibilityFlags).toContain("global_fetch_strictly_public");
+    expect(startup.name).toBe("palewire-mastodon-well-known-proxy-canary");
+    expect(startup.workersDev).toBe(true);
+    expect(startup.previewUrls).toBe(true);
+    expect(startup).not.toHaveProperty("env");
+    expect(startup).not.toHaveProperty("triggers");
+    expect(sameZone.name).toBe("palewire-mastodon-well-known-proxy-same-zone-canary");
+    expect(sameZone.workersDev).toBe(true);
+    expect(sameZone.previewUrls).toBe(true);
+    expect(sameZone).toHaveProperty("env.CANARY_PATH", {
+      type: "text", value: "/.well-known/cloudflare-worker-canary",
     });
-    expect(config.env["same-zone-canary"].name).toBe("palewire-mastodon-well-known-proxy-same-zone-canary");
-    expect(config.env["same-zone-canary"].workers_dev).toBe(true);
-    expect(config.env["same-zone-canary"].preview_urls).toBe(true);
-    expect(config.env["same-zone-canary"].vars).toEqual({
-      CANARY_PATH: "/.well-known/cloudflare-worker-canary",
-    });
+    expect(sameZone).toHaveProperty("triggers", []);
+  });
+
+  it("rejects unknown modes and Worker Previews before building", () => {
+    expect(() => config({ mode: "prodution", isPreview: false })).toThrow("Unknown Mastodon Worker mode");
+    expect(() => config({ mode: "production", isPreview: true })).toThrow("named canary modes");
   });
 
   it("only enables the canary path for the canary binding", async () => {

@@ -42,6 +42,14 @@ creating a GitHub release. Releases use semantic versions, point to the
 deployed `main` commit, and are published only after the production smoke test
 passes.
 
+The Mastodon Worker uses project-local `cf` (pinned in its package.json) and
+requires Node.js 24.22 or later in the Node 24 series. Its settings and explicit
+route attachment modes live in `cloudflare.config.ts`; production has no public
+preview URLs, and only the named canary modes enable them. Use its guarded
+Makefile targets for deploys and cleanup. `cf` needs its own OAuth login or
+`CLOUDFLARE_API_TOKEN`. Wrangler remains its bundler and the CLI for the other
+Workers. Generated `.cloudflare/` build output and types must stay untracked.
+
 Worker changes also require `make worker-test`, `make worker-validate`,
 `make legacy-worker-test`, and `make legacy-worker-validate`. Production
 Wrangler configs keep `workers_dev` and `preview_urls` disabled; the named

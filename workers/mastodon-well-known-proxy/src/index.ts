@@ -15,9 +15,7 @@ const FORWARDED_RESPONSE_HEADERS = ["cache-control", "content-language", "conten
 
 export type FetchImplementation = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 
-export interface WorkerEnvironment {
-  CANARY_PATH?: string;
-}
+export type WorkerEnvironment = Partial<Cloudflare.Env>;
 
 function errorResponse(status: number, message: string): Response {
   return new Response(JSON.stringify({ error: message }), {

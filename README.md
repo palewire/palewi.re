@@ -6,8 +6,8 @@ Ben Welsh's personal site — a Django blog and portfolio at [palewi.re](https:/
 
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/) for package management
-- Node.js 24 for Wrangler and accessibility checks
-- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks and the isolated Workers
+- Node.js 24.22 or later in the Node 24 series for Worker and accessibility checks
+- [Wrangler 4.125.0](https://developers.cloudflare.com/workers/wrangler/install-and-update/) for Cloudflare account checks
 
 ## Setup
 
@@ -345,6 +345,30 @@ uses a terminal `*` for each route to serve WebFinger requests with
 `404` for a suffix such as `webfinger-extra`; the wildcard cannot reach the
 upstream unless that path check succeeds.
 
+The Mastodon package pins `cf` 1.0.0-beta.26 and requires Node.js 24.22 or later
+in the Node 24 series. The CLI is still beta. Wrangler remains the pinned
+bundler; the legacy and static-site Workers continue using Wrangler directly.
+Run the project-local CLI with `npm exec -- cf` from the Mastodon directory.
+`cf` keeps its own OAuth login and does not reuse `wrangler login`.
+
+`cloudflare.config.ts` owns the settings and routes. Its default and
+`production` modes have no routes, bindings, or public preview URLs.
+`startup-canary` deploys the existing route-free `-canary` Worker;
+`same-zone-canary` deploys the separate same-zone Worker without a route.
+Only `same-zone-canary-route` and `production-routes` attach their respective
+routes. Unknown modes and Worker Previews are rejected. `make worker-route-plan`
+prints the production patterns from this same configuration after installing
+the Worker dependencies.
+
+The guarded Makefile targets select these modes and disable automatic resource
+provisioning. The pinned `cf deploy` enables remote-conflict checking internally,
+replacing the old `wrangler deploy --strict` flag. Validation regenerates binding
+and runtime types under ignored `.cloudflare/types/`, type-checks the code and
+configuration, dry-runs all five modes, and profiles startup. The generated
+Workers declarations overlap Node's web globals, so TypeScript skips declaration
+file checking while keeping application and configuration checking strict.
+The local runtime regression test starts `cf dev` through Wrangler/workerd.
+
 Run the isolated checks without contacting or changing Cloudflare:
 
 ```bash
@@ -374,7 +398,7 @@ public fetch is a Worker-to-Worker subrequest. Cloudflare documents this as
 [error 1042](https://developers.cloudflare.com/workers/observability/errors/)
 and requires the
 [`global_fetch_strictly_public`](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public)
-compatibility flag. The flag is now declared in `wrangler.jsonc`.
+compatibility flag. The flag is declared in `cloudflare.config.ts`.
 
 The flag lets a public fetch enter the zone's routing. It must not allow the
 upstream request to re-enter this Worker: Cloudflare's loop limit returns 1019
@@ -385,10 +409,10 @@ cannot match that host. Do not add a `mastodon.palewi.re` route to this Worker.
 
 The production Worker configuration intentionally has no production routes and
 disables both workers.dev and preview URLs. The optional startup canary and the
-same-zone canary use separate named environments and Worker names, with
+same-zone canary use separate named `cf` modes and Worker names, with
 workers.dev and preview URLs explicitly enabled for their route-free checks, so
 neither can update a Worker serving production routes. The same-zone canary only accepts
-`/.well-known/cloudflare-worker-canary` when its named environment provides the
+`/.well-known/cloudflare-worker-canary` when its named mode provides the
 `CANARY_PATH` binding. It fetches the same fixed upstream's NodeInfo endpoint.
 The production Worker has no such binding and returns `404` for this path.
 
@@ -397,8 +421,8 @@ it cannot reproduce Cloudflare zone routing or error 1042. Passing the
 same-zone canary below is therefore required before any production route is
 attached.
 
-To deploy, authenticate with either local `wrangler login` OAuth or an API
-token limited to the Cloudflare account and `palewi.re` zone that own these
+To deploy, authenticate with local `npm exec -- cf auth login` from the Worker
+directory, or an API token limited to the Cloudflare account and `palewi.re` zone that own these
 routes. Automation needs **Account > Workers Scripts > Edit**, **Zone > Workers
 Routes > Edit**, and **Zone > Zone > Read** for only the `palewi.re` zone. Save
 it as the `CLOUDFLARE_API_TOKEN` Copilot Agents secret and save the owning
@@ -412,10 +436,10 @@ make worker-test
 make worker-validate
 
 # 2. Optional: deploy and verify a route-free workers.dev startup canary.
-# The startup-canary environment explicitly re-enables public preview access.
+# The startup-canary mode explicitly re-enables public preview access.
 # It confirms startup only; it cannot approve same-zone traffic.
 CONFIRM_WORKER_CANARY_DEPLOY=1 make worker-canary-deploy
-BASE_URL="https://the-url-printed-by-wrangler" make worker-verify-canary
+BASE_URL="https://the-url-printed-by-cf" make worker-verify-canary
 CONFIRM_WORKER_DELETE_CANARY=1 make worker-delete-canary
 
 # 3. Deploy a separate same-zone canary with no route, then attach only its
@@ -461,17 +485,16 @@ recovery procedure below:
 CONFIRM_WORKER_DETACH_ROUTES=1 make worker-detach-routes
 ```
 
-This uses `wrangler delete --force`, which removes the Worker and its routes and
-works with either Wrangler OAuth or `CLOUDFLARE_API_TOKEN`; it does not depend
-on a separate API-only helper. Run the same operation explicitly for final
-cleanup when needed:
+This uses `cf workers delete <name> --force`, which removes the Worker and its
+routes and works with either `cf` OAuth or `CLOUDFLARE_API_TOKEN`. Run the same
+operation explicitly for final cleanup when needed:
 
 ```bash
 CONFIRM_WORKER_DELETE=1 make worker-delete
 ```
 
 All deployment, attachment, and deletion commands are intentionally guarded.
-They work with either `wrangler login` OAuth or `CLOUDFLARE_API_TOKEN`; no
+They work with either `cf auth login` OAuth or `CLOUDFLARE_API_TOKEN`; no
 token value appears in a command. Deleting either canary removes only that
 separate Worker and its route. Deleting the production Worker removes its
 attached routes. Django has no fallback for these routes.
