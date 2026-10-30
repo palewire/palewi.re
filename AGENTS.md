@@ -50,12 +50,13 @@ preview URLs, and only the named canary or static-site preview modes enable
 them. Use their guarded Makefile targets for deploys and cleanup. `cf` needs its own OAuth login or
 `CLOUDFLARE_API_TOKEN`. The Mastodon Worker uses Vite with pinned
 `@cloudflare/vite-plugin` 2.0.0-beta.v.8 and Vite 8.3.5 for bundling and local
-development. The static-site and legacy Workers still use Wrangler as their
-bundler, and Wrangler supplies the read-only identity check. Static asset build
-settings live in `wrangler.config.ts`. The legacy production route mode calls
-the Python redirect validator; keep that validator as the source of the
-deployed route plan. Generated `.cloudflare/` build output and types must stay
-untracked.
+development. The legacy redirects Worker uses the same pinned Vite and
+`@cloudflare/vite-plugin` versions with `cf dev` and `cf build`. Only the
+static-site Worker still uses Wrangler as its bundler; Wrangler also supplies
+the read-only identity check. Static asset build settings live in
+`wrangler.config.ts`. The legacy production route mode calls the Python
+redirect validator; keep that validator as the source of the deployed route
+plan. Generated `.cloudflare/` build output and types must stay untracked.
 
 Worker changes also require `make worker-test`, `make worker-validate`,
 `make legacy-worker-test`, and `make legacy-worker-validate`. Production

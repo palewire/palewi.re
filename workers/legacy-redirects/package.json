@@ -20,10 +20,11 @@
     "yaml": "2.9.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "2.0.0-beta.v.8",
     "@types/node": "26.6.5",
+    "cf": "1.0.0-beta.26",
     "typescript": "7.0.2",
-    "vitest": "5.0.5",
-    "wrangler": "4.156.0",
-    "cf": "1.0.0-beta.26"
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
   }
 }

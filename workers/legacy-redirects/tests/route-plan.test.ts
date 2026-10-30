@@ -10,6 +10,22 @@ function routeMatches(url: URL, route: string): boolean {
 }
 
 describe("production route plan", () => {
+  it.each([
+    [undefined, "palewire-legacy-redirects"],
+    ["production", "palewire-legacy-redirects"],
+    ["development", "palewire-legacy-redirects-development"],
+  ])(
+    "keeps %s route-free with public previews disabled",
+    (mode, name) => {
+      const worker = config({ mode, isPreview: false }).worker;
+      expect(worker.name).toBe(name);
+      expect(worker.workersDev).toBe(false);
+      expect(worker.previewUrls).toBe(false);
+      expect(worker).not.toHaveProperty("triggers");
+      expect(worker).not.toHaveProperty("env");
+    },
+  );
+
   it("deploys the Python route plan and keeps the same-zone canary on its own path", () => {
     const pythonRoutes = productionRoutePlan();
     const production = config({ mode: "production-routes", isPreview: false }).worker;

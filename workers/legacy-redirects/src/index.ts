@@ -1,6 +1,6 @@
 import { parse } from "yaml";
 
-import manifestText from "../../../project/redirects.yaml";
+import manifestText from "../../../project/redirects.yaml?raw";
 
 const MARKER = "cloudflare-worker-v1";
 const ROUTE_HOST = "palewi.re";

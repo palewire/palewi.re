@@ -314,12 +314,13 @@ the token as your Cloudflare account allows. `wrangler whoami` does not need
 `CLOUDFLARE_ACCOUNT_ID`, so do not add that secret or variable yet.
 
 The cloud-agent setup and local bootstrap install the same locked Worker
-dependencies. Use `npm exec -- cf` for Worker deployment commands, and
-`npm exec -- wrangler` for static-site and legacy Worker Wrangler tasks; package
-files pin the CLI versions. The Mastodon Worker uses its pinned Vite toolchain
-for local development. This repository does not configure or deploy Cloudflare
-DNS, zones, Pages, or Workers until a maintainer explicitly runs a deployment
-target.
+dependencies. Use `npm exec -- cf` for Worker deployment commands and
+`npm exec -- wrangler` for static-site Wrangler tasks; package files pin the CLI
+versions. The Mastodon and legacy redirects Workers use their pinned Vite
+toolchains for builds and local development. Wrangler remains the static-site
+bundler and the tool for the read-only identity check. This repository does not
+configure or deploy Cloudflare DNS, zones, Pages, or Workers until a maintainer
+explicitly runs a deployment target.
 
 ### Static-site Worker
 
@@ -357,8 +358,9 @@ upstream unless that path check succeeds.
 The Mastodon package pins `cf` 1.0.0-beta.26 for deployment and requires
 Node.js 24.22 or later in the Node 24 series. It uses Vite 8.3.5 and the pinned
 `@cloudflare/vite-plugin` 2.0.0-beta.v.8 for bundling and local development;
-both the `cf` CLI and Vite plugin are beta releases. The static-site and legacy
-Workers still use Wrangler for bundling. Wrangler also remains the tool for the
+both the `cf` CLI and Vite plugin are beta releases. The legacy redirects Worker
+uses the same pinned Vite and plugin versions. Only the static-site Worker
+still uses Wrangler for bundling. Wrangler also remains the tool for the
 read-only identity check. Deployment commands use `cf`.
 Run the project-local CLI with `npm exec -- cf` from the Mastodon directory.
 `cf` keeps its own OAuth login and does not reuse `wrangler login`.
@@ -522,13 +524,18 @@ attached routes. Django has no fallback for these routes.
 redirects. It currently has 21 exact paths and 8 dynamic patterns.
 `project/redirect_manifest.py` is pure Python validation and route-plan tooling
 used by the Worker tests, deployment commands, and production verifier.
-`workers/legacy-redirects/` reads that same file as a bundled text module and
-has no `fetch()` call. It uses the pinned `cf` CLI and named modes in
-`cloudflare.config.ts`; Wrangler remains the bundler, with the YAML text-module
-rule in `wrangler.config.ts`. `cf workers types` generates the optional canary
-binding type before TypeScript validation. Generated `.cloudflare/` files stay
-untracked. A matching request receives a
-302, its manifest destination, and
+`workers/legacy-redirects/` reads that same file through Vite's `?raw` import
+and has no `fetch()` call. It uses the pinned `cf` CLI and named modes in
+`cloudflare.config.ts`; Vite and the pinned `@cloudflare/vite-plugin` handle
+builds and local development. From the repository root, run
+`npm --prefix workers/legacy-redirects run dev` (`cf dev`) or
+`npm --prefix workers/legacy-redirects run build` (`cf build`). The
+`development` mode is route-free, keeps workers.dev and
+preview URLs disabled, and does not attach production routes. The local server
+listens on `127.0.0.1:5173` by default; set `LEGACY_DEV_PORT` to use another
+port. `cf workers types` generates the optional canary binding type before
+TypeScript validation. Generated `.cloudflare/` files stay untracked. A
+matching request receives a 302, its manifest destination, and
 `X-Palewire-Legacy-Redirect: cloudflare-worker-v1`. Queries are dropped.
 
 The generated plan has 36 explicit `palewi.re` routes for the 29 manifest
@@ -583,9 +590,10 @@ CONFIRM_LEGACY_WORKER_ATTACH_ROUTES=1 make legacy-worker-attach-routes
 WORKER_MARKER_ATTEMPTS=4 WORKER_MARKER_WAIT_SECONDS=15 make legacy-worker-verify-production
 ```
 
-The `production-routes` mode asks the Python validator for the route plan.
-The default production mode has no routes; only the explicit attachment modes
-add routes. Dry runs cover all five modes and preserve the bundled YAML.
+The `production-routes` mode asks the Python validator for the 36-route
+production plan. The default production mode has no routes; only the explicit
+attachment modes add routes. Dry runs cover all five modes and preserve the
+YAML imported by Vite.
 
 Every mutating command requires its named confirmation variable. The
 post-merge deployment runs the same canary, cleanup, route attachment, and

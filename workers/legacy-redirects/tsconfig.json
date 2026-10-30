@@ -6,8 +6,8 @@
     "lib": ["ES2023", "ESNext.Disposable"],
     "strict": true,
     "noEmit": true,
-    "types": ["node", "vitest/globals"],
+    "types": ["node", "vitest/globals", "vite/client"],
     "skipLibCheck": true
   },
-  "include": ["src", "tests", "cloudflare.config.ts", "wrangler.config.ts", ".cloudflare/types"]
+  "include": ["src", "tests", "cloudflare.config.ts", "vite.config.ts", "vitest.config.ts", ".cloudflare/types"]
 }
