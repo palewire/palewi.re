@@ -43,18 +43,14 @@ creating a GitHub release. Releases use semantic versions, point to the
 deployed `main` commit, and are published only after the production smoke test
 passes.
 
-All three Workers use project-local `cf` (pinned in each package.json) and
-require Node.js 24.22 or later in the Node 24 series. Their settings and explicit
-route attachment modes live in `cloudflare.config.ts`; production has no public
-preview URLs, and only the named canary or static-site preview modes enable
-them. Use their guarded Makefile targets for deploys and cleanup. `cf` needs its own OAuth login or
-`CLOUDFLARE_API_TOKEN`. The Mastodon Worker uses Vite with pinned
-`@cloudflare/vite-plugin` 2.0.0-beta.v.8 and Vite 8.3.5 for bundling and local
-development. The legacy redirects Worker uses the same pinned Vite and
-`@cloudflare/vite-plugin` versions with `cf dev` and `cf build`. Only the
-static-site Worker still uses Wrangler as its bundler; Wrangler also supplies
-the read-only identity check. Static asset build settings live in
-`wrangler.config.ts`. The legacy production route mode calls the Python
+All three Workers use project-local `cf` 1.0.0-beta.26, Vite 8.3.5, and
+`@cloudflare/vite-plugin` 2.0.0-beta.v.8, and require Node.js 24.22 or later in
+the Node 24 series. Their settings and explicit route attachment modes live in
+`cloudflare.config.ts`; production has no public preview URLs, and only the
+named canary or static-site preview modes enable them. Use their guarded
+Makefile targets for deploys and cleanup. `cf` needs its own OAuth login or
+`CLOUDFLARE_API_TOKEN`. The static-site Worker's Vite `publicDir` is the baked
+`../../dist` directory. The legacy production route mode calls the Python
 redirect validator; keep that validator as the source of the deployed route
 plan. Generated `.cloudflare/` build output and types must stay untracked.
 
@@ -83,17 +79,14 @@ Ruff for formatting and linting, and ty for static analysis.
 Copilot cloud agents use the same locked Worker dependencies as local bootstrap.
 For authenticated Cloudflare identity checks, add a least-privilege
 `CLOUDFLARE_API_TOKEN` Copilot Agents secret with **User Details: Read** and
-**Memberships: Read** permissions. Locally, run `npm exec -- wrangler login`
-from `workers/static-site/` or set that environment variable, then use `make cloudflare-check`. This check uses
-`wrangler whoami --json`; it does not need `CLOUDFLARE_ACCOUNT_ID` and must
-not be expanded into a deployment command until a target is chosen.
-
-The vendored Wrangler skill includes general installation advice. For this
-repository, do not install global Wrangler or use `@latest`; run
-`make bootstrap` for the locked Worker dependencies and `make check-wrangler`
-to confirm the static-site package CLI. Worker commands use their own package
-pins. Relative `UV_ENV_FILE` paths resolve from the repository root, including
-commands that change into Worker directories.
+**Memberships: Read** permissions. Locally, run `npm exec -- cf auth login`
+from `workers/static-site/` or set that environment variable, then use
+`make cloudflare-check`. `make check-cf` checks for the locked project-local
+CLI; `cloudflare-check` runs `cf auth whoami` and validates the returned JSON,
+including token validity, without a `--json` flag. It does not need
+`CLOUDFLARE_ACCOUNT_ID` and must not be expanded into a deployment command
+until a target is chosen. Relative `UV_ENV_FILE` paths resolve from the
+repository root, including commands that change into Worker directories.
 
 ## YAML content types
 

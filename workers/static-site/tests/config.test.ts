@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import cloudflareConfig from "../cloudflare.config";
-import wranglerConfig from "../wrangler.config";
 
 const productionRoutes = [
   { pattern: "palewi.re/*", zone: "palewi.re" },
@@ -42,7 +41,7 @@ describe("static-site deployment configuration", () => {
     );
   });
 
-  it.each([undefined, "production", "preview"])(
+  it.each([undefined, "production", "preview", "development"])(
     "keeps shared asset and R2 settings in mode %s",
     (mode) => {
       const { worker } = cloudflareConfig({ mode, isPreview: false });
@@ -61,7 +60,11 @@ describe("static-site deployment configuration", () => {
     },
   );
 
-  it("sets the static asset directory in Wrangler's tooling config", () => {
-    expect(wranglerConfig).toHaveProperty("assetsDirectory", "../../dist");
+  it("keeps local development route-free under its own Worker name", () => {
+    const { worker } = cloudflareConfig({ mode: "development", isPreview: false });
+    expect(worker.name).toBe("palewire-static-site-development");
+    expect(worker.triggers).toEqual([]);
+    expect(worker.workersDev).toBe(false);
+    expect(worker.previewUrls).toBe(false);
   });
 });

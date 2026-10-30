@@ -301,35 +301,36 @@ Cloudflare access is limited to the non-destructive identity check:
 make cloudflare-check
 ```
 
-For local use, run `npm exec -- wrangler login` from `workers/static-site/`,
-then run the check from the repository root. `make check-wrangler` uses the
-locked static-site package CLI installed by bootstrap. In non-interactive local
-use, set `CLOUDFLARE_API_TOKEN` in the ignored `.env` file or your shell. Do not commit tokens. Cloud-agent and CI tokens
-belong in their configured secrets, not a checked-out `.env`.
+For local use, run `npm exec -- cf auth login` from `workers/static-site/`,
+then run `make cloudflare-check` from the repository root. `make check-cf`
+confirms the locked, project-local `cf` CLI is installed. The check runs
+`cf auth whoami` and validates its JSON authentication and token-validity fields;
+it does not need a `--json` flag or `CLOUDFLARE_ACCOUNT_ID`. In non-interactive
+local use, set `CLOUDFLARE_API_TOKEN` in the ignored `.env` file or your shell.
+Do not commit tokens. Cloud-agent and CI tokens belong in their configured
+secrets, not a checked-out `.env`.
 
 For a Copilot cloud-agent session, create a **user API token** with only
 **User > User Details > Read** and **User > Memberships > Read**, then save it
 as the `CLOUDFLARE_API_TOKEN` GitHub Copilot Agents secret. Restrict and expire
-the token as your Cloudflare account allows. `wrangler whoami` does not need
+the token as your Cloudflare account allows. `cf auth whoami` does not need
 `CLOUDFLARE_ACCOUNT_ID`, so do not add that secret or variable yet.
 
 The cloud-agent setup and local bootstrap install the same locked Worker
-dependencies. Use `npm exec -- cf` for Worker deployment commands and
-`npm exec -- wrangler` for static-site Wrangler tasks; package files pin the CLI
-versions. The Mastodon and legacy redirects Workers use their pinned Vite
-toolchains for builds and local development. Wrangler remains the static-site
-bundler and the tool for the read-only identity check. This repository does not
-configure or deploy Cloudflare DNS, zones, Pages, or Workers until a maintainer
-explicitly runs a deployment target.
+dependencies. All three Workers use project-local `cf` 1.0.0-beta.26,
+Vite 8.3.5, and `@cloudflare/vite-plugin` 2.0.0-beta.v.8; no global CLI install
+or Wrangler runtime dependency is needed. Use `npm exec -- cf` for Worker
+commands. This repository does not configure or deploy Cloudflare DNS, zones,
+Pages, or Workers until a maintainer explicitly runs a deployment target.
 
 ### Static-site Worker
 
-The static-site package uses pinned `cf` for development and deployment. Its
-production and route-free preview modes live in `cloudflare.config.ts`;
-`wrangler.config.ts` points the bundler to the baked `dist/` assets. R2 media,
-Worker-first asset handling, and the four domain routes are preserved.
-See [the package guide](workers/static-site/README.md) for validation and
-guarded deployment commands.
+The static-site package uses the pinned Vite toolchain for development and
+builds. `cloudflare.config.ts` owns its production and route-free preview modes;
+`vite.config.ts` serves the baked `dist/` directory through `publicDir`.
+R2 media, Worker-first asset handling, and the four domain routes are
+preserved. See [the package guide](workers/static-site/README.md) for local
+testing, validation, and guarded deployment commands.
 
 ### Mastodon discovery Worker
 
@@ -355,15 +356,11 @@ uses a terminal `*` for each route to serve WebFinger requests with
 `404` for a suffix such as `webfinger-extra`; the wildcard cannot reach the
 upstream unless that path check succeeds.
 
-The Mastodon package pins `cf` 1.0.0-beta.26 for deployment and requires
-Node.js 24.22 or later in the Node 24 series. It uses Vite 8.3.5 and the pinned
-`@cloudflare/vite-plugin` 2.0.0-beta.v.8 for bundling and local development;
-both the `cf` CLI and Vite plugin are beta releases. The legacy redirects Worker
-uses the same pinned Vite and plugin versions. Only the static-site Worker
-still uses Wrangler for bundling. Wrangler also remains the tool for the
-read-only identity check. Deployment commands use `cf`.
-Run the project-local CLI with `npm exec -- cf` from the Mastodon directory.
-`cf` keeps its own OAuth login and does not reuse `wrangler login`.
+All three Workers require Node.js 24.22 or later in the Node 24 series and pin
+`cf` 1.0.0-beta.26, Vite 8.3.5, and `@cloudflare/vite-plugin`
+2.0.0-beta.v.8. The `cf` CLI and Vite plugin are beta releases. Run the
+project-local CLI with `npm exec -- cf` from a Worker directory. Authenticate
+with `cf auth login`; the read-only identity check uses the same `cf` login.
 
 `cloudflare.config.ts` owns the settings and routes. Its default and
 `production` modes have no routes, bindings, or public preview URLs. The local
