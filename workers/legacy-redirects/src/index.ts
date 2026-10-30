@@ -39,9 +39,7 @@ export interface RedirectRule {
   matcher: RegExp;
 }
 
-export interface WorkerEnvironment {
-  CANARY_PATH?: string;
-}
+export type WorkerEnvironment = Partial<Cloudflare.Env>;
 
 export class RedirectManifestError extends Error {}
 

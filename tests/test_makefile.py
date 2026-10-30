@@ -452,3 +452,94 @@ def test_run_with_dotenv_bypasses_uv_for_supported_no_env_values(
     assert calls[0]["command"] == "probe"
     assert calls[0]["args"] == []
     assert calls[0]["cwd"] == str(worker_directory)
+
+
+@pytest.mark.parametrize(
+    ("target", "confirmation", "arguments"),
+    [
+        (
+            "legacy-worker-canary-deploy",
+            "CONFIRM_LEGACY_WORKER_CANARY_DEPLOY",
+            ["deploy", "--mode", "startup-canary", "--no-provision"],
+        ),
+        (
+            "legacy-worker-delete-canary",
+            "CONFIRM_LEGACY_WORKER_DELETE_CANARY",
+            ["workers", "delete", "palewire-legacy-redirects-canary", "--force"],
+        ),
+        (
+            "legacy-worker-same-zone-canary-deploy",
+            "CONFIRM_LEGACY_WORKER_SAME_ZONE_CANARY_DEPLOY",
+            ["deploy", "--mode", "same-zone-canary", "--no-provision"],
+        ),
+        (
+            "legacy-worker-attach-same-zone-canary",
+            "CONFIRM_LEGACY_WORKER_ATTACH_SAME_ZONE_CANARY",
+            ["deploy", "--mode", "same-zone-canary-route", "--no-provision"],
+        ),
+        (
+            "legacy-worker-delete-same-zone-canary",
+            "CONFIRM_LEGACY_WORKER_DELETE_SAME_ZONE_CANARY",
+            ["workers", "delete", "palewire-legacy-redirects-same-zone-canary", "--force"],
+        ),
+        (
+            "legacy-worker-attach-routes",
+            "CONFIRM_LEGACY_WORKER_ATTACH_ROUTES",
+            ["deploy", "--mode", "production-routes", "--no-provision"],
+        ),
+        (
+            "legacy-worker-detach-routes",
+            "CONFIRM_LEGACY_WORKER_DETACH_ROUTES",
+            ["workers", "delete", "palewire-legacy-redirects", "--force"],
+        ),
+        (
+            "legacy-worker-delete",
+            "CONFIRM_LEGACY_WORKER_DELETE",
+            ["workers", "delete", "palewire-legacy-redirects", "--force"],
+        ),
+    ],
+)
+def test_legacy_worker_commands_require_confirmation(
+    tmp_path: Path, target: str, confirmation: str, arguments: list[str]
+) -> None:
+    """Run each guarded legacy command with an offline npm stub.
+
+    Args:
+        tmp_path: Temporary directory supplied by pytest.
+        target: Deployment or deletion Make target.
+        confirmation: Required environment variable for the target.
+        arguments: Expected cf arguments after confirmation.
+
+    Returns:
+        None. Asserts refusal before npm and the selected mode or identity.
+
+    Examples:
+        The production attachment target refuses an unset confirmation,
+        then selects production-routes when its confirmation is set to 1.
+    """
+    log_path = tmp_path / "calls.jsonl"
+    env = _test_environment(tmp_path, log_path)
+    for name in list(env):
+        if name.startswith("CONFIRM_LEGACY_WORKER_"):
+            del env[name]
+    _write_fake_command(tmp_path / "fake bin", "npm")
+    refused = _run_make(target, env=env)
+    assert refused.returncode != 0
+    assert confirmation in refused.stderr
+    assert _read_calls(log_path) == []
+
+    env[confirmation] = "1"
+    allowed = _run_make(target, env=env)
+    assert allowed.returncode == 0, allowed.stderr
+    calls = _read_calls(log_path)
+    assert len(calls) == 2
+    assert calls[0]["args"] == [
+        "--prefix",
+        "workers/legacy-redirects",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+    ]
+    assert calls[1]["args"] == ["exec", "--", "cf", *arguments]
+    assert calls[1]["cwd"] == str(REPOSITORY_ROOT / "workers/legacy-redirects")
