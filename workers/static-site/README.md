@@ -1,28 +1,44 @@
 # Static-site Worker
 
-The package pins `cf` 1.0.0-beta.26 and Wrangler 4.156.0 as its bundler.
-Use Node.js 24.22 or later in the Node 24 series. Run `make bootstrap` from
-the repository root to install locked dependencies.
+The package pins `cf` 1.0.0-beta.26, Vite 8.3.5, and
+`@cloudflare/vite-plugin` 2.0.0-beta.v.8. Use Node.js 24.22 or later in the
+Node 24 series. Run `make bootstrap` from the repository root to install
+locked dependencies.
 
 `cloudflare.config.ts` preserves the four production routes and the existing
 R2 media bucket. Production workers.dev and preview URLs are disabled. The
 named `preview` mode deploys `palewire-static-site-preview` with no routes;
 unknown modes and automatic Worker Previews are rejected.
 
-`wrangler.config.ts` points the bundler to the baked `../../dist` directory.
-Both modes run the Worker before assets, preserve trailing-slash handling and
-the custom 404 page, and use the `ASSETS` binding. `TALK_MEDIA` uses the existing
-`palewire-talk-media` R2 bucket; remote access during local development remains
-enabled. `--no-provision` prevents deployment from creating a replacement bucket.
+`vite.config.ts` points Vite's `publicDir` to the baked `../../dist` directory.
+The `development` mode runs as `palewire-static-site-development` with no
+routes. Its Vite server listens on `127.0.0.1:5173`; set `STATIC_DEV_PORT` to
+choose another port. The Worker runs before assets, preserves trailing-slash
+handling and the custom 404 page, and uses the `ASSETS` binding.
+
+From the repository root, run `make bake`, then start local development with
+`npm --prefix workers/static-site run dev`. Builds reject missing baked assets.
+
+`TALK_MEDIA` uses the existing `palewire-talk-media` R2 bucket, and remote R2
+access stays enabled by default during local development. For offline `cf dev`
+tests or local serving, set `STATIC_WORKER_LOCAL=1` to disable remote bindings
+and use local bindings instead. `--no-provision` prevents deployment from
+creating a replacement bucket.
 
 From the repository root, run `make static-worker-test` and
-`make static-worker-validate`. Validation bakes the site, generates binding
-and runtime types, dry-runs both modes, and profiles startup. Generated
-`.cloudflare/` output and types stay untracked.
+`make static-worker-validate`. Neither check needs Cloudflare API access or a
+deployed Worker. The test target first bakes the site, then exercises the
+Worker with the actual generated HTML and assets in local workerd; its local
+R2 regression covers byte-range responses.
+Validation bakes the site, generates binding and runtime types, dry-runs the
+production and preview modes, and profiles startup. Tests ensure those modes
+retain the same asset and R2 settings. Generated `.cloudflare/` output and
+types stay untracked.
 
 Authenticate with `npm exec -- cf auth login` from this package or set
-`CLOUDFLARE_API_TOKEN`. The read-only `make cloudflare-check` still uses
-Wrangler's separate login. Deploy with the guarded Makefile targets:
+`CLOUDFLARE_API_TOKEN`. The read-only `make cloudflare-check` uses this same
+`cf` authentication and validates the JSON from `cf auth whoami`. Deploy with
+the guarded Makefile targets:
 
 ```bash
 CONFIRM_STATIC_WORKER_PREVIEW_DEPLOY=1 make static-worker-preview-deploy

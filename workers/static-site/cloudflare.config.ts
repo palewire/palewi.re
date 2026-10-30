@@ -35,6 +35,14 @@ export default defineConfig(({ mode, isPreview }) => {
           ],
         },
       };
+    case "development":
+      return {
+        worker: {
+          ...worker,
+          name: "palewire-static-site-development",
+          triggers: [],
+        },
+      };
     case "preview":
       return {
         worker: {

@@ -19,7 +19,8 @@
     "src",
     "tests",
     "cloudflare.config.ts",
-    "wrangler.config.ts",
+    "vite.config.ts",
+    "vitest.config.ts",
     ".cloudflare/types"
   ]
 }

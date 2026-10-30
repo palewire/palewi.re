@@ -23,7 +23,7 @@ LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
 STATIC_WORKER_DIR := workers/static-site
 TALK_ASSET_DIR := talks
 
-.PHONY: help bootstrap ci-bootstrap check-tools worker-dependencies check-wrangler cloudflare-check install hooks dotenv bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
+.PHONY: help bootstrap ci-bootstrap check-tools worker-dependencies check-cf cloudflare-check install hooks dotenv bake check-built-site serve new-post a11y check test lint typecheck django-check fmt archive-clips check-clip-archives preservation-inventory preservation-review media-archive-inventory media-archive-backup media-archive-verify media-archive-r2-sync media-archive-r2-verify media-archive-r2-recover static-worker-test static-worker-validate static-worker-preview-deploy static-worker-deploy static-worker-verify worker-test worker-validate worker-canary-deploy worker-verify-canary worker-delete-canary worker-same-zone-canary-deploy worker-attach-same-zone-canary worker-route-plan worker-attach-routes worker-verify-production worker-detach-routes worker-delete legacy-worker-test legacy-worker-validate legacy-worker-canary-deploy legacy-worker-delete legacy-worker-same-zone-canary-deploy legacy-worker-attach-same-zone-canary legacy-worker-verify-same-zone-canary legacy-worker-delete-same-zone-canary legacy-worker-route-plan legacy-worker-attach-routes legacy-worker-verify-production legacy-worker-detach-routes legacy-worker-delete
 
 
 .PHONY: preservation-inventory report-built-site-quality
@@ -40,10 +40,6 @@ else \
 fi
 endef
 
-define run-wrangler
-$(call run-with-dotenv,npm exec -- wrangler $(1))
-endef
-
 define run-cf
 $(call run-with-dotenv,npm exec -- cf $(1))
 endef
@@ -54,8 +50,8 @@ help:
 	@echo "  ci-bootstrap  Prepare dependencies for CI"
 	@echo "  dotenv  Create .env from .env.example without overwriting it"
 	@echo "  check-tools  Confirm uv, Node.js, and npm are available"
-	@echo "  check-wrangler  Confirm the locked static-site Wrangler is available"
-	@echo "  cloudflare-check  Show the authenticated Cloudflare account"
+	@echo "  check-cf  Confirm the locked static-site cf CLI is available"
+	@echo "  cloudflare-check  Verify Cloudflare authentication"
 	@echo "  install    Install Python and talk dependencies without changing Git hooks"
 	@echo "  worker-dependencies  Install locked dependencies for all Workers"
 	@echo "  hooks      Install pre-commit hooks"
@@ -132,12 +128,17 @@ worker-dependencies:
 		npm --prefix "$$directory" ci --ignore-scripts --no-audit --no-fund || exit $$?; \
 	done
 
-check-wrangler:
-	@test -x "$(STATIC_WORKER_DIR)/node_modules/.bin/wrangler" || { echo "Run make bootstrap to install the locked Worker dependencies." >&2; exit 1; }
-	@cd "$(STATIC_WORKER_DIR)" && node_modules/.bin/wrangler --version
+check-cf:
+	@test -x "$(STATIC_WORKER_DIR)/node_modules/.bin/cf" || { echo "Run make bootstrap to install the locked Worker dependencies." >&2; exit 1; }
+	@cd "$(STATIC_WORKER_DIR)" && node_modules/.bin/cf --version
 
-cloudflare-check: check-wrangler
-	@cd "$(STATIC_WORKER_DIR)" && $(call run-wrangler,whoami --json) || { echo "Cloudflare authentication failed. Run 'npm exec -- wrangler login' in $(STATIC_WORKER_DIR) or set CLOUDFLARE_API_TOKEN." >&2; exit 1; }
+cloudflare-check: check-cf
+	@cd "$(STATIC_WORKER_DIR)" && { \
+		identity_file="$$(mktemp)" || exit 1; \
+		trap 'rm -f "$$identity_file"' EXIT; \
+		$(call run-cf,auth whoami) > "$$identity_file" || { echo "Cloudflare authentication check failed: cf auth whoami exited unsuccessfully. Run 'npm exec -- cf auth login' in $(STATIC_WORKER_DIR) or set CLOUDFLARE_API_TOKEN." >&2; exit 1; }; \
+		node "$(CURDIR)/scripts/verify-cloudflare-identity.mjs" < "$$identity_file"; \
+	}
 
 bootstrap: check-tools dotenv install worker-dependencies hooks
 
@@ -249,7 +250,7 @@ media-archive-r2-recover:
 	@test -n "$$DESTINATION" || { echo "Set DESTINATION to an external file path for the recovered media." >&2; exit 1; }
 	@"$$(command -v uv)" run python -m scripts.media_archive r2-recover $(if $(ARCHIVE_ROOT),--archive-root "$(ARCHIVE_ROOT)",) --output-filename "$$OUTPUT_FILENAME" --destination "$$DESTINATION"
 
-static-worker-test:
+static-worker-test: bake
 	npm --prefix "$(STATIC_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
 	npm --prefix "$(STATIC_WORKER_DIR)" run test
 

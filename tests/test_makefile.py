@@ -284,8 +284,8 @@ def test_check_tools_enforces_node_24_22_without_requiring_wrangler(
     assert "process.versions.node" in node_calls[0]["args"][1]
 
 
-def test_check_wrangler_uses_only_the_static_worker_installation(tmp_path: Path) -> None:
-    """Require and execute Wrangler from the static-site Worker dependencies.
+def test_check_cf_uses_only_the_static_worker_installation(tmp_path: Path) -> None:
+    """Require and execute cf from the static-site Worker dependencies.
 
     Args:
         tmp_path: Temporary directory supplied by pytest.
@@ -294,49 +294,155 @@ def test_check_wrangler_uses_only_the_static_worker_installation(tmp_path: Path)
         None.
 
     Examples:
-        A global Wrangler stub cannot satisfy the target when the project's
-        `node_modules/.bin/wrangler` is absent.
+        A global cf stub cannot satisfy the target when the project's
+        `node_modules/.bin/cf` is absent.
     """
     log_path = tmp_path / "calls.jsonl"
     env = _test_environment(tmp_path, log_path)
     fake_bin = Path(env["PATH"].split(os.pathsep)[0])
-    global_wrangler = _write_fake_command(fake_bin, "wrangler")
-    global_wrangler.write_text(
-        global_wrangler.read_text(encoding="utf-8").replace(
-            "raise SystemExit(0)", "print('global wrangler')\nraise SystemExit(0)"
-        ),
+    global_cf = _write_fake_command(fake_bin, "cf")
+    global_cf.write_text(
+        global_cf.read_text(encoding="utf-8").replace("raise SystemExit(0)", "print('global cf')\nraise SystemExit(0)"),
         encoding="utf-8",
     )
     worker_directory = tmp_path / "static worker"
-    local_wrangler = _write_fake_command(worker_directory / "node_modules" / ".bin", "wrangler")
-    local_wrangler.write_text(
-        local_wrangler.read_text(encoding="utf-8").replace(
-            "raise SystemExit(0)", "print('local wrangler')\nraise SystemExit(0)"
-        ),
+    local_cf = _write_fake_command(worker_directory / "node_modules" / ".bin", "cf")
+    local_cf.write_text(
+        local_cf.read_text(encoding="utf-8").replace("raise SystemExit(0)", "print('local cf')\nraise SystemExit(0)"),
         encoding="utf-8",
     )
 
     result = _run_make(
-        "check-wrangler",
+        "check-cf",
         env=env,
         variables={"STATIC_WORKER_DIR": str(worker_directory), "HOMEBREW_BIN": ""},
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "local wrangler" in result.stdout
-    assert "global wrangler" not in result.stdout
+    assert "local cf" in result.stdout
+    assert "global cf" not in result.stdout
     calls = _read_calls(log_path)
-    assert [(call["command"], call["args"]) for call in calls] == [("wrangler", ["--version"])]
+    assert [(call["command"], call["args"]) for call in calls] == [("cf", ["--version"])]
 
-    local_wrangler.unlink()
+    local_cf.unlink()
     missing_result = _run_make(
-        "check-wrangler",
+        "check-cf",
         env=env,
         variables={"STATIC_WORKER_DIR": str(worker_directory), "HOMEBREW_BIN": ""},
     )
     assert missing_result.returncode != 0
     assert "Run make bootstrap" in missing_result.stderr
     assert len(_read_calls(log_path)) == 1
+
+
+@pytest.mark.parametrize(
+    ("identity", "exit_code", "expected_success", "expected_message"),
+    [
+        ({"authenticated": True, "tokenValid": True, "token": "do-not-print"}, 0, True, "authentication verified"),
+        ({"authenticated": False}, 0, False, "not logged in"),
+        ({"authenticated": True, "tokenValid": False}, 0, False, "could not validate the Cloudflare token"),
+        ({"authenticated": True, "tokenValid": True}, 1, False, "exited unsuccessfully"),
+    ],
+)
+def test_cloudflare_check_requires_authenticated_valid_cf_identity(
+    tmp_path: Path,
+    identity: dict[str, object],
+    exit_code: int,
+    expected_success: bool,
+    expected_message: str,
+) -> None:
+    """Require cf whoami JSON to report an authenticated, valid token.
+
+    Args:
+        tmp_path: Temporary directory supplied by pytest.
+        identity: JSON identity response emitted by the fake cf command.
+        exit_code: Exit status returned by the fake cf whoami command.
+        expected_success: Whether the identity should pass validation.
+        expected_message: Safe status text expected from the verification.
+
+    Returns:
+        None. Asserts authentication status, safe output, and command scope.
+
+    Examples:
+        A valid identity passes, while unauthenticated or invalid-token
+        responses or a failed command exit fail without printing response secrets.
+    """
+    log_path = tmp_path / "calls.jsonl"
+    env = _test_environment(tmp_path, log_path)
+    fake_bin = Path(env["PATH"].split(os.pathsep)[0])
+    env["PATH"] = f"{env['PATH']}:{Path(_require_node_runtime()).parent}"
+    fake_npm = _write_fake_command(fake_bin, "npm")
+    fake_npm.write_text(
+        fake_npm.read_text(encoding="utf-8").replace(
+            "raise SystemExit(0)",
+            "if name == 'npm' and sys.argv[1:] == ['exec', '--', 'cf', 'auth', 'whoami']:\n"
+            "    print(os.environ['FAKE_CF_WHOAMI_JSON'])\n"
+            "    raise SystemExit(int(os.environ['FAKE_CF_WHOAMI_EXIT_CODE']))\n"
+            "raise SystemExit(0)",
+        ),
+        encoding="utf-8",
+    )
+    worker_directory = tmp_path / "static worker"
+    _write_fake_command(worker_directory / "node_modules" / ".bin", "cf")
+    env["FAKE_CF_WHOAMI_JSON"] = json.dumps(identity)
+    env["FAKE_CF_WHOAMI_EXIT_CODE"] = str(exit_code)
+
+    result = _run_make(
+        "cloudflare-check",
+        env=env,
+        variables={"STATIC_WORKER_DIR": str(worker_directory), "HOMEBREW_BIN": ""},
+    )
+
+    assert (result.returncode == 0) is expected_success, result.stdout + result.stderr
+    assert "do-not-print" not in result.stdout + result.stderr
+    assert expected_message in result.stdout + result.stderr
+    calls = _read_calls(log_path)
+    assert [(call["command"], call["args"]) for call in calls] == [
+        ("cf", ["--version"]),
+        ("npm", ["exec", "--", "cf", "auth", "whoami"]),
+    ]
+    assert calls[1]["cwd"] == str(worker_directory)
+
+
+def test_static_worker_test_bakes_the_site_before_running(tmp_path: Path) -> None:
+    """Bake the site before installing and testing the static Worker.
+
+    Args:
+        tmp_path: Temporary directory supplied by pytest.
+
+    Returns:
+        None. Asserts bake runs before the Worker dependency and test commands.
+
+    Examples:
+        `make static-worker-test` invokes bake first so the Worker test can
+        serve the generated HTML and assets.
+    """
+    log_path = tmp_path / "calls.jsonl"
+    env = _test_environment(tmp_path, log_path)
+    fake_bin = Path(env["PATH"].split(os.pathsep)[0])
+    _write_fake_command(fake_bin, "bake")
+    _write_fake_command(fake_bin, "npm")
+    worker_directory = tmp_path / "static worker"
+    makefile = tmp_path / "Makefile"
+    makefile.write_text(f"include {REPOSITORY_ROOT / 'Makefile'}\nbake:\n\t@bake\n", encoding="utf-8")
+
+    result = _run_make(
+        "static-worker-test",
+        env=env,
+        makefile=makefile,
+        variables={"STATIC_WORKER_DIR": str(worker_directory), "HOMEBREW_BIN": ""},
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    calls = _read_calls(log_path)
+    assert [(call["command"], call["args"]) for call in calls] == [
+        ("bake", []),
+        (
+            "npm",
+            ["--prefix", str(worker_directory), "ci", "--ignore-scripts", "--no-audit", "--no-fund"],
+        ),
+        ("npm", ["--prefix", str(worker_directory), "run", "test"]),
+    ]
 
 
 @pytest.mark.parametrize("env_file_kind", ["relative", "absolute"])
