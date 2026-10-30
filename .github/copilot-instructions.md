@@ -42,8 +42,8 @@ public changelog. Use semantic versions, create a draft from the deployed
 ## Key conventions
 
 - **Packaging**: `uv` + `pyproject.toml` + `uv.lock`. Never use `pip install` directly.
-- **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; it requires `uv`, Node.js, npm, and Wrangler. CI uses `make ci-bootstrap`.
-- **Cloudflare access**: cloud-agent setup installs Wrangler 4.125.0 on fresh runners. Local bootstrap only checks for an existing CLI. Use `make cloudflare-check` for the non-destructive `wrangler whoami --json` check. Authenticate locally with `wrangler login` or a `CLOUDFLARE_API_TOKEN`; cloud agents require that token as a Copilot Agents secret with only User Details and Memberships read permissions. The vendored Wrangler skill's `@latest` installation advice does not apply here: agents must run `make check-wrangler` and use the existing pinned CLI. Do not configure or deploy DNS, zones, Pages, or Workers until a target is chosen.
+- **Bootstrap**: use `make bootstrap` in local worktrees and agent environments; it requires `uv`, Node.js 24.22 or later in the Node 24 series, and npm, then installs the locked Worker dependencies. CI uses `make ci-bootstrap`.
+- **Cloudflare access**: use project-local pinned CLIs; do not install global Wrangler or `@latest`. `make bootstrap` installs locked Worker dependencies and `make check-wrangler` checks the static-site package CLI. `make cloudflare-check` runs a non-destructive `wrangler whoami --json` from that package. Authenticate with its `npm exec -- wrangler login` or `CLOUDFLARE_API_TOKEN`; the Mastodon `cf` CLI needs its own login. Cloud agents require only User Details and Memberships read permissions for identity checks. Relative `UV_ENV_FILE` paths resolve from the repository root. Do not deploy until a target is chosen.
 - **Linting**: Ruff with `select = ["E", "F", "W", "I", "UP"]` (UP031 ignored).
 - **Type checking**: `ty check .` — Django dynamic attributes are downgraded to warnings; new code should pass clean.
 - **Tests**: pytest-django in `tests/`. No database service is required.

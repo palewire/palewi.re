@@ -8,12 +8,14 @@ on:
       - Makefile
       - pyproject.toml
       - uv.lock
+      - "workers/**/package*.json"
   pull_request:
     paths:
       - .github/workflows/copilot-setup-steps.yml
       - Makefile
       - pyproject.toml
       - uv.lock
+      - "workers/**/package*.json"
 
 jobs:
   copilot-setup-steps:
@@ -33,11 +35,6 @@ jobs:
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
-
-      - name: Install Wrangler
-        run: |
-          npm install --global --no-audit --no-fund wrangler@4.125.0
-          wrangler --version
 
       - name: Configure development environment
         run: |
