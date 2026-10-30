@@ -45,7 +45,7 @@ beforeAll(async () => {
   port = await availablePort();
   worker = spawn(
     process.execPath,
-    ["./node_modules/wrangler/bin/wrangler.js", "dev", "--local", "--ip", "127.0.0.1", "--port", String(port)],
+    ["./node_modules/cf/bin/cf", "dev", "--host", "127.0.0.1", "--port", String(port)],
     { cwd: process.cwd() },
   );
   worker.stdout.on("data", (data: Buffer) => {

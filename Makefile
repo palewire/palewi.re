@@ -19,8 +19,6 @@ export PATH := $(HOME)/.local/bin:$(HOME)/.npm-global/bin:$(HOME)/.volta/bin:$(H
 
 WORKER_DIR := workers/mastodon-well-known-proxy
 WORKER_CANARY_NAME := palewire-mastodon-well-known-proxy-canary
-WORKER_ROUTES := --route palewi.re/.well-known/webfinger* --route palewi.re/.well-known/host-meta* --route palewi.re/.well-known/nodeinfo*
-WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/.well-known/cloudflare-worker-canary
 LEGACY_WORKER_DIR := workers/legacy-redirects
 LEGACY_WORKER_CANARY_NAME := palewire-legacy-redirects-canary
 LEGACY_WORKER_SAME_ZONE_CANARY_ROUTE := palewi.re/legacy-redirects-canary*
@@ -47,7 +45,9 @@ define run-wrangler
 $(call run-with-dotenv,npm exec -- wrangler $(1))
 endef
 
-
+define run-cf
+$(call run-with-dotenv,npm exec -- cf $(1))
+endef
 
 help:
 	@echo "Available targets:"
@@ -278,7 +278,7 @@ worker-validate:
 worker-canary-deploy:
 	@test "$$CONFIRM_WORKER_CANARY_DEPLOY" = "1" || { echo "Set CONFIRM_WORKER_CANARY_DEPLOY=1 after running make worker-validate." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,deploy --env startup-canary --strict --name "$(WORKER_CANARY_NAME)")
+	cd "$(WORKER_DIR)" && $(call run-cf,deploy --mode startup-canary --no-provision)
 
 worker-verify-canary:
 	@BASE_URL="$${BASE_URL:?Set BASE_URL to the workers.dev or preview URL printed by worker-canary-deploy.}" scripts/verify-worker-endpoints.sh
@@ -286,17 +286,17 @@ worker-verify-canary:
 worker-delete-canary:
 	@test "$$CONFIRM_WORKER_DELETE_CANARY" = "1" || { echo "Set CONFIRM_WORKER_DELETE_CANARY=1 to delete the route-free canary Worker." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,delete "$(WORKER_CANARY_NAME)" --force)
+	cd "$(WORKER_DIR)" && $(call run-cf,workers delete "$(WORKER_CANARY_NAME)" --force)
 
 worker-same-zone-canary-deploy:
 	@test "$$CONFIRM_WORKER_SAME_ZONE_CANARY_DEPLOY" = "1" || { echo "Set CONFIRM_WORKER_SAME_ZONE_CANARY_DEPLOY=1 after make worker-validate passes." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,deploy --env same-zone-canary --strict)
+	cd "$(WORKER_DIR)" && $(call run-cf,deploy --mode same-zone-canary --no-provision)
 
 worker-attach-same-zone-canary:
 	@test "$$CONFIRM_WORKER_ATTACH_SAME_ZONE_CANARY" = "1" || { echo "Set CONFIRM_WORKER_ATTACH_SAME_ZONE_CANARY=1 after the route-free same-zone canary deploy passes." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,deploy --env same-zone-canary --strict --route "$(WORKER_SAME_ZONE_CANARY_ROUTE)")
+	cd "$(WORKER_DIR)" && $(call run-cf,deploy --mode same-zone-canary-route --no-provision)
 
 worker-verify-same-zone-canary:
 	@BASE_URL="$${BASE_URL:-https://palewi.re}" scripts/verify-worker-same-zone-canary.sh
@@ -304,15 +304,15 @@ worker-verify-same-zone-canary:
 worker-delete-same-zone-canary:
 	@test "$$CONFIRM_WORKER_DELETE_SAME_ZONE_CANARY" = "1" || { echo "Set CONFIRM_WORKER_DELETE_SAME_ZONE_CANARY=1 to delete the same-zone canary and detach its route." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,delete --env same-zone-canary --force)
+	cd "$(WORKER_DIR)" && $(call run-cf,workers delete palewire-mastodon-well-known-proxy-same-zone-canary --force)
 
 worker-route-plan:
-	@printf '%s\n' "$(WORKER_ROUTES)"
+	@npm --prefix "$(WORKER_DIR)" run --silent routes:plan
 
 worker-attach-routes:
 	@test "$$CONFIRM_WORKER_ATTACH_ROUTES" = "1" || { echo "Set CONFIRM_WORKER_ATTACH_ROUTES=1 only after same-zone canary verification and cleanup pass." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,deploy --env="" --strict $(WORKER_ROUTES))
+	cd "$(WORKER_DIR)" && $(call run-cf,deploy --mode production-routes --no-provision)
 
 worker-verify-production:
 	@scripts/verify-worker-endpoints.sh
@@ -320,12 +320,12 @@ worker-verify-production:
 worker-detach-routes:
 	@test "$$CONFIRM_WORKER_DETACH_ROUTES" = "1" || { echo "Set CONFIRM_WORKER_DETACH_ROUTES=1 to delete the Worker and detach its routes." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,delete --env="" --force)
+	cd "$(WORKER_DIR)" && $(call run-cf,workers delete palewire-mastodon-well-known-proxy --force)
 
 worker-delete:
 	@test "$$CONFIRM_WORKER_DELETE" = "1" || { echo "Set CONFIRM_WORKER_DELETE=1 to delete the Worker and any attached routes." >&2; exit 1; }
 	npm --prefix "$(WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund
-	cd "$(WORKER_DIR)" && $(call run-wrangler,delete --env="" --force)
+	cd "$(WORKER_DIR)" && $(call run-cf,workers delete palewire-mastodon-well-known-proxy --force)
 
 legacy-worker-test:
 	npm --prefix "$(LEGACY_WORKER_DIR)" ci --ignore-scripts --no-audit --no-fund

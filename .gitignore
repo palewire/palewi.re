@@ -27,6 +27,7 @@ htmlcov/
 .env
 .dev.vars
 .wrangler/
+.cloudflare/
 node_modules/
 
 # Local agent state

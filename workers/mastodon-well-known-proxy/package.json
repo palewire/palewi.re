@@ -4,17 +4,21 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": ">=22 <25"
+    "node": ">=24.22 <25"
   },
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc --noEmit",
-    "types:check": "wrangler types --check",
-    "config:check": "wrangler deploy --dry-run --env=\"\" && wrangler deploy --dry-run --env startup-canary && wrangler deploy --dry-run --env same-zone-canary",
-    "validate": "npm run types:check && npm run typecheck && npm run config:check"
+    "typecheck": "cf workers types --mode same-zone-canary && tsc --noEmit",
+    "config:check": "cf deploy --dry-run --mode production && cf deploy --dry-run --mode startup-canary && cf deploy --dry-run --mode same-zone-canary && cf deploy --dry-run --mode same-zone-canary-route && cf deploy --dry-run --mode production-routes",
+    "validate": "npm run typecheck && npm run config:check && npm run startup:check",
+    "dev": "cf dev",
+    "build": "cf build",
+    "startup:check": "cf workers check --mode production",
+    "routes:plan": "node --input-type=module -e 'import { productionRoutes } from \"./cloudflare.config.ts\"; console.log(productionRoutes.map(route => \"--route \" + route).join(\" \"));'"
   },
   "devDependencies": {
     "@types/node": "26.6.5",
+    "cf": "1.0.0-beta.26",
     "typescript": "7.0.2",
     "vitest": "5.0.5",
     "wrangler": "4.156.0"
