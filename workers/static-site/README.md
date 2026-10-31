@@ -56,16 +56,19 @@ assets, Mastodon endpoints, and legacy redirects.
 The Worker applies a CSP that keeps the published site's required resource
 origins explicit:
 
-- Google Fonts for styles and fonts.
+- The Cloudflare Web Analytics beacon for its versioned script path and a
+  same-origin connection for its RUM endpoint.
 - Google Slides, Vimeo, SoundCloud, and the archived S3 Leaflet examples for
   historical iframes.
 - The canonical `palewi.re` and `palewire.s3.amazonaws.com` hosts for
   historical images and videos.
 
 Inline styles remain enabled because published post HTML uses them. Executable
-scripts are limited to the site itself. The Permissions Policy disables only
-camera, geolocation, microphone, payment, and USB; it does not restrict the
-autoplay or fullscreen capabilities used by existing embeds.
+scripts are limited to the site itself and the Cloudflare Web Analytics beacon.
+Fonts and styles are served locally; Google Fonts is not allowed by the CSP.
+The Permissions Policy disables only camera, geolocation, microphone, payment,
+and USB; it does not restrict the autoplay or fullscreen capabilities used by
+existing embeds.
 
 Cross-origin isolation headers are intentionally deferred: COEP and related
 headers would require every existing third-party embed and asset to opt in.

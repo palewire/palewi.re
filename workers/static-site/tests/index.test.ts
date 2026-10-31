@@ -169,7 +169,10 @@ describe("static site Worker", () => {
 
     expect(await response.text()).toBe("https://palewi.re/who-is-ben-welsh/");
     expect(response.headers.get("content-security-policy")).toBe(
-      "base-uri 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'self'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com; img-src 'self' https://palewi.re https://palewire.s3.amazonaws.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; media-src 'self' https://palewire.s3.amazonaws.com; object-src 'none'",
+      "base-uri 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'self'; frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com; img-src 'self' https://palewi.re https://palewire.s3.amazonaws.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://static.cloudflareinsights.com/beacon.min.js/; connect-src 'self'; media-src 'self' https://palewire.s3.amazonaws.com; object-src 'none'",
+    );
+    expect(response.headers.get("content-security-policy")).toContain(
+      "script-src 'self' https://static.cloudflareinsights.com/beacon.min.js/",
     );
     expect(response.headers.get("permissions-policy")).toBe(
       "camera=(), geolocation=(), microphone=(), payment=(), usb=()",

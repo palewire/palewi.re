@@ -29,9 +29,10 @@ const CONTENT_SECURITY_POLICY = [
   "frame-ancestors 'self'",
   "frame-src 'self' https://datawrapper.dwcdn.net https://docs.google.com https://player.vimeo.com https://s3-us-west-1.amazonaws.com https://w.soundcloud.com",
   "img-src 'self' https://palewi.re https://palewire.s3.amazonaws.com",
-  "font-src 'self' https://fonts.gstatic.com",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "script-src 'self'",
+  "font-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' https://static.cloudflareinsights.com/beacon.min.js/",
+  "connect-src 'self'",
   "media-src 'self' https://palewire.s3.amazonaws.com",
   "object-src 'none'",
 ].join("; ");
