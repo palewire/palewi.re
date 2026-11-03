@@ -25,9 +25,9 @@ make serve
 `make bootstrap` checks these commands before it installs anything. For its
 commands, it also adds common user installation paths including
 `$HOME/.local/bin`, npm's user directory, Volta, asdf, fnm, and a detected
-Homebrew bin directory. It installs the locked Python, talk, and Worker
-dependencies and hooks; no globally installed Cloudflare CLI is required. It
-does not authenticate with Cloudflare. When `.env` is missing, it creates an ignored copy from `.env.example`. Uncomment
+Homebrew bin directory. It installs the locked Python, talk, Worker, and
+accessibility dependencies and hooks; no globally installed Cloudflare CLI is
+required. It does not authenticate with Cloudflare. When `.env` is missing, it creates an ignored copy from `.env.example`. Uncomment
 and fill only the settings you need. Existing `.env` files, including worktree
 symlinks, are never changed.
 
@@ -101,6 +101,20 @@ To auto-format code:
 ```bash
 make fmt
 ```
+
+### Accessibility checks
+
+Start the local server with `make serve`, then use its printed port:
+
+```bash
+make a11y PORT=8000
+```
+
+The check uses `pa11y-ci` and its dependencies from the committed lockfile in
+`tools/accessibility/`. Bootstrap installs them and downloads Puppeteer's
+matching Chrome browser into its user cache. Existing checkouts can run
+`make accessibility-dependencies` once to install the locked tools and browser.
+CI uses the same install target and `make a11y` command.
 
 ## Tests
 

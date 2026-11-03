@@ -1,0 +1,17 @@
+{
+  "name": "palewire-accessibility-tools",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "check": "pa11y-ci"
+  },
+  "engines": {
+    "node": ">=24.22 <25"
+  },
+  "devDependencies": {
+    "pa11y-ci": "5.0.0"
+  },
+  "allowScripts": {
+    "puppeteer": true
+  }
+}
