@@ -35,6 +35,34 @@ def test_valid_built_site_passes(build_dir: Path) -> None:
     assert "passed" in result.output
 
 
+@pytest.mark.parametrize(
+    "statement",
+    ['import "/static/talks/reveal/reveal.js";', 'import Reveal from "/static/talks/reveal/reveal.esm.js";'],
+)
+def test_checker_rejects_missing_deck_dependency(build_dir: Path, statement: str) -> None:
+    """Verify that a missing talk-deck library fails the build check.
+
+    Args:
+        build_dir: Built-site fixture directory.
+        statement: JavaScript import to check.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_built_site_quality.py``.
+    """
+    write_page(build_dir, "static/talks/example/deck.js", statement)
+    findings = check_built_site(build_dir)
+    assert len(findings) == 1
+    assert findings[0].code == "missing-local-asset"
+    assert findings[0].source == "static/talks/example/deck.js"
+
+    dependency = statement.split('"')[1].lstrip("/")
+    write_page(build_dir, dependency, "/* Reveal library */")
+    assert check_built_site(build_dir) == []
+
+
 def test_cli_accepts_only_exact_baseline_fingerprints(build_dir: Path, tmp_path: Path) -> None:
     write_page(build_dir, "docs/index.html", '<a href="/missing/">Missing page</a>')
     baseline = tmp_path / "baseline.txt"

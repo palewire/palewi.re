@@ -263,7 +263,7 @@ def check_post_coverage(build_dir: Path, posts: list[str]) -> list[Finding]:
 def check_built_site(build_dir: Path) -> list[Finding]:
     """Check a baked site without opening a network connection."""
     urls = build_urls(build_dir)
-    findings: list[Finding] = []
+    findings = check_deck_dependencies(build_dir, urls)
     canonical_sources: dict[str, list[str]] = defaultdict(list)
 
     for page_path in sorted(build_dir.rglob("*.html")):
@@ -343,6 +343,41 @@ def check_built_site(build_dir: Path) -> list[Finding]:
 
     findings.extend(check_post_coverage(build_dir, post_urls(build_dir)))
     return sorted(findings, key=lambda finding: (finding.code, finding.source, finding.message))
+
+
+def check_deck_dependencies(build_dir: Path, urls: set[str]) -> list[Finding]:
+    """Check that local JavaScript imports used by talk decks exist.
+
+    Args:
+        build_dir: Directory containing the built site.
+        urls: Public paths of files included in the build.
+
+    Returns:
+        Findings for missing local dependencies, or an empty list.
+
+    Examples:
+        >>> check_deck_dependencies(Path("/nonexistent"), set())
+        []
+    """
+    findings: list[Finding] = []
+    for script in sorted((build_dir / "static" / "talks").glob("*/deck.js")):
+        source = script.relative_to(build_dir).as_posix()
+        imports = re.findall(
+            r"^import\s+(?:[^;\n]*?\s+from\s+)?[\"\']([^\"\']+)[\"\']", script.read_text(), re.MULTILINE
+        )
+        for dependency in imports:
+            if not is_internal_url(urlsplit(dependency)):
+                continue
+            target = resolve_internal_url(dependency, f"/{source}")
+            if target not in urls:
+                findings.append(
+                    Finding(
+                        "missing-local-asset",
+                        source,
+                        f'JavaScript import "{dependency}" targets absent local asset {target}',
+                    )
+                )
+    return findings
 
 
 def load_baseline(path: Path) -> Counter[str]:
