@@ -44,25 +44,24 @@ def test_base_template_uses_local_fonts(client) -> None:
     assert (static_dir / "fonts" / "OFL.txt").is_file()
 
 
-def test_talk_deck_breakpoint_keeps_narrow_desktop_embeds_landscape() -> None:
-    """Desktop embeds stay above Reveal's mobile-width cutoff."""
+def test_talk_decks_fit_the_shared_page_width() -> None:
+    """Verify that talk decks use the shared page column and fit its width.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+
+    Examples:
+        Run with ``uv run pytest tests/test_static.py``.
+    """
     static_dir = Path(__file__).resolve().parent.parent / "coltrane" / "static"
     styles = (static_dir / "styles.css").read_text(encoding="utf-8")
 
-    assert "@media (min-width: 768px)" in styles
-    assert "min-width: 768px;" in styles
+    assert "min-width: 768px;" not in styles
     assert "@media (max-width: 767px)" in styles
-    assert "@container (max-width: 769px)" not in styles
-
-
-def test_slide_talk_pages_match_the_wide_guide_embed() -> None:
-    """Slide talk pages use the guide's wide desktop content column."""
-    static_dir = Path(__file__).resolve().parent.parent / "coltrane" / "static"
-    styles = (static_dir / "styles.css").read_text(encoding="utf-8")
-
-    assert "@media (min-width: 940px)" in styles
-    assert "#bd:has(.talk-detail-slides)" in styles
-    assert "--layout-content-width: 900px;" in styles
+    assert "#bd:has(.talk-detail-slides)" not in styles
 
 
 @pytest.mark.skipif(not _MANIFEST_BUILT, reason="collected_static not yet built")
