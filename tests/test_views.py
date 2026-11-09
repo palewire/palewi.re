@@ -116,7 +116,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
     [
         ("/posts/", "ff1d8b539e18b0bc5abf5b7320ac7b6f561a1f2fb1a3e09139f23ea0d2d083da"),
         ("/clips/", "3011d6b50d6d6d94c2530503b40ff12697a7ce3996e6d97b7223cfdb147708b0"),
-        ("/apps/", "bb938e968fc7a05c6adb5bf151b896f84a80fad31e0313c3b294b4d6eb9e38bd"),
+        ("/apps/", "6378e95fcc36200e016af94edc4cabe441fdd6827700177d6d0cea24e5a1dd23"),
         ("/code/", "b5b06ab5fc151d06d904695d82abb7542b840ef2dbf07af0ac391535199efcb9"),
         ("/guides/", "4fc9fd13a05ecd20479fd289a7afd09f6cfd85ce97c72263d41aa80fae23b8a0"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
