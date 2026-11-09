@@ -280,8 +280,8 @@ docs:
   url: https://warn-transformer.readthedocs.io/
   repository_url: https://github.com/biglocalnews/warn-transformer
   description: Consolidate, enrich and republish the data gathered by warn-scraper
-- title: Data Journalism Survey
+- title: Data Journalism Courses
   type: software
   url: https://palewi.re/docs/data-journalism-courses/
   repository_url: https://github.com/palewire/data-journalism-survey-site
-  description: A searchable index of data-journalism courses taught at schools worldwide
+  description: Explore syllabi collected from colleges and universities around the world
