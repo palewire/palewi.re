@@ -93,7 +93,7 @@ def test_awards_empty_list_ok(tmp_path):
 
 def test_apps_yaml_loads():
     apps = load_apps()
-    assert len(apps) == 15
+    assert len(apps) == 16
     assert all(app.description for app in apps)
     descriptions = {app.title: app.description for app in apps}
     assert descriptions["the e.e. cummings free poetry archive"].startswith(

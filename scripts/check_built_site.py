@@ -33,6 +33,7 @@ WORKER_ASSET_PATHS = frozenset(
         "/docs/coding-the-news/scripts/week-1/",
         "/docs/coding-the-news/scripts/week-2/",
         "/docs/cpi/",
+        "/docs/data-journalism-courses/",
         "/docs/datawrapper-json-bookmarklet/",
         "/docs/django-anss-archive/",
         "/docs/django-bakery/",
