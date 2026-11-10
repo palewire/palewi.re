@@ -790,12 +790,6 @@ nav .links li a:hover {
   max-width: 64rem;
 }
 
-@media (min-width: 940px) {
-  #bd:has(.talk-detail-slides) {
-    --layout-content-width: 900px;
-  }
-}
-
 .talk-detail header {
   display: flex;
   flex-direction: column;
@@ -840,13 +834,6 @@ nav .links li a:hover {
   width: 100%;
   aspect-ratio: var(--talk-deck-aspect-ratio, 4 / 3);
   border: var(--border-rule);
-}
-
-/* Keep Reveal on its desktop canvas in narrow desktop content columns. */
-@media (min-width: 768px) {
-  .talk-detail-deck {
-    min-width: 768px;
-  }
 }
 
 @media (max-width: 767px) {
