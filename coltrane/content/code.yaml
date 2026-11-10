@@ -257,6 +257,10 @@ code:
   url: https://observablehq.observablehq.cloud/framework-example-loader-canvas-to-png/
   description: Generate a PNG image from an HTML canvas with an Observable Framework data loader
   type: javascript
+- title: Data Journalism Courses
+  url: https://github.com/palewire/data-journalism-survey-site
+  description: Explore syllabi collected from colleges and universities around the world
+  type: javascript
 - title: datasette
   url: https://github.com/palewire/datasette
   description: A Datasette instance hosting public records gathered by palewi.re

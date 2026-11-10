@@ -93,8 +93,8 @@ APP_TYPES = frozenset({"archiving", "bot", "database", "personal"})
 APP_TYPE_LABELS = {
     "archiving": "Archiving",
     "database": "Databases",
-    "bot": "Social media bots",
     "personal": "Personal websites",
+    "bot": "Social media bots",
 }
 CODE_TYPES = frozenset({"data", "inactive", "javascript", "other", "python"})
 CODE_TYPE_LABELS = {
@@ -586,9 +586,16 @@ def load_apps(path: Path | None = None) -> list[App]:
 
 
 def group_apps(apps: Sequence[App]) -> list[AppCategory]:
-    """Group apps into the display order used on the Apps page."""
+    """Group apps into the display order used on the Apps page.
+
+    Categories appear in alphabetical order (by their label), and apps
+    within each category are sorted alphabetically by title.
+    """
     return [
-        AppCategory(title=label, object_list=matching_apps)
+        AppCategory(
+            title=label,
+            object_list=sorted(matching_apps, key=lambda app: app.title.casefold()),
+        )
         for app_type, label in APP_TYPE_LABELS.items()
         if (matching_apps := [app for app in apps if app.type == app_type])
     ]
