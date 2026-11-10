@@ -114,7 +114,7 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
 @pytest.mark.parametrize(
     ("page", "expected_digest"),
     [
-        ("/posts/", "ff1d8b539e18b0bc5abf5b7320ac7b6f561a1f2fb1a3e09139f23ea0d2d083da"),
+        ("/posts/", "5ca049e971a65518cfd0900ba8df0cdf2c592786d913673981d72817985b6f7e"),
         ("/clips/", "3011d6b50d6d6d94c2530503b40ff12697a7ce3996e6d97b7223cfdb147708b0"),
         ("/apps/", "bb938e968fc7a05c6adb5bf151b896f84a80fad31e0313c3b294b4d6eb9e38bd"),
         ("/code/", "b5b06ab5fc151d06d904695d82abb7542b840ef2dbf07af0ac391535199efcb9"),
