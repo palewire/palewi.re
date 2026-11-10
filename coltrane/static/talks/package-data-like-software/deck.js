@@ -1,4 +1,6 @@
-import Reveal from "/static/talks/reveal/reveal.esm.js";
+import "/static/talks/reveal/reveal.js";
+
+const Reveal = window.Reveal;
 
 const slides = document.querySelector("#slides");
 for (let number = 1; number <= 61; number += 1) {

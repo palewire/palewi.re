@@ -59,3 +59,7 @@ apps:
   type: archiving
   url: https://archive.ire.org/
   description: A searchable library of investigative-reporting knowledge
+- title: Data Journalism Courses
+  type: archiving
+  url: https://palewi.re/docs/data-journalism-courses/
+  description: Explore syllabi collected from colleges and universities around the world

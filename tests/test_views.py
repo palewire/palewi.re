@@ -114,10 +114,10 @@ def test_list_pages_use_page_specific_metadata_descriptions(client, page, expect
 @pytest.mark.parametrize(
     ("page", "expected_digest"),
     [
-        ("/posts/", "ff1d8b539e18b0bc5abf5b7320ac7b6f561a1f2fb1a3e09139f23ea0d2d083da"),
+        ("/posts/", "95ec5001f4b105d9a02e43d6356897ea23fe4cd815c607b0b00c0b78d63dcec1"),
         ("/clips/", "3011d6b50d6d6d94c2530503b40ff12697a7ce3996e6d97b7223cfdb147708b0"),
-        ("/apps/", "bb938e968fc7a05c6adb5bf151b896f84a80fad31e0313c3b294b4d6eb9e38bd"),
-        ("/code/", "b5b06ab5fc151d06d904695d82abb7542b840ef2dbf07af0ac391535199efcb9"),
+        ("/apps/", "c88834c1932ea39ef81997daf901c9d3b87a13acb3027577ad9d1bc3700c554f"),
+        ("/code/", "746441ecab0b62641d9efdd4002cb151e1ed831ae98bc4d9bb7006c2725ce7c8"),
         ("/guides/", "4fc9fd13a05ecd20479fd289a7afd09f6cfd85ce97c72263d41aa80fae23b8a0"),
         ("/docs/", "bced3578a4a815d297afebd115ce705f82f366e5807eab902af66ad5f332a5b3"),
         ("/talks/", "48380cd16844c2168e95c4a43eb02dd123e547cd18462a9b652625b5f2b0b23d"),
