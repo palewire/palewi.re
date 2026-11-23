@@ -17,11 +17,11 @@
     "routes:plan": "node --input-type=module -e 'import { productionRoutes } from \"./cloudflare.config.ts\"; console.log(productionRoutes.map(route => \"--route \" + route).join(\" \"));'"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "2.0.0-beta.v.12",
+    "@cloudflare/vite-plugin": "2.0.0-rc.3",
     "@types/node": "26.6.6",
-    "cf": "1.0.0-beta.28",
+    "cf": "1.0.0-rc.2",
     "typescript": "7.0.2",
-    "vite": "8.3.6",
-    "vitest": "5.1.0"
+    "vite": "8.3.8",
+    "vitest": "5.1.1"
   }
 }
